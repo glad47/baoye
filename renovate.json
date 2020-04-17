@@ -1,0 +1,27 @@
+{
+  "extends": ["config:base", ":prNotPending", ":unpublishSafe"],
+  "rangeStrategy": "bump",
+  "packageRules": [
+    {
+      "groupName": "dependencies",
+      "depTypeList": ["dependencies"],
+      "separateMajorMinor": true
+    },
+    {
+      "groupName": "devDependencies",
+      "depTypeList": ["devDependencies"],
+      "separateMajorMinor": false
+    },
+    {
+      "groupName": "peerDependencies and engines",
+      "depTypeList": ["peerDependencies", "engines"],
+      "rangeStrategy": "widen"
+    },
+    {
+      "groupName": "type definitions",
+      "packagePatterns": ["^@types/"],
+      "separateMajorMinor": false
+    }
+  ],
+  "ignoreDeps": ["cz-conventional-changelog", "file-loader", "globby", "semver"]
+}
