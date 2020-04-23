@@ -15,6 +15,8 @@ import {FileEvent} from './types'
 import { Layout  } from 'antd'
 import PcbSpecification from './SpecificationInput/PcbSpecification'
 import SpecificationHead from './SpecificationInput/SpecificationHead'
+import FormDemo from './SpecificationInput/FormDemo'
+import CustomizedForm from './SpecificationInput/CustomizedForm'
 
 function App(): JSX.Element {
   const {dispatch} = useAppState()
@@ -54,7 +56,8 @@ function App(): JSX.Element {
         </Footer>
       </Layout> */}
       {/* <SpecificationHead icon={"sdfasdf"} title="PCBSpecification"/> */}
-      <PcbSpecification />
+      {/* <PcbSpecification /> */}
+      <FormDemo />
     </Main>
     
   )

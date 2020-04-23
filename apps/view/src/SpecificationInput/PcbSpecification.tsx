@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Form, Select } from 'antd';
+import ObserverSelect from './ObserverSelect';
 
 
 interface PcbSpecificationProps {
 }
 
+type LinkageData = {[index: string]: string[]};
 
 //selectData
 const materialSelectData = ['FR4','Aluminum'];
 const thinknessSelectData = ['0.4mm','0.6mm','0.8mm','1.0mm','1.2mm','1.5mm','1.6mm','2.0mm','2.4mm','3.0mm'];
-const tgSelectData = [135,140,150,170,180];
+const tgSelectData = ['135','140','150','170','180'];
 const layerSelectData = ['1layer','2layer','4layer','6layer','8layer'];
 const innerCopperSelectData = ['none','1oz','2oz','3oz'];
 const minTrackSelectData = ['none','3/3mil','4/4mil','5/5mil','6/6mil','7/7mil'];
@@ -23,15 +25,16 @@ const holeCopperSelectData = ['none','20um','25um'];
 const surfaceThicknessSelectData = ['Ni:120-150u "Au:1u"','Ni:120-150u "Au:2u"','Ni:120-150u "Au:3u"'];
 const silkscreenSelectData = ['none','black','white']; 
 const ctiSelectData = ['175≤CTI<250','250≤CTI<400','400≤CTI<600','CTI≥600'];
+const testsss = ['12312','123123','12312312'];
 
 const INITIAL = {
     "material":'FR4',
-    "tg":135,
+    "tg":'135',
     "layer":'2layer',
     "innerCopper":'none',
     "minTrack":'5/5mil',
     "minHoleSize":'0.3',
-    "surfaceFinish":'OSP',
+    "surfaceFinish":'HASL lead free',
     "solderMask":'green',
     "heatConductivity":'1w', 
     "thinkness":'0.8mm',
@@ -39,11 +42,12 @@ const INITIAL = {
     "outerCopper":'1oz',
     "bgaSize":'≥0.30mm',
     "holeCopper":'20um',
-    // "surfaceThickness":'0.25-0.5um',
+    "surfaceThickness":'0.25-0.5um',
     "silkscreen":'white',
 }
 
-const surfaceThicknessSelectDataTwo = {
+
+const surfaceThicknessLinkageData: LinkageData = {
     "HASL with lead": ['2.54-25.4um'],
     "HASL lead free": ['2.54-25.4um'],
     "Immersion Gold": ['Ni:120-150u "Au:1u"','Ni:120-150u "Au:2u"','Ni:120-150u "Au:3u"'],
@@ -52,170 +56,124 @@ const surfaceThicknessSelectDataTwo = {
     "OSP": ['0.25-0.5um']
 } 
 
-const test = {
-    "material": 'FR4',
-    "surfaceThicknessT": surfaceFinishSelectData[5],
+const layerLinkageData: LinkageData = {
+    "1layer": ['none'],
+    "2layer": ['']
+}
+
+const changedData = {
+    "layer":'2layer',
+    "minHoleSize":'0.3',
+    "holeCopper":'20um',
+    "solderMask":'green',
+    "silkscreen":'white',
+    "showCTI": true,
+    "surfaceThicknessSelectData": ['2.54-25.4um'],
+    "defaultSurfaceThickness": '2.54-25.4um',
 }
 
 const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
-    const { Option } = Select;    
-    const [state, setState] = useState(test);
-    const [surfaceThicknessData, setSurfaceThicknessData] = useState(surfaceThicknessSelectDataTwo[surfaceFinishSelectData[5]])
-    const [sufaceThicknessValue, setSufaceThicknessValue] = useState(surfaceThicknessSelectDataTwo[surfaceFinishSelectData[5]][0])
-    const [form] = Form.useForm();
+    const [change, setChange] = useState(changedData);
+    const [ form ] = Form.useForm();
+    const { Option } = Select;
 
-    console.log(surfaceThicknessData);
-    // const hendlValuewChange = (changedValues, allValues)=>{
-    //     console.log(changedValues);
-    //     if(changedValues.material === 'Aluminum'){
-    //         // from.setFieldsValue({"minHoleSize":'1.5'});
-    //     }
-        
-    //     setState({...changedValues});
-    // }
-
-    const hendlSurfaceFinishChange = value =>{
-        console.log(value);
-        // setSurfaceThicknessData(surfaceThicknessSelectDataTwo[value])
-        // setSufaceThicknessValue(surfaceThicknessSelectDataTwo[value][0])
-        form.setFieldsValue({surfaceThickness:surfaceThicknessSelectDataTwo[value][0]})
+    const hendlMaterialChange = (value: any) =>{
+        if(value === 'Aluminum'){
+            console.log("ssss",value);
+            setChange({...change,"showCTI":false,"layer":"1layer","minHoleSize":'1.5',"holeCopper":"none","solderMask":"white","silkscreen":"black"});
+        }else if(value == 'FR4'){
+            console.log("fff",value);
+            setChange({...change,"showCTI":true,"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'})
+        }
     }
 
-    const hendlSurfaceThicknessChange = value =>{
-        setSufaceThicknessValue(value)
+    const handleSurfaceThicknessChange = (value: string) =>{
+        console.log(value);
+        let trst = surfaceThicknessLinkageData['OSP'];
+        console.log(trst);
+        setChange({...change,"surfaceThicknessSelectData":surfaceThicknessLinkageData[value],"defaultSurfaceThickness":surfaceThicknessLinkageData[value][0]})
+    }
+
+    const onChangeDec = (changedFields: any, allFields: any)=>{
+        console.log(changedFields);
+        console.log(allFields);
     }
 
     return (
-        <Form initialValues={INITIAL}>
+        <>
+         <Form>
+            <Form.Item name="tset" label="tsts">
+                <Select style={{width:100}}>
+                    { surfaceThicknessSelectData.map(item => { 
+                        <Option key={item} value={item}>{item}</Option>
+                    })}
+                </Select>
+            </Form.Item>
+        </Form>
+        <Form>
             <Row>
                 <Col span={12}>
                     <Form.Item name="material" label="Material">
-                        <Select style={{width: 'auto'}}>
-                        {materialSelectData.map(material =>(
-                            <Option value={material} key={material}>{material}</Option> 
-                        ))}
-                        </Select>
+                        <ObserverSelect item={materialSelectData} hendleChange={hendlMaterialChange} defauleValue={INITIAL.material}/>
                     </Form.Item>
                     <Form.Item name="tg" label="TG(℃)">
-                        <Select style={{width: 'auto'}}>
-                        {tgSelectData.map(tg =>(
-                            <Option value={tg} key={tg}>{tg}</Option> 
-                        ))}
-                        </Select>
+                        <ObserverSelect item={tgSelectData} defauleValue={INITIAL.tg}/>
                     </Form.Item>
                     <Form.Item name="layer" label="Layer">
-                        <Select style={{width: 'auto'}}>
-                        {layerSelectData.map(layer =>(
-                            <Option value={layer} key={layer}>{layer}</Option> 
-                        ))}
-                        </Select>
+                        <ObserverSelect item={layerSelectData} selectedValue={change.layer} hendleChange={(v)=>{setChange({...change,"layer":v})}}/>
                     </Form.Item>
                     <Form.Item name="innerCopper" label="Inner Copper">
-                        <Select style={{width: 'auto'}}>
-                        {innerCopperSelectData.map(innerCopper =>(
-                            <Option value={innerCopper} key={innerCopper}>{innerCopper}</Option> 
-                        ))}
-                        </Select>
+                        <ObserverSelect item={innerCopperSelectData} defauleValue={INITIAL.innerCopper} />
                     </Form.Item>
                     <Form.Item name="minTrack" label="Min Track/Spacing">
-                        <Select style={{width: 'auto'}}>
-                        {minTrackSelectData.map(material =>(
-                            <Option value={material} key={material}>{material}</Option> 
-                        ))}
-                        </Select>
+                        <ObserverSelect item={minTrackSelectData} defauleValue={INITIAL.minTrack} />
                     </Form.Item>
                     <Form.Item name="minHoleSize" label="Min Hole Size">
-                        <Select style={{width: 'auto'}}>
-                        {minHoleSizeSelectData.map(material =>(
-                            <Option value={material} key={material}>{material}</Option> 
-                        ))}
-                        </Select>
+                        <ObserverSelect item={minHoleSizeSelectData} selectedValue={change.minHoleSize} hendleChange={(v)=>{setChange({...change,"minHoleSize":v})}}/>
                     </Form.Item>
                     <Form.Item name="surfaceFinish" label="Surface Finish">
-                        <Select style={{width: 'auto'}} onChange={hendlSurfaceFinishChange}>
-                        {surfaceFinishSelectData.map(material =>(
-                            <Option value={material} key={material}>{material}</Option> 
-                        ))}
-                        </Select>
+                        <ObserverSelect item={surfaceFinishSelectData} defauleValue={INITIAL.surfaceFinish} hendleChange={handleSurfaceThicknessChange}/>
                     </Form.Item>
                     <Form.Item name="solderMask" label="Solder Mask(coverage)">
-                        <Select style={{width: 'auto'}}>
-                        {solderMaskSelectData.map(material =>(
-                            <Option value={material} key={material}>{material}</Option> 
-                        ))}
-                        </Select>
+                        <ObserverSelect item={solderMaskSelectData} selectedValue={change.solderMask} hendleChange={(v)=>{setChange({...change,"solderMask":v})}}/>
                     </Form.Item>
                 </Col>
                 <Col span={12}>
                     <Form.Item name="thinkness" label="Thinkness">
-                        <Select style={{width: 'auto'}}>
-                        { thinknessSelectData.map(thinkness =>(
-                            <Option value={thinkness} key={thinkness}>{thinkness}</Option> 
-                        ))}
-                        </Select>
+                       <ObserverSelect item={thinknessSelectData} selectedValue={INITIAL.thinkness} />
                     </Form.Item>
-                    { state.material === 'FR4' ?
+                    { change.showCTI ?
                         <Form.Item name="cti" label="CTI">
-                            <Select style={{width: 'auto'}}>
-                            { ctiSelectData.map(cti =>(
-                                <Option value={cti} key={cti}>{cti}</Option> 
-                            ))}
-                            </Select>
-                        </Form.Item> : 
+                          <ObserverSelect item={ctiSelectData} selectedValue={INITIAL.cti}/>
+                        </Form.Item> :
                         <Form.Item name="heatConductivity" label="Heat Conductivity">
-                        <Select style={{width: 'auto'}}>
-                        { heatConductivitySelectData.map(thinkness =>(
-                            <Option value={thinkness} key={thinkness}>{thinkness}</Option> 
-                        ))}
-                        </Select>
+                            <ObserverSelect item={heatConductivitySelectData} defauleValue={INITIAL.heatConductivity} />
                         </Form.Item>
                     }
-                    
                     <Form.Item>
-                        {/* <Select style={{width: '100px'}} defaultValue={thinknessSelectData[0]}>
-                        { thinknessSelectData.map(thinkness =>(
-                            <Option value={thinkness} key={thinkness}>{thinkness}</Option> 
-                        ))}
-                        </Select> */}
+
                     </Form.Item>
                     <Form.Item name="outerCopper" label="Outer copper">
-                        <Select style={{width: 'auto'}}>
-                        { outerCopperSelectData.map(thinkness =>(
-                            <Option value={thinkness} key={thinkness}>{thinkness}</Option> 
-                        ))}
-                        </Select>
+                        <ObserverSelect item={outerCopperSelectData} defauleValue={INITIAL.outerCopper} />
                     </Form.Item>
                     <Form.Item name="bgaSize" label="BGA Size">
-                        <Select style={{width: 'auto'}}>
-                        { bgaSizeSelectData.map(thinkness =>(
-                            <Option value={thinkness} key={thinkness}>{thinkness}</Option> 
-                        ))}
-                        </Select>
+                        <ObserverSelect item={bgaSizeSelectData} defauleValue={INITIAL.bgaSize} />
                     </Form.Item>
                     <Form.Item name="holeCopper" label="Hole Copper">
-                        <Select style={{width: 'auto'}}>
-                        { holeCopperSelectData.map(thinkness =>(
-                            <Option value={thinkness} key={thinkness}>{thinkness}</Option> 
-                        ))}
-                        </Select>
+                        <ObserverSelect item={holeCopperSelectData} selectedValue={change.holeCopper} hendleChange={(v)=>{setChange({...change,"holeCopper":v})}}/>
                     </Form.Item>
                     <Form.Item name="surfaceThickness" label="Surface Thickness">
-                        <Select style={{width: 'auto'}} onChange={hendlSurfaceThicknessChange} value={sufaceThicknessValue}>
-                        { surfaceThicknessData.map(surfaceThickness =>(
-                            <Option value={surfaceThickness} key={surfaceThickness}>{surfaceThickness}</Option> 
-                        ))}
-                        </Select>
+                        <ObserverSelect item={change.surfaceThicknessSelectData} selectedValue={change.defaultSurfaceThickness} hendleChange={(v)=>setChange({...change,"defaultSurfaceThickness":v})}/>
                     </Form.Item>
                     <Form.Item name="silkscreen" label="Silkscreen">
-                        <Select style={{width: 'auto'}}>
-                        { silkscreenSelectData.map(thinkness =>(
-                            <Option value={thinkness} key={thinkness}>{thinkness}</Option> 
-                        ))}
-                        </Select>
+                        <ObserverSelect item={silkscreenSelectData} selectedValue={change.silkscreen} hendleChange={(v)=>{setChange({...change,"silkscreen":v})}}/>
                     </Form.Item>
+                    
                 </Col>
             </Row>
         </Form>
+       
+        </>
     )
 }
 
