@@ -11,7 +11,7 @@ const layout = {
 const  tailLayout = {
     wrapperCol: { offset: 8, span: 16 },
 };
-
+const nnnnn: Array<string> = ['adaf','asdfadf','asdf'];
 
 
 const FormDemo = ()=>{
@@ -46,8 +46,15 @@ const FormDemo = ()=>{
         })
     }
 
+    const onValuesChange = (changedValues: any, allValues: any)=>{
+        console.log(changedValues);
+        console.log(allValues);
+    }
+
+    
+
     return (
-        <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
+        <Form {...layout} form={form} name="control-hooks" onFinish={onFinish} onValuesChange={onValuesChange}>
             <Form.Item name="note" label="Note" rules={[{ required: true}]}>
                 <Input />
             </Form.Item>
@@ -56,6 +63,13 @@ const FormDemo = ()=>{
                     <Option value="male">male</Option>
                     <Option value="female">female</Option>
                     <Option value="other">other</Option>
+                </Select>
+            </Form.Item>
+            <Form.Item name="test" label="Test">
+                <Select>
+                    { nnnnn.map( i => (
+                        <Option key={i} value={i}>{i}</Option>
+                    ))}
                 </Select>
             </Form.Item>
             <Form.Item
