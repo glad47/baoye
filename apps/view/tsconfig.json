@@ -2,7 +2,7 @@
   "extends": "@tracespace/config/tsconfig-base.json",
   "references": [],
   "compilerOptions": {
-    "composite": true,
+    // "composite": true,
     "noEmit": true,
     "rootDir": "src"
   },
