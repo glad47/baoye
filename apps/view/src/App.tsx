@@ -56,8 +56,8 @@ function App(): JSX.Element {
         </Footer>
       </Layout> */}
       {/* <SpecificationHead icon={"sdfasdf"} title="PCBSpecification"/> */}
-      {/* <PcbSpecification /> */}
-      <FormDemo />
+      <PcbSpecification />
+      {/* <FormDemo /> */}
     </Main>
     
   )

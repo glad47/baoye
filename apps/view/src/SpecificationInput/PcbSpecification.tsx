@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Row, Col, Form, Select } from 'antd';
 import ObserverSelect from './ObserverSelect';
 
 
 interface PcbSpecificationProps {
+    item?: object;
+    onChange?: ()=>void;
 }
 
 type LinkageData = {[index: string]: string[]};
@@ -74,106 +76,109 @@ const changedData = {
 
 const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
     const [change, setChange] = useState(changedData);
+    const  specificationRef = useRef(INITIAL);
     const [ form ] = Form.useForm();
-    const { Option } = Select;
-
+    
     const hendlMaterialChange = (value: any) =>{
         if(value === 'Aluminum'){
+            specificationRef.current = {...INITIAL,"layer":"1layer","minHoleSize":'1.5',"holeCopper":"none","solderMask":"white","silkscreen":"black"};
             console.log("ssss",value);
-            setChange({...change,"showCTI":false,"layer":"1layer","minHoleSize":'1.5',"holeCopper":"none","solderMask":"white","silkscreen":"black"});
+            // setChange({...change,"showCTI":false,"layer":"1layer","minHoleSize":'1.5',"holeCopper":"none","solderMask":"white","silkscreen":"black"});
+            form.setFieldsValue({"showCTI":false,"layer":"1layer","minHoleSize":'1.5',"holeCopper":"none","solderMask":"white","silkscreen":"black"});
         }else if(value == 'FR4'){
+            specificationRef.current={...INITIAL,"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'};
             console.log("fff",value);
-            setChange({...change,"showCTI":true,"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'})
+            // setChange({...change,"showCTI":true,"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'})
+            form.setFieldsValue({"showCTI":true,"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'})
         }
     }
 
     const handleSurfaceThicknessChange = (value: string) =>{
+        specificationRef.current = {...INITIAL,"surfaceThickness":surfaceThicknessLinkageData[value][0]}
         console.log(value);
         let trst = surfaceThicknessLinkageData['OSP'];
         console.log(trst);
-        setChange({...change,"surfaceThicknessSelectData":surfaceThicknessLinkageData[value],"defaultSurfaceThickness":surfaceThicknessLinkageData[value][0]})
+        setChange({...change,"surfaceThicknessSelectData":surfaceThicknessLinkageData[value]});
+        form.setFieldsValue({"surfaceThickness":surfaceThicknessLinkageData[value][0]});
     }
 
     const onChangeDec = (changedFields: any, allFields: any)=>{
         console.log(changedFields);
         console.log(allFields);
     }
+    const onValuesChange = (changedValues: any, allValues: any)=>{
+        // console.log(changedValues);
+        // console.log(allValues);
+        console.log(specificationRef.current);
+    }
+    
 
+    useEffect(()=>{
+        console.log(specificationRef.current);
+    },[specificationRef])
     return (
-        <>
-         <Form>
-            <Form.Item name="tset" label="tsts">
-                <Select style={{width:100}}>
-                    { surfaceThicknessSelectData.map(item => { 
-                        <Option key={item} value={item}>{item}</Option>
-                    })}
-                </Select>
-            </Form.Item>
-        </Form>
-        <Form>
+        <Form form={form} initialValues={INITIAL} onValuesChange={onValuesChange}>
             <Row>
                 <Col span={12}>
-                    <Form.Item name="material" label="Material">
-                        <ObserverSelect item={materialSelectData} hendleChange={hendlMaterialChange} defauleValue={INITIAL.material}/>
+                    <Form.Item label="Material">
+                        <ObserverSelect name={"material"} item={materialSelectData} onChange={hendlMaterialChange}/>
                     </Form.Item>
-                    <Form.Item name="tg" label="TG(℃)">
-                        <ObserverSelect item={tgSelectData} defauleValue={INITIAL.tg}/>
+                    <Form.Item label="TG(℃)">
+                        <ObserverSelect item={tgSelectData} name={"tg"}/>
                     </Form.Item>
-                    <Form.Item name="layer" label="Layer">
-                        <ObserverSelect item={layerSelectData} selectedValue={change.layer} hendleChange={(v)=>{setChange({...change,"layer":v})}}/>
+                    <Form.Item  label="Layer">
+                        <ObserverSelect item={layerSelectData} name={"layer"} value={change.layer} onChange={(v)=>{setChange({...change,"layer":v})}}/>
                     </Form.Item>
-                    <Form.Item name="innerCopper" label="Inner Copper">
-                        <ObserverSelect item={innerCopperSelectData} defauleValue={INITIAL.innerCopper} />
+                    <Form.Item  label="Inner Copper">
+                        <ObserverSelect item={innerCopperSelectData} name={"innerCopper"} />
                     </Form.Item>
-                    <Form.Item name="minTrack" label="Min Track/Spacing">
-                        <ObserverSelect item={minTrackSelectData} defauleValue={INITIAL.minTrack} />
+                    <Form.Item label="Min Track/Spacing">
+                        <ObserverSelect item={minTrackSelectData} name={"minTrack"} />
                     </Form.Item>
-                    <Form.Item name="minHoleSize" label="Min Hole Size">
-                        <ObserverSelect item={minHoleSizeSelectData} selectedValue={change.minHoleSize} hendleChange={(v)=>{setChange({...change,"minHoleSize":v})}}/>
+                    <Form.Item label="Min Hole Size">
+                        <ObserverSelect item={minHoleSizeSelectData} name={"minHoleSize"} value={change.minHoleSize} onChange={(v)=>{setChange({...change,"minHoleSize":v})}}/>
                     </Form.Item>
-                    <Form.Item name="surfaceFinish" label="Surface Finish">
-                        <ObserverSelect item={surfaceFinishSelectData} defauleValue={INITIAL.surfaceFinish} hendleChange={handleSurfaceThicknessChange}/>
+                    <Form.Item label="Surface Finish">
+                        <ObserverSelect item={surfaceFinishSelectData} name={"surfaceFinish"} onChange={handleSurfaceThicknessChange}/>
                     </Form.Item>
-                    <Form.Item name="solderMask" label="Solder Mask(coverage)">
-                        <ObserverSelect item={solderMaskSelectData} selectedValue={change.solderMask} hendleChange={(v)=>{setChange({...change,"solderMask":v})}}/>
+                    <Form.Item label="Solder Mask(coverage)">
+                        <ObserverSelect item={solderMaskSelectData} name={"solderMask"} value={change.solderMask} onChange={(v)=>{setChange({...change,"solderMask":v})}}/>
                     </Form.Item>
                 </Col>
                 <Col span={12}>
-                    <Form.Item name="thinkness" label="Thinkness">
-                       <ObserverSelect item={thinknessSelectData} selectedValue={INITIAL.thinkness} />
+                    <Form.Item label="Thinkness">
+                       <ObserverSelect item={thinknessSelectData} name={"thinkness"} value={INITIAL.thinkness} />
                     </Form.Item>
                     { change.showCTI ?
-                        <Form.Item name="cti" label="CTI">
-                          <ObserverSelect item={ctiSelectData} selectedValue={INITIAL.cti}/>
+                        <Form.Item label="CTI">
+                          <ObserverSelect item={ctiSelectData} name={"cti"} value={INITIAL.cti}/>
                         </Form.Item> :
-                        <Form.Item name="heatConductivity" label="Heat Conductivity">
-                            <ObserverSelect item={heatConductivitySelectData} defauleValue={INITIAL.heatConductivity} />
+                        <Form.Item label="Heat Conductivity">
+                            <ObserverSelect item={heatConductivitySelectData} name={"heatConductivity"}/>
                         </Form.Item>
                     }
                     <Form.Item>
 
                     </Form.Item>
-                    <Form.Item name="outerCopper" label="Outer copper">
-                        <ObserverSelect item={outerCopperSelectData} defauleValue={INITIAL.outerCopper} />
+                    <Form.Item label="Outer copper">
+                        <ObserverSelect item={outerCopperSelectData} name={"outerCopper"} />
                     </Form.Item>
-                    <Form.Item name="bgaSize" label="BGA Size">
-                        <ObserverSelect item={bgaSizeSelectData} defauleValue={INITIAL.bgaSize} />
+                    <Form.Item label="BGA Size">
+                        <ObserverSelect item={bgaSizeSelectData} name={"bgaSize"}/>
                     </Form.Item>
-                    <Form.Item name="holeCopper" label="Hole Copper">
-                        <ObserverSelect item={holeCopperSelectData} selectedValue={change.holeCopper} hendleChange={(v)=>{setChange({...change,"holeCopper":v})}}/>
+                    <Form.Item label="Hole Copper">
+                        <ObserverSelect item={holeCopperSelectData} name={"holeCopper"} value={change.holeCopper} onChange={(v)=>{setChange({...change,"holeCopper":v})}}/>
                     </Form.Item>
-                    <Form.Item name="surfaceThickness" label="Surface Thickness">
-                        <ObserverSelect item={change.surfaceThicknessSelectData} selectedValue={change.defaultSurfaceThickness} hendleChange={(v)=>setChange({...change,"defaultSurfaceThickness":v})}/>
+                    <Form.Item label="Surface Thickness">
+                        <ObserverSelect item={change.surfaceThicknessSelectData} name="surfaceThickness"  value={change.defaultSurfaceThickness} onChange={(v)=>setChange({...change,"defaultSurfaceThickness":v})}/>
                     </Form.Item>
-                    <Form.Item name="silkscreen" label="Silkscreen">
-                        <ObserverSelect item={silkscreenSelectData} selectedValue={change.silkscreen} hendleChange={(v)=>{setChange({...change,"silkscreen":v})}}/>
+                    <Form.Item label="Silkscreen">
+                        <ObserverSelect item={silkscreenSelectData}  name="silkscreen" value={change.silkscreen} onChange={(v)=>{setChange({...change,"silkscreen":v})}}/>
                     </Form.Item>
                     
                 </Col>
             </Row>
         </Form>
-       
-        </>
     )
 }
 

@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 
 import {Store, State, Dispatch} from './types'
-
+//初始状态
 export const INITIAL_STATE: State = {
   appPreferences: {},
   board: null,

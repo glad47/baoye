@@ -8,10 +8,12 @@ import {GerberSide, GerberType} from 'whats-that-gerber'
 
 export {CoordinateFormat, ZeroSuppression, Units, GerberType, GerberSide}
 
+//应用设置
 export type AppPreferences = Optional<{
   analyticsOptIn: boolean
 }>
 
+//板显示模型
 export type Mode = null | 'top' | 'bottom' | 'layers'
 
 export type SvgSource = string | null
@@ -54,6 +56,7 @@ export type BoardUpdate = Partial<{
   layers: Partial<LayerUpdatesMap>
 }>
 
+//渲染的板数据
 export type BoardRender = {
   id: string
   name: string
@@ -99,6 +102,7 @@ export type LayerUpdatesMap = {
   }
 }
 
+//各层是否显示Map
 export type LayerVisibilityMap = {[id: string]: boolean}
 
 export type ErrorObject = {
