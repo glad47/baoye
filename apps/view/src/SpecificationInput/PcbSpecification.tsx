@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Row, Col, Form, Select } from 'antd';
 import ObserverSelect from './ObserverSelect';
+import { Store } from 'antd/lib/form/interface';
 
 
 interface PcbSpecificationProps {
@@ -89,7 +90,7 @@ const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
             specificationRef.current={...INITIAL,"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'};
             console.log("fff",value);
             // setChange({...change,"showCTI":true,"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'})
-            form.setFieldsValue({"showCTI":true,"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'})
+            form.setFieldsValue({layer:"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'})
         }
     }
 
@@ -106,10 +107,26 @@ const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
         console.log(changedFields);
         console.log(allFields);
     }
-    const onValuesChange = (changedValues: any, allValues: any)=>{
+    const onValuesChange = (changedValues: Store, allValues: Store)=>{
         // console.log(changedValues);
+        // console.log(Object.values(changedValues));
+        switch(Object.values(changedValues)[0]){
+            case "Aluminum": {
+                form.setFieldsValue({"layer":"1layer","minHoleSize":'1.5',"holeCopper":"none","solderMask":"white","silkscreen":"black"});
+                break;
+            }
+            case "FR4": {
+                form.setFieldsValue({"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'}); 
+                break;
+            }
+        }
+        form.submit();
         // console.log(allValues);
-        console.log(specificationRef.current);
+        // console.log(specificationRef.current);
+    }
+
+    const onFinish = (values: Store) =>{
+        console.log(values);
     }
     
 
@@ -117,17 +134,17 @@ const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
         console.log(specificationRef.current);
     },[specificationRef])
     return (
-        <Form form={form} initialValues={INITIAL} onValuesChange={onValuesChange}>
+        <Form form={form} initialValues={INITIAL} onValuesChange={onValuesChange} onFinish={onFinish}>
             <Row>
                 <Col span={12}>
                     <Form.Item label="Material">
-                        <ObserverSelect name={"material"} item={materialSelectData} onChange={hendlMaterialChange}/>
+                        <ObserverSelect name={"material"} item={materialSelectData} />
                     </Form.Item>
                     <Form.Item label="TG(℃)">
                         <ObserverSelect item={tgSelectData} name={"tg"}/>
                     </Form.Item>
                     <Form.Item  label="Layer">
-                        <ObserverSelect item={layerSelectData} name={"layer"} value={change.layer} onChange={(v)=>{setChange({...change,"layer":v})}}/>
+                        <ObserverSelect item={layerSelectData} name={"layer"} />
                     </Form.Item>
                     <Form.Item  label="Inner Copper">
                         <ObserverSelect item={innerCopperSelectData} name={"innerCopper"} />
@@ -136,7 +153,7 @@ const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
                         <ObserverSelect item={minTrackSelectData} name={"minTrack"} />
                     </Form.Item>
                     <Form.Item label="Min Hole Size">
-                        <ObserverSelect item={minHoleSizeSelectData} name={"minHoleSize"} value={change.minHoleSize} onChange={(v)=>{setChange({...change,"minHoleSize":v})}}/>
+                        <ObserverSelect item={minHoleSizeSelectData} name={"minHoleSize"} />
                     </Form.Item>
                     <Form.Item label="Surface Finish">
                         <ObserverSelect item={surfaceFinishSelectData} name={"surfaceFinish"} onChange={handleSurfaceThicknessChange}/>
