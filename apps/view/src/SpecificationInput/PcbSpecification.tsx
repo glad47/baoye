@@ -1,11 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Row, Col, Form, Select } from 'antd';
+import React, { useState } from 'react';
+import { Row, Col, Form } from 'antd';
 import ObserverSelect from './ObserverSelect';
+import { Store } from 'antd/lib/form/interface';
+import SpecificationHead from './SpecificationHead';
+import PcbSpecialForm from './PcbSpecialForm';
+import PcbStandardFrom from './PcbStandardForm';
 
 
 interface PcbSpecificationProps {
     item?: object;
-    onChange?: ()=>void;
+    onChange?: (value: Store)=>void;
 }
 
 type LinkageData = {[index: string]: string[]};
@@ -76,25 +80,10 @@ const changedData = {
 
 const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
     const [change, setChange] = useState(changedData);
-    const  specificationRef = useRef(INITIAL);
     const [ form ] = Form.useForm();
-    
-    const hendlMaterialChange = (value: any) =>{
-        if(value === 'Aluminum'){
-            form.setFieldsValue({"showCTI":false,"layer":"1layer","minHoleSize":'1.5',"holeCopper":"none","solderMask":"white","silkscreen":"black"});
-            // specificationRef.current = {...INITIAL,"layer":"1layer","minHoleSize":'1.5',"holeCopper":"none","solderMask":"white","silkscreen":"black"};
-            specificationRef.current.layer = "1layer";
-            specificationRef.current.material = "Aluminum";
-        }else if(value == 'FR4'){
-            form.setFieldsValue({"showCTI":true,"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'});
-            // specificationRef.current={...INITIAL,"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'};
-            specificationRef.current.layer = "2layer";
-            specificationRef.current.material = "FR4"
-        }
-    }
 
     const handleSurfaceThicknessChange = (value: string) =>{
-        specificationRef.current = {...INITIAL,"surfaceThickness":surfaceThicknessLinkageData[value][0]}
+       // specificationRef.current = {...INITIAL,"surfaceThickness":surfaceThicknessLinkageData[value][0]}
         console.log(value);
         let trst = surfaceThicknessLinkageData['OSP'];
         console.log(trst);
@@ -102,84 +91,35 @@ const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
         form.setFieldsValue({"surfaceThickness":surfaceThicknessLinkageData[value][0]});
     }
 
-    const onChangeDec = (changedFields: any, allFields: any)=>{
-        console.log(changedFields);
-        console.log(allFields);
-    }
-    const onValuesChange = (changedValues: any, allValues: any)=>{
+    const onValuesChange = (changedValues: Store, allValues: Store)=>{
         // console.log(changedValues);
+        // console.log(Object.values(changedValues));
+        switch(Object.values(changedValues)[0]){
+            case "Aluminum": {
+                form.setFieldsValue({"layer":"1layer","minHoleSize":'1.5',"holeCopper":"none","solderMask":"white","silkscreen":"black"});
+                break;
+            }
+            case "FR4": {
+                form.setFieldsValue({"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'}); 
+                break;
+            }
+        }
+        form.submit();
         // console.log(allValues);
-        return {...specificationRef.current, ...changedValues}
+        // console.log(specificationRef.current);
     }
-    
-
-    useEffect(()=>{
-        console.log(specificationRef.current);
-    },[])
 
     return (
-        <Form form={form} initialValues={INITIAL} onValuesChange={onValuesChange}>
-            <Row>
-                <Col span={12}>
-                    <Form.Item label="Material">
-                        <ObserverSelect name={"material"} item={materialSelectData} onChange={hendlMaterialChange}/>
-                    </Form.Item>
-                    <Form.Item label="TG(℃)">
-                        <ObserverSelect item={tgSelectData} name={"tg"}/>
-                    </Form.Item>
-                    <Form.Item  label="Layer">
-                        <ObserverSelect item={layerSelectData} name={"layer"} value={change.layer} onChange={(v)=>{setChange({...change,"layer":v})}}/>
-                    </Form.Item>
-                    <Form.Item  label="Inner Copper">
-                        <ObserverSelect item={innerCopperSelectData} name={"innerCopper"} />
-                    </Form.Item>
-                    <Form.Item label="Min Track/Spacing">
-                        <ObserverSelect item={minTrackSelectData} name={"minTrack"} />
-                    </Form.Item>
-                    <Form.Item label="Min Hole Size">
-                        <ObserverSelect item={minHoleSizeSelectData} name={"minHoleSize"} value={change.minHoleSize} onChange={(v)=>{setChange({...change,"minHoleSize":v})}}/>
-                    </Form.Item>
-                    <Form.Item label="Surface Finish">
-                        <ObserverSelect item={surfaceFinishSelectData} name={"surfaceFinish"} onChange={handleSurfaceThicknessChange}/>
-                    </Form.Item>
-                    <Form.Item label="Solder Mask(coverage)">
-                        <ObserverSelect item={solderMaskSelectData} name={"solderMask"} value={change.solderMask} onChange={(v)=>{setChange({...change,"solderMask":v})}}/>
-                    </Form.Item>
-                </Col>
-                <Col span={12}>
-                    <Form.Item label="Thinkness">
-                       <ObserverSelect item={thinknessSelectData} name={"thinkness"} value={INITIAL.thinkness} />
-                    </Form.Item>
-                    { change.showCTI ?
-                        <Form.Item label="CTI">
-                          <ObserverSelect item={ctiSelectData} name={"cti"} value={INITIAL.cti}/>
-                        </Form.Item> :
-                        <Form.Item label="Heat Conductivity">
-                            <ObserverSelect item={heatConductivitySelectData} name={"heatConductivity"}/>
-                        </Form.Item>
-                    }
-                    <Form.Item>
+        <>
+        <SpecificationHead icon="" title="PCB Specification"/>
+        <Row>
+            <PcbStandardFrom />
+        </Row>
+        {/* <Row>
+            <PcbSpecialForm />
+        </Row> */}
+        </>
 
-                    </Form.Item>
-                    <Form.Item label="Outer copper">
-                        <ObserverSelect item={outerCopperSelectData} name={"outerCopper"} />
-                    </Form.Item>
-                    <Form.Item label="BGA Size">
-                        <ObserverSelect item={bgaSizeSelectData} name={"bgaSize"}/>
-                    </Form.Item>
-                    <Form.Item label="Hole Copper">
-                        <ObserverSelect item={holeCopperSelectData} name={"holeCopper"} value={change.holeCopper} onChange={(v)=>{setChange({...change,"holeCopper":v})}}/>
-                    </Form.Item>
-                    <Form.Item label="Surface Thickness">
-                        <ObserverSelect item={change.surfaceThicknessSelectData} name="surfaceThickness"  value={change.defaultSurfaceThickness} onChange={(v)=>setChange({...change,"defaultSurfaceThickness":v})}/>
-                    </Form.Item>
-                    <Form.Item label="Silkscreen">
-                        <ObserverSelect item={silkscreenSelectData}  name="silkscreen" value={change.silkscreen} onChange={(v)=>{setChange({...change,"silkscreen":v})}}/>
-                    </Form.Item>
-                    
-                </Col>
-            </Row>
-        </Form>
     )
 }
 

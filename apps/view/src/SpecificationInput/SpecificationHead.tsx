@@ -13,8 +13,8 @@ const SpecificationHead: React.FC<SpecificationHeadProps> = (props) =>{
         <Row>
             <Title level={2} style={titleStyle}>{props.title}</Title>
             <Radio.Group>
-                <Radio.Button value="general">
-                    general
+                <Radio.Button value="standard">
+                    standard
                 </Radio.Button>
                 <Radio.Button value="special">
                     special

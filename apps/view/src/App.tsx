@@ -17,6 +17,9 @@ import PcbSpecification from './SpecificationInput/PcbSpecification'
 import SpecificationHead from './SpecificationInput/SpecificationHead'
 import FormDemo from './SpecificationInput/FormDemo'
 import CustomizedForm from './SpecificationInput/CustomizedForm'
+import { Store } from 'antd/lib/form/interface'
+import PcbSpecialForm from './SpecificationInput/PcbSpecialForm'
+import PcbStandardFrom from './SpecificationInput/PcbStandardForm'
 
 function App(): JSX.Element {
   const {dispatch} = useAppState()
@@ -36,6 +39,10 @@ function App(): JSX.Element {
     if (url) dispatch(createBoardFromUrl(url))
   }
   const { Footer,Header,Content } = Layout
+
+  const onchange = (v: Store): void =>{
+    console.log(v);
+  } 
   return (
     <Main>
     
@@ -46,17 +53,19 @@ function App(): JSX.Element {
           头    
         </Header>
         <Content style={{height:'500px'}}>
-          <BoardDisplay />
+          {/* <BoardDisplay />
           <Nav/>
           <LoadFiles handleFiles={handleFiles}/>
-          <ErrorToast />
+          <ErrorToast /> */}
+           <PcbSpecification onChange={onchange}/>
         </Content>
         <Footer>
           尾
         </Footer>
       </Layout>
       {/* <SpecificationHead icon={"sdfasdf"} title="PCBSpecification"/> */}
-      {/* <PcbSpecification /> */}
+     
+      {/* <PcbSpecialForm onChange={onchange}/> */}
       {/* <FormDemo /> */}
     </Main>
     
