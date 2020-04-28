@@ -81,15 +81,15 @@ const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
     
     const hendlMaterialChange = (value: any) =>{
         if(value === 'Aluminum'){
-            specificationRef.current = {...INITIAL,"layer":"1layer","minHoleSize":'1.5',"holeCopper":"none","solderMask":"white","silkscreen":"black"};
-            console.log("ssss",value);
-            // setChange({...change,"showCTI":false,"layer":"1layer","minHoleSize":'1.5',"holeCopper":"none","solderMask":"white","silkscreen":"black"});
             form.setFieldsValue({"showCTI":false,"layer":"1layer","minHoleSize":'1.5',"holeCopper":"none","solderMask":"white","silkscreen":"black"});
+            // specificationRef.current = {...INITIAL,"layer":"1layer","minHoleSize":'1.5',"holeCopper":"none","solderMask":"white","silkscreen":"black"};
+            specificationRef.current.layer = "1layer";
+            specificationRef.current.material = "Aluminum";
         }else if(value == 'FR4'){
-            specificationRef.current={...INITIAL,"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'};
-            console.log("fff",value);
-            // setChange({...change,"showCTI":true,"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'})
-            form.setFieldsValue({"showCTI":true,"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'})
+            form.setFieldsValue({"showCTI":true,"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'});
+            // specificationRef.current={...INITIAL,"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'};
+            specificationRef.current.layer = "2layer";
+            specificationRef.current.material = "FR4"
         }
     }
 
@@ -109,13 +109,14 @@ const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
     const onValuesChange = (changedValues: any, allValues: any)=>{
         // console.log(changedValues);
         // console.log(allValues);
-        console.log(specificationRef.current);
+        return {...specificationRef.current, ...changedValues}
     }
     
 
     useEffect(()=>{
         console.log(specificationRef.current);
-    },[specificationRef])
+    },[])
+
     return (
         <Form form={form} initialValues={INITIAL} onValuesChange={onValuesChange}>
             <Row>

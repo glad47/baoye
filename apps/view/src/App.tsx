@@ -41,11 +41,11 @@ function App(): JSX.Element {
     
       {/* <FileList /> */}
       {/* <BoardList /> */}
-      {/* <Layout>
+      <Layout>
         <Header>
           头    
         </Header>
-        <Content>
+        <Content style={{height:'500px'}}>
           <BoardDisplay />
           <Nav/>
           <LoadFiles handleFiles={handleFiles}/>
@@ -54,9 +54,9 @@ function App(): JSX.Element {
         <Footer>
           尾
         </Footer>
-      </Layout> */}
+      </Layout>
       {/* <SpecificationHead icon={"sdfasdf"} title="PCBSpecification"/> */}
-      <PcbSpecification />
+      {/* <PcbSpecification /> */}
       {/* <FormDemo /> */}
     </Main>
     
