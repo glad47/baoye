@@ -45,28 +45,29 @@ function App(): JSX.Element {
   } 
   return (
     <Main>
-    
-      {/* <FileList /> */}
+       {/* <FileList /> */}
       {/* <BoardList /> */}
-      <Layout>
+     
+      {/* <Layout>
         <Header>
           头    
         </Header>
         <Content style={{height:'500px'}}>
-          {/* <BoardDisplay />
-          <Nav/>
-          <LoadFiles handleFiles={handleFiles}/>
-          <ErrorToast /> */}
+         
            <PcbSpecification onChange={onchange}/>
         </Content>
         <Footer>
           尾
         </Footer>
-      </Layout>
+      </Layout> */}
       {/* <SpecificationHead icon={"sdfasdf"} title="PCBSpecification"/> */}
      
       {/* <PcbSpecialForm onChange={onchange}/> */}
       {/* <FormDemo /> */}
+      <BoardDisplay />
+      <Nav/>
+      <LoadFiles handleFiles={handleFiles}/>
+      <ErrorToast />
     </Main>
     
   )

@@ -12,7 +12,7 @@ export function Main(props: MainProps): JSX.Element {
   const {children, onDragOver, onDrop} = props
 
   return (
-    <main onDragOver={onDragOver} onDrop={onDrop}>
+    <main className={STYLE} onDragOver={onDragOver} onDrop={onDrop}>
       {children}
     </main>
   )

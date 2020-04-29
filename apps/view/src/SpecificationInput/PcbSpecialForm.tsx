@@ -9,22 +9,7 @@ interface PcbSpecialFormProps {
     onChange?: (v: Store) => void;
 }
 
-const INITIAL = {
-    hdi: true,
-    customStackup: false,
-    peelableSolderMask: true,
-    edgePlating: true,
-    viaInPad: false,
-    negativePostitiveCopper: false,
-    countersinks: false,
-    controlConcaveRouting: true,
-    backDrill: true,
-    carbonMask: true,
-    impedanceControl: true,
-    halfHolePlated: false,
-    pressHoles: false,
-    acceptableQualityLevels: false   
-};
+
 
 const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) =>{
     const [form] = Form.useForm();
@@ -34,7 +19,7 @@ const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) =>{
     }
 
     return (
-        <Form form={form} initialValues={INITIAL} onValuesChange={onValuesChange} onFinish={props.onChange} style={{width:"100%"}}>
+        <Form form={form} initialValues={props.item} onValuesChange={onValuesChange} onFinish={props.onChange} style={{width:"100%"}}>
             <Row>
                 <Col span={12}>
                     <Form.Item label="HDI">

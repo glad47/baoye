@@ -99,7 +99,7 @@ ctx.onmessage = function receive(event) {
 
     case CREATE_BOARD: {
       const files = request.payload
-
+      console.log(files);
       response = filesToStackups(files).then(async stackups => {
         const [selfContained, shared] = stackups
         const board = stackupToBoard(selfContained)

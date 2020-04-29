@@ -15,9 +15,9 @@ Promise.all([
   ] = imports
 
   ReactDom.hydrate(
-    // <StoreProvider>
-      <App />,
-    // </StoreProvider>,
+    <StoreProvider>
+      <App />
+    </StoreProvider>,
     document.querySelector('[data-hook=root]')
   )
 })

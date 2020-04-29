@@ -4,8 +4,8 @@
 @import '~tachyons';
 @import '~antd/dist/antd.css';
 @import './reset';
-/* @import './animation'; */
-/* @import './skins'; */
+@import './animation';
+@import './skins';
 
 
 .sans {

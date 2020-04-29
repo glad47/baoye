@@ -5,6 +5,7 @@ import { Store } from 'antd/lib/form/interface';
 
 interface PcbStandardFromProps {
     onChange?: (value: Store)=>void;
+    item?: object;
 }
 
 
@@ -27,24 +28,7 @@ const silkscreenSelectData = ['none','black','white'];
 const ctiSelectData = ['175≤CTI<250','250≤CTI<400','400≤CTI<600','CTI≥600'];
 const testsss = ['12312','123123','12312312']
 
-const INITIAL = {
-    "material":'FR4',
-    "tg":'135',
-    "layer":'2layer',
-    "innerCopper":'none',
-    "minTrack":'5/5mil',
-    "minHoleSize":'0.3',
-    "surfaceFinish":'HASL lead free',
-    "solderMask":'green',
-    "heatConductivity":'1w', 
-    "thinkness":'0.8mm',
-    "cti":'175≤CTI<250',
-    "outerCopper":'1oz',
-    "bgaSize":'≥0.30mm',
-    "holeCopper":'20um',
-    "surfaceThickness":'0.25-0.5um',
-    "silkscreen":'white',
-}
+
 
 
 const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
@@ -63,7 +47,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
         form.submit();
     }
     return(
-        <Form form={form} initialValues={INITIAL} onValuesChange={onValuesChange} onFinish={props.onChange} style={{width:"100%"}}>
+        <Form form={form} initialValues={props.item} onValuesChange={onValuesChange} onFinish={props.onChange} style={{width:"100%"}}>
             <Row>
                 <Col span={12}>
                     <Form.Item label="Material">
