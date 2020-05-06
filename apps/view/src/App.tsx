@@ -53,7 +53,6 @@ function App(): JSX.Element {
           头    
         </Header>
         <Content style={{height:'500px'}}>
-         
            <PcbSpecification onChange={onchange}/>
         </Content>
         <Footer>

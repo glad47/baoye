@@ -198,9 +198,12 @@ ctx.onmessage = function receive(event) {
 }
 
 declare module './worker' {
+  /** 渲染worker */
   export default class RenderWorker extends Worker {
     constructor()
+    /** 主线程通过worker.onmessage指定监听函数，接收子线程发回来的消息。*/
     onmessage: (event: WorkerMessageEvent) => void
+    /** postMessage()方法，向 Worker 发消息。 */
     postMessage(message: Action): void
   }
 }

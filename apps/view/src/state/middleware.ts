@@ -5,11 +5,12 @@ import {createRenderMiddleware} from '../render'
 import {createSettingsMiddleware} from '../settings'
 import {Middleware} from './types'
 
+/** 中间件list */
 export default function createMiddleware(): Array<Middleware> {
   return [
-    createAnalyticsMiddleware(),
+    // createAnalyticsMiddleware(),
     createRenderMiddleware(),
-    createSettingsMiddleware(),
+    // createSettingsMiddleware(),
     createLogMiddleware(),
   ]
 }

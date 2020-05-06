@@ -38,7 +38,7 @@ const changedData = {
     "defaultSurfaceThickness": '2.54-25.4um',
 }
 
-const INITIAL_STANDARD: Store = {
+export const INITIAL_STANDARD: Store = {
     "material":'FR4',
     "tg":'135',
     "layer":'2layer',
@@ -57,7 +57,7 @@ const INITIAL_STANDARD: Store = {
     "silkscreen":'white',
 }
 
-const INITIAL_SPECIAL: Store = {
+export const INITIAL_SPECIAL: Store = {
     hdi: true,
     customStackup: false,
     peelableSolderMask: true,

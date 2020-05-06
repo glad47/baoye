@@ -13,6 +13,7 @@ import {DisplayControllerProps} from './types'
 const percent = (n: number): string => `${n * 100}%`
 const getId = (b: {id: string} | null): string | null => (b ? b.id : null)
 
+/** 电路板显示组件 */
 export default function BoardDisplay(): JSX.Element {
   const {mode, board, loading, layerVisibility} = useAppState()
   const [displayState, setDisplayState] = useState(INITIAL_STATE)

@@ -1,7 +1,7 @@
 import * as actionTypes from './actions'
 import {INITIAL_STATE} from './context'
 import {Action, State} from './types'
-
+/** Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。Reducer 是一个函数，它接受 Action 和当前 State 作为参数，返回一个新的 State。 */
 export default function reducer(state: State, action: Action): State {
   switch (action.type) {
     case actionTypes.APP_PREFERENCES: {
