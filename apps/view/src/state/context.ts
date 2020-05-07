@@ -14,8 +14,9 @@ export const INITIAL_STATE: State = {
   layerVisibility: {},
   error: null,
   quoteMode: null,
-  pcbSpecialField: INITIAL_STANDARD,
-  pcbStandardField: INITIAL_SPECIAL
+  pcbSpecialField: INITIAL_SPECIAL,
+  pcbStandardField: INITIAL_STANDARD,
+  fieldMode: 'standard',
 }
 
 // const INITIAL_STANDARD = {

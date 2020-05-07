@@ -7,8 +7,10 @@ import {
   Mode,
   ErrorObject,
   QuoteMode,
+  FieldStore,
+  FieldMode,
 } from '../types'
-import { Store as FieldStore } from 'antd/lib/form/interface';
+
 
 /** 状态 Store对象包含所有数据。如果想得到某个时点的数据，就要对 Store 生成快照。这种时点的数据集合，就叫做 State。当前时刻的 State，可以通过store.getState()拿到。 */
 export type State = {
@@ -22,6 +24,7 @@ export type State = {
   layerVisibility: LayerVisibilityMap
   error: null | ErrorObject
   quoteMode: QuoteMode
+  fieldMode: FieldMode
   pcbStandardField: FieldStore
   pcbSpecialField: FieldStore
 
@@ -65,3 +68,6 @@ export type Action =
   | {type: 'WORKER_INITIALIZED'; payload: Array<BoardSummary>}
   | {type: 'WORKER_ERRORED'; payload: {request: Action; error: ErrorObject}}
   | {type: 'DISMISS_ERROR'}
+  | {type: 'SET_FIELDMODE'; payload: FieldMode}
+  | {type: 'CHANGE_STANDARD_FIELD'; payload: FieldStore}
+  | {type: 'CHANGE_SPECIAL_FIELD'; payload: FieldStore}

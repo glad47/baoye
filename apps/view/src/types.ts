@@ -6,6 +6,7 @@ import {Color} from 'pcb-stackup-core'
 import {ViewBox} from 'viewbox'
 import {GerberSide, GerberType} from 'whats-that-gerber'
 import { type } from 'os'
+import { Store } from 'antd/lib/form/interface'
 
 export {CoordinateFormat, ZeroSuppression, Units, GerberType, GerberSide}
 
@@ -128,3 +129,8 @@ export type Logger = {[Level in LogLevel]: LogHandler}
 export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>
 
 export type Optional<T> = {[P in keyof T]?: T[P] | null | undefined}
+
+/** 字段属性 */
+export type FieldStore  = Store
+/** 字段类型 */
+export type FieldMode = null | 'standard' | 'special'

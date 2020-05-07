@@ -41,6 +41,10 @@ export default function reducer(state: State, action: Action): State {
       return {...state, mode: action.payload}
     }
 
+    case actionTypes.SET_FIELDMODE: {
+      return {...state, fieldMode: action.payload}
+    }
+
     case actionTypes.TOGGLE_VISIBILITY: {
       const {id, solo} = action.payload
       const {board} = state
@@ -142,6 +146,14 @@ export default function reducer(state: State, action: Action): State {
       }
 
       return nextState
+    }
+
+    case actionTypes.CHANGE_SPECIAL_FIELD: {
+      return {...state, pcbSpecialField: action.payload}
+    }
+
+    case actionTypes.CHANGE_STANDARD_FIELD: {
+      return {...state, pcbStandardField: action.payload}
     }
   }
 

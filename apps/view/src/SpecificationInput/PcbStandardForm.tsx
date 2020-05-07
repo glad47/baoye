@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Row, Col, Form } from 'antd';
 import ObserverSelect from './ObserverSelect';
 import { Store } from 'antd/lib/form/interface';
+import { useAppState, changeStandardField } from '../state';
 
 interface PcbStandardFromProps {
     onChange?: (value: Store)=>void;
@@ -28,11 +29,14 @@ const silkscreenSelectData = ['none','black','white'];
 const ctiSelectData = ['175≤CTI<250','250≤CTI<400','400≤CTI<600','CTI≥600'];
 const testsss = ['12312','123123','12312312']
 
-
+const LINKAGE_SURFACETHICKNESS = []
 
 
 const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
     const [ form ] = Form.useForm();
+    const { pcbStandardField,dispatch } = useAppState();
+    const [ surfaceThicknessSelect, setSurfaceThicknessSelect] = useState(surfaceThicknessSelectData)
+
     const onValuesChange = (v: Store) =>{
         switch(Object.values(v)[0]){
             case "Aluminum": {
@@ -43,11 +47,49 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                 form.setFieldsValue({"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'}); 
                 break;
             }
+            case "HASL with lead":{
+                form.setFieldsValue({"surfaceThickness":"2.54-25.4um"})
+                setSurfaceThicknessSelect(['2.54-25.4um'])
+                break;
+            }
+            case "HASL lead free":{
+                form.setFieldsValue({"surfaceThickness":"2.54-25.4um"})
+                setSurfaceThicknessSelect(['2.54-25.4um'])
+                break;
+            }
+            case "Immersion tin" : {
+                form.setFieldsValue({"surfaceThickness":"0.5um-0.7um"})
+                setSurfaceThicknessSelect(['0.5um-0.7um'])
+                break;
+            }
+            case "Immersion silver" : {
+                form.setFieldsValue({"surfaceThickness":"≥0.05um"})
+                setSurfaceThicknessSelect(['≥0.05um'])
+                break; 
+            }
+            case "OSP" : {
+                form.setFieldsValue({"surfaceThickness":"0.25-0.5um"})
+                setSurfaceThicknessSelect(['0.25-0.5um'])
+                break; 
+            }
+            case "Immersion Gold" :{
+                form.setFieldsValue({"surfaceThickness":'Ni:120-150u "Au:1u"'})
+                setSurfaceThicknessSelect(surfaceThicknessSelectData)
+                break;  
+            }
+
+            
+
         }
         form.submit();
     }
+
+    const onFinish = (v: Store) => {
+        dispatch(changeStandardField(v))
+    }
+
     return(
-        <Form form={form} initialValues={props.item} onValuesChange={onValuesChange} onFinish={props.onChange} style={{width:"100%"}}>
+        <Form form={form} initialValues={pcbStandardField} onValuesChange={onValuesChange} onFinish={onFinish} style={{width:"100%"}}>
             <Row>
                 <Col span={12}>
                     <Form.Item label="Material">
@@ -100,7 +142,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                         <ObserverSelect item={holeCopperSelectData} name={"holeCopper"}/>
                     </Form.Item>
                     <Form.Item label="Surface Thickness">
-                        <ObserverSelect item={surfaceThicknessSelectData} name="surfaceThickness" />
+                        <ObserverSelect item={surfaceThicknessSelect} name="surfaceThickness" />
                     </Form.Item>
                     <Form.Item label="Silkscreen">
                         <ObserverSelect item={silkscreenSelectData}  name="silkscreen" />

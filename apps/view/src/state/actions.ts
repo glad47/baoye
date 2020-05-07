@@ -4,6 +4,8 @@ import {
   BoardUpdate,
   BoardRender,
   Mode,
+  FieldMode,
+  FieldStore,
 } from '../types'
 
 import {Action} from './types'
@@ -28,6 +30,10 @@ export const ALL_BOARDS_DELETED = 'ALL_BOARDS_DELETED'
 export const WORKER_INITIALIZED = 'WORKER_INITIALIZED'
 export const WORKER_ERRORED = 'WORKER_ERRORED'
 export const DISMISS_ERROR = 'DISMISS_ERROR'
+export const SET_FIELDMODE = 'SET_FIELDMODE'
+export const CHANGE_STANDARD_FIELD = 'CHANGE_STANDARD_FIELD'
+export const CHANGE_SPECIAL_FIELD = 'CHANGE_SPECIAL_FIELD' 
+
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -155,4 +161,21 @@ export const workerErrored = (request: Action, error: Error): Action => ({
 /** Action Creator 显示错误信息 */
 export const dismissError = (): Action => ({
   type: DISMISS_ERROR,
+})
+
+/**  Action Creator 切换普通特殊字段 */
+export const setFieldMode = (fieldMode: FieldMode): Action => ({
+  type: SET_FIELDMODE,
+  payload: fieldMode
+})
+
+/** 修改标准字段 */
+export const changeStandardField = (field: FieldStore): Action =>({
+  type: CHANGE_STANDARD_FIELD,
+  payload: field
+})
+/** 修改特殊字段 */
+export const changeSpecialField = (field: FieldStore): Action => ({
+  type: CHANGE_SPECIAL_FIELD,
+  payload: field
 })
