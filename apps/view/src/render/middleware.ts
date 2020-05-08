@@ -4,6 +4,7 @@ import log from '../logger'
 import RenderWorker from './worker'
 import {WorkerMessageEvent} from './types'
 
+/** 渲染中间件 */
 export function createRenderMiddleware(): State.Middleware {
   const worker = new RenderWorker()
 
@@ -11,7 +12,7 @@ export function createRenderMiddleware(): State.Middleware {
     const {dispatch} = store
 
     worker.onmessage = function handleWorkerMessage(event: WorkerMessageEvent) {
-      log.debug('action received from RenderWorker', event.data.type)
+      log.debug('action received from RenderWorker--来自渲染中间件', event.data.type)
       dispatch(event.data)
     }
 

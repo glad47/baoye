@@ -10,6 +10,7 @@ export type FadeProps = AnimationProps
 
 const FADE_STYLE = 'fade'
 
+/** 动画效果 渐进的 */
 export function Fade(props: AnimationProps): JSX.Element {
   return (
     <CSSTransition
@@ -30,6 +31,7 @@ export type SlideProps = AnimationProps & {
 
 const SLIDE_STYLE = 'slide'
 
+/** 动画效果 滑动的 */
 export function Slide(props: SlideProps): JSX.Element {
   return (
     <CSSTransition

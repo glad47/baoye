@@ -16,6 +16,7 @@ const getEventCenter = (event: WheelEvent | React.MouseEvent): Point => ({
   y: event.pageY / window.innerHeight,
 })
 
+/** 平移聚焦组件 */
 export default function PanZoom(props: Props): JSX.Element {
   const {pan, zoom, containerRef, children} = props
   const panStart = useRef<{x: number; y: number} | null>(null)

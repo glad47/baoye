@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Row, Col, Form, Switch } from 'antd';
-import ObserverSelect from './ObserverSelect';
+import React from 'react';
+import { Row, Col, Form } from 'antd';
 import { Store } from 'antd/lib/form/interface';
 import ObserverSwitch from './ObserverSwitch';
+import { useAppState, changeSpecialField } from '../state';
 
 interface PcbSpecialFormProps {
     item?: Store;
@@ -13,13 +13,17 @@ interface PcbSpecialFormProps {
 
 const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) =>{
     const [form] = Form.useForm();
+    const { pcbSpecialField,dispatch } = useAppState();
 
-    const onValuesChange = (changedValues: Store, values: Store) =>{
+    const onValuesChange = () =>{
         form.submit();
+    }
+    const onFinish = (v: Store) =>{
+        dispatch(changeSpecialField(v))
     }
 
     return (
-        <Form form={form} initialValues={props.item} onValuesChange={onValuesChange} onFinish={props.onChange} style={{width:"100%"}}>
+        <Form form={form} initialValues={pcbSpecialField} onValuesChange={onValuesChange} onFinish={onFinish} style={{width:"100%"}}>
             <Row>
                 <Col span={12}>
                     <Form.Item label="HDI">

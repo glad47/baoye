@@ -4,6 +4,7 @@ import { Store } from 'antd/lib/form/interface';
 import SpecificationHead from './SpecificationHead';
 import PcbStandardFrom from './PcbStandardForm';
 import PcbSpecialForm from './PcbSpecialForm';
+import { useAppState, setFieldMode } from '../state';
 
 
 interface PcbSpecificationProps {
@@ -38,7 +39,7 @@ const changedData = {
     "defaultSurfaceThickness": '2.54-25.4um',
 }
 
-const INITIAL_STANDARD: Store = {
+export const INITIAL_STANDARD: Store = {
     "material":'FR4',
     "tg":'135',
     "layer":'2layer',
@@ -57,7 +58,7 @@ const INITIAL_STANDARD: Store = {
     "silkscreen":'white',
 }
 
-const INITIAL_SPECIAL: Store = {
+export const INITIAL_SPECIAL: Store = {
     hdi: true,
     customStackup: false,
     peelableSolderMask: true,
@@ -69,22 +70,26 @@ const INITIAL_SPECIAL: Store = {
     backDrill: true,
     carbonMask: true,
     impedanceControl: true,
-    halfHolePlated: false,
+    halfHolePlated: false,  
     pressHoles: false,
     acceptableQualityLevels: false   
 };
 
 const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
-    const [ selectedRadio, setSelectedRadio ] =useState("standard");
-    const [ standardFrom, setStandardFrom ] = useState(INITIAL_STANDARD);
-    const [ specialFrom, setSpecialFrom ] = useState(INITIAL_SPECIAL);
-  
+    // const [ selectedRadio, setSelectedRadio ] =useState("standard");
+    // const [ standardFrom, setStandardFrom ] = useState(INITIAL_STANDARD);
+    // const [ specialFrom, setSpecialFrom ] = useState(INITIAL_SPECIAL);
+
+    const { fieldMode} = useAppState()
+
     return (
         <>
-        <SpecificationHead icon="" title="PCB Specification" handleRadioSwitch={(v)=>{setSelectedRadio(v.target.value)}}/>
+        <SpecificationHead icon="" title="PCB Specification" />
         <Row>
             { 
-            selectedRadio === "standard" ? <PcbStandardFrom item={standardFrom} onChange={(v)=>{setStandardFrom(v)}}/> : <PcbSpecialForm item={specialFrom} onChange={(v)=> {setSpecialFrom(v)}}/>
+            fieldMode === "standard" ? 
+            <PcbStandardFrom  onChange={(v)=>{}}/> : 
+            <PcbSpecialForm onChange={(v)=> {}}/>
             }
         </Row>
         </>

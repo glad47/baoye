@@ -5,16 +5,21 @@ import {ConverterResult} from 'gerber-to-svg'
 import {Color} from 'pcb-stackup-core'
 import {ViewBox} from 'viewbox'
 import {GerberSide, GerberType} from 'whats-that-gerber'
+import { type } from 'os'
+import { Store } from 'antd/lib/form/interface'
 
 export {CoordinateFormat, ZeroSuppression, Units, GerberType, GerberSide}
 
-//应用设置
+/** 应用设置 */
 export type AppPreferences = Optional<{
   analyticsOptIn: boolean
 }>
 
-//板显示模型
+/** 板显示模型 */
 export type Mode = null | 'top' | 'bottom' | 'layers'
+
+/** 报价类型 */
+export type QuoteMode = null | 'pcb' | 'stencil' | 'Assembly' | 'manual'
 
 export type SvgSource = string | null
 
@@ -56,7 +61,7 @@ export type BoardUpdate = Partial<{
   layers: Partial<LayerUpdatesMap>
 }>
 
-//渲染的板数据
+/**  渲染的板数据 */
 export type BoardRender = {
   id: string
   name: string
@@ -102,7 +107,7 @@ export type LayerUpdatesMap = {
   }
 }
 
-//各层是否显示Map
+/** 各层是否显示Map */
 export type LayerVisibilityMap = {[id: string]: boolean}
 
 export type ErrorObject = {
@@ -124,3 +129,8 @@ export type Logger = {[Level in LogLevel]: LogHandler}
 export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>
 
 export type Optional<T> = {[P in keyof T]?: T[P] | null | undefined}
+
+/** 字段属性 */
+export type FieldStore  = Store
+/** 字段类型 */
+export type FieldMode = null | 'standard' | 'special'

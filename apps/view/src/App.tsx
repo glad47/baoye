@@ -20,6 +20,7 @@ import CustomizedForm from './SpecificationInput/CustomizedForm'
 import { Store } from 'antd/lib/form/interface'
 import PcbSpecialForm from './SpecificationInput/PcbSpecialForm'
 import PcbStandardFrom from './SpecificationInput/PcbStandardForm'
+import PcbSizeForm from './SpecificationInput/PcbSizeForm'
 
 function App(): JSX.Element {
   const {dispatch} = useAppState()
@@ -45,29 +46,29 @@ function App(): JSX.Element {
   } 
   return (
     <Main>
-       {/* <FileList /> */}
+      {/* <FileList /> */}
       {/* <BoardList /> */}
      
-      {/* <Layout>
+      <Layout>
         <Header>
           头    
         </Header>
         <Content style={{height:'500px'}}>
-         
-           <PcbSpecification onChange={onchange}/>
+           {/* <PcbSpecification onChange={onchange}/> */}
+           <PcbSizeForm/>
         </Content>
         <Footer>
           尾
         </Footer>
-      </Layout> */}
+      </Layout>
       {/* <SpecificationHead icon={"sdfasdf"} title="PCBSpecification"/> */}
      
       {/* <PcbSpecialForm onChange={onchange}/> */}
       {/* <FormDemo /> */}
-      <BoardDisplay />
+      {/* <BoardDisplay />
       <Nav/>
       <LoadFiles handleFiles={handleFiles}/>
-      <ErrorToast />
+      <ErrorToast /> */}
     </Main>
     
   )

@@ -19,6 +19,7 @@ const TITLE_STYLE = 'w-third flex-none'
 const BUTTON_WRAPPER_STYLE = 'flex-none flex items-start justify-end w-third'
 const BUTTON_STYLE = 'ml1 pa1 f3'
 
+/** 导航组件 */
 export default function Nav(props: Props): JSX.Element {
   const {board, loading, updating} = useAppState()
   const {handleFiles, handleUrl} = props

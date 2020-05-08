@@ -19,8 +19,7 @@ export default function StoreProvider(props: StoreProps): JSX.Element {
   }
 
   useEffect((): void => {
-    dispatchRef.current = createMiddleware().reduceRight<Dispatch>(
-      (next, handler) => handler(store)(next),
+    dispatchRef.current = createMiddleware().reduceRight<Dispatch>((next, handler) => handler(store)(next),
       function baseDispatch(action) {
         stateRef.current = reducer(stateRef.current, action)
         setState(stateRef.current)
