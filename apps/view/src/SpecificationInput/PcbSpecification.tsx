@@ -80,11 +80,11 @@ const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
     // const [ standardFrom, setStandardFrom ] = useState(INITIAL_STANDARD);
     // const [ specialFrom, setSpecialFrom ] = useState(INITIAL_SPECIAL);
 
-    const { fieldMode} = useAppState()
+    const { fieldMode } = useAppState()
 
     return (
         <>
-        <SpecificationHead icon="" title="PCB Specification" />
+        {/* <SpecificationHead icon="" title="PCB Specification" /> */}
         <Row>
             { 
             fieldMode === "standard" ? 

@@ -7,7 +7,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
     return (
         <Form>
             <Row>
-                <Col span={12}>
+                <Col span={12} >
                     <Form.Item label="Dimensions">
                         <Input />
                     </Form.Item>
@@ -19,10 +19,10 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
                     <Form.Item label="Size">
                         <Input.Group size="large">
                             <Row gutter={8}>
-                                <Col span={6}>
+                                <Col span={12}>
                                 <Input defaultValue="05719" />
                                 </Col>
-                                <Col span={6}>
+                                <Col span={12}>
                                 <Input defaultValue="26899" />
                                 </Col>
                             </Row>

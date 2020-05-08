@@ -1,0 +1,187 @@
+.ant-layout-content{
+    position: relative;
+    width: 1300px;
+    margin: 0 auto;
+    background: #fff;
+}
+.ant-layout-content .pcb-min{
+    position: relative;
+    width:773px;
+    padding: 30px 40px;
+    height:648px;
+    margin-left: 115px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    background:rgba(241,247,252,1);
+    border-radius:16px;
+    overflow: hidden;
+}
+.ant-layout-content .pcb-file{
+    position: relative;
+    width: 548px;
+    height: 300px;
+    margin: 20px auto 0;
+    border: 2px dashed #abbffe;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+}
+.ant-layout-content .pcb-min .items-start .w-third{
+    width: 100%;
+}
+.ant-layout-content .pcb-min .items-start button{
+    display: block;
+    float: left;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    width:88px;
+    height:34px;
+    background: none;
+    margin-right: 30px;
+}
+.ant-layout-content .pcb-min .items-start button span{
+    display: block;
+    width: 100%;
+    line-height: 34px;
+    text-align: center;
+    background:rgba(249,251,255,1);
+    border-radius:10px;
+    font-size: 12px;
+    color: #999;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+.ant-layout-content .pcb-min .items-start button span.b--brand{
+    background: #2952ea;
+    color: #fff;
+}
+.ant-layout-content .near-black{
+
+}
+.ant-layout-content .ant-form{
+    margin-top: 60px;
+}
+.ant-layout-content .ant-form .ant-form-item-label{
+    width: 50%;
+}
+.ant-layout-content .ant-form .ant-form-item-control{
+    width: 50%;
+}
+.ant-layout-content .ant-form .ant-form-item-label label{
+    font-size:14px;
+    font-family:Arial;
+    font-weight:400;
+    color:rgba(102,102,102,1);
+    line-height:36px;
+    text-align: right;
+}
+.ant-layout-content .ant-form .ant-form-item-label
+
+
+.pcb-nav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 85px;
+    height: 1176px;
+    border-radius: 18px;
+    background: #2952ea;
+}
+
+.pcb-spec{
+    width:773px;
+    height:496px;
+    background:rgba(255,255,255,1);
+    box-shadow:0px 7px 21px 0px rgba(172,189,253,0.77);
+    border-radius:16px;
+    margin-left: 115px;
+    padding: 0 26px;
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+.pcb-spec .ant-space{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.pcb-spec .ant-typography{
+    margin: 0;
+    font-size:20px;
+    font-family:Arial;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+    line-height:36px;
+}
+.pcb-spec .ant-form{
+    margin-top: 40px;
+    padding: 0 8%;
+    box-sizing: border-box;
+}
+.pcb-spec .ant-form .ant-form-item{
+    margin-bottom: 10px;
+}
+.pcb-spec .ant-form .ant-form-item .ant-form-item-label label{
+    font-size:14px;
+    font-family:Arial;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+    line-height:36px;
+}
+
+
+.pcb-sidebar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 382px;
+    height: 1176px;
+}
+
+.pcb-sidebar .pcb-build-time{
+    width:382px;
+    height:486px;
+    background:rgba(255,255,255,1);
+    box-shadow:0px 7px 21px 0px rgba(172,189,253,0.77);
+    border-radius:16px;
+    margin-bottom: 30px;
+}
+.pcb-sidebar .pcb-fee{
+    width:382px;
+    height:184px;
+    background:rgba(240,246,251,1);
+    border-radius:16px;
+    margin-bottom: 30px;
+}
+
+.pcb-sidebar .pcb-cost{
+    width:382px;
+    height:146px;
+    background:rgba(240,246,251,1);
+    border-radius:16px;
+    margin-bottom: 30px;
+}
+
+.pcb-sidebar .pcb-total{
+    width:382px;
+    height:268px;
+    background:rgba(241,247,252,1);
+    border-radius:16px;
+    margin-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+
+
+
+body{
+    height: auto !important; 
+    overflow: hidden !important;
+}
+.h-100{
+    height: auto !important; 
+    overflow: auto;
+}

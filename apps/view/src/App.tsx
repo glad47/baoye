@@ -53,22 +53,57 @@ function App(): JSX.Element {
         <Header>
           头    
         </Header>
-        <Content style={{height:'500px'}}>
-           {/* <PcbSpecification onChange={onchange}/> */}
-           <PcbSizeForm/>
+        <Content>
+            
+            {/* 左边但 */}
+            <div className="pcb-nav">
+              <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+              </ul>
+            </div>
+            <div className="pcb-min">
+              <Nav/>
+              <div className="pcb-file">
+                <BoardDisplay />
+                <LoadFiles handleFiles={handleFiles}/>
+                <ErrorToast />
+              </div>
+              <PcbSizeForm/>
+            </div>
+
+            <div className="pcb-spec">
+              <SpecificationHead icon={"sdfasdf"} title="PCBSpecification"/>
+              <PcbSpecification onChange={onchange}/>
+            </div>
+
+
+            <div className="pcb-sidebar">
+
+              <div className="pcb-build-time"></div>
+
+              <div className="pcb-fee"></div>
+
+              <div className="pcb-cost"></div>
+
+              <div className="pcb-total"></div>
+
+            </div>
+
+           
+
         </Content>
         <Footer>
           尾
         </Footer>
       </Layout>
-      {/* <SpecificationHead icon={"sdfasdf"} title="PCBSpecification"/> */}
+      
      
-      {/* <PcbSpecialForm onChange={onchange}/> */}
-      {/* <FormDemo /> */}
-      {/* <BoardDisplay />
-      <Nav/>
-      <LoadFiles handleFiles={handleFiles}/>
-      <ErrorToast /> */}
+     
+     
+      
     </Main>
     
   )
