@@ -21,6 +21,9 @@ import { Store } from 'antd/lib/form/interface'
 import PcbSpecialForm from './SpecificationInput/PcbSpecialForm'
 import PcbStandardFrom from './SpecificationInput/PcbStandardForm'
 import PcbSizeForm from './SpecificationInput/PcbSizeForm'
+import BuildTimeForm from './SpecificationInput/BuildTimeForm'
+import CastCalculation from './SpecificationInput/CostCalculation'
+import ShoppingCast from './SpecificationInput/ShoppingCast'
 
 function App(): JSX.Element {
   const {dispatch} = useAppState()
@@ -82,13 +85,21 @@ function App(): JSX.Element {
 
             <div className="pcb-sidebar">
 
-              <div className="pcb-build-time"></div>
+              <div className="pcb-build-time">
+                <BuildTimeForm />
+              </div>
 
-              <div className="pcb-fee"></div>
+              <div className="pcb-fee">
+                <CastCalculation />
+              </div>
 
-              <div className="pcb-cost"></div>
+              <div className="pcb-cost">
+                <ShoppingCast />
+              </div>
 
-              <div className="pcb-total"></div>
+              <div className="pcb-total">
+                
+              </div>
 
             </div>
 
