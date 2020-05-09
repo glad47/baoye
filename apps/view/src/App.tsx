@@ -12,7 +12,7 @@ import ErrorToast from './ErrorToast'
 import {preventDefault} from './events'
 import {Main} from './ui'
 import {FileEvent} from './types'
-import { Layout  } from 'antd'
+import { Layout } from 'antd'
 import PcbSpecification from './SpecificationInput/PcbSpecification'
 import SpecificationHead from './SpecificationInput/SpecificationHead'
 import FormDemo from './SpecificationInput/FormDemo'
@@ -79,30 +79,18 @@ function App(): JSX.Element {
               <PcbSpecification onChange={onchange}/>
             </div>
 
-
             <div className="pcb-sidebar">
-
               <div className="pcb-build-time"></div>
-
               <div className="pcb-fee"></div>
-
               <div className="pcb-cost"></div>
-
               <div className="pcb-total"></div>
-
             </div>
-
-           
 
         </Content>
         <Footer>
           尾
         </Footer>
       </Layout>
-      
-     
-     
-     
       
     </Main>
     

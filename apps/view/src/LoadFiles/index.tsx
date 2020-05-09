@@ -19,7 +19,6 @@ export type LoadFilesProps = {
   handleUrl?: (url: string) => void
 }
 
-/** 上传处理文件组件 */
 export default function LoadFiles(props: LoadFilesProps): JSX.Element {
   const {mode, loading} = useAppState()
 

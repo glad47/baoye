@@ -64,10 +64,10 @@
     margin-top: 60px;
 }
 .ant-layout-content .ant-form .ant-form-item-label{
-    width: 50%;
+    width: 60%;
 }
 .ant-layout-content .ant-form .ant-form-item-control{
-    width: 50%;
+    width: 40%;
 }
 .ant-layout-content .ant-form .ant-form-item-label label{
     font-size:14px;
@@ -77,9 +77,6 @@
     line-height:36px;
     text-align: right;
 }
-.ant-layout-content .ant-form .ant-form-item-label
-
-
 .pcb-nav{
     position: absolute;
     top: 0;
