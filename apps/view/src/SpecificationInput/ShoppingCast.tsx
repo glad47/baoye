@@ -26,11 +26,11 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
             <Title level={3}>Shopping Cast</Title>
           </Row>
           <Row>
-            <Select>
+            <Select defaultValue='DHL'>
                 <Option value="DHL">DHL</Option>
             </Select>
 
-            <Select>
+            <Select defaultValue={countryItmes && countryItmes[0].id}>
                 {
                     countryItmes && countryItmes.map(item =>(
                         <Option key={item.id} value={item.id}>{item.name}</Option>

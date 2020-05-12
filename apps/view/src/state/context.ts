@@ -17,6 +17,7 @@ export const INITIAL_STATE: State = {
   pcbSpecialField: INITIAL_SPECIAL,
   pcbStandardField: INITIAL_STANDARD,
   fieldMode: 'standard',
+  pcbSizeField: {boardType:'Single'},
 }
 
 // const INITIAL_STANDARD = {

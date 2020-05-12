@@ -9,7 +9,7 @@ import { useAppState, setFieldMode } from '../state';
 
 interface PcbSpecificationProps {
     item?: object;
-    onChange?: (value: Store)=>void;
+    onChange?: ()=>void;
 }
 
 type LinkageData = {[index: string]: string[]};
@@ -88,8 +88,8 @@ const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
         <Row>
             { 
             fieldMode === "standard" ? 
-            <PcbStandardFrom  onChange={(v)=>{}}/> : 
-            <PcbSpecialForm onChange={(v)=> {}}/>
+            <PcbStandardFrom  onChange={props.onChange}/> : 
+            <PcbSpecialForm onChange={props.onChange}/>
             }
         </Row>
         </>
