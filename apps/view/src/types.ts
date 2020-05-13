@@ -134,3 +134,10 @@ export type Optional<T> = {[P in keyof T]?: T[P] | null | undefined}
 export type FieldStore  = Store
 /** 字段类型 */
 export type FieldMode = null | 'standard' | 'special'
+
+export type ParseGerber = {
+  width: number;
+  height: number;
+  units: string;
+  layerCount: number;
+}

@@ -103,7 +103,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
                                 </Col>
                             </Row>
                         </Input.Group> */}
-                        <ObserverSize/>
+                        <ObserverSize value={pcbSizeField.singleSize}/>
                     </Form.Item>
                     <Form.Item label="Quantity" name="quantity" >
                         <Input />

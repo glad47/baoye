@@ -155,6 +155,22 @@ export default function reducer(state: State, action: Action): State {
     case actionTypes.CHANGE_STANDARD_FIELD: {
       return {...state, pcbStandardField: action.payload}
     }
+
+    case actionTypes.CHANGE_SIZE_FIELD: {
+      return {...state, pcbSizeField: action.payload}
+    }
+
+    case actionTypes.COUNT_SUBTOTAL: {
+      return {...state, subtotal: action.payload}
+    }
+
+    case actionTypes.PARSING_GERBER: {
+      return {
+        ...state, 
+        pcbSizeField: {...state.pcbSizeField,singleSize:{sizeX: action.payload.width, sizeY: action.payload.height}},
+        pcbStandardField: {...state.pcbStandardField,layer: action.payload.layerCount+'layer'}
+      }
+    }
   }
 
   return state

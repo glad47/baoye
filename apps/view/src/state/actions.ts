@@ -6,6 +6,7 @@ import {
   Mode,
   FieldMode,
   FieldStore,
+  ParseGerber,
 } from '../types'
 
 import {Action} from './types'
@@ -34,7 +35,8 @@ export const SET_FIELDMODE = 'SET_FIELDMODE'
 export const CHANGE_STANDARD_FIELD = 'CHANGE_STANDARD_FIELD'
 export const CHANGE_SPECIAL_FIELD = 'CHANGE_SPECIAL_FIELD' 
 export const CHANGE_SIZE_FIELD = 'CHANGE_SIZE_FIELD'
-
+export const COUNT_SUBTOTAL = 'COUNT_SUBTOTAL'
+export const PARSING_GERBER = 'PARSING_GERBER'
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -61,6 +63,12 @@ export const createBoard = (
   type: CREATE_BOARD,
   payload: files,
   metadata: {dragAndDrop},
+})
+
+/** Action Creator解析gerber资料 */
+export const parsingGerber = (gerberInfo: ParseGerber): Action =>({
+  type: PARSING_GERBER,
+  payload: gerberInfo,
 })
 
 /** Action Creator 生成电路板通过url */
@@ -184,5 +192,11 @@ export const changeSpecialField = (field: FieldStore): Action => ({
 /** 修改尺寸字段 */
 export const changeSizeField = (field: FieldStore): Action => ({
   type: CHANGE_SIZE_FIELD,
+  payload: field
+})
+
+/** 计算小计 */
+export const countSubtotal = (field: FieldStore): Action => ({
+  type: COUNT_SUBTOTAL,
   payload: field
 })

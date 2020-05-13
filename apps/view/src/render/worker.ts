@@ -20,6 +20,8 @@ import {
   stackupToZipBlob,
   updateBoard,
   updateBoardThumbnail,
+  stackupToZip,
+  gerberInfoGet,
 } from './models'
 
 import {
@@ -38,6 +40,8 @@ import {
   allBoardsDeleted,
   workerInitialized,
   workerErrored,
+  parsingGerber,
+  PARSING_GERBER,
 } from '../state'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -99,20 +103,25 @@ ctx.onmessage = function receive(event) {
 
     case CREATE_BOARD: {
       const files = request.payload
-      console.log(files);
+      //console.log(files);
       response = filesToStackups(files).then(async stackups => {
         const [selfContained, shared] = stackups
-        console.log(selfContained);
-        console.log(shared);
+        const gerberInfo = gerberInfoGet(shared);
+
+        console.log("1hao",selfContained);
+        console.log("2hao",shared);
         const board = stackupToBoard(selfContained)
         const render = stackupToBoardRender(shared, board)
-        console.log(board)
-        console.log(render)
+        console.log("board",board)
+        console.log("render",render)
+        
         ctx.postMessage(boardRendered(render, duration(startTime)))
 
-        return saveBoard(db, board).then(() =>
+        return saveBoard(db, board).then(() =>{
           ctx.postMessage(boardUpdated(board))
-        )
+          //! 解析上传的资料
+          ctx.postMessage(parsingGerber(gerberInfo))
+        })
       })
 
       break 

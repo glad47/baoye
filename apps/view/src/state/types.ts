@@ -9,6 +9,7 @@ import {
   QuoteMode,
   FieldStore,
   FieldMode,
+  ParseGerber,
 } from '../types'
 
 
@@ -28,6 +29,7 @@ export type State = {
   pcbStandardField: FieldStore
   pcbSpecialField: FieldStore
   pcbSizeField: FieldStore
+  subtotal: FieldStore
 }
 
 /** Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。 */
@@ -72,3 +74,5 @@ export type Action =
   | {type: 'CHANGE_STANDARD_FIELD'; payload: FieldStore}
   | {type: 'CHANGE_SPECIAL_FIELD'; payload: FieldStore}
   | {type: 'CHANGE_SIZE_FIELD'; payload: FieldStore}
+  | {type: 'COUNT_SUBTOTAL'; payload: FieldStore}
+  | {type: 'PARSING_GERBER'; payload: ParseGerber}

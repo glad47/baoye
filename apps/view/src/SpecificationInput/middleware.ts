@@ -1,10 +1,12 @@
 import * as State from '../state';
+import { countSubtotal } from '../state';
 
 /** 计算报价中间件 */
 export function countQuoteMiddleware(): State.Middleware {
     return store => next => action =>{
         const result = next(action);
-        console.log(store.getState());
+        // console.log(store.getState());
+        const {dispatch} = store;
 
         switch(action.type){
             case State.CHANGE_SPECIAL_FIELD: {
@@ -20,7 +22,9 @@ export function countQuoteMiddleware(): State.Middleware {
             }
             case State.CHANGE_SIZE_FIELD: {
                 // todo 获取pcb板工期
-                
+                const mockData = {boardFee:100,engineeringFee:1000,testFee:1000}
+                dispatch(countSubtotal(mockData))
+                break;
             }
         }
         return result;

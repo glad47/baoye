@@ -18,6 +18,7 @@ export const INITIAL_STATE: State = {
   pcbStandardField: INITIAL_STANDARD,
   fieldMode: 'standard',
   pcbSizeField: {boardType:'Single'},
+  subtotal: {},
 }
 
 // const INITIAL_STANDARD = {

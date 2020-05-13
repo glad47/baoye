@@ -26,7 +26,7 @@ import CastCalculation from './SpecificationInput/CostCalculation'
 import ShoppingCast from './SpecificationInput/ShoppingCast'
 
 function App(): JSX.Element {
-  const {dispatch} = useAppState()
+  const {dispatch,subtotal} = useAppState()
 
   const handleFiles = (event: FileEvent): void => {
     const files =
@@ -90,7 +90,7 @@ function App(): JSX.Element {
               </div>
 
               <div className="pcb-fee">
-                <CastCalculation />
+                <CastCalculation {...subtotal}/>
               </div>
 
               <div className="pcb-cost">

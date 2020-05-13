@@ -76,7 +76,7 @@ function fileReader(file: File): FileStream {
 }
 
 async function zipReader(file: Blob): PromiseArray<FileStream> {
-  console.log(file);
+  console.log("读取文件方法zipReader",file);
   return import('jszip').then(ZipModule => ZipModule.loadAsync(file)
     .then(zip =>
       Object.keys(zip.files)
