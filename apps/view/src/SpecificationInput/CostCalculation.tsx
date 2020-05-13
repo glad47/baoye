@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row } from 'antd';
+import { WalletOutlined, SettingOutlined, DashboardOutlined } from '@ant-design/icons';
 
 interface CastCalculationProps {
     boardFee?: number
@@ -10,15 +11,15 @@ interface CastCalculationProps {
 const CastCalculation: React.FC<CastCalculationProps> = (props) =>{
     const {boardFee,engineeringFee,testFee} = props
     return (
-        <div>
+        <div className="fee-cont">
             <Row>
-                Board Fee      ${boardFee}
+                <div><WalletOutlined /><span>Board Fee</span></div><span>${boardFee}</span>  
             </Row>
             <Row>
-                Engineering Fee  ${engineeringFee}
+                <div><SettingOutlined /><span>Engineering Fee</span></div><span>${engineeringFee}</span>
             </Row>
             <Row>
-                Test Fee    ${testFee}
+                <div><DashboardOutlined /><span>Test Fee</span></div><span>${testFee}</span>
             </Row>
         </div>       
     )

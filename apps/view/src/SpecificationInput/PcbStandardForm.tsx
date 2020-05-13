@@ -115,7 +115,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                         <ObserverSelect item={surfaceFinishSelectData} name={"surfaceFinish"}/>
                     </Form.Item>
                 </Col>
-                <Col span={12}>
+                <Col span={12} className="ant-col-last">
                     <Form.Item label="Thinkness">
                        <ObserverSelect item={thinknessSelectData} name={"thinkness"}/>
                     </Form.Item>

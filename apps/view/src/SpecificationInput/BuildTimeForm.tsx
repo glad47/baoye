@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import {ClockCircleFilled } from '@ant-design/icons'
 import { Row,Typography, Radio } from 'antd';
+
 
 type BuildItem = {
     id: number,
@@ -23,7 +25,7 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) =>{
     return(
        <div>
            <Row>
-                <Title level={3}>Build Time</Title>
+                <Title level={3}><ClockCircleFilled/><b>Build Time</b></Title>
            </Row>
            <Row>
                <div style={{width:"100px",height:"300px"}}>图片</div>
@@ -37,9 +39,9 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) =>{
                     }
                 </Radio.Group>
            </Row>
-           <Row>
+           <Row className="ant-row-cont">
                <Text>quickturn charge</Text>
-                <Text>$ {urgentCast}</Text>
+                <Text><b>$ {urgentCast}</b></Text>
            </Row>
        </div> 
     )

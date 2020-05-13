@@ -1,5 +1,6 @@
 import React from 'react';
-import { Row,Typography, Radio, Select } from 'antd'
+import {PayCircleFilled } from '@ant-design/icons';
+import { Row, Col, Typography, Radio, Select } from 'antd';
 
 type CountryItem = {
     id: number
@@ -14,29 +15,34 @@ type CouriersItems = {
 interface ShoppingCastProps {
     countryItmes?: Array<CountryItem>
     couriersItems?: Array<CouriersItems>
+    shoppingCast?: 500
 }
 
 const {Title,Text} = Typography
 const { Option } = Select;
 const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
-    const { countryItmes } = props;
+    const { countryItmes,shoppingCast } = props;
     return (
       <div>
           <Row>
-            <Title level={3}>Shopping Cast</Title>
+            <Col span={24}><Title level={3}><PayCircleFilled /><b>Shopping Cast</b></Title></Col>
           </Row>
-          <Row>
-            <Select defaultValue='DHL'>
-                <Option value="DHL">DHL</Option>
-            </Select>
+          <Row className="shopping-cast-mar">
+            <Col span={16}>
+                <Select defaultValue='DHL'>
+                    <Option value="DHL">DHL</Option>
+                </Select>
 
-            <Select defaultValue={countryItmes && countryItmes[0].id}>
-                {
-                    countryItmes && countryItmes.map(item =>(
-                        <Option key={item.id} value={item.id}>{item.name}</Option>
-                    ))
-                }
-            </Select>
+                <Select defaultValue={countryItmes && countryItmes[0].id}>
+                    {
+                        countryItmes && countryItmes.map(item =>(
+                            <Option key={item.id} value={item.id}>{item.name}</Option>
+                        ))
+                    }
+                </Select>
+            </Col>
+            <Col span={8}><i>$555</i></Col>
+            
           </Row>
       </div>
     )

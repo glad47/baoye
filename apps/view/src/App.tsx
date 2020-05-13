@@ -12,7 +12,7 @@ import ErrorToast from './ErrorToast'
 import {preventDefault} from './events'
 import {Main} from './ui'
 import {FileEvent} from './types'
-import { Layout  } from 'antd'
+import { Layout } from 'antd'
 import PcbSpecification from './SpecificationInput/PcbSpecification'
 import SpecificationHead from './SpecificationInput/SpecificationHead'
 import FormDemo from './SpecificationInput/FormDemo'
@@ -24,6 +24,9 @@ import PcbSizeForm from './SpecificationInput/PcbSizeForm'
 import BuildTimeForm from './SpecificationInput/BuildTimeForm'
 import CastCalculation from './SpecificationInput/CostCalculation'
 import ShoppingCast from './SpecificationInput/ShoppingCast'
+import ShoppingTotal from './SpecificationInput/ShoppingTotal'
+
+import { WalletFilled, SlidersFilled, SwitcherFilled,ReconciliationFilled } from '@ant-design/icons';
 
 function App(): JSX.Element {
   const {dispatch,subtotal} = useAppState()
@@ -58,13 +61,13 @@ function App(): JSX.Element {
         </Header>
         <Content>
             
-            {/* 左边但 */}
+            {/* 左边栏 */}
             <div className="pcb-nav">
               <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
+                <li className="cur"><div><WalletFilled /></div></li>
+                <li><div><SlidersFilled /></div></li>
+                <li><div><SwitcherFilled /></div></li>
+                <li><div><ReconciliationFilled /></div></li>
               </ul>
             </div>
             <div className="pcb-min">
@@ -78,10 +81,9 @@ function App(): JSX.Element {
             </div>
 
             <div className="pcb-spec">
-              <SpecificationHead icon={"sdfasdf"} title="PCBSpecification"/>
+              <SpecificationHead icon={"123"} title="PCBSpecification"/>
               <PcbSpecification onChange={onchange}/>
             </div>
-
 
             <div className="pcb-sidebar">
 
@@ -93,27 +95,21 @@ function App(): JSX.Element {
                 <CastCalculation {...subtotal}/>
               </div>
 
-              <div className="pcb-cost">
+              <div className="pcb-cast">
                 <ShoppingCast />
               </div>
 
               <div className="pcb-total">
-                
+                <ShoppingTotal />
               </div>
 
             </div>
-
-           
 
         </Content>
         <Footer>
           尾
         </Footer>
       </Layout>
-      
-     
-     
-     
       
     </Main>
     
