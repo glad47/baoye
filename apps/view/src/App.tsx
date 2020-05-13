@@ -46,8 +46,8 @@ function App(): JSX.Element {
   }
   const { Footer,Header,Content } = Layout
 
-  const onchange = (v: Store): void =>{
-    console.log(v);
+  const onchange = (): void =>{
+    console.log('ssssssssssssss');
   } 
   return (
     <Main>

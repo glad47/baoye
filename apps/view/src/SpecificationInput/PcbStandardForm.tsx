@@ -5,7 +5,7 @@ import { Store } from 'antd/lib/form/interface';
 import { useAppState, changeStandardField } from '../state';
 
 interface PcbStandardFromProps {
-    onChange?: (value: Store)=>void;
+    onChange?: ()=>void;
     item?: object;
 }
 
@@ -86,10 +86,11 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
 
     const onFinish = (v: Store) => {
         dispatch(changeStandardField(v))
+        props.onChange
     }
 
     return(
-        <Form form={form} initialValues={pcbStandardField} onValuesChange={onValuesChange} onFinish={onFinish} style={{width:"100%"}}>
+        <Form form={form} initialValues={pcbStandardField} onValuesChange={onValuesChange} onFinish={onFinish} style={{width:"100%"}} labelAlign="left">
             <Row>
                 <Col span={12}>
                     <Form.Item label="Material">

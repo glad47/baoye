@@ -33,6 +33,7 @@ export const DISMISS_ERROR = 'DISMISS_ERROR'
 export const SET_FIELDMODE = 'SET_FIELDMODE'
 export const CHANGE_STANDARD_FIELD = 'CHANGE_STANDARD_FIELD'
 export const CHANGE_SPECIAL_FIELD = 'CHANGE_SPECIAL_FIELD' 
+export const CHANGE_SIZE_FIELD = 'CHANGE_SIZE_FIELD'
 
 
 /** Action Creator 获取应用程序首选项 */
@@ -177,5 +178,11 @@ export const changeStandardField = (field: FieldStore): Action =>({
 /** 修改特殊字段 */
 export const changeSpecialField = (field: FieldStore): Action => ({
   type: CHANGE_SPECIAL_FIELD,
+  payload: field
+})
+
+/** 修改尺寸字段 */
+export const changeSizeField = (field: FieldStore): Action => ({
+  type: CHANGE_SIZE_FIELD,
   payload: field
 })

@@ -6,7 +6,7 @@ import { useAppState, changeSpecialField } from '../state';
 
 interface PcbSpecialFormProps {
     item?: Store;
-    onChange?: (v: Store) => void;
+    onChange?: () => void;
 }
 
 

@@ -1,15 +1,66 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Form, Input, Select } from 'antd';
+import { useForm } from 'antd/lib/form/util';
+import { Store } from 'antd/lib/form/interface';
+import ObserverSize from './ObserverSize';
+import { useAppState, changeSizeField } from '../state';
 
 interface PcbSizeFormProps {}
 const boardType = [{id:1,name:'Single'},{id:2,name:'Panel'}];
+
+// const INITIAL = {boardType:'Single'}
 const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
     const { Option } = Select;
+    const [form] = useForm();
+    const [singleMode, setSingleMode] = useState(true);
+    const { pcbSizeField,dispatch } = useAppState();
+
+    const onValuesChange = (v:Store) =>{
+        // console.log(Object.values(v)[0])
+        switch (Object.values(v)[0]) {
+            case 2 : {
+                setSingleMode(false)
+                break;
+            } 
+            case 1 : {
+                setSingleMode(true)
+                break;
+            }
+           
+        }
+        form.submit();
+    }
+    const onFinish = (v:Store)=>{
+        console.log(v);
+        console.log(Object.values(v));
+        //todo 通过判断属性是否有来调用其他dispactch
+        // if(Object.values(v)){
+        //     dispatch(changeSizeField(v));
+        // }
+        if(Object.values(v)[0] === 'Single'){
+            if(Object.values(v)[2] && Object.values(v)[3]){
+                dispatch(changeSizeField(v));
+            }
+        }else{
+            if(Object.values(v)[1] && Object.values(v)[2] && Object.values(v)[3]){
+                dispatch(changeSizeField(v));
+            }
+        }
+    }
+
+    // const onFinishFailed = () =>{
+    //     form.submit();
+    // }
+
+    useEffect(()=>{
+        form.validateFields(['panelSize'])   
+    },[singleMode])
+
     return (
-        <Form>
+        <Form form={form} initialValues={pcbSizeField} onValuesChange={onValuesChange} onFinish={onFinish}>
             <Row>
                 <Col span={12} >
-                    <Form.Item label="Dimensions">
+                    <Form.Item label="Dimensions" name="boardType">
                         <Select>
                             {
                                 boardType.map(item=>(
@@ -18,33 +69,43 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
                             }
                         </Select>
                     </Form.Item>
-                    <Form.Item label="Panel Array">
-                        <Input.Group size="large">
+                    <Form.Item label="Panel Array" name="panelSize">
+                        {/* <Input.Group size="large">
                             <Row gutter={8}>
                                 <Col span={12}>
-                                <Input defaultValue="05719" />
+                                    <Form.Item noStyle name="panelSizeX">
+                                        <Input disabled={singleMode}/>
+                                    </Form.Item>
                                 </Col>
                                 <Col span={12}>
-                                <Input defaultValue="26899" />
+                                    <Form.Item noStyle name="panelSizeY">
+                                        <Input disabled={singleMode}/>
+                                    </Form.Item>
                                 </Col>
                             </Row>
-                        </Input.Group>
+                        </Input.Group> */}
+                        <ObserverSize isDisabled={singleMode}/>
                     </Form.Item>
                 </Col>
                 <Col span={12}>
-                    <Form.Item label="Size">
-                        <Input.Group size="large">
+                    <Form.Item label="Size" name="singleSize">
+                        {/* <Input.Group size="large">
                             <Row gutter={8}>
                                 <Col span={12}>
-                                <Input defaultValue="05719" />
+                                    <Form.Item noStyle name="sizeX" >
+                                        <Input/>
+                                    </Form.Item>
                                 </Col>
                                 <Col span={12}>
-                                <Input defaultValue="26899" />
+                                    <Form.Item noStyle name="sizeY">
+                                        <Input/>
+                                    </Form.Item>
                                 </Col>
                             </Row>
-                        </Input.Group>
+                        </Input.Group> */}
+                        <ObserverSize/>
                     </Form.Item>
-                    <Form.Item label="Quantity">
+                    <Form.Item label="Quantity" name="quantity" >
                         <Input />
                     </Form.Item>
                 </Col>
