@@ -60,7 +60,7 @@ function App(): JSX.Element {
         </Header>
         <Content>
             
-            {/* 左边但 */}
+            {/* 左边栏 */}
             <div className="pcb-nav">
               <ul>
                 <li className="cur"><div><WalletFilled /></div></li>
