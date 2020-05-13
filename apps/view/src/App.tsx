@@ -21,6 +21,11 @@ import { Store } from 'antd/lib/form/interface'
 import PcbSpecialForm from './SpecificationInput/PcbSpecialForm'
 import PcbStandardFrom from './SpecificationInput/PcbStandardForm'
 import PcbSizeForm from './SpecificationInput/PcbSizeForm'
+import BuildTimeForm from './SpecificationInput/BuildTimeForm'
+import CastCalculation from './SpecificationInput/CostCalculation'
+import ShoppingCast from './SpecificationInput/ShoppingCast'
+
+import { WalletFilled, SlidersFilled, SwitcherFilled,ReconciliationFilled } from '@ant-design/icons';
 
 function App(): JSX.Element {
   const {dispatch} = useAppState()
@@ -58,10 +63,10 @@ function App(): JSX.Element {
             {/* 左边但 */}
             <div className="pcb-nav">
               <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
+                <li className="cur"><div><WalletFilled /></div></li>
+                <li><div><SlidersFilled /></div></li>
+                <li><div><SwitcherFilled /></div></li>
+                <li><div><ReconciliationFilled /></div></li>
               </ul>
             </div>
             <div className="pcb-min">
@@ -75,15 +80,28 @@ function App(): JSX.Element {
             </div>
 
             <div className="pcb-spec">
-              <SpecificationHead icon={"sdfasdf"} title="PCBSpecification"/>
+              <SpecificationHead icon={"123"} title="PCBSpecification"/>
               <PcbSpecification onChange={onchange}/>
             </div>
 
             <div className="pcb-sidebar">
-              <div className="pcb-build-time"></div>
-              <div className="pcb-fee"></div>
-              <div className="pcb-cost"></div>
-              <div className="pcb-total"></div>
+
+              <div className="pcb-build-time">
+                <BuildTimeForm />
+              </div>
+
+              <div className="pcb-fee">
+                <CastCalculation />
+              </div>
+
+              <div className="pcb-cast">
+                <ShoppingCast />
+              </div>
+
+              <div className="pcb-total">
+                
+              </div>
+
             </div>
 
         </Content>

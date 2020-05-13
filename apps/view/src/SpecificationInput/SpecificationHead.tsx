@@ -2,6 +2,7 @@ import React from 'react';
 import { Row,Typography, Radio, Space } from 'antd';
 import { RadioChangeEvent } from 'antd/lib/radio/interface';
 import { useAppState, setFieldMode } from '../state';
+import { ControlFilled } from '@ant-design/icons';
 
 interface SpecificationHeadProps {
     icon: string;
@@ -15,7 +16,7 @@ const SpecificationHead: React.FC<SpecificationHeadProps> = (props) =>{
     return (
         <Row>
             <Space direction="horizontal" size="large">
-                <Title level={2} style={titleStyle}>{props.title}</Title>
+                <Title level={2} style={titleStyle}><ControlFilled /><b>{props.title}</b></Title>
                 <Radio.Group defaultValue="standard" onChange={(v)=>dispatch(setFieldMode(v.target.value))}>
                     <Radio.Button value="standard">
                         standard

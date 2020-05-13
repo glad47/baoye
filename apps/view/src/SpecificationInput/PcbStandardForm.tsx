@@ -101,51 +101,43 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                     <Form.Item  label="Layer">
                         <ObserverSelect item={layerSelectData} name={"layer"} />
                     </Form.Item>
+                    <Form.Item label="Solder Mask(coverage)">
+                        <ObserverSelect item={solderMaskSelectData} name={"solderMask"}/>
+                    </Form.Item>
                     <Form.Item  label="Inner Copper">
                         <ObserverSelect item={innerCopperSelectData} name={"innerCopper"} />
                     </Form.Item>
                     <Form.Item label="Min Track/Spacing">
                         <ObserverSelect item={minTrackSelectData} name={"minTrack"} />
                     </Form.Item>
-                    <Form.Item label="Min Hole Size">
-                        <ObserverSelect item={minHoleSizeSelectData} name={"minHoleSize"} />
-                    </Form.Item>
                     <Form.Item label="Surface Finish">
                         <ObserverSelect item={surfaceFinishSelectData} name={"surfaceFinish"}/>
                     </Form.Item>
-                    <Form.Item label="Solder Mask(coverage)">
-                        <ObserverSelect item={solderMaskSelectData} name={"solderMask"}/>
-                    </Form.Item>
                 </Col>
-                <Col span={12}>
+                <Col span={12} className="ant-col-last">
                     <Form.Item label="Thinkness">
                        <ObserverSelect item={thinknessSelectData} name={"thinkness"}/>
                     </Form.Item>
-                    {/* { change.showCTI ?
-                        <Form.Item label="CTI">
-                          <ObserverSelect item={ctiSelectData} name={"cti"} value={INITIAL.cti}/>
-                        </Form.Item> :
-                        <Form.Item label="Heat Conductivity">
-                            <ObserverSelect item={heatConductivitySelectData} name={"heatConductivity"}/>
-                        </Form.Item>
-                    } */}
-                    <Form.Item>
-
-                    </Form.Item>
-                    <Form.Item label="Outer copper">
-                        <ObserverSelect item={outerCopperSelectData} name={"outerCopper"} />
-                    </Form.Item>
-                    <Form.Item label="BGA Size">
-                        <ObserverSelect item={bgaSizeSelectData} name={"bgaSize"}/>
+                    <Form.Item label="CTI">
+                       <ObserverSelect item={ctiSelectData} name={"cti"}/>
                     </Form.Item>
                     <Form.Item label="Hole Copper">
                         <ObserverSelect item={holeCopperSelectData} name={"holeCopper"}/>
                     </Form.Item>
-                    <Form.Item label="Surface Thickness">
-                        <ObserverSelect item={surfaceThicknessSelect} name="surfaceThickness" />
-                    </Form.Item>
                     <Form.Item label="Silkscreen">
                         <ObserverSelect item={silkscreenSelectData}  name="silkscreen" />
+                    </Form.Item>
+                    <Form.Item label="Outer copper">
+                        <ObserverSelect item={outerCopperSelectData} name={"outerCopper"} />
+                    </Form.Item>
+                    {/* <Form.Item label="BGA Size">
+                        <ObserverSelect item={bgaSizeSelectData} name={"bgaSize"}/>
+                    </Form.Item> */}
+                    <Form.Item label="Min Hole Size">
+                        <ObserverSelect item={minHoleSizeSelectData} name={"minHoleSize"} />
+                    </Form.Item>
+                    <Form.Item label="Surface Thickness">
+                        <ObserverSelect item={surfaceThicknessSelect} name="surfaceThickness" />
                     </Form.Item>
                 </Col>
             </Row>

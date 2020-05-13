@@ -48,7 +48,7 @@ const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) =>{
                         <ObserverSwitch name="countersinks"/>
                     </Form.Item>
                 </Col>
-                <Col span={12}>
+                <Col span={12} className="ant-col-last">
                     <Form.Item label="Control Concave Routing" >
                         <ObserverSwitch name="controlConcaveRouting"/>
                     </Form.Item>
