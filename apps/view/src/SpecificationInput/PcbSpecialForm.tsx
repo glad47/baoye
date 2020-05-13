@@ -24,7 +24,7 @@ const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) =>{
 
     return (
         <Form form={form} initialValues={pcbSpecialField} onValuesChange={onValuesChange} onFinish={onFinish} style={{width:"100%"}}>
-            <Row>
+            <Row className="special-mar">
                 <Col span={12}>
                     <Form.Item label="HDI">
                         <ObserverSwitch name="hdi" />

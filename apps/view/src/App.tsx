@@ -24,6 +24,7 @@ import PcbSizeForm from './SpecificationInput/PcbSizeForm'
 import BuildTimeForm from './SpecificationInput/BuildTimeForm'
 import CastCalculation from './SpecificationInput/CostCalculation'
 import ShoppingCast from './SpecificationInput/ShoppingCast'
+import ShoppingTotal from './SpecificationInput/ShoppingTotal'
 
 import { WalletFilled, SlidersFilled, SwitcherFilled,ReconciliationFilled } from '@ant-design/icons';
 
@@ -99,7 +100,7 @@ function App(): JSX.Element {
               </div>
 
               <div className="pcb-total">
-                
+                <ShoppingTotal />
               </div>
 
             </div>
