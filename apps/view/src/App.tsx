@@ -25,8 +25,9 @@ import BuildTimeForm from './SpecificationInput/BuildTimeForm'
 import CastCalculation from './SpecificationInput/CostCalculation'
 import ShoppingCast from './SpecificationInput/ShoppingCast'
 import ShoppingTotal from './SpecificationInput/ShoppingTotal'
+import StencilForm from './SpecificationInput/StencilForm'
 
-import { WalletFilled, SlidersFilled, SwitcherFilled,ReconciliationFilled } from '@ant-design/icons';
+import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled } from '@ant-design/icons';
 
 function App(): JSX.Element {
   const {dispatch,subtotal,pcbSizeField} = useAppState()
@@ -48,7 +49,7 @@ function App(): JSX.Element {
   const { Footer,Header,Content } = Layout
 
   const onchange = (): void =>{
-    console.log('ssssssssssssss');
+    console.log('s');
   } 
   return (
     <Main>
@@ -70,21 +71,35 @@ function App(): JSX.Element {
                 <li><div><ReconciliationFilled /></div></li>
               </ul>
             </div>
-            <div className="pcb-min">
-              <Nav/>
-              <div className="pcb-file">
-                <BoardDisplay />
-                <LoadFiles handleFiles={handleFiles}/>
-                <ErrorToast />
+        
+            <div className="pcb-min-info">
+
+              <div className="pcb-min">
+                <Nav/>
+                <div className="pcb-file">
+                  <BoardDisplay />
+                  <LoadFiles handleFiles={handleFiles}/>
+                  <ErrorToast />
+                </div>
+                <PcbSizeForm/>
               </div>
+<<<<<<< HEAD
               <PcbSizeForm pcbSizeField={pcbSizeField}/>
             </div>
+=======
+>>>>>>> 3aa7e0b0404706cf32abe54118763a96fcbc06d2
 
-            <div className="pcb-spec">
-              <SpecificationHead icon={"123"} title="PCBSpecification"/>
-              <PcbSpecification onChange={onchange}/>
+              {/* <div className="pcb-spec">
+                <SpecificationHead icon={"123"} title="PCBSpecification"/>
+                <PcbSpecification onChange={onchange}/>
+              </div> */}
+
+              <div className="pcb-stencil">
+                <StencilForm />
+              </div>
+
             </div>
-
+            
             <div className="pcb-sidebar">
 
               <div className="pcb-build-time">
