@@ -167,8 +167,8 @@ export default function reducer(state: State, action: Action): State {
     case actionTypes.PARSING_GERBER: {
       return {
         ...state, 
-        pcbSizeField: {...state.pcbSizeField,singleSize:{sizeX: action.payload.width, sizeY: action.payload.height}},
-        pcbStandardField: {...state.pcbStandardField,layer: action.payload.layerCount+'layer'}
+        pcbSizeField: {singleSize:{sizeX: action.payload.width, sizeY: action.payload.height}},
+        // pcbStandardField: {...state.pcbStandardField,layer: action.payload.layerCount+'layer'}
       }
     }
   }

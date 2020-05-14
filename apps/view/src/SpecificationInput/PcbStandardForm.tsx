@@ -77,9 +77,6 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                 setSurfaceThicknessSelect(surfaceThicknessSelectData)
                 break;  
             }
-
-            
-
         }
         form.submit();
     }

@@ -29,7 +29,7 @@ import ShoppingTotal from './SpecificationInput/ShoppingTotal'
 import { WalletFilled, SlidersFilled, SwitcherFilled,ReconciliationFilled } from '@ant-design/icons';
 
 function App(): JSX.Element {
-  const {dispatch,subtotal} = useAppState()
+  const {dispatch,subtotal,pcbSizeField} = useAppState()
 
   const handleFiles = (event: FileEvent): void => {
     const files =
@@ -77,7 +77,7 @@ function App(): JSX.Element {
                 <LoadFiles handleFiles={handleFiles}/>
                 <ErrorToast />
               </div>
-              <PcbSizeForm/>
+              <PcbSizeForm pcbSizeField={pcbSizeField}/>
             </div>
 
             <div className="pcb-spec">

@@ -13,8 +13,8 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
     const { Option } = Select;
     const [form] = useForm();
     const [singleMode, setSingleMode] = useState(true);
-    const { pcbSizeField,dispatch } = useAppState();
-
+    const { dispatch,pcbSizeField } = useAppState();
+    console.log(pcbSizeField);
     const onValuesChange = (v:Store) =>{
         // console.log(Object.values(v)[0])
         switch (Object.values(v)[0]) {
@@ -31,8 +31,8 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
         form.submit();
     }
     const onFinish = (v:Store)=>{
-        console.log(v);
-        console.log(Object.values(v));
+        // console.log(v);
+        // console.log(Object.values(v));
         //todo 通过判断属性是否有来调用其他dispactch
         // if(Object.values(v)){
         //     dispatch(changeSizeField(v));
@@ -53,8 +53,9 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
     // }
 
     useEffect(()=>{
-        form.validateFields(['panelSize'])   
-    },[singleMode])
+        // form.validateFields(['panelSize'])
+        form.setFieldsValue({...pcbSizeField});   
+    },[pcbSizeField])
 
     return (
         <Form form={form} initialValues={pcbSizeField} onValuesChange={onValuesChange} onFinish={onFinish}>
@@ -70,40 +71,12 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
                         </Select>
                     </Form.Item>
                     <Form.Item label="Panel Array" name="panelSize">
-                        {/* <Input.Group size="large">
-                            <Row gutter={8}>
-                                <Col span={12}>
-                                    <Form.Item noStyle name="panelSizeX">
-                                        <Input disabled={singleMode}/>
-                                    </Form.Item>
-                                </Col>
-                                <Col span={12}>
-                                    <Form.Item noStyle name="panelSizeY">
-                                        <Input disabled={singleMode}/>
-                                    </Form.Item>
-                                </Col>
-                            </Row>
-                        </Input.Group> */}
                         <ObserverSize isDisabled={singleMode}/>
                     </Form.Item>
                 </Col>
                 <Col span={12}>
                     <Form.Item label="Size" name="singleSize">
-                        {/* <Input.Group size="large">
-                            <Row gutter={8}>
-                                <Col span={12}>
-                                    <Form.Item noStyle name="sizeX" >
-                                        <Input/>
-                                    </Form.Item>
-                                </Col>
-                                <Col span={12}>
-                                    <Form.Item noStyle name="sizeY">
-                                        <Input/>
-                                    </Form.Item>
-                                </Col>
-                            </Row>
-                        </Input.Group> */}
-                        <ObserverSize value={pcbSizeField.singleSize}/>
+                        <ObserverSize/>
                     </Form.Item>
                     <Form.Item label="Quantity" name="quantity" >
                         <Input />

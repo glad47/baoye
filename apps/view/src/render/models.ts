@@ -322,13 +322,16 @@ export function gerberInfoGet(shared: StackupFromFiles): ParseGerber{
       count ++;
     }
   })
-
+  let w, h;
   if(units === 'in'){
-    (width *= 25.4).toFixed(2);
-    (height *= 25.4).toFixed(2);
+    w = (width *= 25.4).toFixed(2);
+    h = (height *= 25.4).toFixed(2);
     units = 'mm';
+  }else{
+    w = width.toFixed(2);
+    h = height.toFixed(2);
   }
-  return {width:width,height:height,units:units,layerCount:count}
+  return {width:w,height:h,units:units,layerCount:count}
 }
 
 // // A function to count the layers of a specific type

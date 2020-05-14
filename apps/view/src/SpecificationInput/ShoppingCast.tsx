@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {PayCircleFilled } from '@ant-design/icons';
 import { Row, Col, Typography, Radio, Select } from 'antd';
 
@@ -22,6 +22,18 @@ const {Title,Text} = Typography
 const { Option } = Select;
 const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
     const { countryItmes,shoppingCast } = props;
+    // todo 任务1
+    // const [countryItems, setCountryItems ] = useState([]);
+
+    const fetchCountry = (value: string) =>{
+        fetch('http://localhost:8871/quote/getCountry')
+            .then(response => response.json())
+            .then(body =>{
+                body.results.map(() =>({
+                    
+                }))
+            })
+    }
     return (
       <div>
           <Row>
@@ -33,7 +45,11 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
                     <Option value="DHL">DHL</Option>
                 </Select>
 
-                <Select defaultValue={countryItmes && countryItmes[0].id}>
+                <Select 
+                    showSearch
+                    labelInValue
+                    onSearch={fetchCountry}
+                >
                     {
                         countryItmes && countryItmes.map(item =>(
                             <Option key={item.id} value={item.id}>{item.name}</Option>

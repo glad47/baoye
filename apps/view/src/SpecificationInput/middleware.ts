@@ -23,6 +23,7 @@ export function countQuoteMiddleware(): State.Middleware {
             case State.CHANGE_SIZE_FIELD: {
                 // todo 获取pcb板工期
                 const mockData = {boardFee:100,engineeringFee:1000,testFee:1000}
+                const rep =     
                 dispatch(countSubtotal(mockData))
                 break;
             }

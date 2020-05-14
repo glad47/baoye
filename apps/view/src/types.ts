@@ -136,8 +136,8 @@ export type FieldStore  = Store
 export type FieldMode = null | 'standard' | 'special'
 
 export type ParseGerber = {
-  width: number;
-  height: number;
+  width: number | string;
+  height: number | string;
   units: string;
   layerCount: number;
 }
