@@ -26,6 +26,7 @@ import CastCalculation from './SpecificationInput/CostCalculation'
 import ShoppingCast from './SpecificationInput/ShoppingCast'
 import ShoppingTotal from './SpecificationInput/ShoppingTotal'
 import StencilForm from './SpecificationInput/StencilForm'
+import ManualForm from './SpecificationInput/ManualForm'
 
 import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled } from '@ant-design/icons';
 
@@ -83,19 +84,18 @@ function App(): JSX.Element {
                 </div>
                 <PcbSizeForm/>
               </div>
-<<<<<<< HEAD
-              <PcbSizeForm pcbSizeField={pcbSizeField}/>
-            </div>
-=======
->>>>>>> 3aa7e0b0404706cf32abe54118763a96fcbc06d2
 
               {/* <div className="pcb-spec">
                 <SpecificationHead icon={"123"} title="PCBSpecification"/>
                 <PcbSpecification onChange={onchange}/>
               </div> */}
 
-              <div className="pcb-stencil">
+              {/* <div className="pcb-stencil">
                 <StencilForm />
+              </div> */}
+
+              <div className="pcb-manual">
+                <ManualForm />
               </div>
 
             </div>
@@ -112,12 +112,12 @@ function App(): JSX.Element {
 
               <div className="pcb-cast">
                 <ShoppingCast />
-              </div>
+              </div>  
 
               <div className="pcb-total">
                 <ShoppingTotal />
               </div>
-
+              
             </div>
 
         </Content>

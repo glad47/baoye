@@ -46,6 +46,7 @@
     margin-left: 85px;
     overflow: hidden;
     box-sizing: border-box;
+    padding-bottom: 30px;
 }
 
 
@@ -497,6 +498,10 @@
     border-radius:16px;
     margin-bottom: 30px;
 }
+.pcb-manual .manual-plate{
+    margin-bottom: 4px;
+    overflow: hidden;
+}
 .pcb-stencil .ant-row{
     height: 30px;
     line-height: 30px;
@@ -519,6 +524,62 @@
     text-align: center;
 }
 
+
+/*Manualform*/
+.pcb-manual{
+    width:773px;
+    padding: 20px 28px;
+    box-sizing: border-box;
+    background:rgba(255,255,255,1);
+    box-shadow:0px 7px 21px 0px rgba(172,189,253,0.77);
+    border-radius:16px;
+    color: #000;
+}
+.pcb-manual .manual-plate h4{
+    display: flex;
+    align-items: center;
+}
+.pcb-manual .manual-plate h4 span{
+    font-size: 26px;
+    color: #FFBA00;
+    margin-right: 18px;
+}
+.pcb-manual .manual-plate h4 i{
+    font-size:20px;
+    font-style: normal;
+    font-family:Arial;
+    font-weight:bold;
+    color: #000;
+    line-height:36px;
+}
+.pcb-manual .manual-plate .ant-row {
+    margin-bottom: 5px;
+}
+.pcb-manual .manual-plate .ant-row .ant-col{
+    height: 30px;
+    line-height: 30px;
+    font-size:14px;
+    font-family:Arial;
+    color: #000;
+}
+.pcb-manual .manual-plate .manual-title,.pcb-manual .manual-plate .manual-title .ant-col,.pcb-manual .manual-plate .manual-title .ant-col h4{
+    line-height: 40px;
+    height: 40px;
+    margin-bottom: 0;
+}
+.pcb-manual .manual-plate .ant-row .ant-col .ant-select,.pcb-manual .manual-plate .ant-row .ant-col .ant-select-selector {
+    width: 140px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: 400;
+    border: none;
+    background:rgba(241,247,252,1);
+    color: rgba(206,206,206,1);
+    box-sizing: border-box;
+    border-radius: 3px;
+}
 
 
 body{
