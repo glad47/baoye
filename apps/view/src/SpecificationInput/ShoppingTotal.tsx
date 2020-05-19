@@ -2,16 +2,19 @@ import React from 'react';
 import { SwapOutlined, TransactionOutlined, ShoppingCartOutlined, PrinterFilled } from '@ant-design/icons';
 import { Row, Col, Form, Select } from 'antd';
 
-interface ShoppingTotalProps { }
+interface ShoppingTotalProps { 
+    total?: number
+}
 
 const { Option } = Select;
 
 const ShoppingCast: React.FC<ShoppingTotalProps> = (props) =>{
+    const { total } = props;
     return (
       <div>
         <Row>
-            <Col span={12}><h5>Tootal</h5></Col>
-            <Col span={12}><b>$555</b> <SwapOutlined className="total-swap" /></Col>
+            <Col span={12}><h5>Total</h5></Col>
+            <Col span={12}><b>${total}</b> <SwapOutlined className="total-swap" /></Col>
         </Row>
         <Row>
             <Col span={12}><i>Currency select</i></Col>
@@ -39,5 +42,6 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) =>{
       </div>
     )
 }
+ShoppingCast.defaultProps = {total:0}
 
 export default ShoppingCast;

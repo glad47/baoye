@@ -12,7 +12,7 @@ interface PcbStandardFromProps {
 
 //selectData
 const materialSelectData = ['FR4','Aluminum'];
-const thinknessSelectData = ['0.4mm','0.6mm','0.8mm','1.0mm','1.2mm','1.5mm','1.6mm','2.0mm','2.4mm','3.0mm'];
+const thicknessSelectData = ['0.4mm','0.6mm','0.8mm','1.0mm','1.2mm','1.5mm','1.6mm','2.0mm','2.4mm','3.0mm'];
 const tgSelectData = ['135','140','150','170','180'];
 const layerSelectData = ['1layer','2layer','4layer','6layer','8layer'];
 const innerCopperSelectData = ['none','1oz','2oz','3oz'];
@@ -99,7 +99,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                     <Form.Item  label="Layer">
                         <ObserverSelect item={layerSelectData} name={"layer"} />
                     </Form.Item>
-                    <Form.Item label="Solder Mask(coverage)">
+                    <Form.Item label="Solder Mask">
                         <ObserverSelect item={solderMaskSelectData} name={"solderMask"}/>
                     </Form.Item>
                     <Form.Item  label="Inner Copper">
@@ -113,8 +113,8 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                     </Form.Item>
                 </Col>
                 <Col span={12} className="ant-col-last">
-                    <Form.Item label="Thinkness">
-                       <ObserverSelect item={thinknessSelectData} name={"thinkness"}/>
+                    <Form.Item label="Thickness">
+                       <ObserverSelect item={thicknessSelectData} name={"thickness"}/>
                     </Form.Item>
                     <Form.Item label="CTI">
                        <ObserverSelect item={ctiSelectData} name={"cti"}/>

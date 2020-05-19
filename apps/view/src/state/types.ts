@@ -10,7 +10,10 @@ import {
   FieldStore,
   FieldMode,
   ParseGerber,
+  BuildTimeItem,
+  SubtotalItem,
 } from '../types'
+import { SelectValue } from 'antd/lib/select'
 
 
 /** 状态 Store对象包含所有数据。如果想得到某个时点的数据，就要对 Store 生成快照。这种时点的数据集合，就叫做 State。当前时刻的 State，可以通过store.getState()拿到。 */
@@ -29,7 +32,10 @@ export type State = {
   pcbStandardField: FieldStore
   pcbSpecialField: FieldStore
   pcbSizeField: FieldStore
-  subtotal: FieldStore
+  subtotal: SubtotalItem
+  buildTimeItmes: Array<BuildTimeItem>
+  urgentCost: number
+  transportCost: number
 }
 
 /** Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。 */
@@ -74,5 +80,8 @@ export type Action =
   | {type: 'CHANGE_STANDARD_FIELD'; payload: FieldStore}
   | {type: 'CHANGE_SPECIAL_FIELD'; payload: FieldStore}
   | {type: 'CHANGE_SIZE_FIELD'; payload: FieldStore}
-  | {type: 'COUNT_SUBTOTAL'; payload: FieldStore}
+  | {type: 'COUNT_SUBTOTAL'; payload: SubtotalItem}
   | {type: 'PARSING_GERBER'; payload: ParseGerber}
+  | {type: 'COUNT_BUILDTIME'; payload: Array<BuildTimeItem>}
+  | {type: 'CHANGE_URGENTCOST'; payload: number}
+  | {type: 'FETCH_TRANSPORT_COST'; payload: SelectValue}

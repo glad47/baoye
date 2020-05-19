@@ -18,7 +18,10 @@ export const INITIAL_STATE: State = {
   pcbStandardField: INITIAL_STANDARD,
   fieldMode: 'standard',
   pcbSizeField: {boardType:'Single'},
-  subtotal: {},
+  subtotal: {boardFee:0,engineeringFee:0,testFee:0},
+  buildTimeItmes: [{id: 1,dayNumber:"3day",price:0},{id: 2,dayNumber:"48hours",price:22},{id: 3,dayNumber:"24hours",price:38},],
+  urgentCost: 0,
+  transportCost: 0,
 }
 
 // const INITIAL_STANDARD = {

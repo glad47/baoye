@@ -30,7 +30,7 @@ import StencilForm from './SpecificationInput/StencilForm'
 import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled } from '@ant-design/icons';
 
 function App(): JSX.Element {
-  const {dispatch,subtotal,pcbSizeField} = useAppState()
+  const {dispatch,subtotal,buildTimeItmes,urgentCost} = useAppState()
 
   const handleFiles = (event: FileEvent): void => {
     const files =
@@ -48,9 +48,7 @@ function App(): JSX.Element {
   }
   const { Footer,Header,Content } = Layout
 
-  const onchange = (): void =>{
-    console.log('s');
-  } 
+
   return (
     <Main>
       {/* <FileList /> */}
@@ -61,7 +59,6 @@ function App(): JSX.Element {
           头    
         </Header>
         <Content>
-            
             {/* 左边栏 */}
             <div className="pcb-nav">
               <ul>
@@ -83,27 +80,22 @@ function App(): JSX.Element {
                 </div>
                 <PcbSizeForm/>
               </div>
-<<<<<<< HEAD
-              <PcbSizeForm pcbSizeField={pcbSizeField}/>
-            </div>
-=======
->>>>>>> 3aa7e0b0404706cf32abe54118763a96fcbc06d2
-
-              {/* <div className="pcb-spec">
+              {/* <PcbSizeForm /> */}
+              <div className="pcb-spec">
                 <SpecificationHead icon={"123"} title="PCBSpecification"/>
-                <PcbSpecification onChange={onchange}/>
-              </div> */}
-
-              <div className="pcb-stencil">
-                <StencilForm />
+                <PcbSpecification/>
               </div>
 
+              {/* <div className="pcb-stencil">
+                <StencilForm />
+              </div> */}
             </div>
-            
+              
+
             <div className="pcb-sidebar">
 
               <div className="pcb-build-time">
-                <BuildTimeForm />
+                <BuildTimeForm buildItems={buildTimeItmes}/>
               </div>
 
               <div className="pcb-fee">
@@ -115,7 +107,7 @@ function App(): JSX.Element {
               </div>
 
               <div className="pcb-total">
-                <ShoppingTotal />
+                <ShoppingTotal total={urgentCost+subtotal.boardFee+subtotal.engineeringFee+subtotal.testFee}/>
               </div>
 
             </div>
@@ -125,9 +117,9 @@ function App(): JSX.Element {
           尾
         </Footer>
       </Layout>
-      
+     
     </Main>
-    
+   
   )
 }
 
