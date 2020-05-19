@@ -26,6 +26,7 @@ import CastCalculation from './SpecificationInput/CostCalculation'
 import ShoppingCast from './SpecificationInput/ShoppingCast'
 import ShoppingTotal from './SpecificationInput/ShoppingTotal'
 import StencilForm from './SpecificationInput/StencilForm'
+import ManualForm from './SpecificationInput/ManualForm'
 
 import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled } from '@ant-design/icons';
 
@@ -104,12 +105,12 @@ function App(): JSX.Element {
 
               <div className="pcb-cast">
                 <ShoppingCast />
-              </div>
+              </div>  
 
               <div className="pcb-total">
                 <ShoppingTotal total={urgentCost+subtotal.boardFee+subtotal.engineeringFee+subtotal.testFee}/>
               </div>
-
+              
             </div>
 
         </Content>
