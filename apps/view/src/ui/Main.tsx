@@ -6,7 +6,7 @@ export type MainProps = {
   onDrop?: (event: React.DragEvent<HTMLElement>) => void
 }
 
-const STYLE = 'sans relative overflow-hidden h-100 pa3 white bg-gradient'
+const STYLE = 'sans relative overflow-hidden'
 
 export function Main(props: MainProps): JSX.Element {
   const {children, onDragOver, onDrop} = props

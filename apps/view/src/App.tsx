@@ -27,8 +27,11 @@ import ShoppingCast from './SpecificationInput/ShoppingCast'
 import ShoppingTotal from './SpecificationInput/ShoppingTotal'
 import StencilForm from './SpecificationInput/StencilForm'
 import ManualForm from './SpecificationInput/ManualForm'
+import img from './images/logo.png'
 
-import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled } from '@ant-design/icons';
+
+
+import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled, CalculatorOutlined } from '@ant-design/icons';
 
 function App(): JSX.Element {
   const {dispatch,subtotal,pcbSizeField} = useAppState()
@@ -59,7 +62,11 @@ function App(): JSX.Element {
      
       <Layout>
         <Header>
-          头    
+          <div className="logo"><img src={ img } alt=""/></div>  
+          <div className="sign-btn">
+            <CalculatorOutlined />
+            <span className="sign-in">Sign in</span>  
+          </div>  
         </Header>
         <Content>
             
