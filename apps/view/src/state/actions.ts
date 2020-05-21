@@ -42,7 +42,8 @@ export const COUNT_SUBTOTAL = 'COUNT_SUBTOTAL'
 export const PARSING_GERBER = 'PARSING_GERBER'
 export const COUNT_BUILDTIME = 'COUNT_BUILDTIME'
 export const CHANGE_URGENTCOST = 'CHANGE_URGENTCOST'
-export const FETCH_TRANSPORT_COST = 'FETCH_TRANSPORT_COST'
+export const CHANGE_TRANSPORT_COST = 'CHANGE_TRANSPORT_COST'
+export const ADD_QUOTE = 'ADD_QUOTE'
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -219,8 +220,13 @@ export const changeUrgentCost = (field: number): Action =>({
   payload: field
 })
 
-/** 获取运费 */
-export const fetchTransportCost = (field: SelectValue): Action =>({
-  type: FETCH_TRANSPORT_COST,
+/** 设置运费 */
+export const changeTransportCost = (field: number): Action =>({
+  type: CHANGE_TRANSPORT_COST,
   payload: field
+})
+
+/** 添加报价 */
+export const addQuote = (): Action =>({
+  type: ADD_QUOTE,
 })

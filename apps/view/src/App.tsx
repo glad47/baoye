@@ -31,7 +31,7 @@ import ManualForm from './SpecificationInput/ManualForm'
 import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled } from '@ant-design/icons';
 
 function App(): JSX.Element {
-  const {dispatch,subtotal,buildTimeItmes,urgentCost} = useAppState()
+  const {dispatch,subtotal,buildTimeItmes,urgentCost,transportCost} = useAppState()
 
   const handleFiles = (event: FileEvent): void => {
     const files =
@@ -108,7 +108,7 @@ function App(): JSX.Element {
               </div>  
 
               <div className="pcb-total">
-                <ShoppingTotal total={urgentCost+subtotal.boardFee+subtotal.engineeringFee+subtotal.testFee}/>
+                <ShoppingTotal total={urgentCost+subtotal.boardFee+subtotal.engineeringFee+subtotal.testFee+transportCost}/>
               </div>
               
             </div>

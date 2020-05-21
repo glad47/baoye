@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import {PayCircleFilled } from '@ant-design/icons';
 import { Row, Col, Typography, Radio, Select } from 'antd';
 import Axios from 'axios';
-import { useAppState, fetchTransportCost } from '../state';
+import { useAppState, changeTransportCost } from '../state';
 import { SelectValue } from 'antd/lib/select';
+import { fetchShipingCost } from './AjaxService';
 
 type CountryItem = {
     id: number
@@ -26,7 +27,7 @@ const { Option } = Select;
 let cItem: Array<CountryItem> = [];
 const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
     const { countryItmes,shoppingCast } = props;
-    const { dispatch,transportCost } = useAppState();
+    const { dispatch,transportCost,subtotal } = useAppState();
     useEffect(()=>{
         if (cItem.length === 0){
             Axios.get('http://localhost:8871/quote/getCountry')
@@ -48,7 +49,18 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
 
     const fetchShippingCost = (v: SelectValue) =>{
         console.log(v);
-        dispatch(fetchTransportCost(v));
+        const { totalWeight } = subtotal;
+        if(totalWeight){
+           Axios.all([fetchShipingCost({countryId:v,totalWeight:totalWeight})]).then((v)=>{
+                console.log(v);
+                const [{data:{data:{shippingCost},code}}] = v;
+                if(code === 0){
+                    dispatch(changeTransportCost(shippingCost));
+                }
+           });
+        }
+        
+        // dispatch(fetchTransportCost(v));
     }
     return (
       <div>
@@ -64,7 +76,6 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
                 <Select 
                     style={{ width: 100 }}
                     showSearch
-                    labelInValue
                     optionFilterProp="children"
                     filterOption={(input, option) =>
                         option?.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
@@ -79,8 +90,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
                     }
                 </Select>
             </Col>
-                <Col span={8}><i>${transportCost}</i></Col>
-            
+            <Col span={8}><i>${transportCost}</i></Col>
           </Row>
       </div>
     )

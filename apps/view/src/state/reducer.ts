@@ -183,6 +183,12 @@ export default function reducer(state: State, action: Action): State {
         urgentCost: action.payload
       }
     }
+    case actionTypes.CHANGE_TRANSPORT_COST: {
+      return {
+        ...state,
+        transportCost: action.payload
+      }
+    }
   }
 
   return state

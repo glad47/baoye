@@ -152,5 +152,6 @@ export type BuildTimeItem = {
 export type SubtotalItem = {
   boardFee: number,
   engineeringFee: number,
-  testFee: number
+  testFee: number,
+  totalWeight: number,
 }

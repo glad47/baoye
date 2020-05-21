@@ -1,15 +1,17 @@
 import React from 'react';
 import { SwapOutlined, TransactionOutlined, ShoppingCartOutlined, PrinterFilled } from '@ant-design/icons';
-import { Row, Col, Form, Select } from 'antd';
+import { Row, Col, Select, Button } from 'antd';
+import { useAppState, addQuote } from '../state';
 
 interface ShoppingTotalProps { 
-    total?: number
+    total: number
 }
 
 const { Option } = Select;
 
 const ShoppingCast: React.FC<ShoppingTotalProps> = (props) =>{
     const { total } = props;
+    const { dispatch } = useAppState();
     return (
       <div>
         <Row>
@@ -18,7 +20,7 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) =>{
         </Row>
         <Row>
             <Col span={12}><i>Currency select</i></Col>
-            <Col span={12}><TransactionOutlined className="total-transc" /><strong>¥1000</strong> </Col>
+        <Col span={12}><TransactionOutlined className="total-transc" /><strong>¥{(total*6.8).toFixed(2)}</strong> </Col>
         </Row>
         <Row>
             <Col span={24}>
@@ -35,8 +37,8 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) =>{
         <Row>
             <Col span={14}></Col>
             <Col span={10} className="total-shopping-icon">
-                <ShoppingCartOutlined />
-                <PrinterFilled />
+                <Button icon={<ShoppingCartOutlined />} block type="link" onClick={()=>{dispatch(addQuote())}}/>
+                <Button icon={<PrinterFilled />} block type="link"/>
             </Col>
         </Row>
       </div>

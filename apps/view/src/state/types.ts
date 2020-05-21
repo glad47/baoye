@@ -84,4 +84,5 @@ export type Action =
   | {type: 'PARSING_GERBER'; payload: ParseGerber}
   | {type: 'COUNT_BUILDTIME'; payload: Array<BuildTimeItem>}
   | {type: 'CHANGE_URGENTCOST'; payload: number}
-  | {type: 'FETCH_TRANSPORT_COST'; payload: SelectValue}
+  | {type: 'CHANGE_TRANSPORT_COST'; payload: number}
+  | {type: 'ADD_QUOTE';}

@@ -44,7 +44,7 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) =>{
            </Row>
            <Row className="ant-row-cont">
                <Text>quickturn charge</Text>
-                <Text><b>$ {urgentCost}</b></Text>
+                <Text><b>${urgentCost}</b></Text>
            </Row>
        </div> 
     )
