@@ -171,6 +171,24 @@ export default function reducer(state: State, action: Action): State {
         // pcbStandardField: {...state.pcbStandardField,layer: action.payload.layerCount+'layer'}
       }
     }
+    case actionTypes.COUNT_BUILDTIME: {
+      return {
+        ...state,
+        buildTimeItmes: action.payload
+      }
+    }
+    case actionTypes.CHANGE_URGENTCOST: {
+      return {
+        ...state,
+        urgentCost: action.payload
+      }
+    }
+    case actionTypes.CHANGE_TRANSPORT_COST: {
+      return {
+        ...state,
+        transportCost: action.payload
+      }
+    }
   }
 
   return state

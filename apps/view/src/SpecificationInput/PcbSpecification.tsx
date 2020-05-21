@@ -49,7 +49,7 @@ export const INITIAL_STANDARD: Store = {
     "surfaceFinish":'HASL lead free',
     "solderMask":'green',
     "heatConductivity":'1w', 
-    "thinkness":'0.8mm',
+    "thickness":'0.8mm',
     "cti":'175≤CTI<250',
     "outerCopper":'1oz',
     "bgaSize":'≥0.30mm',

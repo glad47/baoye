@@ -34,7 +34,7 @@ import img from './images/logo.png'
 import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled, CalculatorOutlined } from '@ant-design/icons';
 
 function App(): JSX.Element {
-  const {dispatch,subtotal,pcbSizeField} = useAppState()
+  const {dispatch,subtotal,buildTimeItmes,urgentCost,transportCost} = useAppState()
 
   const handleFiles = (event: FileEvent): void => {
     const files =
@@ -52,9 +52,7 @@ function App(): JSX.Element {
   }
   const { Footer,Header,Content } = Layout
 
-  const onchange = (): void =>{
-    console.log('s');
-  } 
+
   return (
     <Main>
       {/* <FileList /> */}
@@ -69,7 +67,6 @@ function App(): JSX.Element {
           </div>  
         </Header>
         <Content>
-            
             {/* 左边栏 */}
             <div className="pcb-nav">
               <ul>
@@ -91,26 +88,22 @@ function App(): JSX.Element {
                 </div>
                 <PcbSizeForm/>
               </div>
-
-              {/* <div className="pcb-spec">
+              {/* <PcbSizeForm /> */}
+              <div className="pcb-spec">
                 <SpecificationHead icon={"123"} title="PCBSpecification"/>
-                <PcbSpecification onChange={onchange}/>
-              </div> */}
+                <PcbSpecification/>
+              </div>
 
               {/* <div className="pcb-stencil">
                 <StencilForm />
               </div> */}
-
-              <div className="pcb-manual">
-                <ManualForm />
-              </div>
-
             </div>
-            
+              
+
             <div className="pcb-sidebar">
 
               <div className="pcb-build-time">
-                <BuildTimeForm />
+                <BuildTimeForm buildItems={buildTimeItmes}/>
               </div>
 
               <div className="pcb-fee">
@@ -122,7 +115,7 @@ function App(): JSX.Element {
               </div>  
 
               <div className="pcb-total">
-                <ShoppingTotal />
+                <ShoppingTotal total={urgentCost+subtotal.boardFee+subtotal.engineeringFee+subtotal.testFee+transportCost}/>
               </div>
               
             </div>
@@ -132,9 +125,9 @@ function App(): JSX.Element {
           尾
         </Footer>
       </Layout>
-      
+     
     </Main>
-    
+   
   )
 }
 

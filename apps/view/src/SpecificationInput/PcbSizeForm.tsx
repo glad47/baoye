@@ -14,7 +14,6 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
     const [form] = useForm();
     const [singleMode, setSingleMode] = useState(true);
     const { dispatch,pcbSizeField } = useAppState();
-    console.log(pcbSizeField);
     const onValuesChange = (v:Store) =>{
         // console.log(Object.values(v)[0])
         switch (Object.values(v)[0]) {
@@ -26,17 +25,10 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
                 setSingleMode(true)
                 break;
             }
-           
         }
         form.submit();
     }
     const onFinish = (v:Store)=>{
-        // console.log(v);
-        // console.log(Object.values(v));
-        //todo 通过判断属性是否有来调用其他dispactch
-        // if(Object.values(v)){
-        //     dispatch(changeSizeField(v));
-        // }
         if(Object.values(v)[0] === 'Single'){
             if(Object.values(v)[2] && Object.values(v)[3]){
                 dispatch(changeSizeField(v));
@@ -47,11 +39,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
             }
         }
     }
-
-    // const onFinishFailed = () =>{
-    //     form.submit();
-    // }
-
+    
     useEffect(()=>{
         // form.validateFields(['panelSize'])
         form.setFieldsValue({...pcbSizeField});   

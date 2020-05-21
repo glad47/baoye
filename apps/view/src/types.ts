@@ -141,3 +141,17 @@ export type ParseGerber = {
   units: string;
   layerCount: number;
 }
+
+/** 构建时间项 */
+export type BuildTimeItem = {
+  id: number,
+  dayNumber: string,
+  price: number
+}
+
+export type SubtotalItem = {
+  boardFee: number,
+  engineeringFee: number,
+  testFee: number,
+  totalWeight: number,
+}

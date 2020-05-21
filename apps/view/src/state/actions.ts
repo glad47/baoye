@@ -7,9 +7,12 @@ import {
   FieldMode,
   FieldStore,
   ParseGerber,
+  BuildTimeItem,
+  SubtotalItem,
 } from '../types'
 
 import {Action} from './types'
+import { SelectValue } from 'antd/lib/select'
 
 export const FETCH_APP_PREFERENCES = 'FETCH_APP_PREFERENCES'
 export const UPDATE_APP_PREFERENCES = 'UPDATE_APP_PREFERENCES'
@@ -37,6 +40,10 @@ export const CHANGE_SPECIAL_FIELD = 'CHANGE_SPECIAL_FIELD'
 export const CHANGE_SIZE_FIELD = 'CHANGE_SIZE_FIELD'
 export const COUNT_SUBTOTAL = 'COUNT_SUBTOTAL'
 export const PARSING_GERBER = 'PARSING_GERBER'
+export const COUNT_BUILDTIME = 'COUNT_BUILDTIME'
+export const CHANGE_URGENTCOST = 'CHANGE_URGENTCOST'
+export const CHANGE_TRANSPORT_COST = 'CHANGE_TRANSPORT_COST'
+export const ADD_QUOTE = 'ADD_QUOTE'
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -196,7 +203,30 @@ export const changeSizeField = (field: FieldStore): Action => ({
 })
 
 /** 计算小计 */
-export const countSubtotal = (field: FieldStore): Action => ({
+export const countSubtotal = (field: SubtotalItem): Action => ({
   type: COUNT_SUBTOTAL,
   payload: field
+})
+
+/** 获取建造时间 */
+export const countBuildTime = (field: Array<BuildTimeItem>) : Action =>({
+  type: COUNT_BUILDTIME,
+  payload: field
+})
+
+/** 修改加急 */
+export const changeUrgentCost = (field: number): Action =>({
+  type: CHANGE_URGENTCOST,
+  payload: field
+})
+
+/** 设置运费 */
+export const changeTransportCost = (field: number): Action =>({
+  type: CHANGE_TRANSPORT_COST,
+  payload: field
+})
+
+/** 添加报价 */
+export const addQuote = (): Action =>({
+  type: ADD_QUOTE,
 })

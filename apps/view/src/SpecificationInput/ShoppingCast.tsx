@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {PayCircleFilled } from '@ant-design/icons';
 import { Row, Col, Typography, Radio, Select } from 'antd';
+import Axios from 'axios';
+import { useAppState, changeTransportCost } from '../state';
+import { SelectValue } from 'antd/lib/select';
+import { fetchShipingCost } from './AjaxService';
 
 type CountryItem = {
     id: number
@@ -20,24 +24,48 @@ interface ShoppingCastProps {
 
 const {Title,Text} = Typography
 const { Option } = Select;
+let cItem: Array<CountryItem> = [];
 const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
     const { countryItmes,shoppingCast } = props;
+    const { dispatch,transportCost,subtotal } = useAppState();
+    useEffect(()=>{
+        if (cItem.length === 0){
+            Axios.get('http://localhost:8871/quote/getCountry')
+            .then((rep)=>{
+              console.log(rep.data.data);
+              if(rep.data.code === 0){
+                cItem = rep.data.data;
+              }
+            }).catch((rep)=>{
+              console.log(rep)
+            })
+        }
+    },[cItem]);
     // todo 任务1
     // const [countryItems, setCountryItems ] = useState([]);
+    const fetchCountryItems = () =>{
+        
+    }
 
-    const fetchCountry = (value: string) =>{
-        fetch('http://localhost:8871/quote/getCountry')
-            .then(response => response.json())
-            .then(body =>{
-                body.results.map(() =>({
-                    
-                }))
-            })
+    const fetchShippingCost = (v: SelectValue) =>{
+        console.log(v);
+        const { totalWeight } = subtotal;
+        if(totalWeight){
+           Axios.all([fetchShipingCost({countryId:v,totalWeight:totalWeight})]).then((v)=>{
+                console.log(v);
+                const [{data:{data:{shippingCost},code}}] = v;
+                if(code === 0){
+                    dispatch(changeTransportCost(shippingCost));
+                }
+           });
+        }
+        
+        // dispatch(fetchTransportCost(v));
     }
     return (
       <div>
           <Row>
-            <Col span={24}><Title level={3}><PayCircleFilled /><b>Shopping Cast</b></Title></Col>
+            <Col span={24}><Title level={3}><PayCircleFilled /><b>Shipping Cost</b></Title></Col>
           </Row>
           <Row className="shopping-cast-mar">
             <Col span={16}>
@@ -46,22 +74,26 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
                 </Select>
 
                 <Select 
+                    style={{ width: 100 }}
                     showSearch
-                    labelInValue
-                    onSearch={fetchCountry}
+                    optionFilterProp="children"
+                    filterOption={(input, option) =>
+                        option?.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                    }
+                    onFocus={fetchCountryItems}
+                    onChange={fetchShippingCost}
                 >
                     {
-                        countryItmes && countryItmes.map(item =>(
+                        cItem && cItem.map(item =>(
                             <Option key={item.id} value={item.id}>{item.name}</Option>
                         ))
                     }
                 </Select>
             </Col>
-            <Col span={8}><i>$555</i></Col>
-            
+            <Col span={8}><i>${transportCost}</i></Col>
           </Row>
       </div>
     )
 }
-ShoppingCast.defaultProps = {countryItmes:[{id:1,name:'china'},{id:2,name:'us'}]}
+ShoppingCast.defaultProps = {countryItmes:[{id:1,name:'China'},{id:2,name:'America'},{id:3,name:'Germany'}]}
 export default ShoppingCast;
