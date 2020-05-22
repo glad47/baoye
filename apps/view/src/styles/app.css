@@ -3,7 +3,6 @@
     width: 1300px;
     margin: 0 auto;
     background: #fff;
-    overflow: hidden;
 }
 
 /*pcb-nav*/
@@ -44,9 +43,7 @@
     padding: 0 30px;
     float: left;
     margin-left: 85px;
-    overflow: hidden;
     box-sizing: border-box;
-    padding-bottom: 30px;
 }
 
 
@@ -581,12 +578,70 @@
     border-radius: 3px;
 }
 
-
 body{
     height: auto !important; 
     overflow: hidden !important;
 }
+.sans .ant-layout{
+    background: #fff;
+    padding-top: 44px;
+}
+.sans .ant-layout .ant-layout-header{
+    width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    background: none;
+    padding: 0;
+    height: 48px;
+    margin-bottom: 68px;
+}
+.sans .ant-layout .ant-layout-header .logo{
+    width: 210px;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+.sans .ant-layout .ant-layout-header .logo img{
+    display: block;
+    width: 100%;
+    max-width: auto;
+    max-height: auto;
+    height: auto;
+}
+.sans .ant-layout .ant-layout-header .sign-btn{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+.sans .ant-layout .ant-layout-header .sign-in{
+    display: block;
+    width: 222px;
+    line-height: 44px;
+    text-align: center;
+    font-size:21px;
+    font-family:Arial;
+    font-weight:bold;
+    color: #2952ea;
+    border-radius: 26px;
+    border: 2px solid #2952ea;
+    cursor: pointer;
+}
+.sans .ant-layout .ant-layout-header .anticon-calculator{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    color: #2952ea;
+    border:2px solid #2952ea;
+    border-radius: 100%;
+    cursor: pointer;
+}
 .h-100{
     height: auto !important; 
     overflow: auto;
+    margin: 0;
+    padding: 0 !important;
 }
