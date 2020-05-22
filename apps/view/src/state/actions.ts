@@ -227,7 +227,6 @@ export const changeTransportCost = (field: number): Action =>({
 })
 
 /** 添加报价 */
-export const addQuote = ( files: Array<File>,): Action =>({
+export const addQuote = (): Action =>({
   type: ADD_QUOTE,
-  payload: files
 })

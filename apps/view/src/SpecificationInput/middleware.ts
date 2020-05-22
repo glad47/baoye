@@ -51,10 +51,10 @@ export function countQuoteMiddleware(): State.Middleware {
             }
             case State.ADD_QUOTE: {
                 console.log('添加报价',state);
-                const file = action.payload;
-                console.log(file);
                 const {pcbSizeField,pcbSpecialField,pcbStandardField,subtotal} = state;
-                Axios.all([ajaxAddQuote({pcbSizeField:pcbSizeField,pcbSpecialField:pcbSpecialField,pcbStandardField:pcbStandardField,subtotal:subtotal})])
+                Axios.all([
+                    ajaxAddQuote({pcbSizeField:pcbSizeField,pcbSpecialField:pcbSpecialField,pcbStandardField:pcbStandardField,subtotal:subtotal})
+                ])
                 break;
             }
         }

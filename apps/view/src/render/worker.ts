@@ -109,14 +109,11 @@ ctx.onmessage = function receive(event) {
         const [selfContained, shared] = stackups
         let gerberInfo = gerberInfoGet(shared);
         ajaxFileUpload(files).then((rep)=>{
-          // console.log(rep);
           const { data:{data,code}} =rep;
-          // console.log("fffffffffffff",data);
-          // console.log("ccccccccccc",code);
           if(code === 0){
             gerberInfo.quoteFilePath = data;
-            ctx.postMessage(parsingGerber(gerberInfo))
           }
+          ctx.postMessage(parsingGerber(gerberInfo))
         });
 
         // console.log("1hao",selfContained);

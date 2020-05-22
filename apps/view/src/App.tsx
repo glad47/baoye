@@ -20,17 +20,13 @@ import ShoppingCast from './SpecificationInput/ShoppingCast'
 import ShoppingTotal from './SpecificationInput/ShoppingTotal'
 import StencilForm from './SpecificationInput/StencilForm'
 import ManualForm from './SpecificationInput/ManualForm'
-import img from './images/logo.png'
 
-
-
-import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled, CalculatorOutlined } from '@ant-design/icons';
+import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled } from '@ant-design/icons';
 
 function App(): JSX.Element {
   const {dispatch,subtotal,buildTimeItmes,urgentCost,transportCost} = useAppState()
-  let files: File[] | any[]
   const handleFiles = (event: FileEvent): void => {
-    files =
+    const files =
       'dataTransfer' in event
         ? Array.from(event.dataTransfer.files)
         : Array.from(event.target.files || [])
@@ -46,8 +42,7 @@ function App(): JSX.Element {
   const { Footer,Header,Content } = Layout
 
   const handleAddQuote = () =>{
-    console.log(files)
-    dispatch(addQuote(files));
+    dispatch(addQuote());
   }
 
   return (
@@ -57,11 +52,7 @@ function App(): JSX.Element {
      
       <Layout>
         <Header>
-          <div className="logo"><img src={ img } alt=""/></div>  
-          <div className="sign-btn">
-            <CalculatorOutlined />
-            <span className="sign-in">Sign in</span>  
-          </div>  
+          头    
         </Header>
         <Content>
             {/* 左边栏 */}
