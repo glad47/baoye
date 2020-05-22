@@ -331,7 +331,7 @@ export function gerberInfoGet(shared: StackupFromFiles): ParseGerber{
     w = width.toFixed(2);
     h = height.toFixed(2);
   }
-  return {width:w,height:h,units:units,layerCount:count}
+  return {width:w,height:h,units:units,layerCount:count,quoteFilePath:null}
 }
 
 // // A function to count the layers of a specific type

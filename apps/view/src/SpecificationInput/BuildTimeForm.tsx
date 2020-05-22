@@ -19,7 +19,7 @@ const bts = [
 const {Title,Text} = Typography
 const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) =>{
     const {buildItems} = props
-    const { dispatch, urgentCost } = useAppState();
+    const { dispatch, subtotal } = useAppState();
     const onChange = (e: RadioChangeEvent) =>{
         let v = e.target.value;
         const {price} = buildItems.filter((item)=>{return Number(item.id) === Number(v)})[0]
@@ -44,7 +44,7 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) =>{
            </Row>
            <Row className="ant-row-cont">
                <Text>quickturn charge</Text>
-                <Text><b>${urgentCost}</b></Text>
+                <Text><b>${subtotal.urgentFee}</b></Text>
            </Row>
        </div> 
     )

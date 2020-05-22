@@ -2,10 +2,8 @@
 import React from 'react'
 import {hot} from 'react-hot-loader/root'
 
-import {useAppState, createBoard, createBoardFromUrl} from './state'
+import {useAppState, createBoard, createBoardFromUrl, addQuote} from './state'
 import BoardDisplay from './BoardDisplay'
-import FileList from './FileList'
-import BoardList from './BoardList'
 import Nav from './Nav'
 import LoadFiles from './LoadFiles'
 import ErrorToast from './ErrorToast'
@@ -15,11 +13,6 @@ import {FileEvent} from './types'
 import { Layout } from 'antd'
 import PcbSpecification from './SpecificationInput/PcbSpecification'
 import SpecificationHead from './SpecificationInput/SpecificationHead'
-import FormDemo from './SpecificationInput/FormDemo'
-import CustomizedForm from './SpecificationInput/CustomizedForm'
-import { Store } from 'antd/lib/form/interface'
-import PcbSpecialForm from './SpecificationInput/PcbSpecialForm'
-import PcbStandardFrom from './SpecificationInput/PcbStandardForm'
 import PcbSizeForm from './SpecificationInput/PcbSizeForm'
 import BuildTimeForm from './SpecificationInput/BuildTimeForm'
 import CastCalculation from './SpecificationInput/CostCalculation'
@@ -32,9 +25,9 @@ import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled } fro
 
 function App(): JSX.Element {
   const {dispatch,subtotal,buildTimeItmes,urgentCost,transportCost} = useAppState()
-
+  let files: File[] | any[]
   const handleFiles = (event: FileEvent): void => {
-    const files =
+    files =
       'dataTransfer' in event
         ? Array.from(event.dataTransfer.files)
         : Array.from(event.target.files || [])
@@ -49,6 +42,10 @@ function App(): JSX.Element {
   }
   const { Footer,Header,Content } = Layout
 
+  const handleAddQuote = () =>{
+    console.log(files)
+    dispatch(addQuote(files));
+  }
 
   return (
     <Main>
@@ -108,7 +105,7 @@ function App(): JSX.Element {
               </div>  
 
               <div className="pcb-total">
-                <ShoppingTotal total={urgentCost+subtotal.boardFee+subtotal.engineeringFee+subtotal.testFee+transportCost}/>
+                <ShoppingTotal total={Number((urgentCost+subtotal.boardFee+subtotal.engineeringFee+subtotal.testFee+transportCost).toFixed(2))} handleAddQuote={handleAddQuote}/>
               </div>
               
             </div>

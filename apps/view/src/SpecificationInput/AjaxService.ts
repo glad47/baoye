@@ -24,8 +24,20 @@ export const fetchShipingCost = (data: any) =>{
 
 export const ajaxAddQuote = (data: any) => {
     return Axios.request({
-        url: baseUrl + '',
+        url: baseUrl + 'quote/addQuoteV2',
         method: 'post',
         data: data
+    })
+}
+
+export const ajaxFileUpload = (file: File[]) =>{
+    const fromData = new FormData();
+    fromData.append('file',file[0]);
+
+    return Axios.request({
+        headers:{'Content-Type': 'multipart/form-data',},
+        method: 'post',
+        data: fromData,
+        url: baseUrl + 'quote/upload'
     })
 }

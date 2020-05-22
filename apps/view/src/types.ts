@@ -140,6 +140,7 @@ export type ParseGerber = {
   height: number | string;
   units: string;
   layerCount: number;
+  quoteFilePath: string | null;
 }
 
 /** 构建时间项 */
@@ -154,4 +155,6 @@ export type SubtotalItem = {
   engineeringFee: number,
   testFee: number,
   totalWeight: number,
+  urgentFee: number | null,
+  shippingFee: number | null,
 }

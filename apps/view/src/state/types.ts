@@ -85,4 +85,4 @@ export type Action =
   | {type: 'COUNT_BUILDTIME'; payload: Array<BuildTimeItem>}
   | {type: 'CHANGE_URGENTCOST'; payload: number}
   | {type: 'CHANGE_TRANSPORT_COST'; payload: number}
-  | {type: 'ADD_QUOTE';}
+  | {type: 'ADD_QUOTE'; payload: Array<File> }

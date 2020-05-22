@@ -26,8 +26,7 @@ const {Title,Text} = Typography
 const { Option } = Select;
 let cItem: Array<CountryItem> = [];
 const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
-    const { countryItmes,shoppingCast } = props;
-    const { dispatch,transportCost,subtotal } = useAppState();
+    const { dispatch,subtotal } = useAppState();
     useEffect(()=>{
         if (cItem.length === 0){
             Axios.get('http://localhost:8871/quote/getCountry')
@@ -90,7 +89,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
                     }
                 </Select>
             </Col>
-            <Col span={8}><i>${transportCost}</i></Col>
+            <Col span={8}><i>${subtotal.shippingFee}</i></Col>
           </Row>
       </div>
     )

@@ -43,16 +43,18 @@ export function countQuoteMiddleware(): State.Middleware {
                     if(c2 === 0){
                         console.log(d2);
                         const {newTestQuoteTOUSD,projectQuoteToUSD,totalBoardQuoteToUSD,totalQuoteWeight} = d2;
-                        dispatch(countSubtotal({boardFee:totalBoardQuoteToUSD,engineeringFee:projectQuoteToUSD,testFee:newTestQuoteTOUSD,totalWeight:totalQuoteWeight}))
+                        dispatch(countSubtotal({boardFee:totalBoardQuoteToUSD,engineeringFee:projectQuoteToUSD,testFee:newTestQuoteTOUSD,totalWeight:totalQuoteWeight,urgentFee:null,shippingFee:null}))
                     }
                 })
-
                 break;
 
             }
             case State.ADD_QUOTE: {
                 console.log('添加报价',state);
-                Axios.all([ajaxAddQuote({})])
+                const file = action.payload;
+                console.log(file);
+                const {pcbSizeField,pcbSpecialField,pcbStandardField,subtotal} = state;
+                Axios.all([ajaxAddQuote({pcbSizeField:pcbSizeField,pcbSpecialField:pcbSpecialField,pcbStandardField:pcbStandardField,subtotal:subtotal})])
                 break;
             }
         }
