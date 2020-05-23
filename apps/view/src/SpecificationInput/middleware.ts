@@ -54,7 +54,13 @@ export function countQuoteMiddleware(): State.Middleware {
                 const {pcbSizeField,pcbSpecialField,pcbStandardField,subtotal} = state;
                 Axios.all([
                     ajaxAddQuote({pcbSizeField:pcbSizeField,pcbSpecialField:pcbSpecialField,pcbStandardField:pcbStandardField,subtotal:subtotal})
-                ])
+                ]).then((rep)=>{
+                    const [{data:{data,code}}] = rep;
+                    if(code === 0){
+                        // todo 反馈信息
+                        console.log(data);
+                    }
+                })
                 break;
             }
         }
