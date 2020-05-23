@@ -108,7 +108,7 @@ ctx.onmessage = function receive(event) {
       response = filesToStackups(files).then(async stackups => {
         const [selfContained, shared] = stackups
         let gerberInfo = gerberInfoGet(shared);
-        ajaxFileUpload(files).then((rep)=>{
+        ajaxFileUpload(files).then((rep: { data: { data: any; code: any } })=>{
           const { data:{data,code}} =rep;
           if(code === 0){
             gerberInfo.quoteFilePath = data;
