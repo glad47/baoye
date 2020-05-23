@@ -4,7 +4,6 @@ import MD5 from 'md5.js'
 import pump from 'pump'
 import {isZip} from '../util'
 import {baseName, promiseFlatMap, PromiseArray} from './util'
-import JSZip from 'jszip'
 
 const READER_OPTIONS = {chunkSize: 2048}
 
@@ -77,13 +76,13 @@ function fileReader(file: File): FileStream {
 }
 
 async function zipReader(file: Blob): PromiseArray<FileStream> {
-  console.log(file);
-  return JSZip.loadAsync(file)
+  console.log("读取文件方法zipReader",file);
+  return import('jszip').then(ZipModule => ZipModule.loadAsync(file)
     .then(zip =>
       Object.keys(zip.files)
         .filter(name => !zip.files[name].dir)
         .map(name => 
           pump<FileStream>(zip.file(name).nodeStream(), new FileStream(name))
         )
-    )
+    ))
 }

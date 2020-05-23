@@ -16,11 +16,13 @@ const log: Logger = {
 
 export default log
 
+/** 生成日志中间件 */
 export const createLogMiddleware = (): Middleware => {
   return store => next => action => {
+    //这里可以看成 dispatch(action) => action
     const result = next(action)
-    log.debug('action', action)
-    log.debug('next state', store.getState())
+    log.debug('action --来自于日志中间件', action)
+    log.debug('next state --来自于日志中间件', store.getState())
     return result
   }
 }

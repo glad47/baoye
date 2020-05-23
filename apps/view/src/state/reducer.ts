@@ -1,7 +1,8 @@
 import * as actionTypes from './actions'
 import {INITIAL_STATE} from './context'
 import {Action, State} from './types'
-
+import PcbSizeForm from '../SpecificationInput/PcbSizeForm'
+/** Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。Reducer 是一个函数，它接受 Action 和当前 State 作为参数，返回一个新的 State。 */
 export default function reducer(state: State, action: Action): State {
   switch (action.type) {
     case actionTypes.APP_PREFERENCES: {
@@ -39,6 +40,10 @@ export default function reducer(state: State, action: Action): State {
 
     case actionTypes.SET_MODE: {
       return {...state, mode: action.payload}
+    }
+
+    case actionTypes.SET_FIELDMODE: {
+      return {...state, fieldMode: action.payload}
     }
 
     case actionTypes.TOGGLE_VISIBILITY: {
@@ -142,6 +147,48 @@ export default function reducer(state: State, action: Action): State {
       }
 
       return nextState
+    }
+
+    case actionTypes.CHANGE_SPECIAL_FIELD: {
+      return {...state, pcbSpecialField: action.payload}
+    }
+
+    case actionTypes.CHANGE_STANDARD_FIELD: {
+      return {...state, pcbStandardField: action.payload}
+    }
+
+    case actionTypes.CHANGE_SIZE_FIELD: {
+      return {...state, pcbSizeField: action.payload}
+    }
+
+    case actionTypes.COUNT_SUBTOTAL: {
+      return {...state, subtotal: action.payload}
+    }
+
+    case actionTypes.PARSING_GERBER: {
+      return {
+        ...state, 
+        pcbSizeField: {...state.pcbSizeField,singleSize:{sizeX: action.payload.width, sizeY: action.payload.height}},
+        pcbStandardField: {...state.pcbStandardField,layer: action.payload.layerCount+'layer',quoteUploadPath: action.payload.quoteFilePath}
+      }
+    }
+    case actionTypes.COUNT_BUILDTIME: {
+      return {
+        ...state,
+        buildTimeItmes: action.payload
+      }
+    }
+    case actionTypes.CHANGE_URGENTCOST: {
+      return {
+        ...state,
+        subtotal: {...state.subtotal,urgentFee: action.payload}
+      }
+    }
+    case actionTypes.CHANGE_TRANSPORT_COST: {
+      return {
+        ...state,
+        subtotal: {...state.subtotal,shippingFee:action.payload}
+      }
     }
   }
 

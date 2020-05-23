@@ -19,6 +19,7 @@ const ZOOM_BAR_STYLE = 'dib pt2 bg-white shadow w-100'
 const ZOOM_SLIDER_STYLE =
   'absolute w1 h1 top-50 tf-center bg-brand o-70 left-animate'
 
+/** 控制缩放比例按钮 */  
 export default function Controls(props: DisplayControllerProps): JSX.Element {
   const [grabbing, setGrabbing] = useState(false)
   const {step, reset, zoom, zoomIn, zoomOut} = props
@@ -32,13 +33,13 @@ export default function Controls(props: DisplayControllerProps): JSX.Element {
 
   return (
     <div className={CONTROLS_STYLE}>
-      <Button
+      {/* <Button
         className={ZOOM_RESET_STYLE}
         onClick={reset}
         title={ZOOM_RESET_TOOLTIP}
       >
         <Icon name="expand" />
-      </Button>
+      </Button> */}
       <Button
         className={ZOOM_ICON_STYLE}
         onClick={zoomOut}

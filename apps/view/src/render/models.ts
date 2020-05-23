@@ -21,12 +21,14 @@ import {
   Layer,
   LayerOptions,
   BoardUpdate,
+  ParseGerber,
 } from '../types'
 
 import {svgToDataUri} from '../image'
 import {TYPE_DRILL} from '../layers'
 import {readFiles, fetchZipFile, writeFiles, FileStream} from './files'
 import {baseName} from './util'
+import JSZip from 'jszip'
 
 export type InputLayerFromFile = InputLayer & {gerber: FileStream}
 
@@ -181,12 +183,15 @@ export function stackupToBoardRender(
   }
 }
 
+/** 文件流分层盘旋飞行 */
 async function fileStreamsToStackups(
   fileStreams: Array<FileStream>
 ): Promise<[StackupFromFiles, StackupFromFiles]> {
   const id = xid.random(RANDOM_ID_LENGTH)
   const layers = fileStreams.map(fileStreamToInputLayer)
   const options = {id, attributes: {class: 'w-100 h-100'}}
+
+  console.log("文件流分层盘旋飞行",fileStreams);
 
   return getPcbStackup().then(pcbStackup => {
     const selfContainedStackup = pcbStackup(layers, options)
@@ -304,3 +309,42 @@ function layerToGerberToSvgOptions(
     units: boardLevelOptions.units,
   }
 }
+
+export function stackupToZip(files: Array<File>): any{
+  return readFiles(files).then()
+}
+
+export function gerberInfoGet(shared: StackupFromFiles): ParseGerber{
+  let {top:{width,height,units},layers } = shared;
+  let count = 0;
+  layers.forEach(layer =>{
+    if(layer.type && "copper".indexOf(layer.type) > -1){
+      count ++;
+    }
+  })
+  let w, h;
+  if(units === 'in'){
+    w = (width *= 25.4).toFixed(2);
+    h = (height *= 25.4).toFixed(2);
+    units = 'mm';
+  }else{
+    w = width.toFixed(2);
+    h = height.toFixed(2);
+  }
+  return {width:w,height:h,units:units,layerCount:count,quoteFilePath:null}
+}
+
+// // A function to count the layers of a specific type
+// function countLayers(layers, types) {
+//   let count = 0;
+//   layers.forEach(layer => {
+//     if (types.indexOf(layer.type) > -1) {
+//       count++;
+//     }
+//   });
+//   return count;
+// }
+
+// function countCopperLayers(layers: OutputLayer<InputLayerFromFile>[]) {
+//   return countLayers(layers, ["copper"])
+// }

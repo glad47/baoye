@@ -20,6 +20,8 @@ import {
   stackupToZipBlob,
   updateBoard,
   updateBoardThumbnail,
+  stackupToZip,
+  gerberInfoGet,
 } from './models'
 
 import {
@@ -38,7 +40,10 @@ import {
   allBoardsDeleted,
   workerInitialized,
   workerErrored,
+  parsingGerber,
+  PARSING_GERBER,
 } from '../state'
+import { ajaxFileUpload } from '../SpecificationInput/AjaxService'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ctx: RenderWorkerContext = self as any
@@ -99,22 +104,37 @@ ctx.onmessage = function receive(event) {
 
     case CREATE_BOARD: {
       const files = request.payload
-      console.log(files);
+      //console.log(files);
       response = filesToStackups(files).then(async stackups => {
         const [selfContained, shared] = stackups
-        console.log(selfContained)
+        let gerberInfo = gerberInfoGet(shared);
+        ajaxFileUpload(files).then((rep: { data: { data: any; code: any } })=>{
+          const { data:{data,code}} =rep;
+          if(code === 0){
+            gerberInfo.quoteFilePath = data;
+          }
+          ctx.postMessage(parsingGerber(gerberInfo))
+        });
+
+        // console.log("1hao",selfContained);
+        // console.log("2hao",shared);
         const board = stackupToBoard(selfContained)
         const render = stackupToBoardRender(shared, board)
-        console.log(board)
-        console.log(render)
+        // console.log("board",board)
+        // console.log("render",render)
+        // console.log("fffffffffffffffffffffffff",files)
         ctx.postMessage(boardRendered(render, duration(startTime)))
+        ctx.postMessage(boardUpdated(board))
+        
 
-        return saveBoard(db, board).then(() =>
-          ctx.postMessage(boardUpdated(board))
-        )
+        // return saveBoard(db, board).then(() =>{
+        //   ctx.postMessage(boardUpdated(board))
+        //   //! 解析上传的资料
+        //   ctx.postMessage(parsingGerber(gerberInfo))
+        // })
       })
 
-      break
+      break 
     }
 
     case GET_BOARD: {
@@ -197,9 +217,12 @@ ctx.onmessage = function receive(event) {
 }
 
 declare module './worker' {
+  /** 渲染worker */
   export default class RenderWorker extends Worker {
     constructor()
+    /** 主线程通过worker.onmessage指定监听函数，接收子线程发回来的消息。*/
     onmessage: (event: WorkerMessageEvent) => void
+    /** postMessage()方法，向 Worker 发消息。 */
     postMessage(message: Action): void
   }
 }
