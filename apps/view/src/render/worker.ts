@@ -102,6 +102,7 @@ ctx.onmessage = function receive(event) {
       console.log(files);
       response = filesToStackups(files).then(async stackups => {
         const [selfContained, shared] = stackups
+        console.log(selfContained)
         const board = stackupToBoard(selfContained)
         const render = stackupToBoardRender(shared, board)
         console.log(board)

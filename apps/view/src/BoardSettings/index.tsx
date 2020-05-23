@@ -45,7 +45,7 @@ export default function BoardSettings(props: BoardSettingsProps): JSX.Element {
 
   return (
     <div className={STYLE}>
-      <div className={NAME_STYLE}>
+      {/* <div className={NAME_STYLE}>
         <BoardName>{board.name}</BoardName>
         <Button
           onClick={toggleOpen}
@@ -58,9 +58,9 @@ export default function BoardSettings(props: BoardSettingsProps): JSX.Element {
             faProps={{pulse: updating}}
           />
         </Button>
-      </div>
+      </div> */}
       <ModeSelect />
-      <Fade in={open}>
+      {/* <Fade in={open}>
         <div className={MODAL_STYLE} onWheel={stopPropagation}>
           <div className={MODAL_CONTENTS_STYLE} ref={modalContentsRef}>
             <SettingsForm
@@ -70,7 +70,7 @@ export default function BoardSettings(props: BoardSettingsProps): JSX.Element {
             />
           </div>
         </div>
-      </Fade>
+      </Fade> */}
     </div>
   )
 }

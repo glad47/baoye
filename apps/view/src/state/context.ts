@@ -14,6 +14,7 @@ export const INITIAL_STATE: State = {
   error: null,
 }
 
+//商店上下文，作用在各个组件间传递变量
 export const StoreContext = React.createContext<Store>({
   getState: () => INITIAL_STATE,
   dispatch: a => a,

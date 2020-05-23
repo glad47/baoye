@@ -7,9 +7,9 @@ import {Middleware} from './types'
 
 export default function createMiddleware(): Array<Middleware> {
   return [
-    createAnalyticsMiddleware(),
+    // createAnalyticsMiddleware(),
     createRenderMiddleware(),
-    createSettingsMiddleware(),
+    // createSettingsMiddleware(),
     createLogMiddleware(),
   ]
 }
