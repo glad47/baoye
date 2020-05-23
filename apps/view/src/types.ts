@@ -155,6 +155,6 @@ export type SubtotalItem = {
   engineeringFee: number,
   testFee: number,
   totalWeight: number,
-  urgentFee: number | null,
-  shippingFee: number | null,
+  urgentFee: number,
+  shippingFee: number,
 }

@@ -43,7 +43,7 @@ export function countQuoteMiddleware(): State.Middleware {
                     if(c2 === 0){
                         console.log(d2);
                         const {newTestQuoteTOUSD,projectQuoteToUSD,totalBoardQuoteToUSD,totalQuoteWeight} = d2;
-                        dispatch(countSubtotal({boardFee:totalBoardQuoteToUSD,engineeringFee:projectQuoteToUSD,testFee:newTestQuoteTOUSD,totalWeight:totalQuoteWeight,urgentFee:null,shippingFee:null}))
+                        dispatch(countSubtotal({boardFee:totalBoardQuoteToUSD,engineeringFee:projectQuoteToUSD,testFee:newTestQuoteTOUSD,totalWeight:totalQuoteWeight,urgentFee:0,shippingFee:0}))
                     }
                 })
                 break;
