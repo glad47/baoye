@@ -2,6 +2,7 @@ import * as State from '../state';
 import { countSubtotal, countBuildTime } from '../state';
 import { ajaxBuildTime, ajaxSubtotal, ajaxAddQuote } from './AjaxService';
 import Axios from 'axios';
+import { message } from 'antd';
 
 /** 计算报价中间件 */
 export function countQuoteMiddleware(): State.Middleware {
@@ -59,7 +60,11 @@ export function countQuoteMiddleware(): State.Middleware {
                     if(code === 0){
                         // todo 反馈信息
                         console.log(data);
+                        message.success("Add Quote Success!!");
                     }
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1000);
                 })
                 break;
             }

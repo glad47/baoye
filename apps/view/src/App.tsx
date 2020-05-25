@@ -46,6 +46,10 @@ function App(): JSX.Element {
     dispatch(addQuote());
   }
 
+  const handleGoCar = ()=>{
+    location.href = 'http://localhost:8882/awaitingAudit';
+  }
+
   return (
     <Main>
       {/* <FileList /> */}
@@ -108,7 +112,7 @@ function App(): JSX.Element {
               </div>  
 
               <div className="pcb-total">
-                <ShoppingTotal total={Number((subtotal.boardFee+subtotal.engineeringFee+subtotal.testFee+subtotal.urgentFee+subtotal.shippingFee).toFixed(2))} handleAddQuote={handleAddQuote}/>
+                <ShoppingTotal total={Number((subtotal.boardFee+subtotal.engineeringFee+subtotal.testFee+subtotal.urgentFee+subtotal.shippingFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar}/>
               </div>
               
             </div>

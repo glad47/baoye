@@ -34,9 +34,9 @@ export default function BoardDisplay(): JSX.Element {
     if (containerRef.current) {
       const {x, y, step} = displayState
       const {scale} = getScale(step)
-      const transform = `translate(${percent(x)},${percent(y)}) scale(${scale})`
+      // const transform = `translate(${percent(x)},${percent(y)}) scale(${scale})`
 
-      containerRef.current.style.transform = transform
+      // containerRef.current.style.transform = transform
     }
   })
 
@@ -68,9 +68,9 @@ export default function BoardDisplay(): JSX.Element {
           )}
         </PanZoom>
       </Fade>
-      <Slide in={show} from="bottom">
+      {/* <Slide in={show} from="bottom">
         <Controls {...controllerProps} />
-      </Slide>
+      </Slide> */}
     </>
   )
 }

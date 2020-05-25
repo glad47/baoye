@@ -5,12 +5,13 @@ import { Row, Col, Select, Button } from 'antd';
 interface ShoppingTotalProps { 
     total: number;
     handleAddQuote: () => void;
+    handleGoCar: ()=>void;
 }
 
 const { Option } = Select;
 
 const ShoppingCast: React.FC<ShoppingTotalProps> = (props) =>{
-    const { total,handleAddQuote } = props;
+    const { total,handleAddQuote,handleGoCar } = props;
     return (
       <div>
         <Row>
@@ -36,7 +37,7 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) =>{
         <Row>
             <Col span={14}></Col>
             <Col span={10} className="total-shopping-icon">
-                <Button icon={<ShoppingCartOutlined />} block type="link" />
+                <Button icon={<ShoppingCartOutlined />} block type="link" onClick={handleGoCar}/>
                 <Button icon={<PrinterFilled />} block type="link" onClick={handleAddQuote}/>
             </Col>
         </Row>
