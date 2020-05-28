@@ -157,4 +157,5 @@ export type SubtotalItem = {
   totalWeight: number,
   urgentFee: number,
   shippingFee: number,
+  stencilFee: number,
 }

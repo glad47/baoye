@@ -83,7 +83,6 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
 
     const onFinish = (v: Store) => {
         dispatch(changeStandardField(v))
-        props.onChange
     }
 
     return(

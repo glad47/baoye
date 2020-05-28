@@ -75,6 +75,16 @@ export const INITIAL_SPECIAL: Store = {
     acceptableQualityLevels: false   
 };
 
+export const INITIAL_STENCIL: Store = {
+    quantity: 1,
+    stencilSide: 'Top And Bottom (On Single Stencil)',
+    dimensions: null,
+    thickness: '0.15',
+    existingFiducials: 'None',
+    detailed: null,
+
+}
+
 const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
     // const [ selectedRadio, setSelectedRadio ] =useState("standard");
     // const [ standardFrom, setStandardFrom ] = useState(INITIAL_STANDARD);

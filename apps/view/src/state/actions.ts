@@ -44,6 +44,8 @@ export const COUNT_BUILDTIME = 'COUNT_BUILDTIME'
 export const CHANGE_URGENTCOST = 'CHANGE_URGENTCOST'
 export const CHANGE_TRANSPORT_COST = 'CHANGE_TRANSPORT_COST'
 export const ADD_QUOTE = 'ADD_QUOTE'
+export const CHANGE_QUOTE_MODE = 'CHANGE_QUOTE_MODE'
+export const CHANGE_STENCIL_FIELD = 'CHANGE_STENCIL_FIELD'
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -229,4 +231,16 @@ export const changeTransportCost = (field: number): Action =>({
 /** 添加报价 */
 export const addQuote = (): Action =>({
   type: ADD_QUOTE,
+})
+
+/** 修改报价模型 */
+export const changeQuoteMode = (field: number): Action =>({
+  type: CHANGE_QUOTE_MODE,
+  payload: field
+})
+
+/** 修改钢网字段 */
+export const changeStencilField= (field: FieldStore): Action =>({
+  type: CHANGE_STENCIL_FIELD,
+  payload: field
 })

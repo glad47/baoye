@@ -190,7 +190,25 @@ export default function reducer(state: State, action: Action): State {
         subtotal: {...state.subtotal,shippingFee:action.payload}
       }
     }
+    case actionTypes.CHANGE_QUOTE_MODE: {
+      return{
+        ...state,
+        quoteMode: action.payload
+      }
+    }
+    case actionTypes.CHANGE_STENCIL_FIELD: {
+      //计算钢网总价
+      const {quantity,detailed:{priceToUSD,weight}} = action.payload
+      const sq = Number((quantity*priceToUSD).toFixed(2));
+      const w = Number((quantity*weight).toFixed(2));
+      return{
+        ...state,
+        stencilField: action.payload,
+        subtotal: {...state.subtotal,stencilFee:sq,totalWeight:w}
+      }
+    }
   }
+  
 
   return state
 }

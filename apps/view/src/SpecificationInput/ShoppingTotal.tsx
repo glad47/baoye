@@ -1,7 +1,6 @@
 import React from 'react';
 import { SwapOutlined, TransactionOutlined, ShoppingCartOutlined, PrinterFilled } from '@ant-design/icons';
 import { Row, Col, Select, Button } from 'antd';
-
 interface ShoppingTotalProps { 
     total: number;
     handleAddQuote: () => void;
@@ -35,9 +34,14 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) =>{
             </Col>
         </Row>
         <Row>
+            
             <Col span={14}></Col>
             <Col span={10} className="total-shopping-icon">
+                {/* <Link to="/quote/goToCart"> */}
                 <Button icon={<ShoppingCartOutlined />} block type="link" onClick={handleGoCar}/>
+                {/* </Link> */}
+                
+
                 <Button icon={<PrinterFilled />} block type="link" onClick={handleAddQuote}/>
             </Col>
         </Row>

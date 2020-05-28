@@ -26,13 +26,13 @@
     font-size: 36px;
     color: #6b8aff;
 }
-.pcb-nav ul li.cur > div{
+.pcb-nav ul li.cur > a > div{
     margin-right: -50px;
     background: #fff;
     border-radius: 10px;
     box-shadow:0px 8px 12px 1px rgba(154,181,211,0.77);
 }
-.pcb-nav ul li.cur > div span{
+.pcb-nav ul li.cur > a > div span{
     padding: 12px;
     font-size: 36px;
     color: #ffba00;

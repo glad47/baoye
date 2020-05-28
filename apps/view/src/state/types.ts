@@ -27,7 +27,7 @@ export type State = {
   downloading: boolean
   layerVisibility: LayerVisibilityMap
   error: null | ErrorObject
-  quoteMode: QuoteMode
+  quoteMode: number
   fieldMode: FieldMode
   pcbStandardField: FieldStore
   pcbSpecialField: FieldStore
@@ -36,6 +36,7 @@ export type State = {
   buildTimeItmes: Array<BuildTimeItem>
   urgentCost: number
   transportCost: number
+  stencilField: FieldStore
 }
 
 /** Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。 */
@@ -86,3 +87,5 @@ export type Action =
   | {type: 'CHANGE_URGENTCOST'; payload: number}
   | {type: 'CHANGE_TRANSPORT_COST'; payload: number}
   | {type: 'ADD_QUOTE';}
+  | {type: 'CHANGE_QUOTE_MODE'; payload: number}
+  | {type: 'CHANGE_STENCIL_FIELD'; payload: FieldStore}

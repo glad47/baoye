@@ -47,7 +47,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
     }
 
     const fetchShippingCost = (v: SelectValue) =>{
-        console.log(v);
+        // console.log(v);
         const { totalWeight } = subtotal;
         if(totalWeight){
            Axios.all([fetchShipingCost({countryId:v,totalWeight:totalWeight})]).then((v)=>{

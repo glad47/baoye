@@ -21,11 +21,13 @@ import ShoppingTotal from './SpecificationInput/ShoppingTotal'
 import StencilForm from './SpecificationInput/StencilForm'
 import ManualForm from './SpecificationInput/ManualForm'
 import img from './images/logo.png'
+import { BrowserRouter as Router} from 'react-router-dom';
 
 import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled, CalculatorOutlined } from '@ant-design/icons';
+import SideNavigation, { SideNavigationTab } from './SpecificationInput/SideNavigation'
 
 function App(): JSX.Element {
-  const {dispatch,subtotal,buildTimeItmes} = useAppState()
+  const {dispatch,subtotal,buildTimeItmes,quoteMode} = useAppState()
   const handleFiles = (event: FileEvent): void => {
     const files =
       'dataTransfer' in event
@@ -47,7 +49,7 @@ function App(): JSX.Element {
   }
 
   const handleGoCar = ()=>{
-    location.href = 'http://localhost:8882/awaitingAudit';
+    location.href = 'http://localhost:8882/quote1/goToCart';
   }
 
   return (
@@ -66,12 +68,12 @@ function App(): JSX.Element {
         <Content>
             {/* 左边栏 */}
             <div className="pcb-nav">
-              <ul>
-                <li className="cur"><div><WalletFilled /></div></li>
-                <li><div><SlidersFilled /></div></li>
-                <li><div><SwitcherFilled /></div></li>
-                <li><div><ReconciliationFilled /></div></li>
-              </ul>
+              <SideNavigation>
+                <SideNavigationTab><div><WalletFilled /></div></SideNavigationTab>
+                <SideNavigationTab><div><SlidersFilled /></div></SideNavigationTab>
+                <SideNavigationTab><div><SwitcherFilled /></div></SideNavigationTab>
+                <SideNavigationTab><div><ReconciliationFilled /></div></SideNavigationTab>
+              </SideNavigation>
             </div>
         
             <div className="pcb-min-info">
@@ -83,17 +85,19 @@ function App(): JSX.Element {
                   <LoadFiles handleFiles={handleFiles}/>
                   <ErrorToast />
                 </div>
-                <PcbSizeForm/>
+                {quoteMode === 0 ? <PcbSizeForm/> : ''}
               </div>
               {/* <PcbSizeForm /> */}
-              <div className="pcb-spec">
-                <SpecificationHead icon={"123"} title="PCBSpecification"/>
-                <PcbSpecification/>
-              </div>
-
-              {/* <div className="pcb-stencil">
-                <StencilForm />
-              </div> */}
+              {
+                quoteMode === 0 ? 
+                <div className="pcb-spec">
+                  <SpecificationHead icon={"123"} title="PCBSpecification"/>
+                  <PcbSpecification/>
+                </div> :
+                <div className="pcb-stencil">
+                  <StencilForm />
+                </div>
+              }
             </div>
               
 
@@ -104,7 +108,7 @@ function App(): JSX.Element {
               </div>
 
               <div className="pcb-fee">
-                <CastCalculation {...subtotal}/>
+                <CastCalculation {...subtotal} quoteMode={quoteMode}/>
               </div>
 
               <div className="pcb-cast">
@@ -112,7 +116,7 @@ function App(): JSX.Element {
               </div>  
 
               <div className="pcb-total">
-                <ShoppingTotal total={Number((subtotal.boardFee+subtotal.engineeringFee+subtotal.testFee+subtotal.urgentFee+subtotal.shippingFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar}/>
+                <ShoppingTotal total={Number((subtotal.boardFee+subtotal.engineeringFee+subtotal.testFee+subtotal.urgentFee+subtotal.shippingFee+subtotal.stencilFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar}/>
               </div>
               
             </div>
