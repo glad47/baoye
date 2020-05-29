@@ -29,6 +29,8 @@ const silkscreenSelectData = ['none','black','white'];
 const ctiSelectData = ['175≤CTI<250','250≤CTI<400','400≤CTI<600','CTI≥600'];
 const testsss = ['12312','123123','12312312']
 
+
+
 const LINKAGE_SURFACETHICKNESS = []
 
 
@@ -36,15 +38,44 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
     const [ form ] = Form.useForm();
     const { pcbStandardField,dispatch } = useAppState();
     const [ surfaceThicknessSelect, setSurfaceThicknessSelect] = useState(surfaceThicknessSelectData)
+    const [ holeCopperSelectDisabled, setHoleCopperSelectDisabled ] = useState(false);
+    const [ innerCopperSelectDisabled, setInnerCopperSelectDisabled ] = useState(true);
+    const [ layerSelect, setLayerSelect] = useState(layerSelectData);
+    const [ ctiSelect, setCtiSelect ] = useState(ctiSelectData);
+    const [ showTg, setShowTg ] = useState(true);
 
     const onValuesChange = (v: Store) =>{
         switch(Object.values(v)[0]){
             case "Aluminum": {
-                form.setFieldsValue({"layer":"1layer","minHoleSize":'1.5',"holeCopper":"none","solderMask":"white","silkscreen":"black"});
+                setShowTg(false);
+                form.setFieldsValue(
+                    {
+                        "layer":"1layer",
+                        "minHoleSize":'1.5',
+                        "holeCopper":"none",
+                        "solderMask":"white",
+                        "silkscreen":"black",
+                        "cti":"CTI≥600",
+                        "heatConductivity": "1W",
+                    });
+                setLayerSelect(['1layer','2layer']);
+                setCtiSelect(['CTI≥600']);
                 break;
             }
             case "FR4": {
-                form.setFieldsValue({"layer":"2layer","minHoleSize":'0.3', "holeCopper":'20um',"solderMask":'green',"silkscreen":'white'}); 
+                setShowTg(true);
+                form.setFieldsValue(
+                    {
+                        "layer":"2layer",
+                        "minHoleSize":'0.3',
+                        "holeCopper":'20um',
+                        "solderMask":'green',
+                        "silkscreen":'white',
+                        "cti":"175≤CTI<250",
+                        "tg": "135",
+                    });
+                setLayerSelect(layerSelectData);
+                setCtiSelect(ctiSelectData);
                 break;
             }
             case "HASL with lead":{
@@ -77,12 +108,42 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                 setSurfaceThicknessSelect(surfaceThicknessSelectData)
                 break;  
             }
+            case "1layer" : {
+                form.setFieldsValue({
+                  "holeCopper": "none",
+                  "innerCopper": "none",  
+                })
+                setHoleCopperSelectDisabled(true);
+                setInnerCopperSelectDisabled(true);
+                break;
+            }
+            case "2layer" : {
+                form.setFieldsValue({
+                    "holeCopper": "20um",
+                    "innerCopper": "none",  
+                })
+                setHoleCopperSelectDisabled(false);
+                setInnerCopperSelectDisabled(true);
+                break;
+            }
+            case "4layer":
+            case "6layer":
+            case "8layer":{
+                form.setFieldsValue({
+                    "holeCopper": "20um",
+                    "innerCopper": "1oz",   
+                });
+                setHoleCopperSelectDisabled(false);
+                setInnerCopperSelectDisabled(false);
+                break;
+            }
         }
         form.submit();
     }
 
     const onFinish = (v: Store) => {
-        dispatch(changeStandardField(v))
+        console.log(v);
+        dispatch(changeStandardField(v));
     }
 
     return(
@@ -90,19 +151,50 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
             <Row>
                 <Col span={12}>
                     <Form.Item label="Material">
-                        <ObserverSelect name={"material"} item={materialSelectData} />
+                        <ObserverSelect item={materialSelectData} name={"material"} />
                     </Form.Item>
+                    {/* <Fade in={pcbStandardField.material === 'FR4'}>
                     <Form.Item label="TG(℃)">
                         <ObserverSelect item={tgSelectData} name={"tg"}/>
                     </Form.Item>
+                    </Fade>
+                    <Fade in={pcbStandardField.material === 'Aluminum'}>
+                    <Form.Item label="Heat Conductivity">
+                        <ObserverSelect item={heatConductivitySelectData} name={"heatConductivity"}/>
+                    </Form.Item> 
+                    </Fade> */}
+                    <Form.Item noStyle shouldUpdate={(prevValues: Store, nextValues: Store)=> prevValues.material !== nextValues.material}>
+                        {({getFieldValue})=>{
+                            return getFieldValue('material') === 'FR4' ? (
+                                <Form.Item label="TG(℃)">
+                                    <ObserverSelect item={tgSelectData} name={"tg"}/>
+                                </Form.Item> 
+                            ) : (
+                                <Form.Item label="Heat Conductivity">
+                                    <ObserverSelect item={heatConductivitySelectData} name={"heatConductivity"}/>
+                                </Form.Item>  
+                            )
+                        }}
+                    </Form.Item>
+                    {/* {
+                        showTg ? (
+                        <Form.Item label="TG(℃)">
+                            <ObserverSelect item={tgSelectData} name={"tg"}/>
+                        </Form.Item>
+                        ) : (
+                        <Form.Item label="Heat Conductivity">
+                            <ObserverSelect item={heatConductivitySelectData} name={"heatConductivity"}/>
+                        </Form.Item>  
+                        ) 
+                    } */}
                     <Form.Item  label="Layer">
-                        <ObserverSelect item={layerSelectData} name={"layer"} />
+                        <ObserverSelect item={layerSelect} name={"layer"} />
                     </Form.Item>
                     <Form.Item label="Solder Mask">
                         <ObserverSelect item={solderMaskSelectData} name={"solderMask"}/>
                     </Form.Item>
                     <Form.Item  label="Inner Copper">
-                        <ObserverSelect item={innerCopperSelectData} name={"innerCopper"} />
+                        <ObserverSelect item={innerCopperSelectData} name={"innerCopper"} disabled={innerCopperSelectDisabled}/>
                     </Form.Item>
                     <Form.Item label="Min Track/Spacing">
                         <ObserverSelect item={minTrackSelectData} name={"minTrack"} />
@@ -116,10 +208,10 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                        <ObserverSelect item={thicknessSelectData} name={"thickness"}/>
                     </Form.Item>
                     <Form.Item label="CTI">
-                       <ObserverSelect item={ctiSelectData} name={"cti"}/>
+                       <ObserverSelect item={ctiSelect} name={"cti"}/>
                     </Form.Item>
                     <Form.Item label="Hole Copper">
-                        <ObserverSelect item={holeCopperSelectData} name={"holeCopper"}/>
+                        <ObserverSelect item={holeCopperSelectData} name={"holeCopper"} disabled={holeCopperSelectDisabled}/>
                     </Form.Item>
                     <Form.Item label="Silkscreen">
                         <ObserverSelect item={silkscreenSelectData}  name="silkscreen" />

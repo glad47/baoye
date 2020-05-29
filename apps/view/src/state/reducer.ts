@@ -199,8 +199,9 @@ export default function reducer(state: State, action: Action): State {
     case actionTypes.CHANGE_STENCIL_FIELD: {
       //计算钢网总价
       const {quantity,detailed:{priceToUSD,weight}} = action.payload
+      const {subtotal:{totalWeight}} = state
       const sq = Number((quantity*priceToUSD).toFixed(2));
-      const w = Number((quantity*weight).toFixed(2));
+      const w = Number((quantity*weight).toFixed(2)+totalWeight);
       return{
         ...state,
         stencilField: action.payload,

@@ -513,8 +513,8 @@
 }
 
 .pcb-stencil .ant-col .ant-select-selector{
-    width: 180px;
-    height: 30px;
+    /* width: 180px; */
+    /* height: 30px; */
     background: #f1f7fc;
     border: 0;
     border-radius: 0;

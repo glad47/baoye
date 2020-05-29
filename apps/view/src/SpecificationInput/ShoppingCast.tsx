@@ -29,9 +29,9 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
     const { dispatch,subtotal } = useAppState();
     useEffect(()=>{
         if (cItem.length === 0){
-            Axios.get('http://localhost:8871/quote/getCountry')
+            Axios.get('http://10.168.8.188:8871/quote/getCountry')
             .then((rep)=>{
-              console.log(rep.data.data);
+            //   console.log(rep.data.data);
               if(rep.data.code === 0){
                 cItem = rep.data.data;
               }

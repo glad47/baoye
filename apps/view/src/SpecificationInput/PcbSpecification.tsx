@@ -49,7 +49,7 @@ export const INITIAL_STANDARD: Store = {
     "surfaceFinish":'HASL lead free',
     "solderMask":'green',
     "heatConductivity":'1w', 
-    "thickness":'0.8mm',
+    "thickness":'1.6mm',
     "cti":'175≤CTI<250',
     "outerCopper":'1oz',
     "bgaSize":'≥0.30mm',
@@ -59,17 +59,17 @@ export const INITIAL_STANDARD: Store = {
 }
 
 export const INITIAL_SPECIAL: Store = {
-    hdi: true,
+    hdi: false,
     customStackup: false,
-    peelableSolderMask: true,
-    edgePlating: true,
+    peelableSolderMask: false,
+    edgePlating: false,
     viaInPad: false,
     negativePostitiveCopper: false,
     countersinks: false,
-    controlConcaveRouting: true,
-    backDrill: true,
-    carbonMask: true,
-    impedanceControl: true,
+    controlConcaveRouting: false,
+    backDrill: false,
+    carbonMask: false,
+    impedanceControl: false,
     halfHolePlated: false,  
     pressHoles: false,
     acceptableQualityLevels: false   

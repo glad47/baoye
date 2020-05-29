@@ -66,6 +66,7 @@ const StencilForm: React.FC<StencilFormProps> = (props) =>{
         dispatch(changeStencilField(v))
     }
 
+    const defaultSelectStyle = {width: '280px'};
     return (
       <div>
           <Form form={form} initialValues={stencilField} onValuesChange={onValuesChange} onFinish={onFinish}>
@@ -73,7 +74,7 @@ const StencilForm: React.FC<StencilFormProps> = (props) =>{
               <Col span={12}><span>Quantity</span></Col>
               <Col span={12}>
                   <Form.Item name="quantity">
-                      <Input />
+                      <Input style={defaultSelectStyle}/>
                   </Form.Item>
                   <Form.Item noStyle name="detailed">
                       <Input type="hidden"/>
@@ -84,7 +85,7 @@ const StencilForm: React.FC<StencilFormProps> = (props) =>{
                 <Col span={12}><span>Stencil Side</span></Col>
                 <Col span={12}>
                 <Form.Item>
-                    <ObserverSelect item={stencilSideSelectData} name="stencilSide" />
+                    <ObserverSelect item={stencilSideSelectData} name="stencilSide" selectStyle={defaultSelectStyle}/>
                 </Form.Item>
                 </Col>
             </Row>
@@ -93,7 +94,7 @@ const StencilForm: React.FC<StencilFormProps> = (props) =>{
             <Col span={12}>
                 <Form.Item name="dimensions">
                     {/* <ObserverSelect item={stencilSideSelectData} name="stencilSide" onChange={onOpenMode}/> */}
-                    <Input onClick={onOpenMode}/>
+                    <Input onClick={onOpenMode} style={defaultSelectStyle}/>
                 </Form.Item>
             </Col>
         </Row>
@@ -101,7 +102,7 @@ const StencilForm: React.FC<StencilFormProps> = (props) =>{
             <Col span={12}><span>Thickness</span></Col>
             <Col span={12}>
                 <Form.Item name="thickness">
-                    <Select>
+                    <Select style={{width:'280px'}}>
                         {
                             thincknessSelectData.map(item=>(
                                 <Option key={item.id} value={item.id}>{item.name}</Option>
@@ -115,7 +116,7 @@ const StencilForm: React.FC<StencilFormProps> = (props) =>{
             <Col span={12}><span>Existing Fiducials</span></Col>
             <Col span={12}>
                 <Form.Item>
-                    <ObserverSelect item={existingFiducialsSelectData} name="existingFiducials" />
+                    <ObserverSelect item={existingFiducialsSelectData} name="existingFiducials" selectStyle={defaultSelectStyle}/>
                 </Form.Item>
             </Col>
         </Row>

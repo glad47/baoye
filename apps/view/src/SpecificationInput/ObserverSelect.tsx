@@ -7,15 +7,17 @@ interface ObserverSelectProps {
     defauleValue?: string;      
     value?: string;
     onChange?: (value: string) => void;
+    disabled? : boolean;
+    selectStyle?: React.CSSProperties | undefined;
 }
 
 const ObserverSelect: React.FC<ObserverSelectProps>  = (props) =>{
-    const {item, defauleValue, name, value, onChange} = props;
+    const {item, defauleValue, name, value, onChange, disabled, selectStyle} = props;
     const { Option } = Select;
-    const defaultSelectStyle = {width: 'auto'};
+    const defaultSelectStyle = {width: '150px'};
     return (
         <Form.Item name={name} noStyle>
-            <Select style={defaultSelectStyle} defaultValue={defauleValue && defauleValue} value={value && value} onChange={onChange}>
+            <Select style={selectStyle || defaultSelectStyle} defaultValue={defauleValue && defauleValue} value={value && value} onChange={onChange} disabled={disabled} dropdownStyle={{textAlign:'center'}}>
                 { item.map(item => (
                     <Option key={item} value={item}>{item}</Option>
                 ))}
