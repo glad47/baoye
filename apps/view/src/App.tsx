@@ -25,6 +25,7 @@ import { BrowserRouter as Router} from 'react-router-dom';
 
 import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled, CalculatorOutlined } from '@ant-design/icons';
 import SideNavigation, { SideNavigationTab } from './SpecificationInput/SideNavigation'
+import FormControl from './SpecificationInput/FormControl'
 
 function App(): JSX.Element {
   const {dispatch,subtotal,buildTimeItmes,quoteMode} = useAppState()
@@ -88,16 +89,7 @@ function App(): JSX.Element {
                 {quoteMode === 0 ? <PcbSizeForm/> : ''}
               </div>
               {/* <PcbSizeForm /> */}
-              {
-                quoteMode === 0 ? 
-                <div className="pcb-spec">
-                  <SpecificationHead icon={"123"} title="PCBSpecification"/>
-                  <PcbSpecification/>
-                </div> :
-                <div className="pcb-stencil">
-                  <StencilForm />
-                </div>
-              }
+              <FormControl quoteMode={quoteMode}/>
             </div>
               
 

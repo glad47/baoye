@@ -85,6 +85,15 @@ export const INITIAL_STENCIL: Store = {
 
 }
 
+export const INITIAL_ASSEMBLY: Store = {
+    assemblyType: 1,
+    uniquePartNum: null,
+    smtPartNum: null,
+    throughHolePartNum: null,
+    assemblySide: null,
+    quantity: null,
+}
+
 const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
     // const [ selectedRadio, setSelectedRadio ] =useState("standard");
     // const [ standardFrom, setStandardFrom ] = useState(INITIAL_STANDARD);

@@ -14,7 +14,7 @@ interface ObserverSelectProps {
 const ObserverSelect: React.FC<ObserverSelectProps>  = (props) =>{
     const {item, defauleValue, name, value, onChange, disabled, selectStyle} = props;
     const { Option } = Select;
-    const defaultSelectStyle = {width: '150px'};
+    const defaultSelectStyle = {width: '158px'};
     return (
         <Form.Item name={name} noStyle>
             <Select style={selectStyle || defaultSelectStyle} defaultValue={defauleValue && defauleValue} value={value && value} onChange={onChange} disabled={disabled} dropdownStyle={{textAlign:'center'}}>

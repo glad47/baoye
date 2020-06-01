@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 
 import {Store, State, Dispatch} from './types'
-import { INITIAL_STANDARD, INITIAL_SPECIAL, INITIAL_STENCIL } from '../SpecificationInput/PcbSpecification'
+import { INITIAL_STANDARD, INITIAL_SPECIAL, INITIAL_STENCIL, INITIAL_ASSEMBLY } from '../SpecificationInput/PcbSpecification'
 /** 初始状态 */
 export const INITIAL_STATE: State = {
   appPreferences: {},
@@ -23,6 +23,7 @@ export const INITIAL_STATE: State = {
   urgentCost: 0,
   transportCost: 0,
   stencilField: INITIAL_STENCIL,
+  assemblyField: INITIAL_ASSEMBLY,
 }
 
 // const INITIAL_STANDARD = {

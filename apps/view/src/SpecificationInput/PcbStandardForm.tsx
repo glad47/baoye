@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Row, Col, Form } from 'antd';
+import { Row, Col, Form, Input } from 'antd';
 import ObserverSelect from './ObserverSelect';
 import { Store } from 'antd/lib/form/interface';
-import { useAppState, changeStandardField } from '../state';
+import { useAppState, changeStandardField, changeQuoteMode } from '../state';
+import LinkageFieldItem from './LinkageFieldItem';
 
 interface PcbStandardFromProps {
     onChange?: ()=>void;
@@ -44,7 +45,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
     const [ ctiSelect, setCtiSelect ] = useState(ctiSelectData);
     const [ showTg, setShowTg ] = useState(true);
 
-    const onValuesChange = (v: Store) =>{
+    const onValuesChange = (v: Store,values: Store) =>{
         switch(Object.values(v)[0]){
             case "Aluminum": {
                 setShowTg(false);
@@ -57,6 +58,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                         "silkscreen":"black",
                         "cti":"CTI≥600",
                         "heatConductivity": "1W",
+                        "tg":"135"
                     });
                 setLayerSelect(['1layer','2layer']);
                 setCtiSelect(['CTI≥600']);
@@ -73,6 +75,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                         "silkscreen":'white',
                         "cti":"175≤CTI<250",
                         "tg": "135",
+                        "heatConductivity": "1W",
                     });
                 setLayerSelect(layerSelectData);
                 setCtiSelect(ctiSelectData);
@@ -138,21 +141,29 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                 break;
             }
         }
-        form.submit();
+        console.log('值改变方法--全部',values);
+        // form.submit();
+        dispatch(changeStandardField(values));
     }
 
-    const onFinish = (v: Store) => {
-        console.log(v);
-        dispatch(changeStandardField(v));
-    }
+    // const onFinish = (v: Store) => {
+    //     console.log(v);
+    //     dispatch(changeStandardField(v));
+    // }
 
     return(
-        <Form form={form} initialValues={pcbStandardField} onValuesChange={onValuesChange} onFinish={onFinish} style={{width:"100%"}} labelAlign="left">
+        <Form form={form} initialValues={pcbStandardField} onValuesChange={onValuesChange} style={{width:"100%"}} labelAlign="left">
             <Row>
                 <Col span={12}>
                     <Form.Item label="Material">
                         <ObserverSelect item={materialSelectData} name={"material"} />
                     </Form.Item>
+                    {/* <Form.Item noStyle name={"tg"}>
+                        <Input type="hidden"/>
+                    </Form.Item> */}
+                    {/* <Form.Item noStyle name={"heatConductivityt"}>
+                        <Input type="hidden"/>
+                    </Form.Item> */}
                     {/* <Fade in={pcbStandardField.material === 'FR4'}>
                     <Form.Item label="TG(℃)">
                         <ObserverSelect item={tgSelectData} name={"tg"}/>
@@ -187,6 +198,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                         </Form.Item>  
                         ) 
                     } */}
+                    {/* <LinkageFieldItem showTg={showTg}/> */}
                     <Form.Item  label="Layer">
                         <ObserverSelect item={layerSelect} name={"layer"} />
                     </Form.Item>
