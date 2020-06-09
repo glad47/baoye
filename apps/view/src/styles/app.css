@@ -689,3 +689,14 @@ body{
     margin: 0;
     padding: 0 !important;
 }
+
+.drop_down{
+    overflow: scroll;
+}
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled){
+    background-color: red;
+    font-size: 16px;
+}
+.select_style{
+    overflow: auto;
+}
