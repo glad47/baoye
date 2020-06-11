@@ -20,13 +20,14 @@ const bts = [
 ]
 const { Title, Text } = Typography
 var chooseIndex;
-let newChoose=0;
+let newChoose = 0;
 const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
     let btnIndex = 0;
     const { buildItems } = props
     const [newChoose, changeChoose] = useState(0)
     const [newBtnID, changeId] = useState(1)
     const { dispatch, subtotal } = useAppState();
+    const [isHeightLight, changeStateHeight] = useState(false)
     const onChange = (e: RadioChangeEvent) => {
         var v = e.target.value
         const { price } = buildItems.filter((item) => { return Number(item.id) === Number(v) })[0]
@@ -94,34 +95,37 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
             dataIndex: 0
         });
 
-        //鼠标移入时的操作
-        myChart.on('mouseover', function (params) {
-            myChart.dispatchAction({
-                type: 'downplay',
-                seriesIndex: 0,
-                dataIndex: 0
-            });
-            myChart.dispatchAction({
-                type: 'highlight',
-                seriesIndex: 0,
-                dataIndex: params.dataIndex
-            });
-            rotating(params)
-        });
+        // //鼠标移入时的操作
+        // myChart.on('mouseover', function (params) {
+        //     myChart.dispatchAction({
+        //         type: 'downplay',
+        //         seriesIndex: 0,
+        //         dataIndex: 0
+        //     });
+        //     myChart.dispatchAction({
+        //         type: 'highlight',
+        //         seriesIndex: 0,
+        //         dataIndex: params.dataIndex
+        //     });
+        //     rotating(params)
+        // });
 
-        //鼠标移出去的操作
-        myChart.on('mouseout', function (e) {
-            const { seriesIndex, dataIndex } = e || ''
-            if (e.dataIndex != chooseIndex) {
-                myChart.dispatchAction({ type: 'downplay', seriesIndex: 0, dataIndex: chooseIndex });
-            }
-            chooseIndex=e.dataIndex
-            myChart.dispatchAction({
-                type: 'highlight',
-                seriesIndex: 0,
-                dataIndex: chooseIndex,
-            });
-        });
+        // //鼠标移出去的操作
+        // myChart.on('mouseout', function (e) {
+        //     const { seriesIndex, dataIndex } = e || ''
+        //     if (e.dataIndex != chooseIndex) {
+            
+        //         myChart.dispatchAction({ type: 'downplay', seriesIndex: 0, dataIndex: chooseIndex });
+        //     }
+        //     chooseIndex = e.dataIndex
+        //     let LightState = isHeightLight ? chooseIndex : 0
+        //     myChart.dispatchAction({
+        //         type: 'highlight',
+        //         seriesIndex: 0,
+        //         dataIndex: chooseIndex,
+        //     });
+
+        // });
         //鼠标单击操作
         myChart.on('click', function (params) {
             if (params.dataIndex != chooseIndex) {
@@ -131,8 +135,9 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
             myChart.dispatchAction({ type: 'highlight', seriesIndex: chooseIndex, dataIndex: chooseIndex });
             rotating(params)
             changeChoose(chooseIndex)
-            let numSort=changeNumSort(chooseIndex)
+            let numSort = changeNumSort(chooseIndex)
             changeId(numSort)
+            changeStateHeight(true)
         });
         /**
         * @description:箭头图片进行一个旋转
@@ -176,8 +181,8 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
      * @param :e:用户交互时单击的按钮，获取到相应的value值
      * @return: 调整后的一个参数
     */
-    function changeNumSort(n){
-        switch(n){
+    function changeNumSort(n) {
+        switch (n) {
             case 0:
                 return 1
             case 1:
@@ -220,15 +225,15 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
         chooseIndex = temporaryVariable
         myChart.dispatchAction({ type: 'highlight', seriesIndex: 0, dataIndex: temporaryVariable });
     }
-    function isChecked(id){
-        if((id===1 && newChoose===0) && id===newBtnID){
+    function isChecked(id) {
+        if ((id === 1 && newChoose === 0) && id === newBtnID) {
             return true
-        }else if((id===2 && newChoose===2) && id===newBtnID){
+        } else if ((id === 2 && newChoose === 2) && id === newBtnID) {
             return true
-        }else if((id===3 && newChoose===1) && id===newBtnID){
+        } else if ((id === 3 && newChoose === 1) && id === newBtnID) {
             return true
-        }else {
-            
+        } else {
+
         }
         return false
     }
@@ -247,7 +252,7 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
                 <Radio.Group onChange={onChange} defaultValue={buildItems[0].id} className='group'>
                     {
                         buildItems.map(item => (
-                            <Radio.Button value={item.id} key={item.id} onChange={e => changeColor(e)} checked={isChecked(item.id)?true:false}> {item.dayNumber}</Radio.Button>
+                            <Radio.Button value={item.id} key={item.id} onChange={e => changeColor(e)} checked={isChecked(item.id) ? true : false}> {item.dayNumber}</Radio.Button>
                         ))
                     }
                 </Radio.Group>

@@ -5,6 +5,8 @@ import Axios from 'axios';
 import { useAppState, changeTransportCost } from '../state';
 import { SelectValue } from 'antd/lib/select';
 import { fetchShipingCost } from './AjaxService';
+import countryImg from '../images/libya.png'
+import DHL from '../images/dhl.png'
 
 type CountryItem = {
     id: number
@@ -68,7 +70,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
           </Row>
           <Row className="shopping-cast-mar">
             <Col span={16}>
-                <Select defaultValue='DHL'>
+                {/* <Select defaultValue='DHL'>
                     <Option value="DHL">DHL</Option>
                 </Select>
 
@@ -87,7 +89,14 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
                             <Option key={item.id} value={item.id}>{item.name}</Option>
                         ))
                     }
-                </Select>
+                </Select> */}
+                <div className='the_national_flag'>
+                    <div className='dhl'><img src={DHL}/></div>
+                    <div className='country_img'>
+                        <img src={countryImg}/>
+                        <span>Libya</span>
+                    </div>
+                </div>
             </Col>
             <Col span={8}><i>${subtotal.shippingFee}</i></Col>
           </Row>

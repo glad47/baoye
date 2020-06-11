@@ -10,6 +10,7 @@ const boardType = [{id:1,name:'Single'},{id:2,name:'Panel'}];
 
 // const INITIAL = {boardType:'Single'}
 const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
+    const {toSize}=props
     const { Option } = Select;
     const [form] = useForm();
     const [singleMode, setSingleMode] = useState(true);
@@ -64,7 +65,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
                 </Col>
                 <Col span={12}>
                     <Form.Item label="Size" name="singleSize">
-                        <ObserverSize/>
+                        <ObserverSize circuit={toSize}/>
                     </Form.Item>
                     <Form.Item label="Quantity" name="quantity" >
                         <Input />
