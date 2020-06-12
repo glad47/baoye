@@ -59,6 +59,75 @@
     border-radius:16px;
     overflow: hidden;
 }
+.update_status{
+    width:550px;
+    height:49px;
+    background:rgba(255,255,255,0);
+    border:1px solid rgba(171, 191, 254, 1);
+    border-radius:10px;
+    margin:12px 0 0 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ant-checkbox-wrapper{
+    margin-right: 23px;
+}
+.progress{
+    height: 100%;
+    width: 90%;
+}
+.progress_inner{
+    width: 100%;
+    height: 100%;
+    background:rgba(235,240,255);
+    text-align: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:10px;
+}
+.progress_s{
+    width: 80%;
+}
+.progress_f{
+    height: 100%;
+    height: 2px;
+    background:rgba(45,88,231);
+    z-index: 10;
+}
+.clip{
+    z-index:1000;
+    position: absolute;
+    top:-3px;
+    left: -64px;
+    width: 145px;
+    height: 80px;
+}
+.img_show{
+    z-index: 20;
+    position: absolute;
+    top:-3px;
+    left:-64px;
+    width: 145px;
+    height: 80px;
+}
+.update_font{
+    width:92px;
+    height:12px;
+    font-size:14px;
+    font-family:'Arial';
+    font-weight:400;
+    color:rgba(0,0,0,1);
+    line-height:36px;
+    position: absolute;
+    bottom:-5px;
+    left:-32px;
+}
+.is_checked{
+    background-color: white;
+    color: #2952ea !important;
+}
 .pcb-min .pcb-file{
     position: relative;
     width: 548px;
@@ -688,4 +757,186 @@ body{
     overflow: auto;
     margin: 0;
     padding: 0 !important;
+}
+
+.drop_down{
+    overflow: scroll;
+}
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled){
+    font-size: 16px;
+}
+.select_style{
+    overflow: auto;
+}
+.vertical_svg{
+
+}
+.vertical_svg_first{
+    width:588px;
+    height: 203px;
+    background:white;
+    margin:0 auto;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.w-100{
+    width: 339px;
+    height: 168px;
+}
+.transverse_svg{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 24px;
+}
+.transverse_svg_first{
+    width: 347px;
+    height: 347px;
+    background: white;
+    margin-right: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer{
+    width:1440px;
+    height:404px;
+    background:  #2952ea;
+    margin: 0 auto;
+}
+
+.footer_main{
+    display: flex;
+    justify-content: space-around;
+}
+.footer_main>div{
+    width: 40%;
+}
+
+.footer_link{
+    width: 502px;
+    height: 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+.footer_link>a{
+    display: block;
+    width: 168px;
+    font-size: 14px;
+    color:rgb(157, 190, 235)
+}
+.main_left{
+    font-size: 14px;
+    color:rgb(157, 190,235)
+}
+.main_left>p{
+    height: 34px;
+}
+/* .main_right{
+    padding-left: px;
+} */
+.copyright{
+    display: flex;
+    justify-content: space-around;
+}
+.copyright>p{
+    width: 38%;
+    font-size: 14px;
+    color:rgb(157, 190,235)
+}
+.copyright_right{
+    width: 42%;
+    display: flex;
+    justify-content: space-between;
+    color:rgb(157, 190,235)
+
+}
+.dhl>img{
+    width: 51px;
+    height: 26px;
+}
+.country_img>img{
+    width: 51px;
+    height: 26px;
+}
+.the_national_flag{
+    display: flex;
+    justify-content: space-between;
+}
+.country_img>span{
+    width:32px;
+    height:13px;
+    font-size:14px;
+    font-family:'Arial';
+    font-weight:400;
+    color:rgba(41,82,234,1);
+    padding-left: 10px;
+}
+.dhl{
+    border-right: 1px solid #DBDBDB;
+    height:34px;
+    width: 112px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.country_img{
+    width: 112px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer_title{
+    padding-bottom: 55px;
+}
+.footer_title>img{
+    width: 176px;
+    height: 37px;
+    margin-left: 56px;
+}
+.info_footer{
+    padding: 24px 0;
+}
+.footer_link_icon>img{
+    width: 28px;
+    height: 28px;
+    margin-right:13px;
+}
+.footer_link_icon{
+    width: 202px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 63px;
+    padding-top: 12px;
+}
+.show_link_country>img{
+    margin-left: 16px;
+}
+.ant-switch-checked::after{
+    margin-left: 30px;
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    width: 5px;
+    height: 14px;
+    border-radius: none;
+}
+
+.get_img_show{
+    width: 49px;
+    height: 35px;
+}
+.get_img_show>img{
+    width: 100%;
+    height: 100%;
+}
+.total-select>div{
+    text-align: center;
+}
+.ant-select-disabled.ant-select-single:not(.ant-select-customize-input) >.ant-select-selector{
+    background-color: white;
 }

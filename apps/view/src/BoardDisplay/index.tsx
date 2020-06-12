@@ -1,21 +1,21 @@
-import React, {useState, useRef, useEffect, useLayoutEffect} from 'react'
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import cx from 'classnames'
 
-import {useAppState} from '../state'
-import {usePrevious} from '../hooks'
-import {Fade, Slide, SvgRender} from '../ui'
-import {INITIAL_STATE, pan, zoom, getScale} from './display'
+import { useAppState } from '../state'
+import { usePrevious } from '../hooks'
+import { Fade, Slide, SvgRender } from '../ui'
+import { INITIAL_STATE, pan, zoom, getScale } from './display'
 import PanZoom from './PanZoom'
 import Controls from './Controls'
 import LayersRender from './LayersRender'
-import {DisplayControllerProps} from './types'
+import { DisplayControllerProps } from './types'
 
 const percent = (n: number): string => `${n * 100}%`
-const getId = (b: {id: string} | null): string | null => (b ? b.id : null)
+const getId = (b: { id: string } | null): string | null => (b ? b.id : null)
 
 /** 电路板显示组件 */
 export default function BoardDisplay(): JSX.Element {
-  const {mode, board, loading, layerVisibility} = useAppState()
+  const { mode, board, loading, layerVisibility } = useAppState()
   const [displayState, setDisplayState] = useState(INITIAL_STATE)
   const prevBoard = usePrevious(board)
   const containerRef = useRef<HTMLDivElement | null>(null)
@@ -32,8 +32,8 @@ export default function BoardDisplay(): JSX.Element {
 
   useLayoutEffect(() => {
     if (containerRef.current) {
-      const {x, y, step} = displayState
-      const {scale} = getScale(step)
+      const { x, y, step } = displayState
+      const { scale } = getScale(step)
       // const transform = `translate(${percent(x)},${percent(y)}) scale(${scale})`
 
       // containerRef.current.style.transform = transform
@@ -46,28 +46,29 @@ export default function BoardDisplay(): JSX.Element {
 
   return (
     <>
-      <Fade in={show}>
+      {/* <Fade in={show}>
         <PanZoom {...controllerProps} containerRef={containerRef}>
           {board && (
             <>
               <SvgRender
-                className={cx('w-100', {dn: mode !== 'top'})}
+                className={cx('w-100', { dn: mode !== 'top' })}
                 source={board.top}
               />
               <SvgRender
-                className={cx('w-100', {dn: mode !== 'bottom'})}
+                className={cx('w-100', { dn: mode !== 'bottom' })}
                 source={board.bottom}
               />
               <LayersRender
-                className={cx('w-100', {clip: mode !== 'layers'})}
+                className={cx('w-100', { clip: mode !== 'layers' })}
                 viewBox={board.viewBox}
                 layers={board.layers}
                 layerVisibility={layerVisibility}
               />
+              
             </>
           )}
         </PanZoom>
-      </Fade>
+      </Fade> */}
       {/* <Slide in={show} from="bottom">
         <Controls {...controllerProps} />
       </Slide> */}

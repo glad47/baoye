@@ -5,6 +5,9 @@ import Axios from 'axios';
 import { useAppState, changeTransportCost } from '../state';
 import { SelectValue } from 'antd/lib/select';
 import { fetchShipingCost } from './AjaxService';
+import countryImg from '../images/libya.png'
+import DHL from '../images/dhl.png'
+import {getCountryImg} from '../country/index'
 
 type CountryItem = {
     id: number
@@ -27,13 +30,19 @@ const { Option } = Select;
 let cItem: Array<CountryItem> = [];
 const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
     const { dispatch,subtotal } = useAppState();
+    let getCountry =getCountryImg('by')
     useEffect(()=>{
         if (cItem.length === 0){
+<<<<<<< HEAD
             Axios.get('http://localhost:8871/quote/getCountry')
+=======
+            Axios.get('http://10.168.8.113:8871/quote/getCountry')
+>>>>>>> ba85572dfc3a9191b9a50d9faaa548fbd4370d67
             .then((rep)=>{
             //   console.log(rep.data.data);
               if(rep.data.code === 0){
                 cItem = rep.data.data;
+                console.log(cItem)
               }
             }).catch((rep)=>{
               console.log(rep)
@@ -68,7 +77,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
           </Row>
           <Row className="shopping-cast-mar">
             <Col span={16}>
-                <Select defaultValue='DHL'>
+                {/* <Select defaultValue='DHL'>
                     <Option value="DHL">DHL</Option>
                 </Select>
 
@@ -87,7 +96,14 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
                             <Option key={item.id} value={item.id}>{item.name}</Option>
                         ))
                     }
-                </Select>
+                </Select> */}
+                <div className='the_national_flag'>
+                    <div className='dhl'><img src={DHL}/></div>
+                    <div className='country_img'>
+                        <div className='get_img_show'><img src={getCountry || countryImg}/></div>
+                        <span>Libya</span>
+                    </div>
+                </div>
             </Col>
             <Col span={8}><i>${subtotal.shippingFee}</i></Col>
           </Row>

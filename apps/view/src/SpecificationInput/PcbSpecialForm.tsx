@@ -14,11 +14,20 @@ interface PcbSpecialFormProps {
 const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) =>{
     const [form] = Form.useForm();
     const { pcbSpecialField,dispatch } = useAppState();
+<<<<<<< HEAD
 
     const onValuesChange = (v: Store, value: Store) =>{
         dispatch(changeSpecialField(value))
+=======
+    const onValuesChange = () =>{
+        form.submit();
+        console.log('form表单提交了')
     }
-
+    const onFinish = (v: Store) =>{
+        dispatch(changeSpecialField(v))
+>>>>>>> ba85572dfc3a9191b9a50d9faaa548fbd4370d67
+    }
+    
     return (
         <Form form={form} initialValues={pcbSpecialField} onValuesChange={onValuesChange} style={{width:"100%"}}>
             <Row className="special-mar">
