@@ -50,7 +50,7 @@ function App(): JSX.Element {
   }
 
   const handleGoCar = ()=>{
-    location.href = 'http://localhost:8882/quote1/goToCart';
+    location.href = 'http://localhost:8882/car/goToCart';
   }
 
   return (

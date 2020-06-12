@@ -3,7 +3,6 @@ import { Row, Col, Form, Input } from 'antd';
 import ObserverSelect from './ObserverSelect';
 import { Store } from 'antd/lib/form/interface';
 import { useAppState, changeStandardField, changeQuoteMode } from '../state';
-import LinkageFieldItem from './LinkageFieldItem';
 
 interface PcbStandardFromProps {
     onChange?: ()=>void;
@@ -43,12 +42,10 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
     const [ innerCopperSelectDisabled, setInnerCopperSelectDisabled ] = useState(true);
     const [ layerSelect, setLayerSelect] = useState(layerSelectData);
     const [ ctiSelect, setCtiSelect ] = useState(ctiSelectData);
-    const [ showTg, setShowTg ] = useState(true);
 
     const onValuesChange = (v: Store,values: Store) =>{
         switch(Object.values(v)[0]){
             case "Aluminum": {
-                setShowTg(false);
                 form.setFieldsValue(
                     {
                         "layer":"1layer",
@@ -62,10 +59,19 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                     });
                 setLayerSelect(['1layer','2layer']);
                 setCtiSelect(['CTI≥600']);
+                setHoleCopperSelectDisabled(true);
+                dispatch(changeStandardField({
+                    ...values,
+                    layer:'1layer',
+                    minHoleSize:'1.5',
+                    holeCopper:'none',
+                    solderMask:'white',
+                    silkscreen:'black',
+                    cti:'CTI≥600',
+                    heatConductivity:'1W'}))
                 break;
             }
             case "FR4": {
-                setShowTg(true);
                 form.setFieldsValue(
                     {
                         "layer":"2layer",
@@ -79,36 +85,47 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                     });
                 setLayerSelect(layerSelectData);
                 setCtiSelect(ctiSelectData);
+                setHoleCopperSelectDisabled(false);
+                dispatch(changeStandardField({
+                    ...values,
+                    layer:'2layer',
+                    minHoleSize:'0.3',
+                    holeCopper:'20um',
+                    solderMask:'green',
+                    cti:'175≤CTI<250',
+                    tg:'135'
+                }))
                 break;
             }
-            case "HASL with lead":{
-                form.setFieldsValue({"surfaceThickness":"2.54-25.4um"})
-                setSurfaceThicknessSelect(['2.54-25.4um'])
-                break;
-            }
+            case "HASL with lead":
             case "HASL lead free":{
                 form.setFieldsValue({"surfaceThickness":"2.54-25.4um"})
                 setSurfaceThicknessSelect(['2.54-25.4um'])
+                dispatch(changeStandardField({...values,surfaceThickness:'2.54-25.4um'}))
                 break;
             }
             case "Immersion tin" : {
                 form.setFieldsValue({"surfaceThickness":"0.5um-0.7um"})
                 setSurfaceThicknessSelect(['0.5um-0.7um'])
+                dispatch(changeStandardField({...values,surfaceThickness:'0.5um-0.7um'}))
                 break;
             }
             case "Immersion silver" : {
                 form.setFieldsValue({"surfaceThickness":"≥0.05um"})
                 setSurfaceThicknessSelect(['≥0.05um'])
+                dispatch(changeStandardField({...values,surfaceThickness:'≥0.05um'}))
                 break; 
             }
             case "OSP" : {
                 form.setFieldsValue({"surfaceThickness":"0.25-0.5um"})
                 setSurfaceThicknessSelect(['0.25-0.5um'])
+                dispatch(changeStandardField({...values,surfaceThickness:'0.25-0.5um'}))
                 break; 
             }
             case "Immersion Gold" :{
                 form.setFieldsValue({"surfaceThickness":'Ni:120-150u "Au:1u"'})
                 setSurfaceThicknessSelect(surfaceThicknessSelectData)
+                dispatch(changeStandardField({...values,surfaceThickness:'Ni:120-150u "Au:1u"'}))
                 break;  
             }
             case "1layer" : {
@@ -118,6 +135,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                 })
                 setHoleCopperSelectDisabled(true);
                 setInnerCopperSelectDisabled(true);
+                dispatch(changeStandardField({...values,holeCopper:'none',innerCopper:'none'}))
                 break;
             }
             case "2layer" : {
@@ -127,6 +145,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                 })
                 setHoleCopperSelectDisabled(false);
                 setInnerCopperSelectDisabled(true);
+                dispatch(changeStandardField({...values,holeCopper:'20um',innerCopper:'none'}))
                 break;
             }
             case "4layer":
@@ -138,12 +157,15 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
                 });
                 setHoleCopperSelectDisabled(false);
                 setInnerCopperSelectDisabled(false);
+                dispatch(changeStandardField({...values,holeCopper:'20um',innerCopper:'1oz'}))
                 break;
             }
+            default: {
+                dispatch(changeStandardField(values));
+            }
         }
-        console.log('值改变方法--全部',values);
+        // console.log('值改变方法--全部',values);
         // form.submit();
-        dispatch(changeStandardField(values));
     }
 
     // const onFinish = (v: Store) => {

@@ -18,16 +18,16 @@ export function countQuoteMiddleware(): State.Middleware {
                
                 console.log("计算尺寸",state);
                 const { pcbSizeField: {boardType,quantity,singleSize:{sizeX,sizeY},panelSize:{size:psx,siezY:psy}}, pcbStandardField:{layer}} = state;
-                console.log(sizeX);
-                console.log(sizeY);
-                console.log(quantity);
+                // console.log(sizeX);
+                // console.log(sizeY);
+                // console.log(quantity);
                 if(!(sizeX && sizeY && quantity)) break;
                 let areasq = Number(sizeX) * Number(sizeY) * Number(quantity)/1000000
                 let quantityPcs;
                 if(boardType === 'Panel'){
                     quantityPcs = Number(psx) * Number(psy) * Number(quantity)
                 }
-                console.log(areasq);
+                console.log('计算出面积',areasq);
                 let layerNum = Number(String(layer).substr(0,1));                
                 // let fetchBuildTime = new Promise(ajaxBuildTime);
                 const {pcbSizeField,pcbSpecialField,pcbStandardField} = state;

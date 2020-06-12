@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-const baseUrl = "http://10.168.8.188:8871/"
+const baseUrl = "http://localhost:8871/"
 
 // export function ajaxBuildTime (){
 //     return Axios.get(baseUrl+ 'quote/getBuildTime')

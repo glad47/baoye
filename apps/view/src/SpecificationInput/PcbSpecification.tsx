@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Row, Col, Form } from 'antd';
 import { Store } from 'antd/lib/form/interface';
-import SpecificationHead from './SpecificationHead';
 import PcbStandardFrom from './PcbStandardForm';
 import PcbSpecialForm from './PcbSpecialForm';
 import { useAppState, setFieldMode } from '../state';

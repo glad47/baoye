@@ -15,15 +15,12 @@ const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) =>{
     const [form] = Form.useForm();
     const { pcbSpecialField,dispatch } = useAppState();
 
-    const onValuesChange = () =>{
-        form.submit();
-    }
-    const onFinish = (v: Store) =>{
-        dispatch(changeSpecialField(v))
+    const onValuesChange = (v: Store, value: Store) =>{
+        dispatch(changeSpecialField(value))
     }
 
     return (
-        <Form form={form} initialValues={pcbSpecialField} onValuesChange={onValuesChange} onFinish={onFinish} style={{width:"100%"}}>
+        <Form form={form} initialValues={pcbSpecialField} onValuesChange={onValuesChange} style={{width:"100%"}}>
             <Row className="special-mar">
                 <Col span={12}>
                     <Form.Item label="HDI">
