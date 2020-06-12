@@ -49,7 +49,9 @@ function App(): JSX.Element {
   let [topSvg, setTopSvg] = useState(String);
   let [bottomSvg, setBottom] = useState(String)
   let [circuitBoardSize,setBoardSize]=useState(Object)
+
   const { dispatch, subtotal, buildTimeItmes, quoteMode } = useAppState()
+  
   const handleFiles = (event: FileEvent): void => {
     const files =
       'dataTransfer' in event
@@ -60,11 +62,11 @@ function App(): JSX.Element {
     if ('value' in event.target) event.target.value = ''
     preventDefault(event)
     const {name} =files[0] || ''
-    PersistentData('uploadName',name,true)
+    // PersistentData('uploadName',name,true)
     const fd = new FormData()
     fd.append('uploads', files[0])
 
-    axios.post('http://10.168.8.165:8888/api/uploads', fd, {
+    axios.post('http://localhost:8888/api/uploads', fd, {
       onUploadProgress: (ProgressEvent) => {
         var percentCompleted = Math.round((ProgressEvent.loaded * 100) / ProgressEvent.total)
         changeProgress(percentCompleted)
@@ -82,7 +84,7 @@ function App(): JSX.Element {
       setBottom(bottomSvgG)
       setBorderWidth(board_width)
       setBorderLength(board_length)
-      PersistentData('uploadPath',uploadPath,true)
+      // PersistentData('uploadPath',uploadPath,true)
       let circuitSize={
         width:board_width,
         length:board_length,
@@ -101,27 +103,22 @@ function App(): JSX.Element {
     dispatch(addQuote());
   }
 
-<<<<<<< HEAD
   const handleGoCar = ()=>{
     location.href = 'http://localhost:8882/car/goToCart';
-=======
-  const handleGoCar = () => {
-    location.href = 'http://localhost:8882/quote1/goToCart';
->>>>>>> ba85572dfc3a9191b9a50d9faaa548fbd4370d67
   }
     /**
      * @description: 数据本地持久化处理（暂时使用，未封装完整）
      * @param :name：持久化数据ID（唯一性）；items：具体存储的数据；type：类型：为永久化存储还是本次存储，布尔值（true，false）
      * @return: none
     */
-  function PersistentData(name,items,type){
-    const {localStorage,sessionStorage} =window
-    if(type){
-      localStorage.setItem(name,items)
-    }else{
-      sessionStorage.setItem(name,items)
-    }
-  }
+  // function PersistentData(name,items,type){
+  //   const {localStorage,sessionStorage} =window
+  //   if(type){
+  //     localStorage.setItem(name,items)
+  //   }else{
+  //     sessionStorage.setItem(name,items)
+  //   }
+  // }
 
 
   return (
@@ -187,7 +184,7 @@ function App(): JSX.Element {
                 </div>
                 <Checkbox className='is_checked' />
               </div>}
-              {quoteMode === 0 ? <PcbSizeForm toSize={circuitBoardSize}/> : ''}
+              {quoteMode === 0 ? <PcbSizeForm/> : ''}
             </div>
             {/* <PcbSizeForm /> */}
             <FormControl quoteMode={quoteMode} />

@@ -33,11 +33,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
     let getCountry =getCountryImg('by')
     useEffect(()=>{
         if (cItem.length === 0){
-<<<<<<< HEAD
             Axios.get('http://localhost:8871/quote/getCountry')
-=======
-            Axios.get('http://10.168.8.113:8871/quote/getCountry')
->>>>>>> ba85572dfc3a9191b9a50d9faaa548fbd4370d67
             .then((rep)=>{
             //   console.log(rep.data.data);
               if(rep.data.code === 0){

@@ -14,8 +14,7 @@ interface ObserverSizeProps {
 }
 
 const ObserverSize: React.FC<ObserverSizeProps> = (props) =>{
-    const { value, onChange, isDisabled ,circuit} = props
-    const {width,length,quantity}=circuit || 0
+    const { value, onChange, isDisabled } = props
     const [numberX, setNumberX] = useState(value?.sizeX);
     const [numberY, setNumberY] = useState(value?.sizeY); 
 
@@ -42,8 +41,7 @@ const ObserverSize: React.FC<ObserverSizeProps> = (props) =>{
                 <Col span={12}>
                         <Input
                         type="text"
-                        // value={value && value.sizeX || numberX}
-                        value={width}
+                        value={value && value.sizeX || numberX}
                         onChange={onNumberXChange}
                         disabled = {isDisabled}
                     />
@@ -51,8 +49,7 @@ const ObserverSize: React.FC<ObserverSizeProps> = (props) =>{
                 <Col span={12}>
                     <Input
                     type="text"
-                    // value={value && value.sizeY || numberY}
-                    value={length}
+                    value={value && value.sizeY || numberY}
                     onChange={onNumberYChange}
                     disabled = { isDisabled }
                 />
