@@ -7,6 +7,7 @@ import { SelectValue } from 'antd/lib/select';
 import { fetchShipingCost } from './AjaxService';
 import countryImg from '../images/libya.png'
 import DHL from '../images/dhl.png'
+import {getCountryImg} from '../country/index'
 
 type CountryItem = {
     id: number
@@ -29,13 +30,15 @@ const { Option } = Select;
 let cItem: Array<CountryItem> = [];
 const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
     const { dispatch,subtotal } = useAppState();
+    let getCountry =getCountryImg('by')
     useEffect(()=>{
         if (cItem.length === 0){
-            Axios.get('http://10.168.8.176:8871/quote/getCountry')
+            Axios.get('http://10.168.8.113:8871/quote/getCountry')
             .then((rep)=>{
             //   console.log(rep.data.data);
               if(rep.data.code === 0){
                 cItem = rep.data.data;
+                console.log(cItem)
               }
             }).catch((rep)=>{
               console.log(rep)
@@ -93,7 +96,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) =>{
                 <div className='the_national_flag'>
                     <div className='dhl'><img src={DHL}/></div>
                     <div className='country_img'>
-                        <img src={countryImg}/>
+                        <div className='get_img_show'><img src={getCountry || countryImg}/></div>
                         <span>Libya</span>
                     </div>
                 </div>

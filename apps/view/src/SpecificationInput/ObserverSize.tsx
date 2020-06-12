@@ -15,7 +15,6 @@ interface ObserverSizeProps {
 
 const ObserverSize: React.FC<ObserverSizeProps> = (props) =>{
     const { value, onChange, isDisabled ,circuit} = props
-    console.log(circuit)
     const {width,length,quantity}=circuit || 0
     const [numberX, setNumberX] = useState(value?.sizeX);
     const [numberY, setNumberY] = useState(value?.sizeY); 
