@@ -10,7 +10,7 @@ import img from '../images/15.png'
 import Item from 'antd/lib/list/Item';
 
 interface BuildTimeFormProps {
-    buildItems: Array<BuildTimeItem>
+   // buildItems: Array<BuildTimeItem>
 }
 
 const bts = [
@@ -23,14 +23,14 @@ var chooseIndex;
 let newChoose = 0;
 const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
     let btnIndex = 0;
-    const { buildItems } = props
+    // const { buildItems } = props
     const [newChoose, changeChoose] = useState(0)
     const [newBtnID, changeId] = useState(1)
-    const { dispatch, subtotal } = useAppState();
+    const { dispatch, subtotal,buildTimeItmes } = useAppState();
     const [isHeightLight, changeStateHeight] = useState(false)
     const onChange = (e: RadioChangeEvent) => {
         var v = e.target.value
-        const { price } = buildItems.filter((item) => { return Number(item.id) === Number(v) })[0]
+        const { price } = buildTimeItmes.filter((item) => { return Number(item.id) === Number(v) })[0]
         dispatch(changeUrgentCost(price))
         btnIndex = v
         changeId(v)
@@ -249,9 +249,9 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
                 </div>
             </Row>
             <Row>
-                <Radio.Group onChange={onChange} defaultValue={buildItems[0].id} className='group'>
+                <Radio.Group onChange={onChange} defaultValue={buildTimeItmes[0].id} className='group'>
                     {
-                        buildItems.map(item => (
+                        buildTimeItmes.map(item => (
                             <Radio.Button value={item.id} key={item.id} onChange={e => changeColor(e)} checked={isChecked(item.id) ? true : false}> {item.dayNumber}</Radio.Button>
                         ))
                     }

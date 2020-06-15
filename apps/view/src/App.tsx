@@ -38,6 +38,8 @@ import Icon5 from './images/footer_icon05.png'
 import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled, CalculatorOutlined } from '@ant-design/icons';
 import SideNavigation, { SideNavigationTab } from './SpecificationInput/SideNavigation'
 import FormControl from './SpecificationInput/FormControl'
+import GerberUpload from './SpecificationInput/GerberUpload'
+import GerberShow from './SpecificationInput/GerberShow'
 
 function App(): JSX.Element {
   const [progress, changeProgress] = useState(0)
@@ -61,37 +63,37 @@ function App(): JSX.Element {
     if (files.length > 0) dispatch(createBoard(files, 'dataTransfer' in event))
     if ('value' in event.target) event.target.value = ''
     preventDefault(event)
-    const {name} =files[0] || ''
-    // PersistentData('uploadName',name,true)
-    const fd = new FormData()
-    fd.append('uploads', files[0])
+    // const {name} =files[0] || ''
+    // // PersistentData('uploadName',name,true)
+    // const fd = new FormData()
+    // fd.append('uploads', files[0])
 
-    axios.post('http://localhost:8888/api/uploads', fd, {
-      onUploadProgress: (ProgressEvent) => {
-        var percentCompleted = Math.round((ProgressEvent.loaded * 100) / ProgressEvent.total)
-        changeProgress(percentCompleted)
-      },
-      headers: { 'Content-Type': 'multipart/form-data' }
-    }).then(res => {
-      console.log(res.data)
-      const { board_length, board_width, stackup, uploadPath,toolsCount } = res.data
-      const { bottom, top, id } = stackup
-      const topSvgG = top.svg
-      const bottomSvgG = bottom.svg
-      formShow = true
-      changeShowState(formShow)
-      setTopSvg(topSvgG)
-      setBottom(bottomSvgG)
-      setBorderWidth(board_width)
-      setBorderLength(board_length)
-      // PersistentData('uploadPath',uploadPath,true)
-      let circuitSize={
-        width:board_width,
-        length:board_length,
-        quantity:toolsCount
-      }
-      setBoardSize(circuitSize)
-    })
+    // axios.post('http://localhost:8888/api/uploads', fd, {
+    //   onUploadProgress: (ProgressEvent) => {
+    //     var percentCompleted = Math.round((ProgressEvent.loaded * 100) / ProgressEvent.total)
+    //     changeProgress(percentCompleted)
+    //   },
+    //   headers: { 'Content-Type': 'multipart/form-data' }
+    // }).then(res => {
+    //   console.log(res.data)
+    //   const { board_length, board_width, stackup, uploadPath,toolsCount } = res.data
+    //   const { bottom, top, id } = stackup
+    //   const topSvgG = top.svg
+    //   const bottomSvgG = bottom.svg
+    //   formShow = true
+    //   changeShowState(formShow)
+    //   setTopSvg(topSvgG)
+    //   setBottom(bottomSvgG)
+    //   setBorderWidth(board_width)
+    //   setBorderLength(board_length)
+    //   // PersistentData('uploadPath',uploadPath,true)
+    //   let circuitSize={
+    //     width:board_width,
+    //     length:board_length,
+    //     quantity:toolsCount
+    //   }
+    //   setBoardSize(circuitSize)
+    // })
   }
 
   const handleUrl = (url: string): void => {
@@ -149,7 +151,7 @@ function App(): JSX.Element {
 
             <div className="pcb-min">
               {/* <Nav/> */}
-              {formShow ? "" : <div className="pcb-file">
+              {/* {formShow ? "" : <div className="pcb-file">
                 <BoardDisplay />
                 <LoadFiles handleFiles={handleFiles} />
                 <ErrorToast />
@@ -183,7 +185,9 @@ function App(): JSX.Element {
                   </div>
                 </div>
                 <Checkbox className='is_checked' />
-              </div>}
+              </div>} */}
+              <GerberUpload />
+              <GerberShow />
               {quoteMode === 0 ? <PcbSizeForm/> : ''}
             </div>
             {/* <PcbSizeForm /> */}
@@ -194,7 +198,7 @@ function App(): JSX.Element {
           <div className="pcb-sidebar">
 
             <div className="pcb-build-time">
-              <BuildTimeForm buildItems={buildTimeItmes} />
+              <BuildTimeForm/>
             </div>
 
             <div className="pcb-fee">

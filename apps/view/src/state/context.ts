@@ -24,6 +24,7 @@ export const INITIAL_STATE: State = {
   transportCost: 0,
   stencilField: INITIAL_STENCIL,
   assemblyField: INITIAL_ASSEMBLY,
+  svg: null
 }
 
 // const INITIAL_STANDARD = {

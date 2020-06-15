@@ -46,6 +46,7 @@ export const CHANGE_TRANSPORT_COST = 'CHANGE_TRANSPORT_COST'
 export const ADD_QUOTE = 'ADD_QUOTE'
 export const CHANGE_QUOTE_MODE = 'CHANGE_QUOTE_MODE'
 export const CHANGE_STENCIL_FIELD = 'CHANGE_STENCIL_FIELD'
+export const BACKFILL_PCB_DATA = 'BACKFILL_PCB_DATA'
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -242,5 +243,11 @@ export const changeQuoteMode = (field: number): Action =>({
 /** 修改钢网字段 */
 export const changeStencilField= (field: FieldStore): Action =>({
   type: CHANGE_STENCIL_FIELD,
+  payload: field
+})
+
+/** 回填上传文件返回的数据 */
+export const backfillPcbData = (field: any): Action =>({
+  type: BACKFILL_PCB_DATA,
   payload: field
 })
