@@ -535,7 +535,7 @@
 }
 .pcb-total .ant-row .total-select,.pcb-total .ant-row .total-select>div{
     width: 100%;
-    line-height: 40px;
+    text-align: center;
     background: #fff;
     border: 0;
     border-radius: 6px;

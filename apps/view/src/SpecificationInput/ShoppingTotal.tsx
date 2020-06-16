@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SwapOutlined, TransactionOutlined, ShoppingCartOutlined, PrinterFilled } from '@ant-design/icons';
-import { Row, Col, Select, Button } from 'antd';
+import { Row, Col, Select, Button,Input } from 'antd';
 import axios from 'axios'
 
 interface ShoppingTotalProps {
@@ -46,15 +46,13 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
     }
 
     const changeRate = () => {
-        console.log('1111')
     }
 
     useEffect(() => {
-        axios.get('http://10.168.8.136:8871/getAllExchangeRate').then(res=>{
-            console.log(res.data)
+        axios.get('http://10.168.8.136:8871/getAllExchangeRate').then(res => {
+            
         })
     })
-
     return (
         <div>
             <Row>
@@ -66,17 +64,18 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
             <Row>
                 <Col span={12}><i>Currency select</i></Col>
                 <Col span={12}><TransactionOutlined className="total-transc" onClick={changeRate} />
-                    <strong>¥{(total*6.8).toFixed(2)}</strong>
+                    <strong>¥{(total * 6.8).toFixed(2)}</strong>
                 </Col>
             </Row>
             <Row>
                 <Col span={24}>
-                    <Select className="total-select" defaultValue="Order description" disabled={true}>
-                        {/* <Option value="jack">Jack</Option>
+                    {/* <Select  defaultValue="Order description" disabled={true}>
+                        <Option value="jack">Jack</Option>
                         <Option value="lucy">Lucy</Option>
                         <Option value="disabled" disabled={true}></Option>
-                        <Option value="Yiminghe">yiminghe</Option> */}
-                    </Select>
+                        <Option value="Yiminghe">yiminghe</Option>
+                    </Select> */}
+                    <Input placeholder="Order description" className="total-select"/>
                 </Col>
             </Row>
             <Row>
