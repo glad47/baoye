@@ -30,7 +30,6 @@ const { Option } = Select;
 let cItem: Array<CountryItem> = [];
 const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
     const { dispatch, subtotal } = useAppState();
-    let [cityItem, setCityItem] = useState(Object)
     let countryIcon = 'ac'
     useEffect(() => {
         if (cItem.length === 0) {
@@ -64,6 +63,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
     const fetchShippingCost = (v: SelectValue) => {
         // console.log(v);
         const { totalWeight } = subtotal;
+        console.log(totalWeight)
         if (totalWeight) {
             Axios.all([fetchShipingCost({ countryId: v, totalWeight: totalWeight })]).then((v) => {
                 console.log(v);
@@ -101,11 +101,11 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
                           }
                         className='country_select'
                         bordered={false}
-                        defaultValue={cItem ? 'China' : ""}
+                        defaultValue={cItem ? 101 : ""}
                     >
                         {
                             cItem && cItem.map(item => (
-                                <Option key={item.id} value={item.name} label={item.name}>
+                                <Option key={item.id} value={item.id} label={item.name}>
                                     <img src={require('../images/countryFlag/flag_' + changName(item.countryCode) + '.png')} className='all_country_logo' />
                                     <span className='country_name'>{item.name}</span>
                                 </Option>
