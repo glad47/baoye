@@ -8,7 +8,7 @@ interface ObserverSwitchProps {
 const VALUE_PROP_NAME = "checked";
 
 const ObserverSwitch: React.FC<ObserverSwitchProps> = (props) =>{
-    const dataTo=(e)=>{
+    const dataTo=(e:any)=>{
         console.log(props,name)
         console.log(e)
     }

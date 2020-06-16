@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SwapOutlined, TransactionOutlined, ShoppingCartOutlined, PrinterFilled, EuroCircleOutlined} from '@ant-design/icons';
-import { Row, Col, Select, Button } from 'antd';
+import { Row, Col, Select, Button, Input } from 'antd';
 import axios from 'axios'
 import { baseUrl } from './AjaxService';
 import RateSwitch from './RateSwitch';
@@ -92,12 +92,13 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
             </Row>
             <Row>
                 <Col span={24}>
-                    <Select className="total-select" defaultValue="Order description" disabled={true}>
-                        {/* <Option value="jack">Jack</Option>
+                    {/* <Select  defaultValue="Order description" disabled={true}>
+                        <Option value="jack">Jack</Option>
                         <Option value="lucy">Lucy</Option>
                         <Option value="disabled" disabled={true}></Option>
-                        <Option value="Yiminghe">yiminghe</Option> */}
-                    </Select>
+                        <Option value="Yiminghe">yiminghe</Option>
+                    </Select> */}
+                    <Input placeholder="Order description" className="total-select"/>
                 </Col>
             </Row>
             <Row>

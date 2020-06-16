@@ -40,19 +40,19 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
     useEffect(() => {
         let myChart = echarts.init(document.getElementById('main'));
         let data = [{
-            'name': 'priorigt',
+            'name': 'Standard',
             'value': 1500,
             label: {
                 color: '#fff'
             }
         }, {
-            'name': 'standard',
+            'name': 'Overnight',
             'value': 1500,
             label: {
                 color: '#fff'
             }
         }, {
-            'name': 'Surface',
+            'name': 'Priorigt',
             'value': 1500,
             label: {
                 color: '#fff'
