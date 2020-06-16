@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Form, Input } from 'antd';
 import ObserverSelect from './ObserverSelect';
 import { Store } from 'antd/lib/form/interface';
@@ -172,6 +172,10 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) =>{
     //     console.log(v);
     //     dispatch(changeStandardField(v));
     // }
+
+    useEffect(()=>{
+        form.setFieldsValue({...pcbStandardField})
+    },[pcbStandardField])
 
     return(
         <Form form={form} initialValues={pcbStandardField} onValuesChange={onValuesChange} style={{width:"100%"}} labelAlign="left">

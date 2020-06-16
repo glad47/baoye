@@ -219,7 +219,7 @@ export default function reducer(state: State, action: Action): State {
         ...state,
         loading: true,
         pcbSizeField:{...state.pcbSizeField,singleSize:{sizeX:board_width,sizeY:board_length}},
-        pcbStandardField:{...state.pcbStandardField,layer:board_layers+'layer'},
+        pcbStandardField:{...state.pcbStandardField,layer:board_layers+'layer',},
         svg:{...state.svg,topSvg:top,bottomSvg:bottom} 
       }
     }

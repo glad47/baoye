@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { SwapOutlined, TransactionOutlined, ShoppingCartOutlined, PrinterFilled } from '@ant-design/icons';
+import { SwapOutlined, TransactionOutlined, ShoppingCartOutlined, PrinterFilled, EuroCircleOutlined} from '@ant-design/icons';
 import { Row, Col, Select, Button } from 'antd';
 import axios from 'axios'
+import { baseUrl } from './AjaxService';
+import RateSwitch from './RateSwitch';
 
 interface ShoppingTotalProps {
     total: number;
@@ -11,8 +13,17 @@ interface ShoppingTotalProps {
 
 const { Option } = Select;
 
+type RateItem = {
+    id: number
+    currency: string
+    exchangeRate: number
+}
+let rItem: Array<RateItem> = [];
 const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
     const { total, handleAddQuote, handleGoCar } = props;
+    const [defaultRate, setDefaultRate] = useState(1);
+    const [rateItem, setRateItem] = useState(rItem);
+    
     // let [totalMoney, changeTotalMoney] = useState('$' + total)
     // let [changeMoney, changeAllMoney] = useState('¥' + (total * 6.8))
     // let [isChangeLocation, changeLocationState] = useState(false)
@@ -46,14 +57,23 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
     }
 
     const changeRate = () => {
-        console.log('1111')
+        if(defaultRate === 2){
+            setDefaultRate(0);
+        }else{
+            setDefaultRate(defaultRate + 1);
+        }
     }
 
-    // useEffect(() => {
-    //     axios.get('http://10.168.8.113:8871/getAllExchangeRate').then(res=>{
-    //         console.log(res.data)
-    //     })
-    // })
+    useEffect(() => {
+        if(rItem.length === 0){
+            axios.get(baseUrl+'getAllExchangeRate')
+            .then(rep=>{
+                if(rep.data.code === 0){
+                    setRateItem(rep.data.data);
+                }
+            })
+        }
+    },[])
 
     return (
         <div>
@@ -65,8 +85,9 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
             </Row>
             <Row>
                 <Col span={12}><i>Currency select</i></Col>
-                <Col span={12}><TransactionOutlined className="total-transc" onClick={changeRate} />
-                    <strong>¥{(total*6.8).toFixed(2)}</strong>
+                <Col span={12}>
+                    <RateSwitch defaultRate={defaultRate} changeRate={changeRate} />
+                    <strong>{ rateItem.length !== 0 ? (total*rateItem[0].exchangeRate/rateItem[defaultRate].exchangeRate).toFixed(2): 0.00}</strong>
                 </Col>
             </Row>
             <Row>
