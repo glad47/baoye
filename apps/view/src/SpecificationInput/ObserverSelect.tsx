@@ -16,8 +16,7 @@ const ObserverSelect: React.FC<ObserverSelectProps> = (props) => {
     const { item, defauleValue, name, value, onChange, disabled, selectStyle } = props;
     const { Option } = Select;
     const onChangeStyle = () => {
-        const status=document.querySelector('.drop_down')
-        console.log(status)
+
     }
     const defaultSelectStyle = { width: '158px' };
     return (

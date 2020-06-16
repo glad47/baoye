@@ -29,10 +29,6 @@ import Icon2 from './images/footer_icon02.png'
 import Icon3 from './images/footer_icon03.png'
 import Icon4 from './images/footer_icon04.png'
 import Icon5 from './images/footer_icon05.png'
-//import Japanese from './images/footer_country_icon01.png'
-// import German from './images/footer_country_icon02.png'
-// import Spanish from './images/footer_country_icon03.png'
-// import American from './images/footer_country_icon04.png'
 
 
 import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled, CalculatorOutlined } from '@ant-design/icons';
@@ -41,8 +37,6 @@ import FormControl from './SpecificationInput/FormControl'
 
 function App(): JSX.Element {
   const [progress, changeProgress] = useState(0)
-  const [isChecked, changeCheckedStatus] = useState(0)
-  const [dataFrom, getData] = useState(0)
   let [formShow, changeShowState] = useState(false)
   let [borderWidth, setBorderWidth] = useState(0)
   let [borderLength, setBorderLength] = useState(0)
@@ -246,10 +240,10 @@ function App(): JSX.Element {
           <div className='copyright'>
             <p>@2018 PCB online LTD.All Right Reserved</p>
             <div className='copyright_right'>
-              <div className='show_link_country'><span>Japanese</span><img /></div>
-              <div className='show_link_country'><span>German</span><img /></div>
-              <div className='show_link_country'><span>Spanish</span><img /></div>
-              <div className='show_link_country'><span>United States</span><img /></div>
+              <div className='show_link_country'><span>Japanese</span><img src={require('./images/footer_country_icon001.png')}/></div>
+              <div className='show_link_country'><span>German</span><img src={require('./images/footer_country_icon002.png')}/></div>
+              <div className='show_link_country'><span>Spanish</span><img src={require('./images/footer_country_icon003.png')}/></div>
+              <div className='show_link_country'><span>United States</span><img src={require('./images/footer_country_icon004.png')}/></div>
             </div>
           </div>
         </Footer>

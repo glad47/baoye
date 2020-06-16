@@ -50,7 +50,7 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
     }
 
     useEffect(() => {
-        axios.get('http://10.168.8.113:8871/getAllExchangeRate').then(res=>{
+        axios.get('http://10.168.8.136:8871/getAllExchangeRate').then(res=>{
             console.log(res.data)
         })
     })
