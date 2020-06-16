@@ -1,7 +1,7 @@
 import Axios from "axios";
 
-const baseUrl = "http://localhost:8871/"
-
+export const baseUrl = "http://localhost:8871/"
+export const gerberUploadUrl = "http://localhost:8888/";
 // export function ajaxBuildTime (){
 //     return Axios.get(baseUrl+ 'quote/getBuildTime')
 // }

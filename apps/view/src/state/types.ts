@@ -12,6 +12,7 @@ import {
   ParseGerber,
   BuildTimeItem,
   SubtotalItem,
+  SvgString,
 } from '../types'
 import { SelectValue } from 'antd/lib/select'
 
@@ -38,6 +39,7 @@ export type State = {
   transportCost: number
   stencilField: FieldStore
   assemblyField: FieldStore
+  svg: SvgString | null
 }
 
 /** Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。 */
@@ -90,3 +92,4 @@ export type Action =
   | {type: 'ADD_QUOTE';}
   | {type: 'CHANGE_QUOTE_MODE'; payload: number}
   | {type: 'CHANGE_STENCIL_FIELD'; payload: FieldStore}
+  | {type: 'BACKFILL_PCB_DATA'; payload: any}

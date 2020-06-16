@@ -13,36 +13,36 @@ const { Option } = Select;
 
 const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
     const { total, handleAddQuote, handleGoCar } = props;
-    let [totalMoney, changeTotalMoney] = useState('$' + total)
-    let [changeMoney, changeAllMoney] = useState('¥' + (total * 6.8))
-    let [isChangeLocation, changeLocationState] = useState(false)
+    // let [totalMoney, changeTotalMoney] = useState('$' + total)
+    // let [changeMoney, changeAllMoney] = useState('¥' + (total * 6.8))
+    // let [isChangeLocation, changeLocationState] = useState(false)
     const changeLocation = () => {
-        let temple;
-        switch (isChangeLocation) {
-            case true:
-                isChangeLocation = false
-                break;
-            case false:
-                isChangeLocation = true;
-                break;
-            default:
-                isChangeLocation = false;
-                break
-        }
-        changeLocationState(isChangeLocation)
-        if (isChangeLocation) {
-            temple = totalMoney
-            totalMoney = changeMoney
-            changeMoney = temple
-            changeTotalMoney(totalMoney)
-            changeAllMoney(changeMoney)
-        } else {
-            temple = totalMoney
-            totalMoney = changeMoney
-            changeMoney = temple
-            changeTotalMoney(totalMoney)
-            changeAllMoney(changeMoney)
-        }
+        // let temple;
+        // switch (isChangeLocation) {
+        //     case true:
+        //         isChangeLocation = false
+        //         break;
+        //     case false:
+        //         isChangeLocation = true;
+        //         break;
+        //     default:
+        //         isChangeLocation = false;
+        //         break
+        // }
+        // changeLocationState(isChangeLocation)
+        // if (isChangeLocation) {
+        //     temple = totalMoney
+        //     totalMoney = changeMoney
+        //     changeMoney = temple
+        //     changeTotalMoney(totalMoney)
+        //     changeAllMoney(changeMoney)
+        // } else {
+        //     temple = totalMoney
+        //     totalMoney = changeMoney
+        //     changeMoney = temple
+        //     changeTotalMoney(totalMoney)
+        //     changeAllMoney(changeMoney)
+        // }
     }
 
     const changeRate = () => {
@@ -59,14 +59,14 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
         <div>
             <Row>
                 <Col span={12}><h5>Total</h5></Col>
-                <Col span={12}><b>{totalMoney}</b>
+                <Col span={12}><b>{total}</b>
                     <SwapOutlined className="total-swap" onClick={changeLocation} />
                 </Col>
             </Row>
             <Row>
                 <Col span={12}><i>Currency select</i></Col>
                 <Col span={12}><TransactionOutlined className="total-transc" onClick={changeRate} />
-                    <strong>{changeMoney}</strong>
+                    <strong>¥{(total*6.8).toFixed(2)}</strong>
                 </Col>
             </Row>
             <Row>
@@ -86,8 +86,6 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
                     {/* <Link to="/quote/goToCart"> */}
                     <Button icon={<ShoppingCartOutlined />} block type="link" onClick={handleGoCar} />
                     {/* </Link> */}
-
-
                     <Button icon={<PrinterFilled />} block type="link" onClick={handleAddQuote} />
                 </Col>
             </Row>

@@ -208,6 +208,21 @@ export default function reducer(state: State, action: Action): State {
         subtotal: {...state.subtotal,stencilFee:sq,totalWeight:w}
       }
     }
+    case actionTypes.BACKFILL_PCB_DATA: {
+      const { 
+        board_layers,
+        board_length, 
+        board_width,
+        stackup:{bottom,top}
+      } = action.payload
+      return{
+        ...state,
+        loading: true,
+        pcbSizeField:{...state.pcbSizeField,singleSize:{sizeX:board_width,sizeY:board_length}},
+        pcbStandardField:{...state.pcbStandardField,layer:board_layers+'layer'},
+        svg:{...state.svg,topSvg:top,bottomSvg:bottom} 
+      }
+    }
   }
   
 
