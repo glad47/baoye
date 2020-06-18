@@ -4,12 +4,12 @@ import { Fade } from "../ui";
 
 
 
-interface GerberShowProps {}
+interface GerberShowProps { }
 
 
 //gerber显示组件
-const GerberShow: React.FC<GerberShowProps> = (props) =>{
-    const {loading,pcbSizeField:{singleSize:{sizeX}},svg} = useAppState()
+const GerberShow: React.FC<GerberShowProps> = (props) => {
+    const { loading, pcbSizeField: { singleSize: { sizeX } }, svg } = useAppState()
     const SIZE_CLASS_NAME = sizeX && sizeX > 70 ? 'vertical_svg_first' : 'transverse_svg_first'
     const SIZE_FIRST_CLASS_NAME = sizeX && sizeX > 70 ? 'vertical_svg' : 'transverse_svg'
 
@@ -17,16 +17,20 @@ const GerberShow: React.FC<GerberShowProps> = (props) =>{
     // const bottomSvg = board?.bottom ? board.bottom : '';
     return (
         <>
-        <Fade in={loading}>
-            <div className={SIZE_FIRST_CLASS_NAME}>
-                <div className={SIZE_CLASS_NAME}>
-                    <div dangerouslySetInnerHTML={{ __html:  svg?.topSvg.svg}} />
+            <Fade in={loading}>
+                {false ?<div className={SIZE_FIRST_CLASS_NAME}>
+                    <div className={SIZE_CLASS_NAME}>
+                        <div dangerouslySetInnerHTML={{ __html: svg?.topSvg.svg }} />
+                    </div>
+                    <div className={SIZE_CLASS_NAME}>
+                        <div dangerouslySetInnerHTML={{ __html: svg?.bottomSvg.svg }} />
+                    </div>
+                </div> :
+                <div className='show_one_img'>
+                    <div dangerouslySetInnerHTML={{ __html: svg?.topSvg.svg }} className='svg_show_img'/>
                 </div>
-                <div className={SIZE_CLASS_NAME}>
-                    <div dangerouslySetInnerHTML={{ __html: svg?.bottomSvg.svg}} />
-                </div>
-            </div> 
-        </Fade>
+                }
+            </Fade>
         </>
     );
 }

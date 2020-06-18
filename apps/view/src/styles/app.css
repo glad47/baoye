@@ -893,12 +893,22 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+.svg_show_img{
+    width: 580px;
+    height: 400px;
+    margin: auto;   
+}.svg_show_img>svg{
+    width: 580px;
+    height: 400px;
+}
 .w-100 {
     width: 339px;
     height: 168px;
 }
-
+.show_one_img{
+    width: 548px;
+    height: 400px;
+}
 .transverse_svg {
     display: flex;
     justify-content: space-between;
