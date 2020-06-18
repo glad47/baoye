@@ -10,7 +10,6 @@ import BuildTimeForm from './SpecificationInput/BuildTimeForm'
 import CastCalculation from './SpecificationInput/CostCalculation'
 import ShoppingCast from './SpecificationInput/ShoppingCast'
 import ShoppingTotal from './SpecificationInput/ShoppingTotal'
-import img from './images/logo.png'
 import axios from 'axios'
 import logoImg from './images/logo-bxsd.png'
 import Icon1 from './images/footer_icon01.png'
@@ -25,7 +24,7 @@ import SideNavigation, { SideNavigationTab } from './SpecificationInput/SideNavi
 import FormControl from './SpecificationInput/FormControl'
 import GerberUpload from './SpecificationInput/GerberUpload'
 import GerberShow from './SpecificationInput/GerberShow'
-import { baseUrl } from './SpecificationInput/AjaxService'
+import Head from './Login'
 
 function App(): JSX.Element {
   const { dispatch
@@ -33,7 +32,9 @@ function App(): JSX.Element {
     , quoteMode
     , fileUploadPtah
     ,pcbSizeField:{boardType,quantity,panelSize,singleSize} } = useAppState()
+
   const [isLogin, setIsLogin] = useState(false);  
+  
   const { Footer, Header, Content } = Layout
 
   const handleAddQuote = () => {
@@ -80,20 +81,10 @@ function App(): JSX.Element {
   const handleGoCar = ()=>{
     location.href = 'http://localhost:8882/car/goToCart';
   }
-    /**
-     * @description: 数据本地持久化处理（暂时使用，未封装完整）
-     * @param :name：持久化数据ID（唯一性）；items：具体存储的数据；type：类型：为永久化存储还是本次存储，布尔值（true，false）
-     * @return: none
-    */
-  // function PersistentData(name,items,type){
-  //   const {localStorage,sessionStorage} =window
-  //   if(type){
-  //     localStorage.setItem(name,items)
-  //   }else{
-  //     sessionStorage.setItem(name,items)
-  //   }
-  // }
-
+   
+  const login =()=>{
+    location.href='https://www.pcbonline.com/login'
+  }
 
   return (
     <Main>
@@ -101,13 +92,14 @@ function App(): JSX.Element {
       {/* <BoardList /> */}
 
       <Layout>
-        <Header>
+        {/* <Header>
           <div className="logo"><img src={img} alt="" /></div>
           <div className="sign-btn">
             <CalculatorOutlined />
-            <span className="sign-in">Sign in</span>
+            <span className="sign-in" onClick={login}>Sign in</span>
           </div>
-        </Header>
+        </Header> */}
+        <Head/>
         <Content>
           {/* 左边栏 */}
           <div className="pcb-nav">
@@ -115,7 +107,7 @@ function App(): JSX.Element {
               <SideNavigationTab><div><WalletFilled /></div></SideNavigationTab>
               <SideNavigationTab><div><SlidersFilled /></div></SideNavigationTab>
               <SideNavigationTab><div><SwitcherFilled /></div></SideNavigationTab>
-              <SideNavigationTab><div><ReconciliationFilled /></div></SideNavigationTab>
+              {/* <SideNavigationTab><div><ReconciliationFilled /></div></SideNavigationTab> */}
             </SideNavigation>
           </div>
 

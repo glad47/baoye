@@ -19,7 +19,7 @@ const bts = [
     { id: 3, dayNumber: "24hours", price: 38 },
 ]
 const { Title, Text } = Typography
-var chooseIndex;
+var chooseIndex:number;
 let newChoose = 0;
 const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
     let btnIndex = 0;
@@ -95,37 +95,6 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
             dataIndex: 0
         });
 
-        // //鼠标移入时的操作
-        // myChart.on('mouseover', function (params) {
-        //     myChart.dispatchAction({
-        //         type: 'downplay',
-        //         seriesIndex: 0,
-        //         dataIndex: 0
-        //     });
-        //     myChart.dispatchAction({
-        //         type: 'highlight',
-        //         seriesIndex: 0,
-        //         dataIndex: params.dataIndex
-        //     });
-        //     rotating(params)
-        // });
-
-        // //鼠标移出去的操作
-        // myChart.on('mouseout', function (e) {
-        //     const { seriesIndex, dataIndex } = e || ''
-        //     if (e.dataIndex != chooseIndex) {
-            
-        //         myChart.dispatchAction({ type: 'downplay', seriesIndex: 0, dataIndex: chooseIndex });
-        //     }
-        //     chooseIndex = e.dataIndex
-        //     let LightState = isHeightLight ? chooseIndex : 0
-        //     myChart.dispatchAction({
-        //         type: 'highlight',
-        //         seriesIndex: 0,
-        //         dataIndex: chooseIndex,
-        //     });
-
-        // });
         //鼠标单击操作
         myChart.on('click', function (params) {
             if (params.dataIndex != chooseIndex) {
@@ -138,6 +107,8 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
             let numSort = changeNumSort(chooseIndex)
             changeId(numSort)
             changeStateHeight(true)
+            const { price } = buildTimeItmes.filter((item) => { return Number(item.id) === Number(numSort) })[0]
+            dispatch(changeUrgentCost(price))
         });
         /**
         * @description:箭头图片进行一个旋转
@@ -145,21 +116,18 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
         * @return: none
         */
         function rotating(params) {
-            let el = document.querySelector('.point')
+            let el = document.querySelector('.point') 
             const { name } = params.data
             if (name) {
                 switch (name) {
-                    case 'priorigt':
+                    case 'Standard':
                         el.style.transform = 'rotate(-50deg)'
-                        //changeNum(1)
                         break;
-                    case 'standard':
+                    case 'Overnight':
                         el.style.transform = 'rotate(-270deg)'
-                        //changeNum(3)
                         break;
-                    case 'Surface':
+                    case 'Priorigt':
                         el.style.transform = 'rotate(-180deg)'
-                        //changeNum(2)
                         break;
                     default:
                         break
@@ -198,21 +166,21 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
      * @param :e:用户交互时单击的按钮，获取到相应的value值
      * @return: none
     */
-    function changeColor(e) {
+    function changeColor(e,index:number) {
         let myChart = echarts.init(document.getElementById('main'));
         let el = document.querySelector('.point')
         const { value } = e.target || 0
         let temporaryVariable = 0;
-        switch (value) {
-            case 1:
+        switch (index) {
+            case 0:
                 temporaryVariable = 0
                 el.style.transform = 'rotate(-50deg)'
                 break;
-            case 2:
+            case 1:
                 temporaryVariable = 2;
                 el.style.transform = 'rotate(-180deg)'
                 break;
-            case 3:
+            case 2:
                 temporaryVariable = 1;
                 el.style.transform = 'rotate(-270deg)'
                 break;
@@ -225,7 +193,7 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
         chooseIndex = temporaryVariable
         myChart.dispatchAction({ type: 'highlight', seriesIndex: 0, dataIndex: temporaryVariable });
     }
-    function isChecked(id) {
+    function isChecked(id:number) {
         if ((id === 1 && newChoose === 0) && id === newBtnID) {
             return true
         } else if ((id === 2 && newChoose === 2) && id === newBtnID) {
@@ -249,10 +217,10 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
                 </div>
             </Row>
             <Row>
-                <Radio.Group onChange={onChange} defaultValue={buildTimeItmes[0].id} className='group'>
+                <Radio.Group onChange={onChange} defaultValue={buildTimeItmes[0].id} className='group' name={'1'}>
                     {
-                        buildTimeItmes.map(item => (
-                            <Radio.Button value={item.id} key={item.id} onChange={e => changeColor(e)} checked={isChecked(item.id) ? true : false}> {item.dayNumber}</Radio.Button>
+                        buildTimeItmes.map((item,index) => (
+                            <Radio.Button value={item.id} key={item.id} onChange={e => changeColor(e,index)} checked={isChecked(index+1) ? true : false}> {item.dayNumber}</Radio.Button>
                         ))
                     }
                 </Radio.Group>

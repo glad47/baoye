@@ -25,6 +25,7 @@ export const INITIAL_STATE: State = {
   svg: null,
   fileName: null,
   fileUploadPtah: null,
+  singleCopper: null,
 }
 
 // const INITIAL_STANDARD = {

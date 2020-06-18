@@ -213,10 +213,14 @@ export default function reducer(state: State, action: Action): State {
         board_layers,
         board_length, 
         board_width,
-        stackup:{bottom,top},
+        stackup:{bottom,top,layers},
         fileName,
         uploadPath,
       } = action.payload
+      let copper
+      if(board_layers === 1){
+        copper = layers.filter((item: { type: string })=>item.type === 'copper')[0].side;
+      }
       return{
         ...state,
         loading: true,
@@ -224,7 +228,8 @@ export default function reducer(state: State, action: Action): State {
         pcbStandardField:{...state.pcbStandardField,layer:board_layers+'layer',},
         svg:{...state.svg,topSvg:top,bottomSvg:bottom},
         fileName: fileName,
-        fileUploadPtah: uploadPath
+        fileUploadPtah: uploadPath,
+        singleCopper: copper,
       }
     }
   }

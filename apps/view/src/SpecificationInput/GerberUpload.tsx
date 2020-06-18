@@ -6,6 +6,7 @@ import { FileEvent } from "../types";
 import Axios from "axios";
 import { preventDefault } from "../events";
 import { gerberUploadUrl } from "./AjaxService";
+import { message } from "antd";
 
 interface GerberUploadProps {
 
@@ -37,12 +38,13 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) =>{
                 console.log(res.data)
                 //todo 数据回填
                 if(res.data.success){
+                    message.info('文件上传成功，正在解析资料！！');
                     console.log(res);
                     let result = res.data.result;
                     result.fileName = fileName;
                     dispatch(backfillPcbData(result));   
                 }else{
-
+                    message.warning('文件上传成功，但读取资料失败！！');
                 }
             })
         }

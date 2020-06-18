@@ -9,7 +9,7 @@ interface GerberShowProps {}
 
 //gerber显示组件
 const GerberShow: React.FC<GerberShowProps> = (props) =>{
-    const {loading,pcbSizeField:{singleSize:{sizeX}},svg} = useAppState()
+    const {loading,pcbSizeField:{singleSize:{sizeX}},svg,singleCopper} = useAppState()
     const SIZE_CLASS_NAME = sizeX && sizeX > 70 ? 'vertical_svg_first' : 'transverse_svg_first'
     const SIZE_FIRST_CLASS_NAME = sizeX && sizeX > 70 ? 'vertical_svg' : 'transverse_svg'
 
