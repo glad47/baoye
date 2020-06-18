@@ -1129,7 +1129,7 @@ body {
 .login {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding-bottom: 78px;
 }
@@ -1137,7 +1137,7 @@ body {
 .logo_inner {
     width: 210px;
     height: 40px;
-    margin-left: 75px;
+    margin-left: 247px;
 }
 
 .sign-btn {
@@ -1145,7 +1145,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 64px;
+    margin-right: 209px;
 }
 
 .sign-icon {
