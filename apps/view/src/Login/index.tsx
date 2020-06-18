@@ -4,6 +4,7 @@ import Axios from 'axios'
 import Menus from '../DownMenu'
 import ShowMenu from '../DownMenu/showMenu'
 import LastMenu from '../DownMenu/lastMenu'
+
 interface IsHead {
     props: any
 }
@@ -24,8 +25,8 @@ class index extends Component {
                 <div className="logo_inner"><img src={require('../images/logo.png')} alt="" /></div>
                 <div className='nav_logo'>
                     <ul className='nav_logo_inner'>
-                        <li><a href='/'>HOME</a></li>
-                        <li><a>QUOTE</a></li>
+                        <li><a href='https://www.pcbonline.com/'>HOME</a></li>
+                        <li><a href='https://www.pcbonline.com/quote'>QUOTE</a></li>
                         <li className='down_menu_one'>
                             <a >PCB Fab <CaretDownOutlined /></a>
                             <Menus />
@@ -38,14 +39,13 @@ class index extends Component {
                             <a>How We Produce <CaretDownOutlined /></a>
                             <LastMenu/>
                         </li>
-                        <li className='title_blog'><a>BLOG</a></li>
-                        <li><a>FEEDBACK</a></li>
-                        <li><a>ABOUT</a></li>
+                        <li className='title_blog'><a href='https://www.pcbonline.com/blog'>BLOG</a></li>
+                        <li><a href='https://www.pcbonline.com/feedback'>FEEDBACK</a></li>
+                        <li><a href='https://www.pcbonline.com/about'>ABOUT</a></li>
                     </ul>
 
                 </div>
                 <div className="sign-btn">
-                    <div className='sign-icon'><CalculatorOutlined /></div>
                     <span className="sign-in">Sign in</span>
                 </div>
             </div>

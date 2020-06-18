@@ -11,12 +11,7 @@ import CastCalculation from './SpecificationInput/CostCalculation'
 import ShoppingCast from './SpecificationInput/ShoppingCast'
 import ShoppingTotal from './SpecificationInput/ShoppingTotal'
 import axios from 'axios'
-import logoImg from './images/logo-bxsd.png'
-import Icon1 from './images/footer_icon01.png'
-import Icon2 from './images/footer_icon02.png'
-import Icon3 from './images/footer_icon03.png'
-import Icon4 from './images/footer_icon04.png'
-import Icon5 from './images/footer_icon05.png'
+import Foot from './Foot/index'
 
 
 import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled, CalculatorOutlined } from '@ant-design/icons';
@@ -81,9 +76,9 @@ function App(): JSX.Element {
   const handleGoCar = ()=>{
     location.href = 'http://localhost:8882/car/goToCart';
   }
-   
-  const login =()=>{
-    location.href='https://www.pcbonline.com/login'
+
+  const login = () => {
+    location.href = 'https://www.pcbonline.com/login'
   }
 
   return (
@@ -92,14 +87,7 @@ function App(): JSX.Element {
       {/* <BoardList /> */}
 
       <Layout>
-        {/* <Header>
-          <div className="logo"><img src={img} alt="" /></div>
-          <div className="sign-btn">
-            <CalculatorOutlined />
-            <span className="sign-in" onClick={login}>Sign in</span>
-          </div>
-        </Header> */}
-        <Head/>
+        <Head />
         <Content>
           {/* 左边栏 */}
           <div className="pcb-nav">
@@ -116,7 +104,7 @@ function App(): JSX.Element {
             <div className="pcb-min">
               <GerberUpload />
               <GerberShow />
-              {quoteMode === 0 ? <PcbSizeForm/> : ''}
+              {quoteMode === 0 ? <PcbSizeForm /> : ''}
             </div>
             {/* <PcbSizeForm /> */}
             <FormControl quoteMode={quoteMode} />
@@ -126,7 +114,7 @@ function App(): JSX.Element {
           <div className="pcb-sidebar">
 
             <div className="pcb-build-time">
-              <BuildTimeForm/>
+              <BuildTimeForm />
             </div>
 
             <div className="pcb-fee">
@@ -144,47 +132,7 @@ function App(): JSX.Element {
           </div>
 
         </Content>
-        <Footer className='footer'>
-          <div className='footer_title'><img src={logoImg} /></div>
-          <div className='footer_main'>
-            <div className='main_left'>
-              <p>Tel: <a>+86 755 27398155</a></p>
-              <p>Fax: <a>+86 755 27398155</a></p>
-              <div className='info_footer'>info@pcbonline.com</div>
-              <div className='footer_link_icon'>
-                <img src={Icon1} />
-                <img src={Icon2} />
-                <img src={Icon3} />
-                <img src={Icon4} />
-                <img src={Icon5} />
-              </div>
-            </div>
-            <div className='main_right'>
-              <div className='footer_link'>
-                <a>PRIVACY POLICY</a>
-                <a>ABOUT US </a>
-              </div>
-              <div className='footer_link'>
-                <a>TERMS OF SERVICE</a>
-                <a>ONLINE ORDERING </a>
-              </div>
-              <div className='footer_link'>
-                <a>PCB Laminate datasheet</a>
-                <a>FEEDBACK</a>
-              </div>
-            </div>
-          </div>
-
-          <div className='copyright'>
-            <p>@2018 PCB online LTD.All Right Reserved</p>
-            <div className='copyright_right'>
-              <div className='show_link_country'><span>Japanese</span><img src={require('./images/footer_country_icon001.png')}/></div>
-              <div className='show_link_country'><span>German</span><img src={require('./images/footer_country_icon002.png')}/></div>
-              <div className='show_link_country'><span>Spanish</span><img src={require('./images/footer_country_icon003.png')}/></div>
-              <div className='show_link_country'><span>United States</span><img src={require('./images/footer_country_icon004.png')}/></div>
-            </div>
-          </div>
-        </Footer>
+        <Foot />
       </Layout>
 
     </Main>

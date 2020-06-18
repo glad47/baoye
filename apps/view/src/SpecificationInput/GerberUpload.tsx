@@ -49,9 +49,8 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) =>{
             })
         }
     }
-    return (
-        <>
-        <Fade in = {!loading}>
+    if(!loading){
+        return (
             <>
             <div className="pcb-file">
             <LoadFiles handleFiles={handleFiles}></LoadFiles>
@@ -65,9 +64,10 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) =>{
                 {/* <Checkbox className='is_checked' /> */}
             </div>
             </>
-        </Fade>
-        </>
-    )
+        )
+    }else{
+        return null
+    }
 }
 
 export default GerberUpload
