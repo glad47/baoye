@@ -1,4 +1,4 @@
-.ant-layout-content{
+.ant-layout-content {
     position: relative;
     width: 1300px;
     margin: 0 auto;
@@ -6,7 +6,7 @@
 }
 
 /*pcb-nav*/
-.pcb-nav{
+.pcb-nav {
     position: absolute;
     top: 0;
     left: 0;
@@ -17,28 +17,32 @@
     border-radius: 18px;
     background: #2952ea;
 }
-.pcb-nav ul li{
+
+.pcb-nav ul li {
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
 }
-.pcb-nav ul li span{
+
+.pcb-nav ul li span {
     font-size: 36px;
     color: #6b8aff;
 }
-.pcb-nav ul li.cur > a > div{
+
+.pcb-nav ul li.cur>a>div {
     margin-right: -50px;
     background: #fff;
     border-radius: 10px;
-    box-shadow:0px 8px 12px 1px rgba(154,181,211,0.77);
+    box-shadow: 0px 8px 12px 1px rgba(154, 181, 211, 0.77);
 }
-.pcb-nav ul li.cur > a > div span{
+
+.pcb-nav ul li.cur>a>div span {
     padding: 12px;
     font-size: 36px;
     color: #ffba00;
 }
 
-.pcb-min-info{
+.pcb-min-info {
     width: 832px;
     padding: 0 30px;
     float: left;
@@ -48,97 +52,109 @@
 
 
 /*pcb-min*/
-.pcb-min{
+.pcb-min {
     position: relative;
     width: 100%;
     padding: 30px 40px;
-    min-height:560px;
+    min-height: 560px;
     margin-bottom: 30px;
     box-sizing: border-box;
-    background:rgba(241,247,252,1);
-    border-radius:16px;
+    background: rgba(241, 247, 252, 1);
+    border-radius: 16px;
     overflow: hidden;
 }
-.update_status{
-    width:550px;
-    height:49px;
-    background:rgba(255,255,255,0);
-    border:1px solid rgba(171, 191, 254, 1);
-    border-radius:10px;
-    margin:12px 0 0 75px;
+
+.update_status {
+    width: 550px;
+    height: 49px;
+    background: rgba(255, 255, 255, 0);
+    border: 1px solid rgba(171, 191, 254, 1);
+    border-radius: 10px;
+    margin: 12px 0 0 75px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.ant-checkbox-wrapper{
+
+.ant-checkbox-wrapper {
     margin-right: 23px;
 }
-.progress{
+
+.progress {
     height: 100%;
     width: 90%;
 }
-.progress_inner{
+
+.progress_inner {
     width: 100%;
     height: 100%;
-    background:rgba(235,240,255);
+    background: rgba(235, 240, 255);
     text-align: center;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    border-radius:10px;
+    border-radius: 10px;
 }
-.progress_s{
+
+.progress_s {
     width: 80%;
 }
-.progress_f{
+
+.progress_f {
     height: 100%;
     height: 2px;
-    background:rgba(45,88,231);
+    background: rgba(45, 88, 231);
     z-index: 10;
 }
-.clip{
-    z-index:1000;
+
+.clip {
+    z-index: 1000;
     position: absolute;
-    top:-17px;
+    top: -17px;
     left: -49px;
     width: 145px;
     height: 80px;
 }
-.img_show{
+
+.img_show {
     z-index: 20;
     position: absolute;
-    top:-87px;
-    left:-253px;
+    top: -87px;
+    left: -253px;
     width: 550px;
     height: 240px;
 }
-.img_show>img{
+
+.img_show>img {
     width: 100%;
     height: 100%;
 
-    background-size:100% 100%;
+    background-size: 100% 100%;
 }
-.update_font{
-    width:92px;
-    height:12px;
-    font-size:14px;
-    font-family:'Arial';
-    font-weight:400;
-    color:rgba(0,0,0,1);
-    line-height:36px;
+
+.update_font {
+    width: 92px;
+    height: 12px;
+    font-size: 14px;
+    font-family: 'Arial';
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 36px;
     position: absolute;
-    bottom:-5px;
-    left:-32px;
+    bottom: -5px;
+    left: -32px;
     position: absolute;
     top: 107px;
     left: -22px;
     z-index: 21;
 }
-.is_checked{
+
+.is_checked {
     background-color: white;
     color: #2952ea !important;
 }
-.pcb-min .pcb-file{
+
+.pcb-min .pcb-file {
     position: relative;
     width: 548px;
     height: 300px;
@@ -148,149 +164,176 @@
     overflow: hidden;
     background: #fff;
 }
-.pcb-min .items-start .w-third{
+
+.pcb-min .items-start .w-third {
     width: 100%;
 }
-.pcb-min .items-start button{
+
+.pcb-min .items-start button {
     display: block;
     float: left;
     border: 0;
     margin: 0;
     padding: 0;
-    width:88px;
-    height:34px;
+    width: 88px;
+    height: 34px;
     background: none;
     margin-right: 30px;
 }
-.pcb-min .items-start button span{
+
+.pcb-min .items-start button span {
     display: block;
     width: 100%;
     line-height: 34px;
     text-align: center;
-    background:rgba(249,251,255,1);
-    border-radius:10px;
+    background: rgba(249, 251, 255, 1);
+    border-radius: 10px;
     font-size: 12px;
     color: #999;
     margin: 0;
     padding: 0;
     border: none;
 }
-.pcb-min .items-start button span.b--brand{
+
+.pcb-min .items-start button span.b--brand {
     background: #2952ea;
     color: #fff;
 }
-.pcb-min .ant-form{
+
+.pcb-min .ant-form {
     margin-top: 60px;
 }
-.pcb-min .ant-form .ant-form-item{
+
+.pcb-min .ant-form .ant-form-item {
     margin-bottom: 15px;
 }
-.pcb-min .ant-input,.ant-layout-content .pcb-min .ant-select-selector{
+
+.pcb-min .ant-input,
+.ant-layout-content .pcb-min .ant-select-selector {
     height: 32px;
     line-height: 32px;
-    font-size:14px;
-    font-family:Arial;
-    font-weight:400;
-    color:rgba(206,206,206,1);
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: 400;
+    color: rgba(206, 206, 206, 1);
     box-sizing: border-box;
     border: 0;
     border-radius: 4px;
 }
-.pcb-min .ant-form .ant-form-item-label{
+
+.pcb-min .ant-form .ant-form-item-label {
     width: 32%;
 }
-.pcb-min .ant-form .ant-form-item-control{
+
+.pcb-min .ant-form .ant-form-item-control {
     width: 68%;
 }
 
 
 /*pcb-spec*/
-.pcb-spec{
+.pcb-spec {
     width: 100%;
     height: 496px;
-    background:rgba(255,255,255,1);
-    box-shadow:0px 7px 21px 0px rgba(172,189,253,0.77);
-    border-radius:16px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 7px 21px 0px rgba(172, 189, 253, 0.77);
+    border-radius: 16px;
     padding: 0 26px;
     padding-top: 50px;
     box-sizing: border-box;
     margin-bottom: 30px;
 }
-.pcb-spec .ant-form .ant-form-item-label{
+
+.pcb-spec .ant-form .ant-form-item-label {
     width: 50%;
     text-align: left;
 }
-.pcb-spec .ant-form .ant-form-item-control{
+
+.pcb-spec .ant-form .ant-form-item-control {
     width: 50%;
 }
-.pcb-spec .ant-form .special-mar .ant-form-item-label{
+
+.pcb-spec .ant-form .special-mar .ant-form-item-label {
     width: 70%;
 }
-.pcb-spec .ant-form .special-mar .ant-form-item-control{
+
+.pcb-spec .ant-form .special-mar .ant-form-item-control {
     width: 30%;
 }
-.pcb-spec .ant-form .ant-form-item-label label{
-    font-size:14px;
-    font-family:Arial;
-    font-weight:400;
-    color:rgba(102,102,102,1);
-    line-height:36px;
+
+.pcb-spec .ant-form .ant-form-item-label label {
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: 400;
+    color: rgba(102, 102, 102, 1);
+    line-height: 36px;
     text-align: right;
 }
-.pcb-spec .ant-space{
+
+.pcb-spec .ant-space {
     width: 100%;
     display: flex;
     justify-content: space-between;
     overflow: hidden;
 }
-.pcb-spec .ant-space .ant-radio-button-wrapper{
+
+.pcb-spec .ant-space .ant-radio-button-wrapper {
     width: 90px;
     height: 30px;
     line-height: 28px;
     border-color: #2952ea;
     color: #2952ea;
 }
-.ant-radio-button-wrapper:not(:first-child)::before{
+
+.ant-radio-button-wrapper:not(:first-child)::before {
     display: none;
 }
-.pcb-spec .ant-space .ant-radio-button-wrapper.ant-radio-button-wrapper-checked{
+
+.pcb-spec .ant-space .ant-radio-button-wrapper.ant-radio-button-wrapper-checked {
     background: #2952ea;
     color: #fff;
     border-color: #2952ea;
 }
-.pcb-spec .ant-space .ant-radio-group-outline label:first-child{
+
+.pcb-spec .ant-space .ant-radio-group-outline label:first-child {
     border-radius: 22px 0 0 22px;
 }
-.pcb-spec .ant-space .ant-radio-group-outline label:last-child{
+
+.pcb-spec .ant-space .ant-radio-group-outline label:last-child {
     border-radius: 0 22px 22px 0;
 }
-.pcb-spec h2.ant-typography{
+
+.pcb-spec h2.ant-typography {
     display: flex;
     align-items: center;
 }
-.pcb-spec .ant-typography span{
+
+.pcb-spec .ant-typography span {
     font-size: 28px;
     color: #ffba00;
     margin-right: 18px;
 }
-.pcb-spec .ant-typography b{
+
+.pcb-spec .ant-typography b {
     margin: 0;
-    font-size:20px;
-    font-family:Arial;
-    font-weight:400;
-    color:rgba(0,0,0,1);
-    line-height:36px;
+    font-size: 20px;
+    font-family: Arial;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 36px;
 }
-.pcb-spec .ant-form{
+
+.pcb-spec .ant-form {
     position: relative;
     margin-top: 40px;
     padding: 0 3%;
     box-sizing: border-box;
 }
-.pcb-spec .ant-form .ant-row .ant-col-last{
+
+.pcb-spec .ant-form .ant-row .ant-col-last {
     padding-left: 10%;
 }
-.pcb-spec .ant-form::before{
+
+.pcb-spec .ant-form::before {
     position: absolute;
     top: 0;
     left: 50%;
@@ -300,139 +343,159 @@
     height: 100%;
     background: #ebebeb;
 }
-.pcb-spec .ant-form .ant-form-item{
+
+.pcb-spec .ant-form .ant-form-item {
     margin-bottom: 10px;
 }
-.pcb-spec .ant-form .ant-form-item-label label{
-    font-size:14px;
-    font-family:Arial;
-    font-weight:400;
-    color:rgba(0,0,0,1);
-    line-height:36px;
+
+.pcb-spec .ant-form .ant-form-item-label label {
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 36px;
 }
-.pcb-spec .ant-form .ant-col .ant-form-item-control .ant-select-selector{
+
+.pcb-spec .ant-form .ant-col .ant-form-item-control .ant-select-selector {
     height: 32px;
     line-height: 32px;
-    font-size:14px;
-    font-family:Arial;
-    font-weight:400;
-    color:rgba(206,206,206,1);
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: 400;
+    color: rgba(206, 206, 206, 1);
     box-sizing: border-box;
     border: 0;
     text-align: center;
     color: #2952EA;
 }
-.pcb-spec .ant-form .ant-form-item-control-input-content .ant-switch{
+
+.pcb-spec .ant-form .ant-form-item-control-input-content .ant-switch {
     background: #f1f7fc;
 }
-.pcb-spec .ant-form .ant-form-item-control-input-content .ant-switch.ant-switch-checked{
+
+.pcb-spec .ant-form .ant-form-item-control-input-content .ant-switch.ant-switch-checked {
     background: #2952ea;
 }
 
 /*侧边栏*/
-.pcb-sidebar{
+.pcb-sidebar {
     width: 382px;
     float: right;
 }
+
 /*********************pcb-build-time********************/
-.pcb-sidebar .pcb-build-time{
-    width:382px;
-    height:486px;
-    background:rgba(255,255,255,1);
-    box-shadow:0px 7px 21px 0px rgba(172,189,253,0.77);
-    border-radius:16px;
+.pcb-sidebar .pcb-build-time {
+    width: 382px;
+    height: 486px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 7px 21px 0px rgba(172, 189, 253, 0.77);
+    border-radius: 16px;
     margin-bottom: 30px;
     padding: 25px 30px;
     box-sizing: border-box;
 }
-.pcb-sidebar .anticon-clock-circle{
+
+.pcb-sidebar .anticon-clock-circle {
     font-size: 28px;
     color: #ffba00;
     margin-right: 18px;
 }
-.pcb-sidebar .pcb-build-time h3{
+
+.pcb-sidebar .pcb-build-time h3 {
     display: flex;
     align-items: center;
     margin: 0;
 }
-.pcb-sidebar .pcb-build-time h3 b{
-    font-size:20px;
-    font-family:Arial;
-    font-weight:400;
-    color:rgba(0,0,0,1);
+
+.pcb-sidebar .pcb-build-time h3 b {
+    font-size: 20px;
+    font-family: Arial;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
     margin: 0;
     line-height: 1;
 }
-.pcb-sidebar .pcb-build-time .ant-radio-group{
+
+.pcb-sidebar .pcb-build-time .ant-radio-group {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
-.pcb-sidebar .pcb-build-time .ant-radio-button-wrapper{
-    width:88px;
-    height:34px;
+
+.pcb-sidebar .pcb-build-time .ant-radio-button-wrapper {
+    width: 88px;
+    height: 34px;
     line-height: 34px;
-    background:rgba(249,251,255,1);
-    border-radius:10px;
+    background: rgba(249, 251, 255, 1);
+    border-radius: 10px;
     border: none;
     text-align: center;
 }
-.pcb-sidebar .pcb-build-time .ant-radio-button-wrapper.ant-radio-button-wrapper-checked{
+
+.pcb-sidebar .pcb-build-time .ant-radio-button-wrapper.ant-radio-button-wrapper-checked {
     color: #fff;
-    background:rgba(41,82,234,1);
-    box-shadow:0px 6px 16px 2px rgba(121,156,255,0.77);
+    background: rgba(41, 82, 234, 1);
+    box-shadow: 0px 6px 16px 2px rgba(121, 156, 255, 0.77);
 }
-.pcb-sidebar .pcb-build-time .ant-radio-button-wrapper::before{
+
+.pcb-sidebar .pcb-build-time .ant-radio-button-wrapper::before {
     display: none;
 }
-.pcb-sidebar .pcb-build-time .ant-row-cont{
+
+.pcb-sidebar .pcb-build-time .ant-row-cont {
     margin-top: 32px;
     display: flex;
     justify-content: space-between;
 }
-.pcb-sidebar .pcb-build-time .ant-row-cont .ant-typography{
-    font-size:14px;
-    font-family:Arial;
-    font-weight:400;
+
+.pcb-sidebar .pcb-build-time .ant-row-cont .ant-typography {
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: 400;
     line-height: 1;
-    color:rgba(102,102,102,1);
+    color: rgba(102, 102, 102, 1);
 }
-.pcb-sidebar .pcb-build-time .ant-row-cont .ant-typography b{
-    font-size:14px;
-    font-family:Arial;
-    font-weight:bold;
-    color:rgba(41,82,234,1);
-    line-height:1;
+
+.pcb-sidebar .pcb-build-time .ant-row-cont .ant-typography b {
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: bold;
+    color: rgba(41, 82, 234, 1);
+    line-height: 1;
 }
 
 
 /*********************pcb-fee********************/
-.pcb-sidebar .pcb-fee{
-    width:382px;
-    height:184px;
-    background:rgba(240,246,251,1);
-    border-radius:16px;
+.pcb-sidebar .pcb-fee {
+    width: 382px;
+    height: 184px;
+    background: rgba(240, 246, 251, 1);
+    border-radius: 16px;
     margin-bottom: 30px;
     padding: 30px;
     box-sizing: border-box;
 }
-.pcb-sidebar .pcb-fee .fee-cont>div{
+
+.pcb-sidebar .pcb-fee .fee-cont>div {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 17px;
 }
-.pcb-sidebar .pcb-fee .fee-cont>div span{
-    font-size:14px;
-    font-family:Arial;
-    font-weight:400;
-    color:rgba(102,102,102,1);
+
+.pcb-sidebar .pcb-fee .fee-cont>div span {
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: 400;
+    color: rgba(102, 102, 102, 1);
 }
-.pcb-sidebar .pcb-fee .fee-cont .ant-row>div{
+
+.pcb-sidebar .pcb-fee .fee-cont .ant-row>div {
     display: flex;
     align-items: center;
 }
-.pcb-sidebar .pcb-fee .fee-cont .ant-row>div span.anticon{
+
+.pcb-sidebar .pcb-fee .fee-cont .ant-row>div span.anticon {
     padding: 5px;
     font-size: 20px;
     color: #ffba00;
@@ -442,90 +505,101 @@
 }
 
 /*********************pcb-cost********************/
-.pcb-sidebar .pcb-cast{
-    width:382px;
-    height:146px;
-    background:rgba(240,246,251,1);
-    border-radius:16px;
+.pcb-sidebar .pcb-cast {
+    width: 382px;
+    height: 146px;
+    background: rgba(240, 246, 251, 1);
+    border-radius: 16px;
     margin-bottom: 30px;
     padding: 30px;
     box-sizing: border-box;
 }
-.pcb-cast .anticon-pay-circle{
+
+.pcb-cast .anticon-pay-circle {
     font-size: 28px;
     color: #ffba00;
     margin-right: 18px;
 }
-.pcb-cast h3.ant-typography{
+
+.pcb-cast h3.ant-typography {
     display: flex;
     align-items: center;
     margin: 0;
 }
-.pcb-cast h3.ant-typography b{
-    font-size:20px;
-    font-family:Arial;
-    font-weight:400;
-    color:rgba(0,0,0,1);
+
+.pcb-cast h3.ant-typography b {
+    font-size: 20px;
+    font-family: Arial;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
 }
-.pcb-cast .shopping-cast-mar{
+
+.pcb-cast .shopping-cast-mar {
     margin-top: 30px;
 }
-.pcb-cast .shopping-cast-mar i{
+
+.pcb-cast .shopping-cast-mar i {
     display: block;
-    font-size:14px;
+    font-size: 14px;
     font-style: normal;
-    font-family:Arial;
-    font-weight:400;
+    font-family: Arial;
+    font-weight: 400;
     line-height: 34px;
     text-align: right;
-    color:rgba(102,102,102,1);
+    color: rgba(102, 102, 102, 1);
 }
 
 /*********************pcb-total********************/
-.pcb-sidebar .pcb-total{
-    width:382px;
-    height:268px;
-    background:rgba(241,247,252,1);
-    border-radius:16px;
+.pcb-sidebar .pcb-total {
+    width: 382px;
+    height: 268px;
+    background: rgba(241, 247, 252, 1);
+    border-radius: 16px;
     margin-bottom: 30px;
     margin-bottom: 30px;
     padding: 30px;
     box-sizing: border-box;
 }
-.pcb-total .ant-row{
+
+.pcb-total .ant-row {
     line-height: 30px;
     margin-bottom: 24px;
 }
-.pcb-total .ant-row h5{
-    font-size:18px;
-    font-family:Arial;
-    font-weight:bold;
-    color:rgba(41,82,234,1);
+
+.pcb-total .ant-row h5 {
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: bold;
+    color: rgba(41, 82, 234, 1);
 }
-.pcb-total .ant-row b{
+
+.pcb-total .ant-row b {
     display: block;
-    font-size:24px;
+    font-size: 24px;
     text-align: right;
-    font-family:Arial;
-    font-weight:bold;
-    color:rgba(41,82,234,1);
+    font-family: Arial;
+    font-weight: bold;
+    color: rgba(41, 82, 234, 1);
 }
-.pcb-total .ant-row i{
-    font-size:14px;
-    font-family:Arial;
-    font-weight:bold;
+
+.pcb-total .ant-row i {
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: bold;
     font-style: normal;
-    color:rgba(41,82,234,1);
+    color: rgba(41, 82, 234, 1);
 }
-.pcb-total .ant-row strong{
+
+.pcb-total .ant-row strong {
     display: block;
-    font-size:18px;
-    font-family:Arial;
-    font-weight:bold;
-    color:rgba(41,82,234,1);
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: bold;
+    color: rgba(41, 82, 234, 1);
     text-align: right;
 }
-.pcb-total .ant-row .total-swap{
+
+.pcb-total .ant-row .total-swap {
     position: absolute;
     bottom: -26px;
     right: 12px;
@@ -533,7 +607,9 @@
     color: #FFBA00;
     transform: rotate(90deg);
 }
-.pcb-total .ant-row .total-select,.pcb-total .ant-row .total-select>div{
+
+.pcb-total .ant-row .total-select,
+.pcb-total .ant-row .total-select>div {
     width: 100%;
     text-align: center;
     background: #fff;
@@ -541,7 +617,8 @@
     border-radius: 6px;
     font-weight: normal;
 }
-.pcb-total .ant-row .total-transc{
+
+.pcb-total .ant-row .total-transc {
     width: 62px;
     position: absolute;
     top: 0;
@@ -555,43 +632,48 @@
     height: 29px;
     border-radius: 4px;
 }
-.pcb-total .ant-row .total-shopping-icon{
+
+.pcb-total .ant-row .total-shopping-icon {
     display: flex;
     justify-content: space-between;
 }
-.pcb-total .ant-row .total-shopping-icon span{
+
+.pcb-total .ant-row .total-shopping-icon span {
     font-size: 40px;
     color: #2952ea;
 }
 
 /*pcb-stencil*/
-.pcb-stencil{
+.pcb-stencil {
     width: 100%;
     height: 363px;
     padding: 50px 134px;
-    background:rgba(255,255,255,1);
-    box-shadow:0px 7px 21px 0px rgba(172,189,253,0.77);
-    border-radius:16px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 7px 21px 0px rgba(172, 189, 253, 0.77);
+    border-radius: 16px;
     margin-bottom: 30px;
 }
-.pcb-manual .manual-plate{
+
+.pcb-manual .manual-plate {
     margin-bottom: 4px;
     overflow: hidden;
 }
-.pcb-stencil .ant-row{
+
+.pcb-stencil .ant-row {
     height: 30px;
     line-height: 30px;
     margin-bottom: 20px;
 }
-.pcb-stencil .ant-col span{
+
+.pcb-stencil .ant-col span {
     display: block;
-    font-size:14px;
-    font-family:Arial;
-    font-weight:400;
-    color:rgba(0,0,0,1);
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
 }
 
-.pcb-stencil .ant-col .ant-select-selector{
+.pcb-stencil .ant-col .ant-select-selector {
     /* width: 180px; */
     /* height: 30px; */
     background: #f1f7fc;
@@ -600,94 +682,106 @@
     text-align: center;
 }
 
-.pcb-assembly{
+.pcb-assembly {
     width: 100%;
     height: 496px;
     padding: 50px 134px;
-    background:rgba(255,255,255,1);
-    box-shadow:0px 7px 21px 0px rgba(172,189,253,0.77);
-    border-radius:16px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 7px 21px 0px rgba(172, 189, 253, 0.77);
+    border-radius: 16px;
     margin-bottom: 30px;
 }
 
-.pcb-assembly h2.ant-typography{
+.pcb-assembly h2.ant-typography {
     display: flex;
     align-items: center;
 }
-.pcb-assembly .ant-typography span{
+
+.pcb-assembly .ant-typography span {
     font-size: 28px;
     color: #ffba00;
     margin-right: 18px;
 }
-.pcb-assembly .ant-typography b{
+
+.pcb-assembly .ant-typography b {
     margin: 0;
-    font-size:20px;
-    font-family:Arial;
-    font-weight:400;
-    color:rgba(0,0,0,1);
-    line-height:36px;
+    font-size: 20px;
+    font-family: Arial;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 36px;
 }
 
-.pcb-assembly .ant-row{
+.pcb-assembly .ant-row {
     height: 30px;
     line-height: 30px;
     margin-bottom: 20px;
 }
 
-.pcb-assembly .ant-col span{
+.pcb-assembly .ant-col span {
     /* display: block; */
-    font-size:14px;
-    font-family:Arial;
-    font-weight:400;
-    color:rgba(0,0,0,1);
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
 }
 
 
 
 
 /*Manualform*/
-.pcb-manual{
-    width:773px;
+.pcb-manual {
+    width: 773px;
     padding: 20px 28px;
     box-sizing: border-box;
-    background:rgba(255,255,255,1);
-    box-shadow:0px 7px 21px 0px rgba(172,189,253,0.77);
-    border-radius:16px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 7px 21px 0px rgba(172, 189, 253, 0.77);
+    border-radius: 16px;
     color: #000;
 }
-.pcb-manual .manual-plate h4{
+
+.pcb-manual .manual-plate h4 {
     display: flex;
     align-items: center;
 }
-.pcb-manual .manual-plate h4 span{
+
+.pcb-manual .manual-plate h4 span {
     font-size: 26px;
     color: #FFBA00;
     margin-right: 18px;
 }
-.pcb-manual .manual-plate h4 i{
-    font-size:20px;
+
+.pcb-manual .manual-plate h4 i {
+    font-size: 20px;
     font-style: normal;
-    font-family:Arial;
-    font-weight:bold;
+    font-family: Arial;
+    font-weight: bold;
     color: #000;
-    line-height:36px;
+    line-height: 36px;
 }
+
 .pcb-manual .manual-plate .ant-row {
     margin-bottom: 5px;
 }
-.pcb-manual .manual-plate .ant-row .ant-col{
+
+.pcb-manual .manual-plate .ant-row .ant-col {
     height: 30px;
     line-height: 30px;
-    font-size:14px;
-    font-family:Arial;
+    font-size: 14px;
+    font-family: Arial;
     color: #000;
 }
-.pcb-manual .manual-plate .manual-title,.pcb-manual .manual-plate .manual-title .ant-col,.pcb-manual .manual-plate .manual-title .ant-col h4{
+
+.pcb-manual .manual-plate .manual-title,
+.pcb-manual .manual-plate .manual-title .ant-col,
+.pcb-manual .manual-plate .manual-title .ant-col h4 {
     line-height: 40px;
     height: 40px;
     margin-bottom: 0;
 }
-.pcb-manual .manual-plate .ant-row .ant-col .ant-select,.pcb-manual .manual-plate .ant-row .ant-col .ant-select-selector {
+
+.pcb-manual .manual-plate .ant-row .ant-col .ant-select,
+.pcb-manual .manual-plate .ant-row .ant-col .ant-select-selector {
     width: 140px;
     height: 30px;
     line-height: 30px;
@@ -695,21 +789,23 @@
     font-family: Arial;
     font-weight: 400;
     border: none;
-    background:rgba(241,247,252,1);
-    color: rgba(206,206,206,1);
+    background: rgba(241, 247, 252, 1);
+    color: rgba(206, 206, 206, 1);
     box-sizing: border-box;
     border-radius: 3px;
 }
 
-body{
-    height: auto !important; 
+body {
+    height: auto !important;
     overflow: hidden !important;
 }
-.sans .ant-layout{
+
+.sans .ant-layout {
     background: #fff;
     padding-top: 44px;
 }
-.sans .ant-layout .ant-layout-header{
+
+.sans .ant-layout .ant-layout-header {
     width: 1300px;
     margin: 0 auto;
     display: flex;
@@ -719,38 +815,43 @@ body{
     height: 48px;
     margin-bottom: 68px;
 }
-.sans .ant-layout .ant-layout-header .logo{
+
+.sans .ant-layout .ant-layout-header .logo {
     width: 210px;
     height: auto;
     display: flex;
     align-items: center;
 }
-.sans .ant-layout .ant-layout-header .logo img{
+
+.sans .ant-layout .ant-layout-header .logo img {
     display: block;
     width: 100%;
     max-width: auto;
     max-height: auto;
     height: auto;
 }
-.sans .ant-layout .ant-layout-header .sign-btn{
+
+.sans .ant-layout .ant-layout-header .sign-btn {
     width: 300px;
     display: flex;
     justify-content: space-between;
 }
-.sans .ant-layout .ant-layout-header .sign-in{
+
+.sign-in {
     display: block;
     width: 222px;
     line-height: 44px;
     text-align: center;
-    font-size:21px;
-    font-family:Arial;
-    font-weight:bold;
+    font-size: 21px;
+    font-family: Arial;
+    font-weight: bold;
     color: #2952ea;
     border-radius: 26px;
     border: 2px solid #2952ea;
     cursor: pointer;
 }
-.sans .ant-layout .ant-layout-header .anticon-calculator{
+
+.sans .ant-layout .ant-layout-header .anticon-calculator {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -758,49 +859,53 @@ body{
     height: 50px;
     font-size: 30px;
     color: #2952ea;
-    border:2px solid #2952ea;
+    border: 2px solid #2952ea;
     border-radius: 100%;
     cursor: pointer;
 }
-.h-100{
-    height: auto !important; 
+
+.h-100 {
+    height: auto !important;
     overflow: auto;
     margin: 0;
     padding: 0 !important;
 }
 
-.drop_down{
+.drop_down {
     overflow: scroll;
 }
-.ant-select-item-option-selected:not(.ant-select-item-option-disabled){
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
     font-size: 16px;
 }
-.select_style{
+
+.select_style {
     overflow: auto;
 }
-.vertical_svg{
 
-}
-.vertical_svg_first{
-    width:588px;
+.vertical_svg_first {
+    width: 588px;
     height: 203px;
-    background:white;
-    margin:0 auto;
+    background: white;
+    margin: 0 auto;
     margin-bottom: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.w-100{
+
+.w-100 {
     width: 339px;
     height: 168px;
 }
-.transverse_svg{
+
+.transverse_svg {
     display: flex;
     justify-content: space-between;
     margin-left: 24px;
 }
-.transverse_svg_first{
+
+.transverse_svg_first {
     width: 347px;
     height: 347px;
     background: white;
@@ -810,22 +915,23 @@ body{
     align-items: center;
 }
 
-.footer{
-    width:1440px;
-    height:404px;
-    background:  #2952ea;
+.footer {
+    width: 1440px;
+    height: 404px;
+    background: #2952ea;
     margin: 0 auto;
 }
 
-.footer_main{
+.footer_main {
     display: flex;
     justify-content: space-around;
 }
-.footer_main>div{
+
+.footer_main>div {
     width: 40%;
 }
 
-.footer_link{
+.footer_link {
     width: 502px;
     height: 34px;
     display: flex;
@@ -833,79 +939,93 @@ body{
     align-items: center;
     text-align: left;
 }
-.footer_link>a{
+
+.footer_link>a {
     display: block;
     width: 168px;
     font-size: 14px;
-    color:rgb(157, 190, 235)
+    color: rgb(157, 190, 235)
 }
-.main_left{
+
+.main_left {
     font-size: 14px;
-    color:rgb(157, 190,235)
+    color: rgb(157, 190, 235)
 }
-.main_left>p{
+
+.main_left>p {
     height: 34px;
 }
-.copyright{
+
+.copyright {
     display: flex;
     justify-content: space-around;
 }
-.copyright>p{
+
+.copyright>p {
     width: 38%;
     font-size: 14px;
-    color:rgb(157, 190,235)
+    color: rgb(157, 190, 235)
 }
-.copyright_right{
+
+.copyright_right {
     width: 42%;
     display: flex;
     justify-content: space-between;
-    color:rgb(157, 190,235)
-
+    color: rgb(157, 190, 235)
 }
-.dhl>img{
+
+.dhl>img {
     width: 51px;
     height: 26px;
 }
-.the_national_flag{
+
+.the_national_flag {
     display: flex;
     justify-content: space-between;
 }
-.dhl{
+
+.dhl {
     border-right: 1px solid #DBDBDB;
-    height:34px;
+    height: 34px;
     width: 112px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.footer_title{
+.footer_title {
     padding-bottom: 55px;
 }
-.footer_title>img{
+
+.footer_title>img {
     width: 176px;
     height: 37px;
     margin-left: 56px;
 }
-.info_footer{
+
+.info_footer {
     padding: 24px 0;
 }
-.footer_link_icon>img{
+
+.footer_link_icon>img {
     width: 28px;
     height: 28px;
-    margin-right:13px;
+    margin-right: 13px;
 }
-.footer_link_icon{
+
+.footer_link_icon {
     width: 202px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 63px;
     padding-top: 12px;
 }
-.show_link_country>img{
+
+.show_link_country>img {
     margin-left: 16px;
 }
-.ant-switch-checked::after{
+
+.ant-switch-checked::after {
     margin-left: 30px;
     position: absolute;
     top: 2px;
@@ -915,75 +1035,83 @@ body{
     border-radius: none;
 }
 
-.get_img_show{
+.get_img_show {
     width: 49px;
     height: 35px;
 }
-.get_img_show>img{
+
+.get_img_show>img {
     width: 100%;
     height: 100%;
 }
-.total-select>div{
+
+.total-select>div {
     text-align: center;
 }
-.ant-select-disabled.ant-select-single:not(.ant-select-customize-input) >.ant-select-selector{
+
+.ant-select-disabled.ant-select-single:not(.ant-select-customize-input)>.ant-select-selector {
     background-color: white;
 }
 
-.express_choose{
+.express_choose {
     width: 83px;
-    margin:0 17px 0 17px;
-    border-right: 1px solid rgba(219,219,219,1);
+    margin: 0 17px 0 17px;
+    border-right: 1px solid rgba(219, 219, 219, 1);
 }
 
-.express_choose:not(.ant-select-customize-input) .ant-select-selector{
+.express_choose:not(.ant-select-customize-input) .ant-select-selector {
     border: none;
     outline: none;
     padding: 0;
-    background: rgba(240,246,251,1);
+    background: rgba(240, 246, 251, 1);
 }
 
 
-.ant-col-16{
+.ant-col-16 {
     display: flex;
     justify-content: space-around;
 }
 
-.country_select:not(.ant-select-customize-input) .ant-select-selector{
-    border:none;
-    padding:0;
-    background: rgba(240,246,251,1);
+.country_select:not(.ant-select-customize-input) .ant-select-selector {
+    border: none;
+    padding: 0;
+    background: rgba(240, 246, 251, 1);
 }
 
-.country_select{
+.country_select {
     width: 147px !important;
 }
 
-.country_choose>img{
+.country_choose>img {
     width: 45px;
     height: 26px;
 }
-.express_logo{
+
+.express_logo {
     width: 51px;
     height: 26px;
 }
 
-.all_country_logo{
+.all_country_logo {
     width: 46px;
     height: 38px;
     margin-right: 10px;
 }
-.express_choose>.ant-select-arrow,.country_select>.ant-select-arrow{
-    background: rgba(240,246,251,1);
-    z-index:-10;
+
+.express_choose>.ant-select-arrow,
+.country_select>.ant-select-arrow {
+    background: rgba(240, 246, 251, 1);
+    z-index: -10;
 }
-.country_name{
-    font-size:14px;
-    font-family:'Arial';
-    font-weight:400;
-    color:rgba(41,82,234,1);
+
+.country_name {
+    font-size: 14px;
+    font-family: 'Arial';
+    font-weight: 400;
+    color: rgba(41, 82, 234, 1);
 }
-.header_logo{
+
+.header_logo {
     width: 48px;
     height: 48px;
     border: 2px solid #2952ea;
@@ -992,7 +1120,275 @@ body{
     justify-content: center;
     align-items: center;
 }
-.header_logo>img{
+
+.header_logo>img {
     width: 21px;
     height: 26px;
 }
+
+.login {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 78px;
+}
+
+.logo_inner {
+    width: 210px;
+    height: 40px;
+    margin-left: 75px;
+}
+
+.sign-btn {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 64px;
+}
+
+.sign-icon {
+    width: 47.9px;
+    height: 47.9px;
+    border:2px solid #2952EA;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 28px;
+    color:#2952EA;
+    font-size: 24px;
+}
+
+.nav_logo_inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+.nav_logo_inner>li>a:hover{
+    color: #FFCA00;
+    text-decoration: underline;;
+}
+.nav_logo_inner>li{
+    min-width: 90px;
+    height: 100%;
+}
+.nav_logo_inner>li:nth-child(4),.nav_logo_inner>li:nth-child(5){
+    width: 155px;
+}
+.nav_logo_inner>li:nth-child(5){
+    margin-right: 5px;
+}
+.nav_down_menu>ul{
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+}
+.nav_down_menu>ul>li{
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.nav_down_menu{
+    position: absolute;
+    top:53px;
+    left: -3px;
+    z-index: 5;
+    background-color: white;
+    width: 520px;
+    height: 382px;
+    border-radius: 10px;
+    transition: all 300ms ease-in;
+    padding-top: 5px;
+    box-shadow: 0px 0px 20px 10px #cccccc;
+    animation: fadeInLeft 300ms ease-in;
+}
+.down_menu_one,.down_menu_two,.down_menu_three{
+    position: relative;
+}
+.down_sw{
+    position: absolute;
+    top:33px;
+    left: 8px;
+    width: 0;
+    height: 0;
+    border: 10px solid;
+    border-color: transparent transparent #cccccc;
+}
+.down_sh{
+    position: absolute;
+    top:-20px;
+    left: 8px;
+    width: 0;
+    height: 0;
+    border: 10px solid;
+    border-color: transparent transparent #cccccc;
+}
+.nav_down_menu>ul>li>a:hover{
+    color: #FFCA00;
+    padding-left: 8px;
+    text-decoration: underline;
+}
+.nav_logo_menu>ul>a:hover li{
+    list-style: inside;
+}
+.down_menu_one:hover .nav_down{
+    display: block;
+}
+.nav_down{
+    display: none;
+}
+.nav_down:hover{
+    display: block;
+}
+.nav_logo{
+    height: 60px;
+    line-height: 60px;
+}
+.down_nav_two{
+    position: absolute;
+    top:53px;
+    left: -3px;
+    z-index: 5;
+    background-color: white;
+    width: 260px;
+    height: 222px;
+    border-radius: 10px;
+    transition: all 300ms ease-in;
+    padding-top: 5px;
+    box-shadow: 0px 0px 20px 10px #cccccc;
+    animation: fadeInLeft 300ms ease-in;
+}
+.down_nav_two>a{
+    display: block;
+    margin-left: 15px;
+    height: 40px;
+}
+.down_nav_two>a:hover{
+    color: #FFCA00;
+    padding-left: 8px;
+    text-decoration: underline;
+}
+
+.down_two{
+    display: none;
+}
+
+.down_menu_two:hover .down_two{
+    display: block;
+}
+.nav_three{
+    position: absolute;
+    top:53px;
+    left: -3px;
+    z-index: 5;
+    background-color: white;
+    width: 260px;
+    height: 182px;
+    border-radius: 10px;
+    transition: all 300ms ease-in;
+    padding-top: 5px;
+    box-shadow: 0px 0px 20px 10px #cccccc;
+    animation: fadeInLeft 300ms ease-in;
+}
+.nav_three{
+    display: none;
+}
+.down_menu_three:hover .nav_three{
+    display: block;
+}
+.nav_inner_three{
+    padding-left: 20px;
+}
+.nav_inner_three>div>p:hover{
+    color: #FFCA00;
+    padding-left: 8px;
+}
+.capability,.delivery,.support{
+    z-index: 5;
+    background-color: white;
+    width: 260px;
+    height: 45px;
+    /* line-height: 45px; */
+    border-radius: 10px;
+    padding-top: 5px;
+    box-shadow: 0px 0px 20px 10px #cccccc;
+}
+.capability{
+    position: absolute;
+    top:10px;
+    left:260px;
+    line-height: 39px;
+    display: none;
+}
+.delivery{
+    position: absolute;
+    top:75px;
+    left:260px;
+    line-height: 39px;
+    display: none;
+}
+.support{
+    position: absolute;
+    top:134px;
+    left:260px;
+    line-height: 39px;
+    display: none;
+}
+.nav_inner_one:hover .capability{
+    display: block;
+}
+.nav_inner_two:hover .delivery{
+    display: block;
+}
+.nav_inner_threes:hover .support{
+    display: block;
+} 
+.ant-menu-horizontal{
+    border:none
+} 
+.three_option{
+    width: 250px !important;
+}
+.three_option:hover{
+    padding-left: 20px;
+    color: #FFCA00;
+}
+.capability>a,.delivery>a,.support>a{
+    padding-left: 15px;
+}
+.capability>a:hover{
+    color:#FFCA00;
+    padding-left: 20px;
+    text-decoration: underline;
+}
+.delivery>a:hover{
+    color:#FFCA00;
+    padding-left: 20px;
+    text-decoration: underline;
+}
+.support>a:hover{
+    color:#FFCA00;
+    padding-left: 20px;
+    text-decoration: underline;
+}
+
+/* .title_blog{
+    padding-left: 10px;
+    display: flex;
+    justify-content: center;
+} */
+
+@keyframes fadeInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-30px);
+	}	
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+} 

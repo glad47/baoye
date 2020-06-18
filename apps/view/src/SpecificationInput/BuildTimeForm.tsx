@@ -107,6 +107,8 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
             let numSort = changeNumSort(chooseIndex)
             changeId(numSort)
             changeStateHeight(true)
+            const { price } = buildTimeItmes.filter((item) => { return Number(item.id) === Number(numSort) })[0]
+            dispatch(changeUrgentCost(price))
         });
         /**
         * @description:箭头图片进行一个旋转
@@ -114,7 +116,7 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
         * @return: none
         */
         function rotating(params) {
-            let el = document.querySelector('.point')
+            let el = document.querySelector('.point') 
             const { name } = params.data
             if (name) {
                 switch (name) {
@@ -133,7 +135,6 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
             }
         }
         myChart.on('click', function (params) {
-            console.log(chooseIndex)
             if (params.dataIndex != chooseIndex) {
                 myChart.dispatchAction({ type: 'downplay', seriesIndex: 0, dataIndex: chooseIndex });
             }
@@ -166,7 +167,6 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
      * @return: none
     */
     function changeColor(e,index:number) {
-        console.log(e,index)
         let myChart = echarts.init(document.getElementById('main'));
         let el = document.querySelector('.point')
         const { value } = e.target || 0
@@ -193,7 +193,7 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
         chooseIndex = temporaryVariable
         myChart.dispatchAction({ type: 'highlight', seriesIndex: 0, dataIndex: temporaryVariable });
     }
-    function isChecked(id) {
+    function isChecked(id:number) {
         if ((id === 1 && newChoose === 0) && id === newBtnID) {
             return true
         } else if ((id === 2 && newChoose === 2) && id === newBtnID) {

@@ -47,7 +47,7 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
         <div>
             <Row>
                 <Col span={12}><h5>Total</h5></Col>
-                <Col span={12}><b>{total}</b>
+                <Col span={12}><b>${total}</b>
                     <SwapOutlined className="total-swap"/>
                 </Col>
             </Row>
