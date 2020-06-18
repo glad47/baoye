@@ -24,6 +24,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) =>{
         if ('value' in event.target) event.target.value = ''
         preventDefault(event)
         if (files.length > 0) {
+            const fileName = files[0].name || ''
             const fd = new FormData()
             fd.append('uploads', files[0])
             Axios.post(gerberUploadUrl+'api/uploads',fd,{
@@ -37,25 +38,9 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) =>{
                 //todo 数据回填
                 if(res.data.success){
                     console.log(res);
-                    //处理数据
-                    // const {
-                    //     board_layers,
-                    //     board_length,
-                    //     board_width,
-                    //     color,
-                    //     copper,
-                    //     surface,
-                    //     thickness,
-                    //     material,
-                    //     uploadPath,
-                    //     toolsCount,
-                    //     stackup
-                    // } = res.data.result;
-                    // console.log(surface);
-                    // console.log(color);
-                    // console.log(stackup);
-                    // console.log(toolsCount);
-                    dispatch(backfillPcbData(res.data.result));   
+                    let result = res.data.result;
+                    result.fileName = fileName;
+                    dispatch(backfillPcbData(result));   
                 }else{
 
                 }

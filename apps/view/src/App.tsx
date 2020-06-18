@@ -3,25 +3,14 @@ import React, { useEffect, useState } from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { useAppState, createBoard, createBoardFromUrl, addQuote } from './state'
-import BoardDisplay from './BoardDisplay'
-import Nav from './Nav'
-import LoadFiles from './LoadFiles'
-import ErrorToast from './ErrorToast'
-import { preventDefault } from './events'
 import { Main } from './ui'
-import { FileEvent } from './types'
-import { Layout, Checkbox } from 'antd'
-import PcbSpecification from './SpecificationInput/PcbSpecification'
-import SpecificationHead from './SpecificationInput/SpecificationHead'
+import { Layout, Checkbox, message } from 'antd'
 import PcbSizeForm from './SpecificationInput/PcbSizeForm'
 import BuildTimeForm from './SpecificationInput/BuildTimeForm'
 import CastCalculation from './SpecificationInput/CostCalculation'
 import ShoppingCast from './SpecificationInput/ShoppingCast'
 import ShoppingTotal from './SpecificationInput/ShoppingTotal'
-import StencilForm from './SpecificationInput/StencilForm'
-import ManualForm from './SpecificationInput/ManualForm'
 import img from './images/logo.png'
-import { BrowserRouter as Router } from 'react-router-dom';
 import axios from 'axios'
 import logoImg from './images/logo-bxsd.png'
 import Icon1 from './images/footer_icon01.png'
@@ -36,68 +25,57 @@ import SideNavigation, { SideNavigationTab } from './SpecificationInput/SideNavi
 import FormControl from './SpecificationInput/FormControl'
 import GerberUpload from './SpecificationInput/GerberUpload'
 import GerberShow from './SpecificationInput/GerberShow'
+import { baseUrl } from './SpecificationInput/AjaxService'
 
 function App(): JSX.Element {
-  const [progress, changeProgress] = useState(0)
-  let [formShow, changeShowState] = useState(false)
-  let [borderWidth, setBorderWidth] = useState(0)
-  let [borderLength, setBorderLength] = useState(0)
-  let [topSvg, setTopSvg] = useState(String);
-  let [bottomSvg, setBottom] = useState(String)
-  let [circuitBoardSize,setBoardSize]=useState(Object)
-
-  const { dispatch, subtotal, buildTimeItmes, quoteMode } = useAppState()
-  
-  const handleFiles = (event: FileEvent): void => {
-    const files =
-      'dataTransfer' in event
-        ? Array.from(event.dataTransfer.files)
-        : Array.from(event.target.files || [])
-
-    if (files.length > 0) dispatch(createBoard(files, 'dataTransfer' in event))
-    if ('value' in event.target) event.target.value = ''
-    preventDefault(event)
-    // const {name} =files[0] || ''
-    // // PersistentData('uploadName',name,true)
-    // const fd = new FormData()
-    // fd.append('uploads', files[0])
-
-    // axios.post('http://localhost:8888/api/uploads', fd, {
-    //   onUploadProgress: (ProgressEvent) => {
-    //     var percentCompleted = Math.round((ProgressEvent.loaded * 100) / ProgressEvent.total)
-    //     changeProgress(percentCompleted)
-    //   },
-    //   headers: { 'Content-Type': 'multipart/form-data' }
-    // }).then(res => {
-    //   console.log(res.data)
-    //   const { board_length, board_width, stackup, uploadPath,toolsCount } = res.data
-    //   const { bottom, top, id } = stackup
-    //   const topSvgG = top.svg
-    //   const bottomSvgG = bottom.svg
-    //   formShow = true
-    //   changeShowState(formShow)
-    //   setTopSvg(topSvgG)
-    //   setBottom(bottomSvgG)
-    //   setBorderWidth(board_width)
-    //   setBorderLength(board_length)
-    //   // PersistentData('uploadPath',uploadPath,true)
-    //   let circuitSize={
-    //     width:board_width,
-    //     length:board_length,
-    //     quantity:toolsCount
-    //   }
-    //   setBoardSize(circuitSize)
-    // })
-  }
-
-  const handleUrl = (url: string): void => {
-    if (url) dispatch(createBoardFromUrl(url))
-  }
+  const { dispatch
+    , subtotal
+    , quoteMode
+    , fileUploadPtah
+    ,pcbSizeField:{boardType,quantity,panelSize,singleSize} } = useAppState()
+  const [isLogin, setIsLogin] = useState(false);  
   const { Footer, Header, Content } = Layout
 
   const handleAddQuote = () => {
-    dispatch(addQuote());
+    if(fileUploadPtah === null){
+      message.error('Please upload the gerber file ！！');
+      return;
+    }
+    if(boardType === 'Single'){
+      if(quantity === null || panelSize.sizeX === null || panelSize.sizeY === null){
+        message.error('Please fill in the size and quantity ！！');
+        return;
+      }
+    }else{
+      if(quantity === null || panelSize.sizeX === null || panelSize.sizeY === null || singleSize.sizeX === null || singleSize.sizeY == null ){
+        message.error('Please fill in the size and quantity and panel array ！！'); 
+        return;
+      }
+    }
+    if(isLogin){
+      dispatch(addQuote());
+    }else{
+      message.warning('Please log in first ！！')
+      setTimeout(() => {
+        location.href = '/login';   
+      }, 500);
+    }
   }
+
+  useEffect(()=>{
+    //获取登录信息
+    // axios.defaults.withCredentials = true;
+    axios.post('/loginUserInfo')
+    .then(rep=>{
+      console.log(rep)
+      setIsLogin(rep.data.success);
+      if(rep.data.success){
+          //todo 登录信息
+      }else{
+
+      }
+    })
+  },[])
 
   const handleGoCar = ()=>{
     location.href = 'http://localhost:8882/car/goToCart';
@@ -144,42 +122,6 @@ function App(): JSX.Element {
           <div className="pcb-min-info">
 
             <div className="pcb-min">
-              {/* <Nav/> */}
-              {/* {formShow ? "" : <div className="pcb-file">
-                <BoardDisplay />
-                <LoadFiles handleFiles={handleFiles} />
-                <ErrorToast />
-              </div>}
-              {formShow
-                ? (borderLength>70) ? <>
-                  <div className='vertical_svg'>
-                    <div className='vertical_svg_first'>
-                      <div dangerouslySetInnerHTML={{ __html: topSvg }} />
-                    </div>
-                    <div className='vertical_svg_first'>
-                      <div dangerouslySetInnerHTML={{ __html: bottomSvg }} />
-                    </div>
-                  </div>
-
-                </> :
-                  <div className='transverse_svg'>
-                    <div className='transverse_svg_first'>
-                      <div dangerouslySetInnerHTML={{ __html: topSvg }} />
-                    </div>
-                    <div className='transverse_svg_first'>
-                      <div dangerouslySetInnerHTML={{ __html: bottomSvg }} />
-                    </div>
-                  </div>
-                : ""
-              }
-              {formShow ? "" : <div className='update_status'>
-                <div className='progress'>
-                  <div className='progress_inner' style={{ width: progress + '%' }}>
-                    <div className='progress_s'><p className='progress_f' style={{ width: progress + '%' }}></p></div>
-                  </div>
-                </div>
-                <Checkbox className='is_checked' />
-              </div>} */}
               <GerberUpload />
               <GerberShow />
               {quoteMode === 0 ? <PcbSizeForm/> : ''}

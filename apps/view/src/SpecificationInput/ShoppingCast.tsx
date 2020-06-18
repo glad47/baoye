@@ -4,14 +4,14 @@ import { Row, Col, Typography, Radio, Select } from 'antd';
 import Axios from 'axios';
 import { useAppState, changeTransportCost } from '../state';
 import { SelectValue } from 'antd/lib/select';
-import { fetchShipingCost } from './AjaxService';
-import countryImg from '../images/libya.png'
+import { fetchShipingCost, baseUrl } from './AjaxService';
 import DHL from '../images/dhl.png'
 
 
 type CountryItem = {
     id: number
     name: string
+    countryCode: string
 }
 
 type CouriersItems = {
@@ -30,21 +30,22 @@ const { Option } = Select;
 let cItem: Array<CountryItem> = [];
 const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
     const { dispatch, subtotal } = useAppState();
-    let [cityItem, setCityItem] = useState(Object)
+    let [countryItem, setCountryItem] = useState(cItem);
     let countryIcon = 'ac'
     useEffect(() => {
         if (cItem.length === 0) {
-            Axios.get('http://10.168.8.136:8871/quote/getCountry')
+            Axios.get(baseUrl+'quote/getCountry')
                 .then((rep) => {
                     //   console.log(rep.data.data);
                     if (rep.data.code === 0) {
                         cItem = rep.data.data;
+                        setCountryItem(rep.data.data);
                     }
                 }).catch((rep) => {
                     console.log(rep)
                 })
         }
-    }, [cItem]);
+    }, [countryItem]);
     // todo 任务1
     // const [countryItems, setCountryItems ] = useState([]);
     const fetchCountryItems = () => {
@@ -62,7 +63,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
     }
 
     const fetchShippingCost = (v: SelectValue) => {
-        // console.log(v);
+        console.log(v);
         const { totalWeight } = subtotal;
         if (totalWeight) {
             Axios.all([fetchShipingCost({ countryId: v, totalWeight: totalWeight })]).then((v) => {
@@ -90,6 +91,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
                     </Select>
 
                     <Select
+                        // labelInValue={true}
                         style={{ width: 100 }}
                         showSearch            
                         optionLabelProp="children"
@@ -98,14 +100,14 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
                         onChange={fetchShippingCost}
                         filterOption={(input, option) =>
                             option?.label?.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                          }
+                        }
                         className='country_select'
                         bordered={false}
-                        defaultValue={cItem ? 'China' : ""}
+                        defaultValue={countryItem ? 'China' : ""}
                     >
                         {
-                            cItem && cItem.map(item => (
-                                <Option key={item.id} value={item.name} label={item.name}>
+                            countryItem && countryItem.map(item => (
+                                <Option key={item.id} value={item.id} label={item.name}>
                                     <img src={require('../images/countryFlag/flag_' + changName(item.countryCode) + '.png')} className='all_country_logo' />
                                     <span className='country_name'>{item.name}</span>
                                 </Option>
@@ -120,5 +122,5 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
         </div >
     )
 }
-ShoppingCast.defaultProps = { countryItmes: [{ id: 1, name: 'China' }, { id: 2, name: 'America' }, { id: 3, name: 'Germany' }] }
+// ShoppingCast.defaultProps = { countryItmes: [{ id: 1, name: 'China' }, { id: 2, name: 'America' }, { id: 3, name: 'Germany' }] }
 export default ShoppingCast;

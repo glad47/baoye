@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SwapOutlined, TransactionOutlined, ShoppingCartOutlined, PrinterFilled, EuroCircleOutlined} from '@ant-design/icons';
+import { SwapOutlined, ShoppingCartOutlined, PrinterFilled} from '@ant-design/icons';
 import { Row, Col, Select, Button, Input } from 'antd';
 import axios from 'axios'
 import { baseUrl } from './AjaxService';
@@ -24,38 +24,6 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
     const [defaultRate, setDefaultRate] = useState(1);
     const [rateItem, setRateItem] = useState(rItem);
     
-    // let [totalMoney, changeTotalMoney] = useState('$' + total)
-    // let [changeMoney, changeAllMoney] = useState('¥' + (total * 6.8))
-    // let [isChangeLocation, changeLocationState] = useState(false)
-    const changeLocation = () => {
-        // let temple;
-        // switch (isChangeLocation) {
-        //     case true:
-        //         isChangeLocation = false
-        //         break;
-        //     case false:
-        //         isChangeLocation = true;
-        //         break;
-        //     default:
-        //         isChangeLocation = false;
-        //         break
-        // }
-        // changeLocationState(isChangeLocation)
-        // if (isChangeLocation) {
-        //     temple = totalMoney
-        //     totalMoney = changeMoney
-        //     changeMoney = temple
-        //     changeTotalMoney(totalMoney)
-        //     changeAllMoney(changeMoney)
-        // } else {
-        //     temple = totalMoney
-        //     totalMoney = changeMoney
-        //     changeMoney = temple
-        //     changeTotalMoney(totalMoney)
-        //     changeAllMoney(changeMoney)
-        // }
-    }
-
     const changeRate = () => {
         if(defaultRate === 2){
             setDefaultRate(0);
@@ -66,7 +34,7 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
 
     useEffect(() => {
         if(rItem.length === 0){
-            axios.get(baseUrl+'getAllExchangeRate')
+            axios.get('/getAllExchangeRate')
             .then(rep=>{
                 if(rep.data.code === 0){
                     setRateItem(rep.data.data);
@@ -80,7 +48,7 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
             <Row>
                 <Col span={12}><h5>Total</h5></Col>
                 <Col span={12}><b>{total}</b>
-                    <SwapOutlined className="total-swap" onClick={changeLocation} />
+                    <SwapOutlined className="total-swap"/>
                 </Col>
             </Row>
             <Row>
@@ -102,7 +70,6 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
                 </Col>
             </Row>
             <Row>
-
                 <Col span={14}></Col>
                 <Col span={10} className="total-shopping-icon">
                     {/* <Link to="/quote/goToCart"> */}

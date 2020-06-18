@@ -1,7 +1,7 @@
 import Axios from "axios";
 
-export const baseUrl = "http://10.168.8.136:8871/"
-export const gerberUploadUrl = "http://10.168.8.136:8888/";
+export const baseUrl = "http://10.168.8.191:8871/"
+export const gerberUploadUrl = "http://10.168.8.191:8888/";
 // export function ajaxBuildTime (){
 //     return Axios.get(baseUrl+ 'quote/getBuildTime')
 // }
@@ -12,7 +12,7 @@ export const ajaxBuildTime = (data: any) =>{
 
 export const ajaxSubtotal = (data: any) =>{
     return Axios.request({
-        url: baseUrl+ 'quote/countAdditionInfoV2',
+        url: baseUrl+'quote/countAdditionInfoV2',
         method: 'post',
         data: data
     })
@@ -24,7 +24,7 @@ export const fetchShipingCost = (data: any) =>{
 
 export const ajaxAddQuote = (data: any) => {
     return Axios.request({
-        url: baseUrl + 'quote/addQuoteV2',
+        url:baseUrl+'quote/addQuoteV2',
         method: 'post',
         data: data
     })

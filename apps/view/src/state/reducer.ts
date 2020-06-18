@@ -213,14 +213,18 @@ export default function reducer(state: State, action: Action): State {
         board_layers,
         board_length, 
         board_width,
-        stackup:{bottom,top}
+        stackup:{bottom,top},
+        fileName,
+        uploadPath,
       } = action.payload
       return{
         ...state,
         loading: true,
         pcbSizeField:{...state.pcbSizeField,singleSize:{sizeX:board_width,sizeY:board_length}},
         pcbStandardField:{...state.pcbStandardField,layer:board_layers+'layer',},
-        svg:{...state.svg,topSvg:top,bottomSvg:bottom} 
+        svg:{...state.svg,topSvg:top,bottomSvg:bottom},
+        fileName: fileName,
+        fileUploadPtah: uploadPath
       }
     }
   }
