@@ -17,42 +17,51 @@ interface CastCalculationProps {
 const CastCalculation: React.FC<CastCalculationProps> = (props) =>{
     const {boardFee,engineeringFee,testFee,quoteMode,stencilFee,assemblyFee} = props
 
-    let feeLoading;
+    let pcbFeeLoading,smtFeeLoading,assFeeLoading;
     if(quoteMode === 0){
-        feeLoading = true;
+        pcbFeeLoading = true;
+        smtFeeLoading = stencilFee !== 0;
+        assFeeLoading = assemblyFee !== 0;
     } else if(quoteMode === 1){
+        smtFeeLoading = true;
+        pcbFeeLoading = boardFee !== 0;
+        assFeeLoading = assemblyFee !== 0;
         //钢网
-        if(boardFee === 0){
-            feeLoading = false;            
-        }else{
-            feeLoading = true;
-        }        
+        // if(boardFee === 0){
+        //     pcbFeeLoading = false;            
+        // }else{
+        //     pcbFeeLoading = true;
+        // }        
+    } else if(quoteMode === 2){
+        assFeeLoading = true;
+        pcbFeeLoading = boardFee !== 0;
+        smtFeeLoading = stencilFee !== 0;
     } ;
     return (
         <div className="fee-cont">
-            <Fade in={feeLoading}>
+            <Fade in={pcbFeeLoading}>
             <Row>
                 <div><WalletOutlined /><span>Board Fee</span></div><span>${boardFee}</span>  
             </Row>
             </Fade>
-            <Fade in={feeLoading}>
+            <Fade in={pcbFeeLoading}>
             <Row>
                 <div><SettingOutlined /><span>Engineering Fee</span></div><span>${engineeringFee}</span>
             </Row>
             </Fade>
-            <Fade in={feeLoading}>
+            <Fade in={pcbFeeLoading}>
             <Row>
                 <div><DashboardOutlined /><span>Test Fee</span></div><span>${testFee}</span>
             </Row>
             </Fade>
 
-            <Fade in={quoteMode === 1}>
+            <Fade in={smtFeeLoading}>
                 <Row>
                 <div><WalletOutlined /><span>Stencil Fee</span></div><span>${stencilFee}</span> 
                 </Row>
             </Fade>            
 
-            <Fade in={quoteMode === 2}>
+            <Fade in={assFeeLoading}>
                 <Row>
                 <div><WalletOutlined /><span>Assembly Fee</span></div><span>${assemblyFee}</span> 
                 </Row> 

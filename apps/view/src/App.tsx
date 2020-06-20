@@ -39,7 +39,7 @@ function App(): JSX.Element {
       return;
     }
     if(boardType === 'Single'){
-      if(quantity === null || panelSize.sizeX === null || panelSize.sizeY === null){
+      if(quantity === null || singleSize.sizeX === null || singleSize.sizeY === null){
         message.error('Please fill in the size and quantity ！！');
         return;
       }

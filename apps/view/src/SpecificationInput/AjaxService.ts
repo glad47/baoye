@@ -25,7 +25,7 @@ export const fetchShipingCost = (data: any) =>{
 
 export const ajaxAddQuote = (data: any) => {
     return Axios.request({
-        url:baseUrl+'quote/addQuoteV2',
+        url:'/cart/addQuoteV2',
         method: 'post',
         data: data
     })

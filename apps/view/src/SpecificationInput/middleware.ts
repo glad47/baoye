@@ -30,10 +30,19 @@ export function countQuoteMiddleware(): State.Middleware {
                 console.log('计算出面积',areasq);
                 let layerNum = Number(String(layer).substr(0,1));                
                 // let fetchBuildTime = new Promise(ajaxBuildTime);
-                const {pcbSizeField,pcbSpecialField,pcbStandardField,subtotal} = state;
+                const {
+                    pcbSizeField,
+                    pcbSpecialField,
+                    pcbStandardField,
+                    subtotal
+                } = state;
                 Axios.all([
                     ajaxBuildTime({areaSq: areasq, layerNum:layerNum}),
-                    ajaxSubtotal({pcbSizeField:pcbSizeField,pcbSpecialField:pcbSpecialField,pcbStandardField:pcbStandardField})
+                    ajaxSubtotal({
+                        pcbSizeField:pcbSizeField,
+                        pcbSpecialField:pcbSpecialField,
+                        pcbStandardField:pcbStandardField,
+                    })
                 ]).then((v)=>{
                     console.log(v);
                     const [{data:{data,code}},{data:{data:d2,code:c2}}] = v;
@@ -50,11 +59,7 @@ export function countQuoteMiddleware(): State.Middleware {
                             engineeringFee:projectQuoteToUSD,
                             testFee:newTestQuoteTOUSD,
                             totalWeight:totalQuoteWeight,
-                            // urgentFee:0,
-                            // shippingFee:0,
-                            // stencilFee:0,
                             buildTime:data[0].dayNumber,
-                            // assemblyFee: 0,
                         }))
                     }
                 })
@@ -63,9 +68,27 @@ export function countQuoteMiddleware(): State.Middleware {
             }
             case State.ADD_QUOTE: {
                 console.log('添加报价',state);
-                const {pcbSizeField,pcbSpecialField,pcbStandardField,subtotal} = state;
+                const {
+                    pcbSizeField,
+                    pcbSpecialField,
+                    pcbStandardField,
+                    subtotal,
+                    stencilField,
+                    assemblyField,
+                    fileName,
+                    fileUploadPtah
+                } = state;
                 Axios.all([
-                    ajaxAddQuote({pcbSizeField:pcbSizeField,pcbSpecialField:pcbSpecialField,pcbStandardField:pcbStandardField,subtotal:subtotal})
+                    ajaxAddQuote({
+                        pcbSizeField:pcbSizeField,
+                        pcbSpecialField:pcbSpecialField,
+                        pcbStandardField:pcbStandardField,
+                        subtotal:subtotal,
+                        stencilField: stencilField,
+                        assemblyField: assemblyField,
+                        fileName: fileName,
+                        fileUploadPtah: fileUploadPtah
+                    })
                 ]).then((rep)=>{
                     const [{data:{data,code}}] = rep;
                     if(code === 0){
