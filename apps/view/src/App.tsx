@@ -126,7 +126,7 @@ function App(): JSX.Element {
             </div>
 
             <div className="pcb-total">
-              <ShoppingTotal total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar} />
+              <ShoppingTotal total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar} />
             </div>
 
           </div>

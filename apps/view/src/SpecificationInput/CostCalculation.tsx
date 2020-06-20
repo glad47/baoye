@@ -9,12 +9,13 @@ interface CastCalculationProps {
     testFee?: number
     quoteMode: number
     stencilFee: number
+    assemblyFee: number
 }
 
 
 
 const CastCalculation: React.FC<CastCalculationProps> = (props) =>{
-    const {boardFee,engineeringFee,testFee,quoteMode,stencilFee} = props
+    const {boardFee,engineeringFee,testFee,quoteMode,stencilFee,assemblyFee} = props
 
     let feeLoading;
     if(quoteMode === 0){
@@ -50,7 +51,12 @@ const CastCalculation: React.FC<CastCalculationProps> = (props) =>{
                 <div><WalletOutlined /><span>Stencil Fee</span></div><span>${stencilFee}</span> 
                 </Row>
             </Fade>            
-            
+
+            <Fade in={quoteMode === 2}>
+                <Row>
+                <div><WalletOutlined /><span>Assembly Fee</span></div><span>${assemblyFee}</span> 
+                </Row> 
+            </Fade> 
         </div>       
     )
 }

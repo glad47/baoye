@@ -31,6 +31,11 @@ export const ajaxAddQuote = (data: any) => {
     })
 }
 
+export const ajaxAssemblyCast = (data: any)=>{
+    console.log(data);
+    return Axios.get(baseUrl + `quote/getAssemblyQuote?assemblyType=${data.assemblyType}&uniquePartNum=${data.uniquePartNum}&smtPartNum=${data.smtPartNum}&throughHolePartNum=${data.throughHolePartNum}&assemblySide=${data.assemblySide}&quantity=${data.quantity}`);
+}
+
 export const ajaxFileUpload = (file: File[]) =>{
     const fromData = new FormData();
     fromData.append('file',file[0]);

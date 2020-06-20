@@ -50,6 +50,7 @@ export const BACKFILL_PCB_DATA = 'BACKFILL_PCB_DATA'
 export const CHOOSE_COURIER='CHOOSE_COURIER'
 export const SHOW_DEFAULT='SHOW_DEFAULT'
 export const BACK_TO_UPLOAD='BACK_TO_UPLOAD'
+export const CHANGE_ASSEMBLY_FIELD = 'CHANGE_ASSEMBLY_FIELD'
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -221,7 +222,7 @@ export const countBuildTime = (field: Array<BuildTimeItem>) : Action =>({
 })
 
 /** 修改加急 */
-export const changeUrgentCost = (field: number): Action =>({
+export const changeUrgentCost = (field: BuildTimeItem): Action =>({
   type: CHANGE_URGENTCOST,
   payload: field
 })
@@ -269,3 +270,9 @@ export const showDefault=(field:any):Action=>({
    type:BACK_TO_UPLOAD,
    payload:field
  })
+
+/** 修改钢网字段 */
+export const changeAssemblyField = (field: FieldStore): Action =>({
+  type: CHANGE_ASSEMBLY_FIELD,
+  payload: field 
+})

@@ -68,7 +68,6 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
         console.log(totalWeight)
         if (totalWeight) {
             Axios.all([fetchShipingCost({ countryId: v, totalWeight: totalWeight })]).then((v) => {
-                console.log(v);
                 const [{ data: { data: { shippingCost }, code } }] = v;
                 if (code === 0) {
                     dispatch(changeTransportCost(shippingCost));

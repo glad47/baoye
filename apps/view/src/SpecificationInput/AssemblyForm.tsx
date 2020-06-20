@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { Row,Col,Form, Input, Radio } from 'antd';
-import { useAppState } from '../state';
+import { Row,Col,Form, Input, Radio, Select } from 'antd';
+import { useAppState, changeAssemblyField} from '../state';
+import { Store } from 'antd/lib/form/interface';
 
 interface AssemblyFormProps {
 
@@ -10,9 +11,18 @@ interface AssemblyFormProps {
 const AssemblyFrom: React.FC<AssemblyFormProps> = (props) =>{
     const [ form ] = Form.useForm();
     const { assemblyField, dispatch} = useAppState();
+    const { Option } = Select;
+
+    const onValuesChange = (v: Store,values: Store) =>{
+        if(values.assemblySide && values.quantity && values.throughHolePartNum && values.uniquePartNum && values.assemblySide){
+            console.info(values);
+            dispatch(changeAssemblyField(values));
+        }
+    }
+
     return (
         <Row>
-         <Form form={form} initialValues={assemblyField}>
+         <Form form={form} initialValues={assemblyField} onValuesChange={onValuesChange}>
             <Row>
                <Col span={12}>
                    <span>Number of SMT Parts</span>
@@ -49,7 +59,10 @@ const AssemblyFrom: React.FC<AssemblyFormProps> = (props) =>{
                </Col> 
                <Col span={12}>
                    <Form.Item name="assemblySide">
-                       <Input />
+                       <Select>
+                           <Option value="Single Side">Single Side</Option>
+                           <Option value="Double Side">Double Side</Option>
+                       </Select>
                    </Form.Item>
                </Col>
             </Row>

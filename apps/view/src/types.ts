@@ -158,6 +158,8 @@ export type SubtotalItem = {
   urgentFee: number,
   shippingFee: number,
   stencilFee: number,
+  buildTime: string | null,
+  assemblyFee: number,
 }
 
 export type SvgString = {

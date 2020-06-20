@@ -7,7 +7,6 @@ import { useAppState, changeUrgentCost } from '../state';
 import echarts from 'echarts'
 import { render } from 'enzyme';
 import img from '../images/15.png'
-import Item from 'antd/lib/list/Item';
 
 interface BuildTimeFormProps {
    // buildItems: Array<BuildTimeItem>
@@ -30,8 +29,9 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
     const [isHeightLight, changeStateHeight] = useState(false)
     const onChange = (e: RadioChangeEvent) => {
         var v = e.target.value
-        const { price } = buildTimeItmes.filter((item) => { return Number(item.id) === Number(v) })[0]
-        dispatch(changeUrgentCost(price))
+        const { price,dayNumber,id } = buildTimeItmes.filter((item) => { return Number(item.id) === Number(v) })[0]
+        let buildTimeItem: BuildTimeItem = {id:id,price:price,dayNumber:dayNumber}
+        dispatch(changeUrgentCost(buildTimeItem))
         btnIndex = v
         changeId(v)
     }
