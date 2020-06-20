@@ -2,7 +2,7 @@
 import Axios from "axios";
 
 export const baseUrl = "http://10.168.8.191:8871/"
-export const gerberUploadUrl = "http://10.168.8.191:8888/";
+export const gerberUploadUrl = "http://10.168.8.182:8888/";
 // export function ajaxBuildTime (){
 //     return Axios.get(baseUrl+ 'quote/getBuildTime')
 // }

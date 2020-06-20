@@ -84,7 +84,10 @@
     height: 100%;
     width: 90%;
 }
-
+.show_progress_speed{
+    margin-right: 10px;
+    font-size: 14px;
+}
 .progress_inner {
     width: 100%;
     height: 100%;
@@ -133,7 +136,7 @@
 }
 
 .update_font {
-    width: 92px;
+    width: 165px;
     height: 12px;
     font-size: 14px;
     font-family: 'Arial';
@@ -145,7 +148,7 @@
     left: -32px;
     position: absolute;
     top: 107px;
-    left: -22px;
+    left: -64px;
     z-index: 21;
 }
 
@@ -201,7 +204,7 @@
 }
 
 .pcb-min .ant-form {
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 .pcb-min .ant-form .ant-form-item {
@@ -893,6 +896,14 @@ body {
     justify-content: center;
     align-items: center;
 }
+.vertical_svg_first>svg{
+    max-width: 588px;
+    max-height: 203px;
+}
+.vertical_svg_first>div{
+    max-width: 588px;
+    max-height: 203px;
+}
 .svg_show_img{
     width: 580px;
     height: 400px;
@@ -909,6 +920,7 @@ body {
     width: 548px;
     height: 400px;
     margin: auto;   
+    overflow: hidden;
 }
 .transverse_svg {
     display: flex;
@@ -924,6 +936,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.transverse_svg_first>svg{
+    max-width: 347px;
+    max-height: 347px;
 }
 
 .footer {
@@ -1409,3 +1425,47 @@ body {
 		transform: translateX(0);
 	}
 } 
+
+.go_to_cart{
+    position: absolute;
+    top:-19px;
+    left: -11px;
+    font-size: 12px;
+    /* display: none; */
+}
+.anticon-shopping-cart:hover .go_to_cart{
+    display: block;
+}
+.add_to_cart{
+    position: absolute;
+    top:-19px;
+    left: 50px;
+    font-size: 12px;
+}
+.again_uploads_success,.again_uploads_fail{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 550px;
+    margin: 0 auto;
+    margin-top:20px;
+}
+.again_uploads_success{
+     color: #2952ea;
+}
+.again_uploads_fail{
+    color:#cccccc
+}
+.again_uploads>button{
+    outline: none;
+}
+.show_default_img{
+    width: 540px;
+    height: 350px;
+    margin:0 auto
+}
+.show_default_img>p{
+    font-size: 14px;
+    color:blue;
+    text-align: center;
+}

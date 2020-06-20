@@ -47,6 +47,9 @@ export const ADD_QUOTE = 'ADD_QUOTE'
 export const CHANGE_QUOTE_MODE = 'CHANGE_QUOTE_MODE'
 export const CHANGE_STENCIL_FIELD = 'CHANGE_STENCIL_FIELD'
 export const BACKFILL_PCB_DATA = 'BACKFILL_PCB_DATA'
+export const CHOOSE_COURIER='CHOOSE_COURIER'
+export const SHOW_DEFAULT='SHOW_DEFAULT'
+export const BACK_TO_UPLOAD='BACK_TO_UPLOAD'
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -251,3 +254,18 @@ export const backfillPcbData = (field: any): Action =>({
   type: BACKFILL_PCB_DATA,
   payload: field
 })
+ /** 选择的快递 */
+export const chooseCourier=(field:any):Action=>({
+  type:CHOOSE_COURIER,
+  payload:field
+})
+ /** 是否显示默认图片 */
+export const showDefault=(field:any):Action=>({
+  type:SHOW_DEFAULT,
+  payload:field
+})
+ /** 返回上传文件页面 */
+ export const backToUpload=(field:any):Action=>({
+   type:BACK_TO_UPLOAD,
+   payload:field
+ })

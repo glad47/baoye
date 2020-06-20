@@ -20,7 +20,7 @@ export type LoadFilesProps = {
 }
 
 export default function LoadFiles(props: LoadFilesProps): JSX.Element {
-  const {mode, loading} = useAppState()
+  const {mode, loading,isBackToUpload} = useAppState()
 
   return (
     <>
@@ -31,11 +31,11 @@ export default function LoadFiles(props: LoadFilesProps): JSX.Element {
           faProps={{pulse: true}}
         />
       </Fade>
-      <Fade in={!mode && !loading}>
+      <Fade in={!mode}>
         <div className={WRAPPER_STYLE}>
           <FileInput handleFiles={props.handleFiles}>
-            <div className='img_show'><img  src={require('../images/update_loader.gif')}/></div>
-            <p className='update_font'>Select the file</p>
+            <div className='img_show'><img  src={require('../images/upload_now.gif')}/></div>
+            <p className='update_font'>Only accept zip or rar file</p>
             
             {/* <p className={MESSAGE_STYLE}>
               {UPLOAD_MESSAGE}

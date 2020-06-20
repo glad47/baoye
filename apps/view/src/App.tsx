@@ -26,6 +26,7 @@ function App(): JSX.Element {
     , subtotal
     , quoteMode
     , fileUploadPtah
+    , isBackToUpload
     ,pcbSizeField:{boardType,quantity,panelSize,singleSize} } = useAppState()
 
   const [isLogin, setIsLogin] = useState(false);  
@@ -102,8 +103,7 @@ function App(): JSX.Element {
           <div className="pcb-min-info">
 
             <div className="pcb-min">
-              <GerberUpload />
-              <GerberShow />
+              {isBackToUpload ?<GerberUpload />:  <GerberShow /> }
               {quoteMode === 0 ? <PcbSizeForm /> : ''}
             </div>
             {/* <PcbSizeForm /> */}

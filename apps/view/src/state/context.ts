@@ -27,6 +27,9 @@ export const INITIAL_STATE: State = {
   fileName: null,
   fileUploadPtah: null,
   singleCopper: null,
+  courier:null,
+  isShow:true,
+  isBackToUpload:true
 }
 
 // const INITIAL_STANDARD = {
