@@ -77,6 +77,12 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
 
         // dispatch(fetchTransportCost(v));
     }
+
+    const chooseCourier=(v: SelectValue)=>{
+        const courier=String(v)
+        console.log(courier)
+    }
+
     return (
         <div>
             <Row>
@@ -84,9 +90,15 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
             </Row>
             <Row className="shopping-cast-mar">
                 <Col span={20}>
-                    <Select defaultValue='DHL' className='express_choose' bordered={false}>
+                    <Select defaultValue='DHL' className='express_choose' bordered={false}  onChange={chooseCourier}>
                         <Option value="DHL" >
                             <img src={DHL} className='express_logo' />
+                        </Option>
+                        <Option value="ups" >
+                            <img src={require('../images/ups.png')} className='express_logo' />
+                        </Option>
+                        <Option value="fedex" >
+                            <img src={require('../images//fedex.png')} className='express_logo' />
                         </Option>
                     </Select>
 

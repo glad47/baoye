@@ -41,6 +41,9 @@ export type State = {
   fileName: string | null
   fileUploadPtah: string | null
   singleCopper: string | null
+  courier:string | null
+  isShow:boolean
+  isBackToUpload:boolean
 }
 
 /** Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。 */
@@ -94,4 +97,7 @@ export type Action =
   | {type: 'CHANGE_QUOTE_MODE'; payload: number}
   | {type: 'CHANGE_STENCIL_FIELD'; payload: FieldStore}
   | {type: 'BACKFILL_PCB_DATA'; payload: any}
+  | {type: 'CHOOSE_COURIER';payload:any}
+  | {type: 'SHOW_DEFAULT';payload:any}
+  | {type: 'BACK_TO_UPLOAD';payload:any}
   | {type: 'CHANGE_ASSEMBLY_FIELD'; payload: FieldStore}

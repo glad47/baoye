@@ -107,8 +107,9 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
             let numSort = changeNumSort(chooseIndex)
             changeId(numSort)
             changeStateHeight(true)
-            const { price } = buildTimeItmes.filter((item) => { return Number(item.id) === Number(numSort) })[0]
-            dispatch(changeUrgentCost(price))
+            const { price,dayNumber,id } = buildTimeItmes.filter((item) => { return Number(item.id) === Number(numSort) })[0]
+            let buildTimeItem: BuildTimeItem = {id:id,price:price,dayNumber:dayNumber}
+            dispatch(changeUrgentCost(buildTimeItem))
         });
         /**
         * @description:箭头图片进行一个旋转

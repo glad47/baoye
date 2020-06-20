@@ -23,6 +23,8 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
     const { total, handleAddQuote, handleGoCar } = props;
     const [defaultRate, setDefaultRate] = useState(1);
     const [rateItem, setRateItem] = useState(rItem);
+    const [goCart, setGoCart] = useState(false);
+    const [addCart, setAddCart] = useState(false);
     
     const changeRate = () => {
         if(defaultRate === 2){
@@ -32,6 +34,18 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
         }
     }
 
+    const isShowGo=()=>{
+        setGoCart(true)
+    }
+    const isHideGo=()=>{
+        setGoCart(false)
+    }
+    const isShowAdd=()=>{
+        setAddCart(true)
+    }
+    const isHideAdd=()=>{
+        setAddCart(false)
+    }
     useEffect(() => {
         if(rItem.length === 0){
             axios.get('/getAllExchangeRate')
@@ -74,9 +88,11 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
                 <Col span={14}></Col>
                 <Col span={10} className="total-shopping-icon">
                     {/* <Link to="/quote/goToCart"> */}
-                    <Button icon={<ShoppingCartOutlined />} block type="link" onClick={handleGoCar} />
+                    <Button icon={<ShoppingCartOutlined />} block type="link" onClick={handleGoCar} onMouseOver={isShowGo} onMouseOut={isHideGo}/>
                     {/* </Link> */}
-                    <Button icon={<PrinterFilled />} block type="link" onClick={handleAddQuote} />
+                    <Button icon={<PrinterFilled />} block type="link" onClick={handleAddQuote} onMouseOver={isShowAdd} onMouseOut={isHideAdd}/>
+                    {goCart?<p className='go_to_cart'>GO TO CART</p>:""}
+                    {addCart?<p className='add_to_cart'>ADD TO CART</p>:""}
                 </Col>
             </Row>
         </div>

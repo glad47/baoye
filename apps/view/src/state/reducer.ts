@@ -232,6 +232,24 @@ export default function reducer(state: State, action: Action): State {
         singleCopper: copper,
       }
     }
+    case actionTypes.CHOOSE_COURIER: {
+      return {
+        ...state,
+        courier: action.payload
+      }
+    }
+    case actionTypes.SHOW_DEFAULT: {
+      return {
+        ...state,
+        isShow: action.payload
+      }
+    }
+    case actionTypes.BACK_TO_UPLOAD: {
+      return {
+        ...state,
+        isBackToUpload: action.payload
+      }
+    }
     case actionTypes.CHANGE_ASSEMBLY_FIELD: {
       return {...state, assemblyField: action.payload }
     }
