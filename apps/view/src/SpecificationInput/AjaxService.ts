@@ -1,8 +1,8 @@
 
 import Axios from "axios";
 
-export const baseUrl = "http://10.168.8.191:8871/"
-export const gerberUploadUrl = "http://10.168.8.191:8888/";
+export const baseUrl = "http://10.168.8.182:8871/"
+export const gerberUploadUrl = "http://10.168.8.182:8888/";
 // export function ajaxBuildTime (){
 //     return Axios.get(baseUrl+ 'quote/getBuildTime')
 // }
@@ -29,6 +29,11 @@ export const ajaxAddQuote = (data: any) => {
         method: 'post',
         data: data
     })
+}
+
+export const ajaxAssemblyCast = (data: any)=>{
+    console.log(data);
+    return Axios.get(baseUrl + `quote/getAssemblyQuote?assemblyType=${data.assemblyType}&uniquePartNum=${data.uniquePartNum}&smtPartNum=${data.smtPartNum}&throughHolePartNum=${data.throughHolePartNum}&assemblySide=${data.assemblySide}&quantity=${data.quantity}`);
 }
 
 export const ajaxFileUpload = (file: File[]) =>{

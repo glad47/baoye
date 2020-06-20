@@ -1,6 +1,6 @@
 import * as State from '../state';
 import { countSubtotal, countBuildTime } from '../state';
-import { ajaxBuildTime, ajaxSubtotal, ajaxAddQuote } from './AjaxService';
+import { ajaxBuildTime, ajaxSubtotal, ajaxAddQuote, ajaxAssemblyCast } from './AjaxService';
 import Axios from 'axios';
 import { message } from 'antd';
 
@@ -30,7 +30,7 @@ export function countQuoteMiddleware(): State.Middleware {
                 console.log('计算出面积',areasq);
                 let layerNum = Number(String(layer).substr(0,1));                
                 // let fetchBuildTime = new Promise(ajaxBuildTime);
-                const {pcbSizeField,pcbSpecialField,pcbStandardField} = state;
+                const {pcbSizeField,pcbSpecialField,pcbStandardField,subtotal} = state;
                 Axios.all([
                     ajaxBuildTime({areaSq: areasq, layerNum:layerNum}),
                     ajaxSubtotal({pcbSizeField:pcbSizeField,pcbSpecialField:pcbSpecialField,pcbStandardField:pcbStandardField})
@@ -44,7 +44,18 @@ export function countQuoteMiddleware(): State.Middleware {
                     if(c2 === 0){
                         console.log(d2);
                         const {newTestQuoteTOUSD,projectQuoteToUSD,totalBoardQuoteToUSD,totalQuoteWeight} = d2;
-                        dispatch(countSubtotal({boardFee:totalBoardQuoteToUSD,engineeringFee:projectQuoteToUSD,testFee:newTestQuoteTOUSD,totalWeight:totalQuoteWeight,urgentFee:0,shippingFee:0,stencilFee:0}))
+                        dispatch(countSubtotal({
+                            ...subtotal,
+                            boardFee:totalBoardQuoteToUSD,
+                            engineeringFee:projectQuoteToUSD,
+                            testFee:newTestQuoteTOUSD,
+                            totalWeight:totalQuoteWeight,
+                            // urgentFee:0,
+                            // shippingFee:0,
+                            // stencilFee:0,
+                            buildTime:data[0].dayNumber,
+                            // assemblyFee: 0,
+                        }))
                     }
                 })
                 break;
@@ -67,6 +78,18 @@ export function countQuoteMiddleware(): State.Middleware {
                     }, 1000);
                 })
                 break;
+            }
+            case State.CHANGE_ASSEMBLY_FIELD: {
+                console.log('计算贴片报价',state);
+                const {assemblyField,subtotal} = state;
+                Axios.all([
+                    ajaxAssemblyCast(assemblyField)
+                ]).then(v =>{
+                    console.log('vvv',v);
+                    //todo bug
+                    const [{data:{data:{totalAssemblyQuote}}}] = v;
+                    dispatch(countSubtotal({...subtotal,assemblyFee: totalAssemblyQuote}));
+                })
             }
         }
         return result;

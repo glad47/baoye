@@ -88,9 +88,10 @@ export type Action =
   | {type: 'COUNT_SUBTOTAL'; payload: SubtotalItem}
   | {type: 'PARSING_GERBER'; payload: ParseGerber}
   | {type: 'COUNT_BUILDTIME'; payload: Array<BuildTimeItem>}
-  | {type: 'CHANGE_URGENTCOST'; payload: number}
+  | {type: 'CHANGE_URGENTCOST'; payload: BuildTimeItem}
   | {type: 'CHANGE_TRANSPORT_COST'; payload: number}
   | {type: 'ADD_QUOTE';}
   | {type: 'CHANGE_QUOTE_MODE'; payload: number}
   | {type: 'CHANGE_STENCIL_FIELD'; payload: FieldStore}
   | {type: 'BACKFILL_PCB_DATA'; payload: any}
+  | {type: 'CHANGE_ASSEMBLY_FIELD'; payload: FieldStore}

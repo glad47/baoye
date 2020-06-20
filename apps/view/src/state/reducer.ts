@@ -181,7 +181,7 @@ export default function reducer(state: State, action: Action): State {
     case actionTypes.CHANGE_URGENTCOST: {
       return {
         ...state,
-        subtotal: {...state.subtotal,urgentFee: action.payload}
+        subtotal: {...state.subtotal,urgentFee: action.payload.price,buildTime: action.payload.dayNumber}
       }
     }
     case actionTypes.CHANGE_TRANSPORT_COST: {
@@ -231,6 +231,9 @@ export default function reducer(state: State, action: Action): State {
         fileUploadPtah: uploadPath,
         singleCopper: copper,
       }
+    }
+    case actionTypes.CHANGE_ASSEMBLY_FIELD: {
+      return {...state, assemblyField: action.payload }
     }
   }
   

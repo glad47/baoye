@@ -47,6 +47,7 @@ export const ADD_QUOTE = 'ADD_QUOTE'
 export const CHANGE_QUOTE_MODE = 'CHANGE_QUOTE_MODE'
 export const CHANGE_STENCIL_FIELD = 'CHANGE_STENCIL_FIELD'
 export const BACKFILL_PCB_DATA = 'BACKFILL_PCB_DATA'
+export const CHANGE_ASSEMBLY_FIELD = 'CHANGE_ASSEMBLY_FIELD'
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -218,7 +219,7 @@ export const countBuildTime = (field: Array<BuildTimeItem>) : Action =>({
 })
 
 /** 修改加急 */
-export const changeUrgentCost = (field: number): Action =>({
+export const changeUrgentCost = (field: BuildTimeItem): Action =>({
   type: CHANGE_URGENTCOST,
   payload: field
 })
@@ -250,4 +251,10 @@ export const changeStencilField= (field: FieldStore): Action =>({
 export const backfillPcbData = (field: any): Action =>({
   type: BACKFILL_PCB_DATA,
   payload: field
+})
+
+/** 修改钢网字段 */
+export const changeAssemblyField = (field: FieldStore): Action =>({
+  type: CHANGE_ASSEMBLY_FIELD,
+  payload: field 
 })

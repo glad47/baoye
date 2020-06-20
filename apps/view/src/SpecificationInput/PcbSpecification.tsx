@@ -89,7 +89,7 @@ export const INITIAL_ASSEMBLY: Store = {
     uniquePartNum: null,
     smtPartNum: null,
     throughHolePartNum: null,
-    assemblySide: null,
+    assemblySide: 'Single Side',
     quantity: null,
 }
 
