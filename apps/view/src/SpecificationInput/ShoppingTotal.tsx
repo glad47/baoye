@@ -88,9 +88,9 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
                 <Col span={14}></Col>
                 <Col span={10} className="total-shopping-icon">
                     {/* <Link to="/quote/goToCart"> */}
-                    <Button icon={<ShoppingCartOutlined />} block type="link" onClick={handleGoCar} onMouseOver={isShowGo} onMouseOut={isHideGo}/>
+                    <img src={require('../images/shoppingCart.png')} onClick={handleGoCar} onMouseOver={isShowGo} onMouseOut={isHideGo}/>
                     {/* </Link> */}
-                    <Button icon={<PrinterFilled />} block type="link" onClick={handleAddQuote} onMouseOver={isShowAdd} onMouseOut={isHideAdd}/>
+                    <img src={require('../images/down.png')} onClick={handleAddQuote} onMouseOver={isShowAdd} onMouseOut={isHideAdd}/>
                     {goCart?<p className='go_to_cart'>GO TO CART</p>:""}
                     {addCart?<p className='add_to_cart'>ADD TO CART</p>:""}
                 </Col>

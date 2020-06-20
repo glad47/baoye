@@ -34,12 +34,18 @@
     background: #fff;
     border-radius: 10px;
     box-shadow: 0px 8px 12px 1px rgba(154, 181, 211, 0.77);
+    width:58px;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.pcb-nav ul li.cur>a>div span {
+.pcb-nav ul li.cur>a>div >img {
     padding: 12px;
     font-size: 36px;
     color: #ffba00;
+    filter:url('../images/header_icon_two_yellow.png');
 }
 
 .pcb-min-info {
@@ -896,9 +902,9 @@ body {
     justify-content: center;
     align-items: center;
 }
-.vertical_svg_first>svg{
-    max-width: 588px;
-    max-height: 203px;
+.vertical_svg_first>div>svg{
+    width: 588px;
+    height: 203px;
 }
 .vertical_svg_first>div{
     max-width: 588px;
@@ -1428,7 +1434,7 @@ body {
 
 .go_to_cart{
     position: absolute;
-    top:-19px;
+    top:-25px;
     left: -11px;
     font-size: 12px;
     /* display: none; */
@@ -1438,8 +1444,8 @@ body {
 }
 .add_to_cart{
     position: absolute;
-    top:-19px;
-    left: 50px;
+    top:-25px;
+    left: 55px;
     font-size: 12px;
 }
 .again_uploads_success,.again_uploads_fail{

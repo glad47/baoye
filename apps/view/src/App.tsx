@@ -93,9 +93,9 @@ function App(): JSX.Element {
           {/* 左边栏 */}
           <div className="pcb-nav">
             <SideNavigation>
-              <SideNavigationTab><div><WalletFilled /></div></SideNavigationTab>
-              <SideNavigationTab><div><SlidersFilled /></div></SideNavigationTab>
-              <SideNavigationTab><div><SwitcherFilled /></div></SideNavigationTab>
+              <SideNavigationTab><div><img src={require('./images/header_icon_one.png')}/></div></SideNavigationTab>
+              <SideNavigationTab><div><img src={require('./images/header_icon_two.png')}/></div></SideNavigationTab>
+              <SideNavigationTab><div><img src={require('./images/header_icon_three.png')}/></div></SideNavigationTab>
               {/* <SideNavigationTab><div><ReconciliationFilled /></div></SideNavigationTab> */}
             </SideNavigation>
           </div>
