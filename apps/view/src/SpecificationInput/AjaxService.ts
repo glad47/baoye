@@ -1,7 +1,7 @@
 
 import Axios from "axios";
 
-export const baseUrl = "http://10.168.8.182:8871/"
+export const baseUrl = "http://localhost:8871/"
 export const gerberUploadUrl = "http://10.168.8.182:8888/";
 // export function ajaxBuildTime (){
 //     return Axios.get(baseUrl+ 'quote/getBuildTime')
@@ -25,7 +25,7 @@ export const fetchShipingCost = (data: any) =>{
 
 export const ajaxAddQuote = (data: any) => {
     return Axios.request({
-        url:baseUrl+'quote/addQuoteV2',
+        url:'/cart/addQuoteV2',
         method: 'post',
         data: data
     })
