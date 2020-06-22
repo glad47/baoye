@@ -40,12 +40,14 @@
     justify-content: center;
     align-items: center;
 }
-
+.header_one_show{
+    filter: hue-rotate(170deg) brightness(1.4);
+}
 .pcb-nav ul li.cur>a>div >img {
     padding: 12px;
     font-size: 36px;
     color: #ffba00;
-    filter:url('../images/header_icon_two_yellow.png');
+    filter: hue-rotate(170deg) brightness(1.4);
 }
 
 .pcb-min-info {
@@ -142,19 +144,19 @@
 }
 
 .update_font {
-    width: 165px;
+    width: 313px;
     height: 12px;
     font-size: 14px;
     font-family: 'Arial';
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
+    color:#666666;
     line-height: 36px;
     position: absolute;
     bottom: -5px;
     left: -32px;
     position: absolute;
     top: 107px;
-    left: -64px;
+    left: -126px;
     z-index: 21;
 }
 
@@ -233,7 +235,9 @@
 .pcb-min .ant-form .ant-form-item-label {
     width: 32%;
 }
-
+.ant-form-item-label > label{
+    color:#666666!important
+}
 .pcb-min .ant-form .ant-form-item-control {
     width: 68%;
 }
@@ -477,7 +481,7 @@
 /*********************pcb-fee********************/
 .pcb-sidebar .pcb-fee {
     width: 382px;
-    height: 184px;
+    min-height: 184px;
     background: rgba(240, 246, 251, 1);
     border-radius: 16px;
     margin-bottom: 30px;
@@ -848,10 +852,11 @@ body {
 
 .sign-in {
     display: block;
-    width: 222px;
-    line-height: 44px;
+    width: 143px;
+    height: 26px;
+    line-height: 24px;
     text-align: center;
-    font-size: 21px;
+    font-size: 14px;
     font-family: Arial;
     font-weight: bold;
     color: #2952ea;
@@ -1171,12 +1176,17 @@ body {
 
 .logo_inner {
     width: 210px;
-    height: 40px;
+    height: 42px;
     margin-left: 247px;
+}
+.logo_inner>img{
+    width: 210px;
+    height: 42px;
 }
 
 .sign-btn {
-    height: 100%;
+    width: 143px;
+    height: 26px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1209,6 +1219,8 @@ body {
 .nav_logo_inner>li{
     min-width: 90px;
     height: 100%;
+    display: flex;
+    justify-content: center;
 }
 .nav_logo_inner>li:nth-child(4),.nav_logo_inner>li:nth-child(5){
     width: 155px;
@@ -1452,12 +1464,30 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 550px;
+    width: 701px;
     margin: 0 auto;
     margin-top:20px;
 }
 .again_uploads_success{
      color: #2952ea;
+}
+.title_success_top{
+    font-size:14px;
+    color:#666666;
+    width:50%;
+    text-align: right;
+}
+.button_to_file{
+    width: 180px;
+    height: 30px;
+    border: 1px solid #2952ea;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+}
+.button_to_file:hover{
+    background-color: #2952EA;
+    color:#ffffff
 }
 .again_uploads_fail{
     color:#cccccc
@@ -1474,4 +1504,34 @@ body {
     font-size: 14px;
     color:blue;
     text-align: center;
+}
+
+.ant-checkbox-inner{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffffff !important;
+}
+.ant-checkbox-checked .ant-checkbox-inner::after{
+    position: absolute;
+    display: table;
+    border: 2px solid #2952ea;
+    border-top: 0;
+    border-left: 0;
+    content: ' ';
+    left:5px
+}
+.show_default{
+    width: 290px;
+    height: 290px;
+    position: absolute;
+    top:0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.show_default>img{
+    width: 220px;
+    height: 220px;
 }

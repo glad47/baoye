@@ -41,7 +41,6 @@ const StencilForm: React.FC<StencilFormProps> = (props) =>{
     const handleCancel = () =>{
         setVisible(false);
     }
-
     const onSelectedRowKeysChange = (selectedRowKeys: any, selectedRows: {}[])=>{
         setSelectedRowKeys(selectedRowKeys);
     }
@@ -67,6 +66,7 @@ const StencilForm: React.FC<StencilFormProps> = (props) =>{
     }
 
     const defaultSelectStyle = {width: '280px'};
+
     return (
       <div>
           <Form form={form} initialValues={stencilField} onValuesChange={onValuesChange} onFinish={onFinish}>

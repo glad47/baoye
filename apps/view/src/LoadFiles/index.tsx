@@ -35,7 +35,7 @@ export default function LoadFiles(props: LoadFilesProps): JSX.Element {
         <div className={WRAPPER_STYLE}>
           <FileInput handleFiles={props.handleFiles}>
             <div className='img_show'><img  src={require('../images/upload_now.gif')}/></div>
-            <p className='update_font'>Only accept zip or rar file</p>
+            <p className='update_font'>Upload your gerber file, only accept zip or rar file.</p>
             
             {/* <p className={MESSAGE_STYLE}>
               {UPLOAD_MESSAGE}

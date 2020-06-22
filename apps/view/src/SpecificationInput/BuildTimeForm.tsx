@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { ClockCircleFilled } from '@ant-design/icons'
-import { Row, Typography, Radio } from 'antd';
+import { Row, Typography, Radio ,Spin} from 'antd';
 import { BuildTimeItem } from '../types';
 import { RadioChangeEvent } from 'antd/lib/radio';
 import { useAppState, changeUrgentCost } from '../state';
-import echarts from 'echarts'
+// import echarts from 'echarts'
 import { render } from 'enzyme';
 import img from '../images/15.png'
 
@@ -12,6 +12,8 @@ interface BuildTimeFormProps {
    // buildItems: Array<BuildTimeItem>
 }
 
+var echarts=require('../../../../node_modules/echarts')
+console.log(echarts)
 const bts = [
     { id: 1, dayNumber: "3day", price: 0 },
     { id: 2, dayNumber: "48hours", price: 22 },
@@ -25,6 +27,7 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
     // const { buildItems } = props
     const [newChoose, changeChoose] = useState(0)
     const [newBtnID, changeId] = useState(1)
+    const [isFinish,setIsFinish]=useState(false)
     const { dispatch, subtotal,buildTimeItmes } = useAppState();
     const [isHeightLight, changeStateHeight] = useState(false)
     const onChange = (e: RadioChangeEvent) => {
@@ -62,8 +65,8 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
             series: [{
                 name: '消费',
                 type: 'pie',
-                center: ['50%', '50%'], //饼图位置
-                radius: ['30%', '64%'], //饼图大小
+                center: ['50%', '49%'], //饼图位置
+                radius: ['28%', '64%'], //饼图大小
                 label: {
                     normal: {
                         position: 'inner',
@@ -143,7 +146,10 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
             myChart.dispatchAction({ type: 'highlight', seriesIndex: 0, dataIndex: params.dataIndex });
             rotating(params)
         });
-
+        let isLoad= document.getElementById('main')?.innerHTML
+        myChart.on('rendered',function (){
+            setIsFinish(true)
+        })
     }, [])
     /**
      * @description: build time参数的顺序是混乱的，在以后的一个旋转中需要对应的参数，这里是将参数合理化，正常化
@@ -212,10 +218,11 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
                 <Title level={3}><ClockCircleFilled /><b>Build Time</b></Title>
             </Row>
             <Row>
-                <div style={{ width: "100px", height: "300px", position: 'relative' }}>
+                <div style={{ width: "291px", height: "300px", position: 'relative' }}>
                     <div id="main" style={{ width: 291, height: 291 }}></div>
-                    <img src={img} alt='404' style={{ position: 'absolute', top: '125px', left: '128px' }} className='point' />
-                </div>
+                    {isFinish? <img src={img} alt='404' style={{ position: 'absolute', top: '125px', left: '128px' }} className='point' />: ""}
+                    {!isFinish?<div className='show_default'><img src={require('../images//default_img_show.png')}/></div>:""}
+                </div> 
             </Row>
             <Row>
                 <Radio.Group onChange={onChange} defaultValue={buildTimeItmes[0].id} className='group' name={'1'}>

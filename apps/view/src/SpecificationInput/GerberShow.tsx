@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import { useAppState,backToUpload } from "../state";
 import { Fade } from "../ui";
 
@@ -6,15 +6,22 @@ interface GerberShowProps { }
 
 //gerber显示组件
 const GerberShow: React.FC<GerberShowProps> = (props) =>{
-    const {loading,pcbSizeField:{singleSize:{sizeX}},svg,singleCopper,isShow,isBackToUpload,dispatch} = useAppState()
+    const {loading,pcbSizeField:{singleSize:{sizeX}},svg,singleCopper,isShow,isBackToUpload,pcbStandardField,dispatch} = useAppState()
     const SIZE_CLASS_NAME = sizeX && sizeX > 70 ? 'vertical_svg_first' : 'transverse_svg_first'
     const SIZE_FIRST_CLASS_NAME = sizeX && sizeX > 70 ? 'vertical_svg' : 'transverse_svg'
-    console.log(isShow)
+    let [imgSrc,setImgSrc]=useState(String)
     // const topSvg = board?.top ? board.top : ''
     // const bottomSvg = board?.bottom ? board.bottom : '';
     const aginUpload=()=>{
         dispatch(backToUpload(true))
     }
+    useEffect(() => {
+        const {material,layer,silkscreen,solderMask}=pcbStandardField
+        let newLayer=layer.substr(0,1)
+        let defalutImgSrc=require(`../images/diagram/${material}${newLayer}${solderMask}${silkscreen}.png`)
+        console.log(defalutImgSrc)
+        setImgSrc(defalutImgSrc)
+    }, [])
     // if(loading){
         return(
             <>
@@ -36,11 +43,11 @@ const GerberShow: React.FC<GerberShowProps> = (props) =>{
                 }</>
                 :
                 <div className='show_default_img'>
-                    <img src={require('../images/FR46greenwhite.png')}/>
-                    <p>Your files have been successfully uploaded.</p>
+                    <img src={imgSrc}/>
+                    {/* <p>Your files have been successfully uploaded.</p> */}
                 </div>
             }
-                 <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}><i/><button onClick={aginUpload}>{'<< Back to Upload File'}</button></div>
+                
             </>
         )
     // }else{

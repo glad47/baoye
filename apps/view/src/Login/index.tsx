@@ -39,8 +39,8 @@ class index extends Component {
                             <a>How We Produce <CaretDownOutlined /></a>
                             <LastMenu/>
                         </li>
-                        <li className='title_blog'><a href='https://www.pcbonline.com/blog'>BLOG</a></li>
-                        <li><a href='https://www.pcbonline.com/feedback'>FEEDBACK</a></li>
+                        <li className='title_blog'><a href='/blog'>BLOG</a></li>
+                        <li><a href='/feedback'>FEEDBACK</a></li>
                         <li><a href='https://www.pcbonline.com/about'>ABOUT</a></li>
                     </ul>
 
