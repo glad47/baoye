@@ -71,7 +71,8 @@ export const INITIAL_SPECIAL: Store = {
     impedanceControl: false,
     halfHolePlated: false,  
     pressHoles: false,
-    acceptableQualityLevels: false   
+    acceptableQualityLevels: false,
+    bevellingCamfer:false,   
 };
 
 export const INITIAL_STENCIL: Store = {
