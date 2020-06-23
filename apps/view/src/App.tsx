@@ -67,7 +67,6 @@ function App(): JSX.Element {
     // axios.defaults.withCredentials = true;
     axios.post('/loginUserInfo')
     .then(rep=>{
-      console.log(rep)
       setIsLogin(rep.data.success);
       if(rep.data.success){
           //todo 登录信息
@@ -79,8 +78,6 @@ function App(): JSX.Element {
   const handleGoCar = ()=>{
     location.href = 'http://localhost:8882/car/goToCart';
   }
-
-  console.log(quoteMode)
   return (
     <Main>
       {/* <FileList /> */}

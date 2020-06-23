@@ -10,8 +10,6 @@ const GerberShow: React.FC<GerberShowProps> = (props) =>{
     const SIZE_CLASS_NAME = sizeX && sizeX > 70 ? 'vertical_svg_first' : 'transverse_svg_first'
     const SIZE_FIRST_CLASS_NAME = sizeX && sizeX > 70 ? 'vertical_svg' : 'transverse_svg'
     let [imgSrc,setImgSrc]=useState(String)
-    // const topSvg = board?.top ? board.top : ''
-    // const bottomSvg = board?.bottom ? board.bottom : '';
     const aginUpload=()=>{
         dispatch(backToUpload(true))
     }
@@ -19,10 +17,8 @@ const GerberShow: React.FC<GerberShowProps> = (props) =>{
         const {material,layer,silkscreen,solderMask}=pcbStandardField
         let newLayer=layer.substr(0,1)
         let defalutImgSrc=require(`../images/diagram/${material}${newLayer}${solderMask}${silkscreen}.png`)
-        console.log(defalutImgSrc)
         setImgSrc(defalutImgSrc)
     }, [])
-    // if(loading){
         return(
             <>
             {isShow?
@@ -44,15 +40,10 @@ const GerberShow: React.FC<GerberShowProps> = (props) =>{
                 :
                 <div className='show_default_img'>
                     <img src={imgSrc}/>
-                    {/* <p>Your files have been successfully uploaded.</p> */}
                 </div>
-            }
-                
+            }     
             </>
         )
-    // }else{
-    //    return null
-    // }
 }
 
 export default GerberShow

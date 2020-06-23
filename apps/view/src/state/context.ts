@@ -29,7 +29,8 @@ export const INITIAL_STATE: State = {
   singleCopper: null,
   courier:null,
   isShow:true,
-  isBackToUpload:true
+  isBackToUpload:true,
+  allKeys:[]
 }
 
 // const INITIAL_STANDARD = {

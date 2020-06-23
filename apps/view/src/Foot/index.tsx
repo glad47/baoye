@@ -9,7 +9,7 @@ import Icon5 from '../images/footer_icon05.png'
 export default class index extends Component {
     render() {
         return (
-            <div>
+            <div className='foot_bottom'>
                 <div className='footer'>
                     <div className='footer_main'>
                         <div className='main_left'>

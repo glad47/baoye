@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Fade } from "../ui";
-import { useAppState, backfillPcbData, showDefault, backToUpload } from "../state";
+import { useAppState, backfillPcbData, showDefault, backToUpload,changeColor } from "../state";
 import LoadFiles from "../LoadFiles";
 import { FileEvent } from "../types";
 import Axios from "axios";
@@ -55,6 +55,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                     dispatch(backfillPcbData(result));
                     dispatch(showDefault(true))
                     dispatch(backToUpload(false))
+                    dispatch(changeColor(result))
                 } else {
                     message.warning('文件上传成功，但读取资料失败！！');
                     dispatch(showDefault(false))
@@ -62,6 +63,9 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                 }
             })
         }
+    }
+    const setItem=(key:string,options:string)=>{
+        sessionStorage.setItem(key,options)
     }
     if (true) {
         return (

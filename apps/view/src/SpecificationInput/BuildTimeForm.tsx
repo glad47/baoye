@@ -13,7 +13,6 @@ interface BuildTimeFormProps {
 }
 
 var echarts=require('../../../../node_modules/echarts')
-console.log(echarts)
 const bts = [
     { id: 1, dayNumber: "3day", price: 0 },
     { id: 2, dayNumber: "48hours", price: 22 },

@@ -51,6 +51,7 @@ export const CHOOSE_COURIER='CHOOSE_COURIER'
 export const SHOW_DEFAULT='SHOW_DEFAULT'
 export const BACK_TO_UPLOAD='BACK_TO_UPLOAD'
 export const CHANGE_ASSEMBLY_FIELD = 'CHANGE_ASSEMBLY_FIELD'
+export const CHANGE_COLOR='CHANGE_COLOR'
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -270,7 +271,11 @@ export const showDefault=(field:any):Action=>({
    type:BACK_TO_UPLOAD,
    payload:field
  })
-
+/** 更改颜色 */
+export const changeColor=(field:any):Action=>({
+  type:CHANGE_COLOR,
+  payload:field
+})
 /** 修改钢网字段 */
 export const changeAssemblyField = (field: FieldStore): Action =>({
   type: CHANGE_ASSEMBLY_FIELD,

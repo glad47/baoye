@@ -815,7 +815,7 @@ body {
 
 .sans .ant-layout {
     background: #fff;
-    padding-top: 44px;
+    padding-top: 12px;
 }
 
 .sans .ant-layout .ant-layout-header {
@@ -1168,16 +1168,20 @@ body {
 
 .login {
     width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     padding-bottom: 78px;
 }
-
+.login_inner_layout{
+    width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 12px;
+    align-items: center;
+}
 .logo_inner {
     width: 210px;
     height: 42px;
-    margin-left: 247px;
+
 }
 .logo_inner>img{
     width: 210px;
@@ -1190,7 +1194,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 209px;
 }
 
 .sign-icon {
@@ -1549,4 +1552,12 @@ body {
 .new_active{
     width: 30px;
     height: 30px;
+}
+.isTest>.ant-select-selector{
+    color:#FFBA00 !important
+}
+.foot_bottom{
+    width: 100%;
+    height: 404px;
+    background: #2952ea;
 }

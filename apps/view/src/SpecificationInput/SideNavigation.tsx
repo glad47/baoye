@@ -6,7 +6,6 @@ interface SideNavigationProps {}
 const SideNavigation: React.FC<SideNavigationProps> = (props) =>{
     const { children } = props;
     const {quoteMode,dispatch} = useAppState();
-    console.log(children)
     const tabChange = (event: any,index:number) =>{
         event.preventDefault();
         // setActiveIndex(index);

@@ -24,7 +24,6 @@ const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) =>{
     const onFinish = (v: Store) =>{
         dispatch(changeSpecialField(v))
     }
-    
     return (
         <Form form={form} initialValues={pcbSpecialField} onValuesChange={onValuesChange} style={{width:"100%"}}>
             <Row className="special-mar">

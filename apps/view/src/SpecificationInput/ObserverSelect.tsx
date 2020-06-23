@@ -10,16 +10,16 @@ interface ObserverSelectProps {
     onChange?: (value: string) => void;
     disabled?: boolean;
     selectStyle?: React.CSSProperties | undefined;
+    isChange?:any
 }
 
 const ObserverSelect: React.FC<ObserverSelectProps> = (props) => {
-    const { item, defauleValue, name, value, onChange, disabled, selectStyle } = props;
+    const { item, defauleValue, name, value, onChange, disabled, selectStyle,isChange } = props;
     const { Option } = Select;
     const onChangeStyle = () => {
 
     }
     const defaultSelectStyle = { width: '158px' };
-    console.log('defauleValue的值为：',defauleValue)
     return (
         <Form.Item name={name} noStyle>
             <Select
@@ -32,6 +32,7 @@ const ObserverSelect: React.FC<ObserverSelectProps> = (props) => {
                 dropdownStyle={{ textAlign: 'center', overflow: 'auto' }}
                 defaultActiveFirstOption={true}
                 dropdownClassName={'drop_down'}
+                className={isChange?'isTest':''}
             >
                 {item.map(item => (
                     <Option key={item} value={item} className='select_style'>

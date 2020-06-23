@@ -250,6 +250,12 @@ export default function reducer(state: State, action: Action): State {
         isBackToUpload: action.payload
       }
     }
+    case actionTypes.CHANGE_COLOR: {
+      return {
+        ...state,
+        allKeys: action.payload
+      }
+    }
     case actionTypes.CHANGE_ASSEMBLY_FIELD: {
       return {...state, assemblyField: action.payload }
     }
