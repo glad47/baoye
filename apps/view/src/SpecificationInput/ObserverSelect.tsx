@@ -19,6 +19,7 @@ const ObserverSelect: React.FC<ObserverSelectProps> = (props) => {
 
     }
     const defaultSelectStyle = { width: '158px' };
+    console.log('defauleValue的值为：',defauleValue)
     return (
         <Form.Item name={name} noStyle>
             <Select

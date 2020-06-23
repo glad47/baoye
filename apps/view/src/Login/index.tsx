@@ -25,8 +25,11 @@ class index extends Component {
                 <div className="logo_inner"><img src={require('../images/logo.png')} alt="" /></div>
                 <div className='nav_logo'>
                     <ul className='nav_logo_inner'>
-                        <li><a href='https://www.pcbonline.com/'>HOME</a></li>
-                        <li><a href='https://www.pcbonline.com/quote'>QUOTE</a></li>
+                        <li><a href='https://www.pcbonline.com/'>Home</a></li>
+                        <li className='new_add_active'>
+                            <a href='https://www.pcbonline.com/quote'>Instant Quote</a>
+                            <p className='new_active'><img src={require('../images/new-t.gif')} alt='new function'/></p>
+                        </li>
                         <li className='down_menu_one'>
                             <a >PCB Fab <CaretDownOutlined /></a>
                             <Menus />
@@ -39,9 +42,9 @@ class index extends Component {
                             <a>How We Produce <CaretDownOutlined /></a>
                             <LastMenu/>
                         </li>
-                        <li className='title_blog'><a href='/blog'>BLOG</a></li>
-                        <li><a href='/feedback'>FEEDBACK</a></li>
-                        <li><a href='https://www.pcbonline.com/about'>ABOUT</a></li>
+                        <li className='title_blog'><a href='/blog'>Blog</a></li>
+                        <li><a href='/feedback'>Feedback</a></li>
+                        <li><a href='https://www.pcbonline.com/about'>About</a></li>
                     </ul>
 
                 </div>

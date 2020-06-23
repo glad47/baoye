@@ -65,14 +65,14 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
             series: [{
                 name: '消费',
                 type: 'pie',
-                center: ['50%', '49%'], //饼图位置
-                radius: ['28%', '64%'], //饼图大小
+                center: ['51%', '49%'], //饼图位置
+                radius: ['27%', '64%'], //饼图大小
                 label: {
                     normal: {
                         position: 'inner',
                         textStyle: {
                             color: '#fff',
-                            fontSize: 14
+                            fontSize: 12
                         }
                     }
                 },

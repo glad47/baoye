@@ -103,7 +103,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
                     </Select>
 
                     <Select
-                        // labelInValue={true}
+                        placeholder="Quick search"
                         style={{ width: 100 }}
                         showSearch            
                         optionLabelProp="children"
@@ -115,7 +115,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
                         }
                         className='country_select'
                         bordered={false}
-                        defaultValue={cItem ? 101 : ""}
+                        defaultValue={countryItem.length!=0 ? 101 : undefined}
                     >
                         {
                             cItem && cItem.map(item => (
