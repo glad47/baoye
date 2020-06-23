@@ -15,11 +15,11 @@ const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) =>{
     const [form] = Form.useForm();
     const { pcbSpecialField,dispatch } = useAppState();
 
-    // const onValuesChange = (v: Store, value: Store) =>{
-    //     dispatch(changeSpecialField(value))
-    const onValuesChange = () =>{
-        form.submit();
-        console.log('form表单提交了')
+    const onValuesChange = (v: Store, value: Store) =>{
+        dispatch(changeSpecialField(value))
+    // const onValuesChange = () =>{
+    //     form.submit();
+    //     console.log('form表单提交了')
     }
     const onFinish = (v: Store) =>{
         dispatch(changeSpecialField(v))
@@ -32,8 +32,8 @@ const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) =>{
                     <Form.Item label="HDI">
                         <ObserverSwitch name="hdi" />
                     </Form.Item>
-                    <Form.Item label="Custom Stackup">
-                        <ObserverSwitch name="customStackup"/>
+                    <Form.Item label="Bevelling(Camfer)">
+                        <ObserverSwitch name="bevellingCamfer"/>
                     </Form.Item>
                     <Form.Item label="Peelable Solder Mask" >
                         <ObserverSwitch name="peelableSolderMask"/>
