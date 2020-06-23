@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { useAppState, createBoard, createBoardFromUrl, addQuote } from './state'
+import { useAppState, createBoard, createBoardFromUrl, addQuote, backToUpload} from './state'
 import { Main } from './ui'
 import { Layout, Checkbox, message } from 'antd'
 import PcbSizeForm from './SpecificationInput/PcbSizeForm'
@@ -27,12 +27,13 @@ function App(): JSX.Element {
     , quoteMode
     , fileUploadPtah
     , isBackToUpload
+    ,isShow
     ,pcbSizeField:{boardType,quantity,panelSize,singleSize} } = useAppState()
 
   const [isLogin, setIsLogin] = useState(false);  
   
   const { Footer, Header, Content } = Layout
-
+  
   const handleAddQuote = () => {
     if(fileUploadPtah === null){
       message.error('Please upload the gerber file ！！');
@@ -58,7 +59,9 @@ function App(): JSX.Element {
       }, 500);
     }
   }
-
+  const aginUpload=()=>{
+    dispatch(backToUpload(true))
+}
   useEffect(()=>{
     //获取登录信息
     // axios.defaults.withCredentials = true;
@@ -73,15 +76,11 @@ function App(): JSX.Element {
       }
     })
   },[])
-
   const handleGoCar = ()=>{
     location.href = 'http://localhost:8882/car/goToCart';
   }
 
-  const login = () => {
-    location.href = 'https://www.pcbonline.com/login'
-  }
-
+  console.log(quoteMode)
   return (
     <Main>
       {/* <FileList /> */}
@@ -93,7 +92,7 @@ function App(): JSX.Element {
           {/* 左边栏 */}
           <div className="pcb-nav">
             <SideNavigation>
-              <SideNavigationTab><div><img src={require('./images/header_icon_one.png')}/></div></SideNavigationTab>
+              <SideNavigationTab><div><img src={require('./images/header_one_show.png')} /></div></SideNavigationTab>
               <SideNavigationTab><div><img src={require('./images/header_icon_two.png')}/></div></SideNavigationTab>
               <SideNavigationTab><div><img src={require('./images/header_icon_three.png')}/></div></SideNavigationTab>
               {/* <SideNavigationTab><div><ReconciliationFilled /></div></SideNavigationTab> */}
@@ -105,6 +104,11 @@ function App(): JSX.Element {
             <div className="pcb-min">
               {isBackToUpload ?<GerberUpload />:  <GerberShow /> }
               {quoteMode === 0 ? <PcbSizeForm /> : ''}
+              { !isBackToUpload
+              ?<div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>
+                <p className='title_success_top'>Your files have been successfully uploaded.</p>
+                <button onClick={aginUpload} className='button_to_file'>Back to Upload File</button></div> 
+                : ''}
             </div>
             {/* <PcbSizeForm /> */}
             <FormControl quoteMode={quoteMode} />

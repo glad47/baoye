@@ -6,7 +6,7 @@ import { FileEvent } from "../types";
 import Axios from "axios";
 import { preventDefault } from "../events";
 import { gerberUploadUrl } from "./AjaxService";
-import { message } from "antd";
+import { message,Checkbox } from "antd";
 
 interface GerberUploadProps {
 
@@ -75,7 +75,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                             <div className='progress_s'><p className='progress_f' style={{ width: progress + '%' }}></p></div>
                         </div>
                     </div>
-                    {progress ?<div className='show_progress_speed'>{progress+"%"}</div>:""}
+                    {progress ?<div className='show_progress_speed'><Checkbox checked={progress==100 ? true :false}/></div>:""}
                 </div>
             </>
         )
