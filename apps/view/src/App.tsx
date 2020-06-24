@@ -69,7 +69,7 @@ function App(): JSX.Element {
     .then(rep=>{
       setIsLogin(rep.data.success);
       if(rep.data.success){
-          //todo 登录信息
+          console.log(rep)
       }else{
 
       }
