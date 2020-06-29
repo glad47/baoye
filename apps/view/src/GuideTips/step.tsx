@@ -70,7 +70,7 @@ export default class step1 extends Component<any, any> {
                     <div >
                         <p className='guide_tips'>{this.getStepWord(step)}</p>
                         <div className='guide_position'>
-                            <p onClick={this.previousStep}>Previous</p>
+                            {step>1?<p onClick={this.previousStep}>Previous</p>:<div></div>}
                             <p onClick={this.nextStep}>Next</p>
                         </div>
                     </div>

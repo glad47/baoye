@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { CalculatorOutlined, CaretDownOutlined } from '@ant-design/icons'
+import { CalculatorOutlined, CaretDownOutlined} from '@ant-design/icons'
 import Menus from '../DownMenu'
 import ShowMenu from '../DownMenu/showMenu'
 import LastMenu from '../DownMenu/lastMenu'
+import LoginShow from '../DownMenu/loginShow'
 import { baseUrl } from '../SpecificationInput/AjaxService'
 import axios from 'axios'
 
@@ -11,7 +12,6 @@ class index extends Component<any, any> {
         super(props)
         this.state = {
             userInfo: {
-                username: ''
             },
             isLogin:true
         }
@@ -20,12 +20,13 @@ class index extends Component<any, any> {
         let data = await axios.post(baseUrl + 'loginUserInfo')
         if (data.success) {
             this.setState({
-                userInfo: data.result,
+                userInfo: {...data.result},
                 isLogin: data.success
             })
         }
     }
     render() {
+        const {userName}=this.state.userInfo || ''
         return (
             <div className='login'>
                 <div className='login_inner_layout'>
@@ -58,8 +59,9 @@ class index extends Component<any, any> {
                     <div className="sign-btn">
                         {this.state.isLogin
                             ? <span className="sign-in">Sign in</span>
-                            : <div className='use_name'>{this.state.userInfo.username}</div>
+                            : <div className='use_name'>{userName}</div>
                         }
+                        {this.state.isLogin? '':<LoginShow/>}
                     </div>
                 </div>
             </div>
