@@ -1,23 +1,29 @@
 import React, { Component } from 'react'
 import { CalculatorOutlined, CaretDownOutlined } from '@ant-design/icons'
-import Axios from 'axios'
 import Menus from '../DownMenu'
 import ShowMenu from '../DownMenu/showMenu'
 import LastMenu from '../DownMenu/lastMenu'
+import { baseUrl } from '../SpecificationInput/AjaxService'
+import axios from 'axios'
 
-interface IsHead {
-    props: any
-}
-
-class index extends Component {
-    constructor(props: IsHead) {
+class index extends Component<any, any> {
+    constructor(props: any) {
         super(props)
         this.state = {
-            f: false
+            userInfo: {
+                username: ''
+            },
+            isLogin:true
         }
     }
-    componentDidMount() {
-        console.log('函数初始化')
+    async componentDidMount() {
+        let data = await axios.post(baseUrl + 'loginUserInfo')
+        if (data.success) {
+            this.setState({
+                userInfo: data.result,
+                isLogin: data.success
+            })
+        }
     }
     render() {
         return (
@@ -50,7 +56,10 @@ class index extends Component {
 
                     </div>
                     <div className="sign-btn">
-                        <span className="sign-in">Sign in</span>
+                        {this.state.isLogin
+                            ? <span className="sign-in">Sign in</span>
+                            : <div className='use_name'>{this.state.userInfo.username}</div>
+                        }
                     </div>
                 </div>
             </div>

@@ -864,7 +864,17 @@ body {
     border: 2px solid #2952ea;
     cursor: pointer;
 }
-
+.use_name{
+    display: block;
+    width: 143px;
+    height: 26px;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: bold;
+}
 .sans .ant-layout .ant-layout-header .anticon-calculator {
     display: flex;
     justify-content: center;
@@ -1561,8 +1571,83 @@ body {
     height: 404px;
     background: #2952ea;
 }
-/* .ant-radio-group{
-    padding-left: 6px;
-    background: #cccccc;
-    border-radius: 15px;
-} */
+.tips{
+    width: 100%;
+    /* height: 139%; */
+    height: auto;
+    background-color:rgba(255,255,255,.1);
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index:10;
+}
+.tips_inner{
+    width: 100%;
+    /* height: 139%; */
+    height: auto;
+    background-color:rgba(255,255,255,.5);
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index:10;
+}
+html,body{
+    height: 100%;
+}
+.guide_tips{
+    width:431px;
+    height:101px;
+    font-size:25px;
+    font-family:'Graffiti-Blok1';
+    font-weight:normal;
+    color:rgba(0,0,0,1);
+    line-height:36px;
+    text-align: center;
+}
+.guide_position{
+    width:431px;
+    display: flex;
+    justify-content: space-between;
+}
+.random_name{
+    position: absolute;
+    top:19%;
+    left: 52%;
+
+}
+.guide_position>p{
+    cursor: pointer;
+}
+.random_name_two{
+    position: absolute;
+    top:36%;
+    left: 24%;
+}
+.random_name_three{
+    position: absolute;
+    top:40%;
+    left: 63%;
+}
+.random_name_four{
+    position: absolute;
+    top:76%;
+    left: 66%;
+}
+.close_title{
+    position: absolute;
+    top:42px;
+    right: 305px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.close_title>div>p{
+    margin-top: 19px;
+}
+.close_title>div>img{
+    margin-left: 22%;
+}

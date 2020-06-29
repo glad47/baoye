@@ -8,6 +8,7 @@ import faviconIco from './images/favicon.ico'
 import favicon16 from './images/favicon-16x16.png'
 import favicon32 from './images/favicon-32x32.png'
 import favicon64 from './images/favicon-64x64.png'
+import faviconNew from './images/logo2.ico'
 
 type Props = {
   htmlWebpackPlugin: {
@@ -30,10 +31,10 @@ export default function StaticTemplate(props: Props): string {
         <meta name="description" content={options.description} />
         <meta name="author" content={options.author} />
         <title>{options.title}</title>
-        <link rel="shortcut icon" href={faviconIco} />
-        <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
-        <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
-        <link rel="icon" type="image/png" sizes="32x32" href={favicon64} />
+        <link rel="shortcut icon" href={faviconNew} />
+        <link rel="icon" type="image/png" sizes="16x16" href={faviconNew} />
+        <link rel="icon" type="image/png" sizes="32x32" href={faviconNew} />
+        <link rel="icon" type="image/png" sizes="32x32" href={faviconNew} />
         <style>{faDom.css()}</style>
       </head>
       <body className="h-100 overflow-hidden">
