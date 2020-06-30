@@ -11,19 +11,19 @@ class index extends Component<any, any> {
     constructor(props: any) {
         super(props)
         this.state = {
-            userInfo: {
-            },
+            userInfo: '',
             isLogin:true
         }
     }
     async componentDidMount() {
-        let data = await axios.post(baseUrl + 'loginUserInfo')
+        let data = await axios.post('http://192.168.0.181:8882/' + 'loginUserInfo')
         if (data.success) {
             this.setState({
-                userInfo: {...data.result},
+                userInfo: data.result.userName,
                 isLogin: data.success
             })
         }
+        console.log(this.state.userInfo)
     }
     render() {
         const {userName}=this.state.userInfo || ''
@@ -59,7 +59,7 @@ class index extends Component<any, any> {
                     <div className="sign-btn">
                         {this.state.isLogin
                             ? <span className="sign-in">Sign in</span>
-                            : <div className='use_name'>{userName}</div>
+                            : <div className='use_name'>{this.state.userInfo}</div>
                         }
                         {this.state.isLogin? '':<LoginShow/>}
                     </div>

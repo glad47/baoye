@@ -68,7 +68,7 @@ function App(): JSX.Element {
   useEffect(() => {
     //获取登录信息
     // axios.defaults.withCredentials = true;
-    axios.post(baseUrl + 'loginUserInfo')
+    axios.post('http://192.168.0.181:8882/' + 'loginUserInfo')
       .then(rep => {
         setIsLogin(rep.data.success);
         if (rep.data.success) {
