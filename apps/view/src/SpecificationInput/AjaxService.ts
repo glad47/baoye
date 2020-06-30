@@ -1,8 +1,12 @@
-
 import Axios from "axios";
 
-export const baseUrl = "http://47.89.176.26:8871/"
+//线上
+export const baseUrl = "https://www.pcbonline.com/"
 export const gerberUploadUrl = "http://47.89.176.26:8888/";
+//线下
+// export const baseUrl = "http://192.168.0.181:8871/"
+// export const gerberUploadUrl = "http://192.168.0.181:8888/";
+
 // export function ajaxBuildTime (){
 //     return Axios.get(baseUrl+ 'quote/getBuildTime')
 // }

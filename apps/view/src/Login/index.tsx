@@ -16,7 +16,7 @@ class index extends Component<any, any> {
         }
     }
     async componentDidMount() {
-        let data = await axios.post('http://192.168.0.181:8882/' + 'loginUserInfo')
+        let data = await axios.post(baseUrl+'loginUserInfo')
         console.log(data);
         const { data:{success,result} } =data;
         if (success) {
