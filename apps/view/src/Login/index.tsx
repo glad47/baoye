@@ -17,13 +17,16 @@ class index extends Component<any, any> {
     }
     async componentDidMount() {
         let data = await axios.post('http://192.168.0.181:8882/' + 'loginUserInfo')
-        if (data.success) {
+        console.log(data);
+        const { data:{success,result} } =data;
+        console.log('ffff',success);
+        if (success) {
             this.setState({
-                userInfo: data.result.userName,
-                isLogin: data.success
+                userInfo: result.userName,
+                isLogin: success
             })
         }
-        console.log(this.state.userInfo)
+        console.log('sssssssssss',this.state.userInfo)
     }
     render() {
         const {userName}=this.state.userInfo || ''
@@ -57,11 +60,11 @@ class index extends Component<any, any> {
 
                     </div>
                     <div className="sign-btn">
-                        {this.state.isLogin
+                        {!this.state.isLogin
                             ? <span className="sign-in">Sign in</span>
                             : <div className='use_name'>{this.state.userInfo}</div>
                         }
-                        {this.state.isLogin? '':<LoginShow/>}
+                        {!this.state.isLogin? '':<LoginShow/>}
                     </div>
                 </div>
             </div>
