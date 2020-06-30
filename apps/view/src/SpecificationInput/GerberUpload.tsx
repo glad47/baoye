@@ -5,7 +5,7 @@ import LoadFiles from "../LoadFiles";
 import { FileEvent } from "../types";
 import Axios from "axios";
 import { preventDefault } from "../events";
-import { gerberUploadUrl } from "./AjaxService";
+import { gerberUploadUrl, ajaxFileUpload } from "./AjaxService";
 import { message,Checkbox } from "antd";
 
 interface GerberUploadProps {
@@ -29,14 +29,16 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             const fileName = files[0].name || ''
             const fd = new FormData()
             fd.append('uploads', files[0])
-            Axios.post(gerberUploadUrl + 'api/uploads', fd, {
+            Axios.all([
+               ajaxFileUpload(files),
+               Axios.post(gerberUploadUrl + 'api/uploads', fd, {
                 onUploadProgress: (ProgressEvent) => {
                     // let percentCompleted = Math.round((ProgressEvent.loaded * 100) / ProgressEvent.total)
                     // changeProgress(Math.round(ProgressEvent.loaded  / ProgressEvent.total* 100))
                     // console.log(ProgressEvent.loaded  / ProgressEvent.total* 100)
                     // console.log(ProgressEvent)
                     if (ProgressEvent.lengthComputable) {
-                        var complete =
+                        let complete =
                             (((ProgressEvent.loaded / ProgressEvent.total) * 100) | 0);
                         console.log(complete)
                         if (complete >= 100) {
@@ -45,12 +47,13 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                     }
                 },
                 headers: { 'Content-Type': 'multipart/form-data' }
-            }).then(res => {
-                //todo 数据回填
-                if (res.data.success) {
-                    message.info('文件上传成功，正在解析资料！！');
-                    console.log(res);
-                    let result = res.data.result;
+            })])
+            .then(res => {
+                console.log(res);
+                //todo 数据回填 逻辑判断下
+                const [{data:{code,data,msg}},{data:{success,result}}] = res;
+                if (code === 0) {
+                    message.info('File upload and analytical data successful！！');
                     result.fileName = fileName;
                     dispatch(backfillPcbData(result));
                     dispatch(showDefault(true))
