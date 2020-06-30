@@ -252,9 +252,9 @@ export const changeStencilField= (field: FieldStore): Action =>({
 })
 
 /** 回填上传文件返回的数据 */
-export const backfillPcbData = (field: any): Action =>({
+export const backfillPcbData = (field: any,parseResult: boolean): Action =>({
   type: BACKFILL_PCB_DATA,
-  payload: field
+  payload: {field,parseResult}
 })
  /** 选择的快递 */
 export const chooseCourier=(field:any):Action=>({

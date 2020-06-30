@@ -38,20 +38,19 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) => {
     const [form] = Form.useForm();
 
     const { pcbStandardField, dispatch, allKeys } = useAppState();
-    let temple = allKeys || {}
     const [surfaceThicknessSelect, setSurfaceThicknessSelect] = useState(surfaceThicknessSelectData)
     const [holeCopperSelectDisabled, setHoleCopperSelectDisabled] = useState(false);
     const [innerCopperSelectDisabled, setInnerCopperSelectDisabled] = useState(true);
     const [layerSelect, setLayerSelect] = useState(layerSelectData);
     const [ctiSelect, setCtiSelect] = useState(ctiSelectData);
-    let [foundKey, setKeys] = useState(Object)
-    let [allChooseKeys, setAllKeys] = useState(temple)
+    // let [foundKey, setKeys] = useState(Object)
+    // let [allChooseKeys, setAllKeys] = useState(temple)
 
-    let temples = new Promise(function (resolve, reject) {
-        if (allKeys.length != 0) {
-            setAllKeys(allKeys)
-        }
-    })
+    // let temples = new Promise(function (resolve, reject) {
+    //     if (allKeys.length != 0) {
+    //         setAllKeys(allKeys)
+    //     }
+    // })
     const onValuesChange = (v: Store, values: Store) => {
         switch (Object.values(v)[0]) {
             case "Aluminum": {
@@ -187,24 +186,24 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) => {
         form.setFieldsValue({ ...pcbStandardField })
     }, [pcbStandardField])
 
-    const getKey = new Promise(function () {
-        if (allChooseKeys.length != 0) {
-            let allKey = Object.keys(allChooseKeys) || []
-            for (let i = 0; i < allKey.length; i++) {
-                if (allKey[i] === 'board_layers') {
-                    allKey.splice(i, 1, 'layer')
-                }
-            }
-            setKeys(allKey)
-        }
-    })
+    // const getKey = new Promise(function () {
+    //     if (allChooseKeys.length != 0) {
+    //         let allKey = Object.keys(allChooseKeys) || []
+    //         for (let i = 0; i < allKey.length; i++) {
+    //             if (allKey[i] === 'board_layers') {
+    //                 allKey.splice(i, 1, 'layer')
+    //             }
+    //         }
+    //         setKeys(allKey)
+    //     }
+    // })
 
 
     const isChange = (v: string) => {
-        for (let i = 0; i < foundKey.length; i++) {
-            if (foundKey[i] == v) {
-                return true
-            }
+        if(allKeys[v] !== undefined && allKeys[v] !== null){
+            return true;
+        }else{
+            return false;
         }
     }
 

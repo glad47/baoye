@@ -2,6 +2,7 @@ import * as actionTypes from './actions'
 import {INITIAL_STATE} from './context'
 import {Action, State} from './types'
 import PcbSizeForm from '../SpecificationInput/PcbSizeForm'
+import { INITIAL_STANDARD } from '../SpecificationInput/PcbSpecification'
 /** Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。Reducer 是一个函数，它接受 Action 和当前 State 作为参数，返回一个新的 State。 */
 export default function reducer(state: State, action: Action): State {
   switch (action.type) {
@@ -209,28 +210,58 @@ export default function reducer(state: State, action: Action): State {
       }
     }
     case actionTypes.BACKFILL_PCB_DATA: {
-      const { 
-        board_layers,
-        board_length, 
-        board_width,
-        stackup:{bottom,top,layers},
-        fileName,
-        uploadPath,
-      } = action.payload
-      let copper
-      if(board_layers === 1){
-        copper = layers.filter((item: { type: string })=>item.type === 'copper')[0].side;
+      console.log(action.payload);
+      const {parseResult,field} = action.payload;
+      //解析结果返回是否成功
+      if(parseResult){ 
+        const { customerInfoResult,layer,minHoleSize,boardLength,boardWidth,uploadPath,stackup:{bottom,top,layers},fileName,showDefaultImg } = field;
+        //是否解析成功资料里的数据
+        let allkeys,psf;
+        if(Object.keys(customerInfoResult).length === 0){
+          allkeys = {...customerInfoResult,layer,minHoleSize};
+          psf = {...state.pcbStandardField,layer:layer+'layer',minHoleSize:minHoleSize+''}
+        }else{
+          const {material,thickness,outerCopper,surfaceFinish,color} = customerInfoResult;
+          allkeys = {...customerInfoResult,layer,minHoleSize};
+          psf = {
+            ...state.pcbStandardField,
+            layer:layer+'layer',
+            minHoleSize:minHoleSize,
+            material:material,
+            thickness:thickness,
+            outerCopper:outerCopper,
+            surfaceFinish:surfaceFinish,
+          }
+        }
+        
+        let copper
+        if(layer === 1){
+          copper = layers.filter((item: { type: string })=>item.type === 'copper')[0].side;
+        }
+        return{
+          ...state,
+          loading: true,
+          pcbSizeField:{...state.pcbSizeField,singleSize:{sizeX:boardWidth,sizeY:boardLength}},
+          pcbStandardField:psf,
+          svg:{...state.svg,topSvg:top,bottomSvg:bottom},
+          fileName: fileName,
+          fileUploadPtah: uploadPath,
+          singleCopper: copper,
+          isShow: showDefaultImg,
+          isBackToUpload:false,
+          allKeys:allkeys,
+        }
+      }else{
+        const {fileName,uploadPath,showDefaultImg} = field;
+        return{
+          ...state,
+          fileName: fileName,
+          fileUploadPtah: uploadPath,
+          isShow: showDefaultImg,
+          isBackToUpload:false, 
+        }
       }
-      return{
-        ...state,
-        loading: true,
-        pcbSizeField:{...state.pcbSizeField,singleSize:{sizeX:board_width,sizeY:board_length}},
-        pcbStandardField:{...state.pcbStandardField,layer:board_layers+'layer',},
-        svg:{...state.svg,topSvg:top,bottomSvg:bottom},
-        fileName: fileName,
-        fileUploadPtah: uploadPath,
-        singleCopper: copper,
-      }
+      
     }
     case actionTypes.CHOOSE_COURIER: {
       return {
@@ -247,7 +278,10 @@ export default function reducer(state: State, action: Action): State {
     case actionTypes.BACK_TO_UPLOAD: {
       return {
         ...state,
-        isBackToUpload: action.payload
+        isBackToUpload: action.payload,
+        pcbSizeField: {boardType:'Single',panelSize: {sizeX:null,sizeY:null},quantity:null,singleSize:{sizeX:null,sizeY:null}},
+        pcbStandardField: INITIAL_STANDARD,
+        allKeys:{}
       }
     }
     case actionTypes.CHANGE_COLOR: {

@@ -33,10 +33,6 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                ajaxFileUpload(files),
                Axios.post(gerberUploadUrl + 'api/uploads', fd, {
                 onUploadProgress: (ProgressEvent) => {
-                    // let percentCompleted = Math.round((ProgressEvent.loaded * 100) / ProgressEvent.total)
-                    // changeProgress(Math.round(ProgressEvent.loaded  / ProgressEvent.total* 100))
-                    // console.log(ProgressEvent.loaded  / ProgressEvent.total* 100)
-                    // console.log(ProgressEvent)
                     if (ProgressEvent.lengthComputable) {
                         let complete =
                             (((ProgressEvent.loaded / ProgressEvent.total) * 100) | 0);
@@ -51,18 +47,19 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             .then(res => {
                 console.log(res);
                 //todo 数据回填 逻辑判断下
-                const [{data:{code,data,msg}},{data:{success,result}}] = res;
+                const [{data:{code,data}},{data:{success,result}}] = res;
                 if (code === 0) {
-                    message.info('File upload and analytical data successful！！');
-                    result.fileName = fileName;
-                    dispatch(backfillPcbData(result));
-                    dispatch(showDefault(true))
-                    dispatch(backToUpload(false))
-                    dispatch(changeColor(result))
+                    let r: any = {};
+                    if(success){
+                        message.info('File upload and analytical data successful！！');
+                        r = {...result,fileName:fileName,uploadPath:data,showDefaultImg:true};
+                    }else{
+                        message.warning('文件上传成功，但读取资料失败！！');
+                        r = {showDefaultImg:false,fileName:fileName,uploadPath:data};
+                    }
+                    dispatch(backfillPcbData(r,success));
                 } else {
-                    message.warning('文件上传成功，但读取资料失败！！');
-                    dispatch(showDefault(false))
-                    dispatch(backToUpload(false))
+                   message.error('文件上传失败，请联系网站管理员!!');
                 }
             })
         }
