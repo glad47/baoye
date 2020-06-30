@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-const stepOne = 'Upload Geber file in rar or zip format, choose the panelization method and order Qty.'
-const stepTwo = 'Check the data detected. Correct the mistake if any.'
-const stepThree = 'Choose the delievry time and country.'
-const stepFour = 'Add to cart if you want to buy more; checkout directly if you need only this one.'
+const stepWord1 = 'Upload Gerber file in rar or zip format, choose the panelization method and order Qty.'
+const stepWord2 = 'Check the data detected. Correct the mistake if any.'
+const stepWord3 = 'Choose the delievry time and country.'
+const stepWord4 = 'Add to cart if you want to buy more; checkout directly if you need only this one.'
 
 export default class step1 extends Component<any, any> {
     constructor(props: number) {
@@ -11,67 +11,70 @@ export default class step1 extends Component<any, any> {
         this.state = {
             step: 1
         }
-        console.log(this.props.current)
     }
     getStepWord = (id: number) => {
         switch (id) {
             case 1:
-                return stepOne
+                return stepWord1
             case 2:
-                return stepTwo
+                return stepWord2
             case 3:
-                return stepThree
+                return stepWord3
             case 4:
-                return stepFour
+                return stepWord4
             default:
                 break;
         }
     }
-    getStepStyle=(id:number)=>{
-        switch (id) {
-            case 1:
-                return 'random_name'
-            case 2:
-                return 'random_name_two'
-            case 3:
-                return 'random_name_three'
-            case 4:
-                return 'random_name_four'
-            default:
-                break;
-        }
-    }
-    nextStep=()=>{
-        const {step}=this.state
-        if(step==4){
+    nextStep = () => {
+        const { step } = this.state
+        if (step == 4) {
+            localStorage.setItem('user', '1')
+            this.props.current(step)
             return
         }
-        console.log(step)
         this.setState({
-            step:step+1
+            step: step + 1
         })
     }
-    previousStep=()=>{
-        const {step}=this.state
-        if(step==1){
+    previousStep = () => {
+        const { step } = this.state
+        if (step == 1) {
             return
         }
-        console.log(step)
         this.setState({
-            step:step-1
+            step: step - 1
         })
     }
     render() {
         const { step } = this.state
+        const leftName = `get_left_${step}`
+        const rightName = `get_right_${step}`
+        let positionTitle = `random_name_${step}`
         return (
             <div>
-                <div className={this.getStepStyle(step)}>
-                    <div></div>
+                <div className={positionTitle}>
+                    <div>
+                        <img src={require(`../images/left${step}.png`)} className={leftName} />
+                        {step == 4
+                            ? ''
+                            : <img src={require(`../images/right${step}.png`)} className={rightName} />
+                        }
+                    </div>
                     <div >
                         <p className='guide_tips'>{this.getStepWord(step)}</p>
                         <div className='guide_position'>
-                            {step>1?<p onClick={this.previousStep}>Previous</p>:<div></div>}
-                            <p onClick={this.nextStep}>Next</p>
+                            {step > 1
+                                ? <p onClick={this.previousStep} >
+                                    <span><img src={require('../images/left_arrow.png')} /></span>
+                                    Previous
+                                </p>
+                                : <div></div>
+                            }
+                            <p onClick={this.nextStep}>
+                                Next
+                                <span><img src={require('../images/right_arrow.png')} /></span>
+                            </p>
                         </div>
                     </div>
                 </div>

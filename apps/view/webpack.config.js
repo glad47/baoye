@@ -1,3 +1,4 @@
+
 'use strict'
 
 const path = require('path')
@@ -68,6 +69,10 @@ module.exports = merge(baseConfig(__dirname), {
           name: '[name].[contenthash].[ext]',
         },
       },
+      {  
+        test: /\.(woff|woff2|eot|ttf|otf)$/, 
+        loader: "file-loader" 
+        },
     ],
   },
   plugins: [

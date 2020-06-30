@@ -14,8 +14,14 @@ export default class index extends Component<any,any> {
         this.setState({
             isShow: false
         })
-        console.log(this.state.isShow)
         localStorage.setItem('user','1')
+    }
+    current=(step:number)=>{
+        if(step===4){
+            this.setState({
+                isShow:false
+            })
+        }
     }
     render() {
         const { step, isShow } = this.state
@@ -29,7 +35,7 @@ export default class index extends Component<any,any> {
                                 <p>click here to close</p>
                             </div>
                         </div>
-                        <Step current={step} />
+                        <Step current={this.current} />
                     </div>
                 </div>
             </div>:''
