@@ -15,6 +15,7 @@ export default class index extends Component<any,any> {
             isShow: false
         })
         console.log(this.state.isShow)
+        localStorage.setItem('user','1')
     }
     render() {
         const { step, isShow } = this.state

@@ -33,6 +33,7 @@ function App(): JSX.Element {
     , pcbSizeField: { boardType, quantity, panelSize, singleSize } } = useAppState()
 
   const [isLogin, setIsLogin] = useState(false);
+  let [isFirst,setFirst]=useState(false)
 
   const { Footer, Header, Content } = Layout
 
@@ -74,6 +75,11 @@ function App(): JSX.Element {
         } else {
         }
       })
+      const isFirst =localStorage.getItem('user')
+      console.log(isFirst)
+      if(isFirst==undefined){
+        setFirst(true)
+      }
   }, [])
   const handleGoCar = () => {
     location.href = 'http://192.168.0.181:8882/car/goToCart';
@@ -85,7 +91,7 @@ function App(): JSX.Element {
         {/* <FileList /> */}
         {/* <BoardList /> */}
         <Layout>
-        {/* <Tips /> */}
+        {isFirst?<Tips />:''}
           <Head />
           <Content>
             {/* 左边栏 */}
