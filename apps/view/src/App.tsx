@@ -82,7 +82,7 @@ function App(): JSX.Element {
       }
   }, [])
   const handleGoCar = () => {
-    location.href = 'http://192.168.0.181:8882/car/goToCart';
+    location.href = 'https://www.pcbonline/car/goToCart';
   }
   return (
     <>

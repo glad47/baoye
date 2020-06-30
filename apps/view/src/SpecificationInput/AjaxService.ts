@@ -1,8 +1,8 @@
 
 import Axios from "axios";
 
-export const baseUrl = "http://localhost:8871/"
-export const gerberUploadUrl = "http://192.168.0.181:8888/";
+export const baseUrl = "http://47.89.176.26:8871/"
+export const gerberUploadUrl = "http://47.89.176.26:8888/";
 // export function ajaxBuildTime (){
 //     return Axios.get(baseUrl+ 'quote/getBuildTime')
 // }
