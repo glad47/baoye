@@ -19,14 +19,17 @@ class index extends Component<any, any> {
         let data = await axios.post('http://192.168.0.181:8882/' + 'loginUserInfo')
         console.log(data);
         const { data:{success,result} } =data;
-        console.log('ffff',success);
         if (success) {
             this.setState({
                 userInfo: result.userName,
                 isLogin: success
             })
+        }else{
+            this.setState({
+                isLogin:false
+            })
         }
-        console.log('sssssssssss',this.state.userInfo)
+        console.log(this.state.isLogin)
     }
     render() {
         const {userName}=this.state.userInfo || ''
