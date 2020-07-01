@@ -34,7 +34,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
     let countryIcon = 'ac'
     useEffect(() => {
         if (cItem.length === 0) {
-            Axios.get(baseUrl+'quote/getCountry')
+            Axios.get(baseUrl+'api/getCountry')
                 .then((rep) => {
                     //   console.log(rep.data.data);
                     if (rep.data.code === 0) {
