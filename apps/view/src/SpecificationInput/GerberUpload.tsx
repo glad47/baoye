@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Fade } from "../ui";
 import { useAppState, backfillPcbData, showDefault, backToUpload,changeColor } from "../state";
 import LoadFiles from "../LoadFiles";
 import { FileEvent } from "../types";
 import Axios from "axios";
 import { preventDefault } from "../events";
-import { gerberUploadUrl, ajaxFileUpload } from "./AjaxService";
+import { ajaxFileUpload, baseUrl } from "./AjaxService";
 import { message,Checkbox } from "antd";
 
 interface GerberUploadProps {
@@ -31,7 +30,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             fd.append('uploads', files[0])
             Axios.all([
                ajaxFileUpload(files),
-               Axios.post(gerberUploadUrl + 'api/uploads', fd, {
+               Axios.post(baseUrl + 'api/uploads/', fd, {
                 onUploadProgress: (ProgressEvent) => {
                     if (ProgressEvent.lengthComputable) {
                         let complete =
@@ -41,8 +40,8 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                             changeProgress(complete)
                         }
                     }
-                },
-                headers: { 'Content-Type': 'multipart/form-data' }
+                }
+                // headers: { 'Content-Type': 'multipart/form-data' }
             })])
             .then(res => {
                 console.log(res);
