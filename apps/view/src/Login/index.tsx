@@ -41,7 +41,7 @@ class index extends Component<any, any> {
                         <ul className='nav_logo_inner'>
                             <li><a href='https://www.pcbonline.com/'>Home</a></li>
                             <li className='new_add_active'>
-                                <a href='https://www.pcbonline.com/quote'>Instant Quote</a>
+                                <a href='https://www.pcbonline.com/instant-quote'>Instant Quote</a>
                                 <p className='new_active'><img src={require('../images/new-t.gif')} alt='new function' /></p>
                             </li>
                             <li className='down_menu_one'>
