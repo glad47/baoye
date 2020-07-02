@@ -923,8 +923,8 @@ body {
     align-items: center;
 }
 .vertical_svg_first>div>svg{
-    width: 588px;
-    height: 203px;
+    width: 588px !important;
+    height: 203px !important;
 }
 .vertical_svg_first>div{
     max-width: 588px;
@@ -935,8 +935,8 @@ body {
     height: 400px;
    
 }.svg_show_img>svg{
-    width: 580px;
-    height: 400px;
+    width: 580px !important;
+    height: 400px !important;
 }
 .w-100 {
     width: 339px;
@@ -968,8 +968,8 @@ body {
     max-height: 347px;
 }
 .transverse_svg_first>div>svg{
-    width: 347px;
-    height: 347px;
+    width: 347px !important;
+    height: 347px !important;
 }
 .footer {
     width: 1440px;
