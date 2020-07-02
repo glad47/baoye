@@ -32,7 +32,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             fd.append('uploads', files[0]);
             Axios.all([
                ajaxFileUpload(files),
-               Axios.post(baseUrl + 'api/uploads', fd, {
+               Axios.post(baseUrl + 'api/uploads/', fd, {
                 onUploadProgress: (ProgressEvent) => {
                     if (ProgressEvent.lengthComputable) {
                         let complete =
