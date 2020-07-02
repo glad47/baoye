@@ -103,3 +103,4 @@ export type Action =
   | {type: 'BACK_TO_UPLOAD';payload:any}
   | {type: 'CHANGE_ASSEMBLY_FIELD'; payload: FieldStore}
   | {type: 'CHANGE_COLOR'; payload: any}
+  | {type: 'BACKFILL_SVG_DATA'; payload: any}

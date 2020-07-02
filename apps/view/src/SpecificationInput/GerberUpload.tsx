@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAppState, backfillPcbData, showDefault, backToUpload,changeColor } from "../state";
+import { useAppState, backfillPcbData, showDefault, backToUpload,changeColor, createBoard } from "../state";
 import LoadFiles from "../LoadFiles";
 import { FileEvent } from "../types";
 import Axios from "axios";
@@ -25,12 +25,14 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
         preventDefault(event)
         console.log(isBackToUpload)
         if (files.length > 0) {
+            //创建板
+            dispatch(createBoard(files,false));
             const fileName = files[0].name || ''
             const fd = new FormData()
-            fd.append('uploads', files[0])
+            fd.append('uploads', files[0]);
             Axios.all([
                ajaxFileUpload(files),
-               Axios.post(baseUrl + 'api/uploads/', fd, {
+               Axios.post(baseUrl + 'api/uploads', fd, {
                 onUploadProgress: (ProgressEvent) => {
                     if (ProgressEvent.lengthComputable) {
                         let complete =
@@ -40,8 +42,8 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                             changeProgress(complete)
                         }
                     }
-                }
-                // headers: { 'Content-Type': 'multipart/form-data' }
+                },
+                headers: { 'Content-Type': 'multipart/form-data' }
             })])
             .then(res => {
                 console.log(res);

@@ -28,7 +28,7 @@ export const INITIAL_STATE: State = {
   fileUploadPtah: null,
   singleCopper: null,
   courier:null,
-  isShow:true,
+  isShow:false,
   isBackToUpload:true,
   allKeys:{}
 }

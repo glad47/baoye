@@ -214,7 +214,7 @@ export default function reducer(state: State, action: Action): State {
       const {parseResult,field} = action.payload;
       //解析结果返回是否成功
       if(parseResult){ 
-        const { customerInfoResult,layer,minHoleSize,boardLength,boardWidth,uploadPath,stackup:{bottom,top,layers},fileName,showDefaultImg } = field;
+        const { customerInfoResult,layer,minHoleSize,boardLength,boardWidth,uploadPath,fileName,showDefaultImg } = field;
         //是否解析成功资料里的数据
         let allkeys,psf;
         if(Object.keys(customerInfoResult).length === 0){
@@ -234,20 +234,20 @@ export default function reducer(state: State, action: Action): State {
           }
         }
         
-        let copper
-        if(layer === 1){
-          copper = layers.filter((item: { type: string })=>item.type === 'copper')[0].side;
-        }
+        // let copper
+        // if(layer === 1){
+        //   copper = layers.filter((item: { type: string })=>item.type === 'copper')[0].side;
+        // }
         return{
           ...state,
           loading: true,
           pcbSizeField:{...state.pcbSizeField,singleSize:{sizeX:boardWidth,sizeY:boardLength}},
           pcbStandardField:psf,
-          svg:{...state.svg,topSvg:top,bottomSvg:bottom},
+          // svg:{...state.svg,topSvg:top,bottomSvg:bottom},
           fileName: fileName,
           fileUploadPtah: uploadPath,
-          singleCopper: copper,
-          isShow: showDefaultImg,
+          // singleCopper: copper,
+          isShow: false,
           isBackToUpload:false,
           allKeys:allkeys,
         }
@@ -281,7 +281,8 @@ export default function reducer(state: State, action: Action): State {
         isBackToUpload: action.payload,
         pcbSizeField: {boardType:'Single',panelSize: {sizeX:null,sizeY:null},quantity:null,singleSize:{sizeX:null,sizeY:null}},
         pcbStandardField: INITIAL_STANDARD,
-        allKeys:{}
+        allKeys:{},
+        svg:null
       }
     }
     case actionTypes.CHANGE_COLOR: {
@@ -292,6 +293,14 @@ export default function reducer(state: State, action: Action): State {
     }
     case actionTypes.CHANGE_ASSEMBLY_FIELD: {
       return {...state, assemblyField: action.payload }
+    }
+    case actionTypes.BACKFILL_SVG_DATA: {
+      return {
+        ...state, 
+        svg:{topSvg:action.payload.top,bottomSvg:action.payload.bottom},
+        singleCopper: action.payload.copper,
+        isShow: true
+      }
     }
   }
   

@@ -3,7 +3,7 @@ import Axios from "axios";
 //线上
 export const baseUrl = "https://www.pcbonline.com/"
 //线下
-// export const baseUrl = "http://localhost:8871/"
+// export const baseUrl = "http://10.168.8.151:8871/"
 
 // export function ajaxBuildTime (){
 //     return Axios.get(baseUrl+ 'quote/getBuildTime')

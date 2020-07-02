@@ -42,6 +42,7 @@ import {
   workerErrored,
   parsingGerber,
   PARSING_GERBER,
+  backfillSvgData,
 } from '../state'
 import { ajaxFileUpload } from '../SpecificationInput/AjaxService'
 
@@ -107,31 +108,40 @@ ctx.onmessage = function receive(event) {
       //console.log(files);
       response = filesToStackups(files).then(async stackups => {
         const [selfContained, shared] = stackups
-        let gerberInfo = gerberInfoGet(shared);
-        ajaxFileUpload(files).then((rep: { data: { data: any; code: any } })=>{
-          const { data:{data,code}} =rep;
-          if(code === 0){
-            gerberInfo.quoteFilePath = data;
-          }
-          ctx.postMessage(parsingGerber(gerberInfo))
-        });
+        const {bottom:{svg},top:{svg:tsvg},layers} = selfContained;
+        let copperLayers = layers.filter(item=>item.type === 'copper');
+        let copper = null,svgResult;
+        if(copperLayers.length === 1){
+          copper = copperLayers[0].side;
+        }
+        svgResult = {top:tsvg,bottom:svg,copper:copper};
+        ctx.postMessage(backfillSvgData(svgResult));
+        // let gerberInfo = gerberInfoGet(shared);
+        // ajaxFileUpload(files).then((rep: { data: { data: any; code: any } })=>{
+        //   const { data:{data,code}} =rep;
+        //   if(code === 0){
+        //     gerberInfo.quoteFilePath = data;
+        //   }
+        //   ctx.postMessage(parsingGerber(gerberInfo))
+        // });
 
         // console.log("1hao",selfContained);
         // console.log("2hao",shared);
-        const board = stackupToBoard(selfContained)
-        const render = stackupToBoardRender(shared, board)
+        //const board = stackupToBoard(selfContained)
+        //const render = stackupToBoardRender(shared, board)
         // console.log("board",board)
         // console.log("render",render)
         // console.log("fffffffffffffffffffffffff",files)
-        ctx.postMessage(boardRendered(render, duration(startTime)))
-        ctx.postMessage(boardUpdated(board))
+        //ctx.postMessage(boardRendered(render, duration(startTime)))
+        // ctx.postMessage(boardUpdated(board))
         
 
         // return saveBoard(db, board).then(() =>{
         //   ctx.postMessage(boardUpdated(board))
         //   //! 解析上传的资料
-        //   ctx.postMessage(parsingGerber(gerberInfo))
+          // ctx.postMessage(parsingGerber(gerberInfo))
         // })
+
       })
 
       break 

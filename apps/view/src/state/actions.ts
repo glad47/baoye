@@ -52,6 +52,7 @@ export const SHOW_DEFAULT='SHOW_DEFAULT'
 export const BACK_TO_UPLOAD='BACK_TO_UPLOAD'
 export const CHANGE_ASSEMBLY_FIELD = 'CHANGE_ASSEMBLY_FIELD'
 export const CHANGE_COLOR='CHANGE_COLOR'
+export const BACKFILL_SVG_DATA = 'BACKFILL_SVG_DATA'
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -281,3 +282,9 @@ export const changeAssemblyField = (field: FieldStore): Action =>({
   type: CHANGE_ASSEMBLY_FIELD,
   payload: field 
 })
+
+/** 回填本地解析的svg数据 */
+export const backfillSvgData = (field:any): Action =>({
+  type: BACKFILL_SVG_DATA,
+  payload: field
+}) 
