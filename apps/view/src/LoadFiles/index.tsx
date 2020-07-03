@@ -17,11 +17,13 @@ const SUBMESSAGE_STYLE = 'f5 fw3'
 export type LoadFilesProps = {
   handleFiles: (event: FileEvent) => void
   handleUrl?: (url: string) => void
+  progress: number
 }
 
 export default function LoadFiles(props: LoadFilesProps): JSX.Element {
   const {mode, loading,isBackToUpload} = useAppState()
-
+  const successful_update=props.progress===100? require(`../images/successful_updata.gif`) :require(`../images/update_loader.gif`)
+  const successful_word=props.progress===100? 'Successful geber file upload ！ Analyzing data, please wait and then check.' : 'Upload your gerber file, only accept zip or rar file.'
   return (
     <>
       <Fade in={loading}>
@@ -34,8 +36,8 @@ export default function LoadFiles(props: LoadFilesProps): JSX.Element {
       <Fade in={!mode}>
         <div className={WRAPPER_STYLE}>
           <FileInput handleFiles={props.handleFiles}>
-            <div className='img_show'><img  src={require('../images/upload_now.gif')}/></div>
-            <p className='update_font'>Upload your gerber file, only accept zip or rar file.</p>
+            <div className='img_show'><img  src={successful_update}/></div>
+              <p className='update_font'>{successful_word}</p>
             
             {/* <p className={MESSAGE_STYLE}>
               {UPLOAD_MESSAGE}

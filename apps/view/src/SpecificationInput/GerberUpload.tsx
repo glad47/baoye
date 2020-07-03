@@ -23,11 +23,12 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
 
         if ('value' in event.target) event.target.value = ''
         preventDefault(event)
-        console.log(isBackToUpload)
         if (files.length > 0) {
             //创建板
             dispatch(createBoard(files,false));
             const fileName = files[0].name || ''
+            const suffix=fileName.substring(fileName.lastIndexOf('.')+1)
+            let isRar=(suffix.toLocaleLowerCase()=='zip' || suffix.toLocaleLowerCase()=='rar') ? true :false
             const fd = new FormData()
             fd.append('uploads', files[0]);
             Axios.all([
@@ -72,16 +73,16 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
         return (
             <>
                 <div className="pcb-file">
-                    <LoadFiles handleFiles={handleFiles}></LoadFiles>
+                    <LoadFiles handleFiles={handleFiles} progress={progress}></LoadFiles>
                 </div>
-                <div className='update_status'>
+                {progress>0 ?<div className='update_status'>
                     <div className='progress'>
                         <div className='progress_inner' style={{ width: progress + '%' }}>
                             <div className='progress_s'><p className='progress_f' style={{ width: progress + '%' }}></p></div>
                         </div>
                     </div>
-                    {progress ?<div className='show_progress_speed'><Checkbox checked={progress==100 ? true :false}/></div>:""}
-                </div>
+                    <div className='show_progress_speed'><Checkbox checked={progress==100 ? true :false}/></div>
+                </div>:""}
             </>
         )
     } else {

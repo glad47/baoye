@@ -252,7 +252,7 @@ export default function reducer(state: State, action: Action): State {
           allKeys:allkeys,
         }
       }else{
-        const {fileName,uploadPath,showDefaultImg} = field;
+        const {fileName,uploadPath,showDefaultImg,suffix} = field;
         return{
           ...state,
           fileName: fileName,

@@ -49,7 +49,7 @@ const GerberShow: React.FC<GerberShowProps> = (props) =>{
                     </div>
                 }     
                 </>
-            : 
+            :
             <div className="show_default_loading">
             <Spin tip="Img Loading..."/>
             </div>
