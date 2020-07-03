@@ -60,7 +60,11 @@ class index extends Component<any, any> {
                     </div>
                     <div className="sign-btn">
                         {this.props.loginName === null
-                            ? <span className="sign-in">Sign in</span>
+                            ? <span className="sign-in">
+                                <a href='https://www.pcbonline.com/login'>
+                                Sign in
+                                </a>
+                              </span>
                             : <div className='use_name'>{this.props.loginName}</div>
                         }
                         {this.props.loginName === null ? null:<LoginShow/>}
