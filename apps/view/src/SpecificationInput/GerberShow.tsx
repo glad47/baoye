@@ -13,12 +13,12 @@ const GerberShow: React.FC<GerberShowProps> = (props) =>{
     // const aginUpload=()=>{
     //     dispatch(backToUpload(true))
     // }
-    useEffect(() => {
-        const {material,layer,silkscreen,solderMask}=pcbStandardField
-        let newLayer=layer.substr(0,1)
-        let defalutImgSrc=require(`../images/diagram/${material}${newLayer}${solderMask}${silkscreen}.png`)
-        setImgSrc(defalutImgSrc)
-    }, [])
+    // useEffect(() => {
+    //     const {material,layer,silkscreen,solderMask}=pcbStandardField
+    //     let newLayer=layer.substr(0,1)
+    //     let defalutImgSrc=require(`../images/diagram/${material}${newLayer}${solderMask}${silkscreen}.png`)
+    //     setImgSrc(defalutImgSrc)
+    // }, [])
         return(
             <>
             { isShow? 
@@ -45,7 +45,7 @@ const GerberShow: React.FC<GerberShowProps> = (props) =>{
                     </>
                     :
                     <div className='show_default_img'>
-                        <img src={imgSrc}/>
+                        <img src={require('../images/FR42greenwhite.png')}/>
                     </div>
                 }     
                 </>

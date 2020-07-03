@@ -1743,28 +1743,38 @@ html,body{
     top: -137px;
     left: 140px;
 }
-.pcb-spec .ant-space .ant-radio-group-outline label:first-child{
-    z-index: 100;
-    border-radius: 22px 0 0 22px;
-}
-.ant-radio-group{
-    position: relative;
-}
-.pcb-spec .ant-space .ant-radio-button-wrapper.ant-radio-button-wrapper-checked{
-    border-radius: 22px 0 0 22px;
-}
 .pcb-spec .ant-space .ant-radio-button-wrapper{
-    border-radius: 22px 0 0 22px;
-    border: 1px solid #2952ea
-}
-.pcb-spec .ant-radio-group{
-    padding-left: 6px;
-    background: #ccc;
-    border-radius: 22px;
+    border-color: #cccccc;
 }
 .show_default_loading{
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #fff;
+}
+.moon{
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 30px;
+}
+.left_moon{
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 30px;
+}
+.left_rote_moon{
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    transform: rotate(180deg);
+}  
+.right_rote_moon{
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    transform: rotate(180deg);
 }
