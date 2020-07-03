@@ -10,29 +10,25 @@ import axios from 'axios'
 class index extends Component<any, any> {
     constructor(props: any) {
         super(props)
-        this.state = {
-            userInfo: '',
-            isLogin:true
-        }
     }
-    async componentDidMount() {
-        let data = await axios.post(baseUrl+'loginUserInfo')
-        console.log(data);
-        const { data:{success,result} } =data;
-        if (success) {
-            this.setState({
-                userInfo: result.userName,
-                isLogin: success
-            })
-        }else{
-            this.setState({
-                isLogin:false
-            })
-        }
-        console.log(this.state.isLogin)
-    }
+    // async componentDidMount() {
+    //     let data = await axios.post(baseUrl+'loginUserInfo')
+    //     console.log(data);
+    //     const { data:{success,result} } =data;
+    //     if (success) {
+    //         this.setState({
+    //             userInfo: result.userName,
+    //             isLogin: success
+    //         })
+    //     }else{
+    //         this.setState({
+    //             isLogin:false
+    //         })
+    //     }
+    //     console.log(this.state.isLogin)
+    // }
     render() {
-        const {userName}=this.state.userInfo || ''
+        // const {userName}=this.state.userInfo || ''
         return (
             <div className='login'>
                 <div className='login_inner_layout'>
@@ -63,11 +59,11 @@ class index extends Component<any, any> {
 
                     </div>
                     <div className="sign-btn">
-                        {!this.state.isLogin
+                        {this.props.loginName === null
                             ? <span className="sign-in">Sign in</span>
-                            : <div className='use_name'>{this.state.userInfo}</div>
+                            : <div className='use_name'>{this.props.loginName}</div>
                         }
-                        {!this.state.isLogin? '':<LoginShow/>}
+                        {this.props.loginName === null ? null:<LoginShow/>}
                     </div>
                 </div>
             </div>

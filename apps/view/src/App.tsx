@@ -34,6 +34,7 @@ function App(): JSX.Element {
 
   const [isLogin, setIsLogin] = useState(false);
   let [isFirst,setFirst]=useState(false)
+  const [loginName, setLoginName] = useState(null);
 
   const { Footer, Header, Content } = Layout
 
@@ -68,15 +69,15 @@ function App(): JSX.Element {
   useEffect(() => {
     //获取登录信息
     // axios.defaults.withCredentials = true;
-    // axios.post('http://192.168.0.181:8882/loginUserInfo')
-    //   .then(rep => {
-    //     setIsLogin(rep.data.success);
-    //     if (rep.data.success) {
-    //     } else {
-    //     }
-    //   })
+    axios.post(baseUrl+'loginUserInfo')
+      .then(rep => {
+        setIsLogin(rep.data.success);
+        if (rep.data.success) {
+          setLoginName(rep.data.result.email);
+        }
+      })
       const isFirst =localStorage.getItem('user')
-      console.log(isFirst)
+      // console.log(isFirst)
       if(isFirst==undefined){
         setFirst(true)
       }
@@ -92,7 +93,7 @@ function App(): JSX.Element {
         {/* <BoardList /> */}
         <Layout>
         {isFirst?<Tips />:''}
-          <Head />
+          <Head loginName={loginName}/>
           <Content>
             {/* 左边栏 */}
             <div className="pcb-nav">
