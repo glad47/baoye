@@ -1746,6 +1746,12 @@ html,body{
 .pcb-spec .ant-space .ant-radio-button-wrapper{
     border-color: #cccccc;
 }
+.show_default_loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
 .moon{
     position: absolute;
     right: 0;
