@@ -1549,7 +1549,7 @@ body {
 .again_uploads>button{
     outline: none;
 }
-.show_default_img{
+.show_default_img,.show_default_loading{
     width: 540px;
     height: 350px;
     margin:0 auto
