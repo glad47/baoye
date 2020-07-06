@@ -67,7 +67,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
                         <ObserverSize/>
                     </Form.Item>
                     <Form.Item label="Quantity" name="quantity">
-                        <Input placeholder='Enter the Qty'/>
+                        <Input placeholder='Enter the Qty' className='enter_quantity'/>
                     </Form.Item>
                 </Col>
             </Row>

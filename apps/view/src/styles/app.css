@@ -154,7 +154,7 @@
     font-family: 'Arial';
     font-weight: 400;
     color:#666666;
-    line-height: 36px;
+    line-height: 25px;
     position: absolute;
     bottom: -5px;
     left: -32px;
@@ -1777,4 +1777,7 @@ html,body{
     width: 30px;
     height: 30px;
     transform: rotate(180deg);
+}
+.enter_quantity{
+    text-align: center;
 }

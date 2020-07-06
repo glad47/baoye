@@ -29,6 +29,10 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             const fileName = files[0].name || ''
             const suffix=fileName.substring(fileName.lastIndexOf('.')+1)
             let isRar=(suffix.toLocaleLowerCase()=='zip' || suffix.toLocaleLowerCase()=='rar') ? true :false
+            if (!isRar) {
+                message.warning('only accept zip or rar file.')
+                return
+            }
             const fd = new FormData()
             fd.append('uploads', files[0]);
             Axios.all([
@@ -38,7 +42,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                     if (ProgressEvent.lengthComputable) {
                         let complete =
                             (((ProgressEvent.loaded / ProgressEvent.total) * 100) | 0);
-                        console.log(complete)
+                        changeProgress(complete)
                         if (complete >= 100) {
                             changeProgress(complete)
                         }
@@ -70,6 +74,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
         sessionStorage.setItem(key,options)
     }
     if (true) {
+
         return (
             <>
                 <div className="pcb-file">
