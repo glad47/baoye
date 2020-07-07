@@ -30,7 +30,8 @@ export const INITIAL_STATE: State = {
   courier:null,
   isShow:false,
   isBackToUpload:true,
-  allKeys:{}
+  allKeys:{},
+  fillData:true
 }
 
 // const INITIAL_STANDARD = {

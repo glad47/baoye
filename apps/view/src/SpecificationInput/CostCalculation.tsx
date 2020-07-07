@@ -41,29 +41,29 @@ const CastCalculation: React.FC<CastCalculationProps> = (props) =>{
         <div className="fee-cont">
             <Fade in={pcbFeeLoading}>
             <Row>
-                <div><WalletOutlined /><span>Board Fee</span></div><span>${boardFee}</span>  
+                <div><WalletOutlined /><span>Board Price</span></div><span>${boardFee}</span>  
             </Row>
             </Fade>
             <Fade in={pcbFeeLoading}>
             <Row>
-                <div><SettingOutlined /><span>Engineering Fee</span></div><span>${engineeringFee}</span>
+                <div><SettingOutlined /><span>Engineering Price</span></div><span>${engineeringFee}</span>
             </Row>
             </Fade>
             <Fade in={pcbFeeLoading}>
             <Row>
-                <div><DashboardOutlined /><span>Test Fee</span></div><span>${testFee}</span>
+                <div><DashboardOutlined /><span>Test Price</span></div><span>${testFee}</span>
             </Row>
             </Fade>
 
             <Fade in={smtFeeLoading}>
                 <Row>
-                <div><WalletOutlined /><span>Stencil Fee</span></div><span>${stencilFee}</span> 
+                <div><WalletOutlined /><span>Stencil Price</span></div><span>${stencilFee}</span> 
                 </Row>
             </Fade>            
 
             <Fade in={assFeeLoading}>
                 <Row>
-                <div><WalletOutlined /><span>Assembly Fee</span></div><span>${assemblyFee}</span> 
+                <div><WalletOutlined /><span>Assembly Price</span></div><span>${assemblyFee}</span> 
                 </Row> 
             </Fade> 
         </div>       

@@ -131,7 +131,7 @@
     height: 80px;
 }
 
-.img_show {
+.img_show{
     z-index: 20;
     position: absolute;
     top: -87px;
@@ -139,8 +139,16 @@
     width: 550px;
     height: 240px;
 }
-
-.img_show>img {
+.default_img_loading{
+    z-index: 20;
+    position: absolute;
+    top:20px;
+    left: 0px;
+    width: 542px;
+    height: 240px;
+  
+}
+.img_show>img,.default_img_loading>img {
     width: 100%;
     height: 100%;
 
@@ -154,7 +162,7 @@
     font-family: 'Arial';
     font-weight: 400;
     color:#666666;
-    line-height: 36px;
+    line-height: 25px;
     position: absolute;
     bottom: -5px;
     left: -32px;
@@ -1747,10 +1755,12 @@ html,body{
     border-color: #cccccc;
 }
 .show_default_loading{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
+    position: relative;
+    width: 548px;
+    height: 300px;
+    margin: 20px auto 0;
+    border: 2px dashed #abbffe;
+    border-radius: 20px
 }
 .moon{
     position: absolute;
@@ -1777,4 +1787,21 @@ html,body{
     width: 30px;
     height: 30px;
     transform: rotate(180deg);
+}
+.enter_quantity{
+    text-align: center;
+}
+.fill_pit{
+    width: 313px;
+    height: 12px;
+    font-size: 14px;
+    font-family: 'Arial';
+    font-weight: 400;
+    color: #666666;
+    line-height: 25px;
+    position: absolute;
+    top: 198px;
+    left: 124px;
+    z-index: 21;
+    text-align: center;
 }

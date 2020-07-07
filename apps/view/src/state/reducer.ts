@@ -250,6 +250,7 @@ export default function reducer(state: State, action: Action): State {
           isShow: false,
           isBackToUpload:false,
           allKeys:allkeys,
+          fillData:true
         }
       }else{
         const {fileName,uploadPath,showDefaultImg} = field;
@@ -259,6 +260,7 @@ export default function reducer(state: State, action: Action): State {
           fileUploadPtah: uploadPath,
           isShow: showDefaultImg,
           isBackToUpload:false, 
+          fillData:false
         }
       }
       
@@ -282,13 +284,14 @@ export default function reducer(state: State, action: Action): State {
         pcbSizeField: {boardType:'Single',panelSize: {sizeX:null,sizeY:null},quantity:null,singleSize:{sizeX:null,sizeY:null}},
         pcbStandardField: INITIAL_STANDARD,
         allKeys:{},
-        svg:null
+        svg:null,
+        fillData:action.payload
       }
     }
     case actionTypes.CHANGE_COLOR: {
       return {
         ...state,
-        allKeys: action.payload
+        fillData: action.payload
       }
     }
     case actionTypes.CHANGE_ASSEMBLY_FIELD: {

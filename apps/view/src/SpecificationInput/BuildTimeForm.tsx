@@ -233,7 +233,7 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
                 </Radio.Group>
             </Row>
             <Row className="ant-row-cont">
-                <Text>quickturn charge</Text>
+                <Text>Quick turn Price</Text>
                 <Text><b>${subtotal.urgentFee}</b></Text>
             </Row>
         </div>
