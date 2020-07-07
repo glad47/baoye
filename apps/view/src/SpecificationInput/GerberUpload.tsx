@@ -37,7 +37,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             fd.append('uploads', files[0]);
             Axios.all([
                ajaxFileUpload(files),
-               Axios.post(baseUrl + 'api/uploads/', fd, {
+               Axios.post('http://localhost:8888/api/uploads', fd, {
                 onUploadProgress: (ProgressEvent) => {
                     if (ProgressEvent.lengthComputable) {
                         let complete =
@@ -62,7 +62,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                     }else{
                         message.warning('文件上传成功，但读取资料失败！！');
                         r = {showDefaultImg:false,fileName:fileName,uploadPath:data};
-                        dispatch(changeColor(false));
+                        // dispatch(changeColor(false));
                     }
                     dispatch(backfillPcbData(r,success));
                 } else {

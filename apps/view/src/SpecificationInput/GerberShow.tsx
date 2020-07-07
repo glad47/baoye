@@ -37,7 +37,7 @@ const GerberShow: React.FC<GerberShowProps> = (props) => {
         <>
             {svg !== null ?
                 <>
-                    {svg !== null && isShow?
+                    {svg !== null && isShow ?
                         <>
                             {
                                 singleCopper == null ?

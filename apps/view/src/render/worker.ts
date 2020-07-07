@@ -115,6 +115,8 @@ ctx.onmessage = function receive(event) {
           copper = copperLayers[0].side;
         }
         svgResult = {top:tsvg,bottom:svg,copper:copper};
+        // console.log(tsvg);
+        // console.log(svg);
         ctx.postMessage(backfillSvgData(svgResult));
         // let gerberInfo = gerberInfoGet(shared);
         // ajaxFileUpload(files).then((rep: { data: { data: any; code: any } })=>{
