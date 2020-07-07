@@ -21,32 +21,10 @@ export type LoadFilesProps = {
 }
 
 export default function LoadFiles(props: LoadFilesProps): JSX.Element {
-  const { mode, loading, isBackToUpload, svg } = useAppState()
-  const [timeOut,setTime]=useState(true)
+  const { mode, loading, fillData } = useAppState()
   const successful_update = props.progress === 100 ? require(`../images/successful_updata.gif`) : require(`../images/update_loader.gif`)
   const successful_word = props.progress === 100 ? 'Successful geber file upload ！ Analyzing data, please wait and then check.' : 'Upload your gerber file, only accept zip or rar file.'
-  useEffect(() => {
-    var timer:any
-    let isTimeOut=new Promise(function(resolve,reject){
-      timer=setTimeout(() => {
-        if(svg!=null){
-          resolve(true)
-        }else{
-          reject(false)
-        }
-      }, 60000);
-    }).then(function(data){
-      setTime(true)
-    }).catch(function(data){
-      setTime(false)
-    })
-    return () => {
-      if(isBackToUpload){
-        clearTimeout(timer)
-      }
-    }
-  }, [])
-  const wordTitle=timeOut ? successful_word : 'It takes a little time for analyzing the file. You can also input by your own to get a quote.'
+  const wordTitle=fillData ? successful_word : 'It takes a little time for analyzing the file. You can also input by your own to get a quote.'
   return (
     <>
       <Fade in={loading}>

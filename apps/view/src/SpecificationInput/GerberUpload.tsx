@@ -62,6 +62,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                     }else{
                         message.warning('文件上传成功，但读取资料失败！！');
                         r = {showDefaultImg:false,fileName:fileName,uploadPath:data};
+                        dispatch(changeColor(false));
                     }
                     dispatch(backfillPcbData(r,success));
                 } else {

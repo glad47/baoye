@@ -31,6 +31,7 @@ export const INITIAL_STATE: State = {
   isShow:false,
   isBackToUpload:true,
   allKeys:{},
+  fillData:true
 }
 
 // const INITIAL_STANDARD = {
