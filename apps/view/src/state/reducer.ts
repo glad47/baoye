@@ -247,7 +247,7 @@ export default function reducer(state: State, action: Action): State {
           fileName: fileName,
           fileUploadPtah: uploadPath,
           // singleCopper: copper,
-          isShow: false,
+          isShow: parseResult,
           isBackToUpload:false,
           allKeys:allkeys,
           fillData:true
@@ -258,7 +258,7 @@ export default function reducer(state: State, action: Action): State {
           ...state,
           fileName: fileName,
           fileUploadPtah: uploadPath,
-          isShow: showDefaultImg,
+          isShow: parseResult,
           isBackToUpload:false, 
           fillData:false
         }

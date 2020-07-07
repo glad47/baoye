@@ -7,15 +7,37 @@ interface GerberShowProps { }
 const WRAPPER_STYLE = 'absolute absolute--center near-black tc'
 //gerber显示组件
 const GerberShow: React.FC<GerberShowProps> = (props) => {
-    const { loading, pcbSizeField: { singleSize: { sizeX, sizeY } }, svg, isShow, singleCopper, isBackToUpload, pcbStandardField, dispatch,fillData} = useAppState()
+    const { loading, pcbSizeField: { singleSize: { sizeX, sizeY } }, svg, isShow, singleCopper, isBackToUpload, pcbStandardField, dispatch, fillData } = useAppState()
     const SIZE_CLASS_NAME = sizeX && sizeY && sizeX > sizeY ? 'vertical_svg_first' : 'transverse_svg_first'
     const SIZE_FIRST_CLASS_NAME = sizeX && sizeY && sizeX > sizeY ? 'vertical_svg' : 'transverse_svg'
-    const wordTip=fillData?  'Successful geber file upload ！ Analyzing data, please wait and then check.' :'It takes a little time for analyzing the file. You can also input by your own to get a quote.' 
+    const [isTimeOut, setTimer] = useState(false)
+    const wordTip = !isTimeOut ? 'Successful geber file upload ！ Analyzing data, please wait and then check.' : 'It takes a little time for analyzing the file. You can also input by your own to get a quote.'
+    useEffect(() => {
+        let timer: any
+        let isComplete = new Promise((resolve, reject) => {
+            timer = setTimeout(() => {
+                if (svg!==null) {
+                    resolve(true)
+                } else {
+                    reject(false)
+                }
+            }, 60000);
+        }).then(function (data) {
+            setTimer(true)
+        }).catch(function (data) {
+            setTimer(false)
+        })
+        return () => {
+            if (!isBackToUpload) {
+                clearTimeout(timer)
+            }
+        }
+    }, [])
     return (
         <>
-            {isShow ?
+            {svg !== null ?
                 <>
-                    {svg !== null ?
+                    {svg !== null && isShow?
                         <>
                             {
                                 singleCopper == null ?
@@ -46,6 +68,7 @@ const GerberShow: React.FC<GerberShowProps> = (props) => {
                     <div className='default_img_loading'><img src={require(`../images/successful_updata.gif`)} /></div>
                     <p className='fill_pit'>{wordTip}</p>
                 </div>
+
             }
         </>
     )
