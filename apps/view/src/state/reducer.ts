@@ -210,7 +210,7 @@ export default function reducer(state: State, action: Action): State {
       }
     }
     case actionTypes.BACKFILL_PCB_DATA: {
-      console.log(action.payload);
+      // console.log(action.payload);
       const {parseResult,field} = action.payload;
       //解析结果返回是否成功
       if(parseResult){ 
@@ -247,7 +247,7 @@ export default function reducer(state: State, action: Action): State {
           fileName: fileName,
           fileUploadPtah: uploadPath,
           // singleCopper: copper,
-          isShow: false,
+          isShow: parseResult,
           isBackToUpload:false,
           allKeys:allkeys,
           fillData:true
@@ -258,7 +258,7 @@ export default function reducer(state: State, action: Action): State {
           ...state,
           fileName: fileName,
           fileUploadPtah: uploadPath,
-          isShow: showDefaultImg,
+          isShow: parseResult,
           isBackToUpload:false, 
           fillData:false
         }
@@ -301,8 +301,7 @@ export default function reducer(state: State, action: Action): State {
       return {
         ...state, 
         svg:{topSvg:action.payload.top,bottomSvg:action.payload.bottom},
-        singleCopper: action.payload.copper,
-        isShow: true
+        singleCopper: action.payload.copper
       }
     }
   }

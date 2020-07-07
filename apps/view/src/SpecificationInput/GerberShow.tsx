@@ -13,9 +13,9 @@ const GerberShow: React.FC<GerberShowProps> = (props) => {
     const wordTip=fillData?  'Successful geber file upload ！ Analyzing data, please wait and then check.' :'It takes a little time for analyzing the file. You can also input by your own to get a quote.' 
     return (
         <>
-            {isShow ?
+            {svg !== null ?
                 <>
-                    {svg !== null ?
+                    {svg !== null && isShow ?
                         <>
                             {
                                 singleCopper == null ?
