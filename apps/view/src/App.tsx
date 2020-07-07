@@ -59,7 +59,7 @@ function App(): JSX.Element {
     } else {
       message.warning('Please log in first ！！')
       setTimeout(() => {
-        location.href = '/login';
+        location.href = '/login?jumpUrl=instant-quote';
       }, 500);
     }
   }
