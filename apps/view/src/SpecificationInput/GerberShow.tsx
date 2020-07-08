@@ -16,7 +16,7 @@ const GerberShow: React.FC<GerberShowProps> = (props) => {
         let timer: any
         let isComplete = new Promise((resolve, reject) => {
             timer = setTimeout(() => {
-                if (svg!==null) {
+                if (svg !== null) {
                     resolve(true)
                 } else {
                     reject(false)
@@ -60,6 +60,7 @@ const GerberShow: React.FC<GerberShowProps> = (props) => {
                         :
                         <div className='show_default_img'>
                             <img src={require('../images/FR42greenwhite.png')} />
+                            <p className='failure_word'>Successful geber file upload but failed to analyze due to different file format. Please input by your own to get a quote.</p>
                         </div>
                     }
                 </>

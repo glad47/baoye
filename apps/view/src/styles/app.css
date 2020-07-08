@@ -1796,7 +1796,7 @@ html,body{
 .enter_quantity{
     text-align: center;
 }
-.fill_pit{
+.fill_pit,.failure_word{
     width: 313px;
     height: 12px;
     font-size: 14px;
@@ -1804,9 +1804,19 @@ html,body{
     font-weight: 400;
     color: #666666;
     line-height: 25px;
+    text-align: center;
+}
+.fill_pit{
     position: absolute;
     top: 198px;
     left: 124px;
     z-index: 21;
-    text-align: center;
+}
+.failure_word{
+    width: 340px;
+    position: absolute;
+    top: 285px;
+    left: 200px;
+    z-index: 21;
+    color: #666666 !important;
 }
