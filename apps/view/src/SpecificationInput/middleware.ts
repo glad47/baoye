@@ -16,7 +16,7 @@ export function countQuoteMiddleware(): State.Middleware {
             case State.CHANGE_STANDARD_FIELD:
             case State.CHANGE_SIZE_FIELD: {
                
-                console.log("计算尺寸",state);
+                // console.log("计算尺寸",state);
                 const { pcbSizeField: {boardType,quantity,singleSize:{sizeX,sizeY},panelSize:{size:psx,siezY:psy}}, pcbStandardField:{layer}} = state;
                 // console.log(sizeX);
                 // console.log(sizeY);
@@ -27,7 +27,7 @@ export function countQuoteMiddleware(): State.Middleware {
                 if(boardType === 'Panel'){
                     quantityPcs = Number(psx) * Number(psy) * Number(quantity)
                 }
-                console.log('计算出面积',areasq);
+                // console.log('计算出面积',areasq);
                 let layerNum = Number(String(layer).substr(0,1));                
                 // let fetchBuildTime = new Promise(ajaxBuildTime);
                 const {
@@ -44,14 +44,14 @@ export function countQuoteMiddleware(): State.Middleware {
                         pcbStandardField:pcbStandardField,
                     })
                 ]).then((v)=>{
-                    console.log(v);
+                    // console.log(v);
                     const [{data:{data,code}},{data:{data:d2,code:c2}}] = v;
                     if(code === 0){
-                        console.log(data);
+                        // console.log(data);
                         dispatch(countBuildTime(data))
                     }
                     if(c2 === 0){
-                        console.log(d2);
+                        // console.log(d2);
                         const {newTestQuoteTOUSD,projectQuoteToUSD,totalBoardQuoteToUSD,totalQuoteWeight} = d2;
                         dispatch(countSubtotal({
                             ...subtotal,
@@ -93,7 +93,7 @@ export function countQuoteMiddleware(): State.Middleware {
                     const [{data:{data,code}}] = rep;
                     if(code === 0){
                         // todo 反馈信息
-                        console.log(data);
+                        // console.log(data);
                         message.success("Add Quote Success!!");
                     }
                     setTimeout(() => {
@@ -103,13 +103,12 @@ export function countQuoteMiddleware(): State.Middleware {
                 break;
             }
             case State.CHANGE_ASSEMBLY_FIELD: {
-                console.log('计算贴片报价',state);
+                // console.log('计算贴片报价',state);
                 const {assemblyField,subtotal} = state;
                 Axios.all([
                     ajaxAssemblyCast(assemblyField)
                 ]).then(v =>{
-                    console.log('vvv',v);
-                    //todo bug
+                    // console.log('vvv',v);
                     const [{data:{data:{totalAssemblyQuote}}}] = v;
                     dispatch(countSubtotal({...subtotal,assemblyFee: totalAssemblyQuote}));
                 })

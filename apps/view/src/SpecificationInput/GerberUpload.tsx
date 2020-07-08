@@ -57,16 +57,16 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                 if (code === 0) {
                     let r: any = {};
                     if(success){
-                        message.info('File upload and analytical data successful！！');
+                        // message.info('File upload and analytical data successful！！');
                         r = {...result,fileName:fileName,uploadPath:data,showDefaultImg:true};
                     }else{
-                        message.warning('文件上传成功，但读取资料失败！！');
+                        // message.warning('文件上传成功，但读取资料失败！！');
                         r = {showDefaultImg:false,fileName:fileName,uploadPath:data};
                         // dispatch(changeColor(false));
                     }
                     dispatch(backfillPcbData(r,success));
                 } else {
-                   message.error('文件上传失败，请联系网站管理员!!');
+                   message.error('File upload failed, please contact the site administrator!!');
                 }
             })
         }

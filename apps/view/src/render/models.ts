@@ -191,7 +191,7 @@ async function fileStreamsToStackups(
   const layers = fileStreams.map(fileStreamToInputLayer)
   const options = {id, attributes: {class: 'w-100 h-100'}}
 
-  console.log("文件流分层盘旋飞行",fileStreams);
+  // console.log("文件流分层盘旋飞行",fileStreams);
 
   return getPcbStackup().then(pcbStackup => {
     const selfContainedStackup = pcbStackup(layers, options)
