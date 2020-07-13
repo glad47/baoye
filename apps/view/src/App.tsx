@@ -80,6 +80,8 @@ function App(): JSX.Element {
       // console.log(isFirst)
       if(isFirst==undefined){
         setFirst(true)
+      }else{
+        setFirst(false)
       }
   }, [])
   const handleGoCar = () => {
