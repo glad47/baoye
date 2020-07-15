@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { useAppState } from '../state'
+import { useAppState,backToUpload } from '../state'
 import { Icon, Fade } from '../ui'
 import { FileEvent } from '../types'
 import FileInput from './FileInput'
@@ -17,14 +17,16 @@ const SUBMESSAGE_STYLE = 'f5 fw3'
 export type LoadFilesProps = {
   handleFiles: (event: FileEvent) => void
   handleUrl?: (url: string) => void
-  progress: number
+  progress: any
 }
 
 export default function LoadFiles(props: LoadFilesProps): JSX.Element {
-  const { mode, loading, fillData } = useAppState()
-  const successful_update = props.progress === 100 ? require(`../images/successful_updata.gif`) : require(`../images/update_loader.gif`)
-  const successful_word = props.progress === 100 ? 'Successful geber file upload ！ Analyzing data, please wait and then check.' : 'Upload your gerber file, only accept zip or rar file.'
-  const wordTitle=fillData ? successful_word : 'It takes a little time for analyzing the file. You can also input by your own to get a quote.'
+  const { mode, loading, fillData,dispatch } = useAppState()
+  const {progress,delay}=props.progress
+  const successful_update = progress === 100 ? require(`../images/successful_updata.gif`) : require(`../images/update_loader.gif`)
+  const successful_word = progress === 100 ? 'Successful geber file upload ！ Analyzing data, please wait and then check.' : 'Upload your gerber file, only accept zip or rar file.'
+  const wordTitle=!delay ? successful_word : 'It takes a little time for analyzing the file. You can also input by your own to get a quote.'
+ // dispatch(backToUpload(!delay))
   return (
     <>
       <Fade in={loading}>

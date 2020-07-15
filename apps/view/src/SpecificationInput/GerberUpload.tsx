@@ -15,6 +15,7 @@ interface GerberUploadProps {
 const GerberUpload: React.FC<GerberUploadProps> = (props) => {
     const { loading, isBackToUpload, dispatch } = useAppState();
     const [progress, changeProgress] = useState(0)
+    const [delay,setDelay]=useState(false)
     const handleFiles = (event: FileEvent): void => {
         const files =
             'dataTransfer' in event
@@ -48,7 +49,8 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                         }
                     }
                 },
-                headers: { 'Content-Type': 'multipart/form-data' }
+                headers: { 'Content-Type': 'multipart/form-data' },
+                timeout:60000
             })])
             .then(res => {
                 console.log(res);
@@ -68,6 +70,8 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                 } else {
                    message.error('File upload failed, please contact the site administrator!!');
                 }
+            }).catch(e=>{
+                setDelay(true)
             })
         }
     }
@@ -75,11 +79,11 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
         sessionStorage.setItem(key,options)
     }
     if (true) {
-
         return (
+           
             <>
                 <div className="pcb-file">
-                    <LoadFiles handleFiles={handleFiles} progress={progress}></LoadFiles>
+                    <LoadFiles handleFiles={handleFiles} progress={{progress,delay}}></LoadFiles>
                 </div>
                 {progress>0 ?<div className='update_status'>
                     <div className='progress'>
