@@ -72,6 +72,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                 }
             }).catch(e=>{
                 setDelay(true)
+                dispatch(backToUpload(false))
             })
         }
     }

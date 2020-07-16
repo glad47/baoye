@@ -37,7 +37,6 @@ function App(): JSX.Element {
   const [loginName, setLoginName] = useState(null);
 
   const { Footer, Header, Content } = Layout
-
   const handleAddQuote = () => {
     if (fileUploadPtah === null) {
       message.error('Please upload the gerber file ！！');
