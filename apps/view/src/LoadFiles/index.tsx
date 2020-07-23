@@ -23,7 +23,7 @@ export type LoadFilesProps = {
 export default function LoadFiles(props: LoadFilesProps): JSX.Element {
   const { mode, loading, fillData,dispatch } = useAppState()
   const {progress,delay}=props.progress
-  const successful_update = progress === 100 ? require(`../images/successful_updata.gif`) : require(`../images/update_loader.gif`)
+  const successful_update = progress === 100 ? require(`../images/successful_updata.gif`) : require(`../images/update_now.gif`)
   const successful_word = progress === 100 ? 'Successful geber file upload ！ Analyzing data, please wait and then check.' : 'Upload your gerber file, only accept zip or rar file.'
   const wordTitle=!delay ? successful_word : 'It takes a little time for analyzing the file. You can also input by your own to get a quote.'
  // dispatch(backToUpload(!delay))
