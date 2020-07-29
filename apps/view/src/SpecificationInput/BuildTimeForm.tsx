@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { ClockCircleFilled } from '@ant-design/icons'
-import { Row, Typography, Radio ,Spin} from 'antd';
+import { Row, Typography, Radio, Spin } from 'antd';
 import { BuildTimeItem } from '../types';
 import { RadioChangeEvent } from 'antd/lib/radio';
 import { useAppState, changeUrgentCost } from '../state';
@@ -9,36 +9,36 @@ import { render } from 'enzyme';
 import img from '../images/15.png'
 
 interface BuildTimeFormProps {
-   // buildItems: Array<BuildTimeItem>
+    buildItems: Array<BuildTimeItem>
 }
 
-var echarts=require('../../../../node_modules/echarts')
+var echarts = require('../../../../node_modules/echarts')
 const bts = [
     { id: 1, dayNumber: "3day", price: 0 },
     { id: 2, dayNumber: "48hours", price: 22 },
     { id: 3, dayNumber: "24hours", price: 38 },
 ]
 const { Title, Text } = Typography
-var chooseIndex:number;
+var chooseIndex: number;
 let newChoose = 0;
 const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
     let btnIndex = 0;
-    // const { buildItems } = props
+    const { buildItems } = props
     const [newChoose, changeChoose] = useState(0)
     const [newBtnID, changeId] = useState(1)
-    const [isFinish,setIsFinish]=useState(false)
-    const { dispatch, subtotal,buildTimeItmes } = useAppState();
+    const [isFinish, setIsFinish] = useState(false)
+    const { dispatch, subtotal, buildTimeItmes } = useAppState();
     const [isHeightLight, changeStateHeight] = useState(false)
+
     const onChange = (e: RadioChangeEvent) => {
         var v = e.target.value
-        const { price,dayNumber,id } = buildTimeItmes.filter((item) => { return Number(item.id) === Number(v) })[0]
-        let buildTimeItem: BuildTimeItem = {id:id,price:price,dayNumber:dayNumber}
+        const { price, dayNumber, id } = buildTimeItmes.filter((item) => { return Number(item.id) === Number(v) })[0]
+        let buildTimeItem: BuildTimeItem = { id: id, price: price, dayNumber: dayNumber }
         dispatch(changeUrgentCost(buildTimeItem))
         btnIndex = v
         changeId(v)
     }
 
-    //加载环形图的位置
     useEffect(() => {
         let myChart = echarts.init(document.getElementById('main'));
         let data = [{
@@ -87,39 +87,47 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
                     }
                 },
                 data: data,
+                animation: true
             }]
         };
         myChart.setOption(option);
-        // 默认高亮显示
         myChart.dispatchAction({
             type: 'highlight',
             seriesIndex: 0,
             dataIndex: 0
         });
 
-        //鼠标单击操作
         myChart.on('click', function (params) {
             if (params.dataIndex != chooseIndex) {
                 myChart.dispatchAction({ type: 'downplay', seriesIndex: 0, dataIndex: chooseIndex });
             }
-            chooseIndex = params.dataIndex
+            chooseIndex = params.dataIndex;
             myChart.dispatchAction({ type: 'highlight', seriesIndex: chooseIndex, dataIndex: chooseIndex });
             rotating(params)
             changeChoose(chooseIndex)
             let numSort = changeNumSort(chooseIndex)
             changeId(numSort)
             changeStateHeight(true)
-            const { price,dayNumber,id } = buildTimeItmes.filter((item) => { return Number(item.id) === Number(numSort) })[0]
-            let buildTimeItem: BuildTimeItem = {id:id,price:price,dayNumber:dayNumber}
+            let getId = 0
+            switch (numSort) {
+                case 1:
+                    getId = 0
+                    break;
+                case 2:
+                    getId = 1
+                    break;
+                case 3:
+                    getId = 2
+                    break;
+                default:
+                    break;
+            }
+            const { price, dayNumber, id } = buildItems[getId]
+            let buildTimeItem: BuildTimeItem = { id: id, price: price, dayNumber: dayNumber }
             dispatch(changeUrgentCost(buildTimeItem))
         });
-        /**
-        * @description:箭头图片进行一个旋转
-        * @param :旋转父元素的值
-        * @return: none
-        */
         function rotating(params) {
-            let el = document.querySelector('.point') 
+            let el = document.querySelector('.point')
             const { name } = params.data
             if (name) {
                 switch (name) {
@@ -133,10 +141,12 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
                         el.style.transform = 'rotate(-180deg)'
                         break;
                     default:
+                        el.style.transform = 'rotate(-50deg)'
                         break
                 }
             }
-        }
+        };
+
         myChart.on('click', function (params) {
             if (params.dataIndex != chooseIndex) {
                 myChart.dispatchAction({ type: 'downplay', seriesIndex: 0, dataIndex: chooseIndex });
@@ -144,17 +154,16 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
             chooseIndex = params.dataIndex
             myChart.dispatchAction({ type: 'highlight', seriesIndex: 0, dataIndex: params.dataIndex });
             rotating(params)
+            changeChoose(chooseIndex)
         });
-        let isLoad= document.getElementById('main')?.innerHTML
-        myChart.on('rendered',function (){
+        myChart.on('rendered', function () {
             setIsFinish(true)
-        })
-    }, [])
-    /**
-     * @description: build time参数的顺序是混乱的，在以后的一个旋转中需要对应的参数，这里是将参数合理化，正常化
-     * @param :e:用户交互时单击的按钮，获取到相应的value值
-     * @return: 调整后的一个参数
-    */
+        });
+        return () => {
+            myChart.dispose()
+        }
+    }, [buildItems])
+
     function changeNumSort(n) {
         switch (n) {
             case 0:
@@ -167,12 +176,8 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
                 break
         }
     }
-    /**
-     * @description: build time 底部按钮单击的时候，图片的颜色跟随着改变，旋转
-     * @param :e:用户交互时单击的按钮，获取到相应的value值
-     * @return: none
-    */
-    function changeColor(e,index:number) {
+
+    function changeColor(e, index: number) {
         let myChart = echarts.init(document.getElementById('main'));
         let el = document.querySelector('.point')
         const { value } = e.target || 0
@@ -193,13 +198,15 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
             default:
                 break
         }
+
         if (temporaryVariable != chooseIndex) {
             myChart.dispatchAction({ type: 'downplay', seriesIndex: 0, dataIndex: chooseIndex });
         }
         chooseIndex = temporaryVariable
         myChart.dispatchAction({ type: 'highlight', seriesIndex: 0, dataIndex: temporaryVariable });
     }
-    function isChecked(id:number) {
+
+    function isChecked(id: number) {
         if ((id === 1 && newChoose === 0) && id === newBtnID) {
             return true
         } else if ((id === 2 && newChoose === 2) && id === newBtnID) {
@@ -219,15 +226,15 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
             <Row>
                 <div style={{ width: "291px", height: "300px", position: 'relative' }}>
                     <div id="main" style={{ width: 291, height: 291 }}></div>
-                    {isFinish? <img src={img} alt='404' style={{ position: 'absolute', top: '125px', left: '128px' }} className='point' />: ""}
-                    {!isFinish?<div className='show_default'><img src={require('../images//default_img_show.png')}/></div>:""}
-                </div> 
+                    {isFinish ? <img src={img} alt='404' style={{ position: 'absolute', top: '125px', left: '128px' }} className='point' /> : ""}
+                    {!isFinish ? <div className='show_default'><img src={require('../images//default_img_show.png')} /></div> : ""}
+                </div>
             </Row>
             <Row>
                 <Radio.Group onChange={onChange} defaultValue={buildTimeItmes[0].id} className='group' name={'1'}>
                     {
-                        buildTimeItmes.map((item,index) => (
-                            <Radio.Button value={item.id} key={item.id} onChange={e => changeColor(e,index)} checked={isChecked(index+1) ? true : false}> {item.dayNumber}</Radio.Button>
+                        buildTimeItmes.map((item, index) => (
+                            <Radio.Button value={item.id} key={item.id} onChange={e => changeColor(e, index)} checked={isChecked(index + 1) ? true : false}> {item.dayNumber}</Radio.Button>
                         ))
                     }
                 </Radio.Group>

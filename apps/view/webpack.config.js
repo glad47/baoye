@@ -93,5 +93,5 @@ module.exports = merge(baseConfig(__dirname), {
       author: pkg.author.name,
       description: pkg.description,
     }),
-  ],
+  ]
 })

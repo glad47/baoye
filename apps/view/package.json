@@ -49,6 +49,7 @@
     "common-prefix": "^1.1.0",
     "contrast": "^1.0.1",
     "core-js": "^3.2.1",
+    "cross-env": "^7.0.2",
     "dexie": "3.0.0-alpha.8",
     "echarts": "^4.8.0",
     "file-saver": "^2.0.2",

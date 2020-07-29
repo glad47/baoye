@@ -30,12 +30,14 @@ function App(): JSX.Element {
     , fileUploadPtah
     , isBackToUpload
     , isShow
+    , buildTimeItmes
     , pcbSizeField: { boardType, quantity, panelSize, singleSize } } = useAppState()
 
   const [isLogin, setIsLogin] = useState(false);
   let [isFirst,setFirst]=useState(false)
   const [loginName, setLoginName] = useState(null);
 
+  console.log(buildTimeItmes)
   const { Footer, Header, Content } = Layout
   const handleAddQuote = () => {
     if (fileUploadPtah === null) {
@@ -125,7 +127,7 @@ function App(): JSX.Element {
             <div className="pcb-sidebar">
 
               <div className="pcb-build-time">
-                <BuildTimeForm />
+                <BuildTimeForm buildItems={buildTimeItmes}/>
               </div>
 
               <div className="pcb-fee">
