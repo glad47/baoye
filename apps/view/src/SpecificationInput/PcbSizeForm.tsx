@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Form, Input, Select } from 'antd';
+import { Row, Col, Form, Input, Select, message } from 'antd';
 import { useForm } from 'antd/lib/form/util';
 import { Store } from 'antd/lib/form/interface';
 import ObserverSize from './ObserverSize';
@@ -32,10 +32,14 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
         if(Object.values(v)[0] === 'Single'){
             if(Object.values(v)[2] && Object.values(v)[3]){
                 dispatch(changeSizeField(v));
+            }else{
+                message.info('Please fill full parameters(Sizt and Quantity)');
             }
         }else{
             if(Object.values(v)[1] && Object.values(v)[2] && Object.values(v)[3]){
                 dispatch(changeSizeField(v));
+            }else{
+                message.info('Please fill full parameters(Sizt and Quantity and Panel Array)');
             }
         }
     }
@@ -67,7 +71,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
                         <ObserverSize/>
                     </Form.Item>
                     <Form.Item label="Quantity" name="quantity">
-                        <Input placeholder='Enter the Qty' className='enter_quantity'/>
+                        <Input placeholder='Enter the Qty' className='enter_quantity' suffix={singleMode ? 'PCS' : 'PANEL'}/>
                     </Form.Item>
                 </Col>
             </Row>
