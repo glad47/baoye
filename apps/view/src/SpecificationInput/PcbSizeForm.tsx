@@ -71,7 +71,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
                         <ObserverSize/>
                     </Form.Item>
                     <Form.Item label="Quantity" name="quantity">
-                        <Input placeholder='Enter the Qty' className='enter_quantity' suffix={singleMode ? 'PCS' : 'PANEL'}/>
+                        <Input placeholder='Enter the Qty' className='enter_quantity' suffix={singleMode ? 'PCS' : 'PANEL'} autoComplete='off'/>
                     </Form.Item>
                 </Col>
             </Row>

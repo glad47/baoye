@@ -463,7 +463,7 @@
 }
 
 .pcb-sidebar .pcb-build-time .ant-radio-button-wrapper {
-    width: 88px;
+    min-width: 88px;
     height: 34px;
     line-height: 34px;
     background: rgba(249, 251, 255, 1);
@@ -1927,8 +1927,15 @@ body {
 
 .enter_quantity {
     text-align: center;
+    display: flex;
+    align-items: center;
 }
-
+.ant-input-affix-wrapper{
+    border: none;
+}
+.ant-input-affix-wrapper > input.ant-input{
+    background-color: #fff;
+}
 .fill_pit,
 .failure_word {
     width: 313px;
