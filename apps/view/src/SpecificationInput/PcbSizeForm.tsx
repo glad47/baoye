@@ -33,13 +33,13 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) =>{
             if(Object.values(v)[2] && Object.values(v)[3]){
                 dispatch(changeSizeField(v));
             }else{
-                message.info('Please fill full parameters(Sizt and Quantity)');
+                // message.info('Please fill full parameters(Sizt and Quantity)');
             }
         }else{
             if(Object.values(v)[1] && Object.values(v)[2] && Object.values(v)[3]){
                 dispatch(changeSizeField(v));
             }else{
-                message.info('Please fill full parameters(Sizt and Quantity and Panel Array)');
+                // message.info('Please fill full parameters(Sizt and Quantity and Panel Array)');
             }
         }
     }
