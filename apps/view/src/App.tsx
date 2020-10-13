@@ -10,9 +10,11 @@ import BuildTimeForm from './SpecificationInput/BuildTimeForm'
 import CastCalculation from './SpecificationInput/CostCalculation'
 import ShoppingCast from './SpecificationInput/ShoppingCast'
 import ShoppingTotal from './SpecificationInput/ShoppingTotal'
+// import Head from './Head'
 import axios from 'axios'
-import Foot from './Foot/index'
+// import Foot from './Footer/index'
 import Tips from './GuideTips/index'
+import Foot from './Footer/index'
 
 
 import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled, CalculatorOutlined } from '@ant-design/icons';
@@ -20,7 +22,7 @@ import SideNavigation, { SideNavigationTab } from './SpecificationInput/SideNavi
 import FormControl from './SpecificationInput/FormControl'
 import GerberUpload from './SpecificationInput/GerberUpload'
 import GerberShow from './SpecificationInput/GerberShow'
-import Head from './Login'
+import Head from './Head'
 import { baseUrl } from './SpecificationInput/AjaxService'
 
 function App(): JSX.Element {
@@ -96,6 +98,7 @@ function App(): JSX.Element {
         {/* <BoardList /> */}
         <Layout>
         {isFirst?<Tips />:''}
+          {/* <Head loginName={loginName}/> */}
           <Head loginName={loginName}/>
           <Content>
             {/* 左边栏 */}
