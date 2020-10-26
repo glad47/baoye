@@ -2149,6 +2149,7 @@ body {
     margin-bottom: 19px;
     font-size: 16px;
     font-family: 'Arial-boldMT';
+    cursor: auto;
 }
 
 .pcb-footer-link-other {
@@ -2398,4 +2399,10 @@ body {
     position: absolute;
     top: 5px;
     right: 0;
+}
+
+.copy-right-font{
+    font-size: 14px;
+    color: white;
+    font-family:'Arial';
 }
