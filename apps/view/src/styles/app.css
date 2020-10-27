@@ -842,7 +842,7 @@ body {
 
 .sans .ant-layout {
     background: #fff;
-    padding-top: 12px;
+    /* padding-top: 12px; */
 }
 
 .sans .ant-layout .ant-layout-header {
@@ -875,11 +875,12 @@ body {
     width: 300px;
     display: flex;
     justify-content: space-between;
+
 }
 
 .sign-in {
     display: block;
-    width: 143px;
+    /* width: 143px;
     height: 26px;
     line-height: 24px;
     text-align: center;
@@ -889,7 +890,18 @@ body {
     color: #2952ea;
     border-radius: 26px;
     border: 2px solid #2952ea;
-    cursor: pointer;
+    cursor: pointer; */
+    width: 150px;
+    height: 36px;
+    background: #ffca00;
+    border-radius: 18px;
+    font-family: "PingFangHK-Regular";
+    font-size: 12px;
+    color: #000000;
+    line-height: 14px;
+    text-align: center;
+    line-height: 36px;
+    margin-left: 10px;
 }
 
 .use_name {
@@ -1254,6 +1266,7 @@ body {
     justify-content: space-between;
     align-items: center;
     position: relative;
+
 }
 
 .sign-icon {
@@ -1930,12 +1943,15 @@ body {
     display: flex;
     align-items: center;
 }
-.ant-input-affix-wrapper{
+
+.ant-input-affix-wrapper {
     border: none;
 }
-.ant-input-affix-wrapper > input.ant-input{
+
+.ant-input-affix-wrapper>input.ant-input {
     background-color: #fff;
 }
+
 .fill_pit,
 .failure_word {
     width: 313px;
@@ -1968,92 +1984,425 @@ body {
     .login_inner_layout {
         width: 1280px;
     }
-    .login{
+
+    .login {
         padding-bottom: 36px;
     }
-    .logo_inner{
+
+    .logo_inner {
         margin-left: 10px;
     }
+
     .sign-btn {
         width: 131px;
     }
+
     .sign-in {
         width: 100px;
     }
+
     .ant-layout-content {
         width: 1280px;
     }
+
     .pcb-nav {
         position: absolute;
         top: 0;
         left: 13px;
         width: 73px;
     }
+
     .pcb-nav ul li.cur>a>div {
         margin-right: -50px;
         width: 50px;
         height: 50px;
     }
+
     .pcb-sidebar {
         width: 382px;
         float: right;
         margin-right: 10px;
     }
+
     .pcb-min-info {
         width: 800px;
         padding: 0 20px 0 30px;
         float: left;
         margin-left: 85px;
     }
-    .update_status{
+
+    .update_status {
         margin: 12px 0 0 63px;
     }
+
     .pcb-sidebar .pcb-build-time {
         width: 356px;
         height: 486px;
         padding: 25px 30px;
     }
+
     .pcb-sidebar .pcb-fee {
         width: 356px;
         padding: 30px;
 
     }
+
     .pcb-sidebar .pcb-cast {
         width: 356px;
         padding: 30px 16px;
 
     }
+
     .express_choose {
         width: 83px;
         margin: 0 17px 0 5px;
     }
+
     .pcb-sidebar .pcb-total {
         width: 356px;
         height: 268px;
         padding: 30px;
     }
-    .again_uploads_success, .again_uploads_fail {
+
+    .again_uploads_success,
+    .again_uploads_fail {
         width: 675px;
         margin: 0 auto;
         margin-top: 20px;
     }
+
     .footer {
         width: 1280px;
     }
+
     .footer_main>div:nth-of-type(1) {
         width: 30%;
     }
+
     .footer_main>div:nth-of-type(2) {
         width: 60%;
     }
+
     .copyright {
         display: flex;
         justify-content: space-between;
-        margin: 0  100px 0 27px;
+        margin: 0 100px 0 27px;
     }
+
     .close_title {
         position: absolute;
         top: 42px;
         right: 20px;
     }
+}
+
+/* 底部重做样式 */
+
+#pcb-footer {
+    width: 100%;
+    height: 322px;
+    background-color: #2952ea;
+    display: flex;
+    align-items: center;
+}
+
+.pcb-footer-inner {
+    width: 80%;
+    margin: auto;
+    background-color: #2952ea;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pcb-footer-logo {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pcb-footer-header>a>img {
+    width: 208px;
+    height: 28px;
+}
+
+.pcb-footer-other>a {
+    margin-right: 20px;
+}
+
+.pcb-footer-link {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pcb-footer-link-other>a {
+    display: flex;
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-family: 'Arial';
+}
+
+.pcb-footer-link-other>a:nth-of-type(1) {
+    margin-bottom: 19px;
+    font-size: 16px;
+    font-family: 'Arial-boldMT';
+    cursor: auto;
+}
+
+.pcb-footer-link-other {
+    min-width: 172px;
+    margin-right: 56px;
+}
+
+/* 新头部文件 */
+
+#pcb-header {
+    width: 100%;
+    height: 63px;
+    background-color: white;
+    box-shadow: 0px 0px 35px 0px rgba(207, 210, 198, 0.55);
+    margin-bottom: 20px;
+}
+
+
+.pcb-header-inner {
+    width: 80%;
+    height: 63px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pcb-header-logo {
+
+    height: 63px;
+    background-color: white;
+    z-index: 100;
+}
+
+.pcb-header-logo-bg {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.pcb-header-logo-bg>a {
+    display: block;
+    width: 208px;
+    height: 27px;
+    font-size: 0;
+    background: url("../images/logo_top.png") no-repeat center;
+    background-size: 100% 100%;
+}
+
+.pcb-header-menu {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.pcb-header-menu-all {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.pcb-menu-one,
+.pcb-menu-two,
+.pcb-menu-three,
+.pcb-menu-four,
+.pcb-menu-five,
+.pcb-menu-six {
+    padding: 0 10px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 0 auto;
+    position: relative;
+}
+
+.pcb-menu-one>a,
+.pcb-menu-two>a,
+.pcb-menu-three>a,
+.pcb-menu-four>a,
+.pcb-menu-five>a,
+.pcb-menu-six>a {
+    font-family: "Arial";
+    font-size: 14px;
+    color: #000000;
+}
+
+.pcb-instructions {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+    margin-left: 3px;
+}
+
+/* product下拉菜单 */
+
+#pcb-product {
+    position: absolute;
+    top: 45px;
+    left: -32px;
+    background-color: white;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
+    animation: fadeInBottom 300ms ease-in;
+    display: none;
+    z-index: 66;
+}
+
+.navigation {
+    display: flex;
+    border: 1px solid #eeeeee;
+    position: relative;
+}
+
+.navigation-left {
+    width: 223px;
+    margin: 10px;
+}
+
+.navigation-left>li {
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.navigation-left>li>a {
+    display: block;
+    font-family: "Arial";
+    font-size: 14px;
+    color: #000000;
+    text-indent: 14px;
+}
+
+.navigation:before {
+    box-sizing: content-box;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: -16px;
+    left: 101px;
+    padding: 0;
+    border-bottom: 8px solid #ffffff;
+    border-top: 8px solid transparent;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    display: block;
+    content: "";
+    z-index: 12;
+}
+
+.navigation:after {
+    box-sizing: content-box;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: -18px;
+    left: 100px;
+    padding: 0;
+    border-bottom: 9px solid #cccccc;
+    border-top: 9px solid transparent;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    display: block;
+    content: "";
+    z-index: 10;
+}
+
+#pcb-assembly {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
+    animation: fadeInBottom 300ms ease-in;
+    z-index: 999;
+    display: none;
+}
+
+#solution {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
+    animation: fadeInBottom 300ms ease-in;
+    display: none;
+    z-index: 66;
+}
+
+#resource {
+    position: absolute;
+    top: 45px;
+    left: -20px;
+    background-color: white;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
+    animation: fadeInBottom 300ms ease-in;
+    display: none;
+    z-index: 666;
+}
+
+/* 下拉菜单鼠标滑过事件*/
+.pcb-menu-one:hover #pcb-product {
+    display: block;
+}
+
+.pcb-menu-two:hover #pcb-assembly {
+    display: block;
+}
+
+.pcb-menu-three:hover #solution {
+    display: block;
+}
+
+.pcb-menu-four:hover #resource {
+    display: block;
+}
+
+@keyframes fadeInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(130px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pcb-search {
+    width: 25px;
+    height: 25px;
+    margin-left: 23px;
+}
+
+.pcb-menu-six {
+    position: relative;
+}
+
+.new-active {
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+
+.copy-right-font{
+    font-size: 14px;
+    color: white;
+    font-family:'Arial';
 }
