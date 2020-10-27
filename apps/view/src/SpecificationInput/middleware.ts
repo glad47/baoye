@@ -90,15 +90,19 @@ export function countQuoteMiddleware(): State.Middleware {
                         fileUploadPtah: fileUploadPtah
                     })
                 ]).then((rep)=>{
-                    const [{data:{data,code}}] = rep;
-                    if(code === 0){
-                        // todo 反馈信息
-                        // console.log(data);
+                    const [{data:{success,code}}] = rep;
+                    if(success){
                         message.success("Add Quote Success!!");
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1000);
+                    }else{
+                        if (code === "403") {
+                            location.href = 'user/login';
+                        }else{
+                            message.error("Add Quote Failure !!");
+                        }
                     }
-                    setTimeout(() => {
-                        location.reload();
-                    }, 1000);
                 })
                 break;
             }

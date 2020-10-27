@@ -11,22 +11,6 @@ class index extends Component<any, any> {
     constructor(props: any) {
         super(props)
     }
-    // async componentDidMount() {
-    //     let data = await axios.post(baseUrl+'loginUserInfo')
-    //     console.log(data);
-    //     const { data:{success,result} } =data;
-    //     if (success) {
-    //         this.setState({
-    //             userInfo: result.userName,
-    //             isLogin: success
-    //         })
-    //     }else{
-    //         this.setState({
-    //             isLogin:false
-    //         })
-    //     }
-    //     console.log(this.state.isLogin)
-    // }
     render() {
         // const {userName}=this.state.userInfo || ''
         return (
@@ -37,7 +21,7 @@ class index extends Component<any, any> {
                         <ul className='nav_logo_inner'>
                             <li><a href='https://www.pcbonline.com/'>Home</a></li>
                             <li className='new_add_active'>
-                                <a href='https://www.pcbonline.com/instant-quote'>Instant Quote</a>
+                                <a href='http://sys.pcbonline.com/instant-quote'>Instant Quote</a>
                                 <p className='new_active'><img src={require('../images/new-t.gif')} alt='new function' /></p>
                             </li>
                             <li className='down_menu_one'>
@@ -52,8 +36,8 @@ class index extends Component<any, any> {
                                 <a>How We Produce <CaretDownOutlined /></a>
                                 <LastMenu />
                             </li>
-                            <li className='title_blog'><a href='/blog'>Blog</a></li>
-                            <li><a href='/feedback'>Feedback</a></li>
+                            <li className='title_blog'><a href='https://www.pcbonline.com/blog'>Blog</a></li>
+                            <li><a href='https://www.pcbonline.com/feedback'>Feedback</a></li>
                             <li><a href='https://www.pcbonline.com/about'>About</a></li>
                         </ul>
 
@@ -61,7 +45,7 @@ class index extends Component<any, any> {
                     <div className="sign-btn">
                         {this.props.loginName === null
                             ? <span className="sign-in">
-                                <a href='https://www.pcbonline.com/login'>
+                                <a href='/'>
                                 Sign in
                                 </a>
                               </span>

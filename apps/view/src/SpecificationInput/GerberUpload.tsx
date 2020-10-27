@@ -8,15 +8,19 @@ import { ajaxFileUpload, baseUrl } from "./AjaxService";
 import { message,Checkbox } from "antd";
 
 interface GerberUploadProps {
-
+    loginName: any
 }
 
 //gerber上传组件
 const GerberUpload: React.FC<GerberUploadProps> = (props) => {
-    const { loading, isBackToUpload, dispatch } = useAppState();
+    const { dispatch } = useAppState();
     const [progress, changeProgress] = useState(0)
     const [delay,setDelay]=useState(false)
     const handleFiles = (event: FileEvent): void => {
+        if (props.loginName == null) {
+            message.error('Please login first！！')
+            return
+        }
         const files =
             'dataTransfer' in event
                 ? Array.from(event.dataTransfer.files)
@@ -55,15 +59,15 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             .then(res => {
                 console.log(res);
                 //todo 数据回填 逻辑判断下
-                const [{data:{code,data}},{data:{success,result}}] = res;
-                if (code === 0) {
+                const [{data:{code,result:{url}}},{data:{success,result}}] = res;
+                if (code === "0") {
                     let r: any = {};
                     if(success){
                         // message.info('File upload and analytical data successful！！');
-                        r = {...result,fileName:fileName,uploadPath:data,showDefaultImg:true};
+                        r = {...result,fileName:fileName,uploadPath:url,showDefaultImg:true};
                     }else{
                         // message.warning('文件上传成功，但读取资料失败！！');
-                        r = {showDefaultImg:false,fileName:fileName,uploadPath:data};
+                        r = {showDefaultImg:false,fileName:fileName,uploadPath:url};
                         // dispatch(changeColor(false));
                     }
                     dispatch(backfillPcbData(r,success));

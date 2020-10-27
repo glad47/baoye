@@ -32,37 +32,60 @@ function App(): JSX.Element {
     , isShow
     , buildTimeItmes
     , pcbSizeField: { boardType, quantity, panelSize, singleSize } } = useAppState()
-
-  const [isLogin, setIsLogin] = useState(false);
+  let uname: any = null; 
   let [isFirst,setFirst]=useState(false)
-  const [loginName, setLoginName] = useState(null);
+  const [loginName, setLoginName] = useState(uname);
 
-  console.log(buildTimeItmes)
+  //console.log(buildTimeItmes)
   const { Footer, Header, Content } = Layout
   const handleAddQuote = () => {
-    if (fileUploadPtah === null) {
-      message.error('Please upload the gerber file ！！');
-      return;
-    }
-    if (boardType === 'Single') {
-      if (quantity === null || singleSize.sizeX === null || singleSize.sizeY === null) {
-        message.error('Please fill in the size and quantity ！！');
+    if(quoteMode === 0){
+      if (fileUploadPtah === null) {
+        message.error('Please upload the gerber file ！！');
         return;
       }
-    } else {
-      if (quantity === null || panelSize.sizeX === null || panelSize.sizeY === null || singleSize.sizeX === null || singleSize.sizeY == null) {
-        message.error('Please fill in the size and quantity and panel array ！！');
-        return;
+      if (boardType === 'Single') {
+        if (quantity === null || singleSize.sizeX === null || singleSize.sizeY === null) {
+          message.error('Please fill in the size and quantity ！！');
+          return;
+        }
+      } else {
+        if (quantity === null || panelSize.sizeX === null || panelSize.sizeY === null || singleSize.sizeX === null || singleSize.sizeY == null) {
+          message.error('Please fill in the size and quantity and panel array ！！');
+          return;
+        }
       }
-    }
-    if (isLogin) {
       dispatch(addQuote());
-    } else {
-      message.warning('Please log in first ！！')
-      setTimeout(() => {
-        location.href = '/login?jumpUrl=instant-quote';
-      }, 500);
+    }else if(quoteMode === 1){
+      if (fileUploadPtah === null) {
+        message.error('Please upload the gerber file ！！');
+        return;
+      }
+      if (subtotal.stencilFee === 0) {
+        message.error('Please fill in the Dimensions !!');
+        return;
+      }
+      dispatch(addQuote()); 
+    }else if(quoteMode === 2){
+      if (fileUploadPtah === null) {
+        message.error('Please upload the gerber file ！！');
+        return;
+      }
+      if(subtotal.assemblyFee === 0){
+        message.error('Please fill data !!');
+        return;
+      }
+      dispatch(addQuote()); 
     }
+ 
+    // if (isLogin) {
+     
+    // } else {
+    //   message.warning('Please log in first ！！')
+    //   setTimeout(() => {
+    //     location.href = '/login?jumpUrl=instant-quote';
+    //   }, 500);
+    // }
   }
   const aginUpload = () => {
     dispatch(backToUpload(true))
@@ -70,13 +93,14 @@ function App(): JSX.Element {
   useEffect(() => {
     //获取登录信息
     // axios.defaults.withCredentials = true;
-    axios.post(baseUrl+'loginUserInfo')
-      .then(rep => {
-        setIsLogin(rep.data.success);
-        if (rep.data.success) {
-          setLoginName(rep.data.result.email);
-        }
-      })
+    // axios.post(baseUrl+'loginUserInfo')
+    //   .then(rep => {
+    //     // setIsLogin(rep.data.success);
+    //     if (rep.data.success) {
+    //       setLoginName(rep.data.result.email);
+    //     }
+    //   })
+      setLoginName(sessionStorage.getItem('username'));
       const isFirst =localStorage.getItem('user')
       // console.log(isFirst)
       if(isFirst==undefined){
@@ -86,7 +110,7 @@ function App(): JSX.Element {
       }
   }, [])
   const handleGoCar = () => {
-    location.href = baseUrl+'car/goToCart';
+    location.href = '/';
   }
   return (
     <>
@@ -111,7 +135,7 @@ function App(): JSX.Element {
             <div className="pcb-min-info">
 
               <div className="pcb-min">
-                {isBackToUpload ? <GerberUpload /> : <GerberShow />}
+                {isBackToUpload ? <GerberUpload loginName={loginName}/> : <GerberShow />}
                 {quoteMode === 0 ? <PcbSizeForm /> : ''}
                 {!isBackToUpload
                   ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>
