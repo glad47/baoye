@@ -17,10 +17,10 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
     const [progress, changeProgress] = useState(0)
     const [delay,setDelay]=useState(false)
     const handleFiles = (event: FileEvent): void => {
-        if (props.loginName == null) {
-            message.error('Please login first！！')
-            return
-        }
+        // if (props.loginName == null) {
+        //     message.error('Please login first！！')
+        //     return
+        // }
         const files =
             'dataTransfer' in event
                 ? Array.from(event.dataTransfer.files)

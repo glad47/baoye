@@ -49,13 +49,17 @@ function Head(props: any) {
                             />
                         </li>
                         <div className="sign-btn">
-                            {props.loginName === null
+                            {props.loginName[0] === null
                                 ? <span className="sign-in">
                                     <a href='http://sys.pcbonline.com//login?jumpUrl=/blog'>
                                         SING IN
                                 </a>
                                 </span>
-                                : <div className='use_name'>{props.loginName}</div>
+                                : <div className='use_name'>
+                                    {props.loginName[1]?
+                                        <img src={props.loginName[1]}/>
+                                    :''}
+                                </div>
                             }
                             {props.loginName === null ? null : <LoginShow />}
                         </div>

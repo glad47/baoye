@@ -34,14 +34,15 @@ function App(): JSX.Element {
     , isShow
     , buildTimeItmes
     , pcbSizeField: { boardType, quantity, panelSize, singleSize } } = useAppState()
-  let uname: any = null; 
-  let [isFirst,setFirst]=useState(false)
+  let uname: any = null;
+  let userPortrait: any = null;
+  let [isFirst, setFirst] = useState(false)
   const [loginName, setLoginName] = useState(uname);
-
+  const [headPortrait, setPortrait] = useState(userPortrait)
   //console.log(buildTimeItmes)
   const { Footer, Header, Content } = Layout
   const handleAddQuote = () => {
-    if(quoteMode === 0){
+    if (quoteMode === 0) {
       if (fileUploadPtah === null) {
         message.error('Please upload the gerber file ！！');
         return;
@@ -58,7 +59,7 @@ function App(): JSX.Element {
         }
       }
       dispatch(addQuote());
-    }else if(quoteMode === 1){
+    } else if (quoteMode === 1) {
       if (fileUploadPtah === null) {
         message.error('Please upload the gerber file ！！');
         return;
@@ -67,21 +68,21 @@ function App(): JSX.Element {
         message.error('Please fill in the Dimensions !!');
         return;
       }
-      dispatch(addQuote()); 
-    }else if(quoteMode === 2){
+      dispatch(addQuote());
+    } else if (quoteMode === 2) {
       if (fileUploadPtah === null) {
         message.error('Please upload the gerber file ！！');
         return;
       }
-      if(subtotal.assemblyFee === 0){
+      if (subtotal.assemblyFee === 0) {
         message.error('Please fill data !!');
         return;
       }
-      dispatch(addQuote()); 
+      dispatch(addQuote());
     }
- 
+
     // if (isLogin) {
-     
+
     // } else {
     //   message.warning('Please log in first ！！')
     //   setTimeout(() => {
@@ -102,28 +103,32 @@ function App(): JSX.Element {
     //       setLoginName(rep.data.result.email);
     //     }
     //   })
-      setLoginName(sessionStorage.getItem('username'));
-      const isFirst =localStorage.getItem('user')
-      // console.log(isFirst)
-      if(isFirst==undefined){
-        setFirst(true)
-      }else{
-        setFirst(false)
-      }
+    setLoginName(sessionStorage.getItem('username'));
+    const isFirst = localStorage.getItem('user')
+    let userAllInfo: any = JSON.parse(sessionStorage.getItem('userAllInfo') || '{}')
+    const {favicon}=userAllInfo
+    setPortrait(favicon)
+
+    // console.log(isFirst)
+    if (isFirst == undefined) {
+      setFirst(true)
+    } else {
+      setFirst(false)
+    }
   }, [])
   const handleGoCar = () => {
     location.href = '/';
   }
   return (
     <>
-      
+
       <Main>
         {/* <FileList /> */}
         {/* <BoardList /> */}
         <Layout>
-        {isFirst?<Tips />:''}
+          {isFirst ? <Tips /> : ''}
           {/* <Head loginName={loginName}/> */}
-          <Head loginName={loginName}/>
+          <Head loginName={[loginName,headPortrait]} />
           <Content>
             {/* 左边栏 */}
             <div className="pcb-nav">
@@ -138,7 +143,7 @@ function App(): JSX.Element {
             <div className="pcb-min-info">
 
               <div className="pcb-min">
-                {isBackToUpload ? <GerberUpload loginName={loginName}/> : <GerberShow />}
+                {isBackToUpload ? <GerberUpload loginName={loginName} /> : <GerberShow />}
                 {quoteMode === 0 ? <PcbSizeForm /> : ''}
                 {!isBackToUpload
                   ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>
@@ -154,7 +159,7 @@ function App(): JSX.Element {
             <div className="pcb-sidebar">
 
               <div className="pcb-build-time">
-                <BuildTimeForm buildItems={buildTimeItmes}/>
+                <BuildTimeForm buildItems={buildTimeItmes} />
               </div>
 
               <div className="pcb-fee">
