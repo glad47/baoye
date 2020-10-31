@@ -29,23 +29,23 @@ function Foot() {
                     <div className='pcb-footer-link-other'>
                         <a>Star Products</a>
                         <a href='https://www.pcbonline.com/PCB-FAB/Rigid-Flex-PCBs/'>Rigid-flex PCB</a>
-                        <a href="https://www.pcbonline.com/PCB-FAB/PCB-prototype/" target='_blank' rel="nofollow">PCB Prototypes</a>
+                        <a href="https://www.pcbonline.com/PCB-prototype/" target='_blank' rel="nofollow">PCB Prototypes</a>
                         <a href="https://www.pcbonline.com/PCB-Assembly/Consigned-PCB-Assembly/">PCB Components</a>
                         <a href="https://www.pcbonline.com/ems-solution/turnkey-pcb-assembly/">PCB assembly</a>
                     </div>
                     <div className='pcb-footer-link-other'>
                         <a >Technology</a>
-                        <a href="https://www.pcbonline.com/HowWeProduce/Capability/PCB-Capability" >Capability</a>
+                        <a href="https://www.pcbonline.com/HowWeProduce/Capability/PCB-Capability/" >Capability</a>
                         <a href="https://www.pcbonline.com/HowWeProduce/PCB-material/" >Material</a>
                         <a href="https://www.pcbonline.com/HowWeProduce/PCB-production/" >Production</a>
-                        <a href="https://www.pcbonline.com/HowWeProduce/PCB-file-download" >File download</a>
+                        <a href="https://www.pcbonline.com/HowWeProduce/PCB-file-download/" >File download</a>
                     </div>
                     <div className='pcb-footer-link-other'>
                         <a >Support</a>
                         <a href='https://www.pcbonline.com/support/home'>Help center</a>
                         <a href='https://www.pcbonline.com/support/how-to-order-online/'>How to use</a>
                         <a href='https://www.pcbonline.com/terms-of-service/'>Terms of service</a>
-                        <a href="https://www.pcbonline.com/HowWeProduce/Delivery/Lead-time">Refund policy</a>
+                        <a href="https://www.pcbonline.com/HowWeProduce/Delivery/Lead-time/">Refund policy</a>
                     </div>
                     <div className='pcb-footer-link-other'>
                         <a>Company</a>

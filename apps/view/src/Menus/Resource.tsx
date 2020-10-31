@@ -6,15 +6,15 @@ function Resource() {
             <div className="navigation">
                 <ul className='navigation-left'>
                     <li>
-                        <a href='https://www.pcbonline.com/blog'>Blog</a>
+                        <a href='https://www.pcbonline.com/blog/'>Blog</a>
                         <div className="instructions" />
                     </li>
                     <li>
-                        <a href='https://www.pcbonline.com/support'>Support</a>
+                        <a href='https://www.pcbonline.com/support/home/'>Support</a>
                         <div className="instructions" />
                     </li>
                     <li>
-                        <a href='https://www.pcbonline.com/feedback'>Feedback</a>
+                        <a href='https://www.pcbonline.com/feedback/'>Feedback</a>
                         <div className="instructions" />
                     </li>
                 </ul>

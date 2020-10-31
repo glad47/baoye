@@ -14,7 +14,7 @@ function Solution() {
                         <div className="instructions" />
                     </li>
                     <li>
-                        <a href='https://www.pcbonline.com/PCB-FAB/PCB-layout'>PCB Layout</a>
+                        <a href='https://www.pcbonline.com/PCB-FAB/PCB-layout/'>PCB Layout</a>
                         <div className="instructions" />
                     </li>
                 </ul>

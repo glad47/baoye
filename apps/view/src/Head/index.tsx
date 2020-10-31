@@ -38,7 +38,7 @@ function Head(props: any) {
                             <Resource />
                         </li>
                         <li className='pcb-menu-five'>
-                            <a href='https://www.pcbonline.com/about'>About</a>
+                            <a href='https://www.pcbonline.com/about/'>About</a>
                         </li>
                         <li className='pcb-menu-six'>
                             <a>Get a Quote</a>

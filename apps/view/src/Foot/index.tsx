@@ -32,34 +32,34 @@ export default class index extends Component {
                                 <a>Support</a>
                             </div>
                             <div className='footer_link'>
-                                <a href='https://www.pcbonline.com/PCB-FAB/PCB-prototype'>PCB Prototype</a>
-                                <a href='https://www.pcbonline.com/support/FR4-Materials'>Material</a>
-                                <a href='https://www.pcbonline.com/support/How-To-Order-Online'>How to use</a>
+                                <a href='https://www.pcbonline.com/PCB-prototype/'>PCB Prototype</a>
+                                <a href='https://www.pcbonline.com/support/FR4-Materials/'>Material</a>
+                                <a href='https://www.pcbonline.com/support/How-To-Order-Online/'>How to use</a>
                             </div>
                             <div className='footer_link'>
-                                <a href='https://www.pcbonline.com/PCB-FAB/PCB-layout'>PCB Layout</a>
-                                <a href='https://www.pcbonline.com/support/File-Format'>Capability</a>
-                                <a href='https://www.pcbonline.com/support/FAQ-order'>FAQ</a>
+                                <a href='https://www.pcbonline.com/PCB-FAB/PCB-layout/'>PCB Layout</a>
+                                <a href='https://www.pcbonline.com/support/File-Format/'>Capability</a>
+                                <a href='https://www.pcbonline.com/support/FAQ-order/'>FAQ</a>
                             </div>
                             <div className='footer_link'>
-                                <a href='https://www.pcbonline.com/PCB-FAB/HDI-PCB'>HDI PCB</a>
-                                <a href='https://www.pcbonline.com/support/Rigid-Flex-PCBs'>Production</a>
-                                <a href='https://www.pcbonline.com/support/FR4-Materials'>PCB school</a>
+                                <a href='https://www.pcbonline.com/PCB-FAB/HDI-PCB/'>HDI PCB</a>
+                                <a href='https://www.pcbonline.com/support/Rigid-Flex-PCBs/'>Production</a>
+                                <a href='https://www.pcbonline.com/support/FR4-Materials/'>PCB school</a>
                             </div>
                             <div className='footer_link'>
-                                <a href='https://www.pcbonline.com/PCB-FAB/Rigid-Flex-PCBs'>Rigid-Flex PCB</a>
-                                <a href='https://www.pcbonline.com/support/FAQ-order'>Lead Time</a>
-                                <a href='https://www.pcbonline.com/support/Rigid-Flex-PCBs'>PCB center</a>
+                                <a href='https://www.pcbonline.com/PCB-FAB/Rigid-Flex-PCBs/'>Rigid-Flex PCB</a>
+                                <a href='https://www.pcbonline.com/support/FAQ-order/'>Lead Time</a>
+                                <a href='https://www.pcbonline.com/support/Rigid-Flex-PCBs/'>PCB center</a>
                             </div>
                             <div className='footer_link'>
-                                <a href='https://www.pcbonline.com/PCB-FAB/Flexible-PCBs'>Flexible PCB</a>
+                                <a href='https://www.pcbonline.com/PCB-FAB/Flexible-PCBs/'>Flexible PCB</a>
                                 <a></a>
-                                <a href='https://www.pcbonline.com/support/PCB-Glossary'>PCB glossary</a>
+                                <a href='https://www.pcbonline.com/support/PCB-Glossary/'>PCB glossary</a>
                             </div>
                             <div className='footer_link'>
-                                <a href='https://www.pcbonline.com/PCB-FAB/Aluminum-PCB'>Aluminum PCB</a>
+                                <a href='https://www.pcbonline.com/PCB-FAB/Aluminum-PCB/'>Aluminum PCB</a>
                                 <a></a>
-                                <a href='https://www.pcbonline.com/about'>About us</a>
+                                <a href='https://www.pcbonline.com/about/'>About us</a>
                             </div>
                         </div>
                     </div>
