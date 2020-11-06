@@ -48,7 +48,7 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
     }
     useEffect(() => {
         if(rItem.length === 0){
-            axios.get(baseUrl+'getAllExchangeRate')
+            axios.get(baseUrl+'quoteConfig/getAllExchangeRate')
             .then(rep=>{
                 if(rep.data.code === 0){
                     setRateItem(rep.data.data);
