@@ -16,9 +16,12 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
     const { dispatch } = useAppState();
     const [progress, changeProgress] = useState(0)
     const [delay,setDelay]=useState(false)
+    console.log(props.loginName)
     const handleFiles = (event: FileEvent): void => {
+        
         if (props.loginName == null) {
             message.error('Please login first！！')
+            location.href='https://sys.pcbonline.com/user/login?from=quote'
             return
         }
         const files =
