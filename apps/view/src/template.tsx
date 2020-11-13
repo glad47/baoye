@@ -36,6 +36,7 @@ export default function StaticTemplate(props: Props): string {
         <link rel="icon" type="image/png" sizes="32x32" href={faviconNew} />
         <link rel="icon" type="image/png" sizes="32x32" href={faviconNew} />
         <style>{faDom.css()}</style>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       </head>
       <body className="h-100 overflow-hidden">
         <div

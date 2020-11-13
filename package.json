@@ -147,6 +147,9 @@
   },
   "version": "0.0.0",
   "dependencies": {
+    "@types/react-recaptcha": "^2.3.3",
+    "http-proxy-middleware": "^1.0.6",
+    "react-recaptcha": "^2.3.10",
     "yarn": "^1.22.4"
   }
 }

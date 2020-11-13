@@ -6,9 +6,11 @@ import Axios from "axios";
 import { preventDefault } from "../events";
 import { ajaxFileUpload, baseUrl } from "./AjaxService";
 import { message,Checkbox } from "antd";
+import UserLogin from '../UserLogin'
 
 interface GerberUploadProps {
-    loginName: any
+    loginName: any,
+    setLoginMessage: any
 }
 
 //gerber上传组件
@@ -16,12 +18,11 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
     const { dispatch } = useAppState();
     const [progress, changeProgress] = useState(0)
     const [delay,setDelay]=useState(false)
-    console.log(props.loginName)
     const handleFiles = (event: FileEvent): void => {
         
         if (props.loginName == null) {
             message.error('Please login first！！')
-            location.href='https://sys.pcbonline.com/user/login?from=quote'
+            props.setLoginMessage(true)
             return
         }
         const files =
@@ -101,6 +102,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                     </div>
                     <div className='show_progress_speed'><Checkbox checked={progress==100 ? true :false}/></div>
                 </div>:""}
+                {/* <UserLogin/> */}
             </>
         )
     } else {

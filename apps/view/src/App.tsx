@@ -10,6 +10,7 @@ import BuildTimeForm from './SpecificationInput/BuildTimeForm'
 import CastCalculation from './SpecificationInput/CostCalculation'
 import ShoppingCast from './SpecificationInput/ShoppingCast'
 import ShoppingTotal from './SpecificationInput/ShoppingTotal'
+import UserLogin from './UserLogin'
 // import Head from './Head'
 import axios from 'axios'
 // import Foot from './Footer/index'
@@ -39,6 +40,7 @@ function App(): JSX.Element {
   let [isFirst, setFirst] = useState(false)
   const [loginName, setLoginName] = useState(uname);
   const [headPortrait, setPortrait] = useState(userPortrait)
+  const [isLogin, setLogin] = useState(false)
   //console.log(buildTimeItmes)
   const { Footer, Header, Content } = Layout
   const handleAddQuote = () => {
@@ -93,6 +95,16 @@ function App(): JSX.Element {
   const aginUpload = () => {
     dispatch(backToUpload(true))
   }
+  const setLoginMessage = (e:any) => {
+    setLogin(e)
+  }
+  const getUserInfo=(e:any)=>{
+    setLoginName(e)
+  }
+
+  const closeThisBox=(e:any)=>{
+    setLogin(e)
+  }
   useEffect(() => {
     //获取登录信息
     // axios.defaults.withCredentials = true;
@@ -106,7 +118,7 @@ function App(): JSX.Element {
     setLoginName(sessionStorage.getItem('username'));
     const isFirst = localStorage.getItem('user')
     let userAllInfo: any = JSON.parse(sessionStorage.getItem('userAllInfo') || '{}')
-    const {favicon}=userAllInfo
+    const { favicon } = userAllInfo
     setPortrait(favicon)
 
     // console.log(isFirst)
@@ -128,7 +140,7 @@ function App(): JSX.Element {
         <Layout>
           {isFirst ? <Tips /> : ''}
           {/* <Head loginName={loginName}/> */}
-          <Head loginName={[loginName,headPortrait]} />
+          <Head loginName={[loginName, headPortrait]} />
           <Content>
             {/* 左边栏 */}
             <div className="pcb-nav">
@@ -143,7 +155,7 @@ function App(): JSX.Element {
             <div className="pcb-min-info">
 
               <div className="pcb-min">
-                {isBackToUpload ? <GerberUpload loginName={loginName} /> : <GerberShow />}
+                {isBackToUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage} /> : <GerberShow />}
                 {quoteMode === 0 ? <PcbSizeForm /> : ''}
                 {!isBackToUpload
                   ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>
@@ -178,6 +190,7 @@ function App(): JSX.Element {
 
           </Content>
           <Foot />
+          {isLogin?<UserLogin getUserInfo={getUserInfo} closeThisBox={closeThisBox}/>:""}
         </Layout>
 
       </Main>
