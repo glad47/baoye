@@ -53,7 +53,7 @@ function UserLogin(props: any) {
 
     const registerAccount=()=>{
         // window.location.href="http://localhost:3001/user/login/registered?form=quote"
-        window.open("http://localhost:3001/user/registered?form=quote")
+        window.open("https://sys.pcbonline.com/user/registered?form=quote")
     }
     return (
         <div className='user-login-page'>
