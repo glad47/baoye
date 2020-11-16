@@ -4,15 +4,16 @@ import Cookies from 'js-cookie';
 //线上
 export const baseUrl = "https://www.pcbonline.com/"
 //线下
-// export const baseUrl = "http://localhost:8882/"
+// export const baseUrl = "http://localhost:8888/"
 // export const uploadUrl = "http://localhost:8888/"
 const testUrl = "https://sys.pcbonline.com"
+// const testUrl = "http://localhost:8882"
 // export function ajaxBuildTime (){
 //     return Axios.get(baseUrl+ 'quote/getBuildTime')
 // }
 
 let token = Cookies.get('token');
-console.log(token);
+// console.log(token);
 export const ajaxBuildTime = (data: any) =>{
     return Axios.get(baseUrl + `quote/getBuildTime?areaSq=${data.areaSq}&layerNum=${data.layerNum}`);
 }
@@ -48,6 +49,7 @@ export const ajaxFileUpload = (file: File[]) =>{
     const fromData = new FormData();
     fromData.append('file',file[0]);
 
+    // todo 测试 headers:{'Content-Type': 'multipart/form-data','Authorization':token},
     return Axios.request({
         headers:{'Content-Type': 'multipart/form-data','Authorization':token},
         method: 'post',

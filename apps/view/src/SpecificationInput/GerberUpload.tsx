@@ -15,7 +15,7 @@ interface GerberUploadProps {
 
 //gerber上传组件
 const GerberUpload: React.FC<GerberUploadProps> = (props) => {
-    const { dispatch } = useAppState();
+    const { dispatch,subtotal:{boardFee,stencilFee} } = useAppState();
     const [progress, changeProgress] = useState(0)
     const [delay,setDelay]=useState(false)
     const handleFiles = (event: FileEvent): void => {
@@ -63,7 +63,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             .then(res => {
                 console.log(res);
                 //todo 数据回填 逻辑判断下
-                const [{data:{code,result:{url}}},{data:{success,result}}] = res;
+                let [{data:{code,result:{url}}},{data:{success,result}}] = res;
                 if (code === "0") {
                     let r: any = {};
                     if(success){
@@ -73,6 +73,9 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                         // message.warning('文件上传成功，但读取资料失败！！');
                         r = {showDefaultImg:false,fileName:fileName,uploadPath:url};
                         // dispatch(changeColor(false));
+                    }
+                    if (boardFee === 0 || stencilFee === 0) {
+                        success = false;
                     }
                     dispatch(backfillPcbData(r,success));
                 } else {
