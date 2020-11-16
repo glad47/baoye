@@ -50,6 +50,11 @@ function UserLogin(props: any) {
     const closeUserLogin=()=>{
         props.closeThisBox(false)
     }
+
+    const registerAccount=()=>{
+        // window.location.href="http://localhost:3001/user/login/registered?form=quote"
+        window.open("http://localhost:3001/user/registered?form=quote")
+    }
     return (
         <div className='user-login-page'>
             <div className='user-login-box'>
@@ -125,7 +130,7 @@ function UserLogin(props: any) {
                     <Form.Item>
                         <p>
                             No Account ? &nbsp;
-                            <span className='register_now_go' >
+                            <span className='register_now_go' onClick={registerAccount}>
                                 Register Now !
                             </span>
                         </p>

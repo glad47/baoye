@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { ShoppingCartOutlined ,PoweroffOutlined } from '@ant-design/icons'
 export default class loginShow extends Component {
+    loginOut=()=>{
+        sessionStorage.removeItem('username')
+        window.location.href="/"
+    }
     render() {
         return (
             <div className="login_show">
@@ -9,7 +13,7 @@ export default class loginShow extends Component {
                     <a href='/changePassword'>Change password</a>
                     <a href='/myInfo'>My information</a>
                     <a href='/payment'>My order</a>
-                    <a href='#loginOut'>Login out</a>
+                    <a href='#loginOut' onClick={this.loginOut}>Login out</a>
                 </div>
             </div>
         )
