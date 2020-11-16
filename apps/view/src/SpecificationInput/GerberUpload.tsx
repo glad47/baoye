@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useAppState, backfillPcbData, showDefault, backToUpload,changeColor, createBoard } from "../state";
 import LoadFiles from "../LoadFiles";
 import { FileEvent } from "../types";
@@ -18,6 +18,20 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
     const { dispatch,subtotal:{boardFee,stencilFee} } = useAppState();
     const [progress, changeProgress] = useState(0)
     const [delay,setDelay]=useState(false)
+    const [loginState,setLoginState]=useState(false)
+    useEffect(()=>{
+        if(props.loginName==null){
+            setLoginState(false)
+        }else{
+            setLoginState(true)
+        }
+    },[props.loginName])
+    const loginReady=(e:any)=>{
+        if(e){
+            props.setLoginMessage(true)
+        }
+        
+    }
     const handleFiles = (event: FileEvent): void => {
         
         if (props.loginName == null) {
@@ -95,7 +109,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
            
             <>
                 <div className="pcb-file">
-                    <LoadFiles handleFiles={handleFiles} progress={{progress,delay}}></LoadFiles>
+                    <LoadFiles handleFiles={handleFiles} progress={{progress,delay,loginState}} loginReady={loginReady}></LoadFiles>
                 </div>
                 {progress>0 ?<div className='update_status'>
                     <div className='progress'>

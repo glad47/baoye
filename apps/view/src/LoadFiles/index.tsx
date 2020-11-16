@@ -17,7 +17,8 @@ const SUBMESSAGE_STYLE = 'f5 fw3'
 export type LoadFilesProps = {
   handleFiles: (event: FileEvent) => void
   handleUrl?: (url: string) => void
-  progress: any
+  progress: any,
+  loginReady:any
 }
 
 export default function LoadFiles(props: LoadFilesProps): JSX.Element {
@@ -38,7 +39,7 @@ export default function LoadFiles(props: LoadFilesProps): JSX.Element {
       </Fade>
       <Fade in={!mode}>
         <div className={WRAPPER_STYLE}>
-          <FileInput handleFiles={props.handleFiles}>
+          <FileInput handleFiles={props.handleFiles} loginState={props.progress.loginState} loginReady={props.loginReady}>
             <div className='img_show'><img src={successful_update} /></div>
             <p className='update_font'>{wordTitle}</p>
 
