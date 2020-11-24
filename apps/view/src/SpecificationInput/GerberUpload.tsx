@@ -20,6 +20,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
     const [delay,setDelay]=useState(false)
     const [loginState,setLoginState]=useState(false)
     useEffect(()=>{
+        console.log(props.loginName)
         if(props.loginName==null){
             setLoginState(false)
         }else{

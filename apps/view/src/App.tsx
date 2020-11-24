@@ -95,15 +95,31 @@ function App(): JSX.Element {
   const aginUpload = () => {
     dispatch(backToUpload(true))
   }
-  const setLoginMessage = (e:any) => {
+  const setLoginMessage = (e: any) => {
     setLogin(e)
   }
-  const getUserInfo=(e:any)=>{
+  const getUserInfo = (e: any) => {
     setLoginName(e)
   }
 
-  const closeThisBox=(e:any)=>{
+  const closeThisBox = (e: any) => {
     setLogin(e)
+  }
+  // 获取URL地址栏上面的参数
+  const urlQuery = (key: string, url?: any) => {
+    if (!window.location) {
+      return
+    }
+    url = url || window.location.href
+    var reg = new RegExp('[?&]' + key + '=([^&]*)', 'i')
+    var match = url.match(reg)
+    var result = ''
+    if (match) {
+      try {
+        result = decodeURIComponent(match[1]) || ''
+      } catch (e) { }
+    }
+    return result
   }
   useEffect(() => {
     //获取登录信息
@@ -115,17 +131,21 @@ function App(): JSX.Element {
     //       setLoginName(rep.data.result.email);
     //     }
     //   })
+    const from =urlQuery('from')
+    let users=sessionStorage.getItem('username')
     setLoginName(sessionStorage.getItem('username'));
     const isFirst = localStorage.getItem('user')
     let userAllInfo: any = JSON.parse(sessionStorage.getItem('userAllInfo') || '{}')
     const { favicon } = userAllInfo
     setPortrait(favicon)
-
     // console.log(isFirst)
     if (isFirst == undefined) {
       setFirst(true)
     } else {
       setFirst(false)
+    }
+    if(from==='quote' && users===null){
+      setLogin(true)
     }
   }, [])
   const handleGoCar = () => {
@@ -190,7 +210,7 @@ function App(): JSX.Element {
 
           </Content>
           <Foot />
-          {isLogin?<UserLogin getUserInfo={getUserInfo} closeThisBox={closeThisBox}/>:""}
+          {isLogin ? <UserLogin getUserInfo={getUserInfo} closeThisBox={closeThisBox} /> : ""}
         </Layout>
 
       </Main>

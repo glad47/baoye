@@ -13,7 +13,7 @@ export default class loginShow extends Component {
                     <a href='/changePassword'>Change password</a>
                     <a href='/myInfo'>My information</a>
                     <a href='/payment'>My order</a>
-                    <a href='#loginOut' onClick={this.loginOut}>Login out</a>
+                    <span onClick={this.loginOut}>Login out</span>
                 </div>
             </div>
         )
