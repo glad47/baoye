@@ -3,7 +3,7 @@ import { ShoppingCartOutlined ,PoweroffOutlined } from '@ant-design/icons'
 export default class loginShow extends Component {
     loginOut=()=>{
         sessionStorage.removeItem('username')
-        window.location.href="/"
+        window.location.href="https://sys.pcbonline.com/instant-quote/"
     }
     render() {
         return (
