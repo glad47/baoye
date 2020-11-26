@@ -35,12 +35,18 @@ function UserLogin(props: any) {
                 }).then(res => {
                     const { result, success } = res.data
                     if (success) {
-                        const { userName } = result || []
+                        const { userName,favicon } = result || []
                         let users=userName!==null ? userName : 'defaultName' // 预防出现用户名为null 的情况
-                        props.getUserInfo(userName)
+                        let heads=favicon!==null ?favicon:require('../images/Mask.png')
+                        result.favicon=heads
+                        props.getUserInfo(users)
+                        props.getUserHead(heads)
                         sessionStorage.setItem('username', JSON.stringify(users))
                         sessionStorage.setItem('userAllInfo',JSON.stringify(result))
                         props.closeThisBox(false)
+                        props.isLoginReady(true)
+                    }else{
+                        message.error('Something error')
                     }
 
                 })

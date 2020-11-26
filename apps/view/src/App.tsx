@@ -41,14 +41,12 @@ function App(): JSX.Element {
   const [loginName, setLoginName] = useState(uname);
   const [headPortrait, setPortrait] = useState(userPortrait)
   const [isLogin, setLogin] = useState(false)
+  const [showUpload,setUpload]=useState(isBackToUpload)
   //console.log(buildTimeItmes)
   const { Footer, Header, Content } = Layout
   const handleAddQuote = () => {
+    console.log(quoteMode,fileUploadPtah)
     if (quoteMode === 0) {
-      if (fileUploadPtah === null) {
-        message.error('Please upload the gerber file ！！');
-        return;
-      }
       if (boardType === 'Single') {
         if (quantity === null || singleSize.sizeX === null || singleSize.sizeY === null) {
           message.error('Please fill in the size and quantity ！！');
@@ -59,6 +57,22 @@ function App(): JSX.Element {
           message.error('Please fill in the size and quantity and panel array ！！');
           return;
         }
+      }
+      if (fileUploadPtah === null) {
+        // message.error('Please upload the gerber file ！！');
+        // return;
+        if(!loginName){
+          setLogin(true)
+          let result=loginReady()
+          if(result){
+            setUpload(false)
+            dispatch(addQuote());
+          }
+        }else{
+          setUpload(false)
+          dispatch(addQuote());
+        }
+        return
       }
       dispatch(addQuote());
     } else if (quoteMode === 1) {
@@ -92,14 +106,29 @@ function App(): JSX.Element {
     //   }, 500);
     // }
   }
+
   const aginUpload = () => {
+    setUpload(true)
     dispatch(backToUpload(true))
+    
   }
   const setLoginMessage = (e: any) => {
     setLogin(e)
   }
   const getUserInfo = (e: any) => {
+    console.log(e,'username')
     setLoginName(e)
+  }
+  // 实时更新头像
+  const getUserHead = (e: any) => {
+
+    let heads=require('./images/Mask.png')
+
+    if(!!e ){
+      setPortrait(e)
+    }else{
+      setPortrait(heads)
+    }
   }
 
   const closeThisBox = (e: any) => {
@@ -131,8 +160,8 @@ function App(): JSX.Element {
     //       setLoginName(rep.data.result.email);
     //     }
     //   })
-    const from =urlQuery('from')
-    let users=sessionStorage.getItem('username')
+    const from = urlQuery('from')
+    let users = sessionStorage.getItem('username')
     setLoginName(sessionStorage.getItem('username'));
     const isFirst = localStorage.getItem('user')
     let userAllInfo: any = JSON.parse(sessionStorage.getItem('userAllInfo') || '{}')
@@ -144,13 +173,18 @@ function App(): JSX.Element {
     } else {
       setFirst(false)
     }
-    if(from==='quote' && users===null){
+    if (from === 'quote' && users === null) {
       setLogin(true)
     }
   }, [])
   const handleGoCar = () => {
     location.href = '/';
   }
+  async function loginReady(e?:any){
+    let result=await e
+    return result
+  }
+
   return (
     <>
 
@@ -175,9 +209,9 @@ function App(): JSX.Element {
             <div className="pcb-min-info">
 
               <div className="pcb-min">
-                {isBackToUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage} /> : <GerberShow />}
+                {showUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage} /> : <GerberShow />}
                 {quoteMode === 0 ? <PcbSizeForm /> : ''}
-                {!isBackToUpload
+                {!showUpload
                   ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>
                     <p className='title_success_top'>Your files have been successfully uploaded.</p>
                     <button onClick={aginUpload} className='button_to_file'>Back to Upload File</button></div>
@@ -210,7 +244,7 @@ function App(): JSX.Element {
 
           </Content>
           <Foot />
-          {isLogin ? <UserLogin getUserInfo={getUserInfo} closeThisBox={closeThisBox} /> : ""}
+          {isLogin ? <UserLogin getUserInfo={getUserInfo} closeThisBox={closeThisBox} getUserHead={getUserHead} isLoginReady={loginReady}/> : ""}
         </Layout>
 
       </Main>
