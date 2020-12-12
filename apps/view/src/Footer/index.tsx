@@ -38,7 +38,7 @@ function Foot() {
                         <a href="https://www.pcbonline.com/HowWeProduce/Capability/PCB-Capability/" >Capability</a>
                         <a href="https://www.pcbonline.com/HowWeProduce/PCB-material/" >Material</a>
                         <a href="https://www.pcbonline.com/HowWeProduce/PCB-production/" >Production</a>
-                        <a href="https://www.pcbonline.com/HowWeProduce/PCB-file-download/" >File download</a>
+                        <a href="https://www.pcbonline.com/certificate/" >Certificate</a>
                     </div>
                     <div className='pcb-footer-link-other'>
                         <a >Support</a>

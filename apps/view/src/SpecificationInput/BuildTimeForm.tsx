@@ -219,18 +219,18 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
         return false
     }
     return (
-        <div>
-            <Row>
+        <div className='mobile-build-time-style'>
+            <Row className='mobile-build-title'>
                 <Title level={3}><ClockCircleFilled /><b>Build Time</b></Title>
             </Row>
             <Row>
-                <div style={{ width: "291px", height: "300px", position: 'relative' }}>
+                <div style={{ width: "291px", height: "300px", position: 'relative' }} className='mobile-echarts-drag'>
                     <div id="main" style={{ width: 291, height: 291 }}></div>
                     {isFinish ? <img src={img} alt='404' style={{ position: 'absolute', top: '125px', left: '128px' }} className='point' /> : ""}
                     {!isFinish ? <div className='show_default'><img src={require('../images//default_img_show.png')} /></div> : ""}
                 </div>
             </Row>
-            <Row>
+            <Row className='mobile-build-time-button'>
                 <Radio.Group onChange={onChange} defaultValue={buildTimeItmes[0].id} className='group' name={'1'}>
                     {
                         buildTimeItmes.map((item, index) => (

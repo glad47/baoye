@@ -67,6 +67,10 @@ function Product() {
                         <a href='https://www.pcbonline.com/PCB-FAB/Carbon-PCBs/'>Carbon PCB</a>
                         <div className="instructions" />
                     </li>
+                    <li>
+                        <a href='https://www.pcbonline.com/pcb-material/'>PCB Material</a>
+                        <div className="instructions" />
+                    </li>
                 </ul>
             </div>
         </div>

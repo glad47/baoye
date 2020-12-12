@@ -186,31 +186,20 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) => {
         form.setFieldsValue({ ...pcbStandardField })
     }, [pcbStandardField])
 
-    // const getKey = new Promise(function () {
-    //     if (allChooseKeys.length != 0) {
-    //         let allKey = Object.keys(allChooseKeys) || []
-    //         for (let i = 0; i < allKey.length; i++) {
-    //             if (allKey[i] === 'board_layers') {
-    //                 allKey.splice(i, 1, 'layer')
-    //             }
-    //         }
-    //         setKeys(allKey)
-    //     }
-    // })
-
-
     const isChange = (v: string) => {
-        if(allKeys[v] !== undefined && allKeys[v] !== null){
+        if (allKeys[v] !== undefined && allKeys[v] !== null) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
     return (
         <Form form={form} initialValues={pcbStandardField} onValuesChange={onValuesChange} style={{ width: "100%" }} labelAlign="left">
-            <Row>
-                <Col span={12}>
+            <div className='mobile-form-layout'>
+                <div className='mobile-form-left'>
+                    {/* <Row>
+                    <Col span={12}> */}
                     <Form.Item label="Material">
                         <ObserverSelect item={materialSelectData} name={"material"} isChange={isChange('material')} />
                     </Form.Item>
@@ -270,8 +259,10 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) => {
                     <Form.Item label="Surface Finish">
                         <ObserverSelect item={surfaceFinishSelectData} name={"surfaceFinish"} isChange={isChange('surfaceFinish')} />
                     </Form.Item>
-                </Col>
-                <Col span={12} className="ant-col-last">
+                    {/* </Col> */}
+                </div>
+                <div className='mobile-form-left'>
+                    {/* <Col span={12} className="ant-col-last"> */}
                     <Form.Item label="Thickness">
                         <ObserverSelect item={thicknessSelectData} name={"thickness"} isChange={isChange('thickness')} />
                     </Form.Item>
@@ -296,8 +287,10 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) => {
                     <Form.Item label="Surface Thickness">
                         <ObserverSelect item={surfaceThicknessSelect} name="surfaceThickness" isChange={isChange('surfaceThickness')} />
                     </Form.Item>
-                </Col>
-            </Row>
+                    {/* </Col> */}
+                </div>
+                {/* </Row> */}
+            </div>
         </Form>
     )
 }

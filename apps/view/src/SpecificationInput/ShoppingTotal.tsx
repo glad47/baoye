@@ -66,21 +66,22 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
 
     return (
         <div>
-            <Row>
+            <Row className='mobile-total-money'>
                 <Col span={12}><h5>Total</h5></Col>
                 {/* <Col span={12}><b>{total}</b> */}
-                <Col span={12}><b>${total}</b>
+                <Col span={12} className='mobile-total-total'><b>${total}</b>
                     <SwapOutlined className="total-swap"/>
+                    <span className='increase-distance'/>
                 </Col>
             </Row>
-            <Row>
+            <Row className='mobile-total-cost'>
                 <Col span={12}><i>Currency select</i></Col>
                 <Col span={12}>
                     <RateSwitch defaultRate={defaultRate} changeRate={changeRate} />
                     <strong>{ rateItem.length !== 0 ? (total*rateItem[0].exchangeRate/rateItem[defaultRate].exchangeRate).toFixed(2): 0.00}</strong>
                 </Col>
             </Row>
-            <Row>
+            <Row className='mobile-total-description'>
                 <Col span={24}>
                     {/* <Select  defaultValue="Order description" disabled={true}>
                         <Option value="jack">Jack</Option>
@@ -91,7 +92,7 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
                     <Input placeholder="Order description" className="total-select"/>
                 </Col>
             </Row>
-            <Row>
+            <Row className='mobile-total-add'>
                 <Col span={14}></Col>
                 <Col span={10} className="total-shopping-icon">
                     {/* <Link to="/quote/goToCart"> */}

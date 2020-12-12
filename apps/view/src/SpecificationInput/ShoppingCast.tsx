@@ -23,6 +23,7 @@ interface ShoppingCastProps {
     countryItmes?: Array<CountryItem>
     couriersItems?: Array<CouriersItems>
     shoppingCast?: 500
+    isMobileSize?:boolean
 }
 
 const { Title, Text } = Typography
@@ -34,7 +35,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
     let countryIcon = 'ac'
     useEffect(() => {
         if (cItem.length === 0) {
-            Axios.get(baseUrl+'v1/quote/getCountry')
+            Axios.get(baseUrl + 'v1/quote/getCountry')
                 .then((rep) => {
                     //   console.log(rep.data.data);
                     if (rep.data.code === 0) {
@@ -45,6 +46,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
                     console.log(rep)
                 })
         }
+        console.log(props.isMobileSize)
     }, [countryItem]);
     // todo 任务1
     // const [countryItems, setCountryItems ] = useState([]);
@@ -63,9 +65,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
     }
 
     const fetchShippingCost = (v: SelectValue) => {
-        console.log(v);
         const { totalWeight } = subtotal;
-        console.log(totalWeight)
         if (totalWeight) {
             Axios.all([fetchShipingCost({ countryId: v, totalWeight: totalWeight })]).then((v) => {
                 const [{ data: { data: { shippingCost }, code } }] = v;
@@ -74,23 +74,21 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
                 }
             });
         }
-
         // dispatch(fetchTransportCost(v));
     }
 
-    const chooseCourier=(v: SelectValue)=>{
-        const courier=String(v)
+    const chooseCourier = (v: SelectValue) => {
+        const courier = String(v)
         console.log(courier)
     }
-
     return (
-        <div>
+        !props.isMobileSize ? <div>
             <Row>
                 <Col span={24}><Title level={3}><PayCircleFilled /><b>Shipping Cost</b></Title></Col>
             </Row>
             <Row className="shopping-cast-mar">
                 <Col span={20}>
-                    <Select defaultValue='DHL' className='express_choose' bordered={false}  onChange={chooseCourier}>
+                    <Select defaultValue='DHL' className='express_choose' bordered={false} onChange={chooseCourier}>
                         <Option value="DHL" >
                             <img src={DHL} className='express_logo' />
                         </Option>
@@ -105,7 +103,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
                     <Select
                         placeholder="Quick search"
                         style={{ width: 100 }}
-                        showSearch            
+                        showSearch
                         optionLabelProp="children"
                         optionFilterProp="children"
                         onFocus={fetchCountryItems}
@@ -115,7 +113,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
                         }
                         className='country_select'
                         bordered={false}
-                        defaultValue={countryItem.length!=0 ? 101 : undefined}
+                        defaultValue={countryItem.length != 0 ? 101 : undefined}
                     >
                         {
                             cItem && cItem.map(item => (
@@ -126,12 +124,26 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
                             ))
 
                         }
-                               
+
                     </Select>
                 </Col>
                 <Col span={4}><i>${subtotal.shippingFee}</i></Col>
             </Row>
         </div >
+            : <div className='mobile-address'>
+                <div className='mobile-shipping-cost'>Shipping Cost: <span>${subtotal.shippingFee}</span></div>
+                <Select defaultValue='DHL' className='express_choose' bordered={false} onChange={chooseCourier}>
+                    <Option value="DHL" >
+                        DHL
+                    </Option>
+                    <Option value="ups" >
+                        UPS
+                    </Option>
+                    <Option value="fedex" >
+                        Fedex
+                    </Option>
+                </Select>
+            </div>
     )
 }
 // ShoppingCast.defaultProps = { countryItmes: [{ id: 1, name: 'China' }, { id: 2, name: 'America' }, { id: 3, name: 'Germany' }] }

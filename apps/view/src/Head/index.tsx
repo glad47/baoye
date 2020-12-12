@@ -6,7 +6,6 @@ import Resource from '../Menus/Resource'
 import LoginShow from '../DownMenu/loginShow'
 
 function Head(props: any) {
-    console.log(props)
     return (
         <div id='pcb-header'>
             <div className='pcb-header-inner'>

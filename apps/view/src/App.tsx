@@ -11,20 +11,17 @@ import CastCalculation from './SpecificationInput/CostCalculation'
 import ShoppingCast from './SpecificationInput/ShoppingCast'
 import ShoppingTotal from './SpecificationInput/ShoppingTotal'
 import UserLogin from './UserLogin'
-// import Head from './Head'
-import axios from 'axios'
-// import Foot from './Footer/index'
+
 import Tips from './GuideTips/index'
 import Foot from './Footer/index'
+import MobileFoot from './Footer/MobileFoot'
 
-
-import { WalletFilled, SlidersFilled, SwitcherFilled, ReconciliationFilled, CalculatorOutlined } from '@ant-design/icons';
 import SideNavigation, { SideNavigationTab } from './SpecificationInput/SideNavigation'
 import FormControl from './SpecificationInput/FormControl'
 import GerberUpload from './SpecificationInput/GerberUpload'
 import GerberShow from './SpecificationInput/GerberShow'
-import Head from './Head'
-import { baseUrl } from './SpecificationInput/AjaxService'
+import Head from './Head/index'
+import MobileHead from './Head/MobileHead'
 
 function App(): JSX.Element {
   const { dispatch
@@ -41,11 +38,11 @@ function App(): JSX.Element {
   const [loginName, setLoginName] = useState(uname);
   const [headPortrait, setPortrait] = useState(userPortrait)
   const [isLogin, setLogin] = useState(false)
-  const [showUpload,setUpload]=useState(isBackToUpload)
+  const [showUpload, setUpload] = useState(isBackToUpload)
+  const [isMobileSize,setMobileSize]=useState(false)
   //console.log(buildTimeItmes)
   const { Footer, Header, Content } = Layout
   const handleAddQuote = () => {
-    console.log(quoteMode,fileUploadPtah)
     if (quoteMode === 0) {
       if (boardType === 'Single') {
         if (quantity === null || singleSize.sizeX === null || singleSize.sizeY === null) {
@@ -61,14 +58,14 @@ function App(): JSX.Element {
       if (fileUploadPtah === null) {
         // message.error('Please upload the gerber file ！！');
         // return;
-        if(!loginName){
+        if (!loginName) {
           setLogin(true)
-          let result=loginReady()
-          if(result){
+          let result = loginReady()
+          if (result) {
             setUpload(false)
             dispatch(addQuote());
           }
-        }else{
+        } else {
           setUpload(false)
           dispatch(addQuote());
         }
@@ -96,37 +93,28 @@ function App(): JSX.Element {
       }
       dispatch(addQuote());
     }
-
-    // if (isLogin) {
-
-    // } else {
-    //   message.warning('Please log in first ！！')
-    //   setTimeout(() => {
-    //     location.href = '/login?jumpUrl=instant-quote';
-    //   }, 500);
-    // }
   }
 
   const aginUpload = () => {
     setUpload(true)
     dispatch(backToUpload(true))
-    
+
   }
   const setLoginMessage = (e: any) => {
     setLogin(e)
   }
   const getUserInfo = (e: any) => {
-    console.log(e,'username')
+    console.log(e, 'username')
     setLoginName(e)
   }
   // 实时更新头像
   const getUserHead = (e: any) => {
 
-    let heads=require('./images/Mask.png')
+    let heads = require('./images/Mask.png')
 
-    if(!!e ){
+    if (!!e) {
       setPortrait(e)
-    }else{
+    } else {
       setPortrait(heads)
     }
   }
@@ -151,15 +139,6 @@ function App(): JSX.Element {
     return result
   }
   useEffect(() => {
-    //获取登录信息
-    // axios.defaults.withCredentials = true;
-    // axios.post(baseUrl+'loginUserInfo')
-    //   .then(rep => {
-    //     // setIsLogin(rep.data.success);
-    //     if (rep.data.success) {
-    //       setLoginName(rep.data.result.email);
-    //     }
-    //   })
     const from = urlQuery('from')
     let users = sessionStorage.getItem('username')
     setLoginName(sessionStorage.getItem('username'));
@@ -176,15 +155,25 @@ function App(): JSX.Element {
     if (from === 'quote' && users === null) {
       setLogin(true)
     }
+    window.addEventListener('resize',getWindowWidth)
+    return ()=> window.removeEventListener('resize',getWindowWidth)
   }, [])
   const handleGoCar = () => {
     location.href = '/';
   }
-  async function loginReady(e?:any){
-    let result=await e
+  async function loginReady(e?: any) {
+    let result = await e
     return result
   }
-
+  //  获取窗口的宽度
+  const getWindowWidth=()=>{
+    let windowWidth=window.innerWidth
+    if(windowWidth<850){
+      setMobileSize(true)
+    }else{
+      setMobileSize(false)
+    }
+  }
   return (
     <>
 
@@ -194,8 +183,8 @@ function App(): JSX.Element {
         <Layout>
           {isFirst ? <Tips /> : ''}
           {/* <Head loginName={loginName}/> */}
-          <Head loginName={[loginName, headPortrait]} />
-          <Content>
+          {!isMobileSize ? <Head loginName={[loginName, headPortrait]} /> : <MobileHead/>}
+          {!isMobileSize ? <Content>
             {/* 左边栏 */}
             <div className="pcb-nav">
               <SideNavigation>
@@ -233,7 +222,7 @@ function App(): JSX.Element {
               </div>
 
               <div className="pcb-cast">
-                <ShoppingCast />
+                <ShoppingCast isMobileSize={isMobileSize}/>
               </div>
 
               <div className="pcb-total">
@@ -243,8 +232,45 @@ function App(): JSX.Element {
             </div>
 
           </Content>
-          <Foot />
-          {isLogin ? <UserLogin getUserInfo={getUserInfo} closeThisBox={closeThisBox} getUserHead={getUserHead} isLoginReady={loginReady}/> : ""}
+            :
+            <Content>
+              <div className='mobile-nav-online'>
+                <div className='mobile-quote'>
+                  <p>Online Quote</p>
+                  <div></div>
+                </div>
+                <FormControl quoteMode={quoteMode} />
+              </div>
+              <div className='mobile-nav-online'>
+                <div className='mobile-quote'>
+                  <p>Order Together With SMT-Stencil</p>
+                  <div></div>
+                </div>
+                <FormControl quoteMode={1} />
+              </div>
+              <div className='mobile-nav-online'>
+                <div className='mobile-quote'>
+                  <p>The above PCBs need Assembly</p>
+                  <div></div>
+                </div>
+                <FormControl quoteMode={2} />
+              </div>
+              <div>
+                <BuildTimeForm buildItems={buildTimeItmes} />
+              </div>
+              <div>
+                <CastCalculation {...subtotal} quoteMode={quoteMode} />
+              </div>
+              <div>
+                <ShoppingCast isMobileSize={isMobileSize}/>
+              </div>
+              <div>
+                <ShoppingTotal total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar} />
+              </div>
+            </Content>
+          }
+          {!isMobileSize ? <Foot /> : <MobileFoot/>}
+          {isLogin ? <UserLogin getUserInfo={getUserInfo} closeThisBox={closeThisBox} getUserHead={getUserHead} isLoginReady={loginReady} /> : ""}
         </Layout>
 
       </Main>
