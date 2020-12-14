@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import logoImg from '../images/logo-header.png'
 import Icon1 from '../images/footer_icon01.png'
 import Icon2 from '../images/footer_icon02.png'
@@ -6,6 +6,13 @@ import Icon3 from '../images/footer_icon03.png'
 import Icon5 from '../images/footer_icon05.png'
 
 function Foot() {
+    useEffect(() => {
+       const site=document.getElementById('siteseal')
+       let createElement=document.createElement('script')
+       createElement.src='https://seal.godaddy.com/getSeal?sealID=JyOmqvrJtXawl2GzkTr8Tf8g72riSFgMhkRVxbFC8cMv1lCwC1uwAHAeeklK'
+       createElement.type='text/javascript'
+       site?.appendChild(createElement)
+    }, [])
     return (
         <div id='pcb-footer'>
             <div className='pcb-footer-inner'>
@@ -20,7 +27,7 @@ function Foot() {
                         <a href="https://www.linkedin.com/company/20454706/admin/" target="_blank" rel="nofollow"><img src={Icon5} title='icon' alt='icon' /></a>
                     </div>
                     <div>
-                        <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=JyOmqvrJtXawl2GzkTr8Tf8g72riSFgMhkRVxbFC8cMv1lCwC1uwAHAeeklK"></script></span>
+                        <span id="siteseal"></span>
                     </div>
                     <div className='copy-right-font'>@2000-2020 PCB ONLINE LTD. All Rights Reserved</div>
                 </div>

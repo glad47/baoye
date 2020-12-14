@@ -7,74 +7,127 @@ import { useAppState, changeSpecialField } from '../state';
 interface PcbSpecialFormProps {
     item?: Store;
     onChange?: () => void;
+    isMobileSize?: boolean
 }
 
 
 
-const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) =>{
+const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) => {
     const [form] = Form.useForm();
-    const { pcbSpecialField,dispatch } = useAppState();
+    const { pcbSpecialField, dispatch } = useAppState();
 
-    const onValuesChange = (v: Store, value: Store) =>{
+    const onValuesChange = (v: Store, value: Store) => {
         dispatch(changeSpecialField(value))
-    // const onValuesChange = () =>{
-    //     form.submit();
-    //     console.log('form表单提交了')
+        // const onValuesChange = () =>{
+        //     form.submit();
+        //     console.log('form表单提交了')
     }
-    const onFinish = (v: Store) =>{
+    const onFinish = (v: Store) => {
         dispatch(changeSpecialField(v))
     }
     return (
-        <Form form={form} initialValues={pcbSpecialField} onValuesChange={onValuesChange} style={{width:"100%"}}>
+        !props.isMobileSize ? <Form form={form} initialValues={pcbSpecialField} onValuesChange={onValuesChange} style={{ width: "100%" }}>
             <Row className="special-mar">
                 <Col span={12}>
                     <Form.Item label="HDI">
                         <ObserverSwitch name="hdi" />
                     </Form.Item>
                     <Form.Item label="Bevelling(Camfer)">
-                        <ObserverSwitch name="bevellingCamfer"/>
+                        <ObserverSwitch name="bevellingCamfer" />
                     </Form.Item>
                     <Form.Item label="Peelable Solder Mask" >
-                        <ObserverSwitch name="peelableSolderMask"/>
+                        <ObserverSwitch name="peelableSolderMask" />
                     </Form.Item>
                     <Form.Item label="Edge Plating" >
-                        <ObserverSwitch name="edgePlating"/>
+                        <ObserverSwitch name="edgePlating" />
                     </Form.Item>
                     <Form.Item label="Via in pad" >
-                        <ObserverSwitch name="viaInPad"/>
+                        <ObserverSwitch name="viaInPad" />
                     </Form.Item>
                     <Form.Item label="Negative postitive copper" >
-                        <ObserverSwitch name="negativePostitiveCopper"/>
+                        <ObserverSwitch name="negativePostitiveCopper" />
                     </Form.Item>
                     <Form.Item label="Countersinks" >
-                        <ObserverSwitch name="countersinks"/>
+                        <ObserverSwitch name="countersinks" />
                     </Form.Item>
                 </Col>
                 <Col span={12} className="ant-col-last">
                     <Form.Item label="Control Concave Routing" >
-                        <ObserverSwitch name="controlConcaveRouting"/>
+                        <ObserverSwitch name="controlConcaveRouting" />
                     </Form.Item>
                     <Form.Item label="Back Drill" >
-                        <ObserverSwitch name="backDrill"/>
+                        <ObserverSwitch name="backDrill" />
                     </Form.Item>
                     <Form.Item label="Carbon Mask" >
-                        <ObserverSwitch name="carbonMask"/>
+                        <ObserverSwitch name="carbonMask" />
                     </Form.Item>
                     <Form.Item label="Impedance Control" >
-                        <ObserverSwitch name="impedanceControl"/>
+                        <ObserverSwitch name="impedanceControl" />
                     </Form.Item>
                     <Form.Item label="Half Hole Plated" >
-                        <ObserverSwitch name="halfHolePlated"/>
+                        <ObserverSwitch name="halfHolePlated" />
                     </Form.Item>
                     <Form.Item label="Press-fit Holes" >
-                        <ObserverSwitch name="pressHoles"/>
+                        <ObserverSwitch name="pressHoles" />
                     </Form.Item>
                     <Form.Item label="Acceptable Quality Levels" >
-                        <ObserverSwitch name="acceptableQualityLevels"/>
+                        <ObserverSwitch name="acceptableQualityLevels" />
                     </Form.Item>
                 </Col>
             </Row>
-        </Form>
+        </Form> :
+            <Form form={form} initialValues={pcbSpecialField} onValuesChange={onValuesChange} style={{ width: "100%" }}>
+
+                
+                    <Form.Item label="HDI">
+                        <ObserverSwitch name="hdi" />
+                    </Form.Item>
+              
+                    <Form.Item label="Bevelling(Camfer)">
+                        <ObserverSwitch name="bevellingCamfer" />
+                    </Form.Item>
+       
+                    <Form.Item label="Peelable Solder Mask" >
+                        <ObserverSwitch name="peelableSolderMask" />
+                    </Form.Item>
+        
+
+                <Form.Item label="Edge Plating" >
+                    <ObserverSwitch name="edgePlating" />
+                </Form.Item>
+                <Form.Item label="Via in pad" >
+                    <ObserverSwitch name="viaInPad" />
+                </Form.Item>
+                <Form.Item label="Negative postitive copper" >
+                    <ObserverSwitch name="negativePostitiveCopper" />
+                </Form.Item>
+                <Form.Item label="Countersinks" >
+                    <ObserverSwitch name="countersinks" />
+                </Form.Item>
+
+                <Form.Item label="Control Concave Routing" >
+                    <ObserverSwitch name="controlConcaveRouting" />
+                </Form.Item>
+                <Form.Item label="Back Drill" >
+                    <ObserverSwitch name="backDrill" />
+                </Form.Item>
+                <Form.Item label="Carbon Mask" >
+                    <ObserverSwitch name="carbonMask" />
+                </Form.Item>
+                <Form.Item label="Impedance Control" >
+                    <ObserverSwitch name="impedanceControl" />
+                </Form.Item>
+                <Form.Item label="Half Hole Plated" >
+                    <ObserverSwitch name="halfHolePlated" />
+                </Form.Item>
+                <Form.Item label="Press-fit Holes" >
+                    <ObserverSwitch name="pressHoles" />
+                </Form.Item>
+                <Form.Item label="Acceptable Quality Levels" >
+                    <ObserverSwitch name="acceptableQualityLevels" />
+                </Form.Item>
+
+            </Form>
     )
 }
 

@@ -7,17 +7,18 @@ import SpecificationTitle from './SpecificationTitle';
 
 interface FormControlProps {
     quoteMode: number
+    isMobileSize?:boolean
 }
 
 const FormControl: React.FC<FormControlProps> = (props) =>{
     const { quoteMode } = props; 
     switch (quoteMode) {
         case 0:
-            return <div className="pcb-spec"><SpecificationHead icon={"123"} title="PCB Specification"/><PcbSpecification/></div>
+            return <div className="pcb-spec"><SpecificationHead icon={"123"} title="PCB Specification"/><PcbSpecification isMobileSize={props.isMobileSize}/></div>
         case 1:
-            return <div className="pcb-stencil"><StencilForm /></div>
+            return <div className="pcb-stencil"><StencilForm isMobileSize={props.isMobileSize}/></div>
         case 2:
-            return <div className="pcb-assembly"><SpecificationTitle title="Information"/><AssemblyFrom /></div>
+            return <div className="pcb-assembly"><SpecificationTitle title="Information" /><AssemblyFrom isMobileSize={props.isMobileSize}/></div>
         default:
             return null;
     }

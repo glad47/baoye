@@ -9,6 +9,7 @@ import { useAppState, setFieldMode } from '../state';
 interface PcbSpecificationProps {
     item?: object;
     onChange?: () => void;
+    isMobileSize?: boolean
 }
 
 type LinkageData = { [index: string]: string[] };
@@ -98,28 +99,15 @@ const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
     // const [ selectedRadio, setSelectedRadio ] =useState("standard");
     // const [ standardFrom, setStandardFrom ] = useState(INITIAL_STANDARD);
     // const [ specialFrom, setSpecialFrom ] = useState(INITIAL_SPECIAL);
-    const [isMobileSize,setMobileSize]=useState(false)
+    const [isShowFlag,setShowFlag]=useState(false)
     const { fieldMode } = useAppState()
-    useEffect(() => {
-        window.addEventListener('resize',getWindowWidth)
-        return () => {
-            window.removeEventListener('resize',getWindowWidth)
-        }
-    }, [])
-    // 获取窗口的宽度
-    const getWindowWidth = () => {
-        let windowWidth = window.innerWidth
-        if (windowWidth < 850) {
-            setMobileSize(true)
-        }else{
-            setMobileSize(false)
-        }
+    const isShowMobileSpecial = () => {
+        setShowFlag(!isShowFlag)
     }
-
     return (
         <>
             {/* <SpecificationHead icon="" title="PCB Specification" /> */}
-            {!isMobileSize ? <Row>
+            {!props.isMobileSize ? <Row>
                 {
                     fieldMode === "standard" ?
                         <PcbStandardFrom onChange={props.onChange} /> :
@@ -128,7 +116,16 @@ const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
             </Row> :
                 <div>
                     <PcbStandardFrom onChange={props.onChange} />
-                    <PcbSpecialForm onChange={props.onChange} />
+                    <div className='mobile-special-flags' onClick={isShowMobileSpecial}>
+                        <div className='mobile-special-content'>
+                            <span>Special</span>
+                            <div></div>
+                        </div>
+                    </div>
+                    {isShowFlag? <div className='mobile-special-form'>
+                        <PcbSpecialForm onChange={props.onChange} isMobileSize={props.isMobileSize} />
+                    </div> : null}
+
                 </div>
             }
         </>

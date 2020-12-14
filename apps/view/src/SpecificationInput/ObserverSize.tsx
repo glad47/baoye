@@ -10,49 +10,50 @@ interface sizeValue {
 interface ObserverSizeProps {
     value?: sizeValue;
     onChange?: (value: sizeValue) => void;
-    isDisabled? : boolean;
+    isDisabled?: boolean;
+    isMobileSize?:boolean
 }
 
-const ObserverSize: React.FC<ObserverSizeProps> = (props) =>{
+const ObserverSize: React.FC<ObserverSizeProps> = (props) => {
     const { value, onChange, isDisabled } = props
     const [numberX, setNumberX] = useState(value?.sizeX);
-    const [numberY, setNumberY] = useState(value?.sizeY); 
+    const [numberY, setNumberY] = useState(value?.sizeY);
 
-    const triggerChange = (changedValue: sizeValue) =>{
-        if(onChange){
+    const triggerChange = (changedValue: sizeValue) => {
+        if (onChange) {
             onChange(changedValue);
         }
     }
 
-    const onNumberXChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    const onNumberXChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newNumber = e.target.value;
         setNumberX(newNumber);
-        triggerChange({...value, sizeX: newNumber});
+        triggerChange({ ...value, sizeX: newNumber });
     }
 
-    const onNumberYChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    const onNumberYChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newNumber = e.target.value;
         setNumberY(newNumber);
-        triggerChange({...value, sizeY: newNumber });
+        triggerChange({ ...value, sizeY: newNumber });
     }
-    return(
-        <Input.Group size="large">
-            <Row gutter={8}>
-                <Col span={12}>
-                        <Input
+    return (
+        <Input.Group size={!props.isMobileSize ? "large" : "default"}>
+            <Row gutter={!props.isMobileSize ? 8 : 4}>
+                <Col span={!props.isMobileSize ? 12 : 6}>
+                    <Input
                         type="text"
                         value={value && value.sizeX || numberX}
                         onChange={onNumberXChange}
-                        disabled = {isDisabled}
+                        disabled={isDisabled}
                     />
                 </Col>
-                <Col span={12}>
+                <Col span={!props.isMobileSize ? 12 : 6}>
                     <Input
-                    type="text"
-                    value={value && value.sizeY || numberY}
-                    onChange={onNumberYChange}
-                    disabled = { isDisabled }
-                />
+                        type="text"
+                        value={value && value.sizeY || numberY}
+                        onChange={onNumberYChange}
+                        disabled={isDisabled}
+                    />
                 </Col>
             </Row>
         </Input.Group>

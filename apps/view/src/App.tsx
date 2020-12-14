@@ -156,7 +156,6 @@ function App(): JSX.Element {
       setLogin(true)
     }
     window.addEventListener('resize',getWindowWidth)
-    return ()=> window.removeEventListener('resize',getWindowWidth)
   }, [])
   const handleGoCar = () => {
     location.href = '/';
@@ -207,7 +206,7 @@ function App(): JSX.Element {
                   : ''}
               </div>
               {/* <PcbSizeForm /> */}
-              <FormControl quoteMode={quoteMode} />
+              <FormControl quoteMode={quoteMode} isMobileSize={isMobileSize}/>
             </div>
 
 
@@ -239,21 +238,22 @@ function App(): JSX.Element {
                   <p>Online Quote</p>
                   <div></div>
                 </div>
-                <FormControl quoteMode={quoteMode} />
+                <PcbSizeForm isMobileSize={isMobileSize}/>
+                <FormControl quoteMode={0} isMobileSize={isMobileSize}/>
               </div>
               <div className='mobile-nav-online'>
                 <div className='mobile-quote'>
                   <p>Order Together With SMT-Stencil</p>
                   <div></div>
                 </div>
-                <FormControl quoteMode={1} />
+                <FormControl quoteMode={1} isMobileSize={isMobileSize}/>
               </div>
               <div className='mobile-nav-online'>
                 <div className='mobile-quote'>
                   <p>The above PCBs need Assembly</p>
                   <div></div>
                 </div>
-                <FormControl quoteMode={2} />
+                <FormControl quoteMode={2} isMobileSize={isMobileSize}/>
               </div>
               <div>
                 <BuildTimeForm buildItems={buildTimeItmes} />
