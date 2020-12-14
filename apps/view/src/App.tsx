@@ -39,7 +39,10 @@ function App(): JSX.Element {
   const [headPortrait, setPortrait] = useState(userPortrait)
   const [isLogin, setLogin] = useState(false)
   const [showUpload, setUpload] = useState(isBackToUpload)
-  const [isMobileSize,setMobileSize]=useState(false)
+  const [isMobileSize, setMobileSize] = useState(false)
+  const [isQuoteFlags, setQuote] = useState(true)
+  const [isStencilFlags, setStencil] = useState(false)
+  const [isAssembly, setAssembly] = useState(false)
   //console.log(buildTimeItmes)
   const { Footer, Header, Content } = Layout
   const handleAddQuote = () => {
@@ -155,7 +158,7 @@ function App(): JSX.Element {
     if (from === 'quote' && users === null) {
       setLogin(true)
     }
-    window.addEventListener('resize',getWindowWidth)
+    window.addEventListener('resize', getWindowWidth)
   }, [])
   const handleGoCar = () => {
     location.href = '/';
@@ -165,13 +168,22 @@ function App(): JSX.Element {
     return result
   }
   //  获取窗口的宽度
-  const getWindowWidth=()=>{
-    let windowWidth=window.innerWidth
-    if(windowWidth<850){
+  const getWindowWidth = () => {
+    let windowWidth = window.innerWidth
+    if (windowWidth < 850) {
       setMobileSize(true)
-    }else{
+    } else {
       setMobileSize(false)
     }
+  }
+  const isShowQuote = () => {
+    setQuote(!isQuoteFlags)
+  }
+  const isShowStencil=()=>{
+    setStencil(!isStencilFlags)
+  }
+  const isShowAssembly=()=>{
+    setAssembly(!isAssembly)
   }
   return (
     <>
@@ -182,7 +194,7 @@ function App(): JSX.Element {
         <Layout>
           {isFirst ? <Tips /> : ''}
           {/* <Head loginName={loginName}/> */}
-          {!isMobileSize ? <Head loginName={[loginName, headPortrait]} /> : <MobileHead/>}
+          {!isMobileSize ? <Head loginName={[loginName, headPortrait]} /> : <MobileHead />}
           {!isMobileSize ? <Content>
             {/* 左边栏 */}
             <div className="pcb-nav">
@@ -195,7 +207,6 @@ function App(): JSX.Element {
             </div>
 
             <div className="pcb-min-info">
-
               <div className="pcb-min">
                 {showUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage} /> : <GerberShow />}
                 {quoteMode === 0 ? <PcbSizeForm /> : ''}
@@ -206,54 +217,58 @@ function App(): JSX.Element {
                   : ''}
               </div>
               {/* <PcbSizeForm /> */}
-              <FormControl quoteMode={quoteMode} isMobileSize={isMobileSize}/>
+              <FormControl quoteMode={quoteMode} isMobileSize={isMobileSize} />
             </div>
 
 
             <div className="pcb-sidebar">
-
               <div className="pcb-build-time">
                 <BuildTimeForm buildItems={buildTimeItmes} />
               </div>
-
               <div className="pcb-fee">
                 <CastCalculation {...subtotal} quoteMode={quoteMode} />
               </div>
-
               <div className="pcb-cast">
-                <ShoppingCast isMobileSize={isMobileSize}/>
+                <ShoppingCast isMobileSize={isMobileSize} />
               </div>
-
               <div className="pcb-total">
                 <ShoppingTotal total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar} />
               </div>
-
             </div>
 
           </Content>
             :
             <Content>
               <div className='mobile-nav-online'>
-                <div className='mobile-quote'>
-                  <p>Online Quote</p>
-                  <div></div>
+                <div className='mobile-quote' onClick={isShowQuote}>
+                  <div className='mobile-quote-float'>
+                    <p>Online Quote</p>
+                    <div></div>
+                  </div>
+
                 </div>
-                <PcbSizeForm isMobileSize={isMobileSize}/>
-                <FormControl quoteMode={0} isMobileSize={isMobileSize}/>
+                {isQuoteFlags ? <>
+                  <PcbSizeForm isMobileSize={isMobileSize} />
+                  <FormControl quoteMode={0} isMobileSize={isMobileSize} />
+                </> : null}
               </div>
               <div className='mobile-nav-online'>
-                <div className='mobile-quote'>
-                  <p>Order Together With SMT-Stencil</p>
-                  <div></div>
+                <div className='mobile-quote' onClick={isShowStencil}>
+                  <div className='mobile-quote-float'>
+                    <p>Order Together With SMT-Stencil</p>
+                    <div></div>
+                  </div>
                 </div>
-                <FormControl quoteMode={1} isMobileSize={isMobileSize}/>
+                {isStencilFlags ? <FormControl quoteMode={1} isMobileSize={isMobileSize} /> : null}
               </div>
               <div className='mobile-nav-online'>
-                <div className='mobile-quote'>
-                  <p>The above PCBs need Assembly</p>
-                  <div></div>
+                <div className='mobile-quote' onClick={isShowAssembly}>
+                  <div className='mobile-quote-float'>
+                    <p>The above PCBs need Assembly</p>
+                    <div></div>
+                  </div>
                 </div>
-                <FormControl quoteMode={2} isMobileSize={isMobileSize}/>
+                {isAssembly ? <FormControl quoteMode={2} isMobileSize={isMobileSize} /> : null}
               </div>
               <div>
                 <BuildTimeForm buildItems={buildTimeItmes} />
@@ -262,14 +277,14 @@ function App(): JSX.Element {
                 <CastCalculation {...subtotal} quoteMode={quoteMode} />
               </div>
               <div>
-                <ShoppingCast isMobileSize={isMobileSize}/>
+                <ShoppingCast isMobileSize={isMobileSize} />
               </div>
               <div>
                 <ShoppingTotal total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar} />
               </div>
             </Content>
           }
-          {!isMobileSize ? <Foot /> : <MobileFoot/>}
+          {!isMobileSize ? <Foot /> : <MobileFoot />}
           {isLogin ? <UserLogin getUserInfo={getUserInfo} closeThisBox={closeThisBox} getUserHead={getUserHead} isLoginReady={loginReady} /> : ""}
         </Layout>
 
