@@ -12,7 +12,6 @@ export type FileInputProps = {
 
 export default function FileInput(props: FileInputProps): JSX.Element {
   const {children, handleFiles,loginState} = props
-  console.log(loginState)
   const readyLogin=()=>{
     props.loginReady(true)
   }

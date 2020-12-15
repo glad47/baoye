@@ -65,7 +65,6 @@
     box-sizing: border-box;
 }
 
-
 /*pcb-min*/
 .pcb-min {
     position: relative;
@@ -152,7 +151,6 @@
     left: 0px;
     width: 542px;
     height: 300px;
-
 }
 
 .default_img_loading>img {
@@ -160,13 +158,6 @@
     height: 240px;
     background-size: 100% 100%;
 }
-
-/* .img_show>img,.default_img_loading>img {
-    width: 100%;
-    height: 100%;
-
-    
-} */
 
 .update_font {
     width: 313px;
@@ -268,7 +259,6 @@
 .pcb-min .ant-form .ant-form-item-control {
     width: 68%;
 }
-
 
 /*pcb-spec*/
 .pcb-spec {
@@ -428,7 +418,7 @@
     float: right;
 }
 
-/*********************pcb-build-time********************/
+/* --------------- pcb-build-time -------------- */
 .pcb-sidebar .pcb-build-time {
     width: 382px;
     height: 486px;
@@ -510,7 +500,7 @@
 }
 
 
-/*********************pcb-fee********************/
+/*-----------------pcb-fee -------------*/
 .pcb-sidebar .pcb-fee {
     width: 382px;
     min-height: 184px;
@@ -549,7 +539,7 @@
     margin-right: 15px;
 }
 
-/*********************pcb-cost********************/
+/*---------------pcb-cost----------*/
 .pcb-sidebar .pcb-cast {
     width: 382px;
     height: 146px;
@@ -594,7 +584,7 @@
     color: rgba(102, 102, 102, 1);
 }
 
-/*********************pcb-total********************/
+/*------------pcb-total----------*/
 .pcb-sidebar .pcb-total {
     width: 382px;
     height: 268px;
@@ -719,8 +709,6 @@
 }
 
 .pcb-stencil .ant-col .ant-select-selector {
-    /* width: 180px; */
-    /* height: 30px; */
     background: #f1f7fc;
     border: 0;
     border-radius: 0;
@@ -760,11 +748,10 @@
 .pcb-assembly .ant-row {
     min-height: 30px;
     line-height: 30px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .pcb-assembly .ant-col span {
-    /* display: block; */
     font-size: 14px;
     font-family: Arial;
     font-weight: 400;
@@ -847,7 +834,6 @@ body {
 
 .sans .ant-layout {
     background: #fff;
-    /* padding-top: 12px; */
 }
 
 .sans .ant-layout .ant-layout-header {
@@ -880,22 +866,10 @@ body {
     width: 300px;
     display: flex;
     justify-content: space-between;
-
 }
 
 .sign-in {
     display: block;
-    /* width: 143px;
-    height: 26px;
-    line-height: 24px;
-    text-align: center;
-    font-size: 14px;
-    font-family: Arial;
-    font-weight: bold;
-    color: #2952ea;
-    border-radius: 26px;
-    border: 2px solid #2952ea;
-    cursor: pointer; */
     width: 150px;
     height: 36px;
     background: #ffca00;
@@ -2659,7 +2633,7 @@ body {
     display: none;
 }
 
-/* mobile端 */
+/* --------------------------------------------------------------------------------------------------------------mobile端----------------------------------------------------------------------- */
 @media screen and (max-width:850px) {
 
     html,
@@ -2669,6 +2643,11 @@ body {
 
     html {
         font-size: 11.764705vw;
+    }
+
+    /* pc 端元素的隐藏 */
+    .pcb-nav {
+        display: none;
     }
 
     /* 移动端头部 */
@@ -2899,9 +2878,10 @@ body {
     }
 
     /* .mobile-nav-online{} */
-    .mobile-nav-online:nth-of-type(1){
+    .mobile-nav-online:nth-of-type(1) {
         padding-bottom: 10px;
     }
+
     .mobile-quote {
         width: 92%;
         margin: 0 auto;
@@ -2916,7 +2896,8 @@ body {
         margin-bottom: 15px;
         position: relative;
     }
-    .mobile-quote::before{
+
+    .mobile-quote::before {
         width: 1%;
         height: 100%;
         position: absolute;
@@ -2925,14 +2906,18 @@ body {
         content: '';
         background: #759BFA;
     }
-    .mobile-quote-float{
+
+    .mobile-quote-float {
         width: 100%;
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: space-between;
     }
-    .mobile-quote .mobile-quote-float >p {
+
+    .mobile-quote .mobile-quote-float>p {
         font-family: Arial-BoldMT;
         font-size: 18px;
         color: #000000;
@@ -2957,6 +2942,10 @@ body {
         width: 93%;
         margin: 0 auto;
         box-shadow: 0px 7px 21px 0px rgba(172, 189, 253, 0.77);
+    }
+
+    .mobile-size-form .mobile-size-form-pcb .ant-row {
+        height: 50px;
     }
 
     .mobile-size-form-pcb {
@@ -3061,7 +3050,15 @@ body {
     }
 
     .mobile-thickness {
-        height: 86px !important
+        height: 65px !important
+    }
+
+    .pcb-stencil .ant-col .ant-select-selector {
+        background-color: white;
+    }
+
+    .mobile-stencil-form .ant-row .ant-form-item-control .ant-form-item-control-input .ant-select {
+        border: 1px solid #ccc;
     }
 
     .pcb-stencil .ant-radio-group {
@@ -3246,7 +3243,7 @@ body {
         font-size: 16px;
         color: #000000;
         box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.11);
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
     }
 
     .mobile-total-money h5 {
@@ -3260,6 +3257,27 @@ body {
         display: none;
     }
 
+    .mobile-pay-cash {
+        width: 93%;
+        margin: 0 auto;
+        background-color: white;
+        padding: 20px 0;
+        box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.11);
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .mobile-pay-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 15px;
+    }
+
+    .mobile-pay-icon img {
+        width: 100%;
+        height: 100%;
+    }
+
     .mobile-total-total {
         text-align: right;
     }
@@ -3267,6 +3285,10 @@ body {
     .increase-distance {
         display: inline-block;
         width: 10px;
+    }
+
+    .mobile-arrow {
+        margin-right: 17px;
     }
 
     /* special */
@@ -3284,6 +3306,17 @@ body {
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+    }
+
+    .mobile-special-arrow {
+        width: 14px;
+        height: 15px;
+    }
+
+    .mobile-special-right {
+        width: 9px;
+        height: 15px;
     }
 
     .mobile-special-content>span {
@@ -3291,6 +3324,7 @@ body {
         font-size: 14px;
         color: #000000;
     }
+
     .mobile-size-form .ant-form .ant-form-item .ant-form-item-label,
     .mobile-size-form .ant-form .ant-form-item .ant-form-item-control,
     .pcb-spec .ant-form .ant-form-item .ant-form-item-label,
@@ -3325,8 +3359,9 @@ body {
 }
 
 
-/* antd 默认珊格化样式 */
+/* antd 默认珊格化样式（未做按需加载，导致全部样式引入错乱） */
 @media (max-width: 575px) {
+
     .mobile-size-form .ant-form .ant-form-item .ant-form-item-label,
     .mobile-size-form .ant-form .ant-form-item .ant-form-item-control,
     .pcb-spec .ant-form .ant-form-item .ant-form-item-label,

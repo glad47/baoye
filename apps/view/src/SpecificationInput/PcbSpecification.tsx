@@ -99,7 +99,7 @@ const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
     // const [ selectedRadio, setSelectedRadio ] =useState("standard");
     // const [ standardFrom, setStandardFrom ] = useState(INITIAL_STANDARD);
     // const [ specialFrom, setSpecialFrom ] = useState(INITIAL_SPECIAL);
-    const [isShowFlag,setShowFlag]=useState(false)
+    const [isShowFlag, setShowFlag] = useState(false)
     const { fieldMode } = useAppState()
     const isShowMobileSpecial = () => {
         setShowFlag(!isShowFlag)
@@ -119,10 +119,15 @@ const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
                     <div className='mobile-special-flags' onClick={isShowMobileSpecial}>
                         <div className='mobile-special-content'>
                             <span>Special</span>
-                            <div></div>
+                            <div>
+                                {isShowFlag ?
+                                    <img src={require('../images/ai-arrow-down.png')} alt='arrow down' className='mobile-special-arrow' /> :
+                                    <img src={require('../images/navigation_icon2.png')} alt='navigation icon' className='mobile-special-right' />
+                                }
+                            </div>
                         </div>
                     </div>
-                    {isShowFlag? <div className='mobile-special-form'>
+                    {isShowFlag ? <div className='mobile-special-form'>
                         <PcbSpecialForm onChange={props.onChange} isMobileSize={props.isMobileSize} />
                     </div> : null}
 

@@ -10,17 +10,12 @@ interface PcbSpecialFormProps {
     isMobileSize?: boolean
 }
 
-
-
 const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) => {
     const [form] = Form.useForm();
     const { pcbSpecialField, dispatch } = useAppState();
 
     const onValuesChange = (v: Store, value: Store) => {
         dispatch(changeSpecialField(value))
-        // const onValuesChange = () =>{
-        //     form.submit();
-        //     console.log('form表单提交了')
     }
     const onFinish = (v: Store) => {
         dispatch(changeSpecialField(v))
@@ -77,20 +72,17 @@ const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) => {
             </Row>
         </Form> :
             <Form form={form} initialValues={pcbSpecialField} onValuesChange={onValuesChange} style={{ width: "100%" }}>
+                <Form.Item label="HDI">
+                    <ObserverSwitch name="hdi" />
+                </Form.Item>
 
-                
-                    <Form.Item label="HDI">
-                        <ObserverSwitch name="hdi" />
-                    </Form.Item>
-              
-                    <Form.Item label="Bevelling(Camfer)">
-                        <ObserverSwitch name="bevellingCamfer" />
-                    </Form.Item>
-       
-                    <Form.Item label="Peelable Solder Mask" >
-                        <ObserverSwitch name="peelableSolderMask" />
-                    </Form.Item>
-        
+                <Form.Item label="Bevelling(Camfer)">
+                    <ObserverSwitch name="bevellingCamfer" />
+                </Form.Item>
+
+                <Form.Item label="Peelable Solder Mask" >
+                    <ObserverSwitch name="peelableSolderMask" />
+                </Form.Item>
 
                 <Form.Item label="Edge Plating" >
                     <ObserverSwitch name="edgePlating" />
@@ -126,7 +118,6 @@ const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) => {
                 <Form.Item label="Acceptable Quality Levels" >
                     <ObserverSwitch name="acceptableQualityLevels" />
                 </Form.Item>
-
             </Form>
     )
 }

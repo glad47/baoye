@@ -43,7 +43,6 @@ function App(): JSX.Element {
   const [isQuoteFlags, setQuote] = useState(true)
   const [isStencilFlags, setStencil] = useState(false)
   const [isAssembly, setAssembly] = useState(false)
-  //console.log(buildTimeItmes)
   const { Footer, Header, Content } = Layout
   const handleAddQuote = () => {
     if (quoteMode === 0) {
@@ -107,14 +106,11 @@ function App(): JSX.Element {
     setLogin(e)
   }
   const getUserInfo = (e: any) => {
-    console.log(e, 'username')
     setLoginName(e)
   }
   // 实时更新头像
   const getUserHead = (e: any) => {
-
     let heads = require('./images/Mask.png')
-
     if (!!e) {
       setPortrait(e)
     } else {
@@ -149,7 +145,6 @@ function App(): JSX.Element {
     let userAllInfo: any = JSON.parse(sessionStorage.getItem('userAllInfo') || '{}')
     const { favicon } = userAllInfo
     setPortrait(favicon)
-    // console.log(isFirst)
     if (isFirst == undefined) {
       setFirst(true)
     } else {
@@ -158,7 +153,11 @@ function App(): JSX.Element {
     if (from === 'quote' && users === null) {
       setLogin(true)
     }
+    getWindowWidth()
     window.addEventListener('resize', getWindowWidth)
+    return () => {
+      window.removeEventListener('resize', getWindowWidth)
+    }
   }, [])
   const handleGoCar = () => {
     location.href = '/';
@@ -179,15 +178,14 @@ function App(): JSX.Element {
   const isShowQuote = () => {
     setQuote(!isQuoteFlags)
   }
-  const isShowStencil=()=>{
+  const isShowStencil = () => {
     setStencil(!isStencilFlags)
   }
-  const isShowAssembly=()=>{
+  const isShowAssembly = () => {
     setAssembly(!isAssembly)
   }
   return (
     <>
-
       <Main>
         {/* <FileList /> */}
         {/* <BoardList /> */}
@@ -243,9 +241,13 @@ function App(): JSX.Element {
                 <div className='mobile-quote' onClick={isShowQuote}>
                   <div className='mobile-quote-float'>
                     <p>Online Quote</p>
-                    <div></div>
+                    <div className='mobile-arrow'>
+                      {isQuoteFlags ?
+                        <img src={require('./images/hide_hover_content.png')} alt='hide content' /> :
+                        <img src={require('./images/show_content.png')} alt='show content' />
+                      }
+                    </div>
                   </div>
-
                 </div>
                 {isQuoteFlags ? <>
                   <PcbSizeForm isMobileSize={isMobileSize} />
@@ -256,7 +258,12 @@ function App(): JSX.Element {
                 <div className='mobile-quote' onClick={isShowStencil}>
                   <div className='mobile-quote-float'>
                     <p>Order Together With SMT-Stencil</p>
-                    <div></div>
+                    <div className='mobile-arrow'>
+                      {isStencilFlags ?
+                        <img src={require('./images/hide_hover_content.png')} alt='hide content' /> :
+                        <img src={require('./images/show_content.png')} alt='show content' />
+                      }
+                    </div>
                   </div>
                 </div>
                 {isStencilFlags ? <FormControl quoteMode={1} isMobileSize={isMobileSize} /> : null}
@@ -265,7 +272,10 @@ function App(): JSX.Element {
                 <div className='mobile-quote' onClick={isShowAssembly}>
                   <div className='mobile-quote-float'>
                     <p>The above PCBs need Assembly</p>
-                    <div></div>
+                    <div className='mobile-arrow'>
+                      {isAssembly ? <img src={require('./images/hide_hover_content.png')} alt='hide content' /> :
+                        <img src={require('./images/show_content.png')} alt='show content' />}
+                    </div>
                   </div>
                 </div>
                 {isAssembly ? <FormControl quoteMode={2} isMobileSize={isMobileSize} /> : null}
@@ -280,14 +290,13 @@ function App(): JSX.Element {
                 <ShoppingCast isMobileSize={isMobileSize} />
               </div>
               <div>
-                <ShoppingTotal total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar} />
+                <ShoppingTotal total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar} isMobileSize={isMobileSize} />
               </div>
             </Content>
           }
           {!isMobileSize ? <Foot /> : <MobileFoot />}
           {isLogin ? <UserLogin getUserInfo={getUserInfo} closeThisBox={closeThisBox} getUserHead={getUserHead} isLoginReady={loginReady} /> : ""}
         </Layout>
-
       </Main>
     </>
   )

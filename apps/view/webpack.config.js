@@ -95,14 +95,14 @@ module.exports = merge(baseConfig(__dirname), {
     }),
   ],
   // 配置跨域
-  // devServer:{
-  //   proxy:{
-  //     "/api":{
-  //       target:"http://10.168.8.250:8877/",
-  //       pathRewrite:{"^/api":""},
-  //       changeOrigin:true,
-  //       secure:false,
-  //     }
-  //   }
-  // }
+  devServer:{
+    // proxy:{
+    //   "/api":{
+    //     target:"https://sys.pcbonline.com",
+    //     pathRewrite:{"^/api":""},
+    //     changeOrigin:true,
+    //     secure:false,
+    //   }
+    // }
+  }
 })

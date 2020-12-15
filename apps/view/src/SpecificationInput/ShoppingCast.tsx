@@ -23,7 +23,7 @@ interface ShoppingCastProps {
     countryItmes?: Array<CountryItem>
     couriersItems?: Array<CouriersItems>
     shoppingCast?: 500
-    isMobileSize?:boolean
+    isMobileSize?: boolean
 }
 
 const { Title, Text } = Typography
@@ -46,7 +46,6 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
                     console.log(rep)
                 })
         }
-        console.log(props.isMobileSize)
     }, [countryItem]);
     // todo 任务1
     // const [countryItems, setCountryItems ] = useState([]);

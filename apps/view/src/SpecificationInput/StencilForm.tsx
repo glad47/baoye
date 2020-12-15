@@ -175,13 +175,6 @@ const StencilForm: React.FC<StencilFormProps> = (props) => {
                     <div className='mobile-stencil-form'>
                         <span>Thickness</span>
                         <Form.Item name="thickness" className='mobile-thickness'>
-                            {/* <Select style={defaultSelectStyle}>
-                                {
-                                    thincknessSelectData.map(item => (
-                                        <Option key={item.id} value={item.id}>{item.name}</Option>
-                                    ))
-                                }
-                            </Select> */}
                             <Radio.Group>
                                 {
                                     thincknessSelectData.map(item => (
@@ -213,7 +206,6 @@ const StencilForm: React.FC<StencilFormProps> = (props) => {
                         footer={null}
                         width={600}
                     >
-
                         <Table
                             dataSource={data}
                             pagination={false}
@@ -226,7 +218,6 @@ const StencilForm: React.FC<StencilFormProps> = (props) => {
                                 }
                             }}
                         >
-                            {/* <Column title="Choose" dataIndex="choose" key="id" /> */}
                             <Column title="Type" dataIndex="materialName" />
                             <Column title="SizeX" dataIndex="stencilSizex" />
                             <Column title="SizeY" dataIndex="stencilSizey" />
