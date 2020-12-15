@@ -45,6 +45,7 @@ function UserLogin(props: any) {
                         sessionStorage.setItem('userAllInfo',JSON.stringify(result))
                         props.closeThisBox(false)
                         props.isLoginReady(true)
+                        message.info('Login successful',6)
                     }else{
                         message.error('Something error')
                     }
