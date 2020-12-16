@@ -100,7 +100,6 @@ function App(): JSX.Element {
   const aginUpload = () => {
     setUpload(true)
     dispatch(backToUpload(true))
-
   }
   const setLoginMessage = (e: any) => {
     setLogin(e)

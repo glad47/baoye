@@ -2,7 +2,7 @@
 'use strict'
 
 const path = require('path')
-const {EnvironmentPlugin} = require('webpack')
+const { EnvironmentPlugin } = require('webpack')
 const FileManagerPlugin = require('filemanager-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -69,10 +69,10 @@ module.exports = merge(baseConfig(__dirname), {
           name: '[name].[contenthash].[ext]',
         },
       },
-      {  
-        test: /\.(woff|woff2|eot|ttf|otf)$/, 
-        loader: "file-loader" 
-        },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        loader: "file-loader"
+      },
     ],
   },
   plugins: [
@@ -84,8 +84,8 @@ module.exports = merge(baseConfig(__dirname), {
       PKG_AUTHOR_URL: pkg.author.url,
     }),
     new FileManagerPlugin({
-      onStart: {mkdir: [OUT_PATH]},
-      onEnd: {archive: [{source: EXAMPLE_FILES, destination: EXAMPLE_OUT}]},
+      onStart: { mkdir: [OUT_PATH] },
+      onEnd: { archive: [{ source: EXAMPLE_FILES, destination: EXAMPLE_OUT }] },
     }),
     new HtmlPlugin({
       template: path.join(__dirname, 'src/template'),
@@ -95,7 +95,7 @@ module.exports = merge(baseConfig(__dirname), {
     }),
   ],
   // 配置跨域
-  devServer:{
+  devServer: {
     // proxy:{
     //   "/api":{
     //     target:"https://sys.pcbonline.com",
