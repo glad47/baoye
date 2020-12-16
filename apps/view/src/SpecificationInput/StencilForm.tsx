@@ -83,6 +83,7 @@ const StencilForm: React.FC<StencilFormProps> = (props) => {
                         </Form.Item>
                     </Col>
                 </Row>
+                
                 <Row>
                     <Col span={12}><span>Stencil Side</span></Col>
                     <Col span={12}>
