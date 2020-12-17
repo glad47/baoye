@@ -10,6 +10,7 @@ function Foot() {
         let windowWidth = window.innerWidth
         if (windowWidth < 850) { return }
         const site = document.getElementById('siteseal')
+        if (site == null || site == undefined) { return }
         let createElement = document.createElement('script')
         createElement.src = 'https://seal.godaddy.com/getSeal?sealID=JyOmqvrJtXawl2GzkTr8Tf8g72riSFgMhkRVxbFC8cMv1lCwC1uwAHAeeklK'
         createElement.type = 'text/javascript'
