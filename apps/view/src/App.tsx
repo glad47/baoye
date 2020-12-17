@@ -30,7 +30,7 @@ function App(): JSX.Element {
     , fileUploadPtah
     , isBackToUpload
     , isShow
-    , buildTimeItmes
+    , buildTimeItmes: buildTimeItems
     , pcbSizeField: { boardType, quantity, panelSize, singleSize } } = useAppState()
   let uname: any = null;
   let userPortrait: any = null;
@@ -220,7 +220,7 @@ function App(): JSX.Element {
 
             <div className="pcb-sidebar">
               <div className="pcb-build-time">
-                <BuildTimeForm buildItems={buildTimeItmes} />
+                <BuildTimeForm buildItems={buildTimeItems} />
               </div>
               <div className="pcb-fee">
                 <CastCalculation {...subtotal} quoteMode={quoteMode} />
@@ -280,7 +280,7 @@ function App(): JSX.Element {
                 {isAssembly ? <FormControl quoteMode={2} isMobileSize={isMobileSize} /> : null}
               </div>
               <div>
-                <BuildTimeForm buildItems={buildTimeItmes} />
+                <BuildTimeForm buildItems={buildTimeItems} />
               </div>
               <div>
                 <CastCalculation {...subtotal} quoteMode={quoteMode} />
