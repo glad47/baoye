@@ -3,7 +3,7 @@ import { useAppState, backToUpload } from "../state";
 import LoadFiles from '../LoadFiles/index'
 import { Spin } from "antd";
 
-interface GerberShowProps { }
+interface GerberShowProps {}
 const WRAPPER_STYLE = 'absolute absolute--center near-black tc'
 //gerber显示组件
 const GerberShow: React.FC<GerberShowProps> = (props) => {
@@ -11,7 +11,7 @@ const GerberShow: React.FC<GerberShowProps> = (props) => {
     const SIZE_CLASS_NAME = sizeX && sizeY && sizeX > sizeY ? 'vertical_svg_first' : 'transverse_svg_first'
     const SIZE_FIRST_CLASS_NAME = sizeX && sizeY && sizeX > sizeY ? 'vertical_svg' : 'transverse_svg'
     const [isTimeOut, setTimer] = useState(isBackToUpload)
-    const wordTip = isTimeOut ? 'Successful geber file upload ！ Analyzing data, please wait and then check.' : 'It takes a little time for analyzing the file. You can also input by your own to get a quote.'
+    const wordTip = isTimeOut ? 'Successful Gerber file upload! The system is analyzing data. Please wait and check the specifications.' : 'It takes a little time for analyzing the file. You can also input by your own to get a quote.'
     const {material,layer,silkscreen,solderMask}=pcbStandardField
     useEffect(() => {
         let timer: any

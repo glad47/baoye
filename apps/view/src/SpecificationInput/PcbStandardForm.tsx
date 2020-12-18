@@ -14,7 +14,7 @@ interface PcbStandardFromProps {
 const materialSelectData = ['FR4', 'Aluminum'];
 const thicknessSelectData = ['0.4mm', '0.6mm', '0.8mm', '1.0mm', '1.2mm', '1.5mm', '1.6mm', '2.0mm', '2.4mm', '3.0mm'];
 const tgSelectData = ['135', '140', '150', '170', '180'];
-const layerSelectData = ['1layer', '2layer', '4layer', '6layer', '8layer'];
+const layerSelectData = ['1 layer', '2 layers', '4 layers', '6 layers', '8 layers'];
 const innerCopperSelectData = ['none', '1oz', '2oz', '3oz'];
 const minTrackSelectData = ['none', '3/3mil', '4/4mil', '5/5mil', '6/6mil', '7/7mil'];
 const minHoleSizeSelectData = ['0.2', '0.3', '0.35', '0.4', '0.5', '1.5'];
@@ -56,7 +56,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) => {
             case "Aluminum": {
                 form.setFieldsValue(
                     {
-                        "layer": "1layer",
+                        "layer": "1 layer",
                         "minHoleSize": '1.5',
                         "holeCopper": "none",
                         "solderMask": "white",
@@ -70,7 +70,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) => {
                 setHoleCopperSelectDisabled(true);
                 dispatch(changeStandardField({
                     ...values,
-                    layer: '1layer',
+                    layer: '1 layer',
                     minHoleSize: '1.5',
                     holeCopper: 'none',
                     solderMask: 'white',
@@ -83,7 +83,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) => {
             case "FR4": {
                 form.setFieldsValue(
                     {
-                        "layer": "2layer",
+                        "layer": "2 layers",
                         "minHoleSize": '0.3',
                         "holeCopper": '20um',
                         "solderMask": 'green',
@@ -97,7 +97,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) => {
                 setHoleCopperSelectDisabled(false);
                 dispatch(changeStandardField({
                     ...values,
-                    layer: '2layer',
+                    layer: '2 layers',
                     minHoleSize: '0.3',
                     holeCopper: '20um',
                     solderMask: 'green',
@@ -137,7 +137,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) => {
                 dispatch(changeStandardField({ ...values, surfaceThickness: 'Ni:120-150u "Au:1u"' }))
                 break;
             }
-            case "1layer": {
+            case "1 layer": {
                 form.setFieldsValue({
                     "holeCopper": "none",
                     "innerCopper": "none",
@@ -147,7 +147,7 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) => {
                 dispatch(changeStandardField({ ...values, holeCopper: 'none', innerCopper: 'none' }))
                 break;
             }
-            case "2layer": {
+            case "2 layers": {
                 form.setFieldsValue({
                     "holeCopper": "20um",
                     "innerCopper": "none",
@@ -157,9 +157,9 @@ const PcbStandardFrom: React.FC<PcbStandardFromProps> = (props) => {
                 dispatch(changeStandardField({ ...values, holeCopper: '20um', innerCopper: 'none' }))
                 break;
             }
-            case "4layer":
-            case "6layer":
-            case "8layer": {
+            case "4 layers":
+            case "6 layers":
+            case "8 layers": {
                 form.setFieldsValue({
                     "holeCopper": "20um",
                     "innerCopper": "1oz",

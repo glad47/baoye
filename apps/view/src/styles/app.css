@@ -2620,6 +2620,7 @@ body {
 
 /* --------------------------------------------------------------------------------------------------------------mobile端----------------------------------------------------------------------- */
 @media screen and (max-width:850px) {
+
     html,
     body {
         width: 100%;
@@ -3343,8 +3344,35 @@ body {
     }
 }
 
+.pcb-title,
+.stencil-title,
+.assembly-title {
+    position: relative;
+}
+
+.pcb-word,
+.stencil-word,
+.assembly-word {
+    display: none;
+    position: absolute;
+    left: 60px;
+    z-index: 999999;
+}
+
+.pcb-title:hover .pcb-word {
+    display: block;
+}
+
+.stencil-title:hover .stencil-word {
+    display: block;
+}
+.assembly-title:hover .assembly-word{
+    display: block;
+}
+
 /* antd 默认珊格化样式（未做按需加载，导致全部样式引入错乱） */
 @media (max-width: 575px) {
+
     .mobile-size-form .ant-form .ant-form-item .ant-form-item-label,
     .mobile-size-form .ant-form .ant-form-item .ant-form-item-control,
     .pcb-spec .ant-form .ant-form-item .ant-form-item-label,

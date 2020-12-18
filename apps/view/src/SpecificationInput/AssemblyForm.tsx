@@ -4,7 +4,7 @@ import { useAppState, changeAssemblyField } from '../state';
 import { Store } from 'antd/lib/form/interface';
 
 interface AssemblyFormProps {
-    isMobileSize?:boolean
+    isMobileSize?: boolean
 }
 
 /** 贴片form表格 */
@@ -45,7 +45,7 @@ const AssemblyFrom: React.FC<AssemblyFormProps> = (props) => {
                 </Row>
                 <Row>
                     <Col span={12}>
-                        <span>Number of Througt-Hole Parts</span>
+                        <span>Number of Through-Hole Parts</span>
                     </Col>
                     <Col span={12}>
                         <Form.Item name="throughHolePartNum">
@@ -84,13 +84,13 @@ const AssemblyFrom: React.FC<AssemblyFormProps> = (props) => {
                         <Form.Item name="assemblyType">
                             <Radio.Group>
                                 <Radio value={1}>
-                                    You Supply Parts, PCBonline only Assembly
+                                    You Supply Parts, PCBONLINE only Assembles
                            </Radio>
                                 <Radio value={2}>
-                                    PCBonline Supply Some Parts And Assembly
+                                    PCBONLINE Supplies Some Parts and Assembly
                            </Radio>
                                 <Radio value={3}>
-                                    PCBonline Supply All Parts And Assembly
+                                    PCBONLINE Supplies All Parts and Assembly
                            </Radio>
                             </Radio.Group>
                         </Form.Item>
@@ -104,13 +104,13 @@ const AssemblyFrom: React.FC<AssemblyFormProps> = (props) => {
                     <Form.Item name="assemblyType">
                         <Radio.Group>
                             <Radio value={1}>
-                                You Supply Parts, PCBonline only Assembly
+                                You Supply Parts, PCBONLINE only Assembles
                                 </Radio>
                             <Radio value={2}>
-                                PCBonline Supply Some Parts And Assembly
+                                PCBONLINE Supplies Some Parts and Assembly
                                 </Radio>
                             <Radio value={3}>
-                                PCBonline Supply All Parts And Assembly
+                                PCBONLINE Supplies All Parts and Assembly
                                 </Radio>
                         </Radio.Group>
                     </Form.Item>
@@ -132,7 +132,7 @@ const AssemblyFrom: React.FC<AssemblyFormProps> = (props) => {
                 </div>
 
                 <div className='mobile-assembly-form'>
-                    <span className='mobile-assembly-form-label'>Number of Througt-Hole Parts</span>
+                    <span className='mobile-assembly-form-label'>Number of Throug-Hole Parts</span>
                     <Form.Item name="throughHolePartNum">
                         <Input />
                     </Form.Item>
