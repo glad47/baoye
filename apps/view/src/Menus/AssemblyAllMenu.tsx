@@ -6,6 +6,10 @@ function AssemblyAllMenu() {
             <div className="navigation">
                 <ul className='navigation-left'>
                     <li>
+                        <a href='https://www.pcbonline.com/pcba-process/'>PCBA Process</a>
+                        <div className="instructions" />
+                    </li>
+                    <li>
                         <a href='https://www.pcbonline.com/PCB-Assembly/PCB-Assembly-Overview/'>Prototype PCB Assembly</a>
                         <div className="instructions" />
                     </li>

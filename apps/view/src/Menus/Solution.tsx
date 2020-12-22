@@ -10,7 +10,7 @@ function Solution() {
                         <div className="instructions" />
                     </li>
                     <li>
-                        <a href='https://www.pcbonline.com/ems-solution/circuit-board-components/'>Circuit Board Components</a>
+                        <a href='https://www.pcbonline.com/electronic-components/'>Electronic Components</a>
                         <div className="instructions" />
                     </li>
                     <li>

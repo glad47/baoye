@@ -2300,6 +2300,17 @@ body {
     display: none;
 }
 
+#pcb-company {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
+    animation: fadeInBottom 300ms ease-in;
+    z-index: 999;
+    display: none;
+}
+
 #solution {
     position: absolute;
     top: 45px;
@@ -2336,6 +2347,9 @@ body {
 }
 
 .pcb-menu-four:hover #resource {
+    display: block;
+}
+.pcb-menu-five:hover #pcb-company{
     display: block;
 }
 
@@ -3366,7 +3380,8 @@ body {
 .stencil-title:hover .stencil-word {
     display: block;
 }
-.assembly-title:hover .assembly-word{
+
+.assembly-title:hover .assembly-word {
     display: block;
 }
 

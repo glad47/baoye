@@ -34,7 +34,7 @@ export default class index extends Component {
                             <div className='footer_link'>
                                 <a href='https://www.pcbonline.com/PCB-prototype/'>PCB Prototype</a>
                                 <a href='https://www.pcbonline.com/support/FR4-Materials/'>Material</a>
-                                <a href='https://www.pcbonline.com/support/How-To-Order-Online/'>How to use</a>
+                                <a href='https://www.pcbonline.com/support/how-to-order-online/'>How to use</a>
                             </div>
                             <div className='footer_link'>
                                 <a href='https://www.pcbonline.com/PCB-FAB/PCB-layout/'>PCB Layout</a>

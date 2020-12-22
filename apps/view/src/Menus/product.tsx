@@ -6,19 +6,19 @@ function Product() {
             <div className='navigation'>
                 <ul className='navigation-left'>
                     <li>
-                        <a href='https://www.pcbonline.com/PCB-prototype/'>PCB Prototype</a>
+                        <a href='https://www.pcbonline.com/PCB-FAB/PCB-prototype/'>PCB Prototype</a>
                         <div className="instructions" />
                     </li>
                     <li>
-                        <a href='https://www.pcbonline.com/HDI-PCB/'>HDI PCB</a>
+                        <a href='https://www.pcbonline.com/PCB-FAB/HDI-PCB/'>HDI PCB</a>
                         <div className="instructions" />
                     </li>
                     <li>
-                        <a href='https://www.pcbonline.com/Flexible-PCBs/'>Flexible PCB</a>
+                        <a href='https://www.pcbonline.com/PCB-FAB/Flexible-PCBs/'>Flexible PCB</a>
                         <div className="instructions" />
                     </li>
                     <li>
-                        <a href='https://www.pcbonline.com/High-TG-PCBs/'>High-TG PCB</a>
+                        <a href='https://www.pcbonline.com/PCB-FAB/High-TG-PCBs/'>High-TG PCB</a>
                         <div className="instructions" />
                     </li>
                     <li>
@@ -44,7 +44,7 @@ function Product() {
                         <div className="instructions" />
                     </li>
                     <li>
-                        <a href='https://www.pcbonline.com/PCB-FAB/Hight-Frequency-PCBs/'>High Frequency PCB</a>
+                        <a href='https://www.pcbonline.com/PCB-FAB/High-Frequency-PCBs/'>High Frequency PCB</a>
                         <div className="instructions" />
                     </li>
                     <li>

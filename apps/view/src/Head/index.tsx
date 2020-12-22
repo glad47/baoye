@@ -3,6 +3,7 @@ import Product from '../Menus/product'
 import Assembly from '../Menus/AssemblyAllMenu'
 import Solution from '../Menus/Solution'
 import Resource from '../Menus/Resource'
+import Company from '../Menus/Company'
 import LoginShow from '../DownMenu/loginShow'
 
 function Head(props: any) {
@@ -37,7 +38,9 @@ function Head(props: any) {
                             <Resource />
                         </li>
                         <li className='pcb-menu-five'>
-                            <a href='https://www.pcbonline.com/about/'>About</a>
+                            <a>Company</a>
+                            <div className="pcb-instructions" />
+                            <Company/>
                         </li>
                         <li className='pcb-menu-six'>
                             <a>Get a Quote</a>
