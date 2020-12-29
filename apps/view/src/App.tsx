@@ -168,7 +168,7 @@ function App(): JSX.Element {
         }
     }, [])
     const handleGoCar = () => {
-        location.href = '/';
+        location.href = '/audit';
     }
     async function loginReady(e?: any) {
         let result = await e
