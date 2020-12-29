@@ -11,10 +11,10 @@ interface ShoppingTotalProps {
     handleAddQuote: () => void;
     handleGoCar: () => void;
     isMobileSize?: boolean;
-    handMobileTool:any;
-    isTool:boolean;
-    loginName: any;
-    setLoginMessage: any
+    handMobileTool?:any;
+    isTool?:boolean;
+    loginName?: any;
+    setLoginMessage?: any
 }
 
 const { Option } = Select;

@@ -15,6 +15,7 @@ import UserLogin from './UserLogin'
 import Tips from './GuideTips/index'
 import Foot from './Footer/index'
 import MobileFoot from './Footer/MobileFoot'
+import ReactGA from 'react-ga'
 
 import SideNavigation, { SideNavigationTab } from './SpecificationInput/SideNavigation'
 import FormControl from './SpecificationInput/FormControl'
@@ -161,6 +162,7 @@ function App(): JSX.Element {
         }
         getWindowWidth()
         window.addEventListener('resize', getWindowWidth)
+        ReactGA.ga('set', 'page', 'https://sys.pcbonline.com/instant-quote/')
         return () => {
             window.removeEventListener('resize', getWindowWidth)
         }

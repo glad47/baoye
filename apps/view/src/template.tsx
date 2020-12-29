@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDomServer from 'react-dom/server'
-import {dom as faDom} from '@fortawesome/fontawesome-svg-core'
+import { dom as faDom } from '@fortawesome/fontawesome-svg-core'
 
 import App from './App'
 
@@ -21,7 +21,7 @@ type Props = {
 }
 
 export default function StaticTemplate(props: Props): string {
-  const {options} = props.htmlWebpackPlugin
+  const { options } = props.htmlWebpackPlugin
 
   return `<!doctype html>${ReactDomServer.renderToStaticMarkup(
     <html lang="en" className="h-100 lh-solid">
@@ -37,6 +37,7 @@ export default function StaticTemplate(props: Props): string {
         <link rel="icon" type="image/png" sizes="32x32" href={faviconNew} />
         <style>{faDom.css()}</style>
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3V6Y7YZNEE"></script>
       </head>
       <body className="h-100 overflow-hidden">
         <div

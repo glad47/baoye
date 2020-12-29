@@ -10770,6 +10770,11 @@ react-fast-compare@^2.0.1:
   resolved "https://registry.npm.taobao.org/react-fast-compare/download/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha1-6EtNRVsP7BE+BALDKTUnFRlvgfk=
 
+react-ga@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.npm.taobao.org/react-ga/download/react-ga-3.3.0.tgz#c91f407198adcb3b49e2bc5c12b3fe460039b3ca"
+  integrity sha1-yR9AcZityztJ4rxcErP+RgA5s8o=
+
 react-hot-loader@^4.12.18:
   version "4.12.21"
   resolved "https://registry.npm.taobao.org/react-hot-loader/download/react-hot-loader-4.12.21.tgz#332e830801fb33024b5a147d6b13417f491eb975"
