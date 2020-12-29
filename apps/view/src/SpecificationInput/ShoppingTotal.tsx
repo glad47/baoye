@@ -4,12 +4,17 @@ import { Row, Col, Select, Button, Input } from 'antd';
 import axios from 'axios'
 import { baseUrl } from './AjaxService';
 import RateSwitch from './RateSwitch';
+import GerberUpload from '../SpecificationInput/GerberUpload'
 
 interface ShoppingTotalProps {
     total: number;
     handleAddQuote: () => void;
     handleGoCar: () => void;
-    isMobileSize?: boolean
+    isMobileSize?: boolean;
+    handMobileTool:any;
+    isTool:boolean;
+    loginName: any;
+    setLoginMessage: any
 }
 
 const { Option } = Select;
@@ -67,14 +72,14 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
 
     return (
         <div>
-            <Row className='mobile-total-money'>
+            {(props.isTool && props.isMobileSize) && <Row className='mobile-total-money'>
                 <Col span={12}><h5>Total</h5></Col>
                 {/* <Col span={12}><b>{total}</b> */}
                 <Col span={12} className='mobile-total-total'><b>${total}</b>
                     <SwapOutlined className="total-swap" />
                     <span className='increase-distance' />
                 </Col>
-            </Row>
+            </Row>}
             <Row className='mobile-total-cost'>
                 <Col span={12}><i>Currency select</i></Col>
                 <Col span={12}>
@@ -105,6 +110,12 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
                 </Col>
             </Row> :
                 <div className='mobile-pay-cash'>
+                    <div className='mobile-pay-icon' onClick={props.handMobileTool}>
+                        <img src={require('../images/orders.png')} alt='shopping cart' />
+                    </div>
+                    <div className='mobile-pay-icon'>
+                        <GerberUpload loginName={props.loginName} setLoginMessage={props.setLoginMessage}/>
+                    </div>
                     <div className='mobile-pay-icon'>
                         <img src={require('../images/gouwuchekong.png')} alt='shopping cart' onClick={handleAddQuote} />
                     </div>

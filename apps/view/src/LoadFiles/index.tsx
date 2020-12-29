@@ -40,7 +40,8 @@ export default function LoadFiles(props: LoadFilesProps): JSX.Element {
       <Fade in={!mode}>
         <div className={WRAPPER_STYLE}>
           <FileInput handleFiles={props.handleFiles} loginState={props.progress.loginState} loginReady={props.loginReady}>
-            <div className='img_show'><img src={successful_update} /></div>
+            <div className='img_show'><img src={successful_update} /></div> 
+            <div className='mobile-img-show'><img src={require('../images/uploads.png')}/></div>
             <p className='update_font' dangerouslySetInnerHTML={{__html:wordTitle}}></p>
 
             {/* <p className={MESSAGE_STYLE}>

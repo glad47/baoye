@@ -43,6 +43,7 @@ function App(): JSX.Element {
     const [isQuoteFlags, setQuote] = useState(true)
     const [isStencilFlags, setStencil] = useState(false)
     const [isAssembly, setAssembly] = useState(false)
+    const [isMobileOrder, setOrderState] = useState(false)
     const { Footer, Header, Content } = Layout
     const handleAddQuote = () => {
         if (quoteMode === 0) {
@@ -136,6 +137,12 @@ function App(): JSX.Element {
         }
         return result
     }
+
+    const handMobileTool = () => {
+        setOrderState(!isMobileOrder)
+        window.scrollTo(0,document.body.offsetHeight)
+    }
+
     useEffect(() => {
         const from = urlQuery('from')
         let users = sessionStorage.getItem('username')
@@ -170,6 +177,7 @@ function App(): JSX.Element {
         let windowWidth = window.innerWidth
         if (windowWidth < 850) {
             setMobileSize(true)
+            setFirst(false)
         } else {
             setMobileSize(false)
         }
@@ -209,7 +217,7 @@ function App(): JSX.Element {
                                 {quoteMode === 0 ? <PcbSizeForm /> : ''}
                                 {!showUpload
                                     ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>
-                                         <p className='title_success_top'>Your files have been successfully uploaded.</p>
+                                        <p className='title_success_top'>Your files have been successfully uploaded.</p>
                                         <button onClick={aginUpload} className='button_to_file'>Back to Upload File</button></div>
                                     : ''}
                             </div>
@@ -279,18 +287,28 @@ function App(): JSX.Element {
                                 </div>
                                 {isAssembly ? <FormControl quoteMode={2} isMobileSize={isMobileSize} /> : null}
                             </div>
-                            <div>
-                                <BuildTimeForm buildItems={buildTimeItems} />
-                            </div>
-                            <div>
-                                <CastCalculation {...subtotal} quoteMode={quoteMode} />
-                            </div>
-                            <div>
+
+                            {isMobileOrder && <div>
+                                <div className='mobile-hand-style'>
+                                    <BuildTimeForm buildItems={buildTimeItems} />
+                                    <CastCalculation {...subtotal} quoteMode={quoteMode} />
+                                </div>
                                 <ShoppingCast isMobileSize={isMobileSize} />
-                            </div>
+
+                            </div>}
                             <div>
-                                <ShoppingTotal total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar} isMobileSize={isMobileSize} />
+                                <ShoppingTotal
+                                    total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))}
+                                    handleAddQuote={handleAddQuote}
+                                    handleGoCar={handleGoCar}
+                                    isMobileSize={isMobileSize}
+                                    handMobileTool={handMobileTool}
+                                    isTool={isMobileOrder}
+                                    loginName={loginName} 
+                                    setLoginMessage={setLoginMessage}
+                                />
                             </div>
+
                         </Content>
                     }
                     {!isMobileSize ? <Foot /> : <MobileFoot />}

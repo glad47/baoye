@@ -2349,7 +2349,8 @@ body {
 .pcb-menu-four:hover #resource {
     display: block;
 }
-.pcb-menu-five:hover #pcb-company{
+
+.pcb-menu-five:hover #pcb-company {
     display: block;
 }
 
@@ -2628,7 +2629,8 @@ body {
 /* mobile端 部分元素的隐藏  */
 .mobile-head,
 .mobile-address,
-.increase-distance {
+.increase-distance,
+.mobile-img-show {
     display: none;
 }
 
@@ -2843,7 +2845,7 @@ body {
     }
 
     .mobile-foot {
-        display: flex;
+        display: none;
         height: 74px;
         background-color: #2952EA;
         z-index: 66;
@@ -2926,6 +2928,7 @@ body {
     /* 中间内容 */
     .ant-layout-content {
         width: 100%;
+        margin-bottom: 56px;
     }
 
     .pcb-spec {
@@ -3147,25 +3150,26 @@ body {
         width: 93%;
         margin: 0 auto;
         background-color: #EAECF6;
-        box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.11);
+        position: relative;
     }
 
     .ant-row-cont .ant-typography {
         font-family: 'ArialMT';
         font-size: 14px;
         color: #666666;
-        padding: 20px 0;
+        padding: 28px 0;
         margin-left: 16px;
     }
 
     .fee-cont {
         display: flex;
+        flex-direction: column;
         width: 93%;
         margin: 0 auto;
         font-size: 14px;
-        padding: 20px 0;
         justify-content: space-around;
-        box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.11);
+        background-color: #EAECF6;
+        padding-top: 49px;
     }
 
     .fee-cont .ant-row {
@@ -3181,10 +3185,27 @@ body {
         padding-top: 25px;
     }
 
+    .ant-row-cont {
+        position: absolute;
+        left: 91%;
+        top: 0;
+        width: 100%;
+    }
+
+    .mobile-hand-style {
+        width: 92%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        background-color: #EAECF6;
+        box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.11);
+    }
+
     .mobile-build-time-style .ant-radio-group {
         width: 100%;
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .mobile-build-time-style .ant-radio-group .ant-radio-button-wrapper {
@@ -3192,6 +3213,9 @@ body {
         color: black;
         min-width: 100px;
         text-align: center;
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 8px;
     }
 
     .mobile-build-time-style .ant-radio-button-wrapper.ant-radio-button-wrapper-checked {
@@ -3210,6 +3234,30 @@ body {
         background-color: #EAECF6;
         align-items: center;
         box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.11);
+    }
+
+    .brand {
+        display: none;
+    }
+
+    .mobile-img-show {
+        width: 20px;
+        height: 20px;
+    }
+
+    .clip {
+        z-index: 1000;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 59px;
+        height: 50px;
+        transform: translate(-50%, -50%);
+    }
+
+    .pv4 {
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     .mobile-shipping-cost {
@@ -3242,7 +3290,22 @@ body {
         font-size: 16px;
         color: #000000;
         box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.11);
-        /* margin-bottom: 20px; */
+        margin-bottom: 13px;
+    }
+
+    .update_font,
+    .img_show {
+        display: none;
+    }
+
+    .pcb-file {
+        position: relative;
+    }
+
+    .mobile-img-show {
+        display: block;
+        left: -52px;
+        top: 0;
     }
 
     .mobile-total-money h5 {
@@ -3257,24 +3320,32 @@ body {
     }
 
     .mobile-pay-cash {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
         width: 93%;
         margin: 0 auto;
         background-color: white;
-        padding: 20px 0;
+        padding: 15px 0;
         box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.11);
         display: flex;
         justify-content: flex-end;
-        margin-bottom: 16px;
+        z-index: 996;
+        transform: translate(-50%, 0);
+        border-radius: 44px;
     }
 
     .mobile-pay-icon {
-        width: 20px;
+        width: 24.5%;
         height: 20px;
         margin-right: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .mobile-pay-icon img {
-        width: 100%;
+        /* width: 100%; */
         height: 100%;
     }
 
@@ -3325,6 +3396,70 @@ body {
         color: #000000;
     }
 
+    .registered{
+        overflow: auto;
+    }
+
+    .user-login-box,
+    .registered_inner {
+        width: 93%;
+    }
+
+    .login-form,
+    .sin-form,
+    .user-login-title {
+        width: 93%;
+        margin: 0 auto;
+    }
+
+    .user-login-title{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .login-form .ant-form-item-control-input-content,
+    .sin-form .ant-form-item-control-input-content{
+        width: 100%;
+    }
+
+
+    .user-new-close {
+        position: absolute;
+        top: 62px;
+        right: 17px;
+        font-size: 24px;
+        background-color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .registered .user-new-close{
+        position: absolute;
+        top: 75px;
+        right: 17px;
+        font-size: 24px;
+        background-color: white;
+    }
+
+    .registered .sin_in_title {
+        padding-bottom: 0px;
+    }
+
+    .registered .ant-form-item{
+        margin-bottom: 3px;
+    }
+
+    .registered .ant-checkbox-wrapper{
+        margin-right: 0;
+    }
+
+    #policy{
+        display: none;
+    }
+
     .mobile-size-form .ant-form .ant-form-item .ant-form-item-label,
     .mobile-size-form .ant-form .ant-form-item .ant-form-item-control,
     .pcb-spec .ant-form .ant-form-item .ant-form-item-label,
@@ -3356,6 +3491,7 @@ body {
     .pcb-spec .mobile-special-form .ant-form-item .ant-form-item-control {
         max-width: 50%;
     }
+
 }
 
 .pcb-title,
