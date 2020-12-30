@@ -162,6 +162,7 @@ function App(): JSX.Element {
         }
         getWindowWidth()
         window.addEventListener('resize', getWindowWidth)
+        ReactGA.initialize('G-3V6Y7YZNEE')
         ReactGA.ga('set', 'page', 'https://sys.pcbonline.com/instant-quote/')
         return () => {
             window.removeEventListener('resize', getWindowWidth)
