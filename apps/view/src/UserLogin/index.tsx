@@ -5,7 +5,7 @@ import Recaptcha from 'react-recaptcha'
 import axios from 'axios'
 import Cookies from 'js-cookie';
 import PrivacyPolicy from "../PrivacyPolicy"
-
+import Cookie from 'js-cookie'
 
 function UserLogin(props: any) {
     const [recaptchaResponse, setRecaptch] = useState<string | null>("")
@@ -25,6 +25,7 @@ function UserLogin(props: any) {
         fd.append('recaptchaResponse', recaptchaResponse)
         axios.post('https://sys.pcbonline.com/api/auth/login', fd).then(res => {
             const { success, result } = res.data
+            Cookies.set('token', result, { expires: 7 })
             if (success) {
                 axios({
                     method: "GET",
@@ -34,6 +35,7 @@ function UserLogin(props: any) {
                     }
                 }).then(res => {
                     const { result, success } = res.data
+                   
                     if (success) {
                         const { userName,favicon } = result || []
                         let users=userName!==null ? userName : 'defaultName' // 预防出现用户名为null 的情况
