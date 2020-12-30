@@ -5,7 +5,6 @@ import Recaptcha from 'react-recaptcha'
 import axios from 'axios'
 import Cookies from 'js-cookie';
 import PrivacyPolicy from "../PrivacyPolicy"
-import Cookie from 'js-cookie'
 
 function UserLogin(props: any) {
     const [recaptchaResponse, setRecaptch] = useState<string | null>("")
