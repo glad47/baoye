@@ -10,7 +10,8 @@ import UserLogin from '../UserLogin'
 
 interface GerberUploadProps {
     loginName: any,
-    setLoginMessage: any
+    setLoginMessage: any,
+    isShowLoad:any
 }
 
 //gerber上传组件
@@ -60,7 +61,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             fd.append('uploads', files[0]);
             Axios.all([
                ajaxFileUpload(files),
-               Axios.post(baseUrl+'api/uploads/', fd, {
+               Axios.post('http://10.168.8.250:8888/parsegerber', fd, {
                 onUploadProgress: (ProgressEvent) => {
                     if (ProgressEvent.lengthComputable) {
                         let complete =
@@ -92,6 +93,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                         success = false;
                     }
                     dispatch(backfillPcbData(r,success));
+                    props.isShowLoad(false)
                 } else {
                    message.error('File upload failed, please contact the site administrator!!');
                 }

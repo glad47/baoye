@@ -14,6 +14,7 @@ const GerberShow: React.FC<GerberShowProps> = (props) => {
     const wordTip = isTimeOut ? 'Successful Gerber file upload! The system is analyzing data. Please wait and check the specifications.' : 'It takes a little time for analyzing the file. You can also input by your own to get a quote.'
     const {material,layer,silkscreen,solderMask}=pcbStandardField
     useEffect(() => {
+        console.log(svg,'svg')
         let timer: any
         let isComplete = new Promise((resolve, reject) => {
             timer = setTimeout(() => {
@@ -45,6 +46,7 @@ const GerberShow: React.FC<GerberShowProps> = (props) => {
     }else{
         defaultImgSrc=require('../images/FR42greenwhite.png')
     }
+    console.log(svg !== null && isShow )
     return (
         <>
             {svg !== null ?
