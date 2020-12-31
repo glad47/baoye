@@ -49,22 +49,22 @@ const GerberShow: React.FC<GerberShowProps> = (props) => {
         <>
             {svg !== null ?
                 <>
-                    {svg !== null && isShow ?
+                    { isShow ?
                         <>
                             {
-                                singleCopper == null ?
+                                singleCopper == 'NoSingleCopper' ?
                                     <div className={SIZE_FIRST_CLASS_NAME}>
                                         <div className={SIZE_CLASS_NAME}>
-                                            <div dangerouslySetInnerHTML={{ __html: svg?.topSvg }} />
+                                            <div dangerouslySetInnerHTML={{ __html: svg.topSvg }} />
                                         </div>
                                         <div className={SIZE_CLASS_NAME}>
-                                            <div dangerouslySetInnerHTML={{ __html: svg?.bottomSvg }} />
+                                            <div dangerouslySetInnerHTML={{ __html: svg.bottomSvg }} />
                                         </div>
                                     </div> :
                                     <div className='show_one_img'>
                                         {singleCopper === 'top' ?
-                                            <div dangerouslySetInnerHTML={{ __html: svg?.topSvg }} className='svg_show_img' /> :
-                                            <div dangerouslySetInnerHTML={{ __html: svg?.bottomSvg }} className='svg_show_img' />
+                                            <div dangerouslySetInnerHTML={{ __html: svg.topSvg }} className='svg_show_img' /> :
+                                            <div dangerouslySetInnerHTML={{ __html: svg.bottomSvg }} className='svg_show_img' />
                                         }
                                     </div>
                             }

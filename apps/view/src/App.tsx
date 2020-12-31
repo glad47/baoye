@@ -99,6 +99,11 @@ function App(): JSX.Element {
         }
     }
 
+    const isShowLoad = (item:any) => {
+        console.log(item)
+        setUpload(false)
+    }
+
     const aginUpload = () => {
         setUpload(true)
         dispatch(backToUpload(true))
@@ -216,7 +221,7 @@ function App(): JSX.Element {
 
                         <div className="pcb-min-info">
                             <div className="pcb-min">
-                                {showUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage} /> : <GerberShow />}
+                                {showUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage}/> : <GerberShow />}
                                 {quoteMode === 0 ? <PcbSizeForm /> : ''}
                                 {!showUpload
                                     ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>
