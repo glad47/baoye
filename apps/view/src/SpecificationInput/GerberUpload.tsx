@@ -10,7 +10,8 @@ import UserLogin from '../UserLogin'
 
 interface GerberUploadProps {
     loginName: any,
-    setLoginMessage: any
+    setLoginMessage: any,
+    isShowLoad:any
 }
 
 //gerber上传组件
@@ -93,6 +94,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                     //     success = false;
                     // }
                     dispatch(backfillPcbData(r,success));
+                    props.isShowLoad(false)
                 } else {
                    message.error('File upload failed, please contact the site administrator!!');
                 }

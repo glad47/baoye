@@ -98,12 +98,18 @@ function App(): JSX.Element {
             dispatch(addQuote());
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> f9c4a11b363c2eba930a3a7e117bb7f68314fc01
     const isShowLoad = (item:any) => {
         console.log(item)
         setUpload(false)
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> f9c4a11b363c2eba930a3a7e117bb7f68314fc01
     const aginUpload = () => {
         setUpload(true)
         dispatch(backToUpload(true))
@@ -146,7 +152,7 @@ function App(): JSX.Element {
 
     const handMobileTool = () => {
         setOrderState(!isMobileOrder)
-        window.scrollTo(0,document.body.offsetHeight)
+        window.scrollTo(0, document.body.offsetHeight)
     }
 
     useEffect(() => {
@@ -221,7 +227,11 @@ function App(): JSX.Element {
 
                         <div className="pcb-min-info">
                             <div className="pcb-min">
+<<<<<<< HEAD
                                 {showUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage}/> : <GerberShow />}
+=======
+                                {showUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage} isShowLoad={isShowLoad}/> : <GerberShow />}
+>>>>>>> f9c4a11b363c2eba930a3a7e117bb7f68314fc01
                                 {quoteMode === 0 ? <PcbSizeForm /> : ''}
                                 {!showUpload
                                     ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>
@@ -312,7 +322,7 @@ function App(): JSX.Element {
                                     isMobileSize={isMobileSize}
                                     handMobileTool={handMobileTool}
                                     isTool={isMobileOrder}
-                                    loginName={loginName} 
+                                    loginName={loginName}
                                     setLoginMessage={setLoginMessage}
                                 />
                             </div>

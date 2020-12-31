@@ -3,7 +3,6 @@ import { Form, Input, Button, Checkbox,message } from 'antd'
 import { CloseOutlined } from '@ant-design/icons'
 import Recaptcha from 'react-recaptcha'
 import axios from 'axios'
-import { sysUrl } from "../SpecificationInput/AjaxService";
 import Cookies from 'js-cookie';
 import PrivacyPolicy from "../PrivacyPolicy"
 
