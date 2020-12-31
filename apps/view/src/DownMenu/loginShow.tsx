@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { ShoppingCartOutlined ,PoweroffOutlined } from '@ant-design/icons'
+import Cookies from 'js-cookie'
 export default class loginShow extends Component {
     loginOut=()=>{
         sessionStorage.removeItem('username')
+        Cookies.remove('token')
         window.location.href="https://sys.pcbonline.com/instant-quote/"
     }
     render() {

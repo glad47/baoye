@@ -7,7 +7,6 @@ import { sysUrl } from "../SpecificationInput/AjaxService";
 import Cookies from 'js-cookie';
 import PrivacyPolicy from "../PrivacyPolicy"
 
-
 function UserLogin(props: any) {
     const [recaptchaResponse, setRecaptch] = useState<string | null>("")
     const [isLogin, setLogin] = useState(true)
@@ -26,6 +25,7 @@ function UserLogin(props: any) {
         fd.append('recaptchaResponse', recaptchaResponse)
         axios.post(sysUrl + '/api/auth/login', fd).then(res => {
             const { success, result } = res.data
+            Cookies.set('token', result, { expires: 7 })
             if (success) {
                 axios({
                     method: "GET",
@@ -35,6 +35,7 @@ function UserLogin(props: any) {
                     }
                 }).then(res => {
                     const { result, success } = res.data
+                   
                     if (success) {
                         const { userName,favicon } = result || []
                         let users=userName!==null ? userName : 'defaultName' // 预防出现用户名为null 的情况
