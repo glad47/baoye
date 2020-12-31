@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Form, Input, Button, Checkbox,message } from 'antd'
 import { CloseOutlined } from '@ant-design/icons'
 import Recaptcha from 'react-recaptcha'
+import {sysUrl} from '../SpecificationInput/AjaxService'
 import axios from 'axios'
 import Cookies from 'js-cookie';
 import PrivacyPolicy from "../PrivacyPolicy"
