@@ -212,14 +212,20 @@ export default function reducer(state: State, action: Action): State {
     case actionTypes.BACKFILL_PCB_DATA: {
       // console.log(action.payload);
       const {parseResult,field} = action.payload;
+      // console.log(parseResult);
+      // console.log(field);
       //解析结果返回是否成功
       if(parseResult){ 
-        const { customerInfoResult,layer,minHoleSize,boardLength,boardWidth,uploadPath,fileName,showDefaultImg } = field;
+        const { customerInfoResult,layer,minHoleSize,boardLength,boardWidth,uploadPath,fileName,showDefaultImg,svg:{topSvg,bottomSvg},singleCopper} = field;
         //是否解析成功资料里的数据
         let allkeys,psf;
         if(Object.keys(customerInfoResult).length === 0){
           allkeys = {...customerInfoResult,layer,minHoleSize};
-          psf = {...state.pcbStandardField,layer:layer+'layer',minHoleSize:minHoleSize+''}
+          psf = {
+            ...state.pcbStandardField,
+            layer:layer+'layer',
+            minHoleSize:minHoleSize+''
+          }
         }else{
           const {material,thickness,outerCopper,surfaceFinish,color} = customerInfoResult;
           allkeys = {...customerInfoResult,layer,minHoleSize};
@@ -246,11 +252,12 @@ export default function reducer(state: State, action: Action): State {
           // svg:{...state.svg,topSvg:top,bottomSvg:bottom},
           fileName: fileName,
           fileUploadPtah: uploadPath,
-          // singleCopper: copper,
+          singleCopper: singleCopper,
           isShow: parseResult,
           isBackToUpload:false,
           allKeys:allkeys,
-          fillData:true
+          fillData:true,
+          svg:{...state.svg,topSvg:topSvg,bottomSvg:bottomSvg}
         }
       }else{
         const {fileName,uploadPath,showDefaultImg} = field;
