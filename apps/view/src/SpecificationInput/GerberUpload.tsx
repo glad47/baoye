@@ -48,8 +48,8 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
         if ('value' in event.target) event.target.value = ''
         preventDefault(event)
         if (files.length > 0) {
-            //创建板
-            dispatch(createBoard(files,false));
+            //创建板 2020年12月31 15:07:28 先取消。使用接口返回的svg
+            // dispatch(createBoard(files,false));
             const fileName = files[0].name || ''
             const suffix=fileName.substring(fileName.lastIndexOf('.')+1)
             let isRar=(suffix.toLocaleLowerCase()=='zip' || suffix.toLocaleLowerCase()=='rar') ? true :false
@@ -61,7 +61,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             fd.append('uploads', files[0]);
             Axios.all([
                ajaxFileUpload(files),
-               Axios.post('http://10.168.8.250:8888/parsegerber', fd, {
+               Axios.post(baseUrl+'parsegerber', fd, {
                 onUploadProgress: (ProgressEvent) => {
                     if (ProgressEvent.lengthComputable) {
                         let complete =
@@ -89,9 +89,10 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                         r = {showDefaultImg:false,fileName:fileName,uploadPath:url};
                         // dispatch(changeColor(false));
                     }
-                    if (boardFee === 0 || stencilFee === 0) {
-                        success = false;
-                    }
+                    //2010年12 31日19:14:51 修改如果为0不计算
+                    // if (boardFee === 0 || stencilFee === 0) {
+                    //     success = false;
+                    // }
                     dispatch(backfillPcbData(r,success));
                     props.isShowLoad(false)
                 } else {

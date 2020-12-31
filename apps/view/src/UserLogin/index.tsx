@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Form, Input, Button, Checkbox,message } from 'antd'
 import { CloseOutlined } from '@ant-design/icons'
 import Recaptcha from 'react-recaptcha'
+import {sysUrl} from '../SpecificationInput/AjaxService'
 import axios from 'axios'
 import Cookies from 'js-cookie';
 import PrivacyPolicy from "../PrivacyPolicy"
@@ -22,13 +23,13 @@ function UserLogin(props: any) {
             return
         }
         fd.append('recaptchaResponse', recaptchaResponse)
-        axios.post('https://sys.pcbonline.com/api/auth/login', fd).then(res => {
+        axios.post(sysUrl + 'api/auth/login', fd).then(res => {
             const { success, result } = res.data
             Cookies.set('token', result, { expires: 7 })
             if (success) {
                 axios({
                     method: "GET",
-                    url: "https://sys.pcbonline.com/api/users/info",
+                    url: sysUrl+"api/users/info",
                     headers: {
                         "Authorization": result
                     }
@@ -93,7 +94,7 @@ function UserLogin(props: any) {
             fd.append('invite', code)
         }
   
-        axios.post('https://sys.pcbonline.com/api/auth/register',fd).then(res=>{
+        axios.post(sysUrl+'api/auth/register',fd).then(res=>{
             const { success } = res.data
             console.log(res)
             if(success){
