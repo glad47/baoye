@@ -36,22 +36,22 @@ const GerberShow: React.FC<GerberShowProps> = (props) => {
         }
     }, [])
     let newLayer=layer.substr(0,1)
-    let defaultImgSrc
-    if(material !=='FR4' || newLayer !=='2' || solderMask !=='green' || silkscreen !=='white'){
-        if(solderMask!==silkscreen){
-            defaultImgSrc=require(`../images/diagram/${material}${newLayer}${solderMask}${silkscreen}.png`)
-        }else{
-            defaultImgSrc=require(`../images/diagram/${material}${newLayer}green${silkscreen}.png`)
-        }
-    }else{
-        defaultImgSrc=require('../images/FR42greenwhite.png')
-    }
+    let defaultImgSrc = require('../images/FR42greenwhite.png')
+    // if(material !=='FR4' || newLayer !=='2' || solderMask !=='green' || silkscreen !=='white'){
+    //     if(solderMask!==silkscreen){
+    //         defaultImgSrc=require(`../images/diagram/${material}${newLayer}${solderMask}${silkscreen}.png`)
+    //     }else{
+    //         defaultImgSrc=require(`../images/diagram/${material}${newLayer}green${silkscreen}.png`)
+    //     }
+    // }else{
+    //     defaultImgSrc
+    // }
     console.log(svg !== null && isShow )
     return (
         <>
             {svg !== null ?
                 <>
-                    { isShow ?
+                    { svg !== null && isShow ?
                         <>
                             {
                                 singleCopper == 'NoSingleCopper' ?
