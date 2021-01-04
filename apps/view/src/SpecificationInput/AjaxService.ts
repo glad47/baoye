@@ -13,8 +13,8 @@ export const sysUrl = "http://localhost:8883/"  //网站后端
 //     return Axios.get(baseUrl+ 'quote/getBuildTime')
 // }
 
-let token = Cookies.get('token');
-console.log(token);
+export const token = Cookies.get('token');
+// console.log(token);
 export const ajaxBuildTime = (data: any) =>{
     return Axios.get(baseUrl + `v1/quote/getBuildTime?areaSq=${data.areaSq}&layerNum=${data.layerNum}`);
 }

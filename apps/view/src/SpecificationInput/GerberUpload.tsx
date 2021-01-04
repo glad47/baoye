@@ -1,22 +1,20 @@
 import React, { useState,useEffect } from "react";
-import { useAppState, backfillPcbData, showDefault, backToUpload,changeColor, createBoard } from "../state";
+import { useAppState,createBoard, backfillUploadPathData, backfillPcbData, backToUpload, backfillSvgData } from "../state";
 import LoadFiles from "../LoadFiles";
 import { FileEvent } from "../types";
 import Axios from "axios";
 import { preventDefault } from "../events";
-import { ajaxFileUpload, baseUrl } from "./AjaxService";
+import { sysUrl,token } from "./AjaxService";
 import { message,Checkbox } from "antd";
-import UserLogin from '../UserLogin'
 
 interface GerberUploadProps {
     loginName: any,
-    setLoginMessage: any,
-    isShowLoad:any
+    setLoginMessage: any
 }
 
 //gerber上传组件
 const GerberUpload: React.FC<GerberUploadProps> = (props) => {
-    const { dispatch,subtotal:{boardFee,stencilFee} } = useAppState();
+    const { dispatch,subtotal:{boardFee,stencilFee,assemblyFee},quoteMode } = useAppState();
     const [progress, changeProgress] = useState(0)
     const [delay,setDelay]=useState(false)
     const [loginState,setLoginState]=useState(false)
@@ -57,11 +55,17 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                 message.warning('only accept zip or rar file.')
                 return
             }
+            //上传资料拆两步分开, 上传资料
+            const fromData = new FormData();
+            fromData.append('file',files[0]);
             const fd = new FormData()
             fd.append('uploads', files[0]);
-            Axios.all([
-               ajaxFileUpload(files),
-               Axios.post(baseUrl+'parsegerber', fd, {
+            Axios.request({
+                headers:{'Content-Type': 'multipart/form-data','Authorization':token},
+                method: 'post',
+                data: fromData,
+                url: sysUrl + 'api/file/upload/zip',
+                withCredentials: true,
                 onUploadProgress: (ProgressEvent) => {
                     if (ProgressEvent.lengthComputable) {
                         let complete =
@@ -71,37 +75,93 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                             changeProgress(complete)
                         }
                     }
-                },
-                headers: { 'Content-Type': 'multipart/form-data' },
-                timeout:60000
-            })])
-            .then(res => {
-                console.log(res);
-                //todo 数据回填 逻辑判断下
-                let [{data:{code,result:{url}}},{data:{success,result}}] = res;
-                if (code === "0") {
-                    let r: any = {};
-                    if(success){
-                        // message.info('File upload and analytical data successful！！');
-                        r = {...result,fileName:fileName,uploadPath:url,showDefaultImg:true};
-                    }else{
-                        // message.warning('文件上传成功，但读取资料失败！！');
-                        r = {showDefaultImg:false,fileName:fileName,uploadPath:url};
-                        // dispatch(changeColor(false));
-                    }
-                    //2010年12 31日19:14:51 修改如果为0不计算
-                    // if (boardFee === 0 || stencilFee === 0) {
-                    //     success = false;
-                    // }
-                    dispatch(backfillPcbData(r,success));
-                    props.isShowLoad(false)
-                } else {
-                   message.error('File upload failed, please contact the site administrator!!');
                 }
+            }).then(res=>{
+                // console.log(res);
+                let {data:{success,result}} = res;
+                if(success){
+                    dispatch(backfillUploadPathData(result));
+                }
+                return  Axios.post(sysUrl+'parsegerber',fd,{
+                    headers: { 'Content-Type': 'multipart/form-data' } 
+                });
+            }).then(res=>{
+                // console.log(res);
+                //解析gerber资料
+                let {data:{success,result}} = res, r: any = {}; 
+                if(success){
+                    r = {...result,showDefaultImg:true};
+                }else{
+                    r = {showDefaultImg:false}; 
+                }
+                //没有报价时回填数据，否则显示svg
+                if(quoteMode === 0 && boardFee === 0){
+                    //回填解析数据
+                    dispatch(backfillPcbData(r,success))
+                }else if(quoteMode === 1 && stencilFee === 0){
+                    dispatch(backfillPcbData(r,success))
+                }else if(quoteMode === 2 && assemblyFee === 0){
+                    dispatch(backfillPcbData(r,success))
+                }else{
+                    dispatch(backfillSvgData(r))
+                }
+                
+
             }).catch(e=>{
+                console.log('上传文件出错！！');
                 setDelay(true)
                 dispatch(backToUpload(false))
             })
+
+
+            // Axios.all([
+            //    ajaxFileUpload(files),
+            //    Axios.post(baseUrl+'parsegerber', fd, {
+            //     onUploadProgress: (ProgressEvent) => {
+            //         if (ProgressEvent.lengthComputable) {
+            //             let complete =
+            //                 (((ProgressEvent.loaded / ProgressEvent.total) * 100) | 0);
+            //             changeProgress(complete)
+            //             if (complete >= 100) {
+            //                 changeProgress(complete)
+            //             }
+            //         }
+            //     },
+            //     headers: { 'Content-Type': 'multipart/form-data' },
+            //     timeout:60000
+            // })]).then(Axios.spread((r1, r2) =>{
+            //     console.log(r1);
+            //     console.log(r2);
+            // }))
+            // .then(res => {
+            //     console.log(res);
+            //     //todo 数据回填 逻辑判断下
+            //     let [{data:{code,result:{url}}},{data:{success,result}}] = res;
+            //     if (code === "0") {
+            //         let r: any = {};
+            //         if(success){
+            //             // message.info('File upload and analytical data successful！！');
+            //             r = {...result,fileName:fileName,uploadPath:url,showDefaultImg:true};
+            //         }else{
+            //             // message.warning('文件上传成功，但读取资料失败！！');
+            //             r = {showDefaultImg:false,fileName:fileName,uploadPath:url};
+            //             // dispatch(changeColor(false));
+            //         }
+            //         //2010年12 31日19:14:51 修改如果为0不计算
+            //         // if (boardFee === 0 || stencilFee === 0) {
+            //         //     success = false;
+            //         // }
+            //         dispatch(backfillPcbData(r,success));
+            //         props.isShowLoad(false)
+            //     } else {
+            //        message.error('File upload failed, please contact the site administrator!!');
+            //     }
+            // })
+            // .catch(e=>{
+            //     console.log('上传文件出错！！');
+            //     setDelay(true)
+            //     dispatch(backToUpload(false))
+            // })
         }
     }
     const setItem=(key:string,options:string)=>{

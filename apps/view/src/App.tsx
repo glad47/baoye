@@ -39,7 +39,7 @@ function App(): JSX.Element {
     const [loginName, setLoginName] = useState(uname);
     const [headPortrait, setPortrait] = useState(userPortrait)
     const [isLogin, setLogin] = useState(false)
-    const [showUpload, setUpload] = useState(isBackToUpload)
+    // const [showUpload, setUpload] = useState(isBackToUpload)
     const [isMobileSize, setMobileSize] = useState(false)
     const [isQuoteFlags, setQuote] = useState(true)
     const [isStencilFlags, setStencil] = useState(false)
@@ -98,12 +98,12 @@ function App(): JSX.Element {
             dispatch(addQuote());
         }
     }
-    const isShowLoad = (item:any) => {
-        console.log(item)
-        setUpload(false)
-    }
+    // const isShowLoad = (item:any) => {
+    //     console.log(item)
+    //     setUpload(false)
+    // }
     const aginUpload = () => {
-        setUpload(true)
+        // setUpload(true)
         dispatch(backToUpload(true))
     }
     const setLoginMessage = (e: any) => {
@@ -219,9 +219,9 @@ function App(): JSX.Element {
 
                         <div className="pcb-min-info">
                             <div className="pcb-min">
-                                {showUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage} isShowLoad={isShowLoad}/> : <GerberShow />}
+                                {isBackToUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage} /> : <GerberShow />}
                                 {quoteMode === 0 ? <PcbSizeForm /> : ''}
-                                {!showUpload
+                                {!isBackToUpload
                                     ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>
                                         <p className='title_success_top'>Your files have been successfully uploaded.</p>
                                         <button onClick={aginUpload} className='button_to_file'>Back to Upload File</button></div>

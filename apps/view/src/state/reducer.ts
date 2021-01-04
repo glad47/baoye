@@ -216,7 +216,7 @@ export default function reducer(state: State, action: Action): State {
       // console.log(field);
       //解析结果返回是否成功
       if(parseResult){ 
-        const { customerInfoResult,layer,minHoleSize,boardLength,boardWidth,uploadPath,fileName,showDefaultImg,svg:{topSvg,bottomSvg},singleCopper} = field;
+        const { customerInfoResult,layer,minHoleSize,boardLength,boardWidth,svg:{topSvg,bottomSvg},singleCopper} = field;
         //是否解析成功资料里的数据
         let allkeys,psf;
         if(Object.keys(customerInfoResult).length === 0){
@@ -249,9 +249,6 @@ export default function reducer(state: State, action: Action): State {
           loading: true,
           pcbSizeField:{...state.pcbSizeField,singleSize:{sizeX:boardWidth,sizeY:boardLength}},
           pcbStandardField:psf,
-          // svg:{...state.svg,topSvg:top,bottomSvg:bottom},
-          fileName: fileName,
-          fileUploadPtah: uploadPath,
           singleCopper: singleCopper,
           isShow: parseResult,
           isBackToUpload:false,
@@ -260,11 +257,10 @@ export default function reducer(state: State, action: Action): State {
           svg:{...state.svg,topSvg:topSvg,bottomSvg:bottomSvg}
         }
       }else{
-        const {fileName,uploadPath,showDefaultImg} = field;
         return{
           ...state,
-          fileName: fileName,
-          fileUploadPtah: uploadPath,
+          // fileName: fileName,
+          // fileUploadPtah: uploadPath,
           isShow: parseResult,
           isBackToUpload:false, 
           fillData:false
@@ -305,10 +301,25 @@ export default function reducer(state: State, action: Action): State {
       return {...state, assemblyField: action.payload }
     }
     case actionTypes.BACKFILL_SVG_DATA: {
+      const {svg:{topSvg,bottomSvg},showDefaultImg,singleCopper} = action.payload;
+      if (showDefaultImg) {
+        return {
+          ...state, 
+          svg:{topSvg:topSvg,bottomSvg:bottomSvg},
+          singleCopper: singleCopper,
+          isShow: showDefaultImg,
+          isBackToUpload:false 
+        }
+      }else{
+        return{...state}
+      }
+      
+    }
+    case actionTypes.BACKFILL_UPLOAD_PATH_DATA: {
       return {
-        ...state, 
-        svg:{topSvg:action.payload.top,bottomSvg:action.payload.bottom},
-        singleCopper: action.payload.copper
+        ...state,
+        fileName: action.payload.name,
+        fileUploadPtah: action.payload.url
       }
     }
   }
