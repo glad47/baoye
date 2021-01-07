@@ -84,13 +84,13 @@ const AssemblyFrom: React.FC<AssemblyFormProps> = (props) => {
                         <Form.Item name="assemblyType">
                             <Radio.Group>
                                 <Radio value={1}>
-                                    You Supply Parts, PCBONLINE only Assembles
+                                    You supply parts, PCBONLINE only assembles
                            </Radio>
                                 <Radio value={2}>
-                                    PCBONLINE Supplies Some Parts and Assembly
+                                    PCBONLINE supplies some parts and assembly
                            </Radio>
                                 <Radio value={3}>
-                                    PCBONLINE Supplies All Parts and Assembly
+                                    PCBONLINE supplies all parts and assembly
                            </Radio>
                             </Radio.Group>
                         </Form.Item>
@@ -104,13 +104,13 @@ const AssemblyFrom: React.FC<AssemblyFormProps> = (props) => {
                     <Form.Item name="assemblyType">
                         <Radio.Group>
                             <Radio value={1}>
-                                You Supply Parts, PCBONLINE only Assembles
+                                You supply parts, PCBONLINE only assembles
                                 </Radio>
                             <Radio value={2}>
-                                PCBONLINE Supplies Some Parts and Assembly
+                                PCBONLINE supplies some parts and assembly
                                 </Radio>
                             <Radio value={3}>
-                                PCBONLINE Supplies All Parts and Assembly
+                                PCBONLINE supplies all parts and assembly
                                 </Radio>
                         </Radio.Group>
                     </Form.Item>

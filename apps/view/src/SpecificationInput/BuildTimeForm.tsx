@@ -14,9 +14,9 @@ interface BuildTimeFormProps {
 
 var echarts = require('../../../../node_modules/echarts')
 const bts = [
-    { id: 1, dayNumber: "3day", price: 0 },
-    { id: 2, dayNumber: "48hours", price: 22 },
-    { id: 3, dayNumber: "24hours", price: 38 },
+    { id: 1, dayNumber: "3 day", price: 0 },
+    { id: 2, dayNumber: "48 hours", price: 22 },
+    { id: 3, dayNumber: "24 hours", price: 38 },
 ]
 const { Title, Text } = Typography
 var chooseIndex: number;
@@ -54,7 +54,7 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
                 color: '#fff'
             }
         }, {
-            'name': 'Priorigt',
+            'name': 'Prior night',
             'value': 1500,
             label: {
                 color: '#fff'
@@ -65,7 +65,7 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
                 name: '消费',
                 type: 'pie',
                 center: ['51%', '49%'], //饼图位置
-                radius: ['27%', '64%'], //饼图大小
+                radius: ['23%', '64%'], //饼图大小
                 label: {
                     normal: {
                         position: 'inner',
@@ -137,7 +137,7 @@ const BuildTimeForm: React.FC<BuildTimeFormProps> = (props) => {
                     case 'Overnight':
                         el.style.transform = 'rotate(-270deg)'
                         break;
-                    case 'Priorigt':
+                    case 'Prior night':
                         el.style.transform = 'rotate(-180deg)'
                         break;
                     default:

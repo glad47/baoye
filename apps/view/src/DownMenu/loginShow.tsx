@@ -15,7 +15,7 @@ export default class loginShow extends Component {
                     <a href='/changePassword'>Change password</a>
                     <a href='/myInfo'>My information</a>
                     <a href='/payment'>My order</a>
-                    <span onClick={this.loginOut}>Login out</span>
+                    <span onClick={this.loginOut}>Log out</span>
                 </div>
             </div>
         )
