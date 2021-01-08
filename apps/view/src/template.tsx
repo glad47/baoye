@@ -40,6 +40,7 @@ export default function StaticTemplate(props: Props): string {
                 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
                 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3V6Y7YZNEE"></script>
                 <script type="text/javascript" src='./Analysis/ga.js'> </script>
+                <script src="https://embed.tawk.to/5c8511c8c37db86fcfccf818/default" async ></script>
             </head>
             <body className="h-100 overflow-hidden">
                 <div
