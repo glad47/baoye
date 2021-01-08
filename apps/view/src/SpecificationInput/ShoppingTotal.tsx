@@ -54,6 +54,7 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
         setAddCart(false)
     }
     const closeTotalPrompt = () => {
+        location.reload()
         setClosePrompt(false)
     }
     const showTotalPrompt = () => {
