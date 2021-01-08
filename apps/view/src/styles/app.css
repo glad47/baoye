@@ -160,8 +160,8 @@
 }
 
 .update_font {
-    width: 313px;
-    height: 12px;
+    width: 442px;
+    height: 105px;
     font-size: 14px;
     font-family: 'Arial';
     font-weight: 400;
@@ -172,7 +172,7 @@
     left: -32px;
     position: absolute;
     top: 107px;
-    left: -126px;
+    left: -186px;
     z-index: 21;
 }
 

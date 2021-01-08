@@ -55,7 +55,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
         !props.isMobileSize ? <Form form={form} initialValues={pcbSizeField} onValuesChange={onValuesChange} onFinish={onFinish}>
             <Row>
                 <Col span={12} >
-                    <Form.Item label="Dimensions" name="boardType">
+                    <Form.Item label="Dimension" name="boardType">
                         <Select>
                             {
                                 boardType.map(item => (
