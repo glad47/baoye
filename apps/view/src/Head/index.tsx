@@ -7,6 +7,9 @@ import Company from '../Menus/Company'
 import LoginShow from '../DownMenu/loginShow'
 
 function Head(props: any) {
+    const handleManage = () => {
+        window.open('https://sys.pcbonline.com/home')
+    }
     return (
         <div id='pcb-header'>
             <div className='pcb-header-inner'>
@@ -40,7 +43,7 @@ function Head(props: any) {
                         <li className='pcb-menu-five'>
                             <a>Company</a>
                             <div className="pcb-instructions" />
-                            <Company/>
+                            <Company />
                         </li>
                         <li className='pcb-menu-six'>
                             <a>Get a Quote</a>
@@ -57,10 +60,10 @@ function Head(props: any) {
                                         SING IN
                                 </a>
                                 </span>
-                                : <div className='use_name'>
-                                    {props.loginName[1]?
-                                        <img src={props.loginName[1]}/>
-                                    :''}
+                                : <div className='use_name' onClick={handleManage}>
+                                    {props.loginName[1] ?
+                                        <img src={props.loginName[1]} />
+                                        : ''}
                                 </div>
                             }
                             {props.loginName === null ? null : <LoginShow />}
