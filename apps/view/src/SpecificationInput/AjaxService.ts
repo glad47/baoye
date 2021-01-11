@@ -2,18 +2,18 @@ import Axios from "axios";
 import Cookies from 'js-cookie';
 
 //线上
-// export const baseUrl = "https://www.pcbonline.com/" //线上前端
-// export const sysUrl = "https://sys.pcbonline.com/"  //线上后端
+export const baseUrl = "https://www.pcbonline.com/" //线上前端
+export const sysUrl = "https://sys.pcbonline.com/"  //线上后端
 // 线下
-export const baseUrl = "http://localhost:8883/" //网站前端
-export const sysUrl = "http://localhost:8883/"  //网站后端 
+// export const baseUrl = "http://localhost:8883/" //网站前端
+// export const sysUrl = "http://localhost:8883/"  //网站后端 
 // export const uploadUrl = "http://localhost:8888/"
 
 // export function ajaxBuildTime (){
 //     return Axios.get(baseUrl+ 'quote/getBuildTime')
 // }
 
-export const token = Cookies.get('token');
+const token = Cookies.get('token');
 // console.log(token);
 export const ajaxBuildTime = (data: any) =>{
     return Axios.get(baseUrl + `v1/quote/getBuildTime?areaSq=${data.areaSq}&layerNum=${data.layerNum}`);

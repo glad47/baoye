@@ -4,8 +4,9 @@ import LoadFiles from "../LoadFiles";
 import { FileEvent } from "../types";
 import Axios from "axios";
 import { preventDefault } from "../events";
-import { sysUrl,token } from "./AjaxService";
+import { sysUrl } from "./AjaxService";
 import { message,Checkbox } from "antd";
+import Cookies from 'js-cookie';
 
 interface GerberUploadProps {
     loginName: any,
@@ -29,7 +30,6 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
         if(e){
             props.setLoginMessage(true)
         }
-        
     }
     const handleFiles = (event: FileEvent): void => {
         
@@ -42,6 +42,9 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             'dataTransfer' in event
                 ? Array.from(event.dataTransfer.files)
                 : Array.from(event.target.files || [])
+        const token = Cookies.get('token');
+        
+        // console.log('token',token);
 
         if ('value' in event.target) event.target.value = ''
         preventDefault(event)
@@ -66,6 +69,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                 data: fromData,
                 url: sysUrl + 'api/file/upload/zip',
                 withCredentials: true,
+                timeout:60000,
                 onUploadProgress: (ProgressEvent) => {
                     if (ProgressEvent.lengthComputable) {
                         let complete =
@@ -83,7 +87,8 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                     dispatch(backfillUploadPathData(result));
                 }
                 return  Axios.post(sysUrl+'parsegerber',fd,{
-                    headers: { 'Content-Type': 'multipart/form-data' } 
+                    headers: { 'Content-Type': 'multipart/form-data' },
+                    timeout:60000 
                 });
             }).then(res=>{
                 // console.log(res);

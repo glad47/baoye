@@ -66,11 +66,11 @@ function App(): JSX.Element {
                     setLogin(true)
                     let result = loginReady()
                     if (result) {
-                        setUpload(false)
+                        // setUpload(false)
                         dispatch(addQuote());
                     }
                 } else {
-                    setUpload(false)
+                    // setUpload(false)
                     dispatch(addQuote());
                 }
                 return
@@ -103,7 +103,7 @@ function App(): JSX.Element {
     //     setUpload(false)
     // }
     const aginUpload = () => {
-        // setUpload(true)
+     //   setUpload(true)
         dispatch(backToUpload(true))
     }
     const setLoginMessage = (e: any) => {
@@ -219,7 +219,7 @@ function App(): JSX.Element {
 
                         <div className="pcb-min-info">
                             <div className="pcb-min">
-                                {isBackToUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage} /> : <GerberShow />}
+                                {isBackToUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage}/> : <GerberShow />}
                                 {quoteMode === 0 ? <PcbSizeForm /> : ''}
                                 {!isBackToUpload
                                     ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>
