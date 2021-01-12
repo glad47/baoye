@@ -46,7 +46,7 @@ function App(): JSX.Element {
     const [isAssembly, setAssembly] = useState(false)
     const [isMobileOrder, setOrderState] = useState(false)
     const { Footer, Header, Content } = Layout
-    const handleAddQuote = () => {
+    const handleAddQuote = (link?: boolean ) => {
         if (quoteMode === 0) {
             if (boardType === 'Single') {
                 if (quantity === null || singleSize.sizeX === null || singleSize.sizeY === null) {
@@ -63,19 +63,21 @@ function App(): JSX.Element {
                 // message.error('Please upload the gerber file ！！');
                 // return;
                 if (!loginName) {
-                    setLogin(true)
                     let result = loginReady()
                     if (result) {
-                        setUpload(false)
+                        // setUpload(false)
                         dispatch(addQuote());
+                        if (link) { location.href = '/audit'; }
                     }
                 } else {
-                    setUpload(false)
+                    // setUpload(false)
                     dispatch(addQuote());
+                    if (link) { location.href = '/audit'; }
                 }
                 return
             }
             dispatch(addQuote());
+            if (link) { location.href = '/audit'; }
         } else if (quoteMode === 1) {
             if (fileUploadPtah === null) {
                 message.error('Please upload the gerber file ！！');
@@ -86,6 +88,7 @@ function App(): JSX.Element {
                 return;
             }
             dispatch(addQuote());
+            if (link) { location.href = '/audit'; }
         } else if (quoteMode === 2) {
             if (fileUploadPtah === null) {
                 message.error('Please upload the gerber file ！！');
@@ -96,6 +99,7 @@ function App(): JSX.Element {
                 return;
             }
             dispatch(addQuote());
+            if (link) { location.href = '/audit'; }
         }
     }
     // const isShowLoad = (item:any) => {
@@ -172,7 +176,9 @@ function App(): JSX.Element {
         }
     }, [])
     const handleGoCar = () => {
-        location.href = '/audit';
+        let link = true
+        handleAddQuote(link)
+        // location.href = '/audit';
     }
     async function loginReady(e?: any) {
         let result = await e
