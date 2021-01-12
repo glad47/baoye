@@ -1059,6 +1059,12 @@ body {
     color: rgb(157, 190, 235)
 }
 
+.cost-title{
+    font-size: 28px;
+    color: #ffba00;
+    margin-right: 18px;
+}
+
 #footer_link_to>a {
     font-size: 20px
 }
@@ -2303,7 +2309,7 @@ body {
 #pcb-company {
     position: absolute;
     top: 45px;
-    left: 0;
+    left: -32px;
     background-color: white;
     box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
     animation: fadeInBottom 300ms ease-in;

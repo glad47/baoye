@@ -14,7 +14,8 @@ interface ShoppingTotalProps {
     handMobileTool?:any;
     isTool?:boolean;
     loginName?: any;
-    setLoginMessage?: any
+    setLoginMessage?: any;
+    isChecked?:boolean
 }
 
 const { Option } = Select;
@@ -27,7 +28,7 @@ type RateItem = {
 let rItem: Array<RateItem> = [];
 const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
     const { total, handleAddQuote, handleGoCar } = props;
-    const [defaultRate, setDefaultRate] = useState(1);
+    const [defaultRate, setDefaultRate] = useState(0);
     const [rateItem, setRateItem] = useState(rItem);
     const [goCart, setGoCart] = useState(false);
     const [addCart, setAddCart] = useState(false);
@@ -40,7 +41,7 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
             setDefaultRate(defaultRate + 1);
         }
     }
-
+   
     const isShowGo = () => {
         setGoCart(true)
     }
@@ -59,6 +60,10 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
     }
     const showTotalPrompt = () => {
         setClosePrompt(true)
+    }
+    const handleClick=()=>{
+        handleGoCar()
+        setClosePrompt(false)
     }
     useEffect(() => {
         if (rItem.length === 0) {
@@ -128,7 +133,7 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
                 <div className='pay-dialog'>
                     <p className='pay-dialog-prompt'>Are you sure to pay for only the current PCB? </p>
                     <div className='pay-dialog-ask'>
-                        <button onClick={handleGoCar}>Yes, check out.</button>
+                        <button onClick={handleClick}>Yes, check out.</button>
                         <button onClick={closeTotalPrompt}>No, add more.</button>
                     </div>
                 </div>

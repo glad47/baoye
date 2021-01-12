@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { PayCircleFilled } from '@ant-design/icons';
+import { PayCircleFilled,DollarCircleOutlined } from '@ant-design/icons';
 import { Row, Col, Typography, Radio, Select } from 'antd';
 import Axios from 'axios';
 import { useAppState, changeTransportCost } from '../state';
@@ -83,7 +83,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
     return (
         !props.isMobileSize ? <div>
             <Row>
-                <Col span={24}><Title level={3}><PayCircleFilled /><b>Shipping Cost</b></Title></Col>
+                <Col span={24}><Title level={3}><DollarCircleOutlined className='cost-title'/> <b>Shipping Cost</b></Title></Col>
             </Row>
             <Row className="shopping-cast-mar">
                 <Col span={20}>

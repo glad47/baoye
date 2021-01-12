@@ -47,13 +47,13 @@ function Foot() {
                         <a >Technology</a>
                         <a href="https://www.pcbonline.com/HowWeProduce/Capability/PCB-Capability/" >Capability</a>
                         <a href="https://www.pcbonline.com/HowWeProduce/PCB-material/" >Material</a>
-                        <a href="https://www.pcbonline.com/HowWeProduce/PCB-production/" >Production</a>
+                        {/* <a href="https://www.pcbonline.com/HowWeProduce/PCB-production/" >Production</a> */}
                         <a href="https://www.pcbonline.com/certificate/" >Certificate</a>
                     </div>
                     <div className='pcb-footer-link-other'>
                         <a >Support</a>
-                        <a href='https://www.pcbonline.com/support/home'>Help center</a>
-                        <a href='https://www.pcbonline.com/support/how-to-order-online/'>How to use</a>
+                        <a href='https://www.pcbonline.com/support/How-To-Order-Online/'>how to order</a>
+                        {/* <a href='https://www.pcbonline.com/support/how-to-order-online/'>How to use</a> */}
                         <a href='https://www.pcbonline.com/terms-of-service/'>Terms of service</a>
                         <a href="https://www.pcbonline.com/HowWeProduce/Delivery/Lead-time/">Refund policy</a>
                     </div>

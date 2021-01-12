@@ -25,6 +25,7 @@ function UserLogin(props: any) {
         fd.append('recaptchaResponse', recaptchaResponse)
         axios.post(sysUrl + 'api/auth/login', fd).then(res => {
             const { success, result } = res.data
+            // console.log(result)
             Cookies.set('token', result, { expires: 7 })
             if (success) {
                 axios({
@@ -60,7 +61,7 @@ function UserLogin(props: any) {
     }
     // 设置谷歌机器人回传的字符串
     const verifyCallback = (response: any) => {
-        console.log(response)
+        // console.log(response)
         setRecaptch(response)
     }
     const callback = () => {
