@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { PayCircleFilled,DollarCircleOutlined } from '@ant-design/icons';
+import { PayCircleFilled, DollarCircleOutlined } from '@ant-design/icons';
 import { Row, Col, Typography, Radio, Select } from 'antd';
 import Axios from 'axios';
 import { useAppState, changeTransportCost } from '../state';
@@ -33,13 +33,14 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
     const { dispatch, subtotal } = useAppState();
     let [countryItem, setCountryItem] = useState(cItem);
     let countryIcon = 'ac'
+
     useEffect(() => {
         if (cItem.length === 0) {
             Axios.get(baseUrl + 'v1/quote/getCountry')
                 .then((rep) => {
                     //   console.log(rep.data.data);
                     if (rep.data.code === 0) {
-                        cItem = rep.data.data;
+                        cItem = rep.data.data;                       // setCountryItem(rep.data.data);
                         setCountryItem(rep.data.data);
                     }
                 }).catch((rep) => {
@@ -83,7 +84,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
     return (
         !props.isMobileSize ? <div>
             <Row>
-                <Col span={24}><Title level={3}><DollarCircleOutlined className='cost-title'/> <b>Shipping Cost</b></Title></Col>
+                <Col span={24}><Title level={3}><DollarCircleOutlined className='cost-title' /> <b>Shipping Cost</b></Title></Col>
             </Row>
             <Row className="shopping-cast-mar">
                 <Col span={20}>
@@ -111,6 +112,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
                             option?.label?.toLowerCase().indexOf(input.toLowerCase()) >= 0
                         }
                         className='country_select'
+                        dropdownClassName="country-select"
                         bordered={false}
                         defaultValue={countryItem.length != 0 ? 101 : undefined}
                     >

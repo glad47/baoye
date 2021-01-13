@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import logoImg from '../images/logo-header.png'
 import Icon1 from '../images/footer_icon01.png'
 import Icon2 from '../images/footer_icon02.png'
@@ -6,6 +6,7 @@ import Icon3 from '../images/footer_icon03.png'
 import Icon5 from '../images/footer_icon05.png'
 
 function Foot() {
+    const [currentYear,setYear]=useState(2020)
     useEffect(() => {
         let windowWidth = window.innerWidth
         if (windowWidth < 850) { return }
@@ -15,6 +16,8 @@ function Foot() {
         createElement.src = 'https://seal.godaddy.com/getSeal?sealID=JyOmqvrJtXawl2GzkTr8Tf8g72riSFgMhkRVxbFC8cMv1lCwC1uwAHAeeklK'
         createElement.type = 'text/javascript'
         site?.appendChild(createElement)
+        let Year =new Date().getFullYear()
+        setYear(Year)
     }, [])
     return (
         <div id='pcb-footer'>
@@ -32,7 +35,7 @@ function Foot() {
                     <div>
                         <span id="siteseal"></span>
                     </div>
-                    <div className='copy-right-font'>@2000-2020 PCB ONLINE LTD. All Rights Reserved</div>
+                    <div className='copy-right-font'>@2000-{currentYear} PCB ONLINE LTD. ｜ All Rights Reserved</div>
                 </div>
 
                 <div className='pcb-footer-link'>

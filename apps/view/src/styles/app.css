@@ -1187,9 +1187,13 @@ body {
 }
 
 .all_country_logo {
-    width: 46px;
-    height: 38px;
+    width: 34px;
+    height: 36px;
     margin-right: 10px;
+}
+
+.country-select{
+    width:250px;
 }
 
 .express_choose>.ant-select-arrow,
@@ -2640,6 +2644,7 @@ body {
     display: none;
 }
 
+
 /* --------------------------------------------------------------------------------------------------------------mobile端----------------------------------------------------------------------- */
 @media screen and (max-width:850px) {
 
@@ -3560,5 +3565,15 @@ body {
 
     .pcb-spec .mobile-special-form .ant-form-item .ant-form-item-control {
         max-width: 50%;
+    }
+}
+
+@media screen and (min-width:850px) and (max-width:1480px){
+    .pcb-footer-inner{
+        width: 91%;
+    }
+    .pcb-footer-link-other{
+        min-width: 140px;
+        margin-right: 36px;
     }
 }
