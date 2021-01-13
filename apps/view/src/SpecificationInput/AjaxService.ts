@@ -13,7 +13,7 @@ export const sysUrl = "https://sys.pcbonline.com/"  //线上后端
 //     return Axios.get(baseUrl+ 'quote/getBuildTime')
 // }
 
-const token = Cookies.get('token');
+
 // console.log(token);
 export const ajaxBuildTime = (data: any) =>{
     return Axios.get(baseUrl + `v1/quote/getBuildTime?areaSq=${data.areaSq}&layerNum=${data.layerNum}`);
@@ -33,6 +33,7 @@ export const fetchShipingCost = (data: any) =>{
 }
 
 export const ajaxAddQuote = (data: any) => {
+    const token = Cookies.get('token');
     return Axios.request({
         headers:{'Authorization':token},
         url:sysUrl+'api/order',
@@ -47,6 +48,7 @@ export const ajaxAssemblyCast = (data: any)=>{
 }
 
 export const ajaxFileUpload = (file: File[]) =>{
+    const token = Cookies.get('token');
     const fromData = new FormData();
     fromData.append('file',file[0]);
 
