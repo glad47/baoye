@@ -42,8 +42,8 @@ function Foot() {
                     <div className='pcb-footer-link-other'>
                         <a>Star Products</a>
                         <a href='https://www.pcbonline.com/PCB-FAB/Rigid-Flex-PCBs/'>Rigid-flex PCB</a>
-                        <a href="https://www.pcbonline.com/PCB-prototype/" target='_blank' rel="nofollow">PCB Prototypes</a>
-                        <a href="https://www.pcbonline.com/PCB-Assembly/Consigned-PCB-Assembly/">PCB Components</a>
+                        <a href="https://www.pcbonline.com/PCB-prototype/" target='_blank' rel="nofollow">PCB prototypes</a>
+                        <a href="https://www.pcbonline.com/PCB-Assembly/Consigned-PCB-Assembly/">PCB components</a>
                         <a href="https://www.pcbonline.com/ems-solution/turnkey-pcb-assembly/">PCB assembly</a>
                     </div>
                     <div className='pcb-footer-link-other'>
