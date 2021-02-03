@@ -101,7 +101,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
                     </Select>
 
                     <Select
-                        placeholder="Quick search"
+                        placeholder="Select Your Country"
                         style={{ width: 100 }}
                         showSearch
                         optionLabelProp="children"

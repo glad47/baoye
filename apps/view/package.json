@@ -1,9 +1,9 @@
 {
   "name": "@tracespace/view",
-  "productName": "PCB Online Quote China | SMT Stencil PCB Assembly China - PCB Online",
+  "productName": "PCB Online Quote | SMT Stencil | PCB Assembly",
   "version": "4.2.0",
   "private": true,
-  "description": "Probably the best Gerber viewer on the internet",
+  "description": "PCBONLINE provides free online quotations for custom PCB, PCB assembly, and SMT stencils. Register and enjoy $100 coupons!",
   "author": {
     "name": "Mike Cousins",
     "email": "mike@cousins.io",
