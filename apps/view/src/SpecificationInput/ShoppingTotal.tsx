@@ -109,6 +109,8 @@ const ShoppingCast: React.FC<ShoppingTotalProps> = (props) => {
                 <Col span={10} className="total-shopping-icon">
                     {/* <Link to="/quote/goToCart"> */}
                     <img src={require('../images/shoppingCart.png')} onClick={handleAddQuote} onMouseOver={isShowGo} onMouseOut={isHideGo} />
+                    <img src="https://www.shareasale.com/sale.cfm?tracking={{Order ID}}&amount={{Order Subtotal}}&merchantID=107214&transtype=sale" width="1" height="1">
+                    <script src="https://www.dwin1.com/19038.js" type="text/javascript" defer="defer"></script>
                     {/* </Link> */}
                     <img src={require('../images/down.png')} onClick={showTotalPrompt} onMouseOver={isShowAdd} onMouseOut={isHideAdd} />
                     {goCart ? <p className='go_to_cart'>Add to cart</p> : ""}

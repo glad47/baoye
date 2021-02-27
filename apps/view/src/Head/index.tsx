@@ -57,7 +57,7 @@ function Head(props: any) {
                             {props.loginName[0] === null
                                 ? <span className="sign-in">
                                     <a href='http://sys.pcbonline.com//login?jumpUrl=/blog'>
-                                        SING IN
+                                        SIGN IN
                                 </a>
                                 </span>
                                 : <div className='use_name' onClick={handleManage}>

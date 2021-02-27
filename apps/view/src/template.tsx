@@ -41,6 +41,7 @@ export default function StaticTemplate(props: Props): string {
                 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3V6Y7YZNEE"></script>
                 <script type="text/javascript" src='./Analysis/ga.js'> </script>
                 <script src="https://embed.tawk.to/5c8511c8c37db86fcfccf818/default" async ></script>
+                <script src="https://www.dwin1.com/19038.js" type="text/javascript" async defer></script>
             </head>
             <body className="h-100 overflow-hidden">
                 <div
