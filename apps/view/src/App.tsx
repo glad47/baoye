@@ -12,7 +12,6 @@ import ShoppingCast from './SpecificationInput/ShoppingCast'
 import ShoppingTotal from './SpecificationInput/ShoppingTotal'
 import UserLogin from './UserLogin'
 
-import Tips from './GuideTips/index'
 import Foot from './Footer/index'
 import MobileFoot from './Footer/MobileFoot'
 import ReactGA from 'react-ga'
@@ -209,7 +208,6 @@ function App(): JSX.Element {
                 {/* <FileList /> */}
                 {/* <BoardList /> */}
                 <Layout>
-                    {isFirst ? <Tips /> : ''}
                     {/* <Head loginName={loginName}/> */}
                     {!isMobileSize ? <Head loginName={[loginName, headPortrait]} /> : <MobileHead />}
                     {!isMobileSize ? <Content>

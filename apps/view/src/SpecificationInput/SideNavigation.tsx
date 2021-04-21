@@ -18,8 +18,16 @@ const SideNavigation: React.FC<SideNavigationProps> = (props) => {
             {
                 React.Children.map(children, (child, index) => {
                     const activerClassName = (quoteMode === index) ? 'cur' : '';
+                    // @ts-ignore
+                    const isLastClass = children.length === (index+1) ? 'last' : '';
+                    let isFilletClassName;
+                    if ((quoteMode+1) === index) {
+                        isFilletClassName = 'angle2'
+                    } else if ((quoteMode-1) === index) {
+                        isFilletClassName = 'angle1'
+                    }
                     return (
-                        <li className={activerClassName}>
+                        <li className={`${activerClassName} ${isFilletClassName} ${isLastClass}`}>
                             <a onClick={(event) => { tabChange(event, index) }}>
                                 {child}
                             </a>

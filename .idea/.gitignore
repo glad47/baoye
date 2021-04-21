@@ -1,0 +1,12 @@
+node_modules
+coverage
+.nyc_output
+
+# artifacts
+bundle.*
+**/dist
+*/**/LICENSE
+**/*.tgz
+
+# system files
+.DS_Store
