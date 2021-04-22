@@ -19,19 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 报价页样式修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/LoadFiles/FileInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/LoadFiles/FileInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/LoadFiles/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/LoadFiles/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/FormControl.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/FormControl.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbSizeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbSizeForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/SpecificationHead.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/SpecificationHead.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/yarn-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/yarn-error.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,8 +90,17 @@
       <workItem from="1619056985112" duration="12756000" />
       <workItem from="1619082154083" duration="578000" />
       <workItem from="1619082744009" duration="93000" />
-      <workItem from="1619082875477" duration="2030000" />
+      <workItem from="1619082875477" duration="2278000" />
+      <workItem from="1619085257086" duration="736000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: 报价页样式修改">
+      <created>1619084955266</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619084955266</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +158,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: 报价页样式修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 报价页样式修改" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="823" y="449" key="#ESLint" timestamp="1619082830320">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -165,30 +171,34 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="615" y="316" key="EditFileWatcherDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1619084431994" />
-    <state width="1875" height="295" key="GridCell.Tab.0.bottom" timestamp="1619084708584">
+    <state width="1875" height="295" key="GridCell.Tab.0.bottom" timestamp="1619085176483">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1875" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1619084708584" />
-    <state width="1875" height="295" key="GridCell.Tab.0.center" timestamp="1619084708583">
+    <state width="1875" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1619085176483" />
+    <state width="1875" height="295" key="GridCell.Tab.0.center" timestamp="1619085176483">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1875" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1619084708583" />
-    <state width="1875" height="295" key="GridCell.Tab.0.left" timestamp="1619084708583">
+    <state width="1875" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1619085176483" />
+    <state width="1875" height="295" key="GridCell.Tab.0.left" timestamp="1619085176482">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1875" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1619084708583" />
-    <state width="1875" height="295" key="GridCell.Tab.0.right" timestamp="1619084708583">
+    <state width="1875" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1619085176482" />
+    <state width="1875" height="295" key="GridCell.Tab.0.right" timestamp="1619085176483">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1875" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1619084708583" />
+    <state width="1875" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1619085176483" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1619084921016">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1619084921016" />
-    <state x="662" y="248" width="656" height="584" key="find.popup" timestamp="1619077181819">
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1619084956839">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="662" y="248" width="656" height="584" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619077181819" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1619084956839" />
+    <state x="662" y="248" width="656" height="584" key="find.popup" timestamp="1619085075150">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="662" y="248" width="656" height="584" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619085075150" />
     <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1619076006559">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

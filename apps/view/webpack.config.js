@@ -23,9 +23,6 @@ const EXAMPLE_FILES = path.join(
     'boards/arduino-uno/**'
 )
 
-const lessRegex= /\.less$/;
-const lessModuleRegex=/\.module\.less$/;
-
 module.exports = merge(baseConfig(__dirname), {
     entry: {
         bundle: path.join(__dirname, 'src/index.tsx'),

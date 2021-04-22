@@ -1,5 +1,4 @@
 import React from 'react'
-import '../styles/pcbBuildFee.less'
 
 const PcbBuildFee: React.FC<any> = (props) => {
     const { aa } = props;
