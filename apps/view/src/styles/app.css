@@ -5,9 +5,11 @@
 
 .ant-layout-content {
     position: relative;
-    width: 1300px;
+    width: 1200px;
     margin: 0 auto;
+    height: 1007px;
     display: flex;
+    overflow: hidden;
     background: #fff;
     border-radius: 32px;
 }
@@ -146,6 +148,10 @@
     float: left;
     margin-left: 148px;
     box-sizing: border-box;
+}
+
+.pcb-min-info, .pcb-sidebar {
+    margin-top: 20px;
 }
 
 /*pcb-min*/
@@ -2214,6 +2220,7 @@ body {
     background-color: #2952ea;
     display: flex;
     align-items: center;
+    margin-top: 46px;
 }
 
 .pcb-footer-inner {
