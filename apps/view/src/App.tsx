@@ -238,19 +238,19 @@ function App(): JSX.Element {
 
 
                         <div className="pcb-sidebar">
-                            {/*<PcbBuildFee />*/}
-                            <div className="pcb-build-time">
-                                <BuildTimeForm buildItems={buildTimeItems} />
-                            </div>
-                            <div className="pcb-fee">
-                                <CastCalculation {...subtotal} quoteMode={quoteMode} />
-                            </div>
-                            <div className="pcb-cast">
-                                <ShoppingCast isMobileSize={isMobileSize} />
-                            </div>
-                            <div className="pcb-total">
-                                <ShoppingTotal total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar} />
-                            </div>
+                            <PcbBuildFee />
+                            {/*<div className="pcb-build-time">*/}
+                            {/*    <BuildTimeForm buildItems={buildTimeItems} />*/}
+                            {/*</div>*/}
+                            {/*<div className="pcb-fee">*/}
+                            {/*    <CastCalculation {...subtotal} quoteMode={quoteMode} />*/}
+                            {/*</div>*/}
+                            {/*<div className="pcb-cast">*/}
+                            {/*    <ShoppingCast isMobileSize={isMobileSize} />*/}
+                            {/*</div>*/}
+                            {/*<div className="pcb-total">*/}
+                            {/*    <ShoppingTotal total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar} />*/}
+                            {/*</div>*/}
                         </div>
 
                     </Content>
