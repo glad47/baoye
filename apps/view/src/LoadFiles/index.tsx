@@ -10,9 +10,13 @@ const UPLOAD_MESSAGE = 'Upload your Gerber and drill files to render your board'
 const UPLOAD_SUBMESSAGE = 'ZIP files work, too'
 const URL_MESSAGE = 'or enter the URL of a ZIP archive'
 
-const WRAPPER_STYLE = 'absolute absolute--center near-black tc'
+const WRAPPER_STYLE = 'near-black tc'
 const MESSAGE_STYLE = 'mt3 mb0 f4 lh-copy'
 const SUBMESSAGE_STYLE = 'f5 fw3'
+const DEF_UPLOADHTML = `Click here to upload your Gerber file.<br/>
+<label>ZIP/RAR < 2M</label>
+<span class="upload-btn">Browse Files</span>
+`
 
 export type LoadFilesProps = {
   handleFiles: (event: FileEvent) => void
@@ -24,10 +28,10 @@ export type LoadFilesProps = {
 export default function LoadFiles(props: LoadFilesProps): JSX.Element {
   const { mode, loading, fillData, dispatch } = useAppState()
   const { progress, delay } = props.progress
-  const successful_update = progress === 100 ? require(`../images/successful_updata.gif`) : require(`../images/upload_now.gif`)
+  const successful_update = progress === 100 ? require(`../images/successful_updata.gif`) : require(`../images/quate_icon2.png`)
   const successful_word = progress === 100 ?
     'Successful Gerber file upload! The system is analyzing data. Please wait and check the specifications.'
-    : `Click here to upload your Gerber file.<br/>Only <strong>ZIP</strong> or <strong>RAR</strong> file format.<br/>Please note that your RAR or ZIP file folder has no more than 2 levels.`
+    : DEF_UPLOADHTML
   const wordTitle = !delay ? successful_word : 'It takes a little time for analyzing the file. You can also input by your own to get a quote.'
   // dispatch(backToUpload(!delay))
   return (

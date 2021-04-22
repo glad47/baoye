@@ -1,0 +1,25 @@
+0 silly argv {
+0 silly argv   _: [ 'run' ],
+0 silly argv   parallel: true,
+0 silly argv   scope: '@tracespace/view',
+0 silly argv   lernaVersion: '3.22.1',
+0 silly argv   '$0': 'node_modules\\lerna\\cli.js',
+0 silly argv   script: 'start'
+0 silly argv }
+1 notice cli v3.22.1
+2 verbose rootPath C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2
+3 notice filter including "@tracespace/view"
+4 info filter [ '@tracespace/view' ]
+5 info Executing command in 1 package: "yarn run start"
+6 silly npmRunScript.stream [ 'start', [], '@tracespace/view' ]
+7 silly getExecOpts C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view undefined
+8 error MaxBufferError: stderr maxBuffer exceeded
+8 error     at PassThrough.<anonymous> (C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\node_modules\get-stream\index.js:41:19)
+8 error     at PassThrough.emit (events.js:327:22)
+8 error     at addChunk (_stream_readable.js:309:12)
+8 error     at readableAddChunk (_stream_readable.js:280:11)
+8 error     at PassThrough.Readable.push (_stream_readable.js:223:10)
+8 error     at PassThrough.Transform.push (_stream_transform.js:166:32)
+8 error     at PassThrough.afterTransform (_stream_transform.js:101:10)
+8 error     at PassThrough._transform (_stream_passthrough.js:46:3)
+8 error     at PassThrough.Transform._read (_stream_transform.js:205:10)

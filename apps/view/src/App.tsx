@@ -22,6 +22,7 @@ import GerberUpload from './SpecificationInput/GerberUpload'
 import GerberShow from './SpecificationInput/GerberShow'
 import Head from './Head/index'
 import MobileHead from './Head/MobileHead'
+import PcbBuildFee from "./SpecificationInput/PcbBuildFee";
 
 function App(): JSX.Element {
     const { dispatch
@@ -237,6 +238,7 @@ function App(): JSX.Element {
 
 
                         <div className="pcb-sidebar">
+                            {/*<PcbBuildFee />*/}
                             <div className="pcb-build-time">
                                 <BuildTimeForm buildItems={buildTimeItems} />
                             </div>

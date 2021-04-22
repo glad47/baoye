@@ -7,7 +7,14 @@ import { ControlFilled } from '@ant-design/icons';
 interface SpecificationHeadProps {
     icon: string;
     title: string;
+    description: string;
     handleRadioSwitch?: (v: RadioChangeEvent)=>void;
+}
+const p_style = {
+    fontFamily: 'ArialMT',
+    fontSize: '14px',
+    color: '#666666',
+    letterSpacing: 0
 }
 const {Title} = Typography;
 const titleStyle = {}
@@ -20,18 +27,22 @@ const SpecificationHead: React.FC<SpecificationHeadProps> = (props) =>{
     return (
         <Row>
             <Space direction="horizontal" size="large">
-                <Title level={2} style={titleStyle}><ControlFilled /><b>{props.title}</b></Title>
+                <Title level={2} style={titleStyle}>
+                    <ControlFilled />
+                    <b>{props.title}</b>
+                </Title>
                 <Radio.Group defaultValue="standard" onChange={ (v)=>dispatch(setFieldMode(v.target.value))}>                  
                     <Radio.Button value="standard">
-                        <img className={is_rote} src={left_img}/>
+                        {/*<img className={is_rote} src={left_img}/>*/}
                         standard
                     </Radio.Button>
                     <Radio.Button value="special">
-                        <img className={right_rote} src={right_img}/>
+                        {/*<img className={right_rote} src={right_img}/>*/}
                         special
                     </Radio.Button>
                 </Radio.Group>
             </Space>
+            <p style={p_style}>{props.description}</p>
         </Row>
     )
 }

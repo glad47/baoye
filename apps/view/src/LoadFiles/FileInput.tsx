@@ -16,7 +16,7 @@ export default function FileInput(props: FileInputProps): JSX.Element {
     props.loginReady(true)
   }
   return (
-    <label className="db pv4 pointer">
+    <label className="db pointer">
       {loginState?<HiddenInput type="file" onChange={handleFiles} multiple />:<HiddenInput type="text" onClick={readyLogin} />}
       <Icon name="plus" className="dib f1 brand" />
       {children}

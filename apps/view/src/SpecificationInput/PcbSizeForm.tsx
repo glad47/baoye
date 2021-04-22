@@ -72,7 +72,8 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                     <Form.Item label="Size" name="singleSize">
                         <ObserverSize />
                     </Form.Item>
-                    <Form.Item label="Quantity" name="quantity">
+                    <Form.Item label="Quantity" name="quantity" className={`item-quantity`}>
+                        <img src={require('../images/quate_icon1.png')} alt=""/>
                         <Input placeholder='Enter the Qty' className='enter_quantity' suffix={singleMode ? 'PCS' : 'PANEL'} autoComplete='off' />
                     </Form.Item>
                 </Col>

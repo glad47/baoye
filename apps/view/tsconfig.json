@@ -4,7 +4,8 @@
   "compilerOptions": {
     "composite": true,
     "noEmit": true,
-    "rootDir": "src"
+    "rootDir": "src",
+    "jsx": "react"
   },
   "include": ["typings", "src"]
 }
