@@ -20,10 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +42,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="1rNoWrCwvMimtXLMe3JV4zbP621" />
   <component name="ProjectViewState">
@@ -51,7 +54,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/view/src/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/view" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -69,20 +72,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view" />
       <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view\src\images" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SshConsoleOptionsProvider">
     <option name="myEncoding" value="UTF-8" />
@@ -167,18 +159,17 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-    <option name="OPEN_TABS">
-      <set>
-        <option value="1" />
-      </set>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: 报价页样式修改" />
@@ -194,37 +185,41 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="615" y="316" key="EditFileWatcherDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1619084431994" />
-    <state width="1875" height="295" key="GridCell.Tab.0.bottom" timestamp="1619085176483">
+    <state width="1875" height="295" key="GridCell.Tab.0.bottom" timestamp="1619142942721">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1875" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1619085176483" />
-    <state width="1875" height="295" key="GridCell.Tab.0.center" timestamp="1619085176483">
+    <state width="1875" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1619142942721" />
+    <state width="1875" height="295" key="GridCell.Tab.0.center" timestamp="1619142942721">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1875" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1619085176483" />
-    <state width="1875" height="295" key="GridCell.Tab.0.left" timestamp="1619085176482">
+    <state width="1875" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1619142942721" />
+    <state width="1875" height="295" key="GridCell.Tab.0.left" timestamp="1619142942721">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1875" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1619085176482" />
-    <state width="1875" height="295" key="GridCell.Tab.0.right" timestamp="1619085176483">
+    <state width="1875" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1619142942721" />
+    <state width="1875" height="295" key="GridCell.Tab.0.right" timestamp="1619142942721">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1875" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1619085176483" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1619084921016">
+    <state width="1875" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1619142942721" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1619149939312">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1619084921016" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1619149939312" />
     <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1619084956839">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1619084956839" />
-    <state x="662" y="248" width="656" height="584" key="find.popup" timestamp="1619085075150">
+    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1619142783333">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="662" y="248" width="656" height="584" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619085075150" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1619076006559">
+    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1619142783333" />
+    <state x="662" y="248" width="656" height="584" key="find.popup" timestamp="1619162857806">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619076006559" />
+    <state x="662" y="248" width="656" height="584" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619162857806" />
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1619150211823">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619150211823" />
   </component>
 </project>
