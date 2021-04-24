@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Select} from "antd";
 import {changeUrgentCost, useAppState} from "../state";
 import {BuildTimeItem} from "../types";
+import CarDrawer from "./CarDrawer";
 
 const { Option } = Select;
 const bts = [
@@ -13,6 +14,7 @@ const bts = [
 interface CastCalculationProps {
     boardFee?: number
     engineeringFee?: number
+    buildItems?: any
     testFee?: number
     quoteMode: number
     stencilFee: number
@@ -23,6 +25,7 @@ const PcbBuildFee: React.FC<any> = (props) => {
     const { buildItems } = props;
     const { boardFee, engineeringFee, testFee, quoteMode, stencilFee, assemblyFee } = props
     const { dispatch, subtotal, buildTimeItmes } = useAppState();
+    const [drawerVisible, setDrawerVisible] = useState<boolean>(false);
     const handlerBuild = (value: any) => {
         const v = value;
         console.log('value', v)
@@ -31,6 +34,9 @@ const PcbBuildFee: React.FC<any> = (props) => {
         const { price, dayNumber, id } = buildTimeItmes.filter((item) => { return Number(item.id) === Number(v) })[0];
         const buildTimeItem: BuildTimeItem = {id: id, price: price, dayNumber: dayNumber};
         dispatch(changeUrgentCost(buildTimeItem));
+    }
+    const handlerCart = () => {
+        setDrawerVisible(true);
     }
     const DOM = (
         <div className="pcb-build-container">
@@ -77,9 +83,12 @@ const PcbBuildFee: React.FC<any> = (props) => {
                 </div>
             </div>
             <div className="model-4">
-                <span>Add to cart</span>
+                <span onClick={handlerCart}>Add to cart</span>
                 <span>Buy Now</span>
             </div>
+            {
+                drawerVisible ? <CarDrawer visible={drawerVisible}/> : ''
+            }
         </div>
     )
     return DOM;
