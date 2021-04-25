@@ -1,28 +1,43 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import { Drawer } from 'antd';
+import {changeCarDrawer, useAppState} from "../state";
+import CarList from "./CarList";
 
 const CarDrawer = (props: any) => {
-    const {visible: propsVisible} = props;
-    const [visible, setVisible] = useState(propsVisible);
+    const { dispatch, carDrawerStatus } = useAppState();
     const onClose = () => {
-        console.log('关闭')
-        setVisible(false);
+        dispatch(changeCarDrawer(false));
     };
+    const drawerOptions = {
+        width: 440,
+        closable: false,
+        maskClosable: true,
+        onClose: onClose,
+        zIndex: 9999999999,
+        visible: carDrawerStatus
+    }
     useEffect(() => {
         console.log('加载抽屉')
     }, []);
     return (
-        <Drawer
-            title="Basic Drawer"
-            placement="right"
-            closable={false}
-            maskClosable={true}
-            onClose={onClose}
-            visible={visible}
-        >
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
+        <Drawer {...drawerOptions} className="car-drawer">
+            <div className="car-drawer-box">
+                <div className="lef-li">
+                    <div className="car-header">
+                        Shopping Cart (3)
+                    </div>
+                    <div className="car-container">
+                        <CarList />
+                    </div>
+                </div>
+                <div className="rig-close">
+                    <div onClick={onClose}>
+                        X
+                        <br />
+                        Close
+                    </div>
+                </div>
+            </div>
         </Drawer>
     )
 }

@@ -104,6 +104,7 @@ const PcbSpecification: React.FC<PcbSpecificationProps> = (props) => {
     const isShowMobileSpecial = () => {
         setShowFlag(!isShowFlag)
     }
+    console.log('props', props)
     return (
         <>
             {/* <SpecificationHead icon="" title="PCB Specification" /> */}

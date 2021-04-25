@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {Select} from "antd";
-import {changeUrgentCost, useAppState} from "../state";
+import {changeCarDrawer, changeUrgentCost, useAppState} from "../state";
 import {BuildTimeItem} from "../types";
 import CarDrawer from "./CarDrawer";
 
@@ -24,8 +24,7 @@ interface CastCalculationProps {
 const PcbBuildFee: React.FC<any> = (props) => {
     const { buildItems } = props;
     const { boardFee, engineeringFee, testFee, quoteMode, stencilFee, assemblyFee } = props
-    const { dispatch, subtotal, buildTimeItmes } = useAppState();
-    const [drawerVisible, setDrawerVisible] = useState<boolean>(false);
+    const { dispatch, subtotal, buildTimeItmes, carDrawerStatus } = useAppState();
     const handlerBuild = (value: any) => {
         const v = value;
         console.log('value', v)
@@ -35,8 +34,8 @@ const PcbBuildFee: React.FC<any> = (props) => {
         const buildTimeItem: BuildTimeItem = {id: id, price: price, dayNumber: dayNumber};
         dispatch(changeUrgentCost(buildTimeItem));
     }
-    const handlerCart = () => {
-        setDrawerVisible(true);
+    const handlerCar = () => {
+        dispatch(changeCarDrawer(true));
     }
     const DOM = (
         <div className="pcb-build-container">
@@ -83,11 +82,11 @@ const PcbBuildFee: React.FC<any> = (props) => {
                 </div>
             </div>
             <div className="model-4">
-                <span onClick={handlerCart}>Add to cart</span>
+                <span onClick={handlerCar}>Add to cart</span>
                 <span>Buy Now</span>
             </div>
             {
-                drawerVisible ? <CarDrawer visible={drawerVisible}/> : ''
+                carDrawerStatus ? <CarDrawer visible={carDrawerStatus}/> : ''
             }
         </div>
     )

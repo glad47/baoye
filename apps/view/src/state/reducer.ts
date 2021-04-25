@@ -322,6 +322,12 @@ export default function reducer(state: State, action: Action): State {
         fileUploadPtah: action.payload.url
       }
     }
+    case actionTypes.CHANGE_CARDRAWER_STATUS: {
+      return {
+        ...state,
+        carDrawerStatus: action.payload
+      }
+    }
   }
   
 
