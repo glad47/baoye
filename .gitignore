@@ -9,5 +9,9 @@ bundle.*
 **/*.tgz
 
 .idea
+<<<<<<< HEAD
+=======
+
+>>>>>>> parker
 # system files
 .DS_Store

@@ -15,7 +15,6 @@ export function countQuoteMiddleware(): State.Middleware {
             case State.CHANGE_SPECIAL_FIELD: 
             case State.CHANGE_STANDARD_FIELD:
             case State.CHANGE_SIZE_FIELD: {
-               
                 // console.log("计算尺寸",state);
                 const { pcbSizeField: {boardType,quantity,singleSize:{sizeX,sizeY},panelSize:{size:psx,siezY:psy}}, pcbStandardField:{layer}} = state;
                 // console.log(sizeX);

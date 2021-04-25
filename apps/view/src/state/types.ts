@@ -46,6 +46,7 @@ export type State = {
   isBackToUpload:boolean
   allKeys:any
   fillData:boolean
+  carDrawerStatus:boolean
 }
 
 /** Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。 */
@@ -106,3 +107,4 @@ export type Action =
   | {type: 'CHANGE_COLOR'; payload: any}
   | {type: 'BACKFILL_SVG_DATA'; payload: any}
   | {type: 'BACKFILL_UPLOAD_PATH_DATA'; payload: any}
+  | {type: 'CHANGE_CARDRAWER_STATUS'; payload: any}

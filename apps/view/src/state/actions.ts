@@ -14,6 +14,8 @@ import {
 import {Action} from './types'
 import { SelectValue } from 'antd/lib/select'
 
+
+
 export const FETCH_APP_PREFERENCES = 'FETCH_APP_PREFERENCES'
 export const UPDATE_APP_PREFERENCES = 'UPDATE_APP_PREFERENCES'
 export const APP_PREFERENCES = 'APP_PREFERENCES'
@@ -54,6 +56,7 @@ export const CHANGE_ASSEMBLY_FIELD = 'CHANGE_ASSEMBLY_FIELD'
 export const CHANGE_COLOR='CHANGE_COLOR'
 export const BACKFILL_SVG_DATA = 'BACKFILL_SVG_DATA'
 export const BACKFILL_UPLOAD_PATH_DATA = 'BACKFILL_UPLOAD_PATH_DATA'
+export const CHANGE_CARDRAWER_STATUS = 'CHANGE_CARDRAWER_STATUS';
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -293,5 +296,11 @@ export const backfillSvgData = (field:any): Action =>({
 /** 回填上传后的路径 */
 export const backfillUploadPathData = (field:any): Action =>({
   type: BACKFILL_UPLOAD_PATH_DATA,
+  payload: field
+})
+
+/** 回填上传后的路径 */
+export const changeCarDrawer = (field:any): Action =>({
+  type: CHANGE_CARDRAWER_STATUS,
   payload: field
 })

@@ -1,7 +1,12 @@
 // @tracespace/view entry point
 import React from 'react'
 import './styles'
-import { Router } from 'react-router-dom'
+import { createBrowserHistory } from "history";
+import { Router, Switch } from "react-router-dom";
+import FrontendAuth from "./Router/FrontendAuth";
+import routerMap from "./Router/routerMap";
+
+const hist = createBrowserHistory();
 
 // @ts-ignore: https://github.com/microsoft/TypeScript/issues/33752
 Promise.all([
@@ -18,11 +23,16 @@ Promise.all([
   ] = imports
 
   ReactDom.hydrate(
-    <StoreProvider>
-      {/* <BrowserRouter> */}
-      <App />
-      {/* </BrowserRouter> */}
-    </StoreProvider>,
+      <StoreProvider>
+        {/* <BrowserRouter> */}
+        <Router history={hist}>
+          <Switch>
+            <FrontendAuth routerConfig={routerMap} location={null}/>
+          </Switch>
+          <App />
+        </Router>,
+        {/* </BrowserRouter> */}
+      </StoreProvider>,
     document.querySelector('[data-hook=root]')
   )
 })

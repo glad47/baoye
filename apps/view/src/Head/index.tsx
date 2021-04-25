@@ -5,6 +5,7 @@ import Solution from '../Menus/Solution'
 import Resource from '../Menus/Resource'
 import Company from '../Menus/Company'
 import LoginShow from '../DownMenu/loginShow'
+import HeaderTips from "./HeaderTips";
 
 function Head(props: any) {
     const handleManage = () => {
@@ -74,6 +75,7 @@ function Head(props: any) {
                     </ul>
                 </div>
             </div>
+            <HeaderTips />
         </div>
     )
 }

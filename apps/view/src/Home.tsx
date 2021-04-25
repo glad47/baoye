@@ -24,7 +24,7 @@ import Head from './Head/index'
 import MobileHead from './Head/MobileHead'
 import PcbBuildFee from "./SpecificationInput/PcbBuildFee";
 
-function App(): JSX.Element {
+function Home(): JSX.Element {
     const { dispatch
         , subtotal
         , quoteMode
@@ -107,7 +107,7 @@ function App(): JSX.Element {
     //     setUpload(false)
     // }
     const aginUpload = () => {
-     //   setUpload(true)
+        //   setUpload(true)
         dispatch(backToUpload(true))
     }
     const setLoginMessage = (e: any) => {
@@ -212,48 +212,48 @@ function App(): JSX.Element {
                     {/* <Head loginName={loginName}/> */}
                     {!isMobileSize ? <Head loginName={[loginName, headPortrait]} /> : <MobileHead />}
                     {!isMobileSize ? <Content>
-                        {/* 左边栏 */}
-                        <div className="pcb-nav">
-                            <SideNavigation>
-                                <SideNavigationTab><div className='pcb-title'><img src={require('./images/header_one_show.png')} /><p className='pcb-word'>PCB</p></div></SideNavigationTab>
-                                <SideNavigationTab><div className='stencil-title'><img src={require('./images/header_icon_two.png')} /><p className='stencil-word'>Stencil</p></div></SideNavigationTab>
-                                <SideNavigationTab><div className='assembly-title'><img src={require('./images/header_icon_three.png')} /><p className='assembly-word'>Assembly</p></div></SideNavigationTab>
-                                {/* <SideNavigationTab><div><ReconciliationFilled /></div></SideNavigationTab> */}
-                            </SideNavigation>
-                        </div>
-
-                        <div className="pcb-min-info">
-                            <div className="pcb-min">
-                                {isBackToUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage}/> : <GerberShow />}
-                                {quoteMode === 0 ? <PcbSizeForm /> : ''}
-                                {!isBackToUpload
-                                    ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>
-                                        <p className='title_success_top'>Your files have been successfully uploaded.</p>
-                                        <button onClick={aginUpload} className='button_to_file'>Back to Upload File</button></div>
-                                    : ''}
+                            {/* 左边栏 */}
+                            <div className="pcb-nav">
+                                <SideNavigation>
+                                    <SideNavigationTab><div className='pcb-title'><img src={require('./images/header_one_show.png')} /><p className='pcb-word'>PCB</p></div></SideNavigationTab>
+                                    <SideNavigationTab><div className='stencil-title'><img src={require('./images/header_icon_two.png')} /><p className='stencil-word'>Stencil</p></div></SideNavigationTab>
+                                    <SideNavigationTab><div className='assembly-title'><img src={require('./images/header_icon_three.png')} /><p className='assembly-word'>Assembly</p></div></SideNavigationTab>
+                                    {/* <SideNavigationTab><div><ReconciliationFilled /></div></SideNavigationTab> */}
+                                </SideNavigation>
                             </div>
-                            {/* <PcbSizeForm /> */}
-                            <FormControl quoteMode={quoteMode} isMobileSize={isMobileSize} />
-                        </div>
+
+                            <div className="pcb-min-info">
+                                <div className="pcb-min">
+                                    {isBackToUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage}/> : <GerberShow />}
+                                    {quoteMode === 0 ? <PcbSizeForm /> : ''}
+                                    {!isBackToUpload
+                                        ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>
+                                            <p className='title_success_top'>Your files have been successfully uploaded.</p>
+                                            <button onClick={aginUpload} className='button_to_file'>Back to Upload File</button></div>
+                                        : ''}
+                                </div>
+                                {/* <PcbSizeForm /> */}
+                                <FormControl quoteMode={quoteMode} isMobileSize={isMobileSize} />
+                            </div>
 
 
-                        <div className="pcb-sidebar">
-                            <PcbBuildFee {...subtotal} />
-                            {/*<div className="pcb-build-time">*/}
-                            {/*    <BuildTimeForm buildItems={buildTimeItems} />*/}
-                            {/*</div>*/}
-                            {/*<div className="pcb-fee">*/}
-                            {/*    <CastCalculation {...subtotal} quoteMode={quoteMode} />*/}
-                            {/*</div>*/}
-                            {/*<div className="pcb-cast">*/}
-                            {/*    <ShoppingCast isMobileSize={isMobileSize} />*/}
-                            {/*</div>*/}
-                            {/*<div className="pcb-total">*/}
-                            {/*    <ShoppingTotal total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar} />*/}
-                            {/*</div>*/}
-                        </div>
+                            <div className="pcb-sidebar">
+                                <PcbBuildFee {...subtotal} />
+                                {/*<div className="pcb-build-time">*/}
+                                {/*    <BuildTimeForm buildItems={buildTimeItems} />*/}
+                                {/*</div>*/}
+                                {/*<div className="pcb-fee">*/}
+                                {/*    <CastCalculation {...subtotal} quoteMode={quoteMode} />*/}
+                                {/*</div>*/}
+                                {/*<div className="pcb-cast">*/}
+                                {/*    <ShoppingCast isMobileSize={isMobileSize} />*/}
+                                {/*</div>*/}
+                                {/*<div className="pcb-total">*/}
+                                {/*    <ShoppingTotal total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar} />*/}
+                                {/*</div>*/}
+                            </div>
 
-                    </Content>
+                        </Content>
                         :
                         <Content>
                             <div className='mobile-nav-online'>
@@ -331,4 +331,4 @@ function App(): JSX.Element {
     )
 }
 
-export default hot(App)
+export default hot(Home)

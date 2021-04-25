@@ -5,9 +5,13 @@
 
 .ant-layout-content {
     position: relative;
-    width: 1300px;
+    width: 1200px;
     margin: 0 auto;
+    height: 1007px;
+    display: flex;
+    overflow: hidden;
     background: #fff;
+    border-radius: 32px;
 }
 
 /*pcb-nav*/
@@ -144,6 +148,10 @@
     float: left;
     margin-left: 148px;
     box-sizing: border-box;
+}
+
+.pcb-min-info, .pcb-sidebar {
+    margin-top: 20px;
 }
 
 /*pcb-min*/
@@ -540,8 +548,9 @@
 
 /*侧边栏*/
 .pcb-sidebar {
-    width: 382px;
-    float: right;
+    /*width: 382px;*/
+    /*float: right;*/
+    margin-left: 20px;
 }
 
 /* --------------- pcb-build-time -------------- */
@@ -955,7 +964,7 @@ body {
 }
 
 .sans .ant-layout {
-    background: #fff;
+    background: #E9EDF2;
 }
 
 .sans .ant-layout .ant-layout-header {
@@ -1741,7 +1750,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 701px;
+    /*width: 701px;*/
     margin: 0 auto;
     margin-top: 20px;
 }
@@ -2211,6 +2220,7 @@ body {
     background-color: #2952ea;
     display: flex;
     align-items: center;
+    margin-top: 46px;
 }
 
 .pcb-footer-inner {
@@ -2267,7 +2277,7 @@ body {
 /* ------------------新增头部文件---------------- */
 #pcb-header {
     width: 100%;
-    height: 63px;
+    /*height: 63px;*/
     background-color: white;
     box-shadow: 0px 0px 35px 0px rgba(207, 210, 198, 0.55);
     margin-bottom: 20px;
@@ -3649,8 +3659,8 @@ body {
     position: absolute;
     width: 10px;
     z-index: 1;
-    top: 13px;
-    left: 7px;
+    top: 60px;
+    left: 107px;
 }
 
 /*.stencil-word,*/
@@ -3717,4 +3727,365 @@ body {
         min-width: 140px;
         margin-right: 36px;
     }
+}
+
+/*PcbBuildFee Style*/
+.pcb-build-container {
+    width: 344px;
+    height: 588px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 20px 0 rgba(0,0,0,0.10);
+    border-radius: 30px;
+    padding: 30px 20px 28px 20px;
+}
+
+.pcb-build-container .model-1, .pcb-build-container .model-2 {
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #D8D8D8;
+}
+
+.pcb-build-container .model-2 {
+    padding-top: 20px;
+}
+
+.pcb-build-container .cost-d {
+    height: 50px;
+    line-height: 50px;
+    background: #EEEEEE;
+    width: 100%;
+    text-align: center;
+    font-family: ArialMT;
+    font-size: 16px;
+    color: #000000;
+    letter-spacing: 0;
+}
+
+
+.pcb-build-container .cost-det>div{
+    margin-top: 10px;
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 22px;
+    display: table;
+    width: 100%;
+}
+
+.pcb-build-container .cost-det>div>span:last-child {
+    text-align: right;
+}
+
+.pcb-build-container .cost-det>div>span.selector {
+    width: 128px;
+}
+
+.pcb-build-container .cost-det>div>span {
+    display: table-cell;
+    width: 50%;
+}
+
+.pcb-build-container .model-2 {
+    padding-bottom: 29px;
+}
+
+.pcb-build-container .model-2>strong {
+    font-family: Arial-BoldMT;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin-bottom: 10px;
+}
+
+.pcb-build-container .model-3 {
+    height: 90px;
+    line-height: 90px;
+    display: flex;
+    align-items: center;
+}
+
+.pcb-build-container .model-3 .cost-det {
+    width: 100%;
+}
+
+.pcb-build-container .model-3 .m-price {
+    font-family: Arial-BoldMT;
+    font-size: 20px;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: right;
+    line-height: 22px;
+}
+
+.pcb-build-container .model-4 span{
+    height: 64px;
+    display: block;
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 64px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: ease-in-out all .2s;
+}
+
+.pcb-build-container .model-4 span:first-child:hover {
+    border: 1px solid #2952EA;
+}
+
+.pcb-build-container .model-4 span:first-child {
+    background: #FFFFFF;
+    border: 1px solid #D8D8D8;
+}
+
+.pcb-build-container .model-4 span:last-child {
+    margin-top: 20px;
+    background: #2952EA;
+    color: #FFFFFF;
+}
+
+.pcb-build-container .model-4 span:last-child:hover {
+    background: #FFFFFF;
+    color: #2952EA;
+    border: solid 1px #2952EA;
+}
+
+/*头部tips start*/
+.h-tips {
+    width: 100%;
+    background: #747678;
+    height: 32px;
+}
+
+.h-tips .t-box {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.h-tips .t-box span {
+    font-family: ArialMT;
+    line-height: 32px;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+
+.h-tips .t-box img {
+    cursor: pointer;
+    transition: ease-in-out all .1s;
+}
+
+.h-tips .t-box img.player {
+    margin-left: 3px;
+}
+
+.h-tips .t-box img.player:hover {
+    transform: scale(1.1);
+}
+
+.h-tips .t-box img.close {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -7px;
+}
+/*头部tips end*/
+
+/*购物车抽屉 start*/
+.ant-drawer {
+    z-index: 99999999;
+}
+.ant-drawer-body {
+    padding: unset !important;
+}
+.car-drawer-box {
+    display: flex;
+}
+
+.car-drawer-box .lef-li {
+    width: 360px;
+}
+
+.car-drawer-box .lef-li>div {
+    padding: 0 24px;
+}
+
+.car-drawer-box .lef-li .car-header {
+    background: #EEEEEE;
+    height: 50px;
+    line-height: 50px;
+    font-family: Arial-BoldMT;
+    font-size: 16px;
+    color: #000000;
+    letter-spacing: 0;
+    font-weight: 600;
+}
+
+.car-drawer-box .rig-close {
+    width: 80px;
+    background: #E9EDF2;
+    position: fixed;
+    right: 0;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.car-drawer-box .rig-close div {
+    margin: 0 auto;
+    text-align: center;
+    cursor: pointer;
+}
+/*购物车抽屉 END*/
+
+/*购物车商品列表 start*/
+.car-list .car-li{
+    width: 100%;
+    position: relative;
+}
+
+.car-list .car-li img.close {
+    position: absolute;
+    right: 0;
+    width: 16px;
+    top: 28px;
+    cursor: pointer;
+    transition: ease-in-out all .2s;
+}
+
+.car-list .car-li img.close:hover {
+    transform: scale(1.2);
+}
+
+.car-list .car-li .img-div {
+    width: 85px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.car-list .car-li .img-div img {
+    width: 80px;
+    object-fit: cover;
+    transition: ease-in-out all .2s;
+    height: 80%;
+}
+
+.car-list .car-li {
+    border-bottom: 1px #D8D8D8 dashed;
+    display: flex;
+    padding: 24px 0;
+}
+
+.car-list .car-li .img-div img:hover {
+    transform: scale(1.1);
+}
+
+.car-list .car-li .options {
+    padding-right: 10px;
+    margin-left: 15px;
+}
+
+.car-list .car-li .options .lift-num {
+    display: flex;
+    margin-top: 14px;
+}
+
+.car-list .car-li .options .lift-num .down, .car-list .car-li .options .lift-num .up {
+    background: #EEEEEE;
+    width: 23px;
+    height: 23px;
+    line-height: 23px;
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition: ease-in-out all .2s;
+}
+
+.car-list .car-li .options .lift-num .down:hover, .car-list .car-li .options .lift-num .up:hover {
+    background: #dcdcdc;
+}
+
+
+.car-list .car-li .options .lift-num .num {
+    padding: 0 10px;
+}
+
+.car-list .car-li .options strong {
+    font-family: Arial-BoldMT;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 14px;
+    margin-top: 15px;
+    display: block;
+}
+
+.car-list .car-total {
+    margin-top: 24px;
+    margin-bottom: 50px;
+    display: table;
+    width: 100%;
+}
+
+.car-list .car-total span, .car-list .car-total strong {
+    font-family: ArialMT;
+    color: #333333;
+    letter-spacing: 0;
+    display: table-cell;
+    line-height: 22px;
+    width: 50%;
+}
+
+.car-list .car-total span {
+    font-size: 14px;
+}
+
+.car-list .car-total strong {
+    font-size: 20px;
+    text-align: right;
+}
+
+.car-btns button {
+    background: #2952EA;
+    border-radius: 4px;
+    width: 312px;
+    height: 64px;
+    font-family: ArialMT;
+    cursor: pointer;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 22px;
+    transition: ease-in-out all .2s;
+}
+
+.car-btns {
+    text-align: center;
+}
+
+.car-btns button:hover {
+    background: #ffffff;
+    color: #2952EA;
+    border: solid 1px #2952EA;
+}
+
+.car-btns span {
+    text-transform: uppercase;
+    text-decoration: underline;
+    padding-top: 24px;
+    display: block;
+    cursor: pointer;
+}
+/*购物车商品列表 end*/
+
+.h-100 {
+    width: unset !important;
 }
