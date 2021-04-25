@@ -8,5 +8,6 @@ bundle.*
 */**/LICENSE
 **/*.tgz
 
+.idea
 # system files
 .DS_Store
