@@ -6,11 +6,15 @@ import ShoppingCarListTable from "../Components/OrderProcess/ShoppingCarListTabl
 const PcbOrderProcess:React.FC<any> = (props:any) => {
     return (
         <PcbLayout>
-            <ProcessHeader />
-            <div className="order-types">
-                <ShoppingCarListTable />
+            <div className="pcb-order-process">
+                <ProcessHeader />
+                <div className="order-types">
+                    <ShoppingCarListTable />
+                </div>
+                <div className="order-detail">
+
+                </div>
             </div>
-            <div className="order-detail"></div>
         </PcbLayout>
     )
 }

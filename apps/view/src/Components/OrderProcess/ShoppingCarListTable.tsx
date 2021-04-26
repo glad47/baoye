@@ -4,20 +4,20 @@ import CarTable from "./CarTable";
 const ShoppingCarListTable = () => {
     const columns = [
         {
-            title: 'Product',
+            title: 'PRODUCT',
             key: '',
             dataIndex: 'img',
             width: 120,
             render: (txt: string | undefined) => (<img src={txt} />)
         },
         {
-            title: 'Description',
+            title: 'DESCRIPTION',
             key: '',
             width: 160,
             dataIndex: 'tim'
         },
         {
-            title: 'Production Time',
+            title: 'PRODUCTION TIME',
             key: '',
             width: 168,
             dataIndex: 'tim'
@@ -75,7 +75,12 @@ const ShoppingCarListTable = () => {
     ]
     return (
         <div className="shopping-car-list">
-            <CarTable columns={columns} data={data} rowKey="id" checkBox/>
+            <CarTable
+                columns={columns}
+                data={data}
+                rowKey="id"
+                checkBox _style={{TdHeight: 120}}
+            />
         </div>
     )
 }

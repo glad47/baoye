@@ -4106,26 +4106,36 @@ body {
     padding-bottom: 24px;
 }
 
+.pcb-order-process .order-types, .pcb-order-process .order-detail {
+    display: inline-block;
+}
+
+.pcb-order-process .order-types {
+    width: 836px;
+}
+.pcb-order-process .order-detail {
+    margin-right: 20px;
+    width: 344px;
+}
+
 /*下单流程页 end*/
 
 /*下单流程页-购物车表格组件 start*/
 .car-table table {
     width: 100%;
 }
-/*.car-table table .ant-checkbox-inner {*/
-/*        width: unset;*/
-/*        height: unset;*/
-/*        border-radius: unset;*/
-/*        background-color: unset !important;*/
-/*}*/
+.car-table table .ant-checkbox-inner {
+        border-radius: 3px;
+}
 
-/*.car-table table .ant-checkbox-checked .ant-checkbox-inner::after {*/
-/*    position: unset;*/
-/*    display: unset;*/
-/*    border: unset;*/
-/*    content: unset;*/
-/*    left: unset;*/
-/*}*/
+.car-table table th:first-of-type, .car-table table td:first-of-type {
+    padding-left: 20px;
+}
+
+.car-table table th:first-of-type, .car-table table td:last-of-type {
+    padding-left: 20px;
+}
+
 .car-table table th {
     height: 47px;
     font-family: ArialMT;
@@ -4139,6 +4149,9 @@ body {
 .car-table table tr th, .car-table table tr td {
     background: #ffffff;
     border-bottom: solid 1px #D8D8D8;
+}
+.car-table table tr th, .car-table table tr:last-of-type td {
+    border-bottom: unset;
 }
 .car-table table tr td img {
     max-width: 80px;
