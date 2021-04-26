@@ -45,6 +45,7 @@ export default function StaticTemplate(props: Props): string {
             </head>
             <body className="h-100 overflow-hidden">
                 <div
+                    id="root"
                     data-hook="root"
                     className="h-100"
                     dangerouslySetInnerHTML={{

@@ -10,7 +10,7 @@ const FrontendAuth = (props: { location: any; routerConfig: any; }) => {
             return item.path === pathname
         }
     );
-    return <Route path={pathname} component={targetRouterConfig.component} exact={!!targetRouterConfig.exact} />
+    return <Route path={pathname} key={pathname} strict component={targetRouterConfig.component} exact={!!targetRouterConfig.exact} />
 }
 
 export default FrontendAuth;
