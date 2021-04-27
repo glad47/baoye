@@ -22,13 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="">
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 路由配置、购物车页面40%">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/CarTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/CarTable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ShoppingCarListTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ShoppingCarListTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/CarTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ShoppingCarListTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/ShoppingCarListTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/util.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/view/src/images" />
+    <property name="js.last.introduce.type" value="CONST" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -77,13 +79,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src\Components\OrderProcess\ProcessOneForCar" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view\src\images" />
       <recent name="E:\apps\pcbonline\pcbonline-v2\apps\view\src\images" />
       <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SshConsoleOptionsProvider">
     <option name="myEncoding" value="UTF-8" />
   </component>
@@ -108,7 +113,7 @@
       <workItem from="1619107931288" duration="3357000" />
       <workItem from="1619244836534" duration="116000" />
       <workItem from="1619245315833" duration="7003000" />
-      <workItem from="1619449139153" duration="9096000" />
+      <workItem from="1619403072631" duration="18575000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>
@@ -128,7 +133,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -196,6 +201,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="766" y="264" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1619337260025" />
+    <state x="91" y="102" width="1718" height="880" key="DiffContextDialog" timestamp="1619521395517">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="91" y="102" width="1718" height="880" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1619521395517" />
     <state x="615" y="316" key="EditFileWatcherDialog" timestamp="1619084431994">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -228,40 +237,36 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1619244952829" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1619337822426">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1619521597144">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1619271859672" />
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1619337822426" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1619521597144" />
     <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1619084956839">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1619084956839" />
-    <state x="100" y="118" width="1720" height="840" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1619455578011">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="100" y="118" width="1720" height="840" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619455578011" />
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1619279383233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619279383233" />
-    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1619142783333">
+    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1619515458941">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1619142783333" />
-    <state x="662" y="239" width="656" height="594" key="find.popup" timestamp="1619458524588">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1619515458941" />
+    <state x="662" y="248" width="879" height="584" key="find.popup" timestamp="1619524208916">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619458524588" />
-    <state x="662" y="248" width="879" height="584" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619341147948" />
-    <state width="600" height="428" key="javadoc.popup" timestamp="1619458269779">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619279072095" />
+    <state x="662" y="248" width="879" height="584" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619524208916" />
+    <state x="617" y="256" key="run.anything.popup" timestamp="1619410035487">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="600" height="428" key="javadoc.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619458269779" />
-    <state x="615" y="186" width="672" height="651" key="search.everywhere.popup" timestamp="1619457603729">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="617" y="256" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619410035487" />
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1619419965825">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619457603729" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619339324058" />
+    <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619272624982" />
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619419965825" />
   </component>
 </project>

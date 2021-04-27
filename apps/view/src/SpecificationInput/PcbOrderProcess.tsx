@@ -1,20 +1,22 @@
 import React from 'react'
 import PcbLayout from "../Components/PcbLayout";
 import ProcessHeader from "../Components/OrderProcess/ProcessHeader";
-import ShoppingCarListTable from "../Components/OrderProcess/ShoppingCarListTable";
+import ProcessOneForCar from "../Components/OrderProcess/ProcessOneForCar";
+import {Collapse} from "antd";
+
+const { Panel } = Collapse;
 
 const PcbOrderProcess:React.FC<any> = (props:any) => {
     return (
         <PcbLayout>
-            <div className="pcb-order-process">
-                <ProcessHeader />
-                <div className="order-types">
-                    <ShoppingCarListTable />
-                </div>
-                <div className="order-detail">
-
-                </div>
-            </div>
+            <ProcessHeader />
+            <Collapse className="order-collapse" defaultActiveKey={1}>
+                <Panel header="流程1=>购物车" key="1">
+                    <ProcessOneForCar />
+                </Panel>
+                <Panel header="流程2=>购物车" key="2">
+                </Panel>
+            </Collapse>
         </PcbLayout>
     )
 }

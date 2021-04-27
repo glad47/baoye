@@ -42,7 +42,7 @@ const ShoppingCarListTable = () => {
             type: 'operation',
             render: () => {
                 return (
-                    <img src={require('../../images/close_circle.png')} alt=""/>
+                    <img src={require('../../../images/close_circle.png')} alt=""/>
                 )
             }
         },

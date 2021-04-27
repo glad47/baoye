@@ -3739,12 +3739,16 @@ body {
     padding: 30px 20px 28px 20px;
 }
 
-.pcb-build-container .model-1, .pcb-build-container .model-2 {
+.pcb-build-fee-detail {
+    padding: 17px 20px 28px 20px;
+}
+
+.pcb-build-fee-detail .model-1, .pcb-build-fee-detail .model-2 {
     padding-bottom: 20px;
     border-bottom: 1px dashed #D8D8D8;
 }
 
-.pcb-build-container .model-2 {
+.pcb-build-fee-detail .model-2 {
     padding-top: 20px;
 }
 
@@ -3761,7 +3765,7 @@ body {
 }
 
 
-.pcb-build-container .cost-det>div{
+.pcb-build-fee-detail .cost-det>div{
     margin-top: 10px;
     font-family: ArialMT;
     font-size: 14px;
@@ -3772,24 +3776,24 @@ body {
     width: 100%;
 }
 
-.pcb-build-container .cost-det>div>span:last-child {
+.pcb-build-fee-detail .cost-det>div>span:last-child {
     text-align: right;
 }
 
-.pcb-build-container .cost-det>div>span.selector {
+.pcb-build-fee-detail .cost-det>div>span.selector {
     width: 128px;
 }
 
-.pcb-build-container .cost-det>div>span {
+.pcb-build-fee-detail .cost-det>div>span {
     display: table-cell;
     width: 50%;
 }
 
-.pcb-build-container .model-2 {
+.pcb-build-fee-detail .model-2 {
     padding-bottom: 29px;
 }
 
-.pcb-build-container .model-2>strong {
+.pcb-build-fee-detail .model-2>strong {
     font-family: Arial-BoldMT;
     font-size: 14px;
     color: #333333;
@@ -3798,18 +3802,17 @@ body {
     margin-bottom: 10px;
 }
 
-.pcb-build-container .model-3 {
-    height: 90px;
-    line-height: 90px;
+.pcb-build-fee-detail .model-3 {
     display: flex;
+    margin-top: 29px;
     align-items: center;
 }
 
-.pcb-build-container .model-3 .cost-det {
+.pcb-build-fee-detail .model-3 .cost-det {
     width: 100%;
 }
 
-.pcb-build-container .model-3 .m-price {
+.pcb-build-fee-detail .model-3 .m-price {
     font-family: Arial-BoldMT;
     font-size: 20px;
     color: #333333;
@@ -4106,6 +4109,11 @@ body {
     padding-bottom: 24px;
 }
 
+.pcb-order-process {
+    position: relative;
+    padding: 26px 0;
+}
+
 .pcb-order-process .order-types, .pcb-order-process .order-detail {
     display: inline-block;
 }
@@ -4114,10 +4122,14 @@ body {
     width: 836px;
 }
 .pcb-order-process .order-detail {
-    margin-right: 20px;
+    background: #FFFFFF;
     width: 344px;
+    float: right;
 }
-
+.order-collapse .ant-collapse-content-box {
+    padding: unset !important;
+    background: #f8f8f8;
+}
 /*下单流程页 end*/
 
 /*下单流程页-购物车表格组件 start*/
@@ -4181,4 +4193,74 @@ body {
 
 .pac-layout {
     background: #f8f8f8;
+}
+
+/*流程右侧代码样式 start*/
+.order-detail .cost-det {
+    border-bottom: 1px dashed #D8D8D8;
+    padding-bottom: 26px;
+}
+.order-detail .cost-det.total {
+    border-bottom: unset;
+    padding-bottom: unset;
+}
+.order-detail .cost-det>div {
+    margin-top: 10px;
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 30px;
+    display: table;
+    width: 100%;
+}
+
+.order-detail .cost-det>div span {
+    display: table-cell;
+    width: 50%;
+}
+
+.order-detail .cost-det>div span:last-of-type {
+    text-align: right;
+}
+
+.order-detail .summary-box {
+    padding: 17px 15px;
+}
+
+.order-detail .summary-btn {
+    background: #f8f8f8;
+    padding: 17px 15px;
+}
+
+.order-detail .summary-tips {
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #929DC1;
+    letter-spacing: 0;
+    background: #E9EDF2;
+    padding: 16px 14px;
+}
+/*流程右侧代码样式 end*/
+
+.btn.global-primary {
+    height: 64px;
+    display: block;
+    font-family: ArialMT;
+    font-size: 14px;
+    letter-spacing: 0;
+    text-align: center;
+    background: #2952EA;
+    color: #FFFFFF;
+    border: solid 1px #2952EA;
+    line-height: 64px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: ease-in-out all .2s;
+}
+
+.btn.global-primary:hover {
+    background: #FFFFFF;
+    color: #2952EA;
 }

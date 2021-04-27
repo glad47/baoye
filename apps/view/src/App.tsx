@@ -238,7 +238,7 @@ function App(): JSX.Element {
 
 
                         <div className="pcb-sidebar">
-                            <PcbBuildFee {...subtotal} />
+                            <PcbBuildFee />
                             {/*<div className="pcb-build-time">*/}
                             {/*    <BuildTimeForm buildItems={buildTimeItems} />*/}
                             {/*</div>*/}
