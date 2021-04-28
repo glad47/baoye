@@ -22,12 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 路由配置、购物车页面40%">
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 流程组件分离">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/CarTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarTable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ShoppingCarListTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/ShoppingCarListTable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/app.css" afterDir="false" />
     </list>
@@ -129,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619111013959</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: 流程组件分离">
+      <created>1619526753806</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1619526753806</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +193,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: 报价页样式修改" />
     <MESSAGE value="feat: 报价页样式修改80%" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 报价页样式修改80%" />
+    <MESSAGE value="feat: 流程组件分离" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 流程组件分离" />
   </component>
   <component name="WindowStateProjectService">
     <state x="823" y="449" key="#ESLint" timestamp="1619082830320">
@@ -237,15 +241,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1619244952829" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1619521597144">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1619609200433">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1619271859672" />
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1619521597144" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1619084956839">
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1619609200433" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1619526755277">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1619084956839" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1619526755277" />
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1619279383233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -254,19 +258,19 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1619515458941" />
-    <state x="662" y="248" width="879" height="584" key="find.popup" timestamp="1619524208916">
+    <state x="662" y="248" width="879" height="584" key="find.popup" timestamp="1619600854068">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619279072095" />
-    <state x="662" y="248" width="879" height="584" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619524208916" />
+    <state x="662" y="248" width="879" height="584" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619600854068" />
     <state x="617" y="256" key="run.anything.popup" timestamp="1619410035487">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="617" y="256" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619410035487" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1619419965825">
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1619610460631">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619272624982" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619419965825" />
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619610460631" />
   </component>
 </project>
