@@ -1,0 +1,113 @@
+/*收货地址卡片start*/
+.history-addr {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 20px 0 20px 20px;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.history-addr::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+}
+.history-addr-box {
+    overflow: auto;
+    display: flex;
+    align-items: center;
+}
+.history-addr .history-addr-box img.close {
+    position: absolute;
+    cursor: pointer;
+    right: 20px;
+    top: 20px;
+}
+.history-addr .history-addr-li.active,
+.history-addr .history-addr-li:hover
+{
+    border: 2px solid #2952EA;
+    background: #FFFFFF;
+}
+
+.history-addr .history-addr-li:first-of-type {
+    margin-left: unset;
+}
+.history-addr .history-addr-li {
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 10px;
+    position: relative;
+    background: #F8F8F8;
+    border-radius: 4px;
+    padding: 16px 20px;
+    height: 120px;
+    border: solid 2px #fff;
+    width: 300px;
+    transition: ease-in-out all .1s;
+}
+
+.history-addr .history-addr-li.active strong, .history-addr .history-addr-li:hover strong {
+    color: #2952EA;
+}
+.history-addr .history-addr-li strong {
+    margin-bottom: 8px;
+}
+
+.history-addr .history-addr-li.active span,
+.history-addr .history-addr-li:hover span
+{
+    color: #929DC1;
+}
+.history-addr .history-addr-li strong {
+    color: #333333;
+}
+
+.history-addr .history-addr-li strong,
+.history-addr>div>span, .history-addr .history-addr-li span {
+    font-family: ArialMT;
+    font-size: 13px;
+    color: #666666;
+    display: block;
+}
+.history-addr .history-addr-li span:last-of-type {
+    height: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.edit-address .header {
+    width: 100%;
+    margin-top: 20px;
+    background: #fff;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.edit-address .check-unRadius {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.check-unRadius .ant-checkbox-inner {
+    border-radius: 2px !important;
+}
+
+.form-Address>form {
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+}
+
+.form-AddressBook>div form {
+    width: 100%;
+}
+
+
+/*收货地址卡片end*/

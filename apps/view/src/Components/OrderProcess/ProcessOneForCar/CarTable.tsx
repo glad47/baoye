@@ -3,6 +3,7 @@
  */
 import React, {useEffect} from 'react';
 import {Checkbox, message} from 'antd';
+import '../../../styles/car-table.css';
 
 interface checkValueTS {
     record?: object
@@ -10,7 +11,7 @@ interface checkValueTS {
 }
 
 const CarTable = (props: any) => {
-    const {columns, data, rowKey, checkBox, _style} = props;
+    const {columns, data, rowKey, checkBox, _style, openCheckAll} = props;
     const [checkedList, setCheckedList] = React.useState<any>([]);
     const [checkAll, setCheckAll] = React.useState(false);
 
@@ -62,10 +63,10 @@ const CarTable = (props: any) => {
                 <thead>
                 <tr>
                     {
-                        checkBox ?
-                            <th>
+                        checkBox && openCheckAll ?
+                            <th style={{width: '78px'}}>
                                 <Checkbox onChange={handlerCheckAll} checked={checkAll} />
-                            </th> : ''
+                            </th> : <th style={{width: '78px'}}></th>
                     }
                     {
                         columns.map((hea: any, index: number) => (
@@ -75,6 +76,8 @@ const CarTable = (props: any) => {
                         ))
                     }
                 </tr>
+                </thead>
+                <tbody>
                 {
                     data.map((tds:any, inx: number) => (
                         <tr key={`tr-${inx}-${tds[rowKey]}`}>
@@ -93,7 +96,7 @@ const CarTable = (props: any) => {
                                     if (hea.render) {
                                         return (
                                             <td key={`td-${hIndex}-${tds[rowKey]}`}>
-                                                {res === undefined ? hea.render('null') : hea.render(tds[res])}
+                                                {res === undefined ? hea.render('null') : hea.render(tds[res], inx)}
                                             </td>
                                         )
                                     }
@@ -107,10 +110,11 @@ const CarTable = (props: any) => {
                         </tr>
                     ))
                 }
-                </thead>
+                </tbody>
             </table>
         </div>
     )
 }
 
+CarTable.defaultProps = {openCheckAll: true}
 export default CarTable;

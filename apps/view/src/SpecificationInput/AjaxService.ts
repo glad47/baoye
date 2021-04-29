@@ -7,6 +7,9 @@ import Cookies from 'js-cookie';
 // 线下
 export const baseUrl = "http://localhost:8083/base/" //网站前端
 export const sysUrl = "http://localhost:8083/sys/"  //网站后端
+// parker服务器配置地址
+// export const baseUrl = "http://pcbonline.imcoding.top/base/" //网站前端
+// export const sysUrl = "http://pcbonline.imcoding.top/sys/"  //网站后端
 // export const uploadUrl = "http://localhost:8888/"
 
 // export function ajaxBuildTime (){

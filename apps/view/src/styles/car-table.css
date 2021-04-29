@@ -1,0 +1,60 @@
+
+/*下单流程页-购物车表格组件 start*/
+.car-table table {
+    width: 100%;
+}
+.car-table table .ant-checkbox-inner {
+    border-radius: 3px;
+}
+
+.car-table table th:first-of-type, .car-table table td:first-of-type {
+    padding-left: 20px;
+}
+
+.car-table table th:first-of-type, .car-table table td:last-of-type {
+    /*padding-left: 20px;*/
+}
+
+.car-table table th {
+    height: 47px;
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #999999;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: 500;
+    line-height: 22px;
+}
+.car-table table tr th, .car-table table tr td {
+    background: #ffffff;
+    border-bottom: solid 1px #D8D8D8;
+}
+
+.car-table table tr td {
+    padding: 30px 0;
+}
+
+.car-table table tr:last-of-type td {
+    border-bottom: unset;
+}
+.car-table table tr td img {
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: cover;
+    margin: 10px;
+    transition: ease-in-out all .2s;
+    cursor: pointer;
+}
+
+.car-table table tr td img:hover {
+    transform: scale(1.1);
+}
+.car-table table tr td {
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 14px;
+}
+/*下单流程页-购物车表格 end*/

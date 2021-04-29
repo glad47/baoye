@@ -1,0 +1,73 @@
+.process-three-tra .header{
+    height: 102px;
+    background: #fff;
+    padding: 20px;
+}
+
+.process-three-tra .tra-box {
+    margin-top: 24px;
+}
+
+.process-three-tra .tra-tips {
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.process-three-tra .tra-tips img {
+    width: 16px;
+    margin-right: 9px;
+}
+
+.process-three-tra .header span {
+    color: #333333;
+}
+.process-three-tra .header>div {
+    margin-top: 16px;
+}
+
+.process-three-tra .header>div span {
+    font-size: 13px;
+}
+
+.process-three-tra .header>div input {
+    width: 160px;
+    margin-left: 10px;
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+.process-three-tra .order-instr {
+    background: #fff;
+    padding: 16px;
+}
+
+.process-three-tra .order-instr span {
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 20px;
+}
+.process-three-tra .order-instr div {
+    margin-top: 10px;
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #666666;
+    letter-spacing: 0;
+    padding: 10px 10px;
+    height: 80px;
+    background: #F8FBFF;
+    border-radius: 4px;
+}
+
+.process-three-tra .car-table table tr td img {
+    width: 50px;
+}
+
+.process-three-tra .car-table .checkRadio-input {
+    width: 160px;
+    margin-top: 7px;
+}

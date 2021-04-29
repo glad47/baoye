@@ -1,0 +1,76 @@
+.process-four {
+
+}
+
+.process-four .pay-ways .ways-li:last-of-type {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.process-four .pay-ways .ways-li>div {
+    padding: 0 20px;
+}
+
+.process-four .pay-ways .ways-li .ways-header .ant-radio-wrapper span:last-of-type {
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #333333;
+}
+
+.process-four .pay-ways .ways-li .ways-header {
+    background: #fff;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: solid 1px #d8d8d8;
+}
+
+.process-four .pay-ways .ways-li .ways-content {
+    background: #fff;
+    height: 176px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.process-four .pay-ways .ways-li .ways-content .c-txt {
+    width: 588px;
+}
+
+.process-four .pay-ways .ways-li .ways-content .c-txt p {
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #999999;
+    letter-spacing: 0;
+}
+
+.process-four .pay-ways .ways-li .ways-content .c-txt p:last-of-type {
+    margin-top: 22px;
+}
+
+.process-four .pay-ways .ways-li .ways-content img {
+    position: absolute;
+    top: 45px;
+    right: 40px;
+}
+
+.process-four .tra-tips {
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.process-four .tra-tips img {
+    width: 16px;
+    margin-right: 9px;
+}
+
+.process-four .btn-continue {
+    text-align: right;
+}
+
+.process-four .btn-continue button {
+    width: 134px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    margin-right: 20px;
+}

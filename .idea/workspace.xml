@@ -22,8 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 流程组件分离">
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 流程=&gt;地址ui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/app.css" afterDir="false" />
     </list>
@@ -39,6 +42,7 @@
         <option value="Less File" />
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -57,8 +61,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="Less" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/view/src/images" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -79,6 +83,7 @@
       <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src\Components\OrderProcess\ProcessOneForCar" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src\images" />
       <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view\src\images" />
       <recent name="E:\apps\pcbonline\pcbonline-v2\apps\view\src\images" />
       <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view" />
@@ -132,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619526753806</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: 流程=&gt;地址ui">
+      <created>1619611604938</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619611604939</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,7 +206,8 @@
     <MESSAGE value="feat: 报价页样式修改" />
     <MESSAGE value="feat: 报价页样式修改80%" />
     <MESSAGE value="feat: 流程组件分离" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 流程组件分离" />
+    <MESSAGE value="feat: 流程=&gt;地址ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 流程=&gt;地址ui" />
   </component>
   <component name="WindowStateProjectService">
     <state x="823" y="449" key="#ESLint" timestamp="1619082830320">
@@ -241,15 +254,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1619244952829" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1619609200433">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1619666719705">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1619271859672" />
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1619609200433" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1619526755277">
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1619666719705" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1619611606233">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1619526755277" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1619611606233" />
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1619279383233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -258,19 +271,19 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1619515458941" />
-    <state x="662" y="248" width="879" height="584" key="find.popup" timestamp="1619600854068">
+    <state x="662" y="248" width="879" height="584" key="find.popup" timestamp="1619685218782">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619279072095" />
-    <state x="662" y="248" width="879" height="584" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619600854068" />
+    <state x="662" y="248" width="879" height="584" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619685218782" />
     <state x="617" y="256" key="run.anything.popup" timestamp="1619410035487">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="617" y="256" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619410035487" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1619610460631">
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1619684808844">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619272624982" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619610460631" />
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619684808844" />
   </component>
 </project>
