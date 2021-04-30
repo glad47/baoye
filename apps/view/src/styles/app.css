@@ -4089,49 +4089,6 @@ body {
 }
 /*购物车商品列表 end*/
 
-/*下单流程页 start*/
-.process-header {
-    display: flex;
-    width: 100%;
-}
-.process-header>Strong:first-of-type {
-    width: 836px;
-    margin-right: 20px;
-}
-.process-header>Strong {
-    width: 344px;
-    display: inline-block;
-    font-family: ArialMT;
-    font-size: 16px;
-    color: #000000;
-    letter-spacing: 0;
-    line-height: 22px;
-    padding-bottom: 24px;
-}
-
-.pcb-order-process {
-    position: relative;
-    padding: 26px 0;
-}
-
-.pcb-order-process .order-types, .pcb-order-process .order-detail {
-    display: inline-block;
-}
-
-.pcb-order-process .order-types {
-    width: 836px;
-}
-.pcb-order-process .order-detail {
-    background: #FFFFFF;
-    width: 344px;
-    float: right;
-}
-.order-collapse .ant-collapse-content-box {
-    padding: 0 0 20px 0 !important;
-    background: #f8f8f8;
-}
-/*下单流程页 end*/
-
 .h-100 {
     width: unset !important;
 }

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../../../styles/process-four-confirmation.css'
 import {Radio, Space} from "antd";
 
 const ProcessFourConfirmation = () => {
+    const [ways, setWays] = useState<number>(0);
+    const handlerCheckWays = (type: number) => {
+        setWays(type);
+    }
     const waysData = [
         {
             title: 'Review Before Payment (recommended)',
@@ -37,10 +41,14 @@ const ProcessFourConfirmation = () => {
         <div className="process-four">
             <div className="pay-ways">
                 {
-                    waysData.map(item => (
+                    waysData.map((item, index) => (
                         <div className="ways-li" key={item.title}>
                             <div className="ways-header">
-                                <Radio>{item.title}</Radio>
+                                <Radio
+                                    checked={ways === index}
+                                    onChange={() => handlerCheckWays(index)}>
+                                    {item.title}
+                                </Radio>
                             </div>
                             <div className="ways-content">
                                 <div className="c-txt">
@@ -60,11 +68,11 @@ const ProcessFourConfirmation = () => {
                     </span>
                 </Space>
             </div>
-            <div className="btn-continue">
-                <button className="btn global-primary">
-                    CONTINUE
-                </button>
-            </div>
+            {/*<div className="btn-continue">*/}
+            {/*    <button className="btn global-primary">*/}
+            {/*        CONTINUE*/}
+            {/*    </button>*/}
+            {/*</div>*/}
         </div>
     )
 }

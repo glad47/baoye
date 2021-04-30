@@ -1,0 +1,80 @@
+.process-five>.header {
+    height: 64px;
+    background: #fff;
+    padding-left: 20px;
+    display: flex;
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 20px;
+}
+
+.process-five .pays-box {
+    padding: 20px;
+    background: #fff;
+    border-bottom: solid 1px #d8d8d8;
+}
+
+.process-five .pays-box.one {
+    margin-top: 20px;
+}
+
+.process-five .pays-box .box-li .header {
+    width: 100%;
+    display: table;
+}
+
+.process-five .pays-box .box-li .header .radio, .process-five .pays-box .box-li .header .rig-imgs {
+    display: table-cell;
+    width: 50%;
+}
+
+.process-five .pays-box .box-li .header .rig-imgs {
+    text-align: right;
+}
+
+.process-five .pays-box .box-li form {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.process-five .pays-box .box-li form button {
+    margin-top: 20px;
+    float: right;
+    height: 40px;
+    line-height: 40px;
+    width: 140px;
+}
+
+.process-five .pays-box .box-li .box-content {
+    display: flex;
+    align-items: center;
+}
+
+.process-five .pays-box .box-li .box-content .pp {
+    margin: 0 auto;
+    width: 475px;
+    padding-top: 15px;
+    text-align: center;
+}
+.process-five .pays-box .box-li .box-content .pp img {
+}
+.process-five .pays-box .box-li .box-content .pp span {
+    margin-top: 20px;
+    display: block;
+}
+
+.process-five .pays-box .box-li .box-content .pp .paypal-btn img {
+    margin-right: 8px;
+}
+.process-five .pays-box .box-li .box-content .pp .paypal-btn {
+    width: 260px;
+    height: 33px;
+    line-height: 33px;
+    display: block;
+    background: #FFCA00;
+    border-radius: 16px;
+    margin: 50px auto;
+    cursor: pointer;
+}

@@ -1,0 +1,112 @@
+/*下单流程页 start*/
+.process-header {
+    display: flex;
+    width: 100%;
+}
+.process-header>Strong:first-of-type {
+    width: 836px;
+    margin-right: 20px;
+}
+.process-header>Strong {
+    width: 344px;
+    display: inline-block;
+    font-family: ArialMT;
+    font-size: 16px;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: 22px;
+    padding-bottom: 24px;
+}
+
+.pcb-order-process {
+    position: relative;
+    padding: 26px 0;
+}
+
+.pcb-order-process .order-types, .pcb-order-process .order-detail {
+    display: inline-block;
+}
+
+.pcb-order-process .order-types {
+    position: relative;
+    width: 836px;
+}
+
+.pcb-order-process .order-types>strong, .pcb-order-process .order-detail>strong {
+    display: block;
+    background: #f8f8f8;
+    padding-bottom: 25px;
+}
+
+.pcb-order-process .order-detail {
+    background: #FFFFFF;
+    width: 344px;
+    float: right;
+}
+.order-collapse .ant-collapse-content-box {
+    padding: 0 0 20px 0 !important;
+    background: #f8f8f8;
+}
+
+
+/*弹窗样式*/
+.order-types .my-modal .content {
+    width: 640px;
+    background: #fff;
+}
+.order-types .my-modal .header {
+    height: 64px;
+    width: 100%;
+    line-height: 64px;
+    background: #EEEEEE;
+    font-family: Arial-BoldMT;
+    font-size: 16px;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: 600;
+    /*position: absolute;*/
+}
+.order-types .my-modal .mask {
+    position: absolute;
+    top: -20px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+.order-types .my-modal .mask .content {
+    z-index: 2;
+    margin: 0 auto;
+}
+
+.order-types .my-modal .mask .content .txt {
+    padding: 64px 55px;
+}
+
+.order-types .my-modal .mask .content .txt>div {
+    width: 496px;
+}
+
+.order-types .my-modal .content .txt .intro {
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #666666;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 22px;
+    display: block;
+    padding: 45px 0;
+}
+
+.order-types .my-modal .content .txt button {
+    height: 40px;
+    line-height: 40px;
+    width: 364px;
+    margin: 0 auto;
+}
+/*下单流程页 end*/

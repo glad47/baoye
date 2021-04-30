@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Form, Input, Select, message } from 'antd';
-import { useForm } from 'antd/lib/form/util';
+// import { useForm } from 'antd/lib/form/util';
 import { Store } from 'antd/lib/form/interface';
 import ObserverSize from './ObserverSize';
 import { useAppState, changeSizeField } from '../state';
@@ -13,7 +13,7 @@ const boardType = [{ id: 1, name: 'Single' }, { id: 2, name: 'Panel' }];
 // const INITIAL = {boardType:'Single'}
 const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
     const { Option } = Select;
-    const [form] = useForm();
+    const [form] = Form.useForm();
     const [singleMode, setSingleMode] = useState(true);
     const { dispatch, pcbSizeField } = useAppState();
     const onValuesChange = (v: Store) => {
