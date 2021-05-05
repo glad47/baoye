@@ -1,5 +1,6 @@
 import Axios from "axios";
 import Cookies from 'js-cookie';
+import service from "../request";
 
 //线上
 // export const baseUrl = "https://www.pcbonline.com/" //线上前端
@@ -63,4 +64,12 @@ export const ajaxFileUpload = (file: File[]) =>{
         url: sysUrl + 'api/file/upload/zip',
         withCredentials: true
     })
+}
+
+export const ajaxCarList = (data: any) => {
+    return service({
+        url: `${sysUrl}/api/quote/query`,
+        method: 'post',
+        data: {statusList: [1]}
+    });
 }

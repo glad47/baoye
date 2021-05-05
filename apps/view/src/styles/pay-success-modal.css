@@ -1,0 +1,36 @@
+.process-box {
+    position: relative;
+}
+
+.process-box span.process {
+    position: absolute;
+    left: 50%;
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    width: 40px;
+    display: block;
+    width: 40px;
+    height: 16px;
+    line-height: 16px;
+    background: #FFCA00;
+    border-radius: 2px;
+    border-radius: 2px;
+    top: -14px;
+    text-align: center;
+    margin-left: -38px;
+    z-index: 2;
+}
+
+.process-box span.process::after {
+    width: 0;
+    content: "";
+    position: absolute;
+    bottom: -9px;
+    left: 14px;
+    height: 0;
+    border: 6px solid;
+    z-index: 1;
+    border-color: #ffca00 transparent transparent;
+}

@@ -23,7 +23,7 @@ const PcbOrderProcess:React.FC<any> = (props:any) => {
             <div className="pcb-order-process">
                 <div className="order-types" id="shit">
                     <strong>MY SHOPPING CART</strong>
-                    <Collapse accordion className="order-collapse" defaultActiveKey={3} onChange={handlerCheckCollapse}>
+                    <Collapse accordion className="order-collapse" defaultActiveKey={5} onChange={handlerCheckCollapse}>
                         <Panel header="流程1=>购物车" key="1">
                             <ShoppingCarListTable />
                         </Panel>

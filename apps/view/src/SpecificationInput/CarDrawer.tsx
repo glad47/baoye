@@ -2,12 +2,19 @@ import React, {useEffect} from 'react'
 import { Drawer } from 'antd';
 import {changeCarDrawer, useAppState} from "../state";
 import CarList from "./CarList";
+import {ajaxCarList} from "./AjaxService";
 
 const CarDrawer = (props: any) => {
     const { dispatch, carDrawerStatus } = useAppState();
     const onClose = () => {
         dispatch(changeCarDrawer(false));
     };
+
+    const getCarList = () => {
+        ajaxCarList(null).then(res => {
+            console.log(res)
+        })
+    }
     const drawerOptions = {
         width: 440,
         closable: false,
@@ -17,7 +24,8 @@ const CarDrawer = (props: any) => {
         visible: carDrawerStatus
     }
     useEffect(() => {
-        console.log('加载抽屉')
+        console.log('加载抽屉');
+        getCarList();
     }, []);
     return (
         <Drawer {...drawerOptions} className="car-drawer">
