@@ -3,6 +3,10 @@
     src: url('../images/Graffiti-Blok.otf');
 }
 
+.ant-message {
+    z-index: 999999999 !important;
+}
+
 .ant-layout-content {
     position: relative;
     width: 1200px;
@@ -3901,7 +3905,7 @@ body {
 
 /*购物车抽屉 start*/
 .ant-drawer {
-    z-index: 99999999;
+    z-index: 99999999 !important;
 }
 .ant-drawer-body {
     padding: unset !important;
@@ -3916,6 +3920,11 @@ body {
 
 .car-drawer-box .lef-li>div {
     padding: 0 24px;
+    text-align: center;
+}
+
+.car-drawer-box .lef-li .ant-spin-spinning {
+    margin-top: 20px;
 }
 
 .car-drawer-box .lef-li .car-header {
@@ -4009,6 +4018,10 @@ body {
     font-size: 20px;
     cursor: pointer;
     transition: ease-in-out all .2s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .car-list .car-li .options .lift-num .down:hover, .car-list .car-li .options .lift-num .up:hover {
@@ -4048,6 +4061,7 @@ body {
 
 .car-list .car-total span {
     font-size: 14px;
+    text-align: left;
 }
 
 .car-list .car-total strong {

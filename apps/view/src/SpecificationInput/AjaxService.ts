@@ -6,11 +6,11 @@ import service from "../request";
 // export const baseUrl = "https://www.pcbonline.com/" //线上前端
 // export const sysUrl = "https://sys.pcbonline.com/"  //线上后端
 // 线下
-export const baseUrl = "http://localhost:8083/base/" //网站前端
-export const sysUrl = "http://localhost:8083/sys/"  //网站后端
+// export const baseUrl = "http://localhost:8083/base/" //网站前端
+// export const sysUrl = "http://localhost:8083/sys/"  //网站后端
 // parker服务器配置地址
-// export const baseUrl = "http://pcb.imcoding.top/base/" //网站前端
-// export const sysUrl = "http://pcb.imcoding.top/sys/"  //网站后端
+export const baseUrl = "http://pcb.imcoding.top/base/" //网站前端
+export const sysUrl = "http://pcb.imcoding.top/sys/"  //网站后端
 // export const uploadUrl = "http://localhost:8888/"
 
 // export function ajaxBuildTime (){
@@ -66,10 +66,39 @@ export const ajaxFileUpload = (file: File[]) =>{
     })
 }
 
+
+/**
+ * pcb 订单列表
+ * @param data
+ */
 export const ajaxCarList = (data: any) => {
     return service({
         url: `${sysUrl}/api/quote/query`,
         method: 'post',
-        data: {statusList: [1]}
+        data: data
     });
+}
+
+/**
+ * 删除pcb订单
+ * @param id
+ */
+export const delPcbOrder = (id: number) => {
+    return service({
+        url: `${sysUrl}/api/quote/${id}`,
+        method: 'delete'
+    })
+}
+
+/**
+ * 修改pcb订单
+ * @param id
+ * @param data
+ */
+export const editPcbOrder = (id: number, data: object) => {
+    return service({
+        url: `${sysUrl}/api/quote/${id}`,
+        method: 'put',
+        data: data
+    })
 }

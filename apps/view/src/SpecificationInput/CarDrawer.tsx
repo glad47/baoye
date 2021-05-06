@@ -1,20 +1,15 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { Drawer } from 'antd';
 import {changeCarDrawer, useAppState} from "../state";
 import CarList from "./CarList";
-import {ajaxCarList} from "./AjaxService";
 
 const CarDrawer = (props: any) => {
     const { dispatch, carDrawerStatus } = useAppState();
+    const [listLen, setListLen] = useState<number>(0);
     const onClose = () => {
         dispatch(changeCarDrawer(false));
     };
 
-    const getCarList = () => {
-        ajaxCarList(null).then(res => {
-            console.log(res)
-        })
-    }
     const drawerOptions = {
         width: 440,
         closable: false,
@@ -23,19 +18,15 @@ const CarDrawer = (props: any) => {
         zIndex: 9999999999,
         visible: carDrawerStatus
     }
-    useEffect(() => {
-        console.log('加载抽屉');
-        getCarList();
-    }, []);
     return (
         <Drawer {...drawerOptions} className="car-drawer">
             <div className="car-drawer-box">
                 <div className="lef-li">
                     <div className="car-header">
-                        Shopping Cart (3)
+                        Shopping Cart ({listLen})
                     </div>
                     <div className="car-container">
-                        <CarList />
+                        <CarList setLen={(num: number) => setListLen(num)}/>
                     </div>
                 </div>
                 <div className="rig-close">

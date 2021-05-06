@@ -1,3 +1,5 @@
+import {func} from "testdouble";
+
 const MIMETYPE_ZIP = [
   'application/zip',
   'application/x-zip',
@@ -28,4 +30,14 @@ export function clearReArray(data: [] | object, key: string):any {
     })
   }
   return res;
+}
+
+let timer: NodeJS.Timeout | null;
+export function debounce(func: any, time: number) {
+  if (timer !== null) {
+    clearTimeout(timer);
+  }
+  timer = setTimeout(() => {
+    typeof func === 'function' && func();
+  }, time);
 }
