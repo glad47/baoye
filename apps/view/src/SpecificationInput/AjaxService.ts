@@ -102,3 +102,26 @@ export const editPcbOrder = (id: number, data: object) => {
         data: data
     })
 }
+
+
+/**
+ * 收货地址 => 列表
+ */
+export const getDeliveryAddress = () => {
+    return service({
+        url: `${sysUrl}/api/receiveraddress?pageNo=1&pageSize=100`,
+        method: 'GET'
+    })
+}
+
+
+/**
+ * 收货地址 => 删除
+ * @param id
+ */
+export const delDeliveryAddress = (id: number) => {
+    return service({
+        url: `${sysUrl}/api/receiveraddress/${id}`,
+        method: 'DELETE'
+    })
+}
