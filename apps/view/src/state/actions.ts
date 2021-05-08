@@ -8,7 +8,7 @@ import {
   FieldStore,
   ParseGerber,
   BuildTimeItem,
-  SubtotalItem,
+  SubtotalItem, OrderSummaryStatus,
 } from '../types'
 
 import {Action} from './types'
@@ -57,6 +57,8 @@ export const CHANGE_COLOR='CHANGE_COLOR'
 export const BACKFILL_SVG_DATA = 'BACKFILL_SVG_DATA'
 export const BACKFILL_UPLOAD_PATH_DATA = 'BACKFILL_UPLOAD_PATH_DATA'
 export const CHANGE_CARDRAWER_STATUS = 'CHANGE_CARDRAWER_STATUS';
+export const ORDER_SUMMARY = 'ORDER_SUMMARY';
+export const ORDER_SUMMARY_STATUS = 'ORDER_SUMMARY_STATUS';
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -299,8 +301,20 @@ export const backfillUploadPathData = (field:any): Action =>({
   payload: field
 })
 
-/** 回填上传后的路径 */
+/** 购物车抽屉 */
 export const changeCarDrawer = (field:any): Action =>({
   type: CHANGE_CARDRAWER_STATUS,
+  payload: field
+})
+
+/** 结算 右侧价格信息 */
+export const orderSummary = (field:any): Action => ({
+  type: ORDER_SUMMARY,
+  payload: field
+});
+
+/** 结算 支付状态管理 */
+export const setOrderSummaryStatus = (field: any): Action => ({
+  type: ORDER_SUMMARY_STATUS,
   payload: field
 })

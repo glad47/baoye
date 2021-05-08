@@ -31,7 +31,9 @@ export const INITIAL_STATE: State = {
   isShow:false,
   isBackToUpload:true,
   allKeys:{},
-  fillData:true
+  fillData:true,
+  orderSummary: {total: 0, freightCharges: 0},
+  orderSummaryStatus: {process: 1, description: 'MY SHOPPING CART'},
 }
 
 // const INITIAL_STANDARD = {

@@ -4,7 +4,6 @@ import { LoadingOutlined } from '@ant-design/icons';
 import {ajaxCarList, delPcbOrder, editPcbOrder} from "./AjaxService";
 import {orders} from "../ts/pcb";
 import {Link} from "react-router-dom";
-import {debounce} from "../util";
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
@@ -13,6 +12,8 @@ const CarList = (props:any) => {
     const [listData, setListData] = useState<[]>([]);
     const [total, setTotal] = useState<number>(0);
     const [spinFlag, setSpinFlag] = useState<boolean>(false);
+
+
 
     // 获取列表
     const getCarList = () => {
@@ -36,27 +37,6 @@ const CarList = (props:any) => {
             setTotal(t);
         }
     }, [listData])
-
-    //  修改订单
-    const handlerEdit = (index: number) => {
-        const dat = listData[index];
-        const {id} = dat;
-        editPcbOrder(id, dat).then(res => {
-            console.log(res)
-        });
-    }
-
-    // 编辑数量
-    const editNum = (type: string, index: number) => {
-        const def: [] = [...listData];
-        if (type === 'up') {
-            def[index]['quantityPcs']++;
-        } else {
-            def[index]['quantityPcs']--;
-        }
-        debounce(() => {handlerEdit(index)}, 600)
-        setListData(def);
-    }
 
     // 删除订单
     const handlerDel = (id: number, index:number) => {
@@ -87,9 +67,7 @@ const CarList = (props:any) => {
                             <div className="options">
                                 <span className="name">{item.gerberName}</span>
                                 <div className="lift-num">
-                                    <span className="down" onClick={() => editNum('down', index)}>-</span>
-                                    <span className="num">{item.quantityPcs}</span>
-                                    <span className="up" onClick={() => editNum('up', index)}>+</span>
+                                    <span className="num">{item.quantityPcs} <span style={{fontSize: '12px'}}>PCS</span></span>
                                 </div>
                                 <strong>${item.subtotal}</strong>
                             </div>

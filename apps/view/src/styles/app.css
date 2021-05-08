@@ -4001,10 +4001,11 @@ body {
 .car-list .car-li .options {
     padding-right: 10px;
     margin-left: 15px;
+    text-align: left;
 }
 
 .car-list .car-li .options .lift-num {
-    display: flex;
+    /*display: flex;*/
     margin-top: 14px;
 }
 
@@ -4030,7 +4031,7 @@ body {
 
 
 .car-list .car-li .options .lift-num .num {
-    padding: 0 10px;
+    /*padding: 0 10px;*/
 }
 
 .car-list .car-li .options strong {

@@ -1,24 +1,31 @@
 import React from 'react'
+import {setOrderSummaryStatus, useAppState} from "../../../state";
 
 const CarOrderSummary = () => {
+    const { dispatch, orderSummaryStatus } = useAppState();
+    const { orderSummary } = useAppState();
+    const orderNext = () => {
+        const {process} = orderSummaryStatus
+        dispatch(setOrderSummaryStatus({ process: process+1 }))
+    }
     return (
         <>
             <div className="summary-box">
                 <div className="cost-det">
                     <div>
                         <span>Subtotal（4 Items）</span>
-                        <span>$271.24</span>
+                        <span>${orderSummary.total}</span>
                     </div>
                     <div>
                         <span>Freight Charges</span>
-                        <span>$56.3</span>
+                        <span>${orderSummary.freightCharges}</span>
                     </div>
                 </div>
                 <div className="cost-det total">
                     <div>
                         <span>Total</span>
                         <span>
-                        <strong>$14038</strong>
+                        <strong>${orderSummary.total+orderSummary.freightCharges}</strong>
                     </span>
                     </div>
                 </div>
@@ -27,7 +34,7 @@ const CarOrderSummary = () => {
                 You can download the proforma invoice and apply coupons at the checkout
             </div>
             <div className="summary-btn">
-                <button className="btn global-primary">CHECKOUT</button>
+                <button className="btn global-primary" onClick={orderNext}>CHECKOUT</button>
             </div>
         </>
     )

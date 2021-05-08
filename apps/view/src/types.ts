@@ -162,6 +162,17 @@ export type SubtotalItem = {
   assemblyFee: number,
 }
 
+export type OrderSummaryItem = {
+  total: number, // 总费用
+  freightCharges: number, // 订单结算 运费
+}
+
+/** 订单支付状态 */
+export type OrderSummaryStatus = {
+  process: number, // 当前流程序号
+  description: string // 流程描述
+}
+
 export type SvgString = {
   topSvg: any,
   bottomSvg: any

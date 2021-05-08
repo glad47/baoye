@@ -9,10 +9,12 @@ import ProcessThreeTransport from "../Components/OrderProcess/ProcessThreeTransp
 import ProcessFourConfirmation from "../Components/OrderProcess/ProcessFourConfirmation";
 import ProcessFivePayment from "../Components/OrderProcess/ProcessFivePayment";
 import PaySuccessModal from "../Components/OrderProcess/PaySuccessModal";
+import {useAppState} from "../state";
 
 const { Panel } = Collapse;
 
 const PcbOrderProcess:React.FC<any> = (props:any) => {
+    const { orderSummaryStatus } = useAppState();
     const [activeProcess, setActiveProcess] = useState<number>();
     const [paySuccess, setPaySuccess] = useState<boolean>(false);
     const handlerCheckCollapse = (val: number) => {
@@ -22,8 +24,8 @@ const PcbOrderProcess:React.FC<any> = (props:any) => {
         <PcbLayout>
             <div className="pcb-order-process">
                 <div className="order-types" id="shit">
-                    <strong>MY SHOPPING CART</strong>
-                    <Collapse accordion className="order-collapse" defaultActiveKey={5} onChange={handlerCheckCollapse}>
+                    <strong>{orderSummaryStatus.description}</strong>
+                    <Collapse accordion className="order-collapse" activeKey={orderSummaryStatus.process} onChange={handlerCheckCollapse}>
                         <Panel header="流程1=>购物车" key="1">
                             <ShoppingCarListTable />
                         </Panel>

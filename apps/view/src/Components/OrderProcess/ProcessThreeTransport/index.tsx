@@ -11,7 +11,7 @@ const ProcessThreeTransport = () => {
         setCurrentRadio(index)
     }
 
-    const checkRadioDom = (txt: any, index: number) => {
+    const checkRadioDom = (record: any, txt: any, index: number) => {
         return (
             <>
                 <Radio
@@ -33,7 +33,7 @@ const ProcessThreeTransport = () => {
             key: '',
             dataIndex: 'img',
             width: 128,
-            render: (txt: string | undefined) => (<img src={txt} />)
+            render: (record: any, txt: string | undefined) => (<img src={txt} />)
         },
         {
             title: 'TRANSPORTATION TIME',
@@ -103,6 +103,7 @@ const ProcessThreeTransport = () => {
                     columns={columns}
                     data={data}
                     rowKey="id"
+                    spin={false}
                     checkBox
                     openCheckAll={false}
                     _style={{TdHeight: 68}}
