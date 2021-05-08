@@ -1,25 +1,53 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {delDeliveryAddress, getDeliveryAddress} from "../../../SpecificationInput/AjaxService";
+import {message, Spin} from "antd";
 
 const HistoryAddress = () => {
-    const aa = [1, 2, 3]
+    const [addrList, setAddrList] = useState([]);
+    const [spin, setSpin] = useState<boolean>(false);
+
+    const getAddr = () => {
+        setSpin(true);
+        getDeliveryAddress().then(res => {
+            const { data: dt } = res;
+            if (dt) {
+                setAddrList(dt);
+                setSpin(false);
+            }
+        })
+    }
+
+    const handlerDelAddr = (id: number, index: number) => {
+        setSpin(true);
+        delDeliveryAddress(id).then(res => {
+            const defLi = [...addrList];
+            defLi.splice(index, 1);
+            setAddrList(defLi);
+            setSpin(false);
+            message.success("delete success!");
+        });
+    }
+    useEffect(() => {
+        getAddr();
+    }, [])
     return (
         <div className="history-addr">
             <div>
                 <span>History address</span>
-                <div className="history-addr-box">
-                    {
-                        aa.map(item => (
-                            <div className={`history-addr-li ${item ===1 ? ' active' : ''}`}>
-                                <strong>Ar'yan zhang</strong>
-                                <span className="tel">15818516645</span>
-                                <span className="addr">
-                        xin hang hua fu A, Washington/15301 Alabanma. United States
-                    </span>
-                                <img src={require("../../../images/close_circle.png")} alt="" className="close"/>
-                            </div>
-                        ))
-                    }
-                </div>
+                <Spin spinning={spin}>
+                    <div className="history-addr-box">
+                        {
+                            addrList.map((item: any, index: number) => (
+                                <div className={`history-addr-li ${item.isDefault ===1 ? ' active' : ''}`}>
+                                    <strong>{item.receiverName}</strong>
+                                    <span className="tel">{item.receiverTelephone}</span>
+                                    <span className="addr">{item.receiverAddress}</span>
+                                    <img src={require("../../../images/close_circle.png")} alt="" className="close" onClick={() => handlerDelAddr(item.id, index)}/>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </Spin>
             </div>
         </div>
     )

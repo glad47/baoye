@@ -24,7 +24,7 @@ const PaySuccessModal = () => {
                                 <Progress percent={50} status="active" strokeColor={'#2952ea'} format={() => (tms + 's')}/>
                             </div>
                             <span className="intro">Please do not close this page until we pass the review. This process will take about 10 minutes (during working time)</span>
-                            <button className="btn global-primary">I will complete the payment in the backend ></button>
+                            <button className="btn global-primary">I will complete the payment in the backend {">"}</button>
                         </div>
                     </div>
                 </div>
