@@ -14,7 +14,7 @@ const sysUrl = "http://localhost:8083/sys/"  //网站后端
 const service = axios.create({
     baseURL: baseUrl, // url = base url + request url
     // withCredentials: true, // send cookies when cross-domain requests
-    timeout: 5000 // request timeout
+    timeout: 50000 // request timeout
 })
 // request interceptor
 service.interceptors.request.use(
