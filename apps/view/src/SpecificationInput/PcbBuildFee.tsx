@@ -1,22 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {changeCarDrawer, useAppState} from "../state";
 import CarDrawer from "./CarDrawer";
 import PcbBuildFeeDetail from "./PcbBuildFeeDetail";
 
-interface CastCalculationProps {
-    boardFee?: number
-    engineeringFee?: number
-    buildItems?: any
-    testFee?: number
-    quoteMode: number
-    stencilFee: number
-    assemblyFee: number
-}
-
 const PcbBuildFee: React.FC<any> = (props) => {
+    const { setIsLogin } = props;
+    console.log('props', props)
     const { dispatch, carDrawerStatus, subtotal } = useAppState();
     const handlerCar = () => {
-        dispatch(changeCarDrawer(true));
+        const isLogin = sessionStorage.getItem('username');
+        console.log('isLogin', isLogin)
+        if (setIsLogin && !isLogin) {
+            setIsLogin(false);
+        } else {
+            dispatch(changeCarDrawer(true));
+        }
     }
     const DOM = (
         <div className="pcb-build-container">
