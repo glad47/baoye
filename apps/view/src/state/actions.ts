@@ -59,6 +59,7 @@ export const BACKFILL_UPLOAD_PATH_DATA = 'BACKFILL_UPLOAD_PATH_DATA'
 export const CHANGE_CARDRAWER_STATUS = 'CHANGE_CARDRAWER_STATUS';
 export const ORDER_SUMMARY = 'ORDER_SUMMARY';
 export const ORDER_SUMMARY_STATUS = 'ORDER_SUMMARY_STATUS';
+export const ORDER_OPTIONS = 'ORDER_OPTIONS';
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -318,3 +319,9 @@ export const setOrderSummaryStatus = (field: any): Action => ({
   type: ORDER_SUMMARY_STATUS,
   payload: field
 })
+
+/** 结算 左侧信息 */
+export const orderOptions = (field:any): Action => ({
+  type: ORDER_OPTIONS,
+  payload: field
+});

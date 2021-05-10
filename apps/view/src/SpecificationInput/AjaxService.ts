@@ -125,3 +125,28 @@ export const delDeliveryAddress = (id: number) => {
         method: 'DELETE'
     })
 }
+
+
+/**
+ * 收货地址 => 修改
+ * @param id
+ */
+export const modifyDeliveryAddress = (data: any) => {
+    const {id} = data;
+    return service({
+        url: `${sysUrl}/api/receiveraddress/${id}`,
+        method: 'PUT',
+        data: data
+    })
+}
+
+
+/**
+ * 获取所有国家信息
+ */
+export const getAllCountry = () => {
+    return service({
+        url: `${sysUrl}/api/country/all`,
+        method: 'GET'
+    })
+}

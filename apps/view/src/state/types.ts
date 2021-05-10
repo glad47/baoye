@@ -12,7 +12,7 @@ import {
   ParseGerber,
   BuildTimeItem,
   SubtotalItem,
-  SvgString, OrderSummaryItem, OrderSummaryStatus,
+  SvgString, OrderSummaryItem, OrderSummaryStatus, orderOptionsItem,
 } from '../types'
 import { SelectValue } from 'antd/lib/select'
 
@@ -49,6 +49,7 @@ export type State = {
   carDrawerStatus:boolean
   orderSummary: OrderSummaryItem // 订单结算
   orderSummaryStatus: OrderSummaryStatus // 结算状态管理
+  orderOptionsItem: orderOptionsItem // 结算 左侧参数信息
 }
 
 /** Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。 */
@@ -112,3 +113,4 @@ export type Action =
   | {type: 'CHANGE_CARDRAWER_STATUS'; payload: any}
   | {type: 'ORDER_SUMMARY'; payload: OrderSummaryItem}
   | {type: 'ORDER_SUMMARY_STATUS'; payload: OrderSummaryStatus}
+  | {type: 'ORDER_OPTIONS'; payload: orderOptionsItem}

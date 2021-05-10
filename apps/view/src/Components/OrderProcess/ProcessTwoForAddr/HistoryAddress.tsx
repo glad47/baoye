@@ -1,16 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import {delDeliveryAddress, getDeliveryAddress} from "../../../SpecificationInput/AjaxService";
 import {message, Spin} from "antd";
+import {orderOptions, useAppState} from "../../../state";
 
 const HistoryAddress = () => {
     const [addrList, setAddrList] = useState([]);
     const [spin, setSpin] = useState<boolean>(false);
+    const [curDefault, setCurDefault] = useState<number>();
+    const { dispatch } = useAppState();
 
     const getAddr = () => {
         setSpin(true);
         getDeliveryAddress().then(res => {
             const { data: dt } = res;
             if (dt) {
+                const curr = dt.find((item: any) => item.isDefault === 1);
+                if (curr) { // 设置当前 redux 默认地址
+                    dispatch(orderOptions({deliveryAddr: curr}));
+                }
                 setAddrList(dt);
                 setSpin(false);
             }
@@ -27,6 +34,13 @@ const HistoryAddress = () => {
             message.success("delete success!");
         });
     }
+
+    // 选中当前地址
+    const checkList = (obj: object, index: number) => {
+        setCurDefault(index);
+        dispatch(orderOptions({deliveryAddr: obj}));
+    }
+
     useEffect(() => {
         getAddr();
     }, [])
@@ -38,7 +52,10 @@ const HistoryAddress = () => {
                     <div className="history-addr-box">
                         {
                             addrList.map((item: any, index: number) => (
-                                <div className={`history-addr-li ${item.isDefault ===1 ? ' active' : ''}`}>
+                                <div
+                                    onClick={() => {checkList(item, index)}}
+                                    className={`history-addr-li ${item.isDefault || curDefault === index ? ' active' : ''}`}
+                                    key={`keyAddr-${index}`}>
                                     <strong>{item.receiverName}</strong>
                                     <span className="tel">{item.receiverTelephone}</span>
                                     <span className="addr">{item.receiverAddress}</span>

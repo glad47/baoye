@@ -339,10 +339,16 @@ export default function reducer(state: State, action: Action): State {
     }
     // 结算 => 折叠面板 状态管理
     case actionTypes.ORDER_SUMMARY_STATUS: {
-      console.log('action.payload', action.payload)
       return {
         ...state,
         orderSummaryStatus: {...state.orderSummaryStatus, ...action.payload},
+      }
+    }
+    // 结算 => 左侧参数信息
+    case actionTypes.ORDER_OPTIONS: {
+      return {
+        ...state,
+        orderOptionsItem: {...state.orderOptionsItem, ...action.payload},
       }
     }
   }

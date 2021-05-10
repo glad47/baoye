@@ -173,6 +173,11 @@ export type OrderSummaryStatus = {
   description: string // 流程描述
 }
 
+/** 订单支付左侧参数管理  */
+export type orderOptionsItem = {
+  deliveryAddr: any // 地址
+}
+
 export type SvgString = {
   topSvg: any,
   bottomSvg: any

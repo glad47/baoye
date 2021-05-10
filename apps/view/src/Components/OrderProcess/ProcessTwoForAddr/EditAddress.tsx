@@ -2,21 +2,31 @@ import React, {useState} from 'react';
 import {
     EditFilled
 } from '@ant-design/icons'
-import {Space, Checkbox} from "antd";
+import {Space, Checkbox, message} from "antd";
 import FormAddress from "./FormAddress";
+import {useAppState} from "../../../state";
 
 const EditAddress = () => {
-    const [editing, setEditing] = useState<boolean>(false)
+    const { orderOptionsItem,dispatch } = useAppState();
+    const {deliveryAddr} = orderOptionsItem;
+    const [editing, setEditing] = useState<boolean>(false);
+    const handlerEditing = () => {
+        if (deliveryAddr) {
+            setEditing(!editing);
+        } else {
+            message.warn('please check delivery')
+        }
+    }
     return (
         <div className="edit-address">
             <Space className="header">
-                <div onClick={() => {setEditing(!editing)}}>
+                <div onClick={handlerEditing}>
                     <span>Edit the address</span>
                     <EditFilled />
                 </div>
             </Space>
             {
-                editing ? <FormAddress /> : ''
+                editing ? <FormAddress closeEdit={() => setEditing(false)}/> : ''
             }
             <Space className="check-unRadius">
                 <Checkbox>
