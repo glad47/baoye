@@ -3,13 +3,15 @@ import {Row, Form, Col, Input, Tooltip, Button, Select, message} from "antd";
 import {
     InfoCircleOutlined
 } from '@ant-design/icons'
-import {useAppState} from "../../../state";
+import {orderOptions, useAppState} from "../../../state";
 import {getAllCountry, modifyDeliveryAddress} from "../../../SpecificationInput/AjaxService";
 
 type RequiredMark = boolean | 'optional';
 
 const { TextArea } = Input;
 const { Option } = Select;
+
+import emitter from "../../../eventBus";
 
 interface thisInter {
     closeEdit?: any // 退出编辑
@@ -40,7 +42,6 @@ const FormAddress = (props: thisInter) => {
     const handlerSave = () => {
         const def = {...deliveryAddr};
         const dat = form.getFieldsValue();
-        console.log('dat', dat)
         for(let key in dat) {
             def[key] = dat[key];
         }
@@ -49,6 +50,8 @@ const FormAddress = (props: thisInter) => {
             if (closeEdit) {
                 closeEdit();
             }
+            dispatch(orderOptions({deliveryAddr: def}));
+            emitter.emit('updateCurrentAddr',def);
            message.success('edit success');
         });
     }
@@ -86,12 +89,12 @@ const FormAddress = (props: thisInter) => {
                         </Form.Item>
                     </Col>
                     <Col span={12}>
-                        <Form.Item label="Last Name (Optional)">
+                        <Form.Item label="Last Name (Optional)" name="lastName">
                             <Input />
                         </Form.Item>
                     </Col>
                     <Col span={24}>
-                        <Form.Item label="Address Line1" required>
+                        <Form.Item label="Address Line1" name="receiverAddress" required>
                             <TextArea />
                         </Form.Item>
                     </Col>

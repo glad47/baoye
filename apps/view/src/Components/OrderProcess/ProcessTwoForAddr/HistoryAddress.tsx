@@ -3,6 +3,8 @@ import {delDeliveryAddress, getDeliveryAddress} from "../../../SpecificationInpu
 import {message, Spin} from "antd";
 import {orderOptions, useAppState} from "../../../state";
 
+import emitter from "../../../eventBus";
+
 const HistoryAddress = () => {
     const [addrList, setAddrList] = useState([]);
     const [spin, setSpin] = useState<boolean>(false);
@@ -27,7 +29,7 @@ const HistoryAddress = () => {
     const handlerDelAddr = (id: number, index: number) => {
         setSpin(true);
         delDeliveryAddress(id).then(res => {
-            const defLi = [...addrList];
+            const defLi: any = [...addrList];
             defLi.splice(index, 1);
             setAddrList(defLi);
             setSpin(false);
@@ -35,14 +37,35 @@ const HistoryAddress = () => {
         });
     }
 
+    // 更新地址
+    const StaticUpdateAddr = (obj: any) => {
+        const {id} = obj;
+        const def = [...addrList];
+        let res: any = [];
+        def.forEach((item: any) => {
+            if (item.id === id) {
+                res.push(obj);
+            } else {
+                res.push(item);
+            }
+        });
+        setAddrList(res);
+    }
+
     // 选中当前地址
     const checkList = (obj: object, index: number) => {
         setCurDefault(index);
         dispatch(orderOptions({deliveryAddr: obj}));
+        emitter.addListener('updateCurrentAddr', val => {
+            StaticUpdateAddr(val);
+        })
     }
 
     useEffect(() => {
         getAddr();
+        return () => {
+            emitter.rawListeners('updateCurrentAddr');
+        }
     }, [])
     return (
         <div className="history-addr">

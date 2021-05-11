@@ -22,17 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 购物车 显示和删除">
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 地址修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/EditAddress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/EditAddress.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/FormAddress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/FormAddress.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/HistoryAddress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/HistoryAddress.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/state/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/state/context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/context.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/state/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/state/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +57,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/view/src" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -81,13 +75,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src\Components\OrderProcess\ProcessOneForCar" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src" />
       <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view\src\images" />
       <recent name="E:\apps\pcbonline\pcbonline-v2\apps\view\src\images" />
       <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src\Components\OrderProcess\ProcessOneForCar" />
     </key>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
@@ -138,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619526753806</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: 地址修改">
+      <created>1620645242891</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1620645242891</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +203,8 @@
     <MESSAGE value="feat: 报价页样式修改80%" />
     <MESSAGE value="feat: 流程组件分离" />
     <MESSAGE value="feat: 购物车 显示和删除" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 购物车 显示和删除" />
+    <MESSAGE value="feat: 地址修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 地址修改" />
   </component>
   <component name="WindowStateProjectService">
     <state x="823" y="449" key="#ESLint" timestamp="1619082830320">
@@ -252,23 +255,23 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620203921562" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1620644248294">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1620732113168">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620493246473" />
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1620644248294" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1619526755277">
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1620732113168" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1620645244323">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1619526755277" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1620645244323" />
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1619279383233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619279383233" />
-    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1619515458941">
+    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1620731519684">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1619515458941" />
+    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1620731519684" />
     <state x="662" y="248" width="879" height="584" key="find.popup" timestamp="1620643583625">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
