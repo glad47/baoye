@@ -104,7 +104,7 @@ const ProcessThreeTransport = () => {
                     data={data}
                     rowKey="id"
                     spin={false}
-                    checkBox
+                    checkBox="single"
                     openCheckAll={false}
                     _style={{TdHeight: 68}}
                 />

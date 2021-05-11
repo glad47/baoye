@@ -114,7 +114,7 @@ const FormAddress = (props: thisInter) => {
                         </Form.Item>
                     </Col>
                     <Col span={12}>
-                        <Form.Item label="State/Territory">
+                        <Form.Item label="State/Territory" name="stateTerritory">
                             <Input />
                         </Form.Item>
                     </Col>

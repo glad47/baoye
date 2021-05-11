@@ -9,16 +9,15 @@ import ProcessThreeTransport from "../Components/OrderProcess/ProcessThreeTransp
 import ProcessFourConfirmation from "../Components/OrderProcess/ProcessFourConfirmation";
 import ProcessFivePayment from "../Components/OrderProcess/ProcessFivePayment";
 import PaySuccessModal from "../Components/OrderProcess/PaySuccessModal";
-import {useAppState} from "../state";
+import {setOrderSummaryStatus, useAppState} from "../state";
 
 const { Panel } = Collapse;
 
 const PcbOrderProcess:React.FC<any> = (props:any) => {
-    const { orderSummaryStatus } = useAppState();
-    const [activeProcess, setActiveProcess] = useState<number>();
+    const { orderSummaryStatus, dispatch } = useAppState();
     const [paySuccess, setPaySuccess] = useState<boolean>(false);
     const handlerCheckCollapse = (val: number) => {
-        setActiveProcess(val);
+        dispatch(setOrderSummaryStatus({ process: val }))
     }
     return (
         <PcbLayout>

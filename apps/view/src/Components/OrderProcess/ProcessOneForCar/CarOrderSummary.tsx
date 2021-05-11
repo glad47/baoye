@@ -6,7 +6,7 @@ const CarOrderSummary = () => {
     const { orderSummary } = useAppState();
     const orderNext = () => {
         const {process} = orderSummaryStatus
-        dispatch(setOrderSummaryStatus({ process: process+1 }))
+        dispatch(setOrderSummaryStatus({ process: parseInt(String(process))+1 }))
     }
     return (
         <>

@@ -48,7 +48,11 @@ const CarTable = (props: any) => {
             def.splice(flag, 1);
             setCheckedList(def);
         } else { // 数据不存在， 选择
-            setCheckedList([...checkedList, value]);
+            if (checkBox && checkBox === 'single') { // 单选
+                setCheckedList([value]);
+            } else { // 多选
+                setCheckedList([...checkedList, value]);
+            }
         }
     }
 

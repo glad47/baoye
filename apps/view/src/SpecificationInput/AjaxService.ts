@@ -33,7 +33,11 @@ export const ajaxSubtotal = (data: any) =>{
 }
 
 export const fetchShipingCost = (data: any) =>{
-    return Axios.get(baseUrl + `v1/quote/getShippingCost?courierId=1&countryId=${data.countryId}&totalWeight=${data.totalWeight}`);
+    // return Axios.get(baseUrl + `v1/quote/getShippingCost?courierId=1&countryId=${data.countryId}&totalWeight=${data.totalWeight}`);
+    return service({
+        url: `${baseUrl}v1/quote/getShippingCost?courierId=1&countryId=${data.countryId}&totalWeight=${data.totalWeight}`,
+        method: 'GET'
+    })
 }
 
 export const ajaxAddQuote = (data: any) => {
@@ -150,3 +154,10 @@ export const getAllCountry = () => {
         method: 'GET'
     })
 }
+
+// export const getShippingCost = () => {
+//     return service({
+//         url: `${sysUrl}/api/country/all`,
+//         method: 'GET'
+//     })
+// }
