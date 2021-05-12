@@ -146,6 +146,18 @@ export const modifyDeliveryAddress = (data: any) => {
 
 
 /**
+ * 获取运输方式
+ * @constructor
+ */
+export const DescribeCouriers = () => {
+    return service({
+        url: `${baseUrl}v1/quote/getCouriers`,
+        method: 'GET'
+    })
+}
+
+
+/**
  * 获取所有国家信息
  */
 export const getAllCountry = () => {

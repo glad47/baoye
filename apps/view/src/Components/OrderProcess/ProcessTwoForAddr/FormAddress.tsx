@@ -27,13 +27,13 @@ const FormAddress = (props: thisInter) => {
 
     // 获取所有国家
     const initCountryList = () => {
-        const session = window.sessionStorage.getItem("countryList");
+        const session = window.localStorage.getItem("countryList");
         if (session) {
             setCountryList(JSON.parse(session));
         } else {
             getAllCountry().then((res: any) => {
                 setCountryList(res);
-                window.sessionStorage.setItem("countryList", JSON.stringify(res));
+                window.localStorage.setItem("countryList", JSON.stringify(res));
             })
         }
     }
@@ -73,7 +73,7 @@ const FormAddress = (props: thisInter) => {
             >
                 <Row gutter={16}>
                     <Col span={24}>
-                        <Form.Item label="receiverCity" name="receiverCountry" required>
+                        <Form.Item label="Country" name="receiverCountry" required>
                             <Select showSearch style={{ width: '100%' }}>
                                 {countryList && countryList.map((item: { name: any; id: any; }) => {
                                     return (

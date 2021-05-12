@@ -22,14 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 地址修改">
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 地址修改新增eventBus 组件通信 更新">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarOrderSummary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarOrderSummary.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/ShoppingCarListTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/ShoppingCarListTable.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/FormAddress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/FormAddress.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/request.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/state/context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/context.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +89,7 @@
       <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src\Components\OrderProcess\ProcessOneForCar" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SshConsoleOptionsProvider">
     <option name="myEncoding" value="UTF-8" />
   </component>
@@ -147,7 +148,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -258,11 +259,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620203921562" />
-    <state width="498" height="430" key="SwitcherDM" timestamp="1620750482905">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1620814131528">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620750482905" />
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1620732113168" />
+    <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620493246473" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1620814131528" />
     <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1620645244323">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -275,11 +276,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1620731519684" />
-    <state x="662" y="239" width="656" height="594" key="find.popup" timestamp="1620750731343">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="662" y="248" width="879" height="584" key="find.popup" timestamp="1620816995556">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620750731343" />
-    <state x="662" y="248" width="879" height="584" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1620643583625" />
+    <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620206725928" />
+    <state x="662" y="248" width="879" height="584" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1620816995556" />
     <state x="799" y="313" key="refactoring.ChangeSignatureDialog" timestamp="1620296645833">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -288,10 +289,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="617" y="256" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619410035487" />
-    <state x="615" y="186" width="672" height="651" key="search.everywhere.popup" timestamp="1620748924417">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1620629692387">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620748924417" />
+    <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620496518381" />
     <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1620629692387" />
   </component>
 </project>

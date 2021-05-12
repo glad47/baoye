@@ -32,7 +32,8 @@ export const INITIAL_STATE: State = {
   isBackToUpload:true,
   allKeys:{},
   fillData:true,
-  orderSummary: {total: 0, freightCharges: 0},
+  carDrawerStatus:false,
+  orderSummary: {total: 0, freightCharges: 0, weight: 0},
   orderSummaryStatus: {process: 1, description: 'MY SHOPPING CART'},
   orderOptionsItem: {deliveryAddr: null},
 }

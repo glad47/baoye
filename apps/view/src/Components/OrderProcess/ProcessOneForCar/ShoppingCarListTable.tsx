@@ -79,12 +79,15 @@ const ShoppingCarListTable = () => {
 
     // 选中
     const handlerChecked = (row: any) => {
-        const total = row.reduce((pre: any ,cur: any) => {
-            const {subtotal} = cur.record;
-            pre += subtotal;
+        let total = 0;
+        let weightTotal = 0;
+        row.reduce((pre: any ,cur: any) => {
+            const {subtotal, weight} = cur.record;
+            total += subtotal; // 计算总价格
+            weightTotal += weight; // 计算总重量
             return pre;
-        }, 0)
-        dispatch(orderSummary({ total: total }))
+        }, 0);
+        dispatch(orderSummary({ total: total, weight: weightTotal}))
     }
 
     return (

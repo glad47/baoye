@@ -164,6 +164,7 @@ export type SubtotalItem = {
 
 export type OrderSummaryItem = {
   total: number, // 总费用
+  weight : number, // 总重量
   freightCharges: number, // 订单结算 运费
 }
 
