@@ -29,8 +29,10 @@ const ProcessThreeTransport = () => {
     const [freightParams, setFreightParams] = useState({
         courierId: 1,
         countryId: 0,
+        countryName: null,
         totalWeight: 0,
     });
+    const [shipmentTerms, setShipmentTerms] = useState();
     const [tableData, setTableData] = useState<any>([]);
 
     const handlerRadio = (index: number) => {
@@ -39,19 +41,16 @@ const ProcessThreeTransport = () => {
 
     // 快递选中
     const handlerChecked = (row: any) => {
-        const {id} = row;
-        const def = {...freightParams};
-        def.courierId = id;
-        fetchShipingCost(def).then(res => {
-            console.log('运费报价为：', res);
-        });
+        if (row && row.length > 0) {
+            const {courierName} = row[0].record;
+            setShipmentTerms(courierName);
+        }
     }
 
     const initCouriers = async () => {
         setSpin(true);
         const params = await initQuoteFreightParams();
         DescribeCouriers().then(async res => {
-            console.log('运输方式', res);
             const dt: any = [];
             if (res && Array.isArray(res)) {
                 for (let item of res) {
@@ -60,15 +59,17 @@ const ProcessThreeTransport = () => {
                     if (filterCouriers.indexOf(courierName) === -1) {
                         const _img = iconMapping.find((item: any) => (item.name === courierName));
                         const shippingRes: any = await fetchShipingCost(params);
-                        const {shippingTime, shippingCost} = shippingRes;
-                        console.log('shippingRes', shippingRes)
-                        dt.push({
-                            description: 'Using my own account',
-                            tim: shippingTime,
-                            img: _img ? _img.icon : null,
-                            total: shippingCost,
-                            id: id
-                        });
+                        if (shippingRes) { // 判断是否支持当前运输方式
+                            const {shippingTime, shippingCost} = shippingRes;
+                            dt.push({
+                                description: 'Using my own account',
+                                tim: shippingTime,
+                                img: _img ? _img.icon : null,
+                                total: shippingCost,
+                                courierName: courierName,
+                                id: id
+                            });
+                        }
                     }
                 }
             }
@@ -78,9 +79,10 @@ const ProcessThreeTransport = () => {
     }
 
     const initQuoteFreightParams = async () => {
-        const dat = {
+        const dat : any = {
             courierId: 1,
             countryId: 0,
+            countryName: 0,
             totalWeight: 0,
         }
         const {weight} = orderSummary;
@@ -88,6 +90,7 @@ const ProcessThreeTransport = () => {
         const {deliveryAddr} = orderOptionsItem;
         let receiverCountry: any;
         deliveryAddr && ({receiverCountry} = deliveryAddr);
+        dat.countryName = receiverCountry;
         let _session : any = window.localStorage.getItem('countryList');
         let countryList;
         if (_session) {
@@ -154,16 +157,15 @@ const ProcessThreeTransport = () => {
     ];
 
     useEffect(() => {
-        initQuoteFreightParams();
         initCouriers();
     }, []);
     return (
         <div className="process-three-tra">
             <div className="header">
-                <span>SHIPMENT 1/1 — Shipping from China</span>
+                <span>SHIPMENT 1/1 — Shipping from {freightParams.countryName}</span>
                 <div>
                     <span>shipment terms:</span>
-                    <Input value={'EXW ShenZhen'}/>
+                    <Input value={shipmentTerms}/>
                 </div>
             </div>
             <div className="tra-box">
@@ -173,6 +175,7 @@ const ProcessThreeTransport = () => {
                     rowKey="id"
                     spin={spin}
                     checkBox="single"
+                    onChecked={handlerChecked}
                     openCheckAll={false}
                     _style={{TdHeight: 68}}
                 />

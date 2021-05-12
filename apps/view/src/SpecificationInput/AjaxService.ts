@@ -35,7 +35,7 @@ export const ajaxSubtotal = (data: any) =>{
 export const fetchShipingCost = (data: any) =>{
     // return Axios.get(baseUrl + `v1/quote/getShippingCost?courierId=1&countryId=${data.countryId}&totalWeight=${data.totalWeight}`);
     return service({
-        url: `${baseUrl}v1/quote/getShippingCost?courierId=1&countryId=${data.countryId}&totalWeight=${data.totalWeight}`,
+        url: `${baseUrl}v1/quote/getShippingCost?courierId=${data.courierId}&countryId=${data.countryId}&totalWeight=${data.totalWeight}`,
         method: 'GET'
     })
 }
