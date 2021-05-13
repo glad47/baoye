@@ -4,8 +4,12 @@ import {Space, Form, Row, Col, Input} from "antd";
 import {
     InfoCircleOutlined
 } from '@ant-design/icons'
+import {orderPay} from "../../../SpecificationInput/AjaxService";
 
-const qs = require('querystring')
+const MD5 = require('js-md5/src/md5')
+
+const qs = require('querystring');
+const base = 'https://test-gateway.ginltech.com/payment/interface/do';
 
 
 const PayDebitCard = () => {
@@ -19,8 +23,9 @@ const PayDebitCard = () => {
         version: '3.0',
         merchant_id: 1557899299,
         business_id: 1557899299001,
+        sign_key: 'zZlNcuJyTtmEVRoh', // 商户秘钥
         access_type: 's2s',
-        order_number: 11223355454,
+        order_number: 'order1560563175193920',
         trans_type: 'authorization',
         trans_channel: 'cc', // cc: 信用卡 ll: 本地支付
         pay_method: 'normal',
@@ -41,13 +46,41 @@ const PayDebitCard = () => {
         sign: ''
     }
 
+    const initMD5 = () => {
+        const {
+            merchant_id,
+            business_id,
+            order_number,
+            trans_type,
+            trans_channel,
+            pay_method,
+            url,
+            currency,
+            amount,
+            settle_currency,
+            sign_key
+        } = startOrder;
+        return MD5(merchant_id+business_id+order_number+trans_type+trans_channel+pay_method+url+currency+amount+settle_currency+sign_key);
+    }
+
+    const pay = () => {
+        const dtd = {...startOrder};
+        dtd.sign = initMD5();
+        const params = qs.encode(dtd);
+        orderPay(params).then(res => {
+            console.log('res', res);
+        })
+    }
+
     useEffect(() => {
         const aa = qs.encode(startOrder)
         // md5签名加密
         console.log(aa)
+        console.log('md5加密为：',initMD5())
     }, [])
     return (
         <div className="box-content">
+            {/*<button onClick={pay}>开始交易</button>*/}
             <Form
                 form={form}
                 initialValues={initValues}

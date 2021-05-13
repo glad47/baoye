@@ -24,8 +24,13 @@
   <component name="ChangeListManager">
     <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 地址修改新增eventBus 组件通信 更新">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/PayDebitCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/PayDebitCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Router/routerMap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Router/routerMap.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,9 +42,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="SCSS File" />
-        <option value="TypeScript JSX File" />
         <option value="Less File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -57,8 +63,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="Less" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/view/src/images" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -75,17 +81,18 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src\Components\OrderProcess\ProcessOneForCar" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\apps\pcbonline-v3\apps\view\src\images" />
       <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src" />
       <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view\src\images" />
       <recent name="E:\apps\pcbonline\pcbonline-v2\apps\view\src\images" />
       <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src\Components\OrderProcess\ProcessOneForCar" />
-    </key>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SshConsoleOptionsProvider">
     <option name="myEncoding" value="UTF-8" />
   </component>
@@ -111,7 +118,6 @@
       <workItem from="1619244836534" duration="116000" />
       <workItem from="1619245315833" duration="7003000" />
       <workItem from="1619403072631" duration="18575000" />
-      <workItem from="1620909140659" duration="276000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>
@@ -145,7 +151,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -232,34 +238,34 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="785" y="447" key="GitRewordDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1619337049168" />
-    <state width="937" height="294" key="GridCell.Tab.0.bottom" timestamp="1620909408286">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1882" height="279" key="GridCell.Tab.0.bottom" timestamp="1620921059672">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1882" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620199784183" />
-    <state width="937" height="294" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1620909408286" />
-    <state width="937" height="294" key="GridCell.Tab.0.center" timestamp="1620909408286">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1882" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
+    <state width="1875" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1619142942721" />
+    <state width="1882" height="279" key="GridCell.Tab.0.center" timestamp="1620921059672">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1882" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620199784183" />
-    <state width="937" height="294" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1620909408286" />
-    <state width="937" height="294" key="GridCell.Tab.0.left" timestamp="1620909408286">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1882" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
+    <state width="1875" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1619142942721" />
+    <state width="1882" height="279" key="GridCell.Tab.0.left" timestamp="1620921059672">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1882" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620199784183" />
-    <state width="937" height="294" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1620909408286" />
-    <state width="937" height="294" key="GridCell.Tab.0.right" timestamp="1620909408286">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1882" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
+    <state width="1875" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1619142942721" />
+    <state width="1882" height="279" key="GridCell.Tab.0.right" timestamp="1620921059672">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1882" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620199784183" />
-    <state width="937" height="294" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1620909408286" />
+    <state width="1882" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
+    <state width="1875" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1619142942721" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1620203921562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620203921562" />
-    <state width="498" height="430" key="SwitcherDM" timestamp="1620750482905">
+    <state width="498" height="430" key="SwitcherDM" timestamp="1620922642594">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620750482905" />
+    <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620922642594" />
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1620732113168" />
     <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1620645244323">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -269,14 +275,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619279383233" />
-    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1620731519684">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1620731519684" />
-    <state x="662" y="239" width="656" height="594" key="find.popup" timestamp="1620835771860">
+    <state x="753" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1620918434821">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620835771860" />
+    <state x="753" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620918434821" />
+    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1620731519684" />
+    <state x="662" y="239" width="656" height="594" key="find.popup" timestamp="1620922730871">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620922730871" />
     <state x="662" y="248" width="879" height="584" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1620643583625" />
     <state x="799" y="313" key="refactoring.ChangeSignatureDialog" timestamp="1620296645833">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -286,10 +293,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="617" y="256" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619410035487" />
-    <state x="615" y="186" width="672" height="651" key="search.everywhere.popup" timestamp="1620836754816">
+    <state x="615" y="186" width="672" height="651" key="search.everywhere.popup" timestamp="1620923044107">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620836754816" />
+    <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620923044107" />
     <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1620629692387" />
   </component>
 </project>

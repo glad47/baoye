@@ -10,6 +10,7 @@ import ProcessFourConfirmation from "../Components/OrderProcess/ProcessFourConfi
 import ProcessFivePayment from "../Components/OrderProcess/ProcessFivePayment";
 import PaySuccessModal from "../Components/OrderProcess/PaySuccessModal";
 import {setOrderSummaryStatus, useAppState} from "../state";
+import {Link} from "react-router-dom";
 
 const { Panel } = Collapse;
 
@@ -40,6 +41,9 @@ const PcbOrderProcess:React.FC<any> = (props:any) => {
                         <Panel header="流程5=>支付" key="5">
                             <ProcessFivePayment />
                             <Button type="primary" onClick={() => {setPaySuccess(true)}}>支付成功测试按钮</Button>
+                            <Link to="/paySuc">
+                                <Button type="primary">感谢支付测试按钮</Button>
+                            </Link>
                         </Panel>
                     </Collapse>
                     {/*弹窗*/}

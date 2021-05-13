@@ -167,6 +167,16 @@ export const getAllCountry = () => {
     })
 }
 
+/**
+ * 信用卡支付
+ * @param params
+ */
+export const orderPay = (params: any) => {
+    return service({
+        url: `https://test-gateway.ginltech.com/payment/interface/do?${params}`
+    })
+}
+
 // export const getShippingCost = () => {
 //     return service({
 //         url: `${sysUrl}/api/country/all`,

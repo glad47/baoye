@@ -1,6 +1,7 @@
 import App from "../App";
 import TestCom from "../testCom";
 import PcbOrderProcess from "../SpecificationInput/PcbOrderProcess";
+import PaySuccessful from "../SpecificationInput/PaySuccessful";
 
 const routerMap = [
     {
@@ -17,6 +18,11 @@ const routerMap = [
     {
         path: '/order',
         component: PcbOrderProcess,
+        auth: false
+    },
+    {
+        path: '/paySuc',
+        component: PaySuccessful,
         auth: false
     }
 ]

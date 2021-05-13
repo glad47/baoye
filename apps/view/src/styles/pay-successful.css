@@ -1,0 +1,111 @@
+.p-suc {
+    display: flex;
+}
+
+.p-suc .rig-form {
+    width: 530px;
+}
+
+.p-suc .lef-img {
+    margin-left: 190px;
+}
+
+.concat-info {
+    display: flex;
+    height: 136px;
+}
+
+.concat-info .concat-lef {
+    width: 432px;
+    height: 100%;
+    background: #333333;
+}
+
+.concat-info .concat-lef img.quc {
+    width: 62px;
+    height: 76px;
+}
+
+.concat-lef {
+    display: flex;
+    align-items: center;
+    height: 76px;
+}
+
+.concat-lef>div {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.concat-lef .lf {
+    width: 62px;
+    margin-right: 16px;
+}
+
+.concat-lef .rg {
+    width: 308px;
+}
+
+.concat-lef .rg strong {
+    font-family: Arial-BoldMT;
+    font-size: 14px;
+    color: #FFFFFF;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.concat-lef .rg .btn-group button:first-of-type {
+    margin-left: unset;
+}
+
+.concat-lef .rg .btn-group button {
+    border: 1px solid #FFFFFF;
+    border-radius: 17px;
+    width: 96px;
+    height: 24px;
+    line-height: 23px;
+    color: #fff;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.concat-lef .rg .btn-group button img {
+    margin-right: 4px;
+}
+
+.concat-info .concat-rig {
+    text-align: center;
+    background: #474747;
+    width: 168px;
+    display: flex;
+    align-items: center;
+}
+
+.concat-info .concat-rig>div {
+    margin: 0 auto;
+}
+
+.concat-info .concat-rig img {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.concat-info .concat-rig strong {
+    color: #fff;
+    font-family: Arial-Black;
+    font-size: 14px;
+    margin-top: 8px;
+    display: block;
+}
+
+.concat-info .concat-rig span {
+    opacity: 0.7;
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #FFFFFF;
+}
