@@ -22,12 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 支付成功感谢页面 样式未完成">
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 支付成功样式">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Head/HeaderTips.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Head/HeaderTips.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Head/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Head/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PaySuccessful.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PaySuccessful.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/state/context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/context.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/styles/pay-successful.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/pay-successful.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +42,8 @@
         <option value="SCSS File" />
         <option value="Less File" />
         <option value="TypeScript File" />
-        <option value="TypeScript JSX File" />
         <option value="CSS File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -85,6 +87,7 @@
       <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\apps\pcbonline-v3\apps\view\src\Components\MyCollapse" />
       <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src\Components\OrderProcess\ProcessOneForCar" />
     </key>
   </component>
@@ -114,7 +117,7 @@
       <workItem from="1619244836534" duration="116000" />
       <workItem from="1619245315833" duration="7003000" />
       <workItem from="1619403072631" duration="18575000" />
-      <workItem from="1621051181258" duration="9393000" />
+      <workItem from="1621051181258" duration="17965000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>
@@ -151,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620924917050</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: 支付成功样式">
+      <created>1621068808052</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1621068808052</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,7 +226,8 @@
     <MESSAGE value="feat: 购物车 显示和删除" />
     <MESSAGE value="feat: 地址修改" />
     <MESSAGE value="feat: 支付成功感谢页面 样式未完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 支付成功感谢页面 样式未完成" />
+    <MESSAGE value="feat: 支付成功样式" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 支付成功样式" />
   </component>
   <component name="WindowStateProjectService">
     <state x="823" y="449" key="#ESLint" timestamp="1619082830320">
@@ -267,17 +278,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620203921562" />
-    <state width="498" height="447" key="SwitcherDM" timestamp="1621051731539">
-      <screen x="0" y="0" width="1842" height="1080" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1621095840258">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="447" key="SwitcherDM/0.0.1842.1080@0.0.1842.1080" timestamp="1621051731539" />
     <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620924930855" />
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1620732113168" />
-    <state x="552" y="263" key="Vcs.Push.Dialog.v2" timestamp="1620924918452">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1621095840258" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1621068809584">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="263" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620924918452" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1620645244323" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1621068809584" />
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1619279383233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -287,11 +298,11 @@
     </state>
     <state x="753" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620918434821" />
     <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1620731519684" />
-    <state x="662" y="248" width="879" height="594" key="find.popup" timestamp="1621066965754">
+    <state x="662" y="248" width="879" height="594" key="find.popup" timestamp="1621094965512">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620922730871" />
-    <state x="662" y="248" width="879" height="594" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621066965754" />
+    <state x="662" y="248" width="879" height="594" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621094965512" />
     <state x="799" y="313" key="refactoring.ChangeSignatureDialog" timestamp="1620296645833">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -300,10 +311,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="617" y="256" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621067190572" />
-    <state x="615" y="186" width="672" height="651" key="search.everywhere.popup" timestamp="1620923044107">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1621071091914">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620923044107" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1620629692387" />
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621071091914" />
   </component>
 </project>

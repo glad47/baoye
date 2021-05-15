@@ -176,7 +176,8 @@ export type OrderSummaryStatus = {
 
 /** 订单支付左侧参数管理  */
 export type orderOptionsItem = {
-  deliveryAddr: any // 地址
+  deliveryAddr: any, // 地址
+  expressInfo: any, // 快递信息
 }
 
 export type SvgString = {

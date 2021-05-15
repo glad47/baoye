@@ -11,34 +11,70 @@ import ProcessFivePayment from "../Components/OrderProcess/ProcessFivePayment";
 import PaySuccessModal from "../Components/OrderProcess/PaySuccessModal";
 import {setOrderSummaryStatus, useAppState} from "../state";
 import {Link} from "react-router-dom";
+import {
+    CheckOutlined
+} from '@ant-design/icons'
+
+const _iconStyle = {
+    color: '#1CA159',
+    "marginLeft": '10px',
+    fontSize: '20px',
+}
+
+const icon_CheckOutlined = <CheckOutlined style={_iconStyle} />;
 
 const { Panel } = Collapse;
 
 const PcbOrderProcess:React.FC<any> = (props:any) => {
-    const { orderSummaryStatus, dispatch } = useAppState();
+    const { orderSummaryStatus,orderOptionsItem, dispatch } = useAppState();
     const [paySuccess, setPaySuccess] = useState<boolean>(false);
     const handlerCheckCollapse = (val: number) => {
         dispatch(setOrderSummaryStatus({ process: val }))
     }
+
+    const processExtra = {
+        1: '',
+        2: (
+            <>
+                {orderOptionsItem.deliveryAddr?.receiverAddress},
+                {orderOptionsItem.deliveryAddr?.receiverCity},
+                {orderOptionsItem.deliveryAddr?.receiverCountry},
+                {orderOptionsItem.deliveryAddr?.receiverName},
+                {orderOptionsItem.deliveryAddr?.lastName},
+                {orderOptionsItem.deliveryAddr?.receiverTelephone}
+                {icon_CheckOutlined}
+            </>
+        ),
+        3: (
+            <>
+                {orderOptionsItem.expressInfo}
+                {icon_CheckOutlined}
+            </>
+        ),
+        4: 666,
+        5: 666,
+    }
+
     return (
         <PcbLayout>
             <div className="pcb-order-process">
                 <div className="order-types" id="shit">
                     <strong>{orderSummaryStatus.description}</strong>
                     <Collapse accordion className="order-collapse" activeKey={orderSummaryStatus.process} onChange={handlerCheckCollapse}>
-                        <Panel header="流程1=>购物车" key="1">
+
+                        <Panel header="Shipping Items" key="1" extra={processExtra[1]}>
                             <ShoppingCarListTable />
                         </Panel>
-                        <Panel header="流程2=>收获地址" key="2">
+                        <Panel header="Shipping Address" key="2" extra={orderOptionsItem.deliveryAddr && processExtra[2]}>
                             <ProcessTwoForAddr />
                         </Panel>
-                        <Panel header="流程3=>运输方式" key="3">
+                        <Panel header="Shipping Method" key="3" extra={orderOptionsItem.expressInfo && processExtra[3]}>
                             <ProcessThreeTransport />
                         </Panel>
-                        <Panel header="流程4=>订单确认" key="4">
+                        <Panel header="Submit Order" key="4">
                             <ProcessFourConfirmation />
                         </Panel>
-                        <Panel header="流程5=>支付" key="5">
+                        <Panel header="Pay Directly" key="5">
                             <ProcessFivePayment />
                             <Button type="primary" onClick={() => {setPaySuccess(true)}}>支付成功测试按钮</Button>
                             <Link to="/paySuc">

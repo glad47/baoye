@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import '../../../styles/process-three-transport.css'
 import {Input, Space, Radio} from "antd";
 import CarTable from "../ProcessOneForCar/CarTable";
-import {useAppState} from "../../../state";
+import {orderOptions, useAppState} from "../../../state";
 import {DescribeCouriers, fetchShipingCost, getAllCountry} from "../../../SpecificationInput/AjaxService";
 
 interface freightItf {
@@ -44,6 +44,7 @@ const ProcessThreeTransport = () => {
         if (row && row.length > 0) {
             const {courierName} = row[0].record;
             setShipmentTerms(courierName);
+            dispatch(orderOptions({expressInfo: courierName}));
         }
     }
 

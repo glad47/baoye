@@ -19,7 +19,7 @@ const PaySuccessful = () => {
                             <span className="num">Order number is: <a href="#">P67493764837</a></span>
                             <span className="n-tips">You will receive an email confirmation shortly at team@pcbonline.com</span>
                             <button>
-                                <img src={require('../images/down.png')} alt=""/>
+                                <img src={require('../images/invoice.png')} alt=""/>
                                 Print Invoice
                             </button>
                         </div>
