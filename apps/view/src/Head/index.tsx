@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Product from '../Menus/product'
 import Assembly from '../Menus/AssemblyAllMenu'
 import Solution from '../Menus/Solution'
@@ -8,9 +8,16 @@ import LoginShow from '../DownMenu/loginShow'
 import HeaderTips from "./HeaderTips";
 
 function Head(props: any) {
+    const [tipsShow, setTipsShow] = useState<boolean>(false);
     const handleManage = () => {
         window.open('https://sys.pcbonline.com/home')
     }
+    useEffect(() => {
+        const {pathname} = window.location;
+        if (pathname === '/') {
+            setTipsShow(true);
+        }
+    }, []);
     return (
         <div id='pcb-header'>
             <div className='pcb-header-inner'>
@@ -75,7 +82,9 @@ function Head(props: any) {
                     </ul>
                 </div>
             </div>
-            <HeaderTips />
+            {
+                tipsShow && <HeaderTips />
+            }
         </div>
     )
 }

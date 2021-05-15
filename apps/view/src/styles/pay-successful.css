@@ -1,13 +1,213 @@
 .p-suc {
-    display: flex;
+    /*display: flex;*/
+    position: relative;
+    margin-top: -20px;
 }
 
 .p-suc .rig-form {
     width: 530px;
 }
 
+.rig-form .header .txt {
+    width: 315px;
+    padding: 50px 0;
+    text-align: justify;
+}
+
+
+.rig-form .header .txt>* {
+    display: block;
+    font-family: Arial-BoldMT;
+    color: #000000;
+}
+.rig-form .header .txt strong{
+    font-size: 50px;
+}
+
+.rig-form .header .txt span:after, .rig-form .header .txt strong:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+.rig-form .header .txt span{
+    font-size: 24px;
+    margin-top: -48px;
+}
+
+.rig-form .order-num {
+    margin-bottom: 43px;
+}
+
+.rig-form .order-num>* {
+    display: block;
+    font-family: ArialMT;
+}
+
+.rig-form .order-num span.num {
+    font-size: 24px;
+    color: #000000;
+}
+.rig-form .order-num span.num a {
+    font-size: 24px;
+    color: #929DC1;
+    display: inline-block !important;
+}
+.rig-form .order-num span.n-tips {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666666;
+}
+
+.rig-form .order-num button img {
+    margin-top: -4px;
+    width: 15px;
+}
+
+.rig-form .order-num button * {
+    vertical-align:middle;
+}
+
+.rig-form .order-num button {
+    border: 1px solid #2952EA;
+    width: 158px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #2952EA;
+    margin-top: 20px;
+}
+
+.rig-form .form-container .header {
+    margin-bottom: 36px;
+}
+
+.rig-form .form-container .header strong {
+    font-family: Arial-BoldMT;
+    font-size: 14px;
+    color: #000000;
+}
+.rig-form .form-container .header strong img {
+    margin-right: 4px;
+}
+
+.rig-form .ant-form-item {
+    margin-bottom: 30px;
+}
+
+.rig-form .ant-form-item textarea.ant-input {
+    background: #F8FBFF;
+    height: 88px;
+}
+
+.rig-form button.p-submit {
+    background: #2952EA;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 134px;
+    height: 44px;
+    line-height: 44px;
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+.rig-form .join .check-us {
+    margin-bottom: 30px;
+}
+
+.rig-form .join .check-us span{
+    font-family: Arial-BoldMT;
+    font-size: 14px;
+    color: #000000;
+    font-weight: 600;
+}
+
+.rig-form .join .p-tips {
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #333333;
+}
+
+.rig-form .join .p-tips .click {
+    display: block;
+    margin-top: 3px;
+    font-size: 14px;
+    color: #2952EA;
+    text-decoration: underline;
+    line-height: 22px;
+}
+
+.rig-form .join .send-email {
+    margin-top: 8px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 20px 0 rgba(0,0,0,0.10);
+}
+
+.rig-form .join .send-email>div .bac {
+    padding: 45px 12px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    background: #F8F8F8;
+}
+
+.rig-form .join .send-email>div .send-input {
+    margin-top: 12px;
+    position: relative;
+}
+
+.rig-form .join .send-email>div .send-input input,
+.rig-form .join .send-email>div .send-input input:focus
+{
+    border: 1px solid #2952EA !important;
+    border-radius: 4px;
+    font-family: ArialMT;
+    font-size: 14px;
+    outline: none;
+    color: #333333;
+    height: 32px;
+    width: 100%;
+    padding: 0 125px 0 4px;
+}
+.rig-form .join .send-email>div .send-input button {
+    width: 120px;
+    height: 32px;
+    color: #fff;
+    line-height: 32px;
+    border-radius: 0 4px 4px 0;
+    background: #2952EA;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.rig-form .join .bt-txt {
+    margin-top: 28px;
+    padding-left: 24px;
+    text-indent: -23px;
+}
+.rig-form .join .bt-txt span {
+    margin-top: 28px;
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #999999;
+    line-height: 20px;
+}
+
+.rig-form .join .bt-txt span img {
+    width: 16px;
+    margin-right: 9px;
+}
+
+
 .p-suc .lef-img {
-    margin-left: 190px;
+    top: 0;
+    position: absolute;
+    left: 700px;
 }
 
 .concat-info {
@@ -108,4 +308,11 @@
     font-family: ArialMT;
     font-size: 14px;
     color: #FFFFFF;
+}
+
+.rui-justify{text-align: justify;}
+.rui-justify::after{
+    content: '';
+    display: inline-block;
+    padding-left: 100%;
 }
