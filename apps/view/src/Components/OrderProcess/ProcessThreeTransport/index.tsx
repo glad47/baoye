@@ -45,6 +45,8 @@ const ProcessThreeTransport = () => {
             const {courierName} = row[0].record;
             setShipmentTerms(courierName);
             dispatch(orderOptions({expressInfo: courierName}));
+        } else {
+            dispatch(orderOptions({expressInfo: null}));
         }
     }
 

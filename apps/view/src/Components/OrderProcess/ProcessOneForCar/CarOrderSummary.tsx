@@ -2,7 +2,7 @@ import React from 'react'
 import {setOrderSummaryStatus, useAppState} from "../../../state";
 
 const CarOrderSummary = () => {
-    const { dispatch, orderSummaryStatus } = useAppState();
+    const { dispatch, orderSummaryStatus, orderOptionsItem } = useAppState();
     const { orderSummary } = useAppState();
     const orderNext = () => {
         const {process} = orderSummaryStatus
@@ -13,7 +13,7 @@ const CarOrderSummary = () => {
             <div className="summary-box">
                 <div className="cost-det">
                     <div>
-                        <span>Subtotal（4 Items）</span>
+                        <span>Subtotal（{orderOptionsItem.ordersItem.length} Items）</span>
                         <span>${orderSummary.total}</span>
                     </div>
                     <div>

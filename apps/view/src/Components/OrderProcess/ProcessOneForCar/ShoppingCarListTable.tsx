@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import CarTable from "./CarTable";
 import {ajaxCarList, delPcbOrder} from "../../../SpecificationInput/AjaxService";
-import {orderSummary, useAppState} from "../../../state";
+import {orderOptions, orderSummary, useAppState} from "../../../state";
 
 const ShoppingCarListTable = () => {
     const { dispatch } = useAppState();
@@ -87,7 +87,8 @@ const ShoppingCarListTable = () => {
             weightTotal += weight; // 计算总重量
             return pre;
         }, 0);
-        dispatch(orderSummary({ total: total, weight: weightTotal}))
+        dispatch(orderOptions({ordersItem: row}));
+        dispatch(orderSummary({ total: total, weight: weightTotal}));
     }
 
     return (

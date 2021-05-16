@@ -47,11 +47,17 @@ const PcbOrderProcess:React.FC<any> = (props:any) => {
         ),
         3: (
             <>
+                shipment:
                 {orderOptionsItem.expressInfo}
                 {icon_CheckOutlined}
             </>
         ),
-        4: 666,
+        4: (
+            <>
+                {orderOptionsItem.payWays}
+                {icon_CheckOutlined}
+            </>
+        ),
         5: 666,
     }
 
@@ -71,7 +77,7 @@ const PcbOrderProcess:React.FC<any> = (props:any) => {
                         <Panel header="Shipping Method" key="3" extra={orderOptionsItem.expressInfo && processExtra[3]}>
                             <ProcessThreeTransport />
                         </Panel>
-                        <Panel header="Submit Order" key="4">
+                        <Panel header="Submit Order" key="4" extra={orderOptionsItem.payWays && processExtra[4]}>
                             <ProcessFourConfirmation />
                         </Panel>
                         <Panel header="Pay Directly" key="5">

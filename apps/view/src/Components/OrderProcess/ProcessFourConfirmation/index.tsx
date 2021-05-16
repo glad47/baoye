@@ -1,12 +1,19 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../../../styles/process-four-confirmation.css'
 import {Radio, Space} from "antd";
+import {orderOptions, useAppState} from "../../../state";
+
+const typesStr = ['PCBONLINE Review', 'Customer review'];
 
 const ProcessFourConfirmation = () => {
+    const { dispatch } = useAppState();
     const [ways, setWays] = useState<number>(0);
     const handlerCheckWays = (type: number) => {
         setWays(type);
     }
+    useEffect(() => {
+        dispatch(orderOptions({payWays: typesStr[ways]}));
+    }, [ways]);
     const waysData = [
         {
             title: 'Review Before Payment (recommended)',
