@@ -80,6 +80,7 @@
     "swiper": "^5.4.2",
     "tachyons": "^4.11.1",
     "viewbox": "^1.0.0",
+    "react-paypal-button-v2": "^2.6.2",
     "whats-that-gerber": "^4.2.0"
   },
   "devDependencies": {

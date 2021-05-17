@@ -22,16 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 订单流程折叠面板信息展示">
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 感谢页图片修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFourConfirmation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFourConfirmation/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarOrderSummary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarOrderSummary.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/ShoppingCarListTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/ShoppingCarListTable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/images/paysuc-bac.png" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/images/paysuc-bac.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/state/context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/context.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/PayPaypal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/PayPaypal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +60,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/view/src/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pcbonline-cs" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -119,7 +116,7 @@
       <workItem from="1619244836534" duration="116000" />
       <workItem from="1619245315833" duration="7003000" />
       <workItem from="1619403072631" duration="18575000" />
-      <workItem from="1621051181258" duration="23379000" />
+      <workItem from="1621051181258" duration="31845000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>
@@ -170,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621095878589</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat: 感谢页图片修改">
+      <created>1621161124623</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1621161124623</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +241,8 @@
     <MESSAGE value="feat: 支付成功感谢页面 样式未完成" />
     <MESSAGE value="feat: 支付成功样式" />
     <MESSAGE value="feat: 订单流程折叠面板信息展示" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 订单流程折叠面板信息展示" />
+    <MESSAGE value="feat: 感谢页图片修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 感谢页图片修改" />
   </component>
   <component name="WindowStateProjectService">
     <state x="823" y="449" key="#ESLint" timestamp="1619082830320">
@@ -260,45 +265,49 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="615" y="316" key="EditFileWatcherDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1619084431994" />
+    <state x="701" y="310" key="FileChooserDialogImpl" timestamp="1621180846951">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="701" y="310" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1621180846951" />
     <state x="785" y="447" key="GitRewordDialog" timestamp="1619337049168">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="785" y="447" key="GitRewordDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1619337049168" />
-    <state width="1882" height="279" key="GridCell.Tab.0.bottom" timestamp="1620921059672">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="936" height="279" key="GridCell.Tab.0.bottom" timestamp="1621267879348">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1882" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
-    <state width="1875" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1619142942721" />
-    <state width="1882" height="279" key="GridCell.Tab.0.center" timestamp="1620921059672">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="936" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1621267879348" />
+    <state width="936" height="279" key="GridCell.Tab.0.center" timestamp="1621267879348">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1882" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
-    <state width="1875" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1619142942721" />
-    <state width="1882" height="279" key="GridCell.Tab.0.left" timestamp="1620921059672">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="936" height="279" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1621267879348" />
+    <state width="936" height="279" key="GridCell.Tab.0.left" timestamp="1621267879348">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1882" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
-    <state width="1875" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1619142942721" />
-    <state width="1882" height="279" key="GridCell.Tab.0.right" timestamp="1620921059672">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="936" height="279" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1621267879348" />
+    <state width="936" height="279" key="GridCell.Tab.0.right" timestamp="1621267879348">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1882" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
-    <state width="1875" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1619142942721" />
+    <state width="936" height="279" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1621267879348" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1620203921562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620203921562" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1621159738841">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1621265320790">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="447" key="SwitcherDM/0.0.1842.1080@0.0.1842.1080" timestamp="1621051731539" />
     <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620924930855" />
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1621159738841" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1621095879784">
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1621265320790" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1621161125790">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="263" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620924918452" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1621095879784" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1621161125790" />
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1619279383233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -308,11 +317,11 @@
     </state>
     <state x="753" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620918434821" />
     <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1620731519684" />
-    <state x="662" y="248" width="879" height="594" key="find.popup" timestamp="1621159699422">
+    <state x="662" y="248" width="879" height="594" key="find.popup" timestamp="1621269092061">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620922730871" />
-    <state x="662" y="248" width="879" height="594" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621159699422" />
+    <state x="662" y="248" width="879" height="594" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621269092061" />
     <state x="799" y="313" key="refactoring.ChangeSignatureDialog" timestamp="1620296645833">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -321,10 +330,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="617" y="256" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621067190572" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1621160507667">
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1621269295025">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620923044107" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621160507667" />
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621269295025" />
   </component>
 </project>

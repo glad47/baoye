@@ -100,6 +100,7 @@ function App(): JSX.Element {
             }
             dispatch(addQuote());
             if (link) { location.href = '/audit'; }
+            return true;
         }
     }
     // const isShowLoad = (item:any) => {
@@ -238,7 +239,9 @@ function App(): JSX.Element {
 
 
                         <div className="pcb-sidebar">
-                            <PcbBuildFee setIsLogin={() => {setLogin(true)}}/>
+                            <PcbBuildFee
+                                handleAddQuote={handleAddQuote}
+                                setIsLogin={() => {setLogin(true)}}/>
                             {/*<div className="pcb-build-time">*/}
                             {/*    <BuildTimeForm buildItems={buildTimeItems} />*/}
                             {/*</div>*/}
