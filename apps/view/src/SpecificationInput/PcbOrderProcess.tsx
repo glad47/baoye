@@ -25,11 +25,26 @@ const icon_CheckOutlined = <CheckOutlined style={_iconStyle} />;
 
 const { Panel } = Collapse;
 
-const PcbOrderProcess:React.FC<any> = (props:any) => {
+const PcbOrderProcess:React.FC = (props:any) => {
     const { orderSummaryStatus,orderOptionsItem, dispatch } = useAppState();
     const [paySuccess, setPaySuccess] = useState<boolean>(false);
+    const [alrIndex, setAlrIndex] = useState<any>([]); // 已经checkout过的流程，避免用户直接跳过某个流程
     const handlerCheckCollapse = (val: number) => {
-        dispatch(setOrderSummaryStatus({ process: val }))
+        if (alrIndex.indexOf(Number(val)) > -1) { // 不能跳过没有选过的流程
+            dispatch(setOrderSummaryStatus({ process: val }));
+        }
+    }
+
+    // 选中
+    const handleCheckout = (index1: number, index2: number) => {
+        const def: any = [...alrIndex];
+        if (alrIndex.indexOf(index1) === -1) {
+            def.push(Number(index1));
+        }
+        if (alrIndex.indexOf(index2) === -1) {
+            def.push(Number(index2));
+        }
+        setAlrIndex([...def]);
     }
 
     const processExtra = {
@@ -95,7 +110,7 @@ const PcbOrderProcess:React.FC<any> = (props:any) => {
                 </div>
                 <div className="order-detail">
                     <strong>Order Summary</strong>
-                    <CarOrderSummary />
+                    <CarOrderSummary handleCheckout={handleCheckout}/>
                 </div>
             </div>
         </PcbLayout>

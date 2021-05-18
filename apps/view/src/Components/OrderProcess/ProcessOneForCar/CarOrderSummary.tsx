@@ -1,11 +1,16 @@
 import React from 'react'
 import {setOrderSummaryStatus, useAppState} from "../../../state";
 
-const CarOrderSummary = () => {
+interface ints {
+    handleCheckout: any
+}
+
+const CarOrderSummary:React.FC<ints> = props => {
     const { dispatch, orderSummaryStatus, orderOptionsItem } = useAppState();
     const { orderSummary } = useAppState();
     const orderNext = () => {
-        const {process} = orderSummaryStatus
+        const {process} = orderSummaryStatus;
+        props.handleCheckout(process, parseInt(String(process))+1);
         dispatch(setOrderSummaryStatus({ process: parseInt(String(process))+1 }))
     }
     return (
