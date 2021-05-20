@@ -1,5 +1,10 @@
 import React from 'react'
+import { Dropdown, Checkbox  } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import '../../../styles/car-order-summary.css'
+
 import {setOrderSummaryStatus, useAppState} from "../../../state";
+import CarCoupon from "./CarCoupon";
 
 interface ints {
     handleCheckout: any
@@ -13,6 +18,7 @@ const CarOrderSummary:React.FC<ints> = props => {
         props.handleCheckout(process, parseInt(String(process))+1);
         dispatch(setOrderSummaryStatus({ process: parseInt(String(process))+1 }))
     }
+
     return (
         <>
             <div className="summary-box">
@@ -26,6 +32,18 @@ const CarOrderSummary:React.FC<ints> = props => {
                         <span>${orderSummary.freightCharges}</span>
                     </div>
                 </div>
+                {
+                    orderSummaryStatus.process > 3 &&
+                        <>
+                            <div className="cost-det">
+                                <div>
+                                    <span>Handling Charge<br />(PayPal)</span>
+                                    <span>${orderSummary.freightCharges}</span>
+                                </div>
+                            </div>
+                            <CarCoupon />
+                        </>
+                }
                 <div className="cost-det total">
                     <div>
                         <span>Total</span>

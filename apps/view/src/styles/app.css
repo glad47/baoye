@@ -4112,53 +4112,6 @@ body {
     background: #f8f8f8;
 }
 
-/*流程右侧代码样式 start*/
-.order-detail .cost-det {
-    border-bottom: 1px dashed #D8D8D8;
-    padding-bottom: 26px;
-}
-.order-detail .cost-det.total {
-    border-bottom: unset;
-    padding-bottom: unset;
-}
-.order-detail .cost-det>div {
-    margin-top: 10px;
-    font-family: ArialMT;
-    font-size: 14px;
-    color: #333333;
-    letter-spacing: 0;
-    line-height: 30px;
-    display: table;
-    width: 100%;
-}
-
-.order-detail .cost-det>div span {
-    display: table-cell;
-    width: 50%;
-}
-
-.order-detail .cost-det>div span:last-of-type {
-    text-align: right;
-}
-
-.order-detail .summary-box {
-    padding: 17px 15px;
-}
-
-.order-detail .summary-btn {
-    background: #f8f8f8;
-    padding: 17px 15px;
-}
-
-.order-detail .summary-tips {
-    font-family: ArialMT;
-    font-size: 14px;
-    color: #929DC1;
-    letter-spacing: 0;
-    background: #E9EDF2;
-    padding: 16px 14px;
-}
-/*流程右侧代码样式 end*/
 
 .btn.global-primary {
     height: 64px;

@@ -1,0 +1,88 @@
+.order-detail .summary-box {
+    padding: 17px 15px;
+}
+
+/*流程右侧代码样式 start*/
+.order-detail .cost-det {
+    border-bottom: 1px dashed #D8D8D8;
+    padding-bottom: 26px;
+}
+.order-detail .cost-det.total {
+    border-bottom: unset;
+    padding-bottom: unset;
+}
+.order-detail .cost-det>div {
+    margin-top: 10px;
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 30px;
+    display: table;
+    width: 100%;
+}
+
+.order-detail .cost-det>div span {
+    display: table-cell;
+    width: 50%;
+}
+
+.order-detail .cost-det>div span:last-of-type {
+    text-align: right;
+}
+
+.order-detail .summary-btn {
+    background: #f8f8f8;
+    padding: 17px 15px;
+}
+
+.order-detail .summary-tips {
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #929DC1;
+    letter-spacing: 0;
+    background: #E9EDF2;
+    padding: 16px 14px;
+}
+/*流程右侧代码样式 end*/
+
+.ant-checkbox-inner {
+    border-radius: 3px;
+}
+
+.coupon-box {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 7px #e9edf2;
+    background: #fff;
+}
+
+.coupon-item {
+    display: flex;
+    align-items: center;
+    border-bottom: #25252512 solid 1px;
+    width: 350px;
+}
+
+.coupon-item .itm {
+    display: table-cell;
+    /*line-height: 45px;*/
+}
+
+.coupon-item .itm.ck-bx {width: 20%}
+.coupon-item .itm.price {width: 30%}
+.coupon-item .itm.desc {
+    width: 50%;
+    padding: 15px 0;
+}
+
+.coupon-item .itm.desc .des {
+    display: block;
+    margin-bottom: 10px;
+}
+
+span.coupon-txt {
+    color: #FF944E;
+    font-weight: 600;
+    font-size: 15px;
+}

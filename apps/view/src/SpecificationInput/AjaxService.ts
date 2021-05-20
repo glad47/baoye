@@ -167,6 +167,20 @@ export const getAllCountry = () => {
     })
 }
 
+
+/**
+ * 获取优惠券列表
+ * @param userId 用户id
+ * @param couponStatus 优惠券状态
+ * @constructor
+ */
+export const DescribeCoupon = (userId: any) => {
+    return service({
+        url: `${sysUrl}/api/coupon?userId=${userId}&couponStatus=1`,
+        method: 'GET'
+    })
+}
+
 /**
  * 信用卡支付
  * @param params
