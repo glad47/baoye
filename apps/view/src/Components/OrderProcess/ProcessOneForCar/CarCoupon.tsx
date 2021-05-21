@@ -1,16 +1,27 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Dropdown, Checkbox  } from 'antd';
 import {DownOutlined} from "@ant-design/icons";
 import {DescribeCoupon} from "../../../SpecificationInput/AjaxService";
+import moment from 'moment'
+
+interface couponEntity {
+    couponCode?: string,
+    couponMoney?: number,
+    couponStatus?: number,
+    endTime?: number,
+    id?: number,
+    startTime?: number
+}
 
 const CarCoupon:React.FC<any> = props => {
+    const [couponList, setCouponList] = useState<[couponEntity]>([{}]);
     useEffect(() => {
         let userInfo: any = sessionStorage.getItem("userAllInfo");
         if (userInfo) {
             userInfo = JSON.parse(userInfo);
             const {id} = userInfo
-            DescribeCoupon(id).then(res => {
-                console.log('rescou', res)
+            DescribeCoupon(id).then((res: any) => {
+                setCouponList(res);
             })
         }
     }, [])
@@ -18,17 +29,17 @@ const CarCoupon:React.FC<any> = props => {
     const menu = (
         <div className="coupon-box">
             {
-                cop.map((item, inx) => (
+                couponList.map((item, inx) => (
                     <div className="coupon-item">
                         <div className="itm ck-bx">
-                            <Checkbox />
+                            <Checkbox value={item.id}/>
                         </div>
                         <div className="itm price">
-                            $100
+                            ${item.couponMoney}
                         </div>
                         <div className="itm desc">
                             <span className="des">Period of Validity</span>
-                            <span className="time">2021.05.06-2022.05.06</span>
+                            <span className="time">${moment(item.startTime).format('l')}-${moment(item.endTime).format('l')}</span>
                         </div>
                     </div>
                 ))
