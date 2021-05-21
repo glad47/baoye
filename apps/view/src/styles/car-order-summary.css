@@ -22,7 +22,7 @@
     width: 100%;
 }
 
-.order-detail .cost-det>div span {
+.order-detail .cost-det>div>span {
     display: table-cell;
     width: 50%;
 }

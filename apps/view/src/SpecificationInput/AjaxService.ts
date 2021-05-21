@@ -181,6 +181,20 @@ export const DescribeCoupon = (userId: any) => {
     })
 }
 
+
+/**
+ * 检验及兑换优惠券
+ * @param code 优惠码
+ * @constructor
+ */
+export const GetCoupon = (code: any) => {
+    return service({
+        url: `${sysUrl}/coupon/getCoupon`,
+        method: 'post',
+        data: {code: code}
+    })
+}
+
 /**
  * 信用卡支付
  * @param params

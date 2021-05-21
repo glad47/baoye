@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import { Dropdown, Checkbox  } from 'antd';
-import {DownOutlined} from "@ant-design/icons";
-import {DescribeCoupon} from "../../../SpecificationInput/AjaxService";
+import {Dropdown, Checkbox, Tooltip, Input, Space, message} from 'antd';
+import {DownOutlined, TransactionOutlined} from "@ant-design/icons";
+import {DescribeCoupon, GetCoupon} from "../../../SpecificationInput/AjaxService";
 import moment from 'moment'
+const { Search } = Input;
 
 interface couponEntity {
     couponCode?: string,
@@ -15,6 +16,9 @@ interface couponEntity {
 
 const CarCoupon:React.FC<any> = props => {
     const [couponList, setCouponList] = useState<[couponEntity]>([{}]);
+    const [couponChecked, setCouponChecked] = useState<any>();
+    const [visible, setVisible] = useState<boolean>();
+
     useEffect(() => {
         let userInfo: any = sessionStorage.getItem("userAllInfo");
         if (userInfo) {
@@ -25,14 +29,33 @@ const CarCoupon:React.FC<any> = props => {
             })
         }
     }, [])
-    const cop = [1,2,3];
+
+    // 兑换优惠券
+    const handlerGetCoupon = (code: any) => {
+        GetCoupon(code).then(res => {
+            if (!res) {
+                message.error('System error!')
+            }
+        })
+    }
+
+    // 选中优惠券
+    const handleCouponChecked = (id: any) => {
+        setVisible(false);
+        if (couponChecked === id) { // 单选
+            setCouponChecked(null);
+        } else {
+            setCouponChecked(id);
+        }
+    }
+
     const menu = (
         <div className="coupon-box">
             {
                 couponList.map((item, inx) => (
-                    <div className="coupon-item">
+                    <div className="coupon-item" key={`coupon_item${inx}`} onClick={() => handleCouponChecked(item.id)}>
                         <div className="itm ck-bx">
-                            <Checkbox value={item.id}/>
+                            <Checkbox value={item.id} checked={item.id === couponChecked} />
                         </div>
                         <div className="itm price">
                             ${item.couponMoney}
@@ -44,24 +67,46 @@ const CarCoupon:React.FC<any> = props => {
                     </div>
                 ))
             }
-
+            <div className="exchange-coupon">
+                <Search
+                    placeholder="Exchange code"
+                    allowClear
+                    enterButton={(
+                        <>
+                            <Space>
+                                Submit
+                                <TransactionOutlined />
+                            </Space>
+                        </>
+                    )}
+                    size="large"
+                    onSearch={handlerGetCoupon}
+                />
+            </div>
         </div>
     );
     return (<>
         <div className="cost-det">
             <div>
-                <span>Coupon(3)</span>
+                <span>Coupon({couponList.length})</span>
                 <span>
-                 <Dropdown placement="bottomCenter" overlay={menu} trigger={['click']}>
-                     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                         Discount code <DownOutlined />
-                     </a>
-                 </Dropdown>
+                    {
+                        couponList.length > 0 &&
+                        <Dropdown visible={visible} placement="bottomCenter" arrow overlay={menu} trigger={['click']}>
+                            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                                <Tooltip title="To use the coupon code, it needs to be redeemed into a coupon. Enter the code below and click the 'Apply' button. Then the coupon will be automatically generated.">
+                                    <div onClick={() => setVisible(!visible)}>
+                                        Discount code <DownOutlined />
+                                    </div>
+                                </Tooltip>
+                            </a>
+                        </Dropdown>
+                    }
                 </span>
             </div>
             <div>
                 <span>Coupon applied</span>
-                <span className="coupon-txt">-$60.00</span>
+                <span className="coupon-txt">-${couponList.find(item => item.id === couponChecked)?.couponMoney  || 0}</span>
             </div>
         </div>
     </>)

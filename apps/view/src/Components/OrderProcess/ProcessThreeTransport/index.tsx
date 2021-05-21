@@ -103,7 +103,7 @@ const ProcessThreeTransport = () => {
                 countryList = res;
             })
         }
-        dat.countryId = countryList.find((item: any) => (item.name === receiverCountry)).id;
+        dat.countryId = countryList.find((item: any) => (item.name === receiverCountry))?.id;
         setFreightParams(dat);
         return dat;
     }
