@@ -56,6 +56,8 @@ service.interceptors.response.use(
             res = response.data.result;
         } else if (response.data.data) {
             res = response.data.data;
+        } else {
+            res = response.data;
         }
 
         // if the custom code is not 20000, it is judged as an error.

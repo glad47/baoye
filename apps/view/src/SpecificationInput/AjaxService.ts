@@ -188,10 +188,13 @@ export const DescribeCoupon = (userId: any) => {
  * @constructor
  */
 export const GetCoupon = (code: any) => {
+    const fromData = new FormData();
+    fromData.append("code", code);
     return service({
-        url: `${sysUrl}/coupon/getCoupon`,
-        method: 'post',
-        data: {code: code}
+        url: `${sysUrl}/api/coupon/verify`,
+        method: 'POST',
+        headers:{'Content-Type': 'multipart/form-data'},
+        data: fromData
     })
 }
 

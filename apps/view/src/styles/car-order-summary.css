@@ -55,6 +55,8 @@
     border-radius: 10px;
     box-shadow: 0 4px 7px #e9edf2;
     background: #fff;
+    max-height: 300px;
+    overflow: auto;
 }
 
 .coupon-item {

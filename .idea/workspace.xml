@@ -25,8 +25,8 @@
     <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: process流程调整，不能跳过">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarCoupon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarCoupon.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/request.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/styles/car-order-summary.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/car-order-summary.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,6 +120,9 @@
       <workItem from="1621444793591" duration="719000" />
       <workItem from="1621520431633" duration="6518000" />
       <workItem from="1621615502781" duration="3078000" />
+      <workItem from="1621747764930" duration="138000" />
+      <workItem from="1621782213098" duration="1717000" />
+      <workItem from="1621785912146" duration="1635000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>
@@ -316,12 +319,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620203921562" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1621616921501">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1621786525975">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="447" key="SwitcherDM/0.0.1842.1080@0.0.1842.1080" timestamp="1621051731539" />
     <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620924930855" />
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1621616921501" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1621786525975" />
     <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1621357941805">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -331,16 +334,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619279383233" />
-    <state x="753" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1620918434821">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621782790137">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="753" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620918434821" />
-    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1620731519684" />
-    <state x="669" y="245" width="879" height="594" key="find.popup" timestamp="1621615330416">
+    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1621782790137" />
+    <state x="669" y="245" width="879" height="594" key="find.popup" timestamp="1621783440124">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620922730871" />
-    <state x="669" y="245" width="879" height="594" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621615330416" />
+    <state x="669" y="245" width="879" height="594" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621783440124" />
     <state x="799" y="313" key="refactoring.ChangeSignatureDialog" timestamp="1620296645833">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

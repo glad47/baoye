@@ -20,6 +20,28 @@ const CarCoupon:React.FC<any> = props => {
     const [visible, setVisible] = useState<boolean>();
 
     useEffect(() => {
+        getCouponList();
+    }, [])
+
+    // 兑换优惠券
+    const handlerGetCoupon = (code: any) => {
+        GetCoupon(code).then((res: any) => {
+            if (!res) {
+                message.error('error');
+            } else {
+                const {code, message:msg, result} = res;
+                if (code === '3008') {
+                    message.error(msg);
+                } else {
+                    message.success('兑换成功');
+                    getCouponList();
+                }
+            }
+        })
+    }
+
+    // 优惠券列表
+    const getCouponList = () => {
         let userInfo: any = sessionStorage.getItem("userAllInfo");
         if (userInfo) {
             userInfo = JSON.parse(userInfo);
@@ -28,15 +50,6 @@ const CarCoupon:React.FC<any> = props => {
                 setCouponList(res);
             })
         }
-    }, [])
-
-    // 兑换优惠券
-    const handlerGetCoupon = (code: any) => {
-        GetCoupon(code).then(res => {
-            if (!res) {
-                message.error('System error!')
-            }
-        })
     }
 
     // 选中优惠券
