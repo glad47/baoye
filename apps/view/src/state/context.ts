@@ -33,7 +33,7 @@ export const INITIAL_STATE: State = {
   allKeys:{},
   fillData:true,
   carDrawerStatus:false,
-  orderSummary: {total: 0, freightCharges: 0, weight: 0},
+  orderSummary: {total: 0, freightCharges: 0, weight: 0, coupon: 0},
   orderSummaryStatus: {process: 1, description: 'MY SHOPPING CART'},
   orderOptionsItem: {deliveryAddr: null, expressInfo: null, payWays: null, ordersItem: []},
 }

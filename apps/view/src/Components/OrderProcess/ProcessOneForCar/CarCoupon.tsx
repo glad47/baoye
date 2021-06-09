@@ -3,6 +3,7 @@ import {Dropdown, Checkbox, Tooltip, Input, Space, message} from 'antd';
 import {DownOutlined, TransactionOutlined} from "@ant-design/icons";
 import {DescribeCoupon, GetCoupon} from "../../../SpecificationInput/AjaxService";
 import moment from 'moment'
+import {orderSummaryFun, useAppState} from "../../../state";
 const { Search } = Input;
 
 interface couponEntity {
@@ -15,9 +16,11 @@ interface couponEntity {
 }
 
 const CarCoupon:React.FC<any> = props => {
+    const { orderSummary, dispatch } = useAppState();
     const [couponList, setCouponList] = useState<[couponEntity]>([{}]);
     const [couponChecked, setCouponChecked] = useState<any>();
     const [visible, setVisible] = useState<boolean>();
+    const [couponMoney, setCouponMoney] = useState<any>();
 
     useEffect(() => {
         getCouponList();
@@ -54,12 +57,17 @@ const CarCoupon:React.FC<any> = props => {
 
     // 选中优惠券
     const handleCouponChecked = (id: any) => {
+        console.log('orderSummary===>', orderSummary)
         setVisible(false);
+        let _coup: any = 0;
         if (couponChecked === id) { // 单选
             setCouponChecked(null);
         } else {
+            _coup = couponList.find(item => item.id === id)?.couponMoney;
             setCouponChecked(id);
         }
+        dispatch(orderSummaryFun({coupon: _coup}));
+        setCouponMoney(_coup);
     }
 
     const menu = (
@@ -119,7 +127,7 @@ const CarCoupon:React.FC<any> = props => {
             </div>
             <div>
                 <span>Coupon applied</span>
-                <span className="coupon-txt">-${couponList.find(item => item.id === couponChecked)?.couponMoney  || 0}</span>
+                <span className="coupon-txt">-${couponMoney  || 0}</span>
             </div>
         </div>
     </>)

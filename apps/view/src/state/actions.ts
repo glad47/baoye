@@ -309,7 +309,7 @@ export const changeCarDrawer = (field:any): Action =>({
 })
 
 /** 结算 右侧价格信息 */
-export const orderSummary = (field:any): Action => ({
+export const orderSummaryFun = (field:any): Action => ({
   type: ORDER_SUMMARY,
   payload: field
 });

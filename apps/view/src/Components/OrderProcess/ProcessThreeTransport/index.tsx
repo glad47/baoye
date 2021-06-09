@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import '../../../styles/process-three-transport.css'
 import {Input, Space, Radio} from "antd";
 import CarTable from "../ProcessOneForCar/CarTable";
-import {orderOptions, useAppState} from "../../../state";
+import {orderOptions, orderSummaryFun, useAppState} from "../../../state";
 import {DescribeCouriers, fetchShipingCost, getAllCountry} from "../../../SpecificationInput/AjaxService";
 
 interface freightItf {
@@ -10,6 +10,7 @@ interface freightItf {
     countryId?: number
     totalWeight?: number
 }
+
 
 const iconMapping: any = [
     {name: 'DHL', icon: require('../../../images/dhl.png')},
@@ -41,14 +42,22 @@ const ProcessThreeTransport = () => {
 
     // 快递选中
     const handlerChecked = (row: any) => {
+        let freightCharges = 0;
         if (row && row.length > 0) {
             const {courierName} = row[0].record;
             setShipmentTerms(courierName);
+            if (row[0].record.total) {
+                freightCharges = row[0].record.total;
+            }
             dispatch(orderOptions({expressInfo: courierName}));
-        } else {
+        } else { // 取消选中
+            freightCharges = 0;
             dispatch(orderOptions({expressInfo: null}));
         }
+        // redux 存入运费
+        dispatch(orderSummaryFun({ freightCharges: freightCharges}));
     }
+
 
     const initCouriers = async () => {
         setSpin(true);
@@ -63,6 +72,7 @@ const ProcessThreeTransport = () => {
                         const _img = iconMapping.find((item: any) => (item.name === courierName));
                         const shippingRes: any = await fetchShipingCost(params);
                         if (shippingRes) { // 判断是否支持当前运输方式
+                            console.log('shippingRes===>>', shippingRes)
                             const {shippingTime, shippingCost} = shippingRes;
                             dt.push({
                                 description: 'Using my own account',
@@ -155,7 +165,7 @@ const ProcessThreeTransport = () => {
             key: '',
             width: 164,
             dataIndex: 'total',
-            render: (record: any, txt: string | undefined) => (<strong>${txt}</strong>)
+            render: (record: any, txt: string | undefined) => (<strong>{txt ? `$${txt}` : '暂不支持此运输方式'}</strong>)
         }
     ];
 

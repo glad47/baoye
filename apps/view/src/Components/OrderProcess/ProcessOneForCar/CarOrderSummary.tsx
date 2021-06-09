@@ -48,7 +48,7 @@ const CarOrderSummary:React.FC<ints> = props => {
                     <div>
                         <span>Total</span>
                         <span>
-                        <strong>${orderSummary.total+orderSummary.freightCharges}</strong>
+                        <strong>${(orderSummary.total+orderSummary.freightCharges-orderSummary.coupon).toFixed(3)}</strong>
                     </span>
                     </div>
                 </div>
