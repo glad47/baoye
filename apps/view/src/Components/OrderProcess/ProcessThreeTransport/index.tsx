@@ -4,6 +4,7 @@ import {Input, Space, Radio} from "antd";
 import CarTable from "../ProcessOneForCar/CarTable";
 import {orderOptions, orderSummaryFun, useAppState} from "../../../state";
 import {DescribeCouriers, fetchShipingCost, getAllCountry} from "../../../SpecificationInput/AjaxService";
+import {isNumber} from "../../../util";
 
 interface freightItf {
     courierId?: number
@@ -48,8 +49,10 @@ const ProcessThreeTransport = () => {
             setShipmentTerms(courierName);
             if (row[0].record.total) {
                 freightCharges = row[0].record.total;
+                dispatch(orderOptions({expressInfo: courierName}));
+            } else {
+                dispatch(orderOptions({expressInfo: null}));
             }
-            dispatch(orderOptions({expressInfo: courierName}));
         } else { // 取消选中
             freightCharges = 0;
             dispatch(orderOptions({expressInfo: null}));

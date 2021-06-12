@@ -3,7 +3,6 @@ import '../../../styles/process-four-confirmation.css'
 import {Radio, Space} from "antd";
 import {orderOptions, useAppState} from "../../../state";
 
-const typesStr = ['PCBONLINE Review', 'Customer review'];
 
 const ProcessFourConfirmation = () => {
     const { dispatch } = useAppState();
@@ -12,7 +11,7 @@ const ProcessFourConfirmation = () => {
         setWays(type);
     }
     useEffect(() => {
-        dispatch(orderOptions({payWays: typesStr[ways]}));
+        dispatch(orderOptions({payWays: ways+1}));
     }, [ways]);
     const waysData = [
         {

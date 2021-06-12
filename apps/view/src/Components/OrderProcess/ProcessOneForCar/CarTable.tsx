@@ -59,7 +59,7 @@ const CarTable = (props: any) => {
 
     useEffect(() => {
         const {onChecked} = props;
-        if (checkedList.length === data.length) {
+        if (checkedList.length === data.length && data.length > 0) {
             setCheckAll(true);
         } else {
             setCheckAll(false);
@@ -97,6 +97,7 @@ const CarTable = (props: any) => {
                                         checkBox ?
                                             <td style={{height: _style.TdHeight || 'auto'}}>
                                                 <Checkbox
+                                                    key={`checkbox_${inx}`}
                                                     checked={checkedList.find((item: checkValueTS) => (item.rowIndex == inx))}
                                                     value={JSON.stringify({record: tds, rowIndex: inx})}
                                                     onChange={handlerCheck}/>

@@ -35,7 +35,7 @@ export const INITIAL_STATE: State = {
   carDrawerStatus:false,
   orderSummary: {total: 0, freightCharges: 0, weight: 0, coupon: 0},
   orderSummaryStatus: {process: 1, description: 'MY SHOPPING CART'},
-  orderOptionsItem: {deliveryAddr: null, expressInfo: null, payWays: null, ordersItem: []},
+  orderOptionsItem: {deliveryAddr: null, expressInfo: null, payWays: 1, ordersItem: []},
 }
 
 // const INITIAL_STANDARD = {

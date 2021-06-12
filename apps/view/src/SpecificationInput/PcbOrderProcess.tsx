@@ -21,6 +21,8 @@ const _iconStyle = {
     fontSize: '20px',
 }
 
+const _Match_payWats: any = {1: 'PCBONLINE Review', 2: 'Customer review'};
+
 const icon_CheckOutlined = <CheckOutlined style={_iconStyle} />;
 
 const { Panel } = Collapse;
@@ -69,7 +71,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
         ),
         4: (
             <>
-                {orderOptionsItem.payWays}
+                {_Match_payWats[orderOptionsItem.payWays]}
                 {icon_CheckOutlined}
             </>
         ),
@@ -110,7 +112,9 @@ const PcbOrderProcess:React.FC = (props:any) => {
                 </div>
                 <div className="order-detail">
                     <strong>Order Summary</strong>
-                    <CarOrderSummary handleCheckout={handleCheckout}/>
+                    <CarOrderSummary
+                        handleAudit={() => {setPaySuccess(true)}}
+                        handleCheckout={handleCheckout}/>
                 </div>
             </div>
         </PcbLayout>
