@@ -45,17 +45,18 @@ const ProcessThreeTransport = () => {
     const handlerChecked = (row: any) => {
         let freightCharges = 0;
         if (row && row.length > 0) {
-            const {courierName} = row[0].record;
+            const {courierName, id} = row[0].record;
             setShipmentTerms(courierName);
             if (row[0].record.total) {
                 freightCharges = row[0].record.total;
-                dispatch(orderOptions({expressInfo: courierName}));
+                console.log('row[0].record', row[0].record)
+                dispatch(orderOptions({expressInfo: {id: id, name: courierName}}));
             } else {
-                dispatch(orderOptions({expressInfo: null}));
+                dispatch(orderOptions({expressInfo: {id: null, name: null}}));
             }
         } else { // 取消选中
             freightCharges = 0;
-            dispatch(orderOptions({expressInfo: null}));
+            dispatch(orderOptions({expressInfo: {id: null, name: null}}));
         }
         // redux 存入运费
         dispatch(orderSummaryFun({ freightCharges: freightCharges}));

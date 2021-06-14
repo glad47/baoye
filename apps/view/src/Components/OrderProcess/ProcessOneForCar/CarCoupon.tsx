@@ -66,7 +66,7 @@ const CarCoupon:React.FC<any> = props => {
             _coup = couponList.find(item => item.id === id)?.couponMoney;
             setCouponChecked(id);
         }
-        dispatch(orderSummaryFun({coupon: _coup}));
+        dispatch(orderSummaryFun({coupon: {id: id, value: _coup}}));
         setCouponMoney(_coup);
     }
 

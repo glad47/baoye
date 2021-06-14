@@ -65,7 +65,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
         3: (
             <>
                 shipment:
-                {orderOptionsItem.expressInfo}
+                {orderOptionsItem.expressInfo?.name}
                 {icon_CheckOutlined}
             </>
         ),
@@ -91,7 +91,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
                         <Panel header="Shipping Address" key="2" extra={orderOptionsItem.deliveryAddr && processExtra[2]}>
                             <ProcessTwoForAddr />
                         </Panel>
-                        <Panel header="Shipping Method" key="3" extra={orderOptionsItem.expressInfo && processExtra[3]}>
+                        <Panel header="Shipping Method" key="3" extra={orderOptionsItem.expressInfo.name && processExtra[3]}>
                             <ProcessThreeTransport />
                         </Panel>
                         <Panel header="Submit Order" key="4" extra={orderOptionsItem.payWays && processExtra[4]}>

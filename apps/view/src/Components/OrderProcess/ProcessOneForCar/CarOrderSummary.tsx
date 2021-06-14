@@ -55,7 +55,7 @@ const CarOrderSummary:React.FC<ints> = props => {
                             <div className="cost-det">
                                 <div>
                                     <span>Handling Charge<br />(PayPal)</span>
-                                    <span>${orderSummary.freightCharges}</span>
+                                    <span>${orderSummary.handlingCharge}</span>
                                 </div>
                             </div>
                             <CarCoupon />
@@ -65,7 +65,7 @@ const CarOrderSummary:React.FC<ints> = props => {
                     <div>
                         <span>Total</span>
                         <span>
-                        <strong>${(orderSummary.total+orderSummary.freightCharges-orderSummary.coupon).toFixed(3)}</strong>
+                        <strong>${(orderSummary.total+orderSummary.freightCharges+orderSummary.handlingCharge-orderSummary.coupon.value).toFixed(3)}</strong>
                     </span>
                     </div>
                 </div>

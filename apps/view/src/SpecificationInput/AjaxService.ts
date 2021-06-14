@@ -208,6 +208,31 @@ export const orderPay = (params: any) => {
     })
 }
 
+/**
+ * 创建系统订单编号
+ * @param params
+ */
+export const createOrderNumber = (params: any) => {
+    return service({
+        url: `${sysUrl}/api/order/createOrderNo`,
+        method: 'POST',
+        data: params
+    })
+}
+
+/**
+ * 创建订单
+ * @param params
+ */
+export const createOrderDetails = (params: any) => {
+    return service({
+        url: `${sysUrl}/api/order/save`,
+        method: 'POST',
+        data: params
+    })
+}
+
+
 // export const getShippingCost = () => {
 //     return service({
 //         url: `${sysUrl}/api/country/all`,

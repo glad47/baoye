@@ -9,9 +9,9 @@ const ShoppingCarListTable = () => {
         {
             title: 'PRODUCT',
             key: '',
-            dataIndex: 'img',
+            dataIndex: 'productNo',
             width: 120,
-            render: (undefined: any,txt: string | undefined) => (<img src={txt} />)
+            // render: (undefined: any,txt: string | undefined) => (<img src={txt} />)
         },
         {
             title: 'DESCRIPTION',
