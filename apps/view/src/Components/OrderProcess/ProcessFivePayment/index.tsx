@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import '../../../styles/process-five-payment.css'
-import {Radio, Space} from "antd";
+import {message, Radio, Space} from "antd";
 import PayDebitCard from "./PayDebitCard";
 import PayPaypal from "./PayPaypal";
 import {createOrderDetails, createOrderNumber} from "../../../SpecificationInput/AjaxService";
@@ -10,7 +10,7 @@ interface ts_orderDetail {
     amount: number,
 }
 
-const ProcessFivePayment = () => {
+const ProcessFivePayment = (props:any) => {
     const [payType, setPayType] = useState<number>(0);
     const { dispatch, orderSummary, orderOptionsItem } = useAppState();
     const [orderDetail, setOrderDetail] = useState<any>({amount: 0});
@@ -21,7 +21,6 @@ const ProcessFivePayment = () => {
     }
 
     useEffect(() => {
-        // console.log('orderOptionsItem', orderOptionsItem)
         createOrder();
     }, []);
 
@@ -29,7 +28,8 @@ const ProcessFivePayment = () => {
     const getOrderDetailList = () => {
         const {ordersItem} = orderOptionsItem;
         return ordersItem.reduce((pre: any, cur: {record: any}) => {
-            const {id, productNo, otype: oType, weight, subtotal} = cur.record;
+            let {id, productNo, otype: oType, weight, subtotal} = cur.record;
+            oType = oType.toString();
             const obj = {id, productNo, oType, weight, subtotal};
             pre.push(obj);
             return pre;
@@ -54,7 +54,7 @@ const ProcessFivePayment = () => {
     }
 
     const cOrderDetail = async (data: any, payType = 1) => {
-        const {orderID} = data;
+        let {orderID} = data;
         const needsFields = [
             'orderDetailsList',
             'courierCompanyName', //物流名称
@@ -62,7 +62,7 @@ const ProcessFivePayment = () => {
             'orderNo', // 客户填写的订单号，可为空
             'disCouponStr', // 优惠金额
             'couponId', // 券id
-            'payPayOrderId', //payPay返回的orderId 信用卡支付时可以随便填，但不能为空【必须】
+            'payPayOrderId', //payPay返回的orderId 信用卡支付时可以随便填，但不能为空【必须】zh
             'paymentType',//支付类型1->payPal、2->BankTransfer、3->WesternUnion、4->PayWithAccountBalance，5->credit【必须】",
         ]
         const orderDetailList = getOrderDetailList();
@@ -88,9 +88,17 @@ const ProcessFivePayment = () => {
                 dtd[key] = orderDetail[key];
             }
         });
-        // createOrderDetails(dtd).then(res => {
-        //
-        // });
+        if (payType === 2) { // 信用卡支付  发送信用卡表单
+            dtd.payMethodInfo = data;
+        }
+        createOrderDetails(dtd).then((res: any) => {
+            const {success} = res;
+            if (success) {
+                props.history.push({pathname: '/paySuc', 'query': {orderId: orderDetail.orderNoBySys}})
+            } else {
+                message.error(JSON.stringify(res));
+            }
+        });
         console.log('dtd===>', dtd);
     }
 
@@ -117,7 +125,7 @@ const ProcessFivePayment = () => {
                         </div>
                     </div>
                     {
-                        payType === 0 ? <PayDebitCard /> : ''
+                        payType === 0 ? <PayDebitCard submitDebit={cOrderDetail}/> : ''
                     }
                 </div>
             </div>

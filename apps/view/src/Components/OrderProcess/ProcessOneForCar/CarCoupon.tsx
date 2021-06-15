@@ -16,7 +16,7 @@ interface couponEntity {
 }
 
 const CarCoupon:React.FC<any> = props => {
-    const { orderSummary, dispatch } = useAppState();
+    const { orderSummary, orderSummaryStatus, dispatch } = useAppState();
     const [couponList, setCouponList] = useState<[couponEntity]>([{}]);
     const [couponChecked, setCouponChecked] = useState<any>();
     const [visible, setVisible] = useState<boolean>();
@@ -113,7 +113,13 @@ const CarCoupon:React.FC<any> = props => {
                 <span>
                     {
                         couponList.length > 0 &&
-                        <Dropdown visible={visible} placement="bottomCenter" arrow overlay={menu} trigger={['click']}>
+                        <Dropdown
+                            visible={visible}
+                            placement="bottomCenter"
+                            arrow
+                            disabled={orderSummaryStatus.process > 4}
+                            overlay={menu}
+                            trigger={['click']}>
                             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                                 <Tooltip title="To use the coupon code, it needs to be redeemed into a coupon. Enter the code below and click the 'Apply' button. Then the coupon will be automatically generated.">
                                     <div onClick={() => setVisible(!visible)}>

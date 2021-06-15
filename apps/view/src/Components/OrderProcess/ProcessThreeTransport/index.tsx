@@ -4,7 +4,6 @@ import {Input, Space, Radio} from "antd";
 import CarTable from "../ProcessOneForCar/CarTable";
 import {orderOptions, orderSummaryFun, useAppState} from "../../../state";
 import {DescribeCouriers, fetchShipingCost, getAllCountry} from "../../../SpecificationInput/AjaxService";
-import {isNumber} from "../../../util";
 
 interface freightItf {
     courierId?: number

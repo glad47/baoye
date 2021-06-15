@@ -21,7 +21,10 @@ const CarOrderSummary:React.FC<ints> = props => {
         console.log(orderOptionsItem.expressInfo)
         if (process === 1) {
             flag = FlagProcess.CheckItems(orderOptionsItem);
-        } else if (process === 3 && !orderOptionsItem.expressInfo) {
+        } else if (process === 2 && !orderOptionsItem.deliveryAddr) {
+            message.error('Please Check Address!')
+            flag = false;
+        } else if (process === 3 && !orderOptionsItem.expressInfo.name) {
             message.error('Please Check Shipping method!')
             flag = false;
         } else if (process === 4 && orderOptionsItem.payWays === 1) { // 选择支付方式 并且支付方式为先审核
