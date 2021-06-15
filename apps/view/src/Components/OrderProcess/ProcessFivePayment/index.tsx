@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { withRouter } from 'react-router-dom'
 import '../../../styles/process-five-payment.css'
 import {message, Radio, Space} from "antd";
 import PayDebitCard from "./PayDebitCard";
@@ -21,6 +22,7 @@ const ProcessFivePayment = (props:any) => {
     }
 
     useEffect(() => {
+        console.log('props', props)
         createOrder();
     }, []);
 
@@ -93,7 +95,7 @@ const ProcessFivePayment = (props:any) => {
         }
         createOrderDetails(dtd).then((res: any) => {
             const {success} = res;
-            if (success) {
+            if (res === '支付创建订单成功') {
                 props.history.push({pathname: '/paySuc', 'query': {orderId: orderDetail.orderNoBySys}})
             } else {
                 message.error(JSON.stringify(res));
@@ -143,7 +145,7 @@ const ProcessFivePayment = (props:any) => {
                     {
                         payType === 1 && orderDetail.amount === Number((orderSummary.total+orderSummary.freightCharges-orderSummary.coupon.value).toFixed(2)) ? <PayPaypal
                             options={{
-                                amountValue: orderDetail?.amount,
+                                amountValue: orderDetail?.paymentTotal,
                                 amountValueCustomId: new Date().getTime()
                             }}
                             callBackSuccess={async (data: any) => {await cOrderDetail(data, 1)}}
@@ -155,4 +157,4 @@ const ProcessFivePayment = (props:any) => {
     )
 }
 
-export default ProcessFivePayment;
+export default withRouter(ProcessFivePayment);

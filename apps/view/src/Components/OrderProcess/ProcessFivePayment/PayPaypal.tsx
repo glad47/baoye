@@ -31,7 +31,7 @@ const PayPaypal = (props: props) => {
                                         custom_id: options.amountValueCustomId
                                     }
                                 }],
-                                custom: 202105180014
+                                custom: options.amountValueCustomId
                             })
                         }}
                         onApprove={(actions: any, data: any) => {
