@@ -28,9 +28,9 @@ const ProcessFivePayment = (props:any) => {
     const getOrderDetailList = () => {
         const {ordersItem} = orderOptionsItem;
         return ordersItem.reduce((pre: any, cur: {record: any}) => {
-            let {id, productNo, otype: oType, weight, subtotal} = cur.record;
-            oType = oType.toString();
-            const obj = {id, productNo, oType, weight, subtotal};
+            let {id, productNo, otype: type, weight, subtotal} = cur.record;
+            type = type.toString();
+            const obj = {id, productNo, type, weight, subtotal};
             pre.push(obj);
             return pre;
         }, []);
