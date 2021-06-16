@@ -92,17 +92,21 @@ const PcbOrderProcess:React.FC = (props:any) => {
                             <ProcessTwoForAddr />
                         </Panel>
                         <Panel header="Shipping Method" key="3" extra={orderOptionsItem.expressInfo.name && processExtra[3]}>
-                            <ProcessThreeTransport />
+                            {
+                                orderSummaryStatus.process === 3 && <ProcessThreeTransport />
+                            }
                         </Panel>
                         <Panel header="Submit Order" key="4" extra={orderOptionsItem.payWays && processExtra[4]}>
                             <ProcessFourConfirmation />
                         </Panel>
                         <Panel header="Pay Directly" key="5">
-                            <ProcessFivePayment />
-                            <Button type="primary" onClick={() => {setPaySuccess(true)}}>支付成功测试按钮</Button>
-                            <Link to="/paySuc">
-                                <Button type="primary">感谢支付测试按钮</Button>
-                            </Link>
+                            {
+                                orderSummaryStatus.process === 5 && <ProcessFivePayment />
+                            }
+                            {/*<Button type="primary" onClick={() => {setPaySuccess(true)}}>支付成功测试按钮</Button>*/}
+                            {/*<Link to="/paySuc">*/}
+                            {/*    <Button type="primary">感谢支付测试按钮</Button>*/}
+                            {/*</Link>*/}
                         </Panel>
                     </Collapse>
                     {/*弹窗*/}

@@ -232,6 +232,17 @@ export const createOrderDetails = (params: any) => {
     })
 }
 
+/**
+ * 获取发票信息
+ * @param orderId
+ * @constructor
+ */
+export const DescribeInvoiceInfo = (orderId: string) => {
+    return service({
+        url: `${sysUrl}/api/order/invoice?orderId=${orderId}`,
+        method: 'get',
+    })
+}
 
 // export const getShippingCost = () => {
 //     return service({

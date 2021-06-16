@@ -1,11 +1,17 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../styles/pay-successful.css'
 import PcbLayout from "../Components/PcbLayout";
 import {Form, Input, Checkbox} from "antd";
+import {DescribeInvoiceInfo} from "./AjaxService";
 
 const {TextArea} = Input;
 const PaySuccessful = () => {
     const [form] = Form.useForm();
+    useEffect(() => {
+        DescribeInvoiceInfo('175').then(res => {
+            console.log('res', res)
+        })
+    }, [])
     return (
         <PcbLayout>
             <div className="p-suc">
