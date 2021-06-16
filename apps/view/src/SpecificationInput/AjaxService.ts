@@ -237,7 +237,7 @@ export const createOrderDetails = (params: any) => {
  * @param orderId
  * @constructor
  */
-export const DescribeInvoiceInfo = (orderId: string) => {
+export const DescribeInvoiceInfo = (orderId: any) => {
     return service({
         url: `${sysUrl}/api/order/invoice?orderId=${orderId}`,
         method: 'get',

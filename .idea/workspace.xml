@@ -22,13 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 选择运费、选择优惠券 总价格计算">
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="fix: Paypal 支付99%">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/PayDebitCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/PayDebitCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarCoupon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarCoupon.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarOrderSummary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarOrderSummary.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PaySuccessful.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PaySuccessful.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +40,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="SCSS File" />
-        <option value="TypeScript JSX File" />
         <option value="Less File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -59,8 +61,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="Less" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/view/src/images" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -77,17 +79,20 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\apps\pcbonline-v3\apps\view\src\Components\Invoice" />
+      <recent name="E:\apps\pcbonline-v3\apps\view\src\Components\MyCollapse" />
+      <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src\Components\OrderProcess\ProcessOneForCar" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\apps\pcbonline-v3\apps\view\src\images" />
       <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src" />
       <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view\src\images" />
       <recent name="E:\apps\pcbonline\pcbonline-v2\apps\view\src\images" />
       <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src\Components\OrderProcess\ProcessOneForCar" />
-    </key>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SshConsoleOptionsProvider">
     <option name="myEncoding" value="UTF-8" />
   </component>
@@ -113,7 +118,18 @@
       <workItem from="1619244836534" duration="116000" />
       <workItem from="1619245315833" duration="7003000" />
       <workItem from="1619403072631" duration="18575000" />
-      <workItem from="1620909140659" duration="276000" />
+      <workItem from="1621051181258" duration="32093000" />
+      <workItem from="1621353425897" duration="7685000" />
+      <workItem from="1621444793591" duration="719000" />
+      <workItem from="1621520431633" duration="6518000" />
+      <workItem from="1621615502781" duration="3078000" />
+      <workItem from="1621747764930" duration="138000" />
+      <workItem from="1621782213098" duration="1717000" />
+      <workItem from="1621785912146" duration="1635000" />
+      <workItem from="1623496799389" duration="7791000" />
+      <workItem from="1623578626058" duration="17242000" />
+      <workItem from="1623771024307" duration="2207000" />
+      <workItem from="1623854873347" duration="6237000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>
@@ -143,11 +159,74 @@
       <option name="project" value="LOCAL" />
       <updated>1620645242891</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: 支付成功感谢页面 样式未完成">
+      <created>1620924917050</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1620924917050</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: 支付成功样式">
+      <created>1621068808052</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1621068808052</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: 订单流程折叠面板信息展示">
+      <created>1621095878589</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1621095878589</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: 感谢页图片修改">
+      <created>1621161124623</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1621161124623</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: PayPal测试、添加购物车事件关联">
+      <created>1621269755783</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1621269755783</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: process流程调整，不能跳过">
+      <created>1621357940474</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1621357940474</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: 优化process流程">
+      <created>1623505558512</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1623505558512</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix: oType =&gt; type">
+      <created>1623770632685</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1623770632685</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: Paypal 支付99%">
+      <created>1623772568395</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1623772568395</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -207,13 +286,26 @@
     <MESSAGE value="feat: 流程组件分离" />
     <MESSAGE value="feat: 购物车 显示和删除" />
     <MESSAGE value="feat: 地址修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 地址修改" />
+    <MESSAGE value="feat: 支付成功感谢页面 样式未完成" />
+    <MESSAGE value="feat: 支付成功样式" />
+    <MESSAGE value="feat: 订单流程折叠面板信息展示" />
+    <MESSAGE value="feat: 感谢页图片修改" />
+    <MESSAGE value="feat: PayPal测试、添加购物车事件关联" />
+    <MESSAGE value="feat: process流程调整，不能跳过" />
+    <MESSAGE value="feat: 优化process流程" />
+    <MESSAGE value="fix: oType =&gt; type" />
+    <MESSAGE value="fix: Paypal 支付99%" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Paypal 支付99%" />
   </component>
   <component name="WindowStateProjectService">
     <state x="823" y="449" key="#ESLint" timestamp="1619082830320">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="823" y="449" key="#ESLint/0.0.1920.1080@0.0.1920.1080" timestamp="1619082830320" />
+    <state x="684" y="363" key="#Notifications" timestamp="1623579144152">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="684" y="363" key="#Notifications/0.0.1920.1080@0.0.1920.1080" timestamp="1623579144152" />
     <state x="766" y="264" key="#com.intellij.ide.util.MemberChooser" timestamp="1619337260025">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -230,72 +322,75 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="615" y="316" key="EditFileWatcherDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1619084431994" />
+    <state x="701" y="310" key="FileChooserDialogImpl" timestamp="1623766115843">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="701" y="310" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1623766115843" />
     <state x="785" y="447" key="GitRewordDialog" timestamp="1619337049168">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="785" y="447" key="GitRewordDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1619337049168" />
-    <state width="1875" height="294" key="GridCell.Tab.0.bottom" timestamp="1621579823769">
+    <state width="1897" height="279" key="GridCell.Tab.0.bottom" timestamp="1623860146747">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1882" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620199784183" />
-    <state width="1875" height="294" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1621579823769" />
-    <state width="1875" height="294" key="GridCell.Tab.0.center" timestamp="1621579823769">
+    <state width="1882" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
+    <state width="1897" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1623860146747" />
+    <state width="1897" height="279" key="GridCell.Tab.0.center" timestamp="1623860146746">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1882" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620199784183" />
-    <state width="1875" height="294" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1621579823769" />
-    <state width="1875" height="294" key="GridCell.Tab.0.left" timestamp="1621579823769">
+    <state width="1882" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
+    <state width="1897" height="279" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1623860146746" />
+    <state width="1897" height="279" key="GridCell.Tab.0.left" timestamp="1623860146745">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1882" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620199784183" />
-    <state width="1875" height="294" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1621579823769" />
-    <state width="1875" height="294" key="GridCell.Tab.0.right" timestamp="1621579823769">
+    <state width="1882" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
+    <state width="1897" height="279" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1623860146745" />
+    <state width="1897" height="279" key="GridCell.Tab.0.right" timestamp="1623860146746">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1882" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620199784183" />
-    <state width="1875" height="294" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1621579823769" />
-    <state x="184" y="90" key="MergeDialog" timestamp="1623206597237">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="184" y="90" key="MergeDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1623206597237" />
+    <state width="1882" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
+    <state width="1897" height="279" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1623860146746" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1620203921562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620203921562" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1623728891301">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1623772576716">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620750482905" />
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1623728891301" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1620645244323">
+    <state width="498" height="447" key="SwitcherDM/0.0.1842.1080@0.0.1842.1080" timestamp="1621051731539" />
+    <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620924930855" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1623772576716" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1623772570328">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1620645244323" />
+    <state x="552" y="263" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620924918452" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1623772570328" />
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1619279383233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619279383233" />
-    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1623206570685">
+    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1623854890577">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1623206570685" />
-    <state x="662" y="248" width="879" height="584" key="find.popup" timestamp="1623741950759">
+    <state x="753" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620918434821" />
+    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1623854890577" />
+    <state x="669" y="245" width="884" height="594" key="find.popup" timestamp="1623859655379">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620835771860" />
-    <state x="662" y="248" width="879" height="584" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1623741950759" />
+    <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620922730871" />
+    <state x="669" y="245" width="884" height="594" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1623859655379" />
     <state x="799" y="313" key="refactoring.ChangeSignatureDialog" timestamp="1620296645833">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="799" y="313" key="refactoring.ChangeSignatureDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1620296645833" />
-    <state x="617" y="256" key="run.anything.popup" timestamp="1619410035487">
+    <state x="617" y="256" key="run.anything.popup" timestamp="1621067190572">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="617" y="256" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619410035487" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1621580500886">
+    <state x="617" y="256" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621067190572" />
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1623855669677">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620836754816" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621580500886" />
+    <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620923044107" />
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1623855669677" />
   </component>
 </project>

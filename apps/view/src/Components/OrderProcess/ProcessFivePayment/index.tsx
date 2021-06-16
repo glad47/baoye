@@ -6,6 +6,7 @@ import PayDebitCard from "./PayDebitCard";
 import PayPaypal from "./PayPaypal";
 import {createOrderDetails, createOrderNumber} from "../../../SpecificationInput/AjaxService";
 import {orderSummaryFun, useAppState} from "../../../state";
+import {isNumber} from "../../../util";
 
 interface ts_orderDetail {
     amount: number,
@@ -94,11 +95,11 @@ const ProcessFivePayment = (props:any) => {
             dtd.payMethodInfo = data;
         }
         createOrderDetails(dtd).then((res: any) => {
-            const {success} = res;
-            if (res === '支付创建订单成功') {
-                props.history.push({pathname: '/paySuc', 'query': {orderId: orderDetail.orderNoBySys}})
+            if (isNumber(res)) {
+                props.history.push({pathname: `/paySuc?orderId=${res}`, 'query': {orderId: res}});
+                message.success('支付成功！');
             } else {
-                message.error(JSON.stringify(res));
+                message.error(res);
             }
         });
         console.log('dtd===>', dtd);

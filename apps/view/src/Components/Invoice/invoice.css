@@ -1,0 +1,165 @@
+/*#invoice .mask {*/
+/*    !*position: fixed;*!*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    background-color: rgba(122, 122, 127, 0.6);*/
+/*}*/
+#invoice {
+    padding: 0 38px;
+}
+#invoice .invoice {
+    /*position: absolute;*/
+    /*top: 6%;*/
+    /*left: 10%;*/
+    /*width: 85%;*/
+    padding-bottom: 32px;
+    background-color: white;
+}
+#invoice .invoice .invoice_inner {
+    width: 100%;
+    margin: 0 auto;
+}
+#invoice .invoice .invoice_inner .head {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 0;
+}
+#invoice .invoice .invoice_inner .head span:nth-of-type(1) {
+    cursor: pointer;
+}
+#invoice .invoice .invoice_inner .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+#invoice .invoice .invoice_inner .title .own,
+#invoice .invoice .invoice_inner .title .other {
+    font-family: "Arial";
+    font-size: 12px;
+    color: #999999;
+}
+#invoice .invoice .invoice_inner .title .own span,
+#invoice .invoice .invoice_inner .title .other span {
+    margin-bottom: 8px;
+}
+#invoice .invoice .invoice_inner .title .other {
+    text-align: right;
+}
+#invoice .invoice .invoice_inner .title .own .own-logo {
+    width: 200px;
+    height: 33px;
+    margin-bottom: 12px;
+}
+#invoice .invoice .invoice_inner .title .own .own-logo img {
+    width: 100%;
+    height: 100%;
+}
+#invoice .invoice .invoice_inner .detail {
+    width: 100%;
+    margin-top: 16px;
+}
+#invoice .invoice .invoice_inner .detail table {
+    width: 100%;
+    text-align: center;
+    border: 1px solid #D8D8D8;
+}
+#invoice .invoice .invoice_inner .detail table thead tr {
+    background: rgba(41, 82, 234, 0.1);
+}
+#invoice .invoice .invoice_inner .detail table thead tr td {
+    font-family: "Arial";
+    font-size: 14px;
+    color: #000000;
+}
+#invoice .invoice .invoice_inner .detail table tbody tr td {
+    font-family: "Arial";
+    font-size: 14px;
+    color: #333333;
+}
+#invoice .invoice .invoice_inner .detail table tbody tr:nth-of-type(2) td,
+#invoice .invoice .invoice_inner .detail table tbody tr:nth-of-type(3) td,
+#invoice .invoice .invoice_inner .detail table tbody tr:nth-of-type(4) td,
+#invoice .invoice .invoice_inner .detail table tbody tr:nth-of-type(5) td {
+    height: 32px;
+}
+
+#invoice .invoice .invoice_inner .detail table tbody tr td.blue {
+    background: rgba(41, 82, 234, 0.1);
+}
+
+#invoice .invoice .invoice_inner .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 21px;
+}
+#invoice .invoice .invoice_inner .info .checked div {
+    width: 400px;
+    display: flex;
+}
+#invoice .invoice .invoice_inner .info .checked div span {
+    font-family: "Arial";
+    font-size: 12px;
+    color: #666666;
+}
+#invoice .invoice .invoice_inner .info .checked div span:nth-of-type(1) {
+    margin-right: 3px;
+}
+#invoice .invoice .invoice_inner .info .salesman {
+    margin-right: 100px;
+}
+#invoice .invoice .invoice_inner .info .salesman div {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+#invoice .invoice .invoice_inner .info .salesman div span {
+    font-family: "Arial-BoldMT,Arial";
+    font-size: 12px;
+    color: #333333;
+}
+#invoice .invoice .invoice_inner .statement {
+    margin-top: 9px;
+}
+#invoice .invoice .invoice_inner .statement p:nth-of-type(1) {
+    margin-bottom: 0;
+    margin: 8px 0;
+    font-family: "Arial-BoldMT,Arial";
+    font-size: 12px;
+    color: #333333;
+}
+#invoice .invoice .invoice_inner .statement .website {
+    display: flex;
+    justify-content: space-between;
+}
+#invoice .invoice .invoice_inner .statement .website .website-left {
+    width: 50%;
+    display: flex;
+}
+#invoice .invoice .invoice_inner .statement .website .website-left div {
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 80px;
+}
+#invoice .invoice .invoice_inner .statement .website .website-left div a,
+#invoice .invoice .invoice_inner .statement .website .website-left div span {
+    font-family: "Arial";
+    font-size: 12px;
+    color: #666666;
+}
+#invoice .invoice .invoice_inner .statement .website .website-right {
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 80px;
+}
+#invoice .invoice .invoice_inner .statement .website .website-right a,
+#invoice .invoice .invoice_inner .statement .website .website-right span {
+    font-family: "Arial";
+    font-size: 12px;
+    color: #666666;
+}

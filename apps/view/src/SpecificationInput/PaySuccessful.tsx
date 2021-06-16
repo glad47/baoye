@@ -1,17 +1,33 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import '../styles/pay-successful.css'
 import PcbLayout from "../Components/PcbLayout";
-import {Form, Input, Checkbox} from "antd";
+import {Form, Input, Checkbox, Modal} from "antd";
 import {DescribeInvoiceInfo} from "./AjaxService";
+import {getQueryVariable} from "../util";
+import InvoiceTemp from "../Components/Invoice/InvoiceTemp";
 
 const {TextArea} = Input;
 const PaySuccessful = () => {
     const [form] = Form.useForm();
+    const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+    const [invoiceData, setInvoiceData] = useState();
+    const invoRef: any = useRef();
+    const [currentOrderId, setCurrentOrderId] = useState<any>();
     useEffect(() => {
-        DescribeInvoiceInfo('175').then(res => {
-            console.log('res', res)
+        const _id = getQueryVariable('orderId');
+        setCurrentOrderId(_id);
+        DescribeInvoiceInfo(_id).then((res: any) => {
+            setInvoiceData(res);
         })
-    }, [])
+    }, []);
+
+    const handleModalVisible = () => {
+        setIsModalVisible(true)
+    }
+
+    const handleOk = () => {
+        invoRef.current.toPDF();
+    }
     return (
         <PcbLayout>
             <div className="p-suc">
@@ -22,9 +38,9 @@ const PaySuccessful = () => {
                             <span>FOR YOUR PURCHASE！</span>
                         </div>
                         <div className="order-num">
-                            <span className="num">Order number is: <a href="#">P67493764837</a></span>
+                            <span className="num">Order number is: <a href="#">{currentOrderId}</a></span>
                             <span className="n-tips">You will receive an email confirmation shortly at team@pcbonline.com</span>
-                            <button>
+                            <button onClick={handleModalVisible}>
                                 <img src={require('../images/invoice.png')} alt=""/>
                                 Print Invoice
                             </button>
@@ -130,6 +146,16 @@ const PaySuccessful = () => {
                     </div>
                 </div>
             </div>
+            <Modal
+                width="85%"
+                visible={isModalVisible}
+                okText="Download PDF"
+                onCancel={() => setIsModalVisible(false)}
+                onOk={handleOk}>
+                {
+                    invoiceData && <InvoiceTemp invoiceData={invoiceData} cRef={invoRef}/>
+                }
+            </Modal>
         </PcbLayout>
     )
 }
