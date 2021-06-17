@@ -1,32 +1,42 @@
 import React, {useEffect, useRef, useState} from 'react';
+// import { withRouter } from 'react-router-dom'
 import '../styles/pay-successful.css'
 import PcbLayout from "../Components/PcbLayout";
 import {Form, Input, Checkbox, Modal} from "antd";
-import {DescribeInvoiceInfo} from "./AjaxService";
+import {DescribeInvoiceInfo, SendContactEmail} from "./AjaxService";
 import {getQueryVariable} from "../util";
 import InvoiceTemp from "../Components/Invoice/InvoiceTemp";
 
 const {TextArea} = Input;
-const PaySuccessful = () => {
+const PaySuccessful = (props: any) => {
     const [form] = Form.useForm();
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
     const [invoiceData, setInvoiceData] = useState();
     const invoRef: any = useRef();
     const [currentOrderId, setCurrentOrderId] = useState<any>();
     useEffect(() => {
-        const _id = getQueryVariable('orderId');
-        setCurrentOrderId(_id);
-        DescribeInvoiceInfo(_id).then((res: any) => {
-            setInvoiceData(res);
-        })
+        let _id;
+        if (props.location.state) {
+            _id = props.location.state.id;
+            setCurrentOrderId(_id);
+            DescribeInvoiceInfo(_id).then((res: any) => {
+                setInvoiceData(res);
+            })
+        }
     }, []);
 
     const handleModalVisible = () => {
-        setIsModalVisible(true)
+        if (invoiceData) setIsModalVisible(true)
     }
 
     const handleOk = () => {
         invoRef.current.toPDF();
+    }
+
+    const submitForm = (values: any) => {
+        SendContactEmail(values).then(res => {
+            console.log('res', res)
+        });
     }
     return (
         <PcbLayout>
@@ -55,8 +65,9 @@ const PaySuccessful = () => {
                         </div>
                     </div>
                     <Form form={form}
+                          onFinish={submitForm}
                           layout="vertical">
-                        <Form.Item label="1、How did you hear about us?">
+                        <Form.Item name="12" label="1、How did you hear about us?" required>
                             <Input />
                         </Form.Item>
 

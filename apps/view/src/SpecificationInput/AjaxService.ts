@@ -244,6 +244,19 @@ export const DescribeInvoiceInfo = (orderId: any) => {
     })
 }
 
+/**
+ * 联系我们
+ * @param params
+ * @constructor
+ */
+export const SendContactEmail = (params: any) => {
+    return service({
+        url: `${baseUrl}/api/sendContactEmail`,
+        method: 'post',
+        data: params
+    })
+}
+
 // export const getShippingCost = () => {
 //     return service({
 //         url: `${sysUrl}/api/country/all`,

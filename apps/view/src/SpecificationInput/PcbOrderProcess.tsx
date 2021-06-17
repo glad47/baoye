@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import { withRouter } from 'react-router-dom'
 import '../styles/pcb-order-process.css'
 import PcbLayout from "../Components/PcbLayout";
-import {Button, Collapse, Progress} from "antd";
+import {Collapse} from "antd";
 import CarOrderSummary from "../Components/OrderProcess/ProcessOneForCar/CarOrderSummary";
 import ShoppingCarListTable from "../Components/OrderProcess/ProcessOneForCar/ShoppingCarListTable";
 import ProcessTwoForAddr from "../Components/OrderProcess/ProcessTwoForAddr";
@@ -10,7 +11,6 @@ import ProcessFourConfirmation from "../Components/OrderProcess/ProcessFourConfi
 import ProcessFivePayment from "../Components/OrderProcess/ProcessFivePayment";
 import PaySuccessModal from "../Components/OrderProcess/PaySuccessModal";
 import {setOrderSummaryStatus, useAppState} from "../state";
-import {Link} from "react-router-dom";
 import {
     CheckOutlined
 } from '@ant-design/icons'
@@ -125,4 +125,4 @@ const PcbOrderProcess:React.FC = (props:any) => {
     )
 }
 
-export default PcbOrderProcess;
+export default withRouter(PcbOrderProcess);

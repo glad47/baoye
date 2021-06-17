@@ -83,7 +83,8 @@ const ProcessFivePayment = (props:any) => {
                 } else if (key === 'couponId') {
                     dtd[key] = orderSummary.coupon.id;
                 } else if (key === 'payPayOrderId') {
-                    dtd[key] = orderID;
+                    console.log('dtd[key]', key, dtd[key])
+                    dtd[key] = orderID || new Date().getTime();
                 } else if (key === 'paymentType') {
                     dtd[key] = payType;
                 }
@@ -96,7 +97,7 @@ const ProcessFivePayment = (props:any) => {
         }
         createOrderDetails(dtd).then((res: any) => {
             if (isNumber(res)) {
-                props.history.push({pathname: `/paySuc?orderId=${res}`, 'query': {orderId: res}});
+                props.history.push({pathname: `/paySuc`, state: {id: res}});
                 message.success('支付成功！');
             } else {
                 message.error(res);

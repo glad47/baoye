@@ -75,7 +75,6 @@ const ProcessThreeTransport = () => {
                         const _img = iconMapping.find((item: any) => (item.name === courierName));
                         const shippingRes: any = await fetchShipingCost(params);
                         if (shippingRes) { // 判断是否支持当前运输方式
-                            console.log('shippingRes===>>', shippingRes)
                             const {shippingTime, shippingCost} = shippingRes;
                             dt.push({
                                 description: 'Using my own account',

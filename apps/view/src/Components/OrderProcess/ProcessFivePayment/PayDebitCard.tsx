@@ -4,15 +4,21 @@ import {Space, Form, Row, Col, Input} from "antd";
 import {
     InfoCircleOutlined
 } from '@ant-design/icons'
+import {useAppState} from "../../../state";
 
 
 const PayDebitCard = (props: any) => {
     const [form] = Form.useForm();
+    const { orderOptionsItem } = useAppState();
     const [initValues, setInitValues] = useState({
-        CardNumber: 4711100000000000,
+        card_no: 4711100000000000,
         ExpirationData: '06/28',
-        CCV: 123,
+        cvv: 123,
     });
+
+    useEffect(() => {
+        console.log('orderOptionsItem', orderOptionsItem)
+    }, [])
 
 
     const handleOnFinish = (values: any) => {
@@ -28,6 +34,8 @@ const PayDebitCard = (props: any) => {
                 dtd[key] = values[key];
             }
         });
+        dtd.first_name = orderOptionsItem.deliveryAddr.receiverName;
+        dtd.last_name = orderOptionsItem.deliveryAddr.lastName;
         props.submitDebit(dtd, 2);
     }
 
