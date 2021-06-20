@@ -245,15 +245,43 @@ export const DescribeInvoiceInfo = (orderId: any) => {
 }
 
 /**
- * 联系我们
+ * 发邮件推荐
  * @param params
  * @constructor
  */
 export const SendContactEmail = (params: any) => {
     return service({
-        url: `${baseUrl}/api/sendContactEmail`,
-        method: 'post',
+        url: `${sysUrl}/api/quote/sendRecommendEmail`,
+        method: 'POST',
+        headers:{'Content-Type': 'multipart/form-data'},
         data: params
+    })
+}
+
+/**
+ * 发送通知审核信息
+ * @param params
+ * @constructor
+ */
+export const SendAuditMsg = (params: any) => {
+    return service({
+        url: `${sysUrl}/api/message/send/auditMsg`,
+        headers:{'Content-Type': 'multipart/form-data'},
+        method: 'POST',
+        data: params
+    })
+}
+
+
+/**
+ * 查询用户系统消息
+ * @param params
+ * @constructor
+ */
+export const DescribeCurrUserMsg = (params: any) => {
+    return service({
+        url: `${sysUrl}/api/message/queryCurrUserMsg`,
+        method: 'GET'
     })
 }
 

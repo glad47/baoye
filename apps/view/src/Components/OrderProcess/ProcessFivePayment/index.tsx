@@ -13,7 +13,7 @@ interface ts_orderDetail {
 }
 
 const ProcessFivePayment = (props:any) => {
-    const [payType, setPayType] = useState<number>(0);
+    const [payType, setPayType] = useState<number>(1);
     const { dispatch, orderSummary, orderOptionsItem } = useAppState();
     const [orderDetail, setOrderDetail] = useState<any>({amount: 0});
 
@@ -114,25 +114,6 @@ const ProcessFivePayment = (props:any) => {
                     <img src={require('../../../images/safe_icon14.png')} alt=""/>
                 </Space>
             </div>
-            <div className="pays-box one">
-                <div className="box-li">
-                    <div className="header">
-                        <div className="radio">
-                            <Radio
-                                checked={payType === 0}
-                                onChange={() => {handlerCheckPayType(0)}}>
-                                Credit / Debit Card
-                            </Radio>
-                        </div>
-                        <div className="rig-imgs">
-                            <img src={require('../../../images/pay-atps.png')} alt=""/>
-                        </div>
-                    </div>
-                    {
-                        payType === 0 ? <PayDebitCard submitDebit={cOrderDetail}/> : ''
-                    }
-                </div>
-            </div>
             <div className="pays-box">
                 <div className="box-li">
                     <div className="header">
@@ -151,7 +132,26 @@ const ProcessFivePayment = (props:any) => {
                                 amountValueCustomId: new Date().getTime()
                             }}
                             callBackSuccess={async (data: any) => {await cOrderDetail(data, 1)}}
-                            /> : ''
+                        /> : ''
+                    }
+                </div>
+            </div>
+            <div className="pays-box one">
+                <div className="box-li">
+                    <div className="header">
+                        <div className="radio">
+                            <Radio
+                                checked={payType === 0}
+                                onChange={() => {handlerCheckPayType(0)}}>
+                                Credit / Debit Card
+                            </Radio>
+                        </div>
+                        <div className="rig-imgs">
+                            <img src={require('../../../images/pay-atps.png')} alt=""/>
+                        </div>
+                    </div>
+                    {
+                        payType === 0 ? <PayDebitCard submitDebit={cOrderDetail}/> : ''
                     }
                 </div>
             </div>

@@ -4134,3 +4134,10 @@ body {
     background: #FFFFFF;
     color: #2952EA;
 }
+
+.btn.global-primary[disabled], .btn.global-primary[disabled]:hover {
+    background: #ccc;
+    cursor: not-allowed;
+    border: unset;
+    color: #fbfbfb;
+}

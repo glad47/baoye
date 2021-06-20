@@ -14,6 +14,7 @@ import {setOrderSummaryStatus, useAppState} from "../state";
 import {
     CheckOutlined
 } from '@ant-design/icons'
+import {SendAuditMsg} from "./AjaxService";
 
 const _iconStyle = {
     color: '#1CA159',
@@ -47,6 +48,24 @@ const PcbOrderProcess:React.FC = (props:any) => {
             def.push(Number(index2));
         }
         setAlrIndex([...def]);
+    }
+
+    // 发送通知审核信息
+    const handleAudit = () => {
+        const {ordersItem} = orderOptionsItem;
+        let productNos = ordersItem.reduce((pre: any, cur) => {
+            const {record}: any = cur;
+            pre.push(record.productNo);
+            return pre;
+        }, [])
+        productNos = productNos.join(',')
+        const fromData = new FormData();
+        fromData.append("productNos", productNos);
+        SendAuditMsg(fromData).then((res: any) => {
+            if (res) {
+                setPaySuccess(true);
+            }
+        })
     }
 
     const processExtra = {
@@ -117,7 +136,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
                 <div className="order-detail">
                     <strong>Order Summary</strong>
                     <CarOrderSummary
-                        handleAudit={() => {setPaySuccess(true)}}
+                        handleAudit={handleAudit}
                         handleCheckout={handleCheckout}/>
                 </div>
             </div>

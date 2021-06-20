@@ -13,7 +13,6 @@ const FlagProcess = {
         if (ordersItem.length > 0) {
             return true;
         } else {
-            message.error('Please Checkout Order items');
             return false;
         }
     },

@@ -2,18 +2,28 @@ import React, {useEffect, useRef, useState} from 'react';
 // import { withRouter } from 'react-router-dom'
 import '../styles/pay-successful.css'
 import PcbLayout from "../Components/PcbLayout";
-import {Form, Input, Checkbox, Modal} from "antd";
+import {Form, Input, Checkbox, Modal, message} from "antd";
 import {DescribeInvoiceInfo, SendContactEmail} from "./AjaxService";
-import {getQueryVariable} from "../util";
+import {checkEmail, getQueryVariable} from "../util";
 import InvoiceTemp from "../Components/Invoice/InvoiceTemp";
 
 const {TextArea} = Input;
+const fieldMatch = {
+    filed1: '1.How did you hear about us?%0a%0d',
+    filed2: '2.Do you feel satisfied with the customer service specialist exclusively serving you?%0a%0d',
+    filed3: '3.Do you want to re-purchase from PCBONLINE?%0a%0d',
+    filed4: '4.Weve been working hard to improve the user experience. What do you think we can do to optimize our website?%0a%0d',
+}
 const PaySuccessful = (props: any) => {
     const [form] = Form.useForm();
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
     const [invoiceData, setInvoiceData] = useState();
     const invoRef: any = useRef();
     const [currentOrderId, setCurrentOrderId] = useState<any>();
+    const [boxCheck, setBoxCheck] = useState<boolean>(false);
+    const [inputVal, setInputVal] = useState<string>('I found a very easy to use website, recommend to you, come to experience it https://www.pcbonline.com');
+    const [sendEmail, setSendEmail] = useState<any>();
+    const [canSend, setCanSend] = useState<boolean>(false);
     useEffect(() => {
         let _id;
         if (props.location.state) {
@@ -25,6 +35,16 @@ const PaySuccessful = (props: any) => {
         }
     }, []);
 
+    useEffect(() => {
+        if (sendEmail) {
+            if (checkEmail(sendEmail)) {
+                setCanSend(true);
+            } else {
+                setCanSend(false);
+            }
+        }
+    }, [sendEmail]);
+
     const handleModalVisible = () => {
         if (invoiceData) setIsModalVisible(true)
     }
@@ -34,9 +54,29 @@ const PaySuccessful = (props: any) => {
     }
 
     const submitForm = (values: any) => {
-        SendContactEmail(values).then(res => {
-            console.log('res', res)
-        });
+        let str: any = [];
+        // @ts-ignore
+        Object.keys(values).forEach((key: any) => values[key] && str.push(fieldMatch[key] + values[key] + '%0a%0d'))
+        console.log('str', str)
+        window.location.href = `mailto:info@pcbonline.com?subject=${str.join(' ')}&body=Hi,Owen Chang`
+        // SendContactEmail(values).then(res => {
+        //     console.log('res', res)
+        // });
+    }
+
+    // 发送邮件
+    const submitEmail = () => {
+        const dtd = {
+            content: inputVal,
+            email: sendEmail
+        }
+        const fromData = new FormData();
+        fromData.append("content", inputVal);
+        fromData.append("email", sendEmail);
+        SendContactEmail(fromData).then(res => {
+            console.log('res', res);
+            message.success('Send successful!')
+        })
     }
     return (
         <PcbLayout>
@@ -67,19 +107,19 @@ const PaySuccessful = (props: any) => {
                     <Form form={form}
                           onFinish={submitForm}
                           layout="vertical">
-                        <Form.Item name="12" label="1、How did you hear about us?" required>
+                        <Form.Item name="filed1" label="1、How did you hear about us?" required>
                             <Input />
                         </Form.Item>
 
-                        <Form.Item label="2、Do you feel satisfied with the customer service specialist exclusively serving you?">
+                        <Form.Item name="filed2" label="2、Do you feel satisfied with the customer service specialist exclusively serving you?">
                             <Input />
                         </Form.Item>
 
-                        <Form.Item label="3、Do you want to re-purchase from PCBONLINE?">
+                        <Form.Item name="filed3" label="3、Do you want to re-purchase from PCBONLINE?">
                             <Input />
                         </Form.Item>
 
-                        <Form.Item label="4、We've been working hard to improve the user experience. What do you think we can do to optimize our website?">
+                        <Form.Item name="filed4" label="4、We've been working hard to improve the user experience. What do you think we can do to optimize our website?">
                             <TextArea />
                         </Form.Item>
 
@@ -89,35 +129,38 @@ const PaySuccessful = (props: any) => {
                     </Form>
                     <div className="join">
                         <div className="check-us">
-                            <Checkbox>
+                            <Checkbox checked={boxCheck} onChange={() => setBoxCheck(!boxCheck)}>
                                 Join our referral program and benefit with the referee
                             </Checkbox>
                         </div>
-                        <div className="p-tips">
-                            <span>Tell a Friend,Know someone who would enjoy our work ? Tell them about it.</span>
-                            <span className="click">
-                                Click here to send them a quick email
-                            </span>
-                        </div>
-                        <div className="send-email">
-                            <div>
-                                <div className="bac">
+                        {
+                            boxCheck &&
+                                <>
+                                    <div className="p-tips">
+                                        <span>Tell a Friend,Know someone who would enjoy our work ? Tell them about it.Click here to send them a quick email</span>
+                                        <span className="click"></span>
+                                    </div>
+                                    <div className="send-email">
+                                        <div>
+                                            <div className="bac">
                                     <span>
-                                        I found a very easy to use website, recommend to you, come to experience it
+                                        {inputVal}
                                     </span>
-                                </div>
-                                <div className="send-input">
-                                    <input type="text"/>
-                                    <button>SEND</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="bt-txt">
+                                            </div>
+                                            <div className="send-input">
+                                                <input type="text" value={sendEmail} onChange={e => {setSendEmail(e.target.value)}}/>
+                                                <button onClick={submitEmail} disabled={!canSend}>SEND</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="bt-txt">
                             <span>
                                 <img src={require('../images/quate_icon24.png')} alt=""/>
                                 When the referral is complete and your referee places the order, you will receive our preferential plan and redemption code sent by email. You will enjoy a up to 30% order discount reward. (It depends on your referee's order amount, and we reserve all the right for the final explanation.)
                             </span>
-                        </div>
+                                    </div>
+                                </>
+                        }
                     </div>
                 </div>
                 <div className="lef-img">

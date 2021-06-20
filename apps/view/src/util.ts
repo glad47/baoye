@@ -75,3 +75,8 @@ export function getQueryVariable(variable: string) {
   }
   return false;
 }
+
+export function checkEmail(email: any) {
+  const reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+  return reg.test(email);
+}

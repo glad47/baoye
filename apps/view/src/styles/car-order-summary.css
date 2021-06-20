@@ -36,6 +36,8 @@
     padding: 17px 15px;
 }
 
+.order-detail .summary-btn[disab]
+
 .order-detail .summary-tips {
     font-family: ArialMT;
     font-size: 14px;

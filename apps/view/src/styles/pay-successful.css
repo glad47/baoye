@@ -172,7 +172,7 @@
     color: #333333;
     height: 32px;
     width: 100%;
-    padding: 0 125px 0 4px;
+    padding: 0 130px 0 8px;
 }
 .rig-form .join .send-email>div .send-input button {
     width: 120px;
@@ -184,6 +184,12 @@
     position: absolute;
     right: 0;
     top: 0;
+    cursor: pointer;
+}
+
+.rig-form .join .send-email>div .send-input button[disabled] {
+    background: #ccc;
+    cursor: not-allowed;
 }
 
 .rig-form .join .bt-txt {
