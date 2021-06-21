@@ -1,0 +1,46 @@
+.file-init {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.file-init>div {
+    text-align: center;
+    width: 442px;
+    margin: 0 auto;
+}
+
+.file-init>div>* {
+    display: block;
+}
+
+.file-init>div img {
+    padding-bottom: 24px;
+    margin: 0 auto;
+}
+
+.file-init>div span {
+    font-size: 12px;
+    color: #8697d4;
+    letter-spacing: 0;
+    z-index: 21;
+}
+
+.file-init>div span.upload-btn {
+    color: #FFFFFF;
+    border: solid 1px #2952EA;
+}
+
+.file-init>div span.upload-btn:hover {
+    background: #FFFFFF;
+    color: #2952EA;
+}
+
+.file-init>div label {
+    font-family: ArialMT;
+    font-size: 12px;
+    margin-top: 4px;
+    color: #999;
+    letter-spacing: 0;
+    margin-bottom: 27px;
+}

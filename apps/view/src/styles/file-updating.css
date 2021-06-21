@@ -1,0 +1,17 @@
+.file-updating {
+    width: 100%;
+    position: relative;
+}
+
+.file-updating>div span {
+    position: absolute;
+    bottom: 22px;
+    left: 50px;
+    line-height: 19px;
+    width: 442px;
+    font-family: ArialMT;
+    font-size: 12px;
+    color: #8697d4;
+    letter-spacing: 0;
+    z-index: 21;
+}

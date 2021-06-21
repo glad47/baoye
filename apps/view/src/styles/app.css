@@ -270,37 +270,50 @@
     z-index: 21;
 }
 
-.update_font .upload-btn {
-    background: #2952EA;
-    border-radius: 4px;
-    font-family: ArialMT;
-    font-size: 14px;
-    display: block;
-    margin: 0 auto;
-    width: 141px;
-    height: 40px;
-    line-height: 40px;
-    color: #FFFFFF;
-    border: solid 1px #2952EA;
-    letter-spacing: 0;
-    transition: ease-in-out all .2s;
-    cursor: pointer;
-}
-
-.update_font .upload-btn:hover {
-    background: #FFFFFF;
-    color: #2952EA;
-}
-
-.update_font label {
+.update_font.updating {
+    width: 442px;
     font-family: ArialMT;
     font-size: 12px;
-    margin-bottom: 27px;
-    margin-top: 4px;
-    display: block;
-    color: #999999;
     letter-spacing: 0;
+    bottom: 31px;
+    position: absolute;
+    left: 102px;
+    z-index: 21;
+    line-height: 21px;
+    color: #666666;
 }
+
+/*.update_font .upload-btn {*/
+/*    background: #2952EA;*/
+/*    border-radius: 4px;*/
+/*    font-family: ArialMT;*/
+/*    font-size: 14px;*/
+/*    display: block;*/
+/*    margin: 0 auto;*/
+/*    width: 141px;*/
+/*    height: 40px;*/
+/*    line-height: 40px;*/
+/*    color: #FFFFFF;*/
+/*    border: solid 1px #2952EA;*/
+/*    letter-spacing: 0;*/
+/*    transition: ease-in-out all .2s;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.update_font .upload-btn:hover {*/
+/*    background: #FFFFFF;*/
+/*    color: #2952EA;*/
+/*}*/
+
+/*.update_font label {*/
+/*    font-family: ArialMT;*/
+/*    font-size: 12px;*/
+/*    margin-bottom: 27px;*/
+/*    margin-top: 4px;*/
+/*    display: block;*/
+/*    color: #999999;*/
+/*    letter-spacing: 0;*/
+/*}*/
 
 .is_checked {
     background-color: white;
@@ -312,7 +325,8 @@
     align-items: center;
 }
 
-.pcb-min .pcb-file {
+.pcb-min .pcb-file, .show_default_img,
+.show_default_loading {
     position: relative;
     height: 260px;
     border: 1px dashed #708cf3;
@@ -1115,14 +1129,20 @@ body {
 .transverse_svg {
     display: flex;
     justify-content: space-between;
-    margin-left: 24px;
+    background: white;
+    border-radius: 30px;
+    padding: 12px;
+    border: dotted 2px #2952EA;
+}
+
+.transverse_svg_first:first-of-type {
+    margin-right: 13px;
 }
 
 .transverse_svg_first {
     width: 347px;
     height: 347px;
     background: white;
-    margin-right: 13px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1134,8 +1154,8 @@ body {
 }
 
 .transverse_svg_first>div>svg {
-    width: 333px !important;
-    height: 347px !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .footer {
@@ -1792,12 +1812,12 @@ body {
     outline: none;
 }
 
-.show_default_img,
-.show_default_loading {
-    width: 540px;
-    height: 350px;
-    margin: 0 auto
-}
+/*.show_default_img,*/
+/*.show_default_loading {*/
+/*    width: 540px;*/
+/*    height: 350px;*/
+/*    margin: 0 auto*/
+/*}*/
 
 .show_default_img>p {
     font-size: 14px;
@@ -2020,14 +2040,14 @@ body {
     border-color: #cccccc;
 }
 
-.show_default_loading {
-    position: relative;
-    width: 548px;
-    height: 300px;
-    margin: 20px auto 0;
-    border: 2px dashed #abbffe;
-    border-radius: 20px
-}
+/*.show_default_loading {*/
+/*    position: relative;*/
+/*    width: 548px;*/
+/*    height: 300px;*/
+/*    margin: 20px auto 0;*/
+/*    border: 2px dashed #abbffe;*/
+/*    border-radius: 20px*/
+/*}*/
 
 .moon {
     position: absolute;
@@ -4141,3 +4161,35 @@ body {
     border: unset;
     color: #fbfbfb;
 }
+
+/*Gerber文件上传*/
+.upload-btn.gerber {
+    text-align: center;
+    background: #2952EA;
+    border-radius: 4px;
+    font-family: ArialMT;
+    font-size: 14px;
+    display: block;
+    margin: 0 auto;
+    width: 141px;
+    height: 40px;
+    line-height: 40px;
+    color: #FFFFFF;
+    border: solid 1px #2952EA;
+    letter-spacing: 0;
+    transition: ease-in-out all .2s;
+    cursor: pointer;
+}
+
+.upload-btn.gerber:hover {
+    background: #FFFFFF;
+    color: #2952EA;
+}
+/*文件上传=>初始状态*/
+@import "file-init.css";
+
+/*文件上传=>加载中*/
+@import "file-updating.css";
+
+/*文件上传=>识别失败*/
+@import "file-error.css";

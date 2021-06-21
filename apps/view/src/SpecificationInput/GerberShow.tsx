@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAppState, backToUpload } from "../state";
 import LoadFiles from '../LoadFiles/index'
 import { Spin } from "antd";
+import FileError from "../LoadFiles/FileStatus/FileError";
 
 interface GerberShowProps {}
 const WRAPPER_STYLE = 'absolute absolute--center near-black tc'
@@ -80,8 +81,11 @@ const GerberShow: React.FC<GerberShowProps> = (props) => {
                 :
                 <div className="show_default_loading">
                     {/* <div className='default_img_loading'><img src={require(`../images/successful_updata.gif`)} /></div> */}
-                    <img src={defaultImgSrc} />
-                    <p className='fill_pit'>{wordTip}</p>
+                    {/*<img src={defaultImgSrc} />*/}
+                    {/*<p className='fill_pit'>{wordTip}</p>*/}
+                    {
+                        isTimeOut ? 'Successful Gerber file upload! The system is analyzing data. Please wait and check the specifications.' : <FileError />
+                    }
                 </div>
 
             }

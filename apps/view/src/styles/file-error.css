@@ -1,0 +1,37 @@
+.file-error {
+    display: flex;
+    align-items: center;
+    background: #fff;
+}
+
+.file-error>div {
+    margin: 0 auto;
+    width: 336px;
+}
+
+.file-error>div>* {
+    display: block;
+}
+
+.file-error>div img {
+    margin: 0 auto;
+    padding-bottom: 24px;
+}
+
+.file-error>div span.txt {
+    font-family: ArialMT;
+    font-size: 12px;
+    color: #666666;
+    letter-spacing: 0;
+    padding-bottom: 45px;
+}
+
+.file-error>div span.upload-btn.gerber {
+    border: solid 1px #F85C5C;
+    background: #F85C5C;
+}
+
+.file-error>div span.upload-btn.gerber:hover {
+    background: #fff;
+    color: #F85C5C;
+}

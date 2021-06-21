@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import { withRouter } from 'react-router-dom'
 import '../styles/pcb-order-process.css'
+import '../styles/file-init.css'
 import PcbLayout from "../Components/PcbLayout";
 import {Collapse} from "antd";
 import CarOrderSummary from "../Components/OrderProcess/ProcessOneForCar/CarOrderSummary";
