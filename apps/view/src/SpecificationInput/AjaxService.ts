@@ -275,10 +275,9 @@ export const SendAuditMsg = (params: any) => {
 
 /**
  * 查询用户系统消息
- * @param params
  * @constructor
  */
-export const DescribeCurrUserMsg = (params: any) => {
+export const DescribeCurrUserMsg = () => {
     return service({
         url: `${sysUrl}/api/message/queryCurrUserMsg`,
         method: 'GET'

@@ -3,7 +3,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import '../styles/pay-successful.css'
 import PcbLayout from "../Components/PcbLayout";
 import {Form, Input, Checkbox, Modal, message} from "antd";
-import {DescribeInvoiceInfo, SendContactEmail} from "./AjaxService";
+import {DescribeCurrUserMsg, DescribeInvoiceInfo, SendContactEmail} from "./AjaxService";
 import {checkEmail, getQueryVariable} from "../util";
 import InvoiceTemp from "../Components/Invoice/InvoiceTemp";
 
@@ -33,6 +33,9 @@ const PaySuccessful = (props: any) => {
                 setInvoiceData(res);
             })
         }
+        DescribeCurrUserMsg().then(res => {
+            console.log('res', res)
+        })
     }, []);
 
     useEffect(() => {

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { withRouter } from 'react-router-dom'
 import '../styles/pcb-order-process.css'
 import PcbLayout from "../Components/PcbLayout";
@@ -14,7 +14,7 @@ import {setOrderSummaryStatus, useAppState} from "../state";
 import {
     CheckOutlined
 } from '@ant-design/icons'
-import {SendAuditMsg} from "./AjaxService";
+import {DescribeCurrUserMsg, SendAuditMsg} from "./AjaxService";
 
 const _iconStyle = {
     color: '#1CA159',
@@ -32,6 +32,8 @@ const PcbOrderProcess:React.FC = (props:any) => {
     const { orderSummaryStatus,orderOptionsItem, dispatch } = useAppState();
     const [paySuccess, setPaySuccess] = useState<boolean>(false);
     const [alrIndex, setAlrIndex] = useState<any>([]); // 已经checkout过的流程，避免用户直接跳过某个流程
+    const summaryRef = useRef(null);
+    let msgInterval: NodeJS.Timeout;
     const handlerCheckCollapse = (val: number) => {
         if (alrIndex.indexOf(Number(val)) > -1) { // 不能跳过没有选过的流程
             dispatch(setOrderSummaryStatus({ process: val }));
@@ -50,6 +52,12 @@ const PcbOrderProcess:React.FC = (props:any) => {
         setAlrIndex([...def]);
     }
 
+    useEffect(() => {
+        return () => {
+            clearInterval(msgInterval);
+        }
+    }, []);
+
     // 发送通知审核信息
     const handleAudit = () => {
         const {ordersItem} = orderOptionsItem;
@@ -65,7 +73,24 @@ const PcbOrderProcess:React.FC = (props:any) => {
             if (res) {
                 setPaySuccess(true);
             }
-        })
+        });
+        msgInterval = setInterval(async() => {
+            await GetMsgStatus();
+        }, 3000);
+    }
+
+
+    // 获取通知审核信息
+    const GetMsgStatus = async () => {
+        const res:any = await DescribeCurrUserMsg();
+        const {list} = res;
+        if (list) {
+            const isRea = list.find((item: any) => item.isread === 0);
+            if (isRea) {
+                // @ts-ignore
+                summaryRef.current?.orderNext();
+            }
+        }
     }
 
     const processExtra = {
@@ -136,6 +161,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
                 <div className="order-detail">
                     <strong>Order Summary</strong>
                     <CarOrderSummary
+                        cRef={summaryRef}
                         handleAudit={handleAudit}
                         handleCheckout={handleCheckout}/>
                 </div>

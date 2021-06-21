@@ -1,6 +1,4 @@
-import React, {useEffect, useState} from 'react'
-import {Dropdown, Checkbox, message} from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import React, {useEffect, useImperativeHandle, useState} from 'react'
 import '../../../styles/car-order-summary.css'
 
 import {setOrderSummaryStatus, useAppState} from "../../../state";
@@ -9,13 +7,15 @@ import FlagProcess from "./FlagProcess";
 
 interface ints {
     handleCheckout: any,
-    handleAudit: any
+    handleAudit: any,
+    cRef: any,
 }
 
-const CarOrderSummary:React.FC<ints> = props => {
+const CarOrderSummary:React.FC<ints> = (props) => {
     const { dispatch, orderSummaryStatus, orderOptionsItem } = useAppState();
     const { orderSummary } = useAppState();
     const [flag, setFlag] = useState<boolean>(false);
+
 
     useEffect(() => {
         const {process} = orderSummaryStatus;
@@ -31,7 +31,9 @@ const CarOrderSummary:React.FC<ints> = props => {
             setFlag(false);
         }
     }, [dispatch]);
+
     const orderNext = () => {
+        console.log('下一步噢')
         const {process} = orderSummaryStatus;
         if (process === 4 && orderOptionsItem.payWays === 1) {
             props.handleAudit();
@@ -42,6 +44,12 @@ const CarOrderSummary:React.FC<ints> = props => {
             }
         }
     }
+
+    useImperativeHandle(props.cRef, () => ({
+        orderNext() {
+            orderNext()
+        }
+    }));
 
     return (
         <>

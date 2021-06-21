@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Cookies from "js-cookie";
-import {GetUrlRelativePath} from "./util";
+import {message} from "antd";
 
 //线上
 // const baseUrl = "https://www.pcbonline.com/" //线上前端
@@ -59,13 +59,25 @@ service.interceptors.response.use(
         } else {
             res = response.data;
         }
+        console.log('res', res);
 
         // if the custom code is not 20000, it is judged as an error.
         return res
     },
     error => {
-        console.log('err' + error) // for debug
-        return Promise.reject(error)
+        const {data} = error.response;
+        if (data) {
+            const {code} = data;
+            if (code === '403') {
+                message.error('登陆失效，请重新登陆！');
+                setTimeout(() => {
+                    location.replace("/");
+                }, 1500)
+            } else {
+                return Promise.reject(error);
+            }
+        }
+        return Promise.reject(error);
     }
 )
 
