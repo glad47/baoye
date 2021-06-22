@@ -1,5 +1,5 @@
 // root component
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { useAppState, createBoard, createBoardFromUrl, addQuote, backToUpload } from './state'
@@ -46,6 +46,7 @@ function App(): JSX.Element {
     const [isAssembly, setAssembly] = useState(false)
     const [isMobileOrder, setOrderState] = useState(false)
     const { Footer, Header, Content } = Layout
+    const gerberUploadRef = useRef(null);
     const handleAddQuote = (link?: boolean ) => {
         if (quoteMode === 0) {
             if (boardType === 'Single') {
@@ -175,7 +176,8 @@ function App(): JSX.Element {
         return () => {
             window.removeEventListener('resize', getWindowWidth)
         }
-    }, [])
+    }, []);
+
     const handleGoCar = () => {
         let link = true
         handleAddQuote(link)
@@ -225,7 +227,11 @@ function App(): JSX.Element {
 
                         <div className="pcb-min-info">
                             <div className="pcb-min">
-                                {isBackToUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage}/> : <GerberShow />}
+                                {
+                                    isBackToUpload ? <GerberUpload cRef={gerberUploadRef} loginName={loginName} setLoginMessage={setLoginMessage}/>
+                                    :
+                                        <GerberShow handleFilesRef={gerberUploadRef?.current}/>
+                                }
                                 {quoteMode === 0 ? <PcbSizeForm /> : ''}
                                 {!isBackToUpload
                                     ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>

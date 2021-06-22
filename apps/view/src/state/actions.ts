@@ -60,6 +60,7 @@ export const CHANGE_CARDRAWER_STATUS = 'CHANGE_CARDRAWER_STATUS';
 export const ORDER_SUMMARY = 'ORDER_SUMMARY';
 export const ORDER_SUMMARY_STATUS = 'ORDER_SUMMARY_STATUS';
 export const ORDER_OPTIONS = 'ORDER_OPTIONS';
+export const Upload_GERBER_OPTIONS = 'Upload_GERBER_OPTIONS';
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -323,5 +324,11 @@ export const setOrderSummaryStatus = (field: any): Action => ({
 /** 结算 左侧信息 */
 export const orderOptions = (field:any): Action => ({
   type: ORDER_OPTIONS,
+  payload: field
+});
+
+/** 上传Gerber */
+export const reduxUploadGerber = (field:any): Action => ({
+  type: Upload_GERBER_OPTIONS,
   payload: field
 });

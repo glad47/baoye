@@ -224,7 +224,7 @@ function Home(): JSX.Element {
 
                             <div className="pcb-min-info">
                                 <div className="pcb-min">
-                                    {isBackToUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage}/> : <GerberShow />}
+                                    {/*{isBackToUpload ? <GerberUpload loginName={loginName} setLoginMessage={setLoginMessage}/> : <GerberShow />}*/}
                                     {quoteMode === 0 ? <PcbSizeForm /> : ''}
                                     {!isBackToUpload
                                         ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>

@@ -351,6 +351,13 @@ export default function reducer(state: State, action: Action): State {
         orderOptionsItem: {...state.orderOptionsItem, ...action.payload},
       }
     }
+    // 结算 => 左侧参数信息
+    case actionTypes.Upload_GERBER_OPTIONS: {
+      return {
+        ...state,
+        uploadGerber: {...state.uploadGerber, ...action.payload},
+      }
+    }
   }
   
 

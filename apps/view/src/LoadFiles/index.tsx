@@ -45,7 +45,6 @@ export default function LoadFiles(props: LoadFilesProps): JSX.Element {
   } else {
     fileStatus = 'init';
   }
-  console.log('上传状态', fileStatus, 'deley', delay,'process', progress)
 
 
   return (

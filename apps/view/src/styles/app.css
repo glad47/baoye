@@ -4193,3 +4193,6 @@ body {
 
 /*文件上传=>识别失败*/
 @import "file-error.css";
+
+/*文件上传=>识别错误*/
+@import "file-failed.css";

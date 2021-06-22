@@ -188,3 +188,8 @@ export type SvgString = {
   topSvg: any,
   bottomSvg: any
 }
+
+/** 上传Gerber文件参数  */
+export type UploadGerberItem = {
+  progress: 0 // 上传进度进度
+}

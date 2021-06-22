@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, {Ref, useEffect, useState} from "react";
 import { useAppState, backToUpload } from "../state";
 import LoadFiles from '../LoadFiles/index'
 import { Spin } from "antd";
 import FileError from "../LoadFiles/FileStatus/FileError";
 
-interface GerberShowProps {}
+interface GerberShowProps {
+    handleFilesRef: any
+}
 const WRAPPER_STYLE = 'absolute absolute--center near-black tc'
 //gerber显示组件
 const GerberShow: React.FC<GerberShowProps> = (props) => {
@@ -34,7 +36,7 @@ const GerberShow: React.FC<GerberShowProps> = (props) => {
                 clearTimeout(timer)
             }
         }
-    }, [])
+    }, []);
     // let newLayer=layer.substr(0,1)
     let defaultImgSrc = require('../images/FR42greenwhite.png')
     // if(material !=='FR4' || newLayer !=='2' || solderMask !=='green' || silkscreen !=='white'){
@@ -84,7 +86,7 @@ const GerberShow: React.FC<GerberShowProps> = (props) => {
                     {/*<img src={defaultImgSrc} />*/}
                     {/*<p className='fill_pit'>{wordTip}</p>*/}
                     {
-                        isTimeOut ? 'Successful Gerber file upload! The system is analyzing data. Please wait and check the specifications.' : <FileError />
+                        isTimeOut ? 'Successful Gerber file upload! The system is analyzing data. Please wait and check the specifications.' : <FileError handleFilesRef={props.handleFilesRef}/>
                     }
                 </div>
 

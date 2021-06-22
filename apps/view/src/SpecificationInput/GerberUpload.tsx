@@ -1,5 +1,13 @@
-import React, { useState,useEffect } from "react";
-import { useAppState,createBoard, backfillUploadPathData, backfillPcbData, backToUpload, backfillSvgData } from "../state";
+import React, {useState, useEffect, useImperativeHandle} from "react";
+import {
+    useAppState,
+    createBoard,
+    backfillUploadPathData,
+    backfillPcbData,
+    backToUpload,
+    backfillSvgData,
+    reduxUploadGerber
+} from "../state";
 import LoadFiles from "../LoadFiles";
 import { FileEvent } from "../types";
 import Axios from "axios";
@@ -11,6 +19,7 @@ import Cookies from 'js-cookie';
 interface GerberUploadProps {
     loginName: any,
     setLoginMessage: any
+    cRef: any
 }
 
 //gerber上传组件
@@ -19,6 +28,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
     const [progress, changeProgress] = useState(0)
     const [delay,setDelay]=useState(false)
     const [loginState,setLoginState]=useState(false)
+
     useEffect(()=>{
         if(props.loginName==null){
             setLoginState(false)
@@ -32,7 +42,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
         }
     }
     const handleFiles = (event: FileEvent): void => {
-        
+
         if (props.loginName == null) {
             message.error('Please login first！！')
             props.setLoginMessage(true)
@@ -63,6 +73,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             fromData.append('file',files[0]);
             const fd = new FormData()
             fd.append('uploads', files[0]);
+            dispatch(reduxUploadGerber({process: 0}));
             Axios.request({
                 headers:{'Content-Type': 'multipart/form-data','Authorization':token},
                 method: 'post',
@@ -75,6 +86,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                         let complete =
                             (((ProgressEvent.loaded / ProgressEvent.total) * 100) | 0);
                         changeProgress(complete)
+                        dispatch(reduxUploadGerber({progress: complete}))
                         if (complete >= 100) {
                             changeProgress(complete)
                         }
@@ -172,6 +184,11 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
     const setItem=(key:string,options:string)=>{
         sessionStorage.setItem(key,options)
     }
+    useImperativeHandle(props.cRef, () => ({
+        handleFiles(event: FileEvent) {
+            handleFiles(event)
+        }
+    }));
     if (true) {
         return (
            
@@ -193,6 +210,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
     } else {
         return null
     }
+
 }
 
 export default GerberUpload
