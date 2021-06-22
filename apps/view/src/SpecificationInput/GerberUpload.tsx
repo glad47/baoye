@@ -36,13 +36,13 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             setLoginState(true)
         }
     },[props.loginName])
+
     const loginReady=(e:any)=>{
         if(e){
             props.setLoginMessage(true)
         }
     }
     const handleFiles = (event: FileEvent): void => {
-
         if (props.loginName == null) {
             message.error('Please login first！！')
             props.setLoginMessage(true)
@@ -86,7 +86,6 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                         let complete =
                             (((ProgressEvent.loaded / ProgressEvent.total) * 100) | 0);
                         changeProgress(complete)
-                        dispatch(reduxUploadGerber({progress: complete}))
                         if (complete >= 100) {
                             changeProgress(complete)
                         }
@@ -187,6 +186,9 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
     useImperativeHandle(props.cRef, () => ({
         handleFiles(event: FileEvent) {
             handleFiles(event)
+        },
+        getStateProcess() {
+            return progress;
         }
     }));
     if (true) {
