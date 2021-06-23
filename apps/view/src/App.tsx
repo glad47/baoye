@@ -23,6 +23,7 @@ import GerberShow from './SpecificationInput/GerberShow'
 import Head from './Head/index'
 import MobileHead from './Head/MobileHead'
 import PcbBuildFee from "./SpecificationInput/PcbBuildFee";
+import GerberProgress from "./SpecificationInput/GerberProgress";
 
 function App(): JSX.Element {
     const { dispatch
@@ -47,6 +48,7 @@ function App(): JSX.Element {
     const [isMobileOrder, setOrderState] = useState(false)
     const { Footer, Header, Content } = Layout
     const gerberUploadRef = useRef(null);
+    const gerberGerberProgress = useRef(null);
     const handleAddQuote = (link?: boolean ) => {
         if (quoteMode === 0) {
             if (boardType === 'Single') {
@@ -206,6 +208,11 @@ function App(): JSX.Element {
     const isShowAssembly = () => {
         setAssembly(!isAssembly)
     }
+
+    const progressCallBack = (fileName: any, fileSize: any, progress: any) => {
+        // @ts-ignore
+        return gerberGerberProgress?.current.handleProgress(fileName,fileSize,progress)
+    }
     return (
         <>
             <Main>
@@ -228,10 +235,11 @@ function App(): JSX.Element {
                         <div className="pcb-min-info">
                             <div className="pcb-min">
                                 {
-                                    isBackToUpload ? <GerberUpload cRef={gerberUploadRef} loginName={loginName} setLoginMessage={setLoginMessage}/>
+                                    isBackToUpload ? <GerberUpload progressCallBack={progressCallBack} cRef={gerberUploadRef} loginName={loginName} setLoginMessage={setLoginMessage}/>
                                     :
                                         <GerberShow handleFilesRef={gerberUploadRef?.current}/>
                                 }
+                                <GerberProgress cRef={gerberGerberProgress} />
                                 {quoteMode === 0 ? <PcbSizeForm /> : ''}
                                 {!isBackToUpload
                                     ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>

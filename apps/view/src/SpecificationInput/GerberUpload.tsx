@@ -19,15 +19,18 @@ import Cookies from 'js-cookie';
 interface GerberUploadProps {
     loginName: any,
     setLoginMessage: any
-    cRef: any
+    cRef: any,
+    progressCallBack: Function
 }
 
 //gerber上传组件
 const GerberUpload: React.FC<GerberUploadProps> = (props) => {
     const { dispatch,subtotal:{boardFee,stencilFee,assemblyFee},quoteMode } = useAppState();
-    const [progress, changeProgress] = useState(0)
-    const [delay,setDelay]=useState(false)
-    const [loginState,setLoginState]=useState(false)
+    const [progress, changeProgress] = useState(0);
+    const [delay,setDelay]=useState(false);
+    const [loginState,setLoginState]=useState(false);
+    const [fileName, setFileName] = useState<any>(null);
+    const [fileSize, setFileSize] = useState<any>(null);
 
     useEffect(()=>{
         if(props.loginName==null){
@@ -42,6 +45,13 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             props.setLoginMessage(true)
         }
     }
+
+    useEffect(() => {
+        if (props.progressCallBack) {
+            props.progressCallBack(fileName, fileSize, progress);
+        }
+    }, [progress])
+
     const handleFiles = (event: FileEvent): void => {
         if (props.loginName == null) {
             message.error('Please login first！！')
@@ -62,6 +72,8 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             //创建板 2020年12月31 15:07:28 先取消。使用接口返回的svg
             // dispatch(createBoard(files,false));
             const fileName = files[0].name || ''
+            setFileName(fileName);
+            setFileSize(files[0].size);
             const suffix=fileName.substring(fileName.lastIndexOf('.')+1)
             let isRar=(suffix.toLocaleLowerCase()=='zip' || suffix.toLocaleLowerCase()=='rar') ? true :false
             if (!isRar) {
@@ -198,14 +210,14 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                 <div className="pcb-file">
                     <LoadFiles handleFiles={handleFiles} progress={{progress,delay,loginState}} loginReady={loginReady}></LoadFiles>
                 </div>
-                {progress>0 ?<div className='update_status'>
-                    <div className='progress'>
-                        <div className='progress_inner' style={{ width: progress + '%' }}>
-                            <div className='progress_s'><p className='progress_f' style={{ width: progress + '%' }}></p></div>
-                        </div>
-                    </div>
-                    <div className='show_progress_speed'><Checkbox checked={progress==100 ? true :false}/></div>
-                </div>:""}
+                {/*{progress>0 ?<div className='update_status'>*/}
+                {/*    <div className='progress'>*/}
+                {/*        <div className='progress_inner' style={{ width: progress + '%' }}>*/}
+                {/*            <div className='progress_s'><p className='progress_f' style={{ width: progress + '%' }}></p></div>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*    <div className='show_progress_speed'><Checkbox checked={progress==100 ? true :false}/></div>*/}
+                {/*</div>:""}*/}
                 {/* <UserLogin/> */}
             </>
         )
