@@ -316,6 +316,12 @@ export default function reducer(state: State, action: Action): State {
       }
       
     }
+    case actionTypes.RELOAD_UPLOAD_SVG: {
+      return {
+        ...state,
+        isBackToUpload:true
+      }
+    }
     case actionTypes.BACKFILL_UPLOAD_PATH_DATA: {
       return {
         ...state,

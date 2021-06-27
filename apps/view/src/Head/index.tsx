@@ -29,37 +29,13 @@ function Head(props: any) {
                 <div className='pcb-header-menu'>
                     <ul className='pcb-header-menu-all'>
                         <li className='pcb-menu-one'>
-                            <a>PCB Fab</a>
-                            <div className="pcb-instructions" />
-                            <Product />
+                            <a>Factory Live</a>
                         </li>
                         <li className='pcb-menu-two'>
-                            <a>PCB Assembly</a>
-                            <div className="pcb-instructions" />
-                            <Assembly />
+                            <a>Quality Control</a>
                         </li>
                         <li className='pcb-menu-three'>
-                            <a>EMS Solution</a>
-                            <div className="pcb-instructions" />
-                            <Solution />
-                        </li>
-                        <li className='pcb-menu-four'>
-                            <a>Resources</a>
-                            <div className="pcb-instructions" />
-                            <Resource />
-                        </li>
-                        <li className='pcb-menu-five'>
-                            <a>Company</a>
-                            <div className="pcb-instructions" />
-                            <Company />
-                        </li>
-                        <li className='pcb-menu-six'>
-                            <a>Get a Quote</a>
-                            <img
-                                src={require('../images/new-t.gif')}
-                                alt="active"
-                                className="new-active"
-                            />
+                            <a>About Us</a>
                         </li>
                         <div className="sign-btn">
                             {props.loginName[0] === null
@@ -76,9 +52,9 @@ function Head(props: any) {
                             }
                             {props.loginName === null ? null : <LoginShow />}
                         </div>
-                        <div className="pcb-search">
-                            <img src={require('../images/ocb-search.png')} alt="search" />
-                        </div>
+                        {/*<div className="pcb-search">*/}
+                        {/*    <img src={require('../images/ocb-search.png')} alt="search" />*/}
+                        {/*</div>*/}
                     </ul>
                 </div>
             </div>

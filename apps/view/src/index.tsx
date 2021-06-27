@@ -25,7 +25,7 @@ Promise.all([
           <Switch>
             <FrontendAuth routerConfig={routerMap} location={null}/>
           </Switch>
-        </Router>,
+        </Router>
       </StoreProvider>,
       document.getElementById('root')
   )

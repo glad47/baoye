@@ -6,7 +6,7 @@ import {
     backfillPcbData,
     backToUpload,
     backfillSvgData,
-    reduxUploadGerber
+    reduxUploadGerber, BACKFILL_SVG_DATA, REDUX_SET_isBackToUpload
 } from "../state";
 import LoadFiles from "../LoadFiles";
 import { FileEvent } from "../types";
@@ -15,6 +15,7 @@ import { preventDefault } from "../events";
 import { sysUrl } from "./AjaxService";
 import { message,Checkbox } from "antd";
 import Cookies from 'js-cookie';
+import GerberShow from "./GerberShow";
 
 interface GerberUploadProps {
     loginName: any,
@@ -24,7 +25,7 @@ interface GerberUploadProps {
 
 //gerber上传组件
 const GerberUpload: React.FC<GerberUploadProps> = (props) => {
-    const { dispatch,subtotal:{boardFee,stencilFee,assemblyFee},quoteMode } = useAppState();
+    const { dispatch,subtotal:{boardFee,stencilFee,assemblyFee},quoteMode, isBackToUpload } = useAppState();
     const [progress, changeProgress] = useState(0)
     const [delay,setDelay]=useState(false)
     const [loginState,setLoginState]=useState(false)
@@ -48,6 +49,8 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             props.setLoginMessage(true)
             return
         }
+        dispatch(REDUX_SET_isBackToUpload(null))
+        console.log('出发')
         const files =
             'dataTransfer' in event
                 ? Array.from(event.dataTransfer.files)
@@ -193,21 +196,22 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
     }));
     if (true) {
         return (
-           
-            <>
-                <div className="pcb-file">
-                    <LoadFiles handleFiles={handleFiles} progress={{progress,delay,loginState}} loginReady={loginReady}></LoadFiles>
-                </div>
-                {progress>0 ?<div className='update_status'>
-                    <div className='progress'>
-                        <div className='progress_inner' style={{ width: progress + '%' }}>
-                            <div className='progress_s'><p className='progress_f' style={{ width: progress + '%' }}></p></div>
-                        </div>
+            isBackToUpload ?
+                <>
+                    <div className="pcb-file">
+                        <LoadFiles handleFiles={handleFiles} progress={{progress,delay,loginState}} loginReady={loginReady}></LoadFiles>
                     </div>
-                    <div className='show_progress_speed'><Checkbox checked={progress==100 ? true :false}/></div>
-                </div>:""}
-                {/* <UserLogin/> */}
-            </>
+                    {progress>0 ?<div className='update_status'>
+                        <div className='progress'>
+                            <div className='progress_inner' style={{ width: progress + '%' }}>
+                                <div className='progress_s'><p className='progress_f' style={{ width: progress + '%' }}></p></div>
+                            </div>
+                        </div>
+                        <div className='show_progress_speed'><Checkbox checked={progress==100 ? true :false}/></div>
+                    </div>:""}
+                    {/* <UserLogin/> */}
+                </>
+                : <GerberShow handleFilesRef={handleFiles}/>
         )
     } else {
         return null

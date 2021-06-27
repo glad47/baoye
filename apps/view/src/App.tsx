@@ -227,11 +227,12 @@ function App(): JSX.Element {
 
                         <div className="pcb-min-info">
                             <div className="pcb-min">
-                                {
-                                    isBackToUpload ? <GerberUpload cRef={gerberUploadRef} loginName={loginName} setLoginMessage={setLoginMessage}/>
-                                    :
-                                        <GerberShow handleFilesRef={gerberUploadRef?.current}/>
-                                }
+                                {/*{*/}
+                                {/*    isBackToUpload ? <GerberUpload cRef={gerberUploadRef} loginName={loginName} setLoginMessage={setLoginMessage}/>*/}
+                                {/*    :*/}
+                                {/*        <GerberShow handleFilesRef={gerberUploadRef?.current}/>*/}
+                                {/*}*/}
+                                <GerberUpload cRef={gerberUploadRef} loginName={loginName} setLoginMessage={setLoginMessage}/>
                                 {quoteMode === 0 ? <PcbSizeForm /> : ''}
                                 {!isBackToUpload
                                     ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>

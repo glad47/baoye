@@ -113,7 +113,7 @@
 }
 
 .pcb-nav ul li>a {
-    line-height: 50px;
+    line-height: 51px;
 }
 
 .pcb-nav ul li>a>div {
@@ -2308,7 +2308,7 @@ body {
 }
 
 .pcb-header-inner {
-    width: 80%;
+    width: 1200px;
     height: 63px;
     margin: 0 auto;
     display: flex;
@@ -4196,3 +4196,11 @@ body {
 
 /*文件上传=>识别错误*/
 @import "file-failed.css";
+
+/*底部导航*/
+@import "footer.css";
+
+.body-width {
+    margin: 0 auto;
+    max-width: 1200px;
+}

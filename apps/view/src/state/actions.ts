@@ -55,6 +55,7 @@ export const BACK_TO_UPLOAD='BACK_TO_UPLOAD'
 export const CHANGE_ASSEMBLY_FIELD = 'CHANGE_ASSEMBLY_FIELD'
 export const CHANGE_COLOR='CHANGE_COLOR'
 export const BACKFILL_SVG_DATA = 'BACKFILL_SVG_DATA'
+export const RELOAD_UPLOAD_SVG = 'RELOAD_UPLOAD_SVG'
 export const BACKFILL_UPLOAD_PATH_DATA = 'BACKFILL_UPLOAD_PATH_DATA'
 export const CHANGE_CARDRAWER_STATUS = 'CHANGE_CARDRAWER_STATUS';
 export const ORDER_SUMMARY = 'ORDER_SUMMARY';
@@ -295,7 +296,13 @@ export const changeAssemblyField = (field: FieldStore): Action =>({
 export const backfillSvgData = (field:any): Action =>({
   type: BACKFILL_SVG_DATA,
   payload: field
-}) 
+})
+
+/** 回填本地解析的svg数据 */
+export const REDUX_SET_isBackToUpload = (field:any): Action =>({
+  type: RELOAD_UPLOAD_SVG,
+  payload: field
+})
 
 /** 回填上传后的路径 */
 export const backfillUploadPathData = (field:any): Action =>({

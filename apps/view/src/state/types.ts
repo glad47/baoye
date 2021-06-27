@@ -110,6 +110,7 @@ export type Action =
   | {type: 'CHANGE_ASSEMBLY_FIELD'; payload: FieldStore}
   | {type: 'CHANGE_COLOR'; payload: any}
   | {type: 'BACKFILL_SVG_DATA'; payload: any}
+  | {type: 'RELOAD_UPLOAD_SVG'; payload: any}
   | {type: 'BACKFILL_UPLOAD_PATH_DATA'; payload: any}
   | {type: 'CHANGE_CARDRAWER_STATUS'; payload: any}
   | {type: 'ORDER_SUMMARY'; payload: OrderSummaryItem}
