@@ -4197,6 +4197,9 @@ body {
 /*文件上传=>识别错误*/
 @import "file-failed.css";
 
+/*文件上传=>进度条模块*/
+@import "gerber-process.css";
+
 /*底部导航*/
 @import "footer.css";
 

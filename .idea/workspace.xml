@@ -22,18 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="fix: +1">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: header、foot改版，gerber上传状态优化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Footer/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Head/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Head/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/LoadFiles/FileStatus/FileError.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/LoadFiles/FileStatus/FileError.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberProgress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberProgress.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberUpload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberUpload.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/state/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/state/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/state/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/app.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +139,7 @@
       <workItem from="1624457009097" duration="121000" />
       <workItem from="1624629570589" duration="7677000" />
       <workItem from="1624727863636" duration="1625000" />
-      <workItem from="1624788186559" duration="5177000" />
+      <workItem from="1624788186559" duration="5838000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>
@@ -267,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624383344028</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="feat: header、foot改版，gerber上传状态优化">
+      <created>1624809149865</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1624809149865</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +344,8 @@
     <MESSAGE value="feat: 信用卡支付" />
     <MESSAGE value="feat: 流程checkout按钮禁用优化" />
     <MESSAGE value="fix: +1" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: +1" />
+    <MESSAGE value="feat: header、foot改版，gerber上传状态优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: header、foot改版，gerber上传状态优化" />
   </component>
   <component name="WindowStateProjectService">
     <state x="823" y="449" key="#ESLint" timestamp="1619082830320">
@@ -363,10 +364,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="284" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620203109051" />
-    <state x="91" y="102" width="1718" height="880" key="DiffContextDialog" timestamp="1624383390897">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="222" y="205" width="1833" height="939" key="DiffContextDialog" timestamp="1624809649373">
+      <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="91" y="102" width="1718" height="880" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1624383390897" />
+    <state x="222" y="205" width="1833" height="939" key="DiffContextDialog/0.0.2048.1152@0.0.2048.1152" timestamp="1624809649373" />
     <state x="615" y="316" key="EditFileWatcherDialog" timestamp="1619084431994">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -399,6 +401,10 @@
     </state>
     <state width="1882" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
     <state width="1897" height="279" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1623863172036" />
+    <state x="659" y="337" key="MultipleFileMergeDialog" timestamp="1624809184758">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state x="659" y="337" key="MultipleFileMergeDialog/0.0.2048.1152@0.0.2048.1152" timestamp="1624809184758" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1620203921562">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -410,21 +416,22 @@
     <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620924930855" />
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1624639977434" />
     <state width="532" height="476" key="SwitcherDM/0.0.2048.1152@0.0.2048.1152" timestamp="1624792560881" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1624383349080">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="589" y="291" key="Vcs.Push.Dialog.v2" timestamp="1624809151859">
+      <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="552" y="263" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620924918452" />
     <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1624383349080" />
+    <state x="589" y="291" key="Vcs.Push.Dialog.v2/0.0.2048.1152@0.0.2048.1152" timestamp="1624809151859" />
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1619279383233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619279383233" />
-    <state x="803" y="483" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1624789930142">
+    <state x="803" y="483" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1624809163519">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="753" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620918434821" />
     <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1624368994476" />
-    <state x="803" y="483" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2048.1152@0.0.2048.1152" timestamp="1624789930142" />
+    <state x="803" y="483" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2048.1152@0.0.2048.1152" timestamp="1624809163519" />
     <state x="714" y="261" width="943" height="634" key="find.popup" timestamp="1624791165067">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>

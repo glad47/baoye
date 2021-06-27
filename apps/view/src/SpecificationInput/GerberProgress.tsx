@@ -29,7 +29,7 @@ export default (props: any) => {
         // }, 1000);
     }, [])
     return (
-        process > 0 &&
+        process > 0 ?
         <div className="GerberProgress">
             <div className="container" style={{width: process + '%'}}>
                 <div className="lef-img">
@@ -50,6 +50,6 @@ export default (props: any) => {
                     </div>
                 }
             </div>
-        </div>
+        </div> : <div></div>
     )
 }
