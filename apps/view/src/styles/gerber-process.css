@@ -1,0 +1,49 @@
+.GerberProgress {
+    height: 32px;
+    background: #fff;
+    border-radius: 4px;
+    position: relative;
+    margin-top: 10px;
+}
+.GerberProgress .container {
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    z-index: 1;
+    background: #6884F0;
+    /*width: 40%;*/
+    border-radius: 4px;
+}
+
+.GerberProgress .container .lef-img {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 12px;
+    bottom: 3px;
+}
+
+.GerberProgress .container .lef-img img {
+    margin-right: 7px;
+}
+
+.GerberProgress .container .rig-icon {
+    position: absolute;
+    right: 10px;
+    bottom: 7px;
+}
+
+/*.GerberProgress .container .lef-img .infos span.file-name{*/
+/*    position: absolute;*/
+/*}*/
+.GerberProgress .container .lef-img .infos span.file-size{
+    margin-top: 2px;
+}
+
+.GerberProgress .container .lef-img .infos span {
+    display: block;
+    font-family: ArialMT;
+    font-size: 12px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
