@@ -16,6 +16,7 @@ import { sysUrl } from "./AjaxService";
 import { message,Checkbox } from "antd";
 import Cookies from 'js-cookie';
 import GerberShow from "./GerberShow";
+import {DOM} from "@fortawesome/fontawesome-svg-core";
 
 interface GerberUploadProps {
     loginName: any,
@@ -53,11 +54,11 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
         }
     }
     const handleFiles = (event: FileEvent): void => {
-        if (props.loginName == null) {
-            message.error('Please login first！！')
-            props.setLoginMessage(true)
-            return
-        }
+        // if (props.loginName == null) {
+        //     message.error('Please login first！！')
+        //     props.setLoginMessage(true)
+        //     return
+        // }
         dispatch(REDUX_SET_isBackToUpload(null))
         console.log('出发')
         const files =
@@ -194,9 +195,11 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             // })
         }
     }
+
     const setItem=(key:string,options:string)=>{
         sessionStorage.setItem(key,options)
     }
+
     useImperativeHandle(props.cRef, () => ({
         handleFiles(event: FileEvent) {
             handleFiles(event)
@@ -209,7 +212,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
         return (
             isBackToUpload ?
                 <>
-                    <div className="pcb-file">
+                    <div className="pcb-file" id="pcbFile">
                         <LoadFiles handleFiles={handleFiles} progress={{progress,delay,loginState}} loginReady={loginReady}></LoadFiles>
                     </div>
                     {/*{progress>0 ?<div className='update_status'>*/}

@@ -18,7 +18,7 @@ const PcbBuildFee: React.FC<any> = (props) => {
             // 定时关闭
             setTimeout(() => {
                 dispatch(changeCarDrawer(true));
-            }, 10000);
+            }, 3000);
         }
         if (flg) {
 

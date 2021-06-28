@@ -175,10 +175,27 @@ function App(): JSX.Element {
         window.addEventListener('resize', getWindowWidth)
         ReactGA.initialize('G-3V6Y7YZNEE')
         ReactGA.ga('set', 'page', 'https://sys.pcbonline.com/instant-quote/')
+        DragFileUpload();
         return () => {
             window.removeEventListener('resize', getWindowWidth)
         }
     }, []);
+
+    // 拖拽上传
+    const DragFileUpload = () => {
+        const UPLOAD_DOM: any = document.getElementById('pcbMain');
+        UPLOAD_DOM.addEventListener('dragover', function (e: any) {
+            e.stopPropagation();
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'copy';
+        });
+        UPLOAD_DOM.addEventListener('drop', function (e: any) {
+            e.stopPropagation();
+            e.preventDefault();
+            // @ts-ignore
+            gerberUploadRef?.current?.handleFiles(e);
+        });
+    }
 
     const handleGoCar = () => {
         let link = true
@@ -232,7 +249,7 @@ function App(): JSX.Element {
                         </div>
 
                         <div className="pcb-min-info">
-                            <div className="pcb-min">
+                            <div className="pcb-min" id="pcbMain">
                                 {/*{*/}
                                 {/*    isBackToUpload ? <GerberUpload cRef={gerberUploadRef} loginName={loginName} setLoginMessage={setLoginMessage}/>*/}
                                 {/*    :*/}

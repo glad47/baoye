@@ -1,12 +1,16 @@
 .file-updating {
     width: 100%;
-    position: relative;
+    position: absolute;
+    left: 0;
+    background: #fff;
+    top: 0;
+    text-align: center;
 }
 
 .file-updating>div span {
     position: absolute;
     bottom: 22px;
-    left: 50px;
+    left: 97px;
     line-height: 19px;
     width: 442px;
     font-family: ArialMT;
