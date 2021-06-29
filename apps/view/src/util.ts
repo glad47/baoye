@@ -80,3 +80,22 @@ export function checkEmail(email: any) {
   const reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
   return reg.test(email);
 }
+
+/**
+ * 查询数组对象 某个键值出现的次数
+ * @param arr
+ * @param key
+ * @param value
+ */
+export function getKeysNumForArr(arr: any, key: any, value: any) {
+  let num: number = 0;
+  if (Array.isArray(arr)) {
+    num = arr.reduce((pre, cur) => {
+      if (cur[key] === value) {
+        pre++;
+      }
+      return pre;
+    }, 0)
+  }
+  return num;
+}

@@ -2,6 +2,7 @@ import App from "../App";
 import TestCom from "../testCom";
 import PcbOrderProcess from "../SpecificationInput/PcbOrderProcess";
 import PaySuccessful from "../SpecificationInput/PaySuccessful";
+import allMessages from "../SysMessages";
 
 const routerMap = [
     {
@@ -23,6 +24,11 @@ const routerMap = [
     {
         path: '/paySuc',
         component: PaySuccessful,
+        auth: false
+    },
+    {
+        path: '/allMessages',
+        component: allMessages,
         auth: false
     }
 ]

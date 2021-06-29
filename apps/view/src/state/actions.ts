@@ -62,6 +62,7 @@ export const ORDER_SUMMARY = 'ORDER_SUMMARY';
 export const ORDER_SUMMARY_STATUS = 'ORDER_SUMMARY_STATUS';
 export const ORDER_OPTIONS = 'ORDER_OPTIONS';
 export const Upload_GERBER_OPTIONS = 'Upload_GERBER_OPTIONS';
+export const SET_USER = 'SET_USER';
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -337,5 +338,10 @@ export const orderOptions = (field:any): Action => ({
 /** 上传Gerber */
 export const reduxUploadGerber = (field:any): Action => ({
   type: Upload_GERBER_OPTIONS,
+  payload: field
+});
+
+export const reduxUser = (field:any): Action => ({
+  type: SET_USER,
   payload: field
 });

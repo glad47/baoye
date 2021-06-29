@@ -364,6 +364,13 @@ export default function reducer(state: State, action: Action): State {
         uploadGerber: {...state.uploadGerber, ...action.payload},
       }
     }
+    // 用户信息
+    case actionTypes.SET_USER: {
+      return {
+        ...state,
+        user: {...state.user, ...action.payload},
+      }
+    }
   }
   
 

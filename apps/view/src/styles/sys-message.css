@@ -1,0 +1,79 @@
+h1 {
+    color: rebeccapurple;
+}
+.sys-message {
+    width: 544px;
+    height: 320px;
+    position: relative;
+}
+
+.sys-message .mes-header {
+    height: 48px;
+    line-height: 48px;
+    background: #f5f5f5;
+    padding-left: 16px;
+}
+
+.ant-popover-inner-content {
+    padding: unset !important;
+}
+
+.sys-message .mes-foot {
+    font-family: ArialMT;
+    font-size: 14px;
+    height: 48px;
+    line-height: 48px;
+    color: #000000;
+    background: #FFCA00;
+    padding-left: 16px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+.sys-message .mes-box {
+    padding: 16px;
+}
+
+.sys-message .mes-box .mes-li {
+    display: flex;
+    width: 100%;
+    border-bottom: solid 1px #EEEEEE;
+}
+
+.sys-message .mes-box .mes-li .lef-icon img {
+    width: 40px;
+    margin: 0 auto;
+}
+
+.sys-message .mes-box .mes-li .lef-icon {
+    display: flex;
+    align-items: center;
+}
+
+.sys-message .mes-box .mes-li .rig-info .info-header img {
+    width: 16px;
+    margin: 0 4px;
+}
+
+.sys-message .mes-box .mes-li .rig-info {
+    margin-left: 10px;
+}
+
+.sys-message .mes-box .mes-li .rig-info .info-header .title {
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #333333;
+}
+.sys-message .mes-box .mes-li .rig-info .info-header .time {
+    font-size: 14px;
+    color: #999999;
+    font-family: ArialMT;
+}
+
+.sys-message .mes-box .mes-li .rig-info .info-content {
+    font-family: ArialMT;
+    font-size: 14px;
+    color: #666666;
+}

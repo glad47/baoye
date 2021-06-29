@@ -4214,6 +4214,8 @@ body {
 /*底部导航*/
 @import "footer.css";
 
+/*系统通知*/
+@import "sys-message.css";
 .body-width {
     margin: 0 auto;
     max-width: 1200px;

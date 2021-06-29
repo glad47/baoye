@@ -12,7 +12,7 @@ import {
   ParseGerber,
   BuildTimeItem,
   SubtotalItem,
-  SvgString, OrderSummaryItem, OrderSummaryStatus, orderOptionsItem, UploadGerberItem,
+  SvgString, OrderSummaryItem, OrderSummaryStatus, orderOptionsItem, UploadGerberItem, UserStatus,
 } from '../types'
 import { SelectValue } from 'antd/lib/select'
 
@@ -46,6 +46,7 @@ export type State = {
   isBackToUpload:boolean
   allKeys:any
   fillData:boolean
+  user: UserStatus // 用户信息（包括系统消息，个人信息）
   carDrawerStatus:boolean
   uploadGerber: UploadGerberItem // 上传Gerber文件参数
   orderSummary: OrderSummaryItem // 订单结算
@@ -117,3 +118,4 @@ export type Action =
   | {type: 'ORDER_SUMMARY_STATUS'; payload: OrderSummaryStatus}
   | {type: 'ORDER_OPTIONS'; payload: orderOptionsItem}
   | {type: 'Upload_GERBER_OPTIONS'; payload: UploadGerberItem}
+  | {type: 'SET_USER'; payload: UserStatus}

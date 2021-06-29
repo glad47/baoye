@@ -193,3 +193,10 @@ export type SvgString = {
 export type UploadGerberItem = {
   progress: 0 // 上传进度进度
 }
+
+/** 用户中心  */
+export type UserStatus = {
+  message: { // 系统消息
+    unread: number
+  }
+}

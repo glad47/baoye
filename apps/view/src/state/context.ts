@@ -32,6 +32,7 @@ export const INITIAL_STATE: State = {
   isBackToUpload:true,
   allKeys:{},
   fillData:true,
+  user: {message: {unread: 0}},
   carDrawerStatus:false,
   uploadGerber: {progress: 0},
   orderSummary: {total: 0, freightCharges: 0, weight: 0, coupon: {id: -1, value: 0}, handlingCharge: 0},

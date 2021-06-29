@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import { Badge } from 'antd';
+import React, {useEffect, useState} from 'react';
+import { Badge, Popover } from 'antd';
 // import Product from '../Menus/product'
 // import Assembly from '../Menus/AssemblyAllMenu'
 // import Solution from '../Menus/Solution'
@@ -9,13 +9,15 @@ import {BellFilled, ShoppingCartOutlined} from '@ant-design/icons'
 import LoginShow from '../DownMenu/loginShow'
 import HeaderTips from "./HeaderTips";
 import {changeCarDrawer, useAppState} from "../state";
+import SysMessage from "./components/SysMessage";
 
-function Head(props: any) {
-    const { dispatch, carDrawerStatus } = useAppState();
+const Head:React.FC = (props: any) => {
+    const { dispatch, user } = useAppState();
     const [tipsShow, setTipsShow] = useState<boolean>(false);
     const handleManage = () => {
         window.open('https://sys.pcbonline.com/home')
     }
+    const [popoverVisible, setPopoverVisible] = useState(false);
     useEffect(() => {
         const {pathname} = window.location;
         if (pathname === '/') {
@@ -26,6 +28,14 @@ function Head(props: any) {
     // 打开购物车
     const handlerCar = () => {
         dispatch(changeCarDrawer(true));
+    }
+
+    const handleVisibleChange = (visible: any) => {
+        setPopoverVisible(visible);
+    }
+
+    const hidePopover = () => {
+        setPopoverVisible(false);
     }
 
     return (
@@ -67,9 +77,22 @@ function Head(props: any) {
                             &&
                                 <>
                                     <li className="h-badge">
-                                        <Badge count={5} dot size="small" offset={[-2, 1]}>
-                                            <BellFilled />
-                                        </Badge>
+                                        <Popover
+                                            className="sys-popover"
+                                            content={<SysMessage />}
+                                            trigger="click"
+                                            visible={popoverVisible}
+                                            onVisibleChange={handleVisibleChange}
+                                        >
+                                            <Badge
+                                                showZero={false}
+                                                count={user.message.unread}
+                                                dot
+                                                size="small"
+                                                offset={[-2, 1]}>
+                                                <BellFilled onClick={() => setPopoverVisible(true)}/>
+                                            </Badge>
+                                        </Popover>
                                     </li>
                                     <li className="h-badge num" onClick={handlerCar}>
                                         <Badge count={5} size="small">
@@ -91,4 +114,4 @@ function Head(props: any) {
     )
 }
 
-export default Head
+export default Head;

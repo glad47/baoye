@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { useAppState, createBoard, createBoardFromUrl, addQuote, backToUpload } from './state'
 import { Main } from './ui'
-import { Layout, Checkbox, message } from 'antd'
+import { Layout, message } from 'antd'
 import PcbSizeForm from './SpecificationInput/PcbSizeForm'
 import BuildTimeForm from './SpecificationInput/BuildTimeForm'
 import CastCalculation from './SpecificationInput/CostCalculation'
@@ -19,7 +19,6 @@ import ReactGA from 'react-ga'
 import SideNavigation, { SideNavigationTab } from './SpecificationInput/SideNavigation'
 import FormControl from './SpecificationInput/FormControl'
 import GerberUpload from './SpecificationInput/GerberUpload'
-import GerberShow from './SpecificationInput/GerberShow'
 import Head from './Head/index'
 import MobileHead from './Head/MobileHead'
 import PcbBuildFee from "./SpecificationInput/PcbBuildFee";
@@ -236,7 +235,11 @@ function App(): JSX.Element {
                 {/* <BoardList /> */}
                 <Layout>
                     {/* <Head loginName={loginName}/> */}
-                    {!isMobileSize ? <Head loginName={[loginName, headPortrait]} /> : <MobileHead />}
+                    {
+                        !isMobileSize ?
+                            <Head loginName={[loginName, headPortrait]} />
+                            : <MobileHead />
+                    }
                     {!isMobileSize ? <Content>
                         {/* 左边栏 */}
                         <div className="pcb-nav">
