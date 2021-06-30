@@ -104,6 +104,7 @@ function App(): JSX.Element {
             if (link) { location.href = '/audit'; }
             return true;
         }
+        return true;
     }
     // const isShowLoad = (item:any) => {
     //     console.log(item)
@@ -111,6 +112,8 @@ function App(): JSX.Element {
     // }
     const aginUpload = () => {
      //   setUpload(true)
+        // @ts-ignore
+        gerberUploadRef?.current.initGerberUploadState();
         dispatch(backToUpload(true))
     }
     const setLoginMessage = (e: any) => {
@@ -259,7 +262,7 @@ function App(): JSX.Element {
                                 {/*        <GerberShow handleFilesRef={gerberUploadRef?.current}/>*/}
                                 {/*}*/}
                                 <GerberUpload progressCallBack={progressCallBack} cRef={gerberUploadRef} loginName={loginName} setLoginMessage={setLoginMessage}/>
-                                <GerberProgress cRef={gerberGerberProgress} />
+                                <GerberProgress cRef={gerberGerberProgress} aginUpload={aginUpload}/>
                                 {quoteMode === 0 ? <PcbSizeForm /> : ''}
                                 {!isBackToUpload
                                     ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>

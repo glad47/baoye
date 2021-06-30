@@ -1,7 +1,13 @@
 .file-init {
     width: 100%;
     display: flex;
+    position: absolute;
     align-items: center;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    background: #fff;
+    height: 100%;
 }
 
 .file-init>div {

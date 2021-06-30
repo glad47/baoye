@@ -49,13 +49,13 @@ const Head:React.FC = (props: any) => {
                 <div className='pcb-header-menu'>
                     <ul className='pcb-header-menu-all'>
                         <li className='pcb-menu-one'>
-                            <a>Factory Live</a>
+                            <a href="https://www.pcbonline.com/factory-live/" target="_blank">Factory Live</a>
                         </li>
                         <li className='pcb-menu-two'>
-                            <a>Quality Control</a>
+                            <a href="https://www.pcbonline.com/quality-control/" target="_blank">Quality Control</a>
                         </li>
                         <li className='pcb-menu-three'>
-                            <a>About Us</a>
+                            <a href="https://www.pcbonline.com/about/" target="_blank">About Us</a>
                         </li>
                         <div className="sign-btn">
                             {props.loginName[0] === null

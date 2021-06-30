@@ -9,19 +9,18 @@ const PcbBuildFee: React.FC<any> = (props) => {
     const history = useHistory();
     const { dispatch, carDrawerStatus, subtotal } = useAppState();
     const handlerCar = () => {
-        const flg = handleAddQuote();
         const isLogin = sessionStorage.getItem('username');
         if (setIsLogin && !isLogin) {
             setIsLogin(false);
         } else {
-            dispatch(changeCarDrawer(true));
-            // 定时关闭
-            setTimeout(() => {
+            const flg = handleAddQuote();
+            if (flg) {
                 dispatch(changeCarDrawer(true));
-            }, 3000);
-        }
-        if (flg) {
-
+                // 定时关闭
+                setTimeout(() => {
+                    dispatch(changeCarDrawer(false));
+                }, 6000);
+            }
         }
     }
 

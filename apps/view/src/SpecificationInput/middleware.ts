@@ -92,9 +92,9 @@ export function countQuoteMiddleware(): State.Middleware {
                     const [{data:{success,code}}] = rep;
                     if(success){
                         message.success("Add Quote Success!!");
-                        setTimeout(() => {
-                            location.reload();
-                        }, 1000);
+                        // setTimeout(() => {
+                        //     location.reload();
+                        // }, 1000);
                     }else{
                         if (code === "403") {
                             location.href = 'user/login';

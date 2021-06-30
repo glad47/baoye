@@ -15,6 +15,18 @@
     border-radius: 4px;
 }
 
+.GerberProgress .container.active {
+    background: #fff;
+}
+
+.GerberProgress .container.active .infos>span.file-name {
+    color: #666666;
+}
+
+.GerberProgress .container.active .infos>span.file-size {
+    color: #999999;
+}
+
 .GerberProgress .container .lef-img {
     display: flex;
     align-items: center;

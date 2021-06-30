@@ -255,7 +255,8 @@ export default function reducer(state: State, action: Action): State {
           isBackToUpload:false,
           allKeys:allkeys,
           fillData:true,
-          svg:{...state.svg,topSvg:topSvg,bottomSvg:bottomSvg}
+          svg:{...state.svg,topSvg:topSvg,bottomSvg:bottomSvg},
+          uploadGerber: {...state.uploadGerber, status: 'suc'}
         }
       }else{
         return{
@@ -263,7 +264,8 @@ export default function reducer(state: State, action: Action): State {
           // fileName: fileName,
           // fileUploadPtah: uploadPath,
           isShow: parseResult,
-          isBackToUpload:false, 
+          isBackToUpload:false,
+          uploadGerber: {...state.uploadGerber, status: 'err'},
           fillData:false
         }
       }
@@ -289,7 +291,8 @@ export default function reducer(state: State, action: Action): State {
         pcbStandardField: INITIAL_STANDARD,
         allKeys:{},
         svg:null,
-        fillData:action.payload
+        fillData:action.payload,
+        uploadGerber: {...state.uploadGerber, progress: 0}
       }
     }
     case actionTypes.CHANGE_COLOR: {

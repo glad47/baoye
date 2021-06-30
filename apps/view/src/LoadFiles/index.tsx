@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { useAppState, backToUpload } from '../state'
+import {useAppState, backToUpload, reduxUploadGerber} from '../state'
 import { Icon, Fade } from '../ui'
 import { FileEvent } from '../types'
 import FileInput from './FileInput'
@@ -28,7 +28,7 @@ export type LoadFilesProps = {
 }
 
 export default function LoadFiles(props: LoadFilesProps): JSX.Element {
-  const { mode, loading, fillData, dispatch } = useAppState()
+  const { mode, loading, isBackToUpload } = useAppState()
   const { progress, delay } = props.progress
   const successful_update = progress === 100 ? require(`../images/successful_updata.gif`) : require(`../images/quate_icon2.png`)
   const successful_word = progress === 100 ?
@@ -62,7 +62,7 @@ export default function LoadFiles(props: LoadFilesProps): JSX.Element {
             {/*<div className='img_show'><img src={successful_update} /></div>*/}
             <div className='mobile-img-show'><img src={require('../images/uploads.png')} /></div>
             {
-              fileStatus === 'init' ? <FileInit /> : <FileUpdating />
+              fileStatus === 'updating' || progress > 0 ? <FileUpdating /> : <FileInit />
             }
             {/*<p className={`update_font ${progress === 100 && 'updating'}`} dangerouslySetInnerHTML={{ __html: wordTitle }}></p>*/}
 

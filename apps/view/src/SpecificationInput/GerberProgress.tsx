@@ -1,10 +1,13 @@
 import React, {useEffect, useImperativeHandle, useState} from 'react';
+import {backToUpload, useAppState} from "../state";
 const checkIcon = require('../images/check-circle.png');
 const closeIcon = require('../images/close-circle.png');
+const errIcon = require('../images/quate_icon33.png');
 const zipIcon = require('../images/zip_icon.png');
 
 export default (props: any) => {
-    const {cRef} = props;
+    const {cRef, aginUpload} = props;
+    const { fillData, dispatch, uploadGerber } = useAppState();
     const [process, setProcess] = useState<number>(0);
     const [fileName, setFileName] = useState<any>(null);
     const [fileSize, setFileSize] = useState<any>(null);
@@ -15,23 +18,20 @@ export default (props: any) => {
             setFileName(fileName);
             setFileSize(parseInt(String(Number(fileSize) / 1024)));
         }
-    }))
+    }));
 
-    useEffect(() => {
-        let count: number = 0;
-        // console.log('aa', aa)
-        // setInterval(() => {
-        //     if (process < 100) {
-        //         count ++;
-        //         setProcess(count);
-        //         console.log('count', count)
-        //     }
-        // }, 1000);
-    }, [])
+    const handleCloseFile = () => {
+        setProcess(0);
+        if (aginUpload) {
+            aginUpload();
+        }
+        dispatch(backToUpload(true))
+    }
+
     return (
         process > 0 ?
         <div className="GerberProgress">
-            <div className="container" style={{width: process + '%'}}>
+            <div className={`container ${uploadGerber.status === 'suc' && 'active'}`} style={{width: process + '%'}}>
                 <div className="lef-img">
                     <img src={zipIcon} alt=""/>
                     <div className="infos">
@@ -46,10 +46,13 @@ export default (props: any) => {
                 {
                     process === 100 &&
                     <div className="rig-icon">
-                        <img src={checkIcon} alt=""/>
+                        {
+                            uploadGerber.status === 'suc' ? <img src={closeIcon} alt="" onClick={handleCloseFile}/> : uploadGerber.status === 'err' ? <img src={errIcon} alt="" /> :
+                                <img src={checkIcon} alt=""/>
+                        }
                     </div>
                 }
             </div>
-        </div> : <div></div>
+        </div> : <></>
     )
 }

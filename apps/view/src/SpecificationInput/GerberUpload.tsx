@@ -34,6 +34,10 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
     const [fileName, setFileName] = useState<any>(null);
     const [fileSize, setFileSize] = useState<any>(null);
 
+    const initState = () => {
+        changeProgress(0);
+    }
+
     useEffect(() => {
         if (props.progressCallBack) {
             props.progressCallBack(fileName, fileSize, progress);
@@ -88,7 +92,8 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             fromData.append('file',files[0]);
             const fd = new FormData()
             fd.append('uploads', files[0]);
-            dispatch(reduxUploadGerber({process: 0}));
+            dispatch(reduxUploadGerber({process: 1, status: 'init'}));
+            changeProgress(1);
             Axios.request({
                 headers:{'Content-Type': 'multipart/form-data','Authorization':token},
                 method: 'post',
@@ -119,7 +124,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             }).then(res=>{
                 // console.log(res);
                 //解析gerber资料
-                let {data:{success,result}} = res, r: any = {}; 
+                let {data:{success,result}} = res, r: any = {};
                 if(success){
                     r = {...result,showDefaultImg:true};
                 }else{
@@ -206,6 +211,9 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
         },
         getStateProcess() {
             return progress;
+        },
+        initGerberUploadState() {
+            initState();
         }
     }));
     if (true) {

@@ -191,6 +191,7 @@ export type SvgString = {
 
 /** 上传Gerber文件参数  */
 export type UploadGerberItem = {
+  status: any // 文件状态: suc 解析成功  err 失败
   progress: 0 // 上传进度进度
 }
 

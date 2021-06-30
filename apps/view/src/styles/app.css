@@ -1518,7 +1518,7 @@ body {
 .down_sw_login {
     position: absolute;
     top: 31px;
-    left: 47px;
+    left: 2px;
     width: 0;
     height: 0;
     border: 10px solid;
