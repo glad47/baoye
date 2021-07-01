@@ -17,7 +17,8 @@ export default function FileInput(props: FileInputProps): JSX.Element {
   }
   return (
     <label className="db pointer">
-      {loginState?<HiddenInput type="file" onChange={handleFiles} multiple />:<HiddenInput type="text" onClick={readyLogin} />}
+      {/*{loginState?<HiddenInput type="file" onChange={handleFiles} multiple />:<HiddenInput type="text" onClick={readyLogin} />}*/}
+      <HiddenInput type="file" onChange={handleFiles} multiple />
       <Icon name="plus" className="dib f1 brand" />
       {children}
     </label>
