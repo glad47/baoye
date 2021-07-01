@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useImperativeHandle} from 'react';
 import { Row, Col, Form, Input, Select, message } from 'antd';
 // import { useForm } from 'antd/lib/form/util';
 import { Store } from 'antd/lib/form/interface';
@@ -7,6 +7,7 @@ import { useAppState, changeSizeField } from '../state';
 
 interface PcbSizeFormProps {
     isMobileSize?: boolean
+    cRef?: any
 }
 const boardType = [{ id: 1, name: 'Single' }, { id: 2, name: 'Panel' }];
 
@@ -46,6 +47,13 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
         }
     }
 
+    useImperativeHandle(props.cRef, () => ({
+        // 主要弹出input require
+        formSubmit() {
+            form.submit();
+        }
+    }));
+
     useEffect(() => {
         // form.validateFields(['panelSize'])
         form.setFieldsValue({ ...pcbSizeField });
@@ -72,7 +80,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                     <Form.Item label="Size" name="singleSize">
                         <ObserverSize />
                     </Form.Item>
-                    <Form.Item label="Quantity" name="quantity">
+                    <Form.Item label="Quantity" name="quantity" rules={[{ required: true }]}>
                         <Input placeholder='Enter the Qty' className='enter_quantity' suffix={singleMode ? 'PCS' : 'PANEL'} autoComplete='off' />
                     </Form.Item>
                     <img src={require('../images/quate_icon1.png')} alt=""/>
@@ -106,7 +114,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
 
 
                     <Row className='mobile-size-box'>
-                        <Form.Item label="Quantity" name="quantity">
+                        <Form.Item label="Quantity" name="quantity" required>
                             <Input
                                 placeholder={!props.isMobileSize ? 'Enter the Qty' : ""}
                                 className='enter_quantity'

@@ -48,11 +48,14 @@ function App(): JSX.Element {
     const { Footer, Header, Content } = Layout
     const gerberUploadRef = useRef(null);
     const gerberGerberProgress = useRef(null);
+    const pcbSizeFormRef = useRef(null);
     const handleAddQuote = (link?: boolean ) => {
         if (quoteMode === 0) {
             if (boardType === 'Single') {
                 if (quantity === null || singleSize.sizeX === null || singleSize.sizeY === null) {
-                    message.error('Please fill in the size and quantity ！！');
+                    // @ts-ignore
+                    pcbSizeFormRef?.current.formSubmit(); // 主要弹出input require
+                    // message.error('Please fill in the size and quantity ！！');
                     return;
                 }
             } else {
@@ -263,7 +266,7 @@ function App(): JSX.Element {
                                 {/*}*/}
                                 <GerberUpload progressCallBack={progressCallBack} cRef={gerberUploadRef} loginName={loginName} setLoginMessage={setLoginMessage}/>
                                 <GerberProgress cRef={gerberGerberProgress} aginUpload={aginUpload}/>
-                                {quoteMode === 0 ? <PcbSizeForm /> : ''}
+                                {quoteMode === 0 ? <PcbSizeForm cRef={pcbSizeFormRef}/> : ''}
                                 {!isBackToUpload
                                     ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>
                                         <p className='title_success_top'>Your files have been successfully uploaded.</p>

@@ -33,7 +33,8 @@ const CarCoupon:React.FC<any> = props => {
                 message.error('error');
             } else {
                 const {code, message:msg, result} = res;
-                if (code === '3008') {
+                debugger
+                if (code === '3008' || code === '3007') {
                     message.error(msg);
                 } else {
                     message.success('兑换成功');

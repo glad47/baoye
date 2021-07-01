@@ -91,7 +91,9 @@ const CarList = (props:any) => {
                         Checkout
                     </button>
                 </Link>
-                <span>Go to cart</span>
+                <span>
+                    <Link to="/order">Go to cart</Link>
+                </span>
             </div>
         </div>
     )

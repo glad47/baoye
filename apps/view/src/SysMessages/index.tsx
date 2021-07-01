@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { Pagination } from 'antd';
 import PcbLayout from "../Components/PcbLayout";
 import '../styles/route-sys-messages.css'
 
@@ -52,7 +51,6 @@ export default () => {
                     }
                 </div>
                 <div className="sys-Mes-foot">
-                    <Pagination defaultCurrent={1} total={50} />
                 </div>
             </div>
         </PcbLayout>

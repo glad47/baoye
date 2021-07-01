@@ -22,20 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: 系统信息列表">
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="feat: gerber上传优化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Head/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Head/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/LoadFiles/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/LoadFiles/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberProgress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberProgress.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberUpload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberUpload.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/state/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarCoupon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarCoupon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/CarList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/CarList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbSizeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbSizeForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SysMessages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SysMessages/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/file-init.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/file-init.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/gerber-process.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/gerber-process.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/footer.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +136,8 @@
       <workItem from="1623944028480" duration="5479000" />
       <workItem from="1624019123596" duration="8812000" />
       <workItem from="1624174839624" duration="9891000" />
-      <workItem from="1624848713866" duration="51398000" />
+      <workItem from="1624848713866" duration="52768000" />
+      <workItem from="1625105905086" duration="9984000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>
@@ -262,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624964441063</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="feat: gerber上传优化">
+      <created>1625048120765</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1625048120765</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +342,8 @@
     <MESSAGE value="feat: 信用卡支付" />
     <MESSAGE value="feat: 头部icon,文件拖拽上传" />
     <MESSAGE value="feat: 系统信息列表" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 系统信息列表" />
+    <MESSAGE value="feat: gerber上传优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: gerber上传优化" />
   </component>
   <component name="WindowStateProjectService">
     <state x="823" y="449" key="#ESLint" timestamp="1619082830320">
@@ -398,17 +402,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620203921562" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1625047514911">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1625122818524">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="447" key="SwitcherDM/0.0.1842.1080@0.0.1842.1080" timestamp="1621051731539" />
     <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620924930855" />
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1625047514911" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1624964445224">
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1625122818524" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1625048137042">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="263" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620924918452" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1624964445224" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1625048137042" />
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1619279383233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -418,11 +422,11 @@
     </state>
     <state x="753" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620918434821" />
     <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1623948703383" />
-    <state x="669" y="245" width="884" height="644" key="find.popup" timestamp="1625045044681">
+    <state x="669" y="245" width="884" height="644" key="find.popup" timestamp="1625142743070">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620922730871" />
-    <state x="669" y="245" width="884" height="644" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1625045044681" />
+    <state x="669" y="245" width="884" height="644" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1625142743070" />
     <state x="799" y="313" key="refactoring.ChangeSignatureDialog" timestamp="1620296645833">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -431,10 +435,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="617" y="256" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621067190572" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1625039452714">
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1625122089113">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620923044107" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1625039452714" />
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1625122089113" />
   </component>
 </project>
