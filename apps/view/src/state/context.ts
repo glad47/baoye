@@ -5,6 +5,7 @@ import {Store, State, Dispatch} from './types'
 import { INITIAL_STANDARD, INITIAL_SPECIAL, INITIAL_STENCIL, INITIAL_ASSEMBLY } from '../SpecificationInput/PcbSpecification'
 /** 初始状态 */
 export const INITIAL_STATE: State = {
+  flagQuoteParams: false,
   appPreferences: {},
   board: null,
   savedBoards: [],
@@ -34,7 +35,7 @@ export const INITIAL_STATE: State = {
   fillData:true,
   user: {message: {unread: 0}},
   carDrawerStatus:false,
-  uploadGerber: {progress: 0},
+  uploadGerber: {progress: 0, status: 'init'},
   orderSummary: {total: 0, freightCharges: 0, weight: 0, coupon: {id: -1, value: 0}, handlingCharge: 0},
   orderSummaryStatus: {process: 1, description: 'MY SHOPPING CART'},
   orderOptionsItem: {deliveryAddr: null, expressInfo: {id: null, name: null}, payWays: 1, ordersItem: []},

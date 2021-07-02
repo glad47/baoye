@@ -374,6 +374,13 @@ export default function reducer(state: State, action: Action): State {
         user: {...state.user, ...action.payload},
       }
     }
+    // 报价参数是否验证
+    case actionTypes.FLAG_QUOTE_PARAMS: {
+      return {
+        ...state,
+        flagQuoteParams: action.payload
+      }
+    }
   }
   
 

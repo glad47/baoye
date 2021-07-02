@@ -99,3 +99,21 @@ export function getKeysNumForArr(arr: any, key: any, value: any) {
   }
   return num;
 }
+
+/**
+ * 判断对象是否有空值
+ * @param obj
+ */
+// @ts-ignore
+export function hasNull(obj: any) {
+  for (let key in obj) {
+    if (Object.prototype.toString.call(obj[key]) === '[object Object]') {
+      return hasNull(obj[key]);
+    } else {
+      if (!obj[key]) {
+        return true;
+      }
+    }
+  }
+  return false;
+}

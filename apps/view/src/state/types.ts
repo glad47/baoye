@@ -19,6 +19,7 @@ import { SelectValue } from 'antd/lib/select'
 
 /** 状态 Store对象包含所有数据。如果想得到某个时点的数据，就要对 Store 生成快照。这种时点的数据集合，就叫做 State。当前时刻的 State，可以通过store.getState()拿到。 */
 export type State = {
+  flagQuoteParams: boolean // 报价参数是否全部填入
   appPreferences: AppPreferences
   board: BoardRender | null
   savedBoards: Array<BoardSummary>
@@ -119,3 +120,4 @@ export type Action =
   | {type: 'ORDER_OPTIONS'; payload: orderOptionsItem}
   | {type: 'Upload_GERBER_OPTIONS'; payload: UploadGerberItem}
   | {type: 'SET_USER'; payload: UserStatus}
+  | {type: 'FLAG_QUOTE_PARAMS'; payload: any}

@@ -3,7 +3,8 @@ import { Row, Col, Form, Input, Select, message } from 'antd';
 // import { useForm } from 'antd/lib/form/util';
 import { Store } from 'antd/lib/form/interface';
 import ObserverSize from './ObserverSize';
-import { useAppState, changeSizeField } from '../state';
+import {useAppState, changeSizeField, reduxSetFlagQuoteParams} from '../state';
+import {hasNull} from "../util";
 
 interface PcbSizeFormProps {
     isMobileSize?: boolean
@@ -29,14 +30,23 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                 break;
             }
         }
-        form.validateFields().then(value => {
-            // 验证成功
-        }).catch(errorInfo => { // 表单验证失败依然提交，否则不会触发报价
+        // form.validateFields().then(value => {
+        //     // 验证成功
+        //     console.log('成功values', value)
+        // }).catch(errorInfo => { // 表单验证失败依然提交，否则不会触发报价
+        //     console.log('errorInfo', errorInfo)
+        //     form.submit();
+        // })
+        // onFinish(form.getFieldsValue())
+        if (JSON.stringify(v).indexOf('quantity') > -1) {
+            onFinish(form.getFieldsValue());
+        } else {
             form.submit();
-        })
-        form.submit();
+        }
     }
     const onFinish = (v: Store) => {
+        dispatch(reduxSetFlagQuoteParams(true));
+        console.log('onFinish', v)
         if (Object.values(v)[0] === 'Single') {
             if (Object.values(v)[2] && Object.values(v)[3]) {
                 dispatch(changeSizeField(v));
@@ -77,7 +87,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                             }
                         </Select>
                     </Form.Item>
-                    <Form.Item label="Panel Array" name="panelSize">
+                    <Form.Item label="Panel Array" name="panelSize" style={{display: singleMode ? 'none': ''}}>
                         <ObserverSize isDisabled={singleMode} />
                     </Form.Item>
                 </Col>
@@ -85,7 +95,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                     <Form.Item label="Size" name="singleSize">
                         <ObserverSize />
                     </Form.Item>
-                    <Form.Item label="Quantity" name="quantity"  rules={[{ required: true, message: 'Please input Quantity!' }]}>
+                    <Form.Item label="Quantity" name="quantity" rules={[{ required: true }]}>
                         <Input placeholder='Enter the Qty' className='enter_quantity' suffix={singleMode ? 'PCS' : 'PANEL'} autoComplete='off' />
                     </Form.Item>
                     <img src={require('../images/quate_icon1.png')} alt=""/>
