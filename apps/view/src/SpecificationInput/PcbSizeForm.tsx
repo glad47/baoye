@@ -39,7 +39,11 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
         // })
         // onFinish(form.getFieldsValue())
         if (JSON.stringify(v).indexOf('quantity') > -1) {
-            onFinish(form.getFieldsValue());
+            if (!v.quantity) {
+                dispatch(reduxSetFlagQuoteParams(false));
+            } else {
+                onFinish(form.getFieldsValue());
+            }
         } else {
             form.submit();
         }
