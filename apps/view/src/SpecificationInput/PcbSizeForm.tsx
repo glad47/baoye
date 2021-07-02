@@ -29,6 +29,11 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                 break;
             }
         }
+        form.validateFields().then(value => {
+            // 验证成功
+        }).catch(errorInfo => { // 表单验证失败依然提交，否则不会触发报价
+            form.submit();
+        })
         form.submit();
     }
     const onFinish = (v: Store) => {
@@ -80,7 +85,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                     <Form.Item label="Size" name="singleSize">
                         <ObserverSize />
                     </Form.Item>
-                    <Form.Item label="Quantity" name="quantity" rules={[{ required: true }]}>
+                    <Form.Item label="Quantity" name="quantity"  rules={[{ required: true, message: 'Please input Quantity!' }]}>
                         <Input placeholder='Enter the Qty' className='enter_quantity' suffix={singleMode ? 'PCS' : 'PANEL'} autoComplete='off' />
                     </Form.Item>
                     <img src={require('../images/quate_icon1.png')} alt=""/>
