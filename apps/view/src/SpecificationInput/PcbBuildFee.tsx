@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 const PcbBuildFee: React.FC<any> = (props) => {
     const { setIsLogin, handleAddQuote } = props;
     const history = useHistory();
-    const { dispatch, carDrawerStatus, subtotal, flagQuoteParams } = useAppState();
+    const { dispatch, carDrawerStatus, subtotal, flagQuoteParams, quoteMode } = useAppState();
     const handlerCar = () => {
         if (flagQuoteParams) {
             const isLogin = sessionStorage.getItem('username');
@@ -38,8 +38,8 @@ const PcbBuildFee: React.FC<any> = (props) => {
             <div className="cost-d">Cost Details</div>
             <PcbBuildFeeDetail {...subtotal} />
             <div className="model-4">
-                <span onClick={handlerCar} className={!flagQuoteParams ? 'disabled' : ''}>Add to cart</span>
-                <span onClick={buyNow} className={!flagQuoteParams ? 'disabled' : ''}>Buy Now</span>
+                <span onClick={handlerCar} className={!flagQuoteParams && quoteMode === 0 ? 'disabled' : ''}>Add to cart</span>
+                <span onClick={buyNow} className={!flagQuoteParams && quoteMode === 0 ? 'disabled' : ''}>Buy Now</span>
             </div>
             {
                 carDrawerStatus ? <CarDrawer visible={carDrawerStatus}/> : ''
