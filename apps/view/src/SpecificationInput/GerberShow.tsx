@@ -1,21 +1,28 @@
-import React, {Ref, useEffect, useState} from "react";
-import { useAppState, backToUpload } from "../state";
-import LoadFiles from '../LoadFiles/index'
-import { Spin } from "antd";
+import React, {useEffect, useState} from "react";
+import { useAppState } from "../state";
 import FileError from "../LoadFiles/FileStatus/FileError";
+import FileFailed from "../LoadFiles/FileStatus/FileFailed";
+import FileTimeOut from "../LoadFiles/FileStatus/FileTimeOut";
 
 interface GerberShowProps {
     handleFilesRef: any
 }
+
 const WRAPPER_STYLE = 'absolute absolute--center near-black tc'
 //gerber显示组件
 const GerberShow: React.FC<GerberShowProps> = (props) => {
-    const { loading, pcbSizeField: { singleSize: { sizeX, sizeY } }, svg, isShow, singleCopper, isBackToUpload, pcbStandardField, dispatch,allKeys } = useAppState()
+    const { loading, pcbSizeField: { singleSize: { sizeX, sizeY } }, svg, isShow, singleCopper, isBackToUpload, pcbStandardField, dispatch,allKeys, uploadGerber } = useAppState()
     const SIZE_CLASS_NAME = sizeX && sizeY && sizeX > sizeY ? 'vertical_svg_first' : 'transverse_svg_first'
     const SIZE_FIRST_CLASS_NAME = sizeX && sizeY && sizeX > sizeY ? 'vertical_svg' : 'transverse_svg'
     const [isTimeOut, setTimer] = useState(isBackToUpload)
     const wordTip = isTimeOut ? 'Successful Gerber file upload! The system is analyzing data. Please wait and check the specifications.' : 'It takes a little time for analyzing the file. You can also input by your own to get a quote.'
-    const {material,layer,silkscreen,solderMask}=pcbStandardField
+    const {material,layer,silkscreen,solderMask}=pcbStandardField;
+    const fileStatus: any = {
+        err: <FileError handleFilesRef={props.handleFilesRef}/>,
+        fail: <FileFailed handleFilesRef={props.handleFilesRef}/>,
+        timeout: <FileTimeOut />,
+        init: ''
+    }
     useEffect(() => {
         let timer: any
         let isComplete = new Promise((resolve, reject) => {
@@ -86,7 +93,9 @@ const GerberShow: React.FC<GerberShowProps> = (props) => {
                     {/*<img src={defaultImgSrc} />*/}
                     {/*<p className='fill_pit'>{wordTip}</p>*/}
                     {
-                        isTimeOut ? 'Successful Gerber file upload! The system is analyzing data. Please wait and check the specifications.' : <FileError handleFilesRef={props.handleFilesRef}/>
+                        isTimeOut ?
+                            'Successful Gerber file upload! The system is analyzing data. Please wait and check the specifications.' :
+                            fileStatus[uploadGerber.status]
                     }
                 </div>
 

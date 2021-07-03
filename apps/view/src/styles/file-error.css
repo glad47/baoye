@@ -1,5 +1,6 @@
 .file-error {
     display: flex;
+    min-height: 258px;
     align-items: center;
     background: #fff;
 }

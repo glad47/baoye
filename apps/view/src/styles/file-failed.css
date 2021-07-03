@@ -33,12 +33,13 @@
     color: #666666;
 }
 
-.FileFailed>div .btn-gp button:first-of-type {
+.FileFailed>div .btn-gp span.upload-btn {
     background: unset !important;
     color: #2952EA;
 }
 
-.FileFailed>div .btn-gp button:last-of-type {
+.FileFailed>div .btn-gp>button {
     background: #7465FD !important;
     border: solid 1px #7465FD;
+    margin: unset;
 }

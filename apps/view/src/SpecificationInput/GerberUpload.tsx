@@ -17,6 +17,7 @@ import { message,Checkbox } from "antd";
 import Cookies from 'js-cookie';
 import GerberShow from "./GerberShow";
 import {DOM} from "@fortawesome/fontawesome-svg-core";
+import FileError from "../LoadFiles/FileStatus/FileError";
 
 interface GerberUploadProps {
     loginName: any,
@@ -27,7 +28,7 @@ interface GerberUploadProps {
 
 //gerber上传组件
 const GerberUpload: React.FC<GerberUploadProps> = (props) => {
-    const { dispatch,subtotal:{boardFee,stencilFee,assemblyFee},quoteMode, isBackToUpload } = useAppState();
+    const { dispatch,subtotal:{boardFee,stencilFee,assemblyFee},quoteMode, isBackToUpload, uploadGerber } = useAppState();
     const [progress, changeProgress] = useState(0)
     const [delay,setDelay]=useState(false)
     const [loginState,setLoginState]=useState(false)
@@ -63,14 +64,13 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
         //     props.setLoginMessage(true)
         //     return
         // }
-        dispatch(REDUX_SET_isBackToUpload(null))
-        console.log('出发')
+        dispatch(REDUX_SET_isBackToUpload(true))
         const files =
             'dataTransfer' in event
                 ? Array.from(event.dataTransfer.files)
                 : Array.from(event.target.files || [])
         const token = Cookies.get('token');
-        
+
         // console.log('token',token);
 
         if ('value' in event.target) event.target.value = ''
@@ -84,7 +84,9 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             const suffix=fileName.substring(fileName.lastIndexOf('.')+1)
             let isRar=(suffix.toLocaleLowerCase()=='zip' || suffix.toLocaleLowerCase()=='rar') ? true :false
             if (!isRar) {
-                message.warning('only accept zip or rar file.')
+                message.warning('only accept zip or rar file.');
+                dispatch(REDUX_SET_isBackToUpload(false))
+                dispatch(reduxUploadGerber({status: 'err'}));
                 return
             }
             //上传资料拆两步分开, 上传资料
@@ -147,6 +149,8 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                 console.log('上传文件出错！！');
                 setDelay(true)
                 dispatch(backToUpload(false))
+                // dispatch(reduxUploadGerber({status: 'fail'}));
+                dispatch(reduxUploadGerber({status: 'timeout'}));
             })
 
 
@@ -234,6 +238,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                     {/* <UserLogin/> */}
                 </>
                 : <GerberShow handleFilesRef={handleFiles}/>
+                // : (uploadGerber.status === 'err' ? <FileError handleFilesRef={handleFiles}/> :<GerberShow handleFilesRef={handleFiles}/>)
         )
     } else {
         return null

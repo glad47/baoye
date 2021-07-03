@@ -259,13 +259,13 @@ export default function reducer(state: State, action: Action): State {
           uploadGerber: {...state.uploadGerber, status: 'suc'}
         }
       }else{
-        return{
+        return {
           ...state,
           // fileName: fileName,
           // fileUploadPtah: uploadPath,
           isShow: parseResult,
           isBackToUpload:false,
-          uploadGerber: {...state.uploadGerber, status: 'err'},
+          uploadGerber: {...state.uploadGerber, status: 'fail'},
           fillData:false
         }
       }
@@ -322,7 +322,7 @@ export default function reducer(state: State, action: Action): State {
     case actionTypes.RELOAD_UPLOAD_SVG: {
       return {
         ...state,
-        isBackToUpload:true
+        isBackToUpload:action.payload
       }
     }
     case actionTypes.BACKFILL_UPLOAD_PATH_DATA: {

@@ -22,9 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="fix: 表单验证优化">
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="fix: +1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbSizeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbSizeForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/LoadFiles/FileStatus/FileFailed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/LoadFiles/FileStatus/FileFailed.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberShow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberShow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberUpload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberUpload.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/state/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/file-error.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/file-error.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/file-failed.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/file-failed.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,10 +41,10 @@
       <list>
         <option value="SCSS File" />
         <option value="Less File" />
-        <option value="TypeScript File" />
         <option value="HTML File" />
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -58,7 +63,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/view" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/view/src/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -76,6 +81,11 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\apps\pcbonline-v3\apps\view\src\Components\Invoice" />
+      <recent name="E:\apps\pcbonline-v3\apps\view\src\Components\MyCollapse" />
+      <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src\Components\OrderProcess\ProcessOneForCar" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\apps\pcbonline-v3\apps\view\src\images" />
       <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src" />
@@ -83,13 +93,8 @@
       <recent name="E:\apps\pcbonline\pcbonline-v2\apps\view\src\images" />
       <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\apps\pcbonline-v3\apps\view\src\Components\Invoice" />
-      <recent name="E:\apps\pcbonline-v3\apps\view\src\Components\MyCollapse" />
-      <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src\Components\OrderProcess\ProcessOneForCar" />
-    </key>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SshConsoleOptionsProvider">
     <option name="myEncoding" value="UTF-8" />
   </component>
@@ -130,8 +135,8 @@
       <workItem from="1623944028480" duration="5479000" />
       <workItem from="1624019123596" duration="8812000" />
       <workItem from="1624174839624" duration="9891000" />
-      <workItem from="1624848713866" duration="52768000" />
-      <workItem from="1625105905086" duration="9984000" />
+      <workItem from="1624848713866" duration="35093000" />
+      <workItem from="1625292258168" duration="9595000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>
@@ -245,25 +250,25 @@
       <option name="project" value="LOCAL" />
       <updated>1624874735541</updated>
     </task>
-    <task id="LOCAL-00017" summary="feat: 系统信息列表">
-      <created>1624964441063</created>
+    <task id="LOCAL-00017" summary="feat: 优化">
+      <created>1625248355435</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1624964441063</updated>
+      <updated>1625248355435</updated>
     </task>
-    <task id="LOCAL-00018" summary="feat: gerber上传优化">
-      <created>1625048120765</created>
+    <task id="LOCAL-00018" summary="fix: +1">
+      <created>1625248632092</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1625048120765</updated>
+      <updated>1625248632092</updated>
     </task>
     <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -335,9 +340,9 @@
     <MESSAGE value="feat: 支付成功页合同" />
     <MESSAGE value="feat: 信用卡支付" />
     <MESSAGE value="feat: 头部icon,文件拖拽上传" />
-    <MESSAGE value="feat: 系统信息列表" />
-    <MESSAGE value="feat: gerber上传优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: gerber上传优化" />
+    <MESSAGE value="feat: 优化" />
+    <MESSAGE value="fix: +1" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: +1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="823" y="449" key="#ESLint" timestamp="1619082830320">
@@ -356,18 +361,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="284" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620203109051" />
-    <state x="91" y="102" width="1718" height="880" key="DiffContextDialog" timestamp="1625210183495">
+    <state x="91" y="102" width="1718" height="880" key="DiffContextDialog" timestamp="1624201558591">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="91" y="102" width="1718" height="880" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1625210183495" />
+    <state x="91" y="102" width="1718" height="880" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1624201558591" />
     <state x="615" y="316" key="EditFileWatcherDialog" timestamp="1619084431994">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="615" y="316" key="EditFileWatcherDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1619084431994" />
-    <state x="701" y="310" key="FileChooserDialogImpl" timestamp="1625021245566">
+    <state x="701" y="310" key="FileChooserDialogImpl" timestamp="1624096577591">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="701" y="310" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1625021245566" />
+    <state x="701" y="310" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1624096577591" />
     <state x="785" y="447" key="GitRewordDialog" timestamp="1619337049168">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -396,31 +401,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620203921562" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1625122818524">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="532" height="476" key="SwitcherDM" timestamp="1625294328144">
+      <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state width="498" height="447" key="SwitcherDM/0.0.1842.1080@0.0.1842.1080" timestamp="1621051731539" />
     <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620924930855" />
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1625122818524" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1625048137042">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1624963139465" />
+    <state width="532" height="476" key="SwitcherDM/0.0.2048.1152@0.0.2048.1152" timestamp="1625294328144" />
+    <state x="589" y="291" key="Vcs.Push.Dialog.v2" timestamp="1625248633347">
+      <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="552" y="263" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620924918452" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1625048137042" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1624874737319" />
+    <state x="589" y="291" key="Vcs.Push.Dialog.v2/0.0.2048.1152@0.0.2048.1152" timestamp="1625248633347" />
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1619279383233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619279383233" />
-    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1625221361412">
+    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1623948703383">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="753" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620918434821" />
-    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1625221361412" />
-    <state x="669" y="245" width="884" height="644" key="find.popup" timestamp="1625142743070">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1623948703383" />
+    <state x="714" y="261" width="943" height="687" key="find.popup" timestamp="1625300014132">
+      <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620922730871" />
-    <state x="669" y="245" width="884" height="644" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1625142743070" />
+    <state x="669" y="245" width="884" height="644" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1624962909105" />
+    <state x="714" y="261" width="943" height="687" key="find.popup/0.0.2048.1152@0.0.2048.1152" timestamp="1625300014132" />
     <state x="799" y="313" key="refactoring.ChangeSignatureDialog" timestamp="1620296645833">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -429,10 +437,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="617" y="256" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621067190572" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1625122089113">
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1624948618696">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620923044107" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1625122089113" />
+    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1624948618696" />
   </component>
 </project>
