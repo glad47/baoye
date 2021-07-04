@@ -10,10 +10,12 @@ import LoginShow from '../DownMenu/loginShow'
 import HeaderTips from "./HeaderTips";
 import {changeCarDrawer, useAppState} from "../state";
 import SysMessage from "./components/SysMessage";
+import {ajaxCarList, ajaxCarListForAssembly, ajaxCarListForStencil} from "../SpecificationInput/AjaxService";
 
 const Head:React.FC = (props: any) => {
     const { dispatch, user } = useAppState();
     const [tipsShow, setTipsShow] = useState<boolean>(false);
+    const [cartNum, setCartNum] = useState(0);
     const handleManage = () => {
         window.open('https://sys.pcbonline.com/home')
     }
@@ -23,7 +25,18 @@ const Head:React.FC = (props: any) => {
         if (pathname === '/') {
             setTipsShow(true);
         }
+        getCartNum()
     }, []);
+
+    // 用户信息接口没返回购物车数量， 重复请求
+    const getCartNum = async () => {
+        const status = 1;
+        const s1: any = await ajaxCarList({status});
+        const s2: any = await ajaxCarListForStencil({status});
+        const s3: any = await ajaxCarListForAssembly({status});
+        const total = s1.total + s2.total + s3.total;
+        setCartNum(total);
+    }
 
     // 打开购物车
     const handlerCar = () => {
@@ -62,15 +75,16 @@ const Head:React.FC = (props: any) => {
                                 ? <span className="sign-in">
                                     <a href='http://sys.pcbonline.com//login?jumpUrl=/blog'>
                                         SIGN IN
-                                </a>
+                                    </a>
                                 </span>
-                                : <div className='use_name' onClick={handleManage}>
+                                :
+                                <div className='use_name' onClick={handleManage}>
                                     {props.loginName[1] ?
                                         <img src={props.loginName[1]} />
                                         : ''}
                                 </div>
                             }
-                            {props.loginName === null ? null : <LoginShow />}
+                            {props.loginName[0] !== null && <LoginShow />}
                         </div>
                         {
                             props.loginName[0] !== null
@@ -95,7 +109,7 @@ const Head:React.FC = (props: any) => {
                                         </Popover>
                                     </li>
                                     <li className="h-badge num" onClick={handlerCar}>
-                                        <Badge count={5} size="small">
+                                        <Badge count={cartNum} size="small">
                                             <ShoppingCartOutlined />
                                         </Badge>
                                     </li>

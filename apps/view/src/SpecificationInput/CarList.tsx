@@ -1,7 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import {message, Spin} from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import {ajaxCarList, delPcbOrder, editPcbOrder} from "./AjaxService";
+import {
+    ajaxCarList,
+    ajaxCarListForAssembly,
+    ajaxCarListForStencil,
+    delPcbOrder,
+    delStencilOrder,
+    editPcbOrder
+} from "./AjaxService";
 import {orders} from "../ts/pcb";
 import {Link} from "react-router-dom";
 
@@ -16,21 +23,26 @@ const CarList = (props:any) => {
 
 
     // 获取列表
-    const getCarList = () => {
+    const getCarList = async () => {
         setSpinFlag(true);
-        ajaxCarList({status: 1}).then(res => {
-            const {data} = res;
-            setLen(data.length);
-            setListData(data);
-            setSpinFlag(false);
-        })
+        const orderPCB = await ajaxCarList({status: 1});
+        const orderStencil = await ajaxCarListForStencil({status: 1});
+        const orderAssembly = await ajaxCarListForAssembly({status: 1});
+        const data = Object.assign(orderPCB.data, orderStencil.data, orderAssembly.data);
+        setListData(data);
+        setLen(data.length+1);
+        setSpinFlag(false);
     }
 
     useEffect(() => {
         if (listData.length > 0) {
             let t = listData.reduce((pre: number, cur: orders) => {
-                const {subtotal} = cur;
-                pre += subtotal;
+                const {subtotal, totalStencilFee} = cur;
+                if (subtotal) {
+                    pre += subtotal;
+                } else {
+                    pre += totalStencilFee;
+                }
                 return pre;
             }, 0);
             t = Number(t.toFixed(2))
@@ -41,14 +53,37 @@ const CarList = (props:any) => {
     // 删除订单
     const handlerDel = (id: number, index:number) => {
         setSpinFlag(true);
-        delPcbOrder(id).then(res => {
-            const def: [] = [...listData];
-            def.splice(index, 1);
-            setListData(def);
-            console.log(res);
-            message.success('delete success!');
-            setSpinFlag(false);
-        })
+        const dtd = listData[index];
+        const {totalStencilFee} = dtd;
+        if (totalStencilFee) {
+            delStencilOrder(id).then((res: any) => {
+                const {success, message: msg} = res;
+                if (success) {
+                    delCallBack(index);
+                    message.success('delete success!');
+                } else {
+                    message.error(msg);
+                }
+                setSpinFlag(false);
+            })
+        } else {
+            delPcbOrder(id).then((res: any) => {
+                const {success, message: msg} = res;
+                if (success) {
+                    delCallBack(index);
+                    message.success('delete success!');
+                } else {
+                    message.error(msg);
+                }
+                setSpinFlag(false);
+            })
+        }
+    }
+
+    const delCallBack = (index: any) => {
+        const def: [] = [...listData];
+        def.splice(index, 1);
+        setListData(def);
     }
 
     useEffect(() => {
@@ -67,9 +102,9 @@ const CarList = (props:any) => {
                             <div className="options">
                                 <span className="name">{item.gerberName}</span>
                                 <div className="lift-num">
-                                    <span className="num">{item.quantityPcs} <span style={{fontSize: '12px'}}>PCS</span></span>
+                                    <span className="num">{item.boardType ? item.quantityPcs : item.quantity} <span style={{fontSize: '12px'}}>PCS</span></span>
                                 </div>
-                                <strong>${item.subtotal}</strong>
+                                <strong>${item.boardType ? item.subtotal : item.totalStencilFee}</strong>
                             </div>
                             <img
                                 src={require("../images/close_circle.png")}

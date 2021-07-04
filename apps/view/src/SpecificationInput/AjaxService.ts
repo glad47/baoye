@@ -6,11 +6,11 @@ import service from "../request";
 // export const baseUrl = "https://www.pcbonline.com/" //线上前端
 // export const sysUrl = "https://sys.pcbonline.com/"  //线上后端
 // 线下
-// export const baseUrl = "http://localhost:8083/base/" //网站前端
-// export const sysUrl = "http://localhost:8083/sys/"  //网站后端
+export const baseUrl = "http://localhost:8083/base/" //网站前端
+export const sysUrl = "http://localhost:8083/sys/"  //网站后端
 // parker服务器配置地址
-export const baseUrl = "http://pcb.imcoding.top/base/" //网站前端
-export const sysUrl = "http://pcb.imcoding.top/sys/"  //网站后端
+// export const baseUrl = "http://pcb.imcoding.top/base/" //网站前端
+// export const sysUrl = "http://pcb.imcoding.top/sys/"  //网站后端
 // export const uploadUrl = "http://localhost:8888/"
 
 // export function ajaxBuildTime (){
@@ -84,12 +84,48 @@ export const ajaxCarList = (data: any) => {
 }
 
 /**
+ * stencil 订单列表
+ * @param data
+ */
+export const ajaxCarListForStencil = (data: any) => {
+    return service({
+        url: `${sysUrl}api/smlstencil/query`,
+        method: 'post',
+        data: data
+    });
+}
+
+/**
+ * assembly 订单列表
+ * @param data
+ */
+export const ajaxCarListForAssembly = (data: any) => {
+    return service({
+        url: `${sysUrl}api/assembly/query`,
+        method: 'post',
+        data: data
+    });
+}
+
+
+/**
  * 删除pcb订单
  * @param id
  */
 export const delPcbOrder = (id: number) => {
     return service({
         url: `${sysUrl}api/quote/${id}`,
+        method: 'delete'
+    })
+}
+
+/**
+ * 删除Stencil订单
+ * @param id
+ */
+export const delStencilOrder = (id: number) => {
+    return service({
+        url: `${sysUrl}api/smlstencil/${id}`,
         method: 'delete'
     })
 }
