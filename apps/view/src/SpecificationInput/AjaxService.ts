@@ -55,10 +55,10 @@ export const ajaxAssemblyCast = (data: any)=>{
     return Axios.get(baseUrl + `v1/quote/getAssemblyQuote?assemblyType=${data.assemblyType}&uniquePartNum=${data.uniquePartNum}&smtPartNum=${data.smtPartNum}&throughHolePartNum=${data.throughHolePartNum}&assemblySide=${data.assemblySide}&quantity=${data.quantity}`);
 }
 
-export const ajaxFileUpload = (file: File[]) =>{
+export const ajaxFileUpload = (file: File) =>{
     const token = Cookies.get('token');
     const fromData = new FormData();
-    fromData.append('file',file[0]);
+    fromData.append('file',file);
 
     // todo 测试 headers:{'Content-Type': 'multipart/form-data','Authorization':token},
     return Axios.request({
@@ -66,7 +66,8 @@ export const ajaxFileUpload = (file: File[]) =>{
         method: 'post',
         data: fromData,
         url: sysUrl + 'api/file/upload/zip',
-        withCredentials: true
+        withCredentials: true,
+        timeout:60000,
     })
 }
 

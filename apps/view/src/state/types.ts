@@ -53,6 +53,7 @@ export type State = {
   orderSummary: OrderSummaryItem // 订单结算
   orderSummaryStatus: OrderSummaryStatus // 结算状态管理
   orderOptionsItem: orderOptionsItem // 结算 左侧参数信息
+  fileFormData: any // 上传gerber需要的formData文件信息
 }
 
 /** Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。 */
@@ -121,3 +122,4 @@ export type Action =
   | {type: 'Upload_GERBER_OPTIONS'; payload: UploadGerberItem}
   | {type: 'SET_USER'; payload: UserStatus}
   | {type: 'FLAG_QUOTE_PARAMS'; payload: any}
+  | {type: 'SAVE_FILE_FORMDATA'; payload: any}

@@ -39,6 +39,7 @@ export const INITIAL_STATE: State = {
   orderSummary: {total: 0, freightCharges: 0, weight: 0, coupon: {id: -1, value: 0}, handlingCharge: 0},
   orderSummaryStatus: {process: 1, description: 'MY SHOPPING CART'},
   orderOptionsItem: {deliveryAddr: null, expressInfo: {id: null, name: null}, payWays: 1, ordersItem: []},
+  fileFormData: null,
 }
 
 // const INITIAL_STANDARD = {

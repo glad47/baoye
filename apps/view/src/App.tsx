@@ -2,7 +2,7 @@
 import React, {useEffect, useRef, useState} from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { useAppState, createBoard, createBoardFromUrl, addQuote, backToUpload } from './state'
+import {useAppState, createBoard, createBoardFromUrl, addQuote, backToUpload, backfillUploadPathData} from './state'
 import { Main } from './ui'
 import { Layout, message } from 'antd'
 import PcbSizeForm from './SpecificationInput/PcbSizeForm'
@@ -23,6 +23,7 @@ import Head from './Head/index'
 import MobileHead from './Head/MobileHead'
 import PcbBuildFee from "./SpecificationInput/PcbBuildFee";
 import GerberProgress from "./SpecificationInput/GerberProgress";
+import {ajaxFileUpload} from "./SpecificationInput/AjaxService";
 
 function App(): JSX.Element {
     const { dispatch
@@ -31,6 +32,7 @@ function App(): JSX.Element {
         , fileUploadPtah
         , isBackToUpload
         , isShow
+        , fileFormData
         , buildTimeItmes: buildTimeItems
         , pcbSizeField: { boardType, quantity, panelSize, singleSize } } = useAppState()
     let uname: any = null;
@@ -49,7 +51,15 @@ function App(): JSX.Element {
     const gerberUploadRef = useRef(null);
     const gerberGerberProgress = useRef(null);
     const pcbSizeFormRef = useRef(null);
-    const handleAddQuote = (link?: boolean ) => {
+    const handleAddQuote = async (link?: boolean ) => {
+        // 添加报价前先上传state保存的gerber文件
+        const fileRes = await ajaxFileUpload(fileFormData);
+        if (fileRes.data.success) {
+            const {result} = fileRes.data
+            dispatch(backfillUploadPathData(result));
+        } else {
+            return false;
+        }
         if (quoteMode === 0) {
             if (boardType === 'Single') {
                 if (quantity === null || singleSize.sizeX === null || singleSize.sizeY === null) {

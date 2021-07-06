@@ -6,7 +6,7 @@ import {
     backfillPcbData,
     backToUpload,
     backfillSvgData,
-    reduxUploadGerber, BACKFILL_SVG_DATA, REDUX_SET_isBackToUpload
+    reduxUploadGerber, BACKFILL_SVG_DATA, REDUX_SET_isBackToUpload, saveUploadGerberFileFormData
 } from "../state";
 import LoadFiles from "../LoadFiles";
 import { FileEvent } from "../types";
@@ -96,12 +96,9 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             fd.append('uploads', files[0]);
             dispatch(reduxUploadGerber({process: 1, status: 'init'}));
             changeProgress(1);
-            Axios.request({
-                headers:{'Content-Type': 'multipart/form-data','Authorization':token},
-                method: 'post',
-                data: fromData,
-                url: sysUrl + 'api/file/upload/zip',
-                withCredentials: true,
+            dispatch(saveUploadGerberFileFormData(files[0]));
+            Axios.post(sysUrl+'parsegerber',fd,{
+                headers: { 'Content-Type': 'multipart/form-data' },
                 timeout:60000,
                 onUploadProgress: (ProgressEvent) => {
                     if (ProgressEvent.lengthComputable) {
@@ -113,16 +110,6 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                         }
                     }
                 }
-            }).then(res=>{
-                // console.log(res);
-                let {data:{success,result}} = res;
-                if(success){
-                    dispatch(backfillUploadPathData(result));
-                }
-                return  Axios.post(sysUrl+'parsegerber',fd,{
-                    headers: { 'Content-Type': 'multipart/form-data' },
-                    timeout:60000 
-                });
             }).then(res=>{
                 // console.log(res);
                 //解析gerber资料
@@ -143,8 +130,6 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                 }else{
                     dispatch(backfillSvgData(r))
                 }
-                
-
             }).catch(e=>{
                 console.log('上传文件出错！！');
                 setDelay(true)

@@ -64,6 +64,7 @@ export const ORDER_OPTIONS = 'ORDER_OPTIONS';
 export const Upload_GERBER_OPTIONS = 'Upload_GERBER_OPTIONS';
 export const SET_USER = 'SET_USER';
 export const FLAG_QUOTE_PARAMS = 'FLAG_QUOTE_PARAMS';
+export const SAVE_FILE_FORMDATA = 'SAVE_FILE_FORMDATA';
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -339,6 +340,11 @@ export const orderOptions = (field:any): Action => ({
 /** 上传Gerber */
 export const reduxUploadGerber = (field:any): Action => ({
   type: Upload_GERBER_OPTIONS,
+  payload: field
+});
+
+export const saveUploadGerberFileFormData = (field: any): Action => ({
+  type: SAVE_FILE_FORMDATA,
   payload: field
 });
 
