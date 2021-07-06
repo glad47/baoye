@@ -30,12 +30,14 @@ const Head:React.FC = (props: any) => {
 
     // 用户信息接口没返回购物车数量， 重复请求
     const getCartNum = async () => {
-        const status = 1;
-        const s1: any = await ajaxCarList({status});
-        const s2: any = await ajaxCarListForStencil({status});
-        const s3: any = await ajaxCarListForAssembly({status});
-        const total = s1.total + s2.total + s3.total;
-        setCartNum(total);
+        if (props.loginName[0]) {
+            const status = 1;
+            const s1: any = await ajaxCarList({status});
+            const s2: any = await ajaxCarListForStencil({status});
+            const s3: any = await ajaxCarListForAssembly({status});
+            const total = s1.total + s2.total + s3.total;
+            setCartNum(total);
+        }
     }
 
     // 打开购物车
