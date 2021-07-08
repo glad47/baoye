@@ -1,10 +1,8 @@
 import React, {useState, useEffect, useImperativeHandle} from 'react';
-import { Row, Col, Form, Input, Select, message } from 'antd';
-// import { useForm } from 'antd/lib/form/util';
+import { Row, Col, Form, Input, Select, Tooltip } from 'antd';
 import { Store } from 'antd/lib/form/interface';
 import ObserverSize from './ObserverSize';
 import {useAppState, changeSizeField, reduxSetFlagQuoteParams} from '../state';
-import {hasNull} from "../util";
 
 interface PcbSizeFormProps {
     isMobileSize?: boolean
@@ -99,10 +97,12 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                     <Form.Item label="Size" name="singleSize">
                         <ObserverSize />
                     </Form.Item>
-                    <Form.Item label="Quantity" name="quantity" rules={[{ required: true }]}>
+                    <Form.Item label="Quantity" name="quantity">
                         <Input placeholder='Enter the Qty' className='enter_quantity' suffix={singleMode ? 'PCS' : 'PANEL'} autoComplete='off' />
                     </Form.Item>
-                    <img src={require('../images/quate_icon1.png')} alt=""/>
+                    <Tooltip placement="top" title="Please pay attention to enter the board quantity">
+                        <img src={require('../images/quate_icon1.png')} alt=""/>
+                    </Tooltip>
                 </Col>
             </Row>
         </Form> :

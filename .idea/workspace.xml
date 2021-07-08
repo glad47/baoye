@@ -25,12 +25,11 @@
     <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="fix:  优化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberUpload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberUpload.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/state/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/state/context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/context.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/state/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/state/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarOrderSummary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarOrderSummary.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/ObserverSelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/ObserverSelect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbSizeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbSizeForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/app.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,10 +41,10 @@
       <list>
         <option value="SCSS File" />
         <option value="Less File" />
-        <option value="HTML File" />
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
         <option value="TypeScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -139,6 +138,8 @@
       <workItem from="1624848713866" duration="35093000" />
       <workItem from="1625292258168" duration="14899000" />
       <workItem from="1625372290822" duration="7695000" />
+      <workItem from="1625673594255" duration="987000" />
+      <workItem from="1625753255095" duration="7080000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>
@@ -388,10 +389,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="615" y="316" key="EditFileWatcherDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1619084431994" />
-    <state x="701" y="310" key="FileChooserDialogImpl" timestamp="1624096577591">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="748" y="331" key="FileChooserDialogImpl" timestamp="1625758017238">
+      <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="701" y="310" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1624096577591" />
+    <state x="748" y="331" key="FileChooserDialogImpl/0.0.2048.1152@0.0.2048.1152" timestamp="1625758017238" />
     <state x="785" y="447" key="GitRewordDialog" timestamp="1619337049168">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -420,13 +422,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620203921562" />
-    <state width="532" height="476" key="SwitcherDM" timestamp="1625586806498">
+    <state width="532" height="476" key="SwitcherDM" timestamp="1625758441289">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state width="498" height="447" key="SwitcherDM/0.0.1842.1080@0.0.1842.1080" timestamp="1621051731539" />
     <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620924930855" />
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1624963139465" />
-    <state width="532" height="476" key="SwitcherDM/0.0.2048.1152@0.0.2048.1152" timestamp="1625586806498" />
+    <state width="532" height="476" key="SwitcherDM/0.0.2048.1152@0.0.2048.1152" timestamp="1625758441289" />
     <state x="589" y="291" key="Vcs.Push.Dialog.v2" timestamp="1625333925469">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
@@ -437,17 +439,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619279383233" />
-    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1623948703383">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="803" y="483" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1625753360862">
+      <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="753" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620918434821" />
     <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1623948703383" />
-    <state x="212" y="312" width="943" height="687" key="find.popup" timestamp="1625586802260">
+    <state x="803" y="483" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2048.1152@0.0.2048.1152" timestamp="1625753360862" />
+    <state x="212" y="312" width="943" height="687" key="find.popup" timestamp="1625755688691">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620922730871" />
     <state x="669" y="245" width="884" height="644" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1624962909105" />
-    <state x="212" y="312" width="943" height="687" key="find.popup/0.0.2048.1152@0.0.2048.1152" timestamp="1625586802260" />
+    <state x="212" y="312" width="943" height="687" key="find.popup/0.0.2048.1152@0.0.2048.1152" timestamp="1625755688691" />
     <state x="799" y="313" key="refactoring.ChangeSignatureDialog" timestamp="1620296645833">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -456,10 +459,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="617" y="256" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621067190572" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1624948618696">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="656" y="206" width="717" height="722" key="search.everywhere.popup" timestamp="1625757838042">
+      <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620923044107" />
     <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1624948618696" />
+    <state x="656" y="206" width="717" height="722" key="search.everywhere.popup/0.0.2048.1152@0.0.2048.1152" timestamp="1625757838042" />
   </component>
 </project>

@@ -33,6 +33,7 @@ function App(): JSX.Element {
         , isBackToUpload
         , isShow
         , fileFormData
+        , flagQuoteParams
         , buildTimeItmes: buildTimeItems
         , pcbSizeField: { boardType, quantity, panelSize, singleSize } } = useAppState()
     let uname: any = null;
@@ -53,15 +54,26 @@ function App(): JSX.Element {
     const pcbSizeFormRef = useRef(null);
     const handleAddQuote = async (link?: boolean ) => {
         // 添加报价前先上传state保存的gerber文件
-        const fileRes = await ajaxFileUpload(fileFormData);
-        if (fileRes.data.success) {
-            const {result} = fileRes.data
-            dispatch(backfillUploadPathData(result));
+        if (fileFormData) {
+            const fileRes = await ajaxFileUpload(fileFormData);
+            if (fileRes.data.success) {
+                const {result} = fileRes.data
+                dispatch(backfillUploadPathData(result));
+            } else {
+                return false;
+            }
         } else {
+            const fileEL: any = document.getElementById("pcbFile");
+            fileEL.style.borderColor = "red";
             return false;
         }
         if (quoteMode === 0) {
             if (boardType === 'Single') {
+                if (!flagQuoteParams) {
+                    // @ts-ignore
+                    pcbSizeFormRef?.current.formSubmit(); // 主要弹出input require
+                    return false;
+                }
                 if (quantity === null || singleSize.sizeX === null || singleSize.sizeY === null) {
                     // @ts-ignore
                     pcbSizeFormRef?.current.formSubmit(); // 主要弹出input require
@@ -277,11 +289,11 @@ function App(): JSX.Element {
                                 <GerberUpload progressCallBack={progressCallBack} cRef={gerberUploadRef} loginName={loginName} setLoginMessage={setLoginMessage}/>
                                 <GerberProgress cRef={gerberGerberProgress} aginUpload={aginUpload}/>
                                 {quoteMode === 0 ? <PcbSizeForm cRef={pcbSizeFormRef}/> : ''}
-                                {!isBackToUpload
-                                    ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>
-                                        <p className='title_success_top'>Your files have been successfully uploaded.</p>
-                                        <button onClick={aginUpload} className='button_to_file'>Back to Upload File</button></div>
-                                    : ''}
+                                {/*{!isBackToUpload*/}
+                                {/*    ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>*/}
+                                {/*        <p className='title_success_top'>Your files have been successfully uploaded.</p>*/}
+                                {/*        <button onClick={aginUpload} className='button_to_file'>Back to Upload File</button></div>*/}
+                                {/*    : ''}*/}
                             </div>
                             {/* <PcbSizeForm /> */}
                             <FormControl quoteMode={quoteMode} isMobileSize={isMobileSize} />

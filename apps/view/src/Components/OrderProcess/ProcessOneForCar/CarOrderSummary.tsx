@@ -33,7 +33,6 @@ const CarOrderSummary:React.FC<ints> = (props) => {
     }, [dispatch]);
 
     const orderNext = () => {
-        console.log('下一步噢')
         const {process} = orderSummaryStatus;
         if (process === 4 && orderOptionsItem.payWays === 1) {
             props.handleAudit();
