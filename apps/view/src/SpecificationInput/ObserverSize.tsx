@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Row, Col, Input } from 'antd';
 
+const img = require('../images/quate_close.png');
+
 
 interface sizeValue {
     sizeX?: string;
@@ -39,16 +41,24 @@ const ObserverSize: React.FC<ObserverSizeProps> = (props) => {
     return (
         <Input.Group size={!props.isMobileSize ? "large" : "default"}>
             <Row gutter={!props.isMobileSize ? 8 : 4}>
-                <Col span={!props.isMobileSize ? 12 : 6}>
+                <Col span={!props.isMobileSize ? 11 : 6}>
                     <Input
+                        className="color-yel"
                         type="text"
                         value={value && value.sizeX || numberX}
                         onChange={onNumberXChange}
                         disabled={isDisabled}
                     />
                 </Col>
-                <Col span={!props.isMobileSize ? 12 : 6}>
+                {
+                    !props.isMobileSize &&
+                    <Col span={2} style={{display: 'flex', 'alignItems': 'center'}}>
+                        <img src={img} alt="" style={{height: '16px'}}/>
+                    </Col>
+                }
+                <Col span={!props.isMobileSize ? 11 : 6}>
                     <Input
+                        className="color-yel"
                         type="text"
                         value={value && value.sizeY || numberY}
                         onChange={onNumberYChange}

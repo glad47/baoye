@@ -81,7 +81,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
             <Row>
                 <Col span={12} >
                     <Form.Item label="Dimension" name="boardType">
-                        <Select>
+                        <Select className="color-yel">
                             {
                                 boardType.map(item => (
                                     <Option key={item.id} value={item.id}>{item.name}</Option>
@@ -98,10 +98,10 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                         <ObserverSize />
                     </Form.Item>
                     <Form.Item label="Quantity" name="quantity">
-                        <Input placeholder='Enter the Qty' className='enter_quantity' suffix={singleMode ? 'PCS' : 'PANEL'} autoComplete='off' />
+                        <Input placeholder='Enter the Qty' className='enter_quantity color-yel' suffix={singleMode ? 'PCS' : 'PANEL'} autoComplete='off' />
                     </Form.Item>
                     <Tooltip placement="top" title="Please pay attention to enter the board quantity">
-                        <img src={require('../images/quate_icon1.png')} alt=""/>
+                        <img src={require('../images/quate_icon1.png')} alt="" className="flag"/>
                     </Tooltip>
                 </Col>
             </Row>

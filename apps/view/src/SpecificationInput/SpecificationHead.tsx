@@ -14,6 +14,7 @@ const p_style = {
     fontFamily: 'ArialMT',
     fontSize: '14px',
     color: '#666666',
+    padding: '6px 3px',
     letterSpacing: 0
 }
 const {Title} = Typography;
@@ -42,7 +43,7 @@ const SpecificationHead: React.FC<SpecificationHeadProps> = (props) =>{
                     </Radio.Button>
                 </Radio.Group>
             </Space>
-            <p style={p_style}>{props.description}</p>
+            <p style={p_style} id="specificationHeadDesc">{props.description}</p>
         </Row>
     )
 }

@@ -130,6 +130,8 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                 }else{
                     dispatch(backfillSvgData(r))
                 }
+                // 解析后回调
+                handleSuccessCall();
             }).catch(e=>{
                 console.log('上传文件出错！！');
                 setDelay(true)
@@ -188,6 +190,16 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             //     dispatch(backToUpload(false))
             // })
         }
+    }
+
+    const handleSuccessCall = ():void => {
+        const hDM: any = document.getElementById('specificationHeadDesc');
+        hDM.style.color = 'red';
+        hDM.style.border = 'solid 1px red';
+        setTimeout(() => {
+            hDM.style.color = '#666666';
+            hDM.style.border = 'unset';
+        }, 10*1000)
     }
 
     const setItem=(key:string,options:string)=>{

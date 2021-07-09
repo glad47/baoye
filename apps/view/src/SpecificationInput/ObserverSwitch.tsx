@@ -14,7 +14,7 @@ const ObserverSwitch: React.FC<ObserverSwitchProps> = (props) =>{
     }
     return (
         <Form.Item name={props.name} valuePropName={VALUE_PROP_NAME} noStyle>
-            <Switch onChange={e=>dataTo(e)}/>
+            <Switch onChange={e=>dataTo(e)} checkedChildren="Y" unCheckedChildren="N" className="quoteSwitch"/>
         </Form.Item>
     )
 }
