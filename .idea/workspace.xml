@@ -22,15 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="fix:  优化">
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="fix:  样式优化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberUpload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberUpload.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/ObserverSize.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/ObserverSize.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/ObserverSwitch.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/ObserverSwitch.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbSizeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbSizeForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/SpecificationHead.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/SpecificationHead.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/file-init.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/file-init.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +135,7 @@
       <workItem from="1625372290822" duration="7695000" />
       <workItem from="1625673594255" duration="987000" />
       <workItem from="1625753255095" duration="7672000" />
-      <workItem from="1625847099066" duration="3687000" />
+      <workItem from="1625847099066" duration="4043000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>
@@ -290,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625760884311</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fix:  样式优化">
+      <created>1625851024203</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1625851024204</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,7 +371,8 @@
     <MESSAGE value="fix: +1" />
     <MESSAGE value="feat: 新增上传状态：timeout" />
     <MESSAGE value="fix:  优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:  优化" />
+    <MESSAGE value="fix:  样式优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:  样式优化" />
   </component>
   <component name="WindowStateProjectService">
     <state x="823" y="449" key="#ESLint" timestamp="1619082830320">
@@ -431,19 +433,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620203921562" />
-    <state width="532" height="476" key="SwitcherDM" timestamp="1625849248936">
+    <state width="532" height="476" key="SwitcherDM" timestamp="1625851066592">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state width="498" height="447" key="SwitcherDM/0.0.1842.1080@0.0.1842.1080" timestamp="1621051731539" />
     <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620924930855" />
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1624963139465" />
-    <state width="532" height="476" key="SwitcherDM/0.0.2048.1152@0.0.2048.1152" timestamp="1625849248936" />
-    <state x="589" y="291" key="Vcs.Push.Dialog.v2" timestamp="1625760885852">
+    <state width="532" height="476" key="SwitcherDM/0.0.2048.1152@0.0.2048.1152" timestamp="1625851066592" />
+    <state x="589" y="291" key="Vcs.Push.Dialog.v2" timestamp="1625851025769">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="552" y="263" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620924918452" />
     <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1624874737319" />
-    <state x="589" y="291" key="Vcs.Push.Dialog.v2/0.0.2048.1152@0.0.2048.1152" timestamp="1625760885852" />
+    <state x="589" y="291" key="Vcs.Push.Dialog.v2/0.0.2048.1152@0.0.2048.1152" timestamp="1625851025769" />
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1619279383233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
