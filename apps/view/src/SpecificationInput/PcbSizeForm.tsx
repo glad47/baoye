@@ -16,6 +16,8 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
     const [form] = Form.useForm();
     const [singleMode, setSingleMode] = useState(true);
     const { dispatch, pcbSizeField } = useAppState();
+    const [tipShow, setTipShow] = useState(false);
+
     const onValuesChange = (v: Store) => {
         // console.log(Object.values(v)[0])
         switch (Object.values(v)[0]) {
@@ -48,7 +50,6 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
     }
     const onFinish = (v: Store) => {
         dispatch(reduxSetFlagQuoteParams(true));
-        console.log('onFinish', v)
         if (Object.values(v)[0] === 'Single') {
             if (Object.values(v)[2] && Object.values(v)[3]) {
                 dispatch(changeSizeField(v));
@@ -66,8 +67,14 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
 
     useImperativeHandle(props.cRef, () => ({
         // 主要弹出input require
-        formSubmit() {
-            form.submit();
+        formSubmit () {
+            // console.log('validateFields', await form.validateFields)
+            // form.submit();
+            const formData = form.getFieldsValue();
+            const {quantity} = formData;
+            setTipShow(!quantity)
+            console.log('!quantity', !quantity)
+            return quantity;
         }
     }));
 
@@ -100,8 +107,10 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                     <Form.Item label="Quantity" name="quantity">
                         <Input placeholder='Enter the Qty' className='enter_quantity color-yel' suffix={singleMode ? 'PCS' : 'PANEL'} autoComplete='off' />
                     </Form.Item>
-                    <Tooltip placement="top" title="Please pay attention to enter the board quantity">
-                        <img src={require('../images/quate_icon1.png')} alt="" className="flag"/>
+                    <Tooltip visible={tipShow} placement="top" title="Please pay attention to enter the board quantity">
+                        <img onMouseEnter={() => setTipShow(true)}
+                             onMouseLeave={() => setTipShow(false)}
+                             src={require('../images/quate_icon1.png')} alt="" className="flag"/>
                     </Tooltip>
                 </Col>
             </Row>

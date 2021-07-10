@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Select} from "antd";
 import {changeUrgentCost, useAppState} from "../state";
 import {BuildTimeItem} from "../types";
@@ -11,15 +11,11 @@ const bts = [
 ]
 
 const PcbBuildFeeDetail: React.FC<any> = props => {
-    const { buildItems } = props;
     const { boardFee, engineeringFee, testFee, quoteMode, stencilFee, assemblyFee } = props;
     const { dispatch, subtotal, buildTimeItmes, carDrawerStatus } = useAppState();
 
     const handlerBuild = (value: any) => {
         const v = value;
-        console.log('value', v)
-        console.log('buildTimeItmes', buildTimeItmes)
-        console.log(buildTimeItmes.filter((item) => { return Number(item.id) === Number(v) })[0])
         const { price, dayNumber, id } = buildTimeItmes.filter((item) => { return Number(item.id) === Number(v) })[0];
         const buildTimeItem: BuildTimeItem = {id: id, price: price, dayNumber: dayNumber};
         dispatch(changeUrgentCost(buildTimeItem));
@@ -48,8 +44,8 @@ const PcbBuildFeeDetail: React.FC<any> = props => {
                     <div>
                         <span className="selector">
                             <Select style={{ width: 120 }} onChange={handlerBuild} defaultValue={1}>
-                                {buildItems.map((item: { price: string | number | undefined; id: React.ReactText; dayNumber: React.ReactNode; }) => (
-                                    <Option key={item.price} value={item.id}>{item.dayNumber}</Option>
+                                {buildTimeItmes.map((item: { price: string | number | undefined; id: React.ReactText; dayNumber: React.ReactNode; }) => (
+                                    <Option key={item.id} value={item.id}>{item.dayNumber}</Option>
                                 ))}
                             </Select>
                         </span>

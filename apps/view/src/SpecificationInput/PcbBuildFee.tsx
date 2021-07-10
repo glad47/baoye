@@ -8,14 +8,15 @@ const PcbBuildFee: React.FC<any> = (props) => {
     const { setIsLogin, handleAddQuote } = props;
     const history = useHistory();
     const { dispatch, carDrawerStatus, subtotal, flagQuoteParams } = useAppState();
-    const handlerCar = async () => {
-        const isLogin = sessionStorage.getItem('username');
-        if (setIsLogin && !isLogin) {
-            setIsLogin(false);
-        } else {
-            const flg = await handleAddQuote();
-            if (flg) {
-                dispatch(changeCarDrawer(true));
+    const handlerCar = async (type: number | any) => {
+        const flg = await handleAddQuote();
+        if (flg) {
+            dispatch(changeCarDrawer(true));
+            if (type === 1) {
+                if (flagQuoteParams) {
+                    history.push('/order');
+                }
+            } else {
                 // 定时关闭
                 setTimeout(() => {
                     dispatch(changeCarDrawer(false));
@@ -25,10 +26,8 @@ const PcbBuildFee: React.FC<any> = (props) => {
     }
 
     // 购买 直接跳转到订单页
-    const buyNow = () => {
-        if (flagQuoteParams) {
-            history.push('/order');
-        }
+    const buyNow = async () => {
+        await handlerCar(1);
     }
 
     const DOM = (

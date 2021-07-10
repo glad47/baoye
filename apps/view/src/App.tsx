@@ -52,6 +52,7 @@ function App(): JSX.Element {
     const gerberUploadRef = useRef(null);
     const gerberGerberProgress = useRef(null);
     const pcbSizeFormRef = useRef(null);
+
     const handleAddQuote = async (link?: boolean ) => {
         // 添加报价前先上传state保存的gerber文件
         if (fileFormData) {
@@ -69,16 +70,25 @@ function App(): JSX.Element {
         }
         if (quoteMode === 0) {
             if (boardType === 'Single') {
-                if (!flagQuoteParams) {
-                    // @ts-ignore
-                    pcbSizeFormRef?.current.formSubmit(); // 主要弹出input require
-                    return false;
-                }
-                if (quantity === null || singleSize.sizeX === null || singleSize.sizeY === null) {
-                    // @ts-ignore
-                    pcbSizeFormRef?.current.formSubmit(); // 主要弹出input require
-                    // message.error('Please fill in the size and quantity ！！');
-                    return;
+                // @ts-ignore
+                const flag = await pcbSizeFormRef?.current.formSubmit(); // 主要弹出input require
+                if (flag !== null) {
+                    if (!flagQuoteParams) {
+                        debugger
+                        // @ts-ignore
+                        const quantityFlag = pcbSizeFormRef?.current.formSubmit(); // 主要弹出input require
+                        if (!quantityFlag) { // 没有填写quantity
+                            return false;
+                        } else {
+                            return checkLogin();
+                        }
+                    }
+                    if (quantity === null || singleSize.sizeX === null || singleSize.sizeY === null) {
+                        // message.error('Please fill in the size and quantity ！！');
+                        // return checkLogin();
+                    }
+                } else {
+                    return false
                 }
             } else {
                 if (quantity === null || panelSize.sizeX === null || panelSize.sizeY === null || singleSize.sizeX === null || singleSize.sizeY == null) {
@@ -135,6 +145,16 @@ function App(): JSX.Element {
     //     console.log(item)
     //     setUpload(false)
     // }
+
+    const checkLogin = () => {
+        const isLogin = sessionStorage.getItem('username');
+        if (!isLogin) {
+            setLogin(true);
+            return false;
+        }
+        return true;
+    }
+
     const aginUpload = () => {
      //   setUpload(true)
         // @ts-ignore

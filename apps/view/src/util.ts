@@ -117,3 +117,9 @@ export function hasNull(obj: any) {
   }
   return false;
 }
+
+export function ArrayDiff(arr1: any, arr2: any, key: any) {
+ const keys = arr1.map((item: any) => item[key]);
+ const res = arr2.filter((item: any) => !keys.includes(item[key]));
+ return res
+}

@@ -14,7 +14,7 @@ const FormControl: React.FC<FormControlProps> = (props) =>{
     const { quoteMode } = props; 
     switch (quoteMode) {
         case 0:
-            return <div className="pcb-spec"><SpecificationHead icon={"123"} title="PCB Specification" description="Please carefully check or adjust the parameters"/><PcbSpecification isMobileSize={props.isMobileSize}/></div>
+            return <div className="pcb-spec" id="pcbSpec"><SpecificationHead icon={"123"} title="PCB Specification" description="Please carefully check or adjust the parameters"/><PcbSpecification isMobileSize={props.isMobileSize}/></div>
         case 1:
             return <div className="pcb-stencil"><StencilForm isMobileSize={props.isMobileSize}/></div>
         case 2:

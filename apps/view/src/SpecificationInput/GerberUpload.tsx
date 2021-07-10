@@ -194,10 +194,13 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
 
     const handleSuccessCall = ():void => {
         const hDM: any = document.getElementById('specificationHeadDesc');
+        const bDM: any = document.getElementById('pcbSpec');
         hDM.style.color = 'red';
         hDM.style.border = 'solid 1px red';
+        bDM.style.boxShadow = '0px 7px 21px 0px #ff00005c';
         setTimeout(() => {
             hDM.style.color = '#666666';
+            bDM.style.boxShadow = '0 7px 21px 0 rgb(172 189 253 / 77%)';
             hDM.style.border = 'unset';
         }, 10*1000)
     }

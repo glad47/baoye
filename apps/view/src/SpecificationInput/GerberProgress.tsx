@@ -47,8 +47,7 @@ export default (props: any) => {
                     process === 100 &&
                     <div className="rig-icon">
                         {
-                            uploadGerber.status === 'suc' ? <img src={closeIcon} alt="" onClick={handleCloseFile}/> : uploadGerber.status === 'err' ? <img src={errIcon} alt="" /> :
-                                <img src={checkIcon} alt=""/>
+                            uploadGerber.status && <img src={closeIcon} alt="" onClick={handleCloseFile}/>
                         }
                     </div>
                 }

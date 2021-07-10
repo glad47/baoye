@@ -1,7 +1,7 @@
 /**
  * 下单流程 => 购物车 商品列表表格组件封装
  */
-import React, {useEffect, useState} from 'react';
+import React, {forwardRef, useEffect, useImperativeHandle, useState} from 'react';
 import {Checkbox, message, Spin} from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import '../../../styles/car-table.css';
@@ -17,6 +17,26 @@ const CarTable = (props: any) => {
     const {columns, data, rowKey, checkBox, _style, openCheckAll, spin: pSpin} = props;
     const [checkedList, setCheckedList] = React.useState<any>([]);
     const [checkAll, setCheckAll] = React.useState(false);
+
+
+
+    // 主要用户删除选中行后， 数据还选中的bug
+    const clearCheckList = (rowIndex: number) => {
+        const def = [...checkedList];
+        def.some((item, i) => {
+            if (item.rowIndex === rowIndex) {
+                def.splice(i, 1);
+                return true;
+            }
+        });
+        setCheckedList(def);
+    }
+
+    useImperativeHandle(props.cRef, () => ({
+        UIH_clearCheckList(rowIndex: number) {
+            clearCheckList(rowIndex)
+        }
+    }));
 
     // 全选
     const handlerCheckAll = () => {
@@ -90,40 +110,40 @@ const CarTable = (props: any) => {
                     </tr>
                     </thead>
                     <tbody>
-                        {
-                            data.map((tds:any, inx: number) => (
-                                <tr key={`tr-${inx}-${tds[rowKey]}`}>
-                                    {
-                                        checkBox ?
-                                            <td style={{height: _style.TdHeight || 'auto'}}>
-                                                <Checkbox
-                                                    key={`checkbox_${inx}`}
-                                                    checked={checkedList.find((item: checkValueTS) => (item.rowIndex == inx))}
-                                                    value={JSON.stringify({record: tds, rowIndex: inx})}
-                                                    onChange={handlerCheck}/>
-                                            </td> : ''
-                                    }
-                                    {
-                                        columns.map((hea: any, hIndex: number) => {
-                                            const res = hea['dataIndex']
-                                            if (hea.render) {
-                                                return (
-                                                    <td key={`td-${hIndex}-${tds[rowKey]}`}>
-                                                        {/* 行数据，当前值，下标值*/}
-                                                        {res === undefined ? hea.render('null') : hea.render(tds, tds[res], inx)}
-                                                    </td>
-                                                )
-                                            }
+                    {
+                        data.map((tds:any, inx: number) => (
+                            <tr key={`tr-${inx}-${tds[rowKey]}`}>
+                                {
+                                    checkBox ?
+                                        <td style={{height: _style.TdHeight || 'auto'}}>
+                                            <Checkbox
+                                                key={`checkbox_${inx}`}
+                                                checked={checkedList.find((item: checkValueTS) => (item.rowIndex == inx))}
+                                                value={JSON.stringify({record: tds, rowIndex: inx})}
+                                                onChange={handlerCheck}/>
+                                        </td> : ''
+                                }
+                                {
+                                    columns.map((hea: any, hIndex: number) => {
+                                        const res = hea['dataIndex']
+                                        if (hea.render) {
                                             return (
                                                 <td key={`td-${hIndex}-${tds[rowKey]}`}>
-                                                    {res === undefined ? '' : tds[res]}
+                                                    {/* 行数据，当前值，下标值*/}
+                                                    {res === undefined ? hea.render('null') : hea.render(tds, tds[res], inx)}
                                                 </td>
                                             )
-                                        })
-                                    }
-                                </tr>
-                            ))
-                        }
+                                        }
+                                        return (
+                                            <td key={`td-${hIndex}-${tds[rowKey]}`}>
+                                                {res === undefined ? '' : tds[res]}
+                                            </td>
+                                        )
+                                    })
+                                }
+                            </tr>
+                        ))
+                    }
                     </tbody>
                 </table>
             </Spin>

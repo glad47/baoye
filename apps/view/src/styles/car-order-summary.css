@@ -1,5 +1,11 @@
-.order-detail .summary-box {
+.order-detail .summary-box, .order-detail .summary-tips {
     padding: 17px 15px;
+}
+
+.order-detail .summary-tips {
+    font-size: 13px;
+    color: #999999;
+    line-height: 22px;
 }
 
 /*流程右侧代码样式 start*/
