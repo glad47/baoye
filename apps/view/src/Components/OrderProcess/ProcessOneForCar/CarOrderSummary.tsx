@@ -18,7 +18,8 @@ const CarOrderSummary:React.FC<ints> = (props) => {
 
 
     useEffect(() => {
-        const {process} = orderSummaryStatus;
+        let {process} = orderSummaryStatus;
+        process = Number(process);
         if (process === 1 && FlagProcess.CheckItems(orderOptionsItem)) {
             setFlag(true)
         } else if (process === 2 && orderOptionsItem.deliveryAddr) {
@@ -88,9 +89,14 @@ const CarOrderSummary:React.FC<ints> = (props) => {
                 You can download the proforma invoice and apply coupons at the checkout
             </div>
             <div className="summary-btn">
-                <button className="btn global-primary" onClick={orderNext} disabled={!flag}>
-                    CHECKOUT
-                </button>
+                {
+                    orderSummaryStatus.process !== 5 &&
+                    <button className="btn global-primary" onClick={orderNext} disabled={!flag}>
+                        {
+                            orderSummaryStatus.process > 3 ? 'CHECKOUT' : 'NEXT'
+                        }
+                    </button>
+                }
             </div>
         </>
     )

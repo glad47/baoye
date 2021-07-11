@@ -38,6 +38,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
     const handlerCheckCollapse = (val: number) => {
         if (alrIndex.indexOf(Number(val)) > -1) { // 不能跳过没有选过的流程
             dispatch(setOrderSummaryStatus({ process: val }));
+            // console.log('process', val)
         }
     }
 

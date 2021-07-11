@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import '../../../styles/process-three-transport.css'
-import {Input, Space, Radio} from "antd";
+import {Input, Space, Radio, Checkbox} from "antd";
 import CarTable from "../ProcessOneForCar/CarTable";
 import {orderOptions, orderSummaryFun, useAppState} from "../../../state";
 import {DescribeCouriers, fetchShipingCost, getAllCountry} from "../../../SpecificationInput/AjaxService";
+import _ from "lodash";
 
 interface freightItf {
     courierId?: number
@@ -24,7 +25,7 @@ const filterCouriers: any = ['UPS', 'HK DHL'];
 
 const ProcessThreeTransport = () => {
     const { orderSummary, orderOptionsItem, dispatch } = useAppState();
-    const [currentRadio, setCurrentRadio] = useState<number>();
+    const [currentRadio, setCurrentRadio] = useState<number | null>();
     const [spin, setSpin] = useState(false);
     const [shippingAccount, setShippingAccount] = useState();
     const [freightParams, setFreightParams] = useState({
@@ -33,11 +34,34 @@ const ProcessThreeTransport = () => {
         countryName: null,
         totalWeight: 0,
     });
-    const [shipmentTerms, setShipmentTerms] = useState();
+    const [shipmentTerms, setShipmentTerms] = useState<any>();
     const [tableData, setTableData] = useState<any>([]);
+    const [beforeTableData, setBeforeTableData] = useState<any>([]);
+    const [checkRow, setCheckRow] = useState<any>();
 
-    const handlerRadio = (index: number) => {
-        setCurrentRadio(index)
+    const handlerRadio = (index: any) => {
+        if (currentRadio === index) {
+            // // 运费恢复
+            const def = [...tableData];
+            const total = beforeTableData[index].total;
+            def[index].total = total;
+            const t = checkRow ? checkRow.record.total : 0;
+            dispatch(orderSummaryFun({ freightCharges: t}));
+            setTableData(def);
+            setCurrentRadio(null);
+        } else {
+            setShipmentTerms('EXC');
+            setCurrentRadio(index);
+            // 运费清零
+            clearShippingFee(index)
+        }
+    }
+
+    const clearShippingFee = (index: any) => {
+        const dtd = _.cloneDeep(tableData);
+        dtd[index].total = 0;
+        dispatch(orderSummaryFun({ freightCharges: 0}));
+        setTableData(dtd);
     }
 
     // 快递选中
@@ -45,10 +69,10 @@ const ProcessThreeTransport = () => {
         let freightCharges = 0;
         if (row && row.length > 0) {
             const {courierName, id} = row[0].record;
-            setShipmentTerms(courierName);
+            setCheckRow(row[0]);
+            // setShipmentTerms(courierName);
             if (row[0].record.total) {
                 freightCharges = row[0].record.total;
-                console.log('row[0].record', row[0].record)
                 dispatch(orderOptions({expressInfo: {id: id, name: courierName}}));
             } else {
                 dispatch(orderOptions({expressInfo: {id: null, name: null}}));
@@ -89,6 +113,7 @@ const ProcessThreeTransport = () => {
                 }
             }
             setTableData(dt);
+            setBeforeTableData(dt);
             setSpin(false);
         })
     }
@@ -128,12 +153,12 @@ const ProcessThreeTransport = () => {
     const checkRadioDom = (record: any, txt: any, index: number) => {
         return (
             <>
-                <Radio
+                <Checkbox
                     key={`radio-${index}`}
                     checked={currentRadio === index}
-                    onChange={() => (handlerRadio(index))}>
+                    onChange={() => handlerRadio(index)}>
                     {txt}
-                </Radio>
+                </Checkbox>
                 {
                     currentRadio === index ? <Input defaultValue={shippingAccount} className="checkRadio-input"/> : ''
                 }
@@ -167,7 +192,7 @@ const ProcessThreeTransport = () => {
             key: '',
             width: 164,
             dataIndex: 'total',
-            render: (record: any, txt: string | undefined) => (<strong>{txt ? `$${txt}` : '暂不支持此运输方式'}</strong>)
+            render: (record: any, txt: string | undefined) => (<strong>{txt || txt === 0 ? `$${txt}` : 'Not currently supported'}</strong>)
         }
     ];
 
