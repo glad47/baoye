@@ -1,9 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import '../../../styles/process-three-transport.css'
-import {Input, Space, Radio, Checkbox} from "antd";
+import {Input, Space, Spin, Checkbox} from "antd";
+import { LoadingOutlined } from '@ant-design/icons';
 import CarTable from "../ProcessOneForCar/CarTable";
 import {orderOptions, orderSummaryFun, useAppState} from "../../../state";
-import {DescribeCouriers, fetchShipingCost, getAllCountry} from "../../../SpecificationInput/AjaxService";
+import {
+    DescribeCouriers,
+    fetchShipingCost,
+    getAllCountry,
+    getDeliveryAddress, modifyDeliveryAddress
+} from "../../../SpecificationInput/AjaxService";
 import _ from "lodash";
 
 interface freightItf {
@@ -11,6 +17,8 @@ interface freightItf {
     countryId?: number
     totalWeight?: number
 }
+
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 
 const iconMapping: any = [
@@ -27,7 +35,6 @@ const ProcessThreeTransport = () => {
     const { orderSummary, orderOptionsItem, dispatch } = useAppState();
     const [currentRadio, setCurrentRadio] = useState<number | null>();
     const [spin, setSpin] = useState(false);
-    const [shippingAccount, setShippingAccount] = useState();
     const [freightParams, setFreightParams] = useState({
         courierId: 1,
         countryId: 0,
@@ -38,12 +45,15 @@ const ProcessThreeTransport = () => {
     const [tableData, setTableData] = useState<any>([]);
     const [beforeTableData, setBeforeTableData] = useState<any>([]);
     const [checkRow, setCheckRow] = useState<any>();
+    const [courierAt, setCourierAt] = useState();
+    const [inputSpin, setInputSpin] = useState(false);
+    const [addrData, setAddrData] = useState<any>();
 
     const handlerRadio = (index: any) => {
         if (currentRadio === index) {
             // // 运费恢复
             const def = [...tableData];
-            const total = beforeTableData[index].total;
+            const {total} = beforeTableData[index];
             def[index].total = total;
             const t = checkRow ? checkRow.record.total : 0;
             dispatch(orderSummaryFun({ freightCharges: t}));
@@ -53,8 +63,33 @@ const ProcessThreeTransport = () => {
             setShipmentTerms('EXC');
             setCurrentRadio(index);
             // 运费清零
-            clearShippingFee(index)
+            clearShippingFee(index);
+            getAddr();
         }
+    }
+
+    // 获取自己的快递单号
+    const getAddr = async() => {
+        setInputSpin(true);
+        const {data: result} = await getDeliveryAddress();
+        setAddrData(result[0]);
+        const [{courierAccount}] = result;
+        setCourierAt(courierAccount);
+        setInputSpin(false);
+    }
+
+    const inputChange = (e: any) => {
+        editAddr(e.target.value);
+    }
+
+    const editAddr = (courierAccount: any) => {
+        const dtd = {
+            ...addrData
+        };
+        dtd.courierAccount = courierAccount;
+        modifyDeliveryAddress(dtd).then(res => {
+            console.log('addr account is update!')
+        })
     }
 
     const clearShippingFee = (index: any) => {
@@ -160,7 +195,17 @@ const ProcessThreeTransport = () => {
                     {txt}
                 </Checkbox>
                 {
-                    currentRadio === index ? <Input defaultValue={shippingAccount} className="checkRadio-input"/> : ''
+                    currentRadio === index ?
+                        <Spin spinning={inputSpin} indicator={antIcon}>
+                            {
+                                !inputSpin &&
+                                <Input
+                                    defaultValue={courierAt}
+                                    onChange={inputChange}
+                                    className="checkRadio-input"/>
+                            }
+                        </Spin>
+                        : ''
                 }
             </>
         )
@@ -205,7 +250,7 @@ const ProcessThreeTransport = () => {
                 <span>SHIPMENT 1/1 — Shipping from {freightParams.countryName}</span>
                 <div>
                     <span>shipment terms:</span>
-                    <Input value={shipmentTerms}/>
+                    <Input readOnly value={shipmentTerms}/>
                 </div>
             </div>
             <div className="tra-box">

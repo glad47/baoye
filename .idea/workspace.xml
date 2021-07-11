@@ -22,11 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="fix:  优化">
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="fix:  支付流程=&gt; 选择快递优化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarOrderSummary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarOrderSummary.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbOrderProcess.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +139,9 @@
       <workItem from="1625847099066" duration="4148000" />
       <workItem from="1625908795727" duration="17382000" />
       <workItem from="1625968636729" duration="3337000" />
-      <workItem from="1625972011219" duration="3915000" />
+      <workItem from="1625972011219" duration="3964000" />
+      <workItem from="1626013791301" duration="431000" />
+      <workItem from="1626014894308" duration="6116000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>
@@ -310,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625935702569</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="fix:  支付流程=&gt; 选择快递优化">
+      <created>1625986228447</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1625986228447</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +400,8 @@
     <MESSAGE value="fix:  样式优化" />
     <MESSAGE value="fix:  md nginx配置说明" />
     <MESSAGE value="fix:  优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:  优化" />
+    <MESSAGE value="fix:  支付流程=&gt; 选择快递优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:  支付流程=&gt; 选择快递优化" />
   </component>
   <component name="WindowStateProjectService">
     <state x="823" y="449" key="#ESLint" timestamp="1619082830320">
@@ -411,11 +420,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="284" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620203109051" />
-    <state x="97" y="109" width="1833" height="939" key="DiffContextDialog" timestamp="1625333893722">
+    <state x="97" y="109" width="1833" height="939" key="DiffContextDialog" timestamp="1626015051617">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="91" y="102" width="1718" height="880" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1624201558591" />
-    <state x="97" y="109" width="1833" height="939" key="DiffContextDialog/0.0.2048.1152@0.0.2048.1152" timestamp="1625333893722" />
+    <state x="97" y="109" width="1833" height="939" key="DiffContextDialog/0.0.2048.1152@0.0.2048.1152" timestamp="1626015051617" />
     <state x="615" y="316" key="EditFileWatcherDialog" timestamp="1619084431994">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -453,19 +462,23 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620203921562" />
-    <state width="532" height="476" key="SwitcherDM" timestamp="1625970739483">
+    <state width="532" height="476" key="SwitcherDM" timestamp="1626019551910">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state width="498" height="447" key="SwitcherDM/0.0.1842.1080@0.0.1842.1080" timestamp="1621051731539" />
     <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620924930855" />
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1624963139465" />
-    <state width="532" height="476" key="SwitcherDM/0.0.2048.1152@0.0.2048.1152" timestamp="1625970739483" />
-    <state x="589" y="291" key="Vcs.Push.Dialog.v2" timestamp="1625935703897">
+    <state width="532" height="476" key="SwitcherDM/0.0.2048.1152@0.0.2048.1152" timestamp="1626019551910" />
+    <state x="589" y="291" key="Vcs.Push.Dialog.v2" timestamp="1625986230105">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="552" y="263" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620924918452" />
     <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1624874737319" />
-    <state x="589" y="291" key="Vcs.Push.Dialog.v2/0.0.2048.1152@0.0.2048.1152" timestamp="1625935703897" />
+    <state x="589" y="291" key="Vcs.Push.Dialog.v2/0.0.2048.1152@0.0.2048.1152" timestamp="1625986230105" />
+    <state x="93" y="93" width="1862" height="966" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1626015051617">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state x="93" y="93" width="1862" height="966" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.2048.1152@0.0.2048.1152" timestamp="1626015051617" />
     <state x="587" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1619279383233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -476,12 +489,12 @@
     <state x="753" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620918434821" />
     <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1623948703383" />
     <state x="803" y="483" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2048.1152@0.0.2048.1152" timestamp="1625753360862" />
-    <state x="212" y="312" width="943" height="687" key="find.popup" timestamp="1625969482959">
+    <state x="212" y="312" width="943" height="687" key="find.popup" timestamp="1626019523486">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620922730871" />
     <state x="669" y="245" width="884" height="644" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1624962909105" />
-    <state x="212" y="312" width="943" height="687" key="find.popup/0.0.2048.1152@0.0.2048.1152" timestamp="1625969482959" />
+    <state x="212" y="312" width="943" height="687" key="find.popup/0.0.2048.1152@0.0.2048.1152" timestamp="1626019523486" />
     <state x="799" y="313" key="refactoring.ChangeSignatureDialog" timestamp="1620296645833">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

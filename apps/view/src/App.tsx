@@ -55,17 +55,8 @@ function App(): JSX.Element {
 
     const handleAddQuote = async (link?: boolean ) => {
         // 添加报价前先上传state保存的gerber文件
-        if (fileFormData) {
-            const fileRes = await ajaxFileUpload(fileFormData);
-            if (fileRes.data.success) {
-                const {result} = fileRes.data
-                dispatch(backfillUploadPathData(result));
-            } else {
-                return false;
-            }
-        } else {
-            const fileEL: any = document.getElementById("pcbFile");
-            fileEL.style.borderColor = "red";
+        const _f_file = await uploadZipFile('check');
+        if (!_f_file) {
             return false;
         }
         if (quoteMode === 0) {
@@ -87,6 +78,7 @@ function App(): JSX.Element {
                         // message.error('Please fill in the size and quantity ！！');
                         // return checkLogin();
                     }
+                    await uploadZipFile('upload');
                 } else {
                     return false
                 }
@@ -95,6 +87,7 @@ function App(): JSX.Element {
                     message.error('Please fill in the size and quantity and panel array ！！');
                     return;
                 }
+                await uploadZipFile('upload');
             }
             if (fileUploadPtah === null) {
                 // message.error('Please upload the gerber file ！！');
@@ -124,6 +117,7 @@ function App(): JSX.Element {
                 message.error('Please fill in the Dimensions !!');
                 return;
             }
+            await uploadZipFile('upload');
             dispatch(addQuote());
             if (link) { location.href = '/audit'; }
         } else if (quoteMode === 2) {
@@ -135,6 +129,7 @@ function App(): JSX.Element {
                 message.error('Please fill data !!');
                 return;
             }
+            await uploadZipFile('upload');
             dispatch(addQuote());
             if (link) { location.href = '/audit'; }
             return true;
@@ -145,6 +140,33 @@ function App(): JSX.Element {
     //     console.log(item)
     //     setUpload(false)
     // }
+
+    // 文件上传 或者 检查文件
+    const uploadZipFile = async (type: 'check' | 'upload') => {
+        if (type === 'check') {
+            const fileEL: any = document.getElementById("pcbFile");
+            if (fileEL) {
+                fileEL.style.borderColor = "red";
+                return false;
+            } else {
+                return true;
+            }
+        } else if (type === 'upload') {
+            if (fileFormData) {
+                if (checkLogin()) {
+                    const fileRes = await ajaxFileUpload(fileFormData);
+                    if (fileRes.data.success) {
+                        const {result} = fileRes.data
+                        dispatch(backfillUploadPathData(result));
+                    } else {
+                        return false;
+                    }
+                }
+            } else {
+                await uploadZipFile('check');
+            }
+        }
+    }
 
     const checkLogin = () => {
         const isLogin = sessionStorage.getItem('username');
@@ -165,6 +187,7 @@ function App(): JSX.Element {
         setLogin(e)
     }
     const getUserInfo = (e: any) => {
+        console.log('e', e)
         setLoginName(e)
     }
     // 实时更新头像
