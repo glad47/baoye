@@ -24,6 +24,7 @@ import MobileHead from './Head/MobileHead'
 import PcbBuildFee from "./SpecificationInput/PcbBuildFee";
 import GerberProgress from "./SpecificationInput/GerberProgress";
 import {ajaxFileUpload} from "./SpecificationInput/AjaxService";
+import YouTubeVideo from "./Components/Youtube/YouTubeVideo";
 
 function App(): JSX.Element {
     const { dispatch
@@ -52,6 +53,7 @@ function App(): JSX.Element {
     const gerberUploadRef = useRef(null);
     const gerberGerberProgress = useRef(null);
     const pcbSizeFormRef = useRef(null);
+    const [showYoutube, setShowYoutube] = useState<boolean>(false);
 
     const handleAddQuote = async (link?: boolean ) => {
         // 添加报价前先上传state保存的gerber文件
@@ -247,7 +249,7 @@ function App(): JSX.Element {
         ReactGA.ga('set', 'page', 'https://sys.pcbonline.com/instant-quote/')
         DragFileUpload();
         return () => {
-            window.removeEventListener('resize', getWindowWidth)
+            window.removeEventListener('resize', getWindowWidth);
         }
     }, []);
 
@@ -299,6 +301,11 @@ function App(): JSX.Element {
         // @ts-ignore
         return gerberGerberProgress?.current.handleProgress(fileName,fileSize,progress)
     }
+
+    const handleVideo = (type: any) => {
+        setShowYoutube(type)
+    }
+
     return (
         <>
             <Main>
@@ -308,7 +315,7 @@ function App(): JSX.Element {
                     {/* <Head loginName={loginName}/> */}
                     {
                         !isMobileSize ?
-                            <Head loginName={[loginName, headPortrait]} />
+                            <Head closeVideo={handleVideo} loginName={[loginName, headPortrait]} />
                             : <MobileHead />
                     }
                     {!isMobileSize ? <Content>
@@ -360,7 +367,9 @@ function App(): JSX.Element {
                             {/*    <ShoppingTotal total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))} handleAddQuote={handleAddQuote} handleGoCar={handleGoCar} />*/}
                             {/*</div>*/}
                         </div>
-
+                        {
+                            showYoutube && <YouTubeVideo closeVideo={() => handleVideo(null)}/>
+                        }
                     </Content>
                         :
                         <Content>
@@ -428,7 +437,6 @@ function App(): JSX.Element {
                                     setLoginMessage={setLoginMessage}
                                 />
                             </div>
-
                         </Content>
                     }
                     {!isMobileSize ? <Foot /> : <MobileFoot />}

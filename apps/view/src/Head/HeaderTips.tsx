@@ -2,26 +2,25 @@ import React, {useState} from 'react'
 
 const playImg = require(`../images/quate_icon5.png`);
 const closeImg = require(`../images/quate_close.png`);
+
 const HeaderTips = (props: any) => {
     const [flags, setFlags] = useState<boolean>(true);
     const {txt} = props;
-    const handlerClose = (sta: false) => {
-        alert(6)
-        setFlags(sta);
+
+    const handlerClose = (type: any) => {
+        if (props.closeTip) {
+            props.closeTip(type);
+        }
     }
     const DOM = (
         <div>
-            {
-                flags ?
-                    <div className="h-tips">
-                        <div className="t-box">
-                            <span>{txt}</span>
-                            <img src={playImg} alt="play" className="player"/>
-                            <img src={closeImg} alt="close" className="close"/>
-                        </div>
-                    </div>
-                    : 66666
-            }
+            <div className="h-tips">
+                <div className="t-box">
+                    <span>{txt}</span>
+                    <img src={playImg} alt="play" className="player" onClick={() => handlerClose(1)}/>
+                    <img src={closeImg} alt="close" className="close" onClick={() => handlerClose(null)}/>
+                </div>
+            </div>
         </div>
     )
     return DOM;

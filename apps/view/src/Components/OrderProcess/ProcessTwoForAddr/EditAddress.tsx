@@ -7,9 +7,11 @@ import FormAddress from "./FormAddress";
 import {useAppState} from "../../../state";
 
 const EditAddress = () => {
-    const { orderOptionsItem,dispatch } = useAppState();
+    const { orderOptionsItem } = useAppState();
     const {deliveryAddr} = orderOptionsItem;
     const [editing, setEditing] = useState<boolean>(false);
+    const [billingCheck, setBillingCheck] = useState<boolean>(true);
+
     const handlerEditing = () => {
         if (deliveryAddr) {
             setEditing(!editing);
@@ -17,22 +19,32 @@ const EditAddress = () => {
             message.warn('please check delivery')
         }
     }
+
+    const handleBillingCheck = () => {
+        setBillingCheck(!billingCheck);
+    }
+
     return (
         <div className="edit-address">
             <Space className="header">
                 <div onClick={handlerEditing}>
-                    <span>Edit the address</span>
-                    <EditFilled />
+                    <Space>
+                        <span>Edit the address</span>
+                        <EditFilled />
+                    </Space>
                 </div>
             </Space>
             {
-                editing ? <FormAddress closeEdit={() => setEditing(false)}/> : ''
+                editing && <FormAddress closeEdit={() => setEditing(false)}/>
             }
             <Space className="check-unRadius">
-                <Checkbox>
+                <Checkbox checked={billingCheck} onClick={handleBillingCheck}>
                     Same Billing Address
                 </Checkbox>
             </Space>
+            {
+                !billingCheck && <FormAddress key="addrBilling" />
+            }
         </div>
     )
 }

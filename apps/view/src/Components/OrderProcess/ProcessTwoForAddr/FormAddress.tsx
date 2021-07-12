@@ -58,7 +58,6 @@ const FormAddress = (props: thisInter) => {
 
     useEffect(() => {
         if (deliveryAddr) {
-            console.log('deliveryAddr', deliveryAddr);
             setInitialValues(deliveryAddr);
         }
         initCountryList();

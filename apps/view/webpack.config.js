@@ -73,6 +73,10 @@ module.exports = merge(baseConfig(__dirname), {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 loader: "file-loader"
             },
+            {
+                test: /\.(mp4)$/,
+                loader: "file-loader"
+            },
         ],
     },
     plugins: [
@@ -96,6 +100,8 @@ module.exports = merge(baseConfig(__dirname), {
     ],
     // 配置跨域
     devServer: {
+        contentBase: path.join(__dirname, '/src/'),
+        inline: true
         // proxy:{
         //   "/api":{
         //     target:"https://sys.pcbonline.com",

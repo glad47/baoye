@@ -9,6 +9,16 @@ interface PcbSizeFormProps {
     cRef?: any
 }
 const boardType = [{ id: 1, name: 'Single' }, { id: 2, name: 'Panel' }];
+const diffDesigns = [
+    {name: '1oz', value: '1'},
+    {name: '2oz', value: '2'},
+    {name: '3oz', value: '3'},
+    {name: '4oz', value: '4'},
+    {name: '5oz', value: '5'},
+    {name: '6oz', value: '6'},
+    {name: '7oz', value: '7'},
+    {name: '8oz', value: '8'}
+];
 
 // const INITIAL = {boardType:'Single'}
 const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
@@ -113,6 +123,18 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                              src={require('../images/quate_icon1.png')} alt="" className="flag"/>
                     </Tooltip>
                 </Col>
+                {
+                    !singleMode &&
+                    <Col span={12}>
+                        <Form.Item label="No. of Different Design" name="differentDesign" labelCol={{span: 14}}>
+                            <Select className="color-yel">
+                                {
+                                    diffDesigns.map(item => <Option key={item.value} value={item.value}>{item.name}</Option>)
+                                }
+                            </Select>
+                        </Form.Item>
+                    </Col>
+                }
             </Row>
         </Form> :
             <div className='mobile-size-form'>

@@ -14,7 +14,7 @@ import {ajaxCarList, ajaxCarListForAssembly, ajaxCarListForStencil} from "../Spe
 
 const Head:React.FC = (props: any) => {
     const { dispatch, user } = useAppState();
-    const [tipsShow, setTipsShow] = useState<boolean>(false);
+    const [tipsShow, setTipsShow] = useState<boolean>(true);
     const [cartNum, setCartNum] = useState(0);
     const handleManage = () => {
         window.open('https://sys.pcbonline.com/home')
@@ -51,6 +51,12 @@ const Head:React.FC = (props: any) => {
 
     const hidePopover = () => {
         setPopoverVisible(false);
+    }
+
+    const handleClose = (type: any) => {
+        console.log('type', type)
+        props.closeVideo(type);
+        if (type !== 1) setTipsShow(false);
     }
 
     return (
@@ -124,7 +130,7 @@ const Head:React.FC = (props: any) => {
                 </div>
             </div>
             {
-                tipsShow && <HeaderTips />
+                tipsShow && <HeaderTips closeTip={handleClose}/>
             }
         </div>
     )

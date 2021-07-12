@@ -4244,3 +4244,25 @@ body {
     margin: 0 auto;
     max-width: 1200px;
 }
+
+/* YouTube拖拽组件 */
+.youTubeDraggable {
+    position: absolute;
+    bottom: 162px;
+    right: -38px;
+    width: 400px;
+    height: 228px;
+    z-index: 999999;
+}
+
+.youTubeDraggable .handle video {
+    z-index: 1;
+}
+
+.youTubeDraggable .handle img.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    cursor: pointer;
+}

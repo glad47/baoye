@@ -52,19 +52,22 @@ const ProcessThreeTransport = () => {
     const handlerRadio = (index: any) => {
         if (currentRadio === index) {
             // // 运费恢复
-            const def = [...tableData];
+            const def = _.cloneDeep(tableData);
             const {total} = beforeTableData[index];
             def[index].total = total;
-            const t = checkRow ? checkRow.record.total : 0;
+            const t = checkRow ? total : 0;
             dispatch(orderSummaryFun({ freightCharges: t}));
             setTableData(def);
+            setShipmentTerms(null);
             setCurrentRadio(null);
         } else {
             setShipmentTerms('EXC');
             setCurrentRadio(index);
             // 运费清零
             clearShippingFee(index);
-            getAddr();
+            if (!addrData) {
+                getAddr();
+            }
         }
     }
 
@@ -87,6 +90,7 @@ const ProcessThreeTransport = () => {
             ...addrData
         };
         dtd.courierAccount = courierAccount;
+        setAddrData(dtd);
         modifyDeliveryAddress(dtd).then(res => {
             console.log('addr account is update!')
         })
@@ -113,6 +117,7 @@ const ProcessThreeTransport = () => {
                 dispatch(orderOptions({expressInfo: {id: null, name: null}}));
             }
         } else { // 取消选中
+            setCheckRow(null);
             freightCharges = 0;
             dispatch(orderOptions({expressInfo: {id: null, name: null}}));
         }
