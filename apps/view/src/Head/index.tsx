@@ -80,9 +80,10 @@ const Head:React.FC = (props: any) => {
                         </li>
                         <div className="sign-btn">
                             {props.loginName[0] === null
-                                ? <span className="sign-in">
+                                ? <span className="">
+                                    <img style={{marginRight: '5px'}} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAS5JREFUOBGlkr1KA0EQx3+rUREkatBGBFErKzGI+h5pbMXCVrAVG5/BwtLOzgfwFQKxSWUlEQwiokL8QM04e9zl9nY3RnCa2fl/3dztwT/LxPzSYpw7jpXbTvlzZjk0i7z7+pIPJHObE+07DnfAA9M67zpYcgw2kCYTvPKMMFQQG7qMUjardFy8KLLMJ3OB2eI28IOKPboVBnxxi1FpWPdmg5YPBwFmXV8AznyhzqcRTJ8VKblmjCeauvZySr8wwoJZU9SrYANpMKWyC8dsLWX9Ng2ps+n5ixskN9DhUkVbvjCdHylRNVVuMr64wRv7v5itp8I3R5nZ9l6ACMN603su2edcS7Qp2Qugzopi831MOSxMcsVSBuQBKPHXEmYyaR5gaGfgwN6N/mgDbVHBD89gQaMzdzmfAAAAAElFTkSuQmCC" alt=""/>
                                     <a href='http://sys.pcbonline.com//login?jumpUrl=/blog'>
-                                        SIGN IN
+                                        Login
                                     </a>
                                 </span>
                                 :
