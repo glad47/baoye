@@ -4,7 +4,7 @@ import {
     InfoCircleOutlined
 } from '@ant-design/icons'
 import {orderOptions, useAppState} from "../../../state";
-import {getAllCountry, modifyDeliveryAddress} from "../../../SpecificationInput/AjaxService";
+import {addDeliveryAddress, getAllCountry, modifyDeliveryAddress} from "../../../SpecificationInput/AjaxService";
 
 type RequiredMark = boolean | 'optional';
 
@@ -24,6 +24,7 @@ const FormAddress = (props: thisInter) => {
     const onRequiredTypeChange = () => {};
     const [initialValues, setInitialValues] = useState();
     const [countryList, setCountryList] = useState([]);
+    const [operationType, setOperationType] = useState('edit');
 
     // 获取所有国家
     const initCountryList = () => {
@@ -45,20 +46,36 @@ const FormAddress = (props: thisInter) => {
         for(let key in dat) {
             def[key] = dat[key];
         }
-        modifyDeliveryAddress(def).then(res => {
-            const {closeEdit} = props;
-            if (closeEdit) {
-                closeEdit();
-            }
-            dispatch(orderOptions({deliveryAddr: def}));
-            emitter.emit('updateCurrentAddr',def);
-           message.success('edit success');
-        });
+        if (operationType === 'edit') {
+            modifyDeliveryAddress(def).then(res => {
+                const {closeEdit} = props;
+                if (closeEdit) {
+                    closeEdit();
+                }
+                dispatch(orderOptions({deliveryAddr: def}));
+                emitter.emit('updateCurrentAddr',def);
+                message.success('edit success');
+            });
+        } else {
+            def.isDefault = 1
+            addDeliveryAddress(def).then(res => {
+                const {closeEdit} = props;
+                dispatch(orderOptions({deliveryAddr: def}));
+                emitter.emit('updateCurrentAddr',def);
+                message.success('add success');
+                if (closeEdit) {
+                    closeEdit();
+                }
+            })
+        }
     }
 
     useEffect(() => {
         if (deliveryAddr) {
+            setOperationType('edit');
             setInitialValues(deliveryAddr);
+        } else {
+            setOperationType('add');
         }
         initCountryList();
     }, []);

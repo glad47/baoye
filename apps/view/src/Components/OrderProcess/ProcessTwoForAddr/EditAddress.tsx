@@ -13,11 +13,7 @@ const EditAddress = () => {
     const [billingCheck, setBillingCheck] = useState<boolean>(true);
 
     const handlerEditing = () => {
-        if (deliveryAddr) {
-            setEditing(!editing);
-        } else {
-            message.warn('please check delivery')
-        }
+        setEditing(!editing);
     }
 
     const handleBillingCheck = () => {

@@ -28,6 +28,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
     const { dispatch, pcbSizeField } = useAppState();
     const [tipShow, setTipShow] = useState(false);
     const [tipShowPanel, setTipShowPanel] = useState(false);
+    let timer1: any, timer2: any;
 
     const onValuesChange = (v: Store) => {
         // console.log(Object.values(v)[0])
@@ -49,6 +50,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
         //     form.submit();
         // })
         // onFinish(form.getFieldsValue())
+        console.log('value', v)
         if (JSON.stringify(v).indexOf('quantity') > -1) {
             if (!v.quantity) {
                 dispatch(reduxSetFlagQuoteParams(false));
@@ -68,6 +70,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                 // message.info('Please fill full parameters(Sizt and Quantity)');
             }
         } else {
+            console.log('vvvv', v)
             if (Object.values(v)[1] && Object.values(v)[2] && Object.values(v)[3]) {
                 dispatch(changeSizeField(v));
             } else {
@@ -84,7 +87,8 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
             const formData = form.getFieldsValue();
             const {quantity} = formData;
             setTipShow(!quantity)
-            setTimeout(() => {
+            clearTimeout(timer1);
+            timer1 = setTimeout(() => {
                 setTipShow(!quantity)
             }, 5*1000)
             console.log('!quantity', !quantity)
@@ -92,8 +96,10 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
         },
         tipsPanel () {
             setTipShowPanel(!tipShowPanel);
-            setTimeout(() => {
-                setTipShow(!tipShowPanel)
+            setTipShow(false)
+            clearTimeout(timer2);
+            timer2 = setTimeout(() => {
+                setTipShowPanel(!tipShowPanel)
             }, 5*1000);
         }
     }));
@@ -106,7 +112,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
     return (
         !props.isMobileSize ? <Form form={form} initialValues={pcbSizeField} onValuesChange={onValuesChange} onFinish={onFinish}>
             <Row>
-                <Col span={12} >
+                <Col span={12}  className={`item-panel`}>
                     <Form.Item label="Dimension" name="boardType">
                         <Select className="color-yel">
                             {
@@ -116,11 +122,12 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                             }
                         </Select>
                     </Form.Item>
-                    <Form.Item label="Panel Array" name="panelSize" style={{display: singleMode ? 'none': ''}}>
-                        <Tooltip visible={tipShowPanel} placement="top" title="Please pay attention to enter the board quantity">
-                            <ObserverSize isDisabled={singleMode} />
-                        </Tooltip>
+                    <Form.Item label="Panel Array" name="panelSize" className={`item-quantity`} style={{display: singleMode ? 'none': ''}}>
+                        <ObserverSize isDisabled={singleMode} />
                     </Form.Item>
+                    <Tooltip visible={tipShowPanel} placement="top" title="Please pay attention to enter the board quantity">
+                        <span className="tips">&nbsp;</span>
+                    </Tooltip>
                 </Col>
                 <Col span={12}  className={`item-quantity`}>
                     <Form.Item label="Size" name="singleSize">

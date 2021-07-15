@@ -11,7 +11,7 @@ const HistoryAddress = () => {
     const [curDefault, setCurDefault] = useState<number>();
     const { dispatch } = useAppState();
 
-    const getAddr = () => {
+    const getAddr = async () => {
         setSpin(true);
         getDeliveryAddress().then(res => {
             const { data: dt } = res;
@@ -40,15 +40,20 @@ const HistoryAddress = () => {
     // 更新地址
     const StaticUpdateAddr = (obj: any) => {
         const {id} = obj;
-        const def = [...addrList];
+        const def: any = [...addrList];
         let res: any = [];
-        def.forEach((item: any) => {
-            if (item.id === id) {
-                res.push(obj);
-            } else {
-                res.push(item);
-            }
-        });
+        const flag = def.find((item:any) => item.id === id);
+        if (flag) {
+            def.forEach((item: any) => {
+                if (item.id === id) {
+                    res.push(obj);
+                } else {
+                    res.push(item);
+                }
+            });
+        } else {
+            def.push(obj);
+        }
         setAddrList(res);
     }
 
@@ -56,13 +61,14 @@ const HistoryAddress = () => {
     const checkList = (obj: object, index: number) => {
         setCurDefault(index);
         dispatch(orderOptions({deliveryAddr: obj}));
-        emitter.addListener('updateCurrentAddr', val => {
-            StaticUpdateAddr(val);
-        })
     }
 
     useEffect(() => {
         getAddr();
+        emitter.addListener('updateCurrentAddr', async val => {
+            await getAddr();
+            StaticUpdateAddr(val);
+        })
         return () => {
             emitter.rawListeners('updateCurrentAddr');
         }

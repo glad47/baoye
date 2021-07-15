@@ -3700,7 +3700,7 @@ body {
     position: relative;
 }
 
-.item-quantity {
+.item-quantity, .item-panel {
     position: relative;
 }
 
@@ -3708,11 +3708,19 @@ body {
     padding-left: 12px !important;
 }
 
+.item-panel span.tips {
+    position: absolute;
+    width: 10px;
+    z-index: 1;
+    top: 53px;
+    left: 105px;
+}
+
 .item-quantity img.flag {
     position: absolute;
     width: 10px;
     z-index: 1;
-    top: 61px;
+    top: 60px;
     left: 107px;
 }
 
