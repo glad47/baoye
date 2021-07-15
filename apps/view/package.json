@@ -1,9 +1,9 @@
 {
   "name": "@tracespace/view",
-  "productName": "PCB Online Quote | SMT Stencil | PCB Assembly",
+  "productName": "Buy PCB Online | PCB Online Quote | PCB Assembly Order - PCBONLINE",
   "version": "4.2.0",
   "private": true,
-  "description": "PCBONLINE provides free online quotations for custom PCB, PCB assembly, and SMT stencils. Register and enjoy $100 coupons!",
+  "description": "Online order one-stop PCB fabrication services, including PCB, PCB assembly, and PCB stencils for SMT assembly. No MOQ. $100 coupons are available for online purchases!",
   "author": {
     "name": "Mike Cousins",
     "email": "mike@cousins.io",

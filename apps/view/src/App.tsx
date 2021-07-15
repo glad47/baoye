@@ -86,7 +86,9 @@ function App(): JSX.Element {
                 }
             } else {
                 if (quantity === null || panelSize.sizeX === null || panelSize.sizeY === null || singleSize.sizeX === null || singleSize.sizeY == null) {
-                    message.error('Please fill in the size and quantity and panel array ！！');
+                    // @ts-ignore
+                    pcbSizeFormRef?.current.tipsPanel();
+                    // message.error('Please fill in the size and quantity and panel array ！！');
                     return;
                 }
                 await uploadZipFile('upload');

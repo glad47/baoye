@@ -93,7 +93,7 @@ const StencilForm: React.FC<StencilFormProps> = (props) => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col span={12}><span>Dimensions</span></Col>
+                    <Col span={12}><span>Dimension</span></Col>
                     <Col span={12}>
                         <Form.Item name="dimensions">
                             {/* <ObserverSelect item={stencilSideSelectData} name="stencilSide" onChange={onOpenMode}/> */}
@@ -166,7 +166,7 @@ const StencilForm: React.FC<StencilFormProps> = (props) => {
                         </Form.Item>
                     </div>
                     <div className='mobile-stencil-form'>
-                        <span>Dimensions</span>
+                        <span>Dimension</span>
                         <Form.Item name="dimensions">
                             <Input onClick={onOpenMode} style={defaultSelectStyle} />
                         </Form.Item>

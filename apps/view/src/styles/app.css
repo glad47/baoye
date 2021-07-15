@@ -399,7 +399,7 @@
 }
 
 .ant-form-item-label>label {
-    color: #666666 !important
+    color: #000 !important
 }
 
 .pcb-min .ant-form .ant-form-item-control {
@@ -2174,7 +2174,7 @@ body {
         position: absolute;
         top: 0;
         left: 13px;
-        width: 73px;
+        /*width: 73px;*/
     }
 
     .pcb-nav ul li.cur>a>div {
@@ -2193,7 +2193,7 @@ body {
         width: 769px;
         padding: 0 20px 0 30px;
         float: left;
-        margin-left: 85px;
+        margin-left: 136px;
     }
 
     .update_status {
@@ -3793,7 +3793,7 @@ body {
 }
 
 .pcb-build-fee-detail {
-    padding: 17px 20px 28px 20px;
+    padding: 20px 0;
 }
 
 .pcb-build-fee-detail .model-1, .pcb-build-fee-detail .model-2 {
@@ -3807,14 +3807,16 @@ body {
 
 .pcb-build-container .cost-d {
     height: 50px;
-    line-height: 50px;
     background: #EEEEEE;
     width: 100%;
     text-align: center;
-    font-family: "Arial-BoldMT\,Arial";
-    font-size: 16px;
     color: #000000;
     letter-spacing: 0;
+    font-size: 20px;
+    font-family: Arial;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 50px;
 }
 
 
@@ -4254,9 +4256,9 @@ body {
 
 /* YouTube拖拽组件 */
 .youTubeDraggable {
-    position: absolute;
-    bottom: 162px;
-    right: -38px;
+    position: fixed;
+    bottom: 20px;
+    right: 330px;
     width: 400px;
     height: 228px;
     z-index: 999999;

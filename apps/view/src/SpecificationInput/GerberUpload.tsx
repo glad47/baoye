@@ -202,7 +202,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             hDM.style.color = '#666666';
             bDM.style.boxShadow = '0 7px 21px 0 rgb(172 189 253 / 77%)';
             hDM.style.border = 'unset';
-        }, 10*1000)
+        }, 15*1000)
     }
 
     const setItem=(key:string,options:string)=>{

@@ -99,7 +99,7 @@ export function countQuoteMiddleware(): State.Middleware {
                         if (code === "403") {
                             location.href = 'user/login';
                         }else{
-                            message.error("Add Quote Failure !!");
+                            // message.error("Add Quote Failure !!");
                         }
                     }
                 })

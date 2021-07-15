@@ -7,7 +7,8 @@ export default () => {
             <div>
                 <img src={failedImg} alt=""/>
                 <span>
-                    Your file format is wrong，You can send an email to us and get a quote in two hours
+                    Your file has been uploaded, but its format cannot be identified
+                    Please input the board's parameters to get a quote
                 </span>
             </div>
         </div>

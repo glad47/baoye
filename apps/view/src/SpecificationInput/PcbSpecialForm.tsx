@@ -27,7 +27,7 @@ const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) => {
                     <Form.Item label="HDI">
                         <ObserverSwitch name="hdi" />
                     </Form.Item>
-                    <Form.Item label="Bevelling(Camfer)">
+                    <Form.Item label="Bevelling (Camfer)">
                         <ObserverSwitch name="bevellingCamfer" />
                     </Form.Item>
                     <Form.Item label="Peelable Solder Mask" >
@@ -36,10 +36,10 @@ const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) => {
                     <Form.Item label="Edge Plating" >
                         <ObserverSwitch name="edgePlating" />
                     </Form.Item>
-                    <Form.Item label="Via in pad" >
+                    <Form.Item label="Via in Pad" >
                         <ObserverSwitch name="viaInPad" />
                     </Form.Item>
-                    <Form.Item label="Negative postitive copper" >
+                    <Form.Item label="Negative Postitive Copper" >
                         <ObserverSwitch name="negativePostitiveCopper" />
                     </Form.Item>
                     <Form.Item label="Countersinks" >
@@ -76,7 +76,7 @@ const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) => {
                     <ObserverSwitch name="hdi" />
                 </Form.Item>
 
-                <Form.Item label="Bevelling(Camfer)">
+                <Form.Item label="Bevelling (Camfer)">
                     <ObserverSwitch name="bevellingCamfer" />
                 </Form.Item>
 
@@ -87,10 +87,10 @@ const PcbSpecialForm: React.FC<PcbSpecialFormProps> = (props) => {
                 <Form.Item label="Edge Plating" >
                     <ObserverSwitch name="edgePlating" />
                 </Form.Item>
-                <Form.Item label="Via in pad" >
+                <Form.Item label="Via in Pad" >
                     <ObserverSwitch name="viaInPad" />
                 </Form.Item>
-                <Form.Item label="Negative postitive copper" >
+                <Form.Item label="Negative Postitive Copper" >
                     <ObserverSwitch name="negativePostitiveCopper" />
                 </Form.Item>
                 <Form.Item label="Countersinks" >

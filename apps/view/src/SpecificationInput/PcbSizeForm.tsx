@@ -10,14 +10,14 @@ interface PcbSizeFormProps {
 }
 const boardType = [{ id: 1, name: 'Single' }, { id: 2, name: 'Panel' }];
 const diffDesigns = [
-    {name: '1oz', value: '1'},
-    {name: '2oz', value: '2'},
-    {name: '3oz', value: '3'},
-    {name: '4oz', value: '4'},
-    {name: '5oz', value: '5'},
-    {name: '6oz', value: '6'},
-    {name: '7oz', value: '7'},
-    {name: '8oz', value: '8'}
+    {name: '1', value: '1'},
+    {name: '2', value: '2'},
+    {name: '3', value: '3'},
+    {name: '4', value: '4'},
+    {name: '5', value: '5'},
+    {name: '6', value: '6'},
+    {name: '7', value: '7'},
+    {name: '8', value: '8'}
 ];
 
 // const INITIAL = {boardType:'Single'}
@@ -27,6 +27,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
     const [singleMode, setSingleMode] = useState(true);
     const { dispatch, pcbSizeField } = useAppState();
     const [tipShow, setTipShow] = useState(false);
+    const [tipShowPanel, setTipShowPanel] = useState(false);
 
     const onValuesChange = (v: Store) => {
         // console.log(Object.values(v)[0])
@@ -83,8 +84,17 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
             const formData = form.getFieldsValue();
             const {quantity} = formData;
             setTipShow(!quantity)
+            setTimeout(() => {
+                setTipShow(!quantity)
+            }, 5*1000)
             console.log('!quantity', !quantity)
             return quantity;
+        },
+        tipsPanel () {
+            setTipShowPanel(!tipShowPanel);
+            setTimeout(() => {
+                setTipShow(!tipShowPanel)
+            }, 5*1000);
         }
     }));
 
@@ -107,7 +117,9 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                         </Select>
                     </Form.Item>
                     <Form.Item label="Panel Array" name="panelSize" style={{display: singleMode ? 'none': ''}}>
-                        <ObserverSize isDisabled={singleMode} />
+                        <Tooltip visible={tipShowPanel} placement="top" title="Please pay attention to enter the board quantity">
+                            <ObserverSize isDisabled={singleMode} />
+                        </Tooltip>
                     </Form.Item>
                 </Col>
                 <Col span={12}  className={`item-quantity`}>
@@ -117,7 +129,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                     <Form.Item label="Quantity" name="quantity">
                         <Input placeholder='Enter the Qty' className='enter_quantity color-yel' suffix={singleMode ? 'PCS' : 'PANEL'} autoComplete='off' />
                     </Form.Item>
-                    <Tooltip visible={tipShow} placement="top" title="Please pay attention to enter the board quantity">
+                    <Tooltip visible={tipShow} placement="topLeft" title="Please pay attention to enter the board quantity">
                         <img onMouseEnter={() => setTipShow(true)}
                              onMouseLeave={() => setTipShow(false)}
                              src={require('../images/quate_icon1.png')} alt="" className="flag"/>

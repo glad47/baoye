@@ -107,10 +107,10 @@ const AssemblyFrom: React.FC<AssemblyFormProps> = (props) => {
                                 You supply parts, PCBONLINE only assembles
                                 </Radio>
                             <Radio value={2}>
-                                PCBONLINE supplies some parts and assembly
+                                PCBONLINE supplies assembly and some parts
                                 </Radio>
                             <Radio value={3}>
-                                PCBONLINE supplies all parts and assembly
+                                PCBONLINE supplies assembly and all parts
                                 </Radio>
                         </Radio.Group>
                     </Form.Item>
