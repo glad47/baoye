@@ -69,9 +69,9 @@ const Head:React.FC = (props: any) => {
                 </div>
                 <div className='pcb-header-menu'>
                     <ul className='pcb-header-menu-all'>
-                        <li className='pcb-menu-one'>
-                            <a href="https://www.pcbonline.com/factory-live/" target="_blank">Factory Live</a>
-                        </li>
+                        {/*<li className='pcb-menu-one'>*/}
+                        {/*    <a href="https://www.pcbonline.com/factory-live/" target="_blank">Factory Live</a>*/}
+                        {/*</li>*/}
                         <li className='pcb-menu-two'>
                             <a href="https://www.pcbonline.com/quality-control/" target="_blank">Quality Control</a>
                         </li>
