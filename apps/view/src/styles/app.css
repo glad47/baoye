@@ -3686,7 +3686,12 @@ body {
     .pcb-spec .mobile-special-form .ant-form-item .ant-form-item-control {
         max-width: 50%;
     }
-
+    .ant-layout-content {
+        display: block !important;
+    }
+    .file-init {
+        display: none !important;
+    }
 }
 
 .pcb-title,

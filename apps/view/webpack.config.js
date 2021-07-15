@@ -12,15 +12,16 @@ const pkg = require('./package.json')
 const {
     DEV_MODE,
     OUT_DIRNAME,
+    OUT_IMAGES,
     baseConfig,
 } = require('@tracespace/config/webpack')
 
 const OUT_PATH = path.join(__dirname, OUT_DIRNAME)
-const EXAMPLE_OUT = path.join(OUT_PATH, 'arduino-uno.zip')
+const EXAMPLE_OUT = path.join(OUT_PATH, 'arduino-uno.zip');
+const VIDEO_OUT = path.join(OUT_DIRNAME, 'styles');
 
 const EXAMPLE_FILES = path.join(
-    path.dirname(require.resolve('@tracespace/fixtures')),
-    'boards/arduino-uno/**'
+    path.dirname(require.resolve(__dirname + path.join('/src/styles/pcb-video.mp4'))),
 )
 
 module.exports = merge(baseConfig(__dirname), {
@@ -64,7 +65,7 @@ module.exports = merge(baseConfig(__dirname), {
             },
             {
                 test: /\.(png|ico|gif)$/,
-                loader: 'file-loader',
+                loader: 'file-loader?name=images',
                 options: {
                     name: '[name].[contenthash].[ext]',
                 },
@@ -74,8 +75,12 @@ module.exports = merge(baseConfig(__dirname), {
                 loader: "file-loader"
             },
             {
-                test: /\.(mp4)$/,
-                loader: "file-loader"
+                test: /\.(mp4)(\?.*)?$/,
+                loader: "url-loader",
+                options: {
+                    name: 'images/[name].[contenthash].[ext]',
+                    limit:10
+                }
             },
         ],
     },
@@ -88,8 +93,16 @@ module.exports = merge(baseConfig(__dirname), {
             PKG_AUTHOR_URL: pkg.author.url,
         }),
         new FileManagerPlugin({
-            onStart: { mkdir: [OUT_PATH] },
-            onEnd: { archive: [{ source: EXAMPLE_FILES, destination: EXAMPLE_OUT }] },
+            onStart: { mkdir: [OUT_IMAGES] },
+            // onEnd: { archive: [{ source: EXAMPLE_FILES, destination: VIDEO_OUT }] },
+            onEnd: {
+                copy: [
+                    {
+                        source: EXAMPLE_FILES,
+                        destination: VIDEO_OUT
+                    }
+                ]
+            }
         }),
         new HtmlPlugin({
             template: path.join(__dirname, 'src/template'),

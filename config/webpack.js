@@ -12,6 +12,7 @@ const merge = require('webpack-merge')
 const DEV_MODE = process.env.NODE_ENV !== 'production'
 const ANALYZER = Boolean(process.env.ANALYZER)
 const OUT_DIRNAME = 'dist'
+const OUT_IMAGES = 'dist/styles'
 
 const baseConfig = dirname => ({
   target: 'web',
@@ -44,6 +45,7 @@ const baseConfig = dirname => ({
     contentBase: path.join(dirname, OUT_DIRNAME),
     historyApiFallback: true,
     disableHostCheck: true,
+    inline: true,
   },
 })
 
@@ -64,6 +66,7 @@ module.exports = {
   DEV_MODE,
   ANALYZER,
   OUT_DIRNAME,
+  OUT_IMAGES,
   baseConfig,
   browserScriptConfig,
 }
