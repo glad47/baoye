@@ -8,10 +8,13 @@
     overflow: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    position: relative;
 }
 .history-addr::-webkit-scrollbar {
     display: none; /* Chrome Safari */
 }
+
+
 .history-addr-box {
     overflow: auto;
     display: flex;
@@ -65,7 +68,7 @@
 
 .history-addr .history-addr-li strong,
 .history-addr>div>span, .history-addr .history-addr-li span {
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 13px;
     color: #666666;
     display: block;
@@ -79,6 +82,7 @@
     line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+
 
 .edit-address .header {
     width: 100%;
@@ -99,6 +103,24 @@
     border-radius: 2px !important;
 }
 
+.bill-ul-box .ant-radio-group {
+    width: 100% !important;
+}
+
+.bill-ul-box ul {
+    background: #fff;
+    background: #fff;
+    margin: 8px 19px;
+}
+
+.bill-ul-box ul li {
+    font-family: Arial;
+    width: 100%;
+    padding: 8px 19px;
+    border: solid 1px #f8f8f8;
+    background-color: #fff;
+}
+
 .form-Address>form {
     width: 100%;
     padding: 20px;
@@ -107,6 +129,13 @@
 
 .form-AddressBook>div form {
     width: 100%;
+}
+
+.address-edit {
+    position: absolute;
+    right: 34px;
+    bottom: 20px;
+    margin-top: -15px;
 }
 
 

@@ -57,7 +57,7 @@ const PcbBuildFeeDetail: React.FC<any> = props => {
                 <div className="cost-det">
                     <div>
                         <span>Estimated Cost</span>
-                        <span className="m-price">
+                        <span className="m-price" style={{fontSize: '20px', 'font-weight': '600'}}>
                             ${Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))}
                         </span>
                     </div>

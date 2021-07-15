@@ -8,6 +8,7 @@ export const INITIAL_STATE: State = {
   flagQuoteParams: false,
   appPreferences: {},
   board: null,
+  addQuoteStatus: false,
   savedBoards: [],
   mode: null,
   loading: false,
@@ -37,7 +38,7 @@ export const INITIAL_STATE: State = {
   carDrawerStatus:false,
   uploadGerber: {progress: 0, status: 'init'},
   orderSummary: {total: 0, freightCharges: 0, weight: 0, coupon: {id: -1, value: 0}, handlingCharge: 0},
-  orderSummaryStatus: {process: 1, description: 'MY SHOPPING CART'},
+  orderSummaryStatus: {process: 1, description: ''},
   orderOptionsItem: {deliveryAddr: null, expressInfo: {id: null, name: null}, payWays: 1, ordersItem: []},
   fileFormData: null,
 }

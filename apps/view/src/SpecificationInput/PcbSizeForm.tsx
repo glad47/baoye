@@ -50,57 +50,62 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
         //     form.submit();
         // })
         // onFinish(form.getFieldsValue())
-        console.log('value', v)
-        if (JSON.stringify(v).indexOf('quantity') > -1) {
-            if (!v.quantity) {
-                dispatch(reduxSetFlagQuoteParams(false));
-            } else {
-                onFinish(form.getFieldsValue());
-            }
-        } else {
-            form.submit();
-        }
+        setTipShowPanel(false);
+        setTipShow(false)
+        const vs = form.getFieldsValue();
+        onFinish(form.getFieldsValue());
     }
+
     const onFinish = (v: Store) => {
         dispatch(reduxSetFlagQuoteParams(true));
         if (Object.values(v)[0] === 'Single') {
             if (Object.values(v)[2] && Object.values(v)[3]) {
                 dispatch(changeSizeField(v));
             } else {
+                handleFormSubmitTips1();
                 // message.info('Please fill full parameters(Sizt and Quantity)');
             }
         } else {
-            console.log('vvvv', v)
             if (Object.values(v)[1] && Object.values(v)[2] && Object.values(v)[3]) {
-                dispatch(changeSizeField(v));
-            } else {
+            } else if (!Object.values(v)[3]) {
+                handleFormSubmitTips1();
                 // message.info('Please fill full parameters(Sizt and Quantity and Panel Array)');
+            } else {
+                handleFormSubmitTips2();
             }
+            dispatch(changeSizeField(v));
         }
     }
 
-    useImperativeHandle(props.cRef, () => ({
-        // 主要弹出input require
-        formSubmit () {
-            // console.log('validateFields', await form.validateFields)
-            // form.submit();
-            const formData = form.getFieldsValue();
-            const {quantity} = formData;
+    const handleFormSubmitTips1 = () => {
+        const formData = form.getFieldsValue();
+        const {quantity} = formData;
+        if (quantity === '' || quantity === null) {
             setTipShow(!quantity)
             clearTimeout(timer1);
             timer1 = setTimeout(() => {
                 setTipShow(!quantity)
             }, 5*1000)
-            console.log('!quantity', !quantity)
-            return quantity;
+            return false;
+        }
+        return quantity;
+    }
+
+    const handleFormSubmitTips2 = () => {
+        setTipShowPanel(!tipShowPanel);
+        clearTimeout(timer2);
+        timer2 = setTimeout(() => {
+            setTipShowPanel(false)
+        }, 3*1000);
+    }
+
+    useImperativeHandle(props.cRef, () => ({
+        // 主要弹出input require
+        formSubmit () {
+            handleFormSubmitTips1();
         },
         tipsPanel () {
-            setTipShowPanel(!tipShowPanel);
-            setTipShow(false)
-            clearTimeout(timer2);
-            timer2 = setTimeout(() => {
-                setTipShowPanel(!tipShowPanel)
-            }, 5*1000);
+            handleFormSubmitTips2();
         }
     }));
 
@@ -112,7 +117,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
     return (
         !props.isMobileSize ? <Form form={form} initialValues={pcbSizeField} onValuesChange={onValuesChange} onFinish={onFinish}>
             <Row>
-                <Col span={12}  className={`item-panel`}>
+                <Col span={12}  className={`item-panel`} id="panelArray">
                     <Form.Item label="Dimension" name="boardType">
                         <Select className="color-yel">
                             {
@@ -125,18 +130,18 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                     <Form.Item label="Panel Array" name="panelSize" className={`item-quantity`} style={{display: singleMode ? 'none': ''}}>
                         <ObserverSize isDisabled={singleMode} />
                     </Form.Item>
-                    <Tooltip visible={tipShowPanel} placement="top" title="Please pay attention to enter the board quantity">
+                    <Tooltip visible={tipShowPanel} placement="top" getPopupContainer={() => document.getElementById("panelArray")} title="Please pay attention to enter the board quantity">
                         <span className="tips">&nbsp;</span>
                     </Tooltip>
                 </Col>
-                <Col span={12}  className={`item-quantity`}>
+                <Col span={12}  className={`item-quantity`} id="qtyTipsID">
                     <Form.Item label="Size" name="singleSize">
                         <ObserverSize />
                     </Form.Item>
                     <Form.Item label="Quantity" name="quantity">
                         <Input placeholder='Enter the Qty' className='enter_quantity color-yel' suffix={singleMode ? 'PCS' : 'PANEL'} autoComplete='off' />
                     </Form.Item>
-                    <Tooltip visible={tipShow} placement="topLeft" title="Please pay attention to enter the board quantity">
+                    <Tooltip visible={tipShow} getPopupContainer={() => document.getElementById("qtyTipsID")}  placement="topLeft" title="Please pay attention to enter the board quantity">
                         <img onMouseEnter={() => setTipShow(true)}
                              onMouseLeave={() => setTipShow(false)}
                              src={require('../images/quate_icon1.png')} alt="" className="flag"/>
@@ -146,7 +151,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                     !singleMode &&
                     <Col span={12}>
                         <Form.Item label="Different Design in Panel" name="differentDesign" labelCol={{span: 14}}>
-                            <Select className="color-yel">
+                            <Select className="color-yel" defaultValue={1}>
                                 {
                                     diffDesigns.map(item => <Option key={item.value} value={item.value}>{item.name}</Option>)
                                 }

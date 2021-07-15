@@ -19,7 +19,7 @@ h1 {
 }
 
 .sys-message .mes-foot {
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     height: 48px;
     line-height: 48px;
@@ -62,18 +62,18 @@ h1 {
 }
 
 .sys-message .mes-box .mes-li .rig-info .info-header .title {
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     color: #333333;
 }
 .sys-message .mes-box .mes-li .rig-info .info-header .time {
     font-size: 14px;
     color: #999999;
-    font-family: ArialMT;
+    font-family: Arial;
 }
 
 .sys-message .mes-box .mes-li .rig-info .info-content {
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     color: #666666;
 }

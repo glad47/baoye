@@ -41,7 +41,7 @@ const ProcessThreeTransport = () => {
         countryName: null,
         totalWeight: 0,
     });
-    const [shipmentTerms, setShipmentTerms] = useState<any>();
+    const [shipmentTerms, setShipmentTerms] = useState<any>('UUD');
     const [tableData, setTableData] = useState<any>([]);
     const [beforeTableData, setBeforeTableData] = useState<any>([]);
     const [checkRow, setCheckRow] = useState<any>();
@@ -58,10 +58,10 @@ const ProcessThreeTransport = () => {
             const t = checkRow ? total : 0;
             dispatch(orderSummaryFun({ freightCharges: t}));
             setTableData(def);
-            setShipmentTerms(null);
+            setShipmentTerms('UUD');
             setCurrentRadio(null);
         } else {
-            setShipmentTerms('EXC');
+            setShipmentTerms('EXW');
             setCurrentRadio(index);
             // 运费清零
             clearShippingFee(index);

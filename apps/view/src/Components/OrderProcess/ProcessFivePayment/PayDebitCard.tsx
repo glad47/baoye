@@ -88,7 +88,7 @@ const PayDebitCard = (props: any) => {
                         </Space>
                     </Col>
                     <Col span={24}>
-                        <button className="btn global-primary">PAY NOW</button>
+                        <button className="btn global-primary">Pay Now</button>
                     </Col>
                 </Row>
             </Form>

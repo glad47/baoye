@@ -388,6 +388,12 @@ export default function reducer(state: State, action: Action): State {
         fileFormData: action.payload
       }
     }
+    case actionTypes.CHANGE_ADDQUOTESTATUS: {
+      return {
+        ...state,
+        addQuoteStatus: action.payload
+      }
+    }
   }
   
 

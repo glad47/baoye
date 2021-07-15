@@ -1,16 +1,17 @@
-import React, {useState} from 'react';
+import React, {useImperativeHandle, useState} from 'react';
 import {
     EditFilled
 } from '@ant-design/icons'
-import {Space, Checkbox, message} from "antd";
+import {Space, Checkbox, Radio} from "antd";
 import FormAddress from "./FormAddress";
 import {useAppState} from "../../../state";
 
-const EditAddress = () => {
+const EditAddress = (props: any) => {
     const { orderOptionsItem } = useAppState();
     const {deliveryAddr} = orderOptionsItem;
     const [editing, setEditing] = useState<boolean>(false);
     const [billingCheck, setBillingCheck] = useState<boolean>(true);
+    const [currentBill, setCurrentBill] = useState<any>(0);
 
     const handlerEditing = () => {
         setEditing(!editing);
@@ -19,6 +20,19 @@ const EditAddress = () => {
     const handleBillingCheck = () => {
         setBillingCheck(!billingCheck);
     }
+    const billOnChange = (e: any) => {
+        const v = e.target.value;
+        setCurrentBill(v);
+        if (v === 2) {
+            handleBillingCheck();
+        }
+    }
+
+    useImperativeHandle(props.cRef, () => ({
+        uiHandlerEditing() {
+            handlerEditing();
+        }
+    }))
 
     return (
         <div className="edit-address">
@@ -34,10 +48,20 @@ const EditAddress = () => {
                 editing && <FormAddress closeEdit={() => setEditing(false)}/>
             }
             <Space className="check-unRadius">
-                <Checkbox checked={billingCheck} onClick={handleBillingCheck}>
-                    Same Billing Address
-                </Checkbox>
+                <strong>Billing Address</strong>
             </Space>
+            <div className="bill-ul-box">
+                <Radio.Group onChange={billOnChange} value={currentBill}>
+                    <ul>
+                        <li>
+                            <Radio value={1}>Same as shipping address</Radio>
+                        </li>
+                        <li>
+                            <Radio value={2}>Use a different billing address</Radio>
+                        </li>
+                    </ul>
+                </Radio.Group>
+            </div>
             {
                 !billingCheck && <FormAddress key="addrBilling" />
             }

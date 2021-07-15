@@ -24,7 +24,7 @@
 .route-sysMes .header span {
     display: block;
     text-align: center;
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     color: #F85C5C;
     padding: 10px 0;
@@ -75,12 +75,12 @@
     margin-right: 10px;
 }
 .route-sysMes .content-box .mes-li .mes-h .content {
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     color: #002200;
 }
 .route-sysMes .content-box .mes-li .mes-h .time {
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     text-indent: 18px;
     color: #999999;

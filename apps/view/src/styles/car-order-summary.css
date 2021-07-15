@@ -19,7 +19,7 @@
 }
 .order-detail .cost-det>div {
     margin-top: 10px;
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     color: #333333;
     letter-spacing: 0;
@@ -38,14 +38,14 @@
 }
 
 .order-detail .summary-btn {
-    background: #f8f8f8;
+    background: #fff;
     padding: 17px 15px;
 }
 
 .order-detail .summary-btn[disab]
 
 .order-detail .summary-tips {
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     color: #929DC1;
     letter-spacing: 0;

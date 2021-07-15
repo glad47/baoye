@@ -76,7 +76,7 @@ function App(): JSX.Element {
                             return checkLogin();
                         }
                     }
-                    if (quantity === null || singleSize.sizeX === null || singleSize.sizeY === null) {
+                    if (quantity === null || quantity === '' || singleSize.sizeX === null || singleSize.sizeX === '' || singleSize.sizeY === null || singleSize.sizeY === '') {
                         // message.error('Please fill in the size and quantity ！！');
                         // return checkLogin();
                     }
@@ -85,11 +85,11 @@ function App(): JSX.Element {
                     return false
                 }
             } else {
-                if (quantity === null || panelSize.sizeX === null || panelSize.sizeY === null || singleSize.sizeX === null || singleSize.sizeY == null) {
+                if (panelSize.sizeX === null || panelSize.sizeX === '' || panelSize.sizeY === null || panelSize.sizeY === '' || singleSize.sizeX === null || singleSize.sizeY == null) {
                     // @ts-ignore
                     pcbSizeFormRef?.current.tipsPanel();
                     // message.error('Please fill in the size and quantity and panel array ！！');
-                    return;
+                    return false;
                 }
                 await uploadZipFile('upload');
             }

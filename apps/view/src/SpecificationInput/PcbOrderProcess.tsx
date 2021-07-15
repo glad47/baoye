@@ -128,7 +128,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
         <PcbLayout>
             <div className="pcb-order-process">
                 <div className="order-types" id="shit">
-                    <strong>{orderSummaryStatus.description}</strong>
+                    <strong>&nbsp;</strong>
                     <Collapse accordion className="order-collapse" activeKey={orderSummaryStatus.process} onChange={handlerCheckCollapse}>
 
                         <Panel header="Shipping Items" key="1" extra={processExtra[1]}>

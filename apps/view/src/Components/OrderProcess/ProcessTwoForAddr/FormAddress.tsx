@@ -26,6 +26,32 @@ const FormAddress = (props: thisInter) => {
     const [countryList, setCountryList] = useState([]);
     const [operationType, setOperationType] = useState('edit');
 
+    const zipTips = (
+        <div>
+            <strong>Zip Code Format List: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+            <p></p>
+            <strong>US:</strong><br />
+            <span>99999</span><br />
+            <span>99999-9999</span><br />
+            <p></p>
+            <strong>DE/IT/FR/ES</strong><br />
+            <span>99999</span><br />
+            <p></p>
+            <strong>NL:</strong><br />
+            <span>9999</span><br />
+            <p></p>
+            <strong>AT:</strong><br />
+            <span>9999</span><br />
+            <strong>UK:</strong><br />
+            <span>AA9A 9AA</span><br />
+            <span>A9A 9AA</span><br />
+            <span>A9 9AA</span><br />
+            <span>A99 9AA</span><br />
+            <span>AA9 9AA</span><br />
+            <span>AA99 9AA</span><br />
+        </div>
+    )
+
     // 获取所有国家
     const initCountryList = () => {
         const session = window.localStorage.getItem("countryList");
@@ -118,7 +144,7 @@ const FormAddress = (props: thisInter) => {
                         <Form.Item label="Zip Code" name="receiverPostcode" required>
                             <Input
                                 suffix={
-                                    <Tooltip title="Extra information">
+                                    <Tooltip title={zipTips}>
                                         <InfoCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />
                                     </Tooltip>
                                 }/>
@@ -136,7 +162,12 @@ const FormAddress = (props: thisInter) => {
                     </Col>
                     <Col span={24}>
                         <Form.Item label="Phone Number" name="receiverTelephone" required>
-                            <Input />
+                            <Input
+                                suffix={
+                                    <Tooltip title="The phone number is required for shipping courier to deliver your parcel.">
+                                        <InfoCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />
+                                    </Tooltip>
+                                }/>
                         </Form.Item>
                     </Col>
                     <Col span={24}>

@@ -11,6 +11,7 @@
 .process-three-tra .tra-tips {
     padding: 20px;
     margin-top: 10px;
+    font-family: Arial;
 }
 
 .process-three-tra .tra-tips img {
@@ -32,7 +33,7 @@
 .process-three-tra .header>div input {
     width: 160px;
     margin-left: 10px;
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     color: #333333;
     letter-spacing: 0;
@@ -45,7 +46,7 @@
 }
 
 .process-three-tra .order-instr span {
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     color: #333333;
     letter-spacing: 0;
@@ -53,7 +54,7 @@
 }
 .process-three-tra .order-instr div {
     margin-top: 10px;
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     color: #666666;
     letter-spacing: 0;

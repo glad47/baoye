@@ -1,5 +1,5 @@
 import * as State from '../state';
-import { countSubtotal, countBuildTime } from '../state';
+import {countSubtotal, countBuildTime, reduxChangeAddQuoteStatus} from '../state';
 import { ajaxBuildTime, ajaxSubtotal, ajaxAddQuote, ajaxAssemblyCast } from './AjaxService';
 import Axios from 'axios';
 import { message } from 'antd';
@@ -92,6 +92,10 @@ export function countQuoteMiddleware(): State.Middleware {
                     const [{data:{success,code}}] = rep;
                     if(success){
                         message.success("Add Quote Success!!");
+                        dispatch(reduxChangeAddQuoteStatus(true));
+                        setTimeout(() => {
+                            dispatch(reduxChangeAddQuoteStatus(false));
+                        }, 10*1000)
                         // setTimeout(() => {
                         //     location.reload();
                         // }, 1000);
@@ -99,6 +103,7 @@ export function countQuoteMiddleware(): State.Middleware {
                         if (code === "403") {
                             location.href = 'user/login';
                         }else{
+                            dispatch(reduxChangeAddQuoteStatus(false));
                             // message.error("Add Quote Failure !!");
                         }
                     }

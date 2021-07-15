@@ -1,7 +1,9 @@
 .p-suc {
     /*display: flex;*/
     position: relative;
+    display: flex;
     margin-top: -20px;
+    justify-content: space-between;
 }
 
 .p-suc .rig-form {
@@ -17,7 +19,7 @@
 
 .rig-form .header .txt>* {
     display: block;
-    font-family: Arial-BoldMT;
+    font-family: Arial;
     color: #000000;
 }
 .rig-form .header .txt strong{
@@ -40,7 +42,7 @@
 
 .rig-form .order-num>* {
     display: block;
-    font-family: ArialMT;
+    font-family: Arial;
 }
 
 .rig-form .order-num span.num {
@@ -75,7 +77,7 @@
     line-height: 40px;
     border-radius: 4px;
     cursor: pointer;
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     color: #2952EA;
     margin-top: 20px;
@@ -86,7 +88,7 @@
 }
 
 .rig-form .form-container .header strong {
-    font-family: Arial-BoldMT;
+    font-family: Arial;
     font-size: 14px;
     color: #000000;
 }
@@ -110,7 +112,7 @@
     width: 134px;
     height: 44px;
     line-height: 44px;
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     color: #FFFFFF;
 }
@@ -120,14 +122,14 @@
 }
 
 .rig-form .join .check-us span{
-    font-family: Arial-BoldMT;
+    font-family: Arial;
     font-size: 14px;
     color: #000000;
     font-weight: 600;
 }
 
 .rig-form .join .p-tips {
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     color: #333333;
 }
@@ -142,6 +144,7 @@
 }
 
 .rig-form .join .send-email {
+    font-family: Arial;
     margin-top: 8px;
     padding: 20px;
     background: #fff;
@@ -166,7 +169,7 @@
 {
     border: 1px solid #2952EA !important;
     border-radius: 4px;
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     outline: none;
     color: #333333;
@@ -199,7 +202,7 @@
 }
 .rig-form .join .bt-txt span {
     margin-top: 28px;
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     color: #999999;
     line-height: 20px;
@@ -212,9 +215,9 @@
 
 
 .p-suc .lef-img {
-    top: 0;
-    position: absolute;
-    left: 700px;
+    /*top: 0;*/
+    /*position: absolute;*/
+    /*left: 700px;*/
 }
 
 .concat-info {
@@ -255,7 +258,7 @@
 }
 
 .concat-lef .rg strong {
-    font-family: Arial-BoldMT;
+    font-family: Arial;
     font-size: 14px;
     color: #FFFFFF;
     display: block;
@@ -267,6 +270,7 @@
 }
 
 .concat-lef .rg .btn-group button {
+    font-family: Arial;
     border: 1px solid #FFFFFF;
     border-radius: 17px;
     width: 96px;
@@ -304,7 +308,7 @@
 
 .concat-info .concat-rig strong {
     color: #fff;
-    font-family: Arial-Black;
+    font-family: Arial;
     font-size: 14px;
     margin-top: 8px;
     display: block;
@@ -312,7 +316,7 @@
 
 .concat-info .concat-rig span {
     opacity: 0.7;
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     color: #FFFFFF;
 }

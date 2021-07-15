@@ -11,7 +11,7 @@ const YouTubeVideo = (props: any) => {
                 scale={1}>
                 <div className="handle">
                     <img src={require('../../images/quate_close.png')} alt="" className="close" onClick={props.closeVideo}/>
-                    <video src='../../styles/pcb-video.mp4' muted autoPlay={true} loop width="100%" height="100%"></video>
+                    <video src='../../styles/pcb-video.mp4' muted autoPlay={true} loop width="100%" controls={true} height="100%"></video>
                 </div>
             </Draggable>
         </div>

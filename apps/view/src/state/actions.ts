@@ -65,6 +65,7 @@ export const Upload_GERBER_OPTIONS = 'Upload_GERBER_OPTIONS';
 export const SET_USER = 'SET_USER';
 export const FLAG_QUOTE_PARAMS = 'FLAG_QUOTE_PARAMS';
 export const SAVE_FILE_FORMDATA = 'SAVE_FILE_FORMDATA';
+export const CHANGE_ADDQUOTESTATUS = 'CHANGE_ADDQUOTESTATUS';
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -357,3 +358,8 @@ export const reduxSetFlagQuoteParams = (field:any): Action => ({
   type: FLAG_QUOTE_PARAMS,
   payload: field
 });
+
+export const reduxChangeAddQuoteStatus = (field: any): Action => ({
+  type: CHANGE_ADDQUOTESTATUS,
+  payload: field
+})

@@ -1,11 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {delDeliveryAddress, getDeliveryAddress} from "../../../SpecificationInput/AjaxService";
-import {message, Spin} from "antd";
+import {message, Spin, Button, Space} from "antd";
 import {orderOptions, useAppState} from "../../../state";
 
 import emitter from "../../../eventBus";
+import {EditFilled} from "@ant-design/icons";
 
-const HistoryAddress = () => {
+const HistoryAddress = (props: any) => {
     const [addrList, setAddrList] = useState([]);
     const [spin, setSpin] = useState<boolean>(false);
     const [curDefault, setCurDefault] = useState<number>();
@@ -63,12 +64,18 @@ const HistoryAddress = () => {
         dispatch(orderOptions({deliveryAddr: obj}));
     }
 
+    const handleEdits = () => {
+        // @ts-ignore
+        props.handleEdit();
+    }
+
     useEffect(() => {
         getAddr();
         emitter.addListener('updateCurrentAddr', async val => {
             await getAddr();
             StaticUpdateAddr(val);
         })
+
         return () => {
             emitter.rawListeners('updateCurrentAddr');
         }
@@ -94,6 +101,13 @@ const HistoryAddress = () => {
                         }
                     </div>
                 </Spin>
+                {
+                    addrList.length > 0 &&
+                    <Button onClick={handleEdits} type="primary" className="address-edit">
+                        <span>Edit the address</span>
+                        <EditFilled />
+                    </Button>
+                }
             </div>
         </div>
     )

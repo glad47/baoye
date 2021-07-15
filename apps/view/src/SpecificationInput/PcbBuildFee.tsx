@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 const PcbBuildFee: React.FC<any> = (props) => {
     const { setIsLogin, handleAddQuote } = props;
     const history = useHistory();
-    const { dispatch, carDrawerStatus, subtotal, flagQuoteParams } = useAppState();
+    const { dispatch, carDrawerStatus, subtotal, flagQuoteParams, addQuoteStatus } = useAppState();
     const handlerCar = async (type: number | any) => {
         const flg = await handleAddQuote();
         if (flg) {
@@ -16,14 +16,24 @@ const PcbBuildFee: React.FC<any> = (props) => {
                 if (flagQuoteParams) {
                     history.push('/order');
                 }
-            } else {
-                // 定时关闭
-                setTimeout(() => {
-                    dispatch(changeCarDrawer(false));
-                }, 6000);
             }
+            // else {
+            //     // 定时关闭
+            //     setTimeout(() => {
+            //         dispatch(changeCarDrawer(false));
+            //     }, 6000);
+            // }
         }
     }
+
+    useEffect(() => {
+        if (addQuoteStatus) {
+            // 定时关闭
+            setTimeout(() => {
+                dispatch(changeCarDrawer(false));
+            }, 6000);
+        }
+    }, [addQuoteStatus])
 
     // 购买 直接跳转到订单页
     const buyNow = async () => {

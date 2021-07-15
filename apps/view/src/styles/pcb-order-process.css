@@ -10,7 +10,7 @@
 .process-header>Strong {
     width: 344px;
     display: inline-block;
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 16px;
     color: #000000;
     letter-spacing: 0;
@@ -93,7 +93,7 @@
 }
 
 .order-types .my-modal .content .txt .intro {
-    font-family: ArialMT;
+    font-family: Arial;
     font-size: 14px;
     color: #666666;
     letter-spacing: 0;

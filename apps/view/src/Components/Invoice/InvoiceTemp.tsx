@@ -66,7 +66,7 @@ const InvoiceTemp:React.FC<any> = (props: any) => {
                             <div><span>Zip/Code:</span><span>  78737</span></div>
                         </div>
                         <div className='other'>
-                            <div>INVOICE</div>
+                            <div><strong>INVOICE</strong></div>
                             <div><span>INVOICE NO:</span><span> {orderVO.orderno}</span></div>
                             <div><span>ORDER NO:</span><span> {orderVO.orderno}</span></div>
                             <div><span>PAYMENT TE RM:</span><span> TT 100%</span></div>
@@ -96,13 +96,13 @@ const InvoiceTemp:React.FC<any> = (props: any) => {
                                     <tr>
                                         <td>{item.gerberName}</td>
                                         <td>
-                                            P/N: a2330001 9a<br />
-                                            [PCB prototype]<br />
-                                            {item.boardInformation}<br />
-                                            1.6mm 4layer<br />
-                                            Solder Mask:<br />
-                                            green<br />
-                                            HASL_ lead_ free<br />
+                                            <p>P/N: a2330001 9a<br /></p>
+                                            <p>[PCB prototype]<br /></p>
+                                            <p>{item.boardInformation}<br /></p>
+                                            <p>1.6mm 4layer<br /></p>
+                                            <p>Solder Mask:<br /></p>
+                                            <p>green<br /></p>
+                                            <p>HASL_ lead_ free<br /></p>
                                         </td>
                                         <td>{item.quantityPcs}</td>
                                         <td>{item.unitPrice}</td>
@@ -116,17 +116,17 @@ const InvoiceTemp:React.FC<any> = (props: any) => {
                             }
                             <tr>
                                 <td className="blue">Freight</td>
-                                <td>{orderVO.postFee}</td>
+                                <td className="blue">{orderVO.postFee}</td>
                                 <td rowSpan='4' colSpan='3' className="blue">Total</td>
-                                <td rowSpan='4' colSpan='4'>{orderVO.totalFee}</td>
+                                <td rowSpan='4' colSpan='4' className="blue">{orderVO.totalFee}</td>
                             </tr>
                             <tr>
                                 <td className="blue">PayPal Fee</td>
-                                <td>{orderVO.paypalFee}</td>
+                                <td className="blue">{orderVO.paypalFee}</td>
                             </tr>
                             <tr>
                                 <td className="blue">Members</td>
-                                <td>-{orderVO.disMemberStr}</td>
+                                <td className="blue">-{orderVO.disMemberStr}</td>
                             </tr>
                             <tr className="blue">
                                 <td className="blue">Coupon</td>
@@ -145,12 +145,12 @@ const InvoiceTemp:React.FC<any> = (props: any) => {
                         </div>
                         <div className='salesman'>
                             <div><span>{orderVO.businessName}</span><span>{orderVO.entTime}</span></div>
-                            <div><span>Authorized By</span><span>Date</span></div>
+                            <div><span>Authorized By</span><span>Date: {new Date().getDate()}</span></div>
                         </div>
                     </div>
 
                     <div className='statement'>
-                        <p>PCB ONLINE LIMITED</p>
+                        <strong>PCB ONLINE LIMITED</strong>
                         <div className='website'>
                             <div className="website-left">
                                 <div>
@@ -162,7 +162,8 @@ const InvoiceTemp:React.FC<any> = (props: any) => {
                                 <div>
                                     <span>Ansheng Road, No.4 Building </span>
                                     <span>Shajing, Baoan District,</span>
-                                    <span>Shenzhen，China</span>
+                                    <span>Shenzhen,</span>
+                                    <span>China</span>
                                 </div>
                             </div>
                             <div className="website-right">

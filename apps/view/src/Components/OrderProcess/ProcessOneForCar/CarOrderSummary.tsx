@@ -85,15 +85,18 @@ const CarOrderSummary:React.FC<ints> = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="summary-tips">
-                You can download the proforma invoice and apply coupons at the checkout
-            </div>
+            {
+                orderSummaryStatus.process !== 5 &&
+                <div className="summary-tips">
+                    You can download the proforma invoice and apply coupons at the checkout
+                </div>
+            }
             <div className="summary-btn">
                 {
                     orderSummaryStatus.process !== 5 &&
                     <button className="btn global-primary" onClick={orderNext} disabled={!flag}>
                         {
-                            orderSummaryStatus.process > 3 ? 'CHECKOUT' : 'NEXT'
+                            orderSummaryStatus.process > 3 ? 'CHECKOUT' : 'Continue to Payment'
                         }
                     </button>
                 }
