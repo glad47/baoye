@@ -1136,6 +1136,8 @@ body {
     border-radius: 30px;
     padding: 12px;
     border: dotted 2px #2952EA;
+    max-height: 375px;
+    overflow: scroll;
 }
 
 .transverse_svg_first:first-of-type {

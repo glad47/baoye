@@ -126,7 +126,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                 {
                     !singleMode &&
                     <Col span={12}>
-                        <Form.Item label="No. of Different Design" name="differentDesign" labelCol={{span: 14}}>
+                        <Form.Item label="Different Design in Panel" name="differentDesign" labelCol={{span: 14}}>
                             <Select className="color-yel">
                                 {
                                     diffDesigns.map(item => <Option key={item.value} value={item.value}>{item.name}</Option>)
