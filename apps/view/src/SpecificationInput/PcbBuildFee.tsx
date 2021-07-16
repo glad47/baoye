@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {changeCarDrawer, useAppState} from "../state";
 import CarDrawer from "./CarDrawer";
 import PcbBuildFeeDetail from "./PcbBuildFeeDetail";
@@ -8,45 +8,34 @@ const PcbBuildFee: React.FC<any> = (props) => {
     const { setIsLogin, handleAddQuote } = props;
     const history = useHistory();
     const { dispatch, carDrawerStatus, subtotal, flagQuoteParams, addQuoteStatus } = useAppState();
+    const [oprType, setOprType] = useState<number>(0);
     const handlerCar = async (type: number | any) => {
         const flg = await handleAddQuote();
-        if (flg) {
-            dispatch(changeCarDrawer(true));
-            if (type === 1) {
-                if (flagQuoteParams) {
-                    history.push('/order');
-                }
-            }
-            // else {
-            //     // 定时关闭
-            //     setTimeout(() => {
-            //         dispatch(changeCarDrawer(false));
-            //     }, 6000);
-            // }
-        }
+        setOprType(type);
+        return flg;
     }
 
     useEffect(() => {
         if (addQuoteStatus) {
-            // 定时关闭
-            setTimeout(() => {
-                dispatch(changeCarDrawer(false));
-            }, 6000);
+            if (oprType === 0) {
+                // 定时关闭
+                setTimeout(() => {
+                    dispatch(changeCarDrawer(false));
+                }, 6000);
+            } else { // 购买 直接跳转到订单页
+                history.push('/order');
+            }
         }
-    }, [addQuoteStatus])
+    }, [addQuoteStatus]);
 
-    // 购买 直接跳转到订单页
-    const buyNow = async () => {
-        await handlerCar(1);
-    }
 
     const DOM = (
         <div className="pcb-build-container">
             <div className="cost-d">Cost Details</div>
             <PcbBuildFeeDetail {...subtotal} />
             <div className="model-4">
-                <span onClick={handlerCar}>Add to cart</span>
-                <span onClick={buyNow}>Buy Now</span>
+                <span onClick={() => handlerCar(0)}>Add to cart</span>
+                <span onClick={() => handlerCar(1)}>Buy Now</span>
             </div>
             {
                 carDrawerStatus ? <CarDrawer visible={carDrawerStatus}/> : ''

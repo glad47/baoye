@@ -110,7 +110,7 @@ const ProcessThreeTransport = () => {
             const {courierName, id} = row[0].record;
             setCheckRow(row[0]);
             // setShipmentTerms(courierName);
-            if (row[0].record.total) {
+            if (row[0].record.total || row[0].record.total === 0) {
                 freightCharges = row[0].record.total;
                 dispatch(orderOptions({expressInfo: {id: id, name: courierName}}));
             } else {

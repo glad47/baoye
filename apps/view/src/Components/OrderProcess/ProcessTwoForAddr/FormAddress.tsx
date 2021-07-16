@@ -171,7 +171,7 @@ const FormAddress = (props: thisInter) => {
                         </Form.Item>
                     </Col>
                     <Col span={24}>
-                        <Button type={"primary"} onClick={handlerSave}>Save</Button>
+                        <Button type={"primary"} onClick={handlerSave} style={{float: 'right'}}>Save</Button>
                     </Col>
                 </Row>
             </Form>
