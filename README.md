@@ -44,3 +44,9 @@ server {
         }
     }.
 ```
+
+# 手动设置远程仓库地址
+```
+git remote rm origin
+git remote add origin https://gitee.com/pcbonline_1/pcbonline-v3.git
+```
