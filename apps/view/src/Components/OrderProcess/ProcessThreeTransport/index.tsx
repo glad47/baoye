@@ -41,13 +41,14 @@ const ProcessThreeTransport = () => {
         countryName: null,
         totalWeight: 0,
     });
-    const [shipmentTerms, setShipmentTerms] = useState<any>('UUD');
+    const [shipmentTerms, setShipmentTerms] = useState<any>('DDU');
     const [tableData, setTableData] = useState<any>([]);
     const [beforeTableData, setBeforeTableData] = useState<any>([]);
     const [checkRow, setCheckRow] = useState<any>();
     const [courierAt, setCourierAt] = useState();
     const [inputSpin, setInputSpin] = useState(false);
     const [addrData, setAddrData] = useState<any>();
+    const [orderInst, setOrderInstr] = useState<any>('Leave a remark if you have any request');
 
     const handlerRadio = (index: any) => {
         if (currentRadio === index) {
@@ -58,7 +59,7 @@ const ProcessThreeTransport = () => {
             const t = checkRow ? total : 0;
             dispatch(orderSummaryFun({ freightCharges: t}));
             setTableData(def);
-            setShipmentTerms('UUD');
+            setShipmentTerms('DDU');
             setCurrentRadio(null);
         } else {
             setShipmentTerms('EXW');
@@ -283,7 +284,7 @@ const ProcessThreeTransport = () => {
             <div className="order-instr">
                 <span>Order instructions</span>
                 <div>
-                    Leave a remark if you have any request
+                    <textarea value={orderInst}/>
                 </div>
             </div>
         </div>

@@ -4297,6 +4297,7 @@ body {
     font-family: "Arial-BoldMT\,Arial" !important;
     font-size: 16px !important;
     color: #000 !important;
+    font-weight: 600;
 }
 
 .ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-arrow {

@@ -14,10 +14,10 @@ const HeaderTips = (props: any) => {
     }
     const DOM = (
         <div>
-            <div className="h-tips">
+            <div className="h-tips" onClick={() => handlerClose(1)}>
                 <div className="t-box">
                     <span>{txt}</span>
-                    <img src={playImg} alt="play" className="player" onClick={() => handlerClose(1)}/>
+                    <img src={playImg} alt="play" className="player"/>
                     <img src={closeImg} alt="close" className="close" onClick={() => handlerClose(null)}/>
                 </div>
             </div>

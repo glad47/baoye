@@ -2,9 +2,15 @@
     padding: 17px 15px;
 }
 
+.order-detail .summary-box strong.ttt{
+    display: block;
+    padding: 13px 0px;
+}
+
 .order-detail .summary-tips {
     font-size: 13px;
-    color: #999999;
+    color: #98A2C4;
+    background: #E9EDF2;
     line-height: 22px;
 }
 

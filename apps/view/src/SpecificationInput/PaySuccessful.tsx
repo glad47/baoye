@@ -2,10 +2,11 @@ import React, {useEffect, useRef, useState} from 'react';
 // import { withRouter } from 'react-router-dom'
 import '../styles/pay-successful.css'
 import PcbLayout from "../Components/PcbLayout";
-import {Form, Input, Checkbox, Modal, message} from "antd";
+import {Form, Input, Checkbox, Modal, message, Select} from "antd";
 import {DescribeCurrUserMsg, DescribeInvoiceInfo, SendContactEmail} from "./AjaxService";
 import {checkEmail, getQueryVariable} from "../util";
 import InvoiceTemp from "../Components/Invoice/InvoiceTemp";
+import {Option} from "antd/es/mentions";
 
 const {TextArea} = Input;
 const fieldMatch = {
@@ -14,6 +15,27 @@ const fieldMatch = {
     filed3: '3.Do you want to re-purchase from PCBONLINE?%0a%0d',
     filed4: '4.Weve been working hard to improve the user experience. What do you think we can do to optimize our website?%0a%0d',
 }
+
+const sel1 = [
+    'Google AD',
+    'Blog Article',
+    'Word of mouth',
+    'Friends/Colleagues',
+    'Social Networks',
+    'Mail Order Catalogue',
+    'Other'
+]
+const sel2 = [
+    'Yes, I feel quite satisfied',
+    'Basically yes',
+    'No, I am not very satisfied',
+    'No! I want to change to another specialist',
+]
+const sel3 = [
+    'Yes, I do',
+    'No. I won\'t buy from you again',
+    'It depends on my needs',
+]
 const PaySuccessful = (props: any) => {
     const [form] = Form.useForm();
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
@@ -111,15 +133,39 @@ const PaySuccessful = (props: any) => {
                           onFinish={submitForm}
                           layout="vertical">
                         <Form.Item name="filed1" label="1、How did you hear about us?" required>
-                            <Input />
+                            <Select defaultValue={sel1[0]}>
+                                {
+                                    sel1.map(item => (
+                                        <Option value={item} key={item}>
+                                            {item}
+                                        </Option>
+                                    ))
+                                }
+                            </Select>
                         </Form.Item>
 
                         <Form.Item name="filed2" label="2、Do you feel satisfied with the customer service specialist exclusively serving you?">
-                            <Input />
+                            <Select defaultValue={sel2[0]}>
+                                {
+                                    sel2.map(item => (
+                                        <Option value={item} key={item}>
+                                            {item}
+                                        </Option>
+                                    ))
+                                }
+                            </Select>
                         </Form.Item>
 
                         <Form.Item name="filed3" label="3、Do you want to re-purchase from PCBONLINE?">
-                            <Input />
+                            <Select defaultValue={sel3[0]}>
+                                {
+                                    sel3.map(item => (
+                                        <Option value={item} key={item}>
+                                            {item}
+                                        </Option>
+                                    ))
+                                }
+                            </Select>
                         </Form.Item>
 
                         <Form.Item name="filed4" label="4、We've been working hard to improve the user experience. What do you think we can do to optimize our website?">

@@ -131,7 +131,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
                     <strong>&nbsp;</strong>
                     <Collapse accordion className="order-collapse" activeKey={orderSummaryStatus.process} onChange={handlerCheckCollapse}>
 
-                        <Panel header="Shipping Items" key="1" extra={processExtra[1]}>
+                        <Panel header="My Shopping Cart" key="1" extra={processExtra[1]}>
                             <ShoppingCarListTable />
                         </Panel>
                         <Panel header="Shipping Address" key="2" extra={orderOptionsItem.deliveryAddr && processExtra[2]}>
@@ -161,7 +161,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
                     }
                 </div>
                 <div className="order-detail">
-                    <strong>Order Summary</strong>
+                    <strong>&nbsp;</strong>
                     <CarOrderSummary
                         cRef={summaryRef}
                         handleAudit={handleAudit}

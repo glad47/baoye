@@ -130,7 +130,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                     <Form.Item label="Panel Array" name="panelSize" className={`item-quantity`} style={{display: singleMode ? 'none': ''}}>
                         <ObserverSize isDisabled={singleMode} />
                     </Form.Item>
-                    <Tooltip visible={tipShowPanel} placement="top" getPopupContainer={() => document.getElementById("panelArray")} title="Please pay attention to enter the board quantity">
+                    <Tooltip visible={tipShowPanel} placement="top" getPopupContainer={() => document.getElementById("panelArray")} title="Please enter the panel details">
                         <span className="tips">&nbsp;</span>
                     </Tooltip>
                 </Col>

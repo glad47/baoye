@@ -64,6 +64,14 @@
     border-radius: 4px;
 }
 
+.process-three-tra .order-instr textarea {
+    background: #f8fbff;
+    height: 80px;
+    border: none;
+    width: 100%;
+    outline:none
+}
+
 .process-three-tra .car-table table tr td img {
     width: 50px;
 }

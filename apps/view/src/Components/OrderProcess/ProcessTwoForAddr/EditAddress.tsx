@@ -11,7 +11,7 @@ const EditAddress = (props: any) => {
     const {deliveryAddr} = orderOptionsItem;
     const [editing, setEditing] = useState<boolean>(false);
     const [billingCheck, setBillingCheck] = useState<boolean>(true);
-    const [currentBill, setCurrentBill] = useState<any>(0);
+    const [currentBill, setCurrentBill] = useState<any>(1);
 
     const handlerEditing = () => {
         setEditing(!editing);
@@ -37,12 +37,12 @@ const EditAddress = (props: any) => {
     return (
         <div className="edit-address">
             <Space className="header">
-                <div onClick={handlerEditing}>
-                    <Space>
-                        <span>Edit the address</span>
-                        <EditFilled />
-                    </Space>
-                </div>
+                {/*<div onClick={handlerEditing}>*/}
+                {/*    <Space>*/}
+                {/*        <span>Edit the address</span>*/}
+                {/*        <EditFilled />*/}
+                {/*    </Space>*/}
+                {/*</div>*/}
             </Space>
             {
                 editing && <FormAddress closeEdit={() => setEditing(false)}/>

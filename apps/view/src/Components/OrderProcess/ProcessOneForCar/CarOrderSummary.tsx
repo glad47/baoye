@@ -54,6 +54,7 @@ const CarOrderSummary:React.FC<ints> = (props) => {
     return (
         <>
             <div className="summary-box">
+                <strong className="ttt">Order Summary</strong>
                 <div className="cost-det">
                     <div>
                         <span>Subtotal（{orderOptionsItem.ordersItem.length} Items）</span>
@@ -80,7 +81,9 @@ const CarOrderSummary:React.FC<ints> = (props) => {
                     <div>
                         <span>Total</span>
                         <span>
-                        <strong>${(orderSummary.total+orderSummary.freightCharges+orderSummary.handlingCharge-orderSummary.coupon.value).toFixed(3)}</strong>
+                        <strong style={{fontSize: '20px', fontFamily: '"Arial-BoldMT\\,Arial"'}}>
+                            ${(orderSummary.total+orderSummary.freightCharges+orderSummary.handlingCharge-orderSummary.coupon.value).toFixed(3)}
+                        </strong>
                     </span>
                     </div>
                 </div>
@@ -96,7 +99,7 @@ const CarOrderSummary:React.FC<ints> = (props) => {
                     orderSummaryStatus.process !== 5 &&
                     <button className="btn global-primary" onClick={orderNext} disabled={!flag}>
                         {
-                            orderSummaryStatus.process > 3 ? 'CHECKOUT' : 'Continue to Payment'
+                            orderSummaryStatus.process > 3 ? 'CHECK OUT' : 'Continue to Payment'
                         }
                     </button>
                 }

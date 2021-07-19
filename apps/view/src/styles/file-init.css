@@ -27,7 +27,7 @@
 }
 
 .file-init>div span {
-    font-size: 12px;
+    font-size: 14px;
     color: #8697d4;
     letter-spacing: 0;
     z-index: 21;
@@ -45,7 +45,7 @@
 
 .file-init>div label {
     font-family: Arial;
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 4px;
     color: #999;
     letter-spacing: 0;
