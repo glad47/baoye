@@ -5,6 +5,7 @@ import Foot from "../Footer";
 import MobileFoot from "../Footer/MobileFoot";
 import UserLogin from "../UserLogin";
 import ReactGA from "react-ga";
+import YouTubeVideo from "../Components/Youtube/YouTubeVideo";
 
 const _style = {
     width: '1200px',
@@ -20,6 +21,11 @@ const PcbLayout:React.FC<any> = (props: any) => {
     const [headPortrait, setPortrait] = useState(userPortrait);
     const [isLogin, setLogin] = useState(false);
     let [isFirst, setFirst] = useState(false);
+    const [showYoutube, setShowYoutube] = useState<boolean>(false);
+
+    const handleVideo = (type: any) => {
+        setShowYoutube(type)
+    }
 
     const getUserInfo = (e: any) => {
         setLoginName(e)
@@ -100,13 +106,16 @@ const PcbLayout:React.FC<any> = (props: any) => {
 
     return (
         <div className="pac-layout">
-            {!isMobileSize ? <Head loginName={[loginName, headPortrait]}/> : <MobileHead/>}
+            {!isMobileSize ? <Head  closeVideo={handleVideo} loginName={[loginName, headPortrait]}/> : <MobileHead/>}
             <div className="layout-container" style={_style}>
                 {children}
             </div>
             {!isMobileSize ? <Foot/> : <MobileFoot/>}
             {isLogin ? <UserLogin getUserInfo={getUserInfo} closeThisBox={closeThisBox} getUserHead={getUserHead}
                                   isLoginReady={loginReady}/> : ""}
+            {
+                showYoutube && <YouTubeVideo closeVideo={() => handleVideo(null)}/>
+            }
         </div>
     )
 };
