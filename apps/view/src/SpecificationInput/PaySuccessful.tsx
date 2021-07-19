@@ -88,7 +88,7 @@ const PaySuccessful = (props: any) => {
         let str: any = [];
         // @ts-ignore
         Object.keys(values).forEach((key: any) => values[key] && str.push(fieldMatch[key] + values[key] + '%0a%0d'))
-        window.location.href = `mailto:info@pcbonline.com?subject=Hi,Owen Chang&body=${str.join(' ')}`
+        window.location.href = `mailto:info@pcbonline.com?subject=Customer Feedback Survey&body=${str.join(' ')}`
     }
 
     // 发送邮件

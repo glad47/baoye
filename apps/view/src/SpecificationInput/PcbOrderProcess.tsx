@@ -55,6 +55,9 @@ const PcbOrderProcess:React.FC = (props:any) => {
     }
 
     useEffect(() => {
+        window.onbeforeunload = function(){
+            return "必您确定要退出页面吗？";
+        }
         return () => {
             clearInterval(msgInterval);
         }
@@ -85,13 +88,9 @@ const PcbOrderProcess:React.FC = (props:any) => {
     // 获取通知审核信息
     const GetMsgStatus = async () => {
         const res:any = await DescribeCurrUserMsg();
-        const {list} = res;
-        if (list) {
-            const isRea = list.find((item: any) => item.isread === 0);
-            if (isRea) {
-                // @ts-ignore
-                summaryRef.current?.orderNext();
-            }
+        const {success, result} = res;
+        if (success) {
+            props.history.push({pathname: `/paySuc`, state: {id: result}});
         }
     }
 

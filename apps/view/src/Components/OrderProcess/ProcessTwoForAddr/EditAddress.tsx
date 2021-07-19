@@ -23,9 +23,7 @@ const EditAddress = (props: any) => {
     const billOnChange = (e: any) => {
         const v = e.target.value;
         setCurrentBill(v);
-        if (v === 2) {
-            handleBillingCheck();
-        }
+        handleBillingCheck();
     }
 
     useImperativeHandle(props.cRef, () => ({

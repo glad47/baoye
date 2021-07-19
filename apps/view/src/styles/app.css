@@ -4292,6 +4292,11 @@ body {
 }
 
 /*购物车*/
+.ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-extra {
+    font-size: 14px;
+    font-weight: 400;
+    color: #8b8b8b;
+}
 .ant-collapse > .ant-collapse-item > .ant-collapse-header {
     padding: 18px 39px !important;
     font-family: "Arial-BoldMT\,Arial" !important;
