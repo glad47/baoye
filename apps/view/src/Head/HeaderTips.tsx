@@ -18,7 +18,10 @@ const HeaderTips = (props: any) => {
                 <div className="t-box">
                     <span>{txt}</span>
                     <img src={playImg} alt="play" className="player"/>
-                    <img src={closeImg} alt="close" className="close" onClick={() => handlerClose(null)}/>
+                    <img src={closeImg} alt="close" className="close" onClick={e => {
+                        e.stopPropagation();
+                        handlerClose(null);
+                    }}/>
                 </div>
             </div>
         </div>

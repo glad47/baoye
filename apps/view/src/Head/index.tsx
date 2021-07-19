@@ -49,12 +49,7 @@ const Head:React.FC = (props: any) => {
         setPopoverVisible(visible);
     }
 
-    const hidePopover = () => {
-        setPopoverVisible(false);
-    }
-
     const handleClose = (type: any) => {
-        console.log('type', type)
         props.closeVideo(type);
         if (type !== 1) setTipsShow(false);
     }

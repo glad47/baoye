@@ -46,6 +46,12 @@ const PaySuccessful = (props: any) => {
     const [inputVal, setInputVal] = useState<string>('I found a very easy to use website, recommend to you, come to experience it https://www.pcbonline.com');
     const [sendEmail, setSendEmail] = useState<any>();
     const [canSend, setCanSend] = useState<boolean>(false);
+    const initFormValues = {
+        filed1: sel1[0],
+        filed2: sel2[0],
+        filed3: sel3[0],
+        filed4: '',
+    }
     useEffect(() => {
         let _id;
         if (props.location.state) {
@@ -82,11 +88,7 @@ const PaySuccessful = (props: any) => {
         let str: any = [];
         // @ts-ignore
         Object.keys(values).forEach((key: any) => values[key] && str.push(fieldMatch[key] + values[key] + '%0a%0d'))
-        console.log('str', str)
-        window.location.href = `mailto:info@pcbonline.com?subject=${str.join(' ')}&body=Hi,Owen Chang`
-        // SendContactEmail(values).then(res => {
-        //     console.log('res', res)
-        // });
+        window.location.href = `mailto:info@pcbonline.com?subject=Hi,Owen Chang&body=${str.join(' ')}`
     }
 
     // 发送邮件
@@ -130,6 +132,7 @@ const PaySuccessful = (props: any) => {
                         </div>
                     </div>
                     <Form form={form}
+                          initialValues={initFormValues}
                           onFinish={submitForm}
                           layout="vertical">
                         <Form.Item name="filed1" label="1、How did you hear about us?" required>
