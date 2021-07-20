@@ -284,7 +284,7 @@ const ProcessThreeTransport = () => {
             <div className="order-instr">
                 <span>Order instructions</span>
                 <div>
-                    <textarea value={orderInst}/>
+                    <textarea placeholder={orderInst}/>
                 </div>
             </div>
         </div>
