@@ -33,21 +33,25 @@ const CarOrderSummary:React.FC<ints> = (props) => {
         }
     }, [dispatch]);
 
-    const orderNext = () => {
+    const orderNext = (type: any) => {
         const {process} = orderSummaryStatus;
-        if (process === 4 && orderOptionsItem.payWays === 1) {
+        if (process === 4 && orderOptionsItem.payWays === 1 && type !== 'force') {
             props.handleAudit();
         } else {
-            if (flag) {
+            if(flag || type === 'force') {
                 props.handleCheckout(process, parseInt(String(process))+1);
                 dispatch(setOrderSummaryStatus({ process: parseInt(String(process))+1 }))
             }
         }
     }
 
+    const canNext = () => {
+
+    }
+
     useImperativeHandle(props.cRef, () => ({
-        orderNext() {
-            orderNext()
+        orderNext(v: any) {
+            orderNext(v)
         }
     }));
 

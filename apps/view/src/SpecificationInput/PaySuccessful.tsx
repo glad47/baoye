@@ -97,11 +97,7 @@ const PaySuccessful = (props: any) => {
             content: inputVal,
             email: sendEmail
         }
-        const fromData = new FormData();
-        fromData.append("content", inputVal);
-        fromData.append("email", sendEmail);
-        SendContactEmail(fromData).then(res => {
-            console.log('res', res);
+        SendContactEmail(dtd).then(res => {
             message.success('Send successful!')
         })
     }
