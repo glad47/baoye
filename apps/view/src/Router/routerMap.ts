@@ -8,8 +8,7 @@ const routerMap = [
     {
         path: '/',
         component: App,
-        auth: false,
-        exact: true,
+        auth: false
     },
     {
         path: '/test',
