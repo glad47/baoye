@@ -65,22 +65,13 @@ function App(): JSX.Element {
             if (boardType === 'Single') {
                 // @ts-ignore
                 const flag = await pcbSizeFormRef?.current.formSubmit(); // 主要弹出input require
+                console.log('flag', flag)
                 if (flag !== null) {
-                    if (!flagQuoteParams) {
-                        debugger
-                        // @ts-ignore
-                        const quantityFlag = pcbSizeFormRef?.current.formSubmit(); // 主要弹出input require
-                        if (!quantityFlag) { // 没有填写quantity
-                            return false;
-                        } else {
-                            return checkLogin();
-                        }
+                    if (checkLogin()) {
+                        await uploadZipFile('upload');
+                    } else {
+                        return false
                     }
-                    if (quantity === null || quantity === '' || singleSize.sizeX === null || singleSize.sizeX === '' || singleSize.sizeY === null || singleSize.sizeY === '') {
-                        // message.error('Please fill in the size and quantity ！！');
-                        // return checkLogin();
-                    }
-                    await uploadZipFile('upload');
                 } else {
                     return false
                 }

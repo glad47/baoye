@@ -102,7 +102,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
     useImperativeHandle(props.cRef, () => ({
         // 主要弹出input require
         formSubmit () {
-            handleFormSubmitTips1();
+            return handleFormSubmitTips1();
         },
         tipsPanel () {
             handleFormSubmitTips2();
