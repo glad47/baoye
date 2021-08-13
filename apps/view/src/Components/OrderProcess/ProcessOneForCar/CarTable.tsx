@@ -1,10 +1,11 @@
 /**
  * 下单流程 => 购物车 商品列表表格组件封装
  */
-import React, {forwardRef, useEffect, useImperativeHandle, useState} from 'react';
+import React, { useEffect, useImperativeHandle } from 'react';
 import {Checkbox, message, Spin} from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import '../../../styles/car-table.css';
+import {isNumber} from "../../../util";
 
 interface checkValueTS {
     record?: object
@@ -42,19 +43,32 @@ const CarTable = (props: any) => {
     const handlerCheckAll = () => {
         setCheckAll(!checkAll);
         if (!checkAll && checkedList.length !== data.length) {
-            const res = data.reduce((pre:object[], cur:any, index: number) => {
-                pre.push({
-                    record: cur,
-                    rowIndex: index
-                });
-                return pre;
-            }, []);
-            message.success('check all successful!');
-            setCheckedList(res);
+            fnCheckAll('all');
         } else {
             message.warn('Deselect all!');
             setCheckedList([]);
         }
+    }
+
+    const fnCheckAll = (type: any) => {
+        const res = data.reduce((pre:object[], cur:any, index: number) => {
+            if (type && index+1 === Number(type)) {
+                pre.push({
+                    record: cur,
+                    rowIndex: index
+                });
+            } else if (type === 'all') {
+                pre.push({
+                    record: cur,
+                    rowIndex: index
+                });
+            }
+            return pre;
+        }, []);
+        if (res.length === data.length) {
+            message.success('check all successful!');
+        }
+        setCheckedList(res);
     }
 
     // 单选
@@ -76,6 +90,18 @@ const CarTable = (props: any) => {
         }
     }
 
+    useEffect(() => {
+        if (data.length > 0) {
+            const {checkedOperation} = props;
+            if (checkedOperation) {
+                if (checkedOperation === 'all') {
+                    fnCheckAll('all');
+                } else {
+                    fnCheckAll(checkedOperation)
+                }
+            }
+        }
+    }, [data])
 
     useEffect(() => {
         const {onChecked} = props;

@@ -25,18 +25,24 @@ const Head:React.FC = (props: any) => {
         if (pathname === '/') {
             setTipsShow(true);
         }
-        getCartNum()
     }, []);
+
+    useEffect(() => {
+        getCartNum();
+    }, [props.loginName])
 
     // 用户信息接口没返回购物车数量， 重复请求
     const getCartNum = async () => {
-        if (props.loginName[0]) {
-            const status = 1;
-            const s1: any = await ajaxCarList({status});
-            const s2: any = await ajaxCarListForStencil({status});
-            const s3: any = await ajaxCarListForAssembly({status});
-            const total = s1.total + s2.total + s3.total;
-            setCartNum(total);
+        const userInfo: any = sessionStorage.getItem("userAllInfo");
+        if (props.loginName[0] || userInfo) {
+            // const status = 1;
+            // const s1: any = await ajaxCarList({status});
+            // const s2: any = await ajaxCarListForStencil({status});
+            // const s3: any = await ajaxCarListForAssembly({status});
+            // const total = s1.total + s2.total + s3.total;
+            // setCartNum(total);
+            const userInfo: any = sessionStorage.getItem("userAllInfo");
+            setCartNum(JSON.parse(userInfo).cartCount);
         }
     }
 

@@ -59,12 +59,12 @@ export default () => {
                         : 'No Messages'
                 }
             </div>
-            <div className="mes-foot" onClick={goMessageList}>
-                <Space>
-                    VIEW ALL MESSAGES
-                    <CaretRightOutlined />
-                </Space>
-            </div>
+            {/*<div className="mes-foot" onClick={goMessageList}>*/}
+            {/*    <Space>*/}
+            {/*        VIEW ALL MESSAGES*/}
+            {/*        <CaretRightOutlined />*/}
+            {/*    </Space>*/}
+            {/*</div>*/}
         </div>
     )
 }

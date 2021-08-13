@@ -133,6 +133,9 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                 // 解析后回调
                 handleSuccessCall();
             }).catch(e=>{
+                if (quoteMode === 1 || quoteMode === 2) {
+                    // dispatch(backfillPcbData(r,success))
+                }
                 console.log('上传文件出错！！');
                 setDelay(true)
                 dispatch(backToUpload(false))

@@ -182,7 +182,6 @@ function App(): JSX.Element {
         setLogin(e)
     }
     const getUserInfo = (e: any) => {
-        console.log('e', e)
         setLoginName(e)
     }
     // 实时更新头像

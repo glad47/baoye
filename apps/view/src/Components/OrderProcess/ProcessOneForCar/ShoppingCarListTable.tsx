@@ -133,6 +133,7 @@ const ShoppingCarListTable = () => {
                 columns={columns}
                 data={data}
                 rowKey="id"
+                checkedOperation="all"
                 checkBox _style={{TdHeight: 120}}
                 onChecked={handlerChecked}
             />

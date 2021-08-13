@@ -9,11 +9,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="fix:  nginx无法跳转重定向">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/PayDebitCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/PayDebitCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/ShoppingCarListTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/ShoppingCarListTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/EditAddress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/EditAddress.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/FormAddress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/FormAddress.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Head/components/SysMessage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Head/components/SysMessage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Head/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Head/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/LoadFiles/FileStatus/FileTimeOut.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/LoadFiles/FileStatus/FileTimeOut.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbSizeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbSizeForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberUpload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberUpload.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PaySuccessful.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PaySuccessful.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/UserLogin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/UserLogin/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/pay-successful.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/pay-successful.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/sys-message.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/sys-message.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +74,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../p-blog-sys" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/view/src/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -74,8 +93,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\apps\pcbonline-v3\apps\view\src\styles" />
       <recent name="E:\apps\pcbonline-v3\apps\view\src\images" />
+      <recent name="E:\apps\pcbonline-v3\apps\view\src\styles" />
       <recent name="E:\apps\pcbonline-v3\apps\view\src\Components\Youtube" />
       <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src" />
       <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view\src\images" />
@@ -147,6 +166,11 @@
       <workItem from="1627909484588" duration="221000" />
       <workItem from="1628003140453" duration="7000" />
       <workItem from="1628082596873" duration="4938000" />
+      <workItem from="1628392829256" duration="1513000" />
+      <workItem from="1628421250338" duration="3939000" />
+      <workItem from="1628514767402" duration="10558000" />
+      <workItem from="1628605931420" duration="3572000" />
+      <workItem from="1628877874133" duration="1672000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>

@@ -4,6 +4,7 @@ h1 {
 .sys-message {
     width: 544px;
     height: 320px;
+    overflow: scroll;
     position: relative;
 }
 

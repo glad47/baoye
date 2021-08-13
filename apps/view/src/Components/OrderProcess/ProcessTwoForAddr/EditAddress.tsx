@@ -10,6 +10,7 @@ const EditAddress = (props: any) => {
     const { orderOptionsItem } = useAppState();
     const {deliveryAddr} = orderOptionsItem;
     const [editing, setEditing] = useState<boolean>(false);
+    const [editingBilling, setEditingBilling] = useState<boolean>(false);
     const [billingCheck, setBillingCheck] = useState<boolean>(true);
     const [currentBill, setCurrentBill] = useState<any>(1);
 
@@ -23,6 +24,9 @@ const EditAddress = (props: any) => {
     const billOnChange = (e: any) => {
         const v = e.target.value;
         setCurrentBill(v);
+        if (v === 2) {
+            setEditingBilling(true);
+        }
         handleBillingCheck();
     }
 
@@ -61,7 +65,7 @@ const EditAddress = (props: any) => {
                 </Radio.Group>
             </div>
             {
-                !billingCheck && <FormAddress key="addrBilling" />
+                (!billingCheck && editingBilling) && <FormAddress key="addrBilling" closeEdit={() => setEditingBilling(false)}/>
             }
         </div>
     )

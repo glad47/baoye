@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Form, Input, Button, Checkbox,message } from 'antd'
 import { CloseOutlined } from '@ant-design/icons'
 import Recaptcha from 'react-recaptcha'
-import {sysUrl} from '../SpecificationInput/AjaxService'
+import {DescribeCarCount, sysUrl} from '../SpecificationInput/AjaxService'
 import axios from 'axios'
 import Cookies from 'js-cookie';
 import PrivacyPolicy from "../PrivacyPolicy"
@@ -38,12 +38,13 @@ function UserLogin(props: any) {
                     const { result, success } = res.data
                    
                     if (success) {
-                        const { userName,favicon } = result || []
+                        const { userName,favicon } = result || [];
+                        console.log('userName==>', userName)
                         let users=userName!==null ? userName : 'defaultName' // 预防出现用户名为null 的情况
                         let heads=favicon!==null ?favicon:require('../images/Mask.png')
                         result.favicon=heads
-                        props.getUserInfo(users)
-                        props.getUserHead(heads)
+                        props.getUserInfo(users);
+                        props.getUserHead(heads);
                         sessionStorage.setItem('username', JSON.stringify(users))
                         sessionStorage.setItem('userAllInfo',JSON.stringify(result))
                         props.closeThisBox(false)

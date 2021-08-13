@@ -50,6 +50,11 @@ const ProcessThreeTransport = () => {
     const [addrData, setAddrData] = useState<any>();
     const [orderInst, setOrderInstr] = useState<any>('Leave a remark if you have any request');
 
+    const handleTextarea = (e: any) => {
+        e.persist()
+        dispatch(orderOptions({remark: e.target.value}));
+    }
+
     const handlerRadio = (index: any) => {
         if (currentRadio === index) {
             // // 运费恢复
@@ -265,6 +270,7 @@ const ProcessThreeTransport = () => {
                     data={tableData}
                     rowKey="id"
                     spin={spin}
+                    checkedOperation="1"
                     checkBox="single"
                     onChecked={handlerChecked}
                     openCheckAll={false}
@@ -284,7 +290,7 @@ const ProcessThreeTransport = () => {
             <div className="order-instr">
                 <span>Order instructions</span>
                 <div>
-                    <textarea placeholder={orderInst}/>
+                    <textarea placeholder={orderInst} onKeyUp={e => handleTextarea(e)}/>
                 </div>
             </div>
         </div>

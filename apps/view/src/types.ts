@@ -181,6 +181,7 @@ export type orderOptionsItem = {
   ordersItem: [], // 商品信息
   deliveryAddr: any, // 地址
   expressInfo: any, // 快递信息
+  remark: any, // 订单备注
   payWays: any, // 支付方式
 }
 

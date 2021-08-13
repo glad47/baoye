@@ -18,6 +18,7 @@ const PcbBuildFee: React.FC<any> = (props) => {
     useEffect(() => {
         if (addQuoteStatus) {
             if (oprType === 0) {
+                dispatch(changeCarDrawer(true));
                 // 定时关闭
                 setTimeout(() => {
                     dispatch(changeCarDrawer(false));
