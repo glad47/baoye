@@ -4,12 +4,14 @@ import {Space} from "antd";
 import {DescribeCurrUserMsg} from "../../SpecificationInput/AjaxService";
 import {reduxUser, useAppState} from "../../state";
 import {getKeysNumForArr} from "../../util";
+import {useHistory} from "react-router-dom";
 
 const notify_icon = require('../../images/quate_icon24.png');
 const check_icon = require('../../images/quate_icon25.png');
 
 export default () => {
     const { dispatch, user } = useAppState();
+    const history = useHistory();
     const [mesList, setMesList] = useState([]);
 
     // 获取系统消息
@@ -25,6 +27,10 @@ export default () => {
 
     const goMessageList = () => {
         window.location.href = '/allMessages';
+    }
+
+    const handleDire = () => {
+        history.push('/order');
     }
 
     useEffect(() => {
@@ -51,7 +57,7 @@ export default () => {
                                     <span className="time">{item.gmtCreate}</span>
                                 </div>
                                 <div className="info-content">
-                                    {item.content}
+                                    Your order <span>{item.content}</span> has been approved, <span onClick={handleDire} className="underline">Go to the payment</span>
                                 </div>
                             </div>
                         </div>

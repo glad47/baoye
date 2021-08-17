@@ -8,7 +8,7 @@ import { Badge, Popover } from 'antd';
 import {BellFilled, ShoppingCartOutlined} from '@ant-design/icons'
 import LoginShow from '../DownMenu/loginShow'
 import HeaderTips from "./HeaderTips";
-import {changeCarDrawer, useAppState} from "../state";
+import {changeCarDrawer, reduxUser, useAppState} from "../state";
 import SysMessage from "./components/SysMessage";
 import {ajaxCarList, ajaxCarListForAssembly, ajaxCarListForStencil} from "../SpecificationInput/AjaxService";
 
@@ -42,6 +42,7 @@ const Head:React.FC = (props: any) => {
             // const total = s1.total + s2.total + s3.total;
             // setCartNum(total);
             const userInfo: any = sessionStorage.getItem("userAllInfo");
+            dispatch(reduxUser({cartNum:JSON.parse(userInfo).cartCount}))
             setCartNum(JSON.parse(userInfo).cartCount);
         }
     }
@@ -119,7 +120,7 @@ const Head:React.FC = (props: any) => {
                                         </Popover>
                                     </li>
                                     <li className="h-badge num" onClick={handlerCar}>
-                                        <Badge count={cartNum} size="small">
+                                        <Badge count={user.cartNum} size="small">
                                             <ShoppingCartOutlined />
                                         </Badge>
                                     </li>

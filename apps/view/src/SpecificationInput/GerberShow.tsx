@@ -92,11 +92,15 @@ const GerberShow: React.FC<GerberShowProps> = (props) => {
                     {/* <div className='default_img_loading'><img src={require(`../images/successful_updata.gif`)} /></div> */}
                     {/*<img src={defaultImgSrc} />*/}
                     {/*<p className='fill_pit'>{wordTip}</p>*/}
-                    {
-                        isTimeOut ?
-                            'Successful Gerber file upload! The system is analyzing data. Please wait and check the specifications.' :
-                            fileStatus[uploadGerber.status]
-                    }
+                    <div>
+                        <span>
+                          {
+                              isTimeOut ?
+                                  'Successful Gerber file upload!<br />The system is analyzing data. Please wait and check the specifications.' :
+                                  fileStatus[uploadGerber.status]
+                          }
+                        </span>
+                    </div>
                 </div>
 
             }

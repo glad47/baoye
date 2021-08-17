@@ -199,6 +199,7 @@ export type UploadGerberItem = {
 /** 用户中心  */
 export type UserStatus = {
   message: { // 系统消息
-    unread: number
+    unread: number,
   }
+  cartNum: number,
 }

@@ -2,7 +2,15 @@
 import React, {useEffect, useRef, useState} from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import {useAppState, createBoard, createBoardFromUrl, addQuote, backToUpload, backfillUploadPathData} from './state'
+import {
+    useAppState,
+    createBoard,
+    createBoardFromUrl,
+    addQuote,
+    backToUpload,
+    backfillUploadPathData,
+    reduxUser
+} from './state'
 import { Main } from './ui'
 import { Layout, message } from 'antd'
 import PcbSizeForm from './SpecificationInput/PcbSizeForm'
@@ -104,10 +112,10 @@ function App(): JSX.Element {
             dispatch(addQuote());
             if (link) { location.href = '/audit'; }
         } else if (quoteMode === 1) {
-            if (fileUploadPtah === null) {
-                message.error('Please upload the gerber file ！！');
-                return;
-            }
+            // if (fileUploadPtah === null) {
+            //     message.error('Please upload the gerber file ！！');
+            //     return;
+            // }
             if (subtotal.stencilFee === 0) {
                 message.error('Please fill in the Dimensions !!');
                 return;

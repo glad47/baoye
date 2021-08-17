@@ -11,26 +11,31 @@ import {
 } from "./AjaxService";
 import {orders} from "../ts/pcb";
 import {Link} from "react-router-dom";
+import {reduxUser, useAppState} from "../state";
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 const CarList = (props:any) => {
+    const { dispatch } = useAppState();
     const {setLen} = props;
     const [listData, setListData] = useState<[]>([]);
     const [total, setTotal] = useState<number>(0);
     const [spinFlag, setSpinFlag] = useState<boolean>(false);
+    const [to, setTo] = useState<any>(0);
 
 
 
     // 获取列表
     const getCarList = async () => {
         setSpinFlag(true);
-        const orderPCB = await ajaxCarList({status: 1});
-        const orderStencil = await ajaxCarListForStencil({status: 1});
-        const orderAssembly = await ajaxCarListForAssembly({status: 1});
-        const data = Object.assign(orderPCB.data, orderStencil.data, orderAssembly.data);
+        const orderPCB: any = await ajaxCarList({status: 1});
+        const orderStencil: any = await ajaxCarListForStencil({status: 1});
+        const orderAssembly: any = await ajaxCarListForAssembly({status: 1});
+        const total = orderPCB.total + orderStencil.total + orderAssembly.total;
+        const data = orderPCB.data.concat(orderStencil.data).concat(orderAssembly.data);
         setListData(data);
-        setLen(data.length+1);
+        setLen(total);
+        setTo(total);
         setSpinFlag(false);
     }
 
@@ -48,7 +53,15 @@ const CarList = (props:any) => {
             t = Number(t.toFixed(2))
             setTotal(t);
         }
-    }, [listData])
+    }, [listData]);
+
+    const asyncSessionCount = (value: any) => {
+        const userInfo: any = sessionStorage.getItem("userAllInfo");
+        if (userInfo) {
+            userInfo.cartCount = value;
+            sessionStorage.setItem('userAllInfo',JSON.stringify(userInfo))
+        }
+    }
 
     // 删除订单
     const handlerDel = (id: number, index:number) => {
@@ -57,28 +70,27 @@ const CarList = (props:any) => {
         const {totalStencilFee} = dtd;
         if (totalStencilFee) {
             delStencilOrder(id).then((res: any) => {
-                const {success, message: msg} = res;
-                if (success) {
-                    delCallBack(index);
-                    message.success('delete success!');
-                } else {
-                    message.error(msg);
-                }
+                message.success(res);
+                setTo(to-1);
                 setSpinFlag(false);
+                delCallBack(index);
             })
         } else {
             delPcbOrder(id).then((res: any) => {
-                const {success, message: msg} = res;
-                if (success) {
-                    delCallBack(index);
-                    message.success('delete success!');
-                } else {
-                    message.error(msg);
-                }
+                message.success(res);
+                setTo(to-1);
                 setSpinFlag(false);
+                delCallBack(index);
             })
         }
     }
+
+    useEffect(() => {
+        if (to) {
+            asyncSessionCount(to);
+            dispatch(reduxUser({cartNum: to}));
+        }
+    }, [to])
 
     const delCallBack = (index: any) => {
         const def: [] = [...listData];

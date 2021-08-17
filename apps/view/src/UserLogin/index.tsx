@@ -6,8 +6,10 @@ import {DescribeCarCount, sysUrl} from '../SpecificationInput/AjaxService'
 import axios from 'axios'
 import Cookies from 'js-cookie';
 import PrivacyPolicy from "../PrivacyPolicy"
+import {reduxUser, useAppState} from "../state";
 
 function UserLogin(props: any) {
+    const { dispatch } = useAppState();
     const [recaptchaResponse, setRecaptch] = useState<string | null>("")
     const [isLogin, setLogin] = useState(true)
     const [isCheckedClause,setIsCheckedClause] = useState(false)
@@ -45,6 +47,7 @@ function UserLogin(props: any) {
                         result.favicon=heads
                         props.getUserInfo(users);
                         props.getUserHead(heads);
+                        dispatch(reduxUser({cartNum: result.cartCount}));
                         sessionStorage.setItem('username', JSON.stringify(users))
                         sessionStorage.setItem('userAllInfo',JSON.stringify(result))
                         props.closeThisBox(false)

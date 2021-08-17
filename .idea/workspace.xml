@@ -8,31 +8,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="fix:  nginx无法跳转重定向">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="fix: 优化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/PayDebitCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/PayDebitCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarTable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/ShoppingCarListTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/ShoppingCarListTable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/EditAddress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/EditAddress.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/FormAddress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessTwoForAddr/FormAddress.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/Head/components/SysMessage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Head/components/SysMessage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/Head/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Head/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/LoadFiles/FileStatus/FileTimeOut.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/LoadFiles/FileStatus/FileTimeOut.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/AjaxService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberUpload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberUpload.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PaySuccessful.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PaySuccessful.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/CarDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/CarDrawer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/CarList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/CarList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberShow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/GerberShow.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/UserLogin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/UserLogin/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/pay-successful.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/pay-successful.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/state/context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/state/context.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/styles/sys-message.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/sys-message.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +158,9 @@
       <workItem from="1628421250338" duration="3939000" />
       <workItem from="1628514767402" duration="10558000" />
       <workItem from="1628605931420" duration="3572000" />
-      <workItem from="1628877874133" duration="1672000" />
+      <workItem from="1628877874133" duration="1923000" />
+      <workItem from="1629127705070" duration="1300000" />
+      <workItem from="1629212508376" duration="8689000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>
@@ -368,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627909676645</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="fix: 优化">
+      <created>1628880086287</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1628880086287</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,7 +424,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: 报价页样式修改80%" />
     <MESSAGE value="feat: 流程组件分离" />
     <MESSAGE value="feat: 购物车 显示和删除" />
     <MESSAGE value="feat: 地址修改" />
@@ -452,7 +448,8 @@
     <MESSAGE value="fix:  快递 自己账户优化" />
     <MESSAGE value="fix:  优化" />
     <MESSAGE value="fix:  nginx无法跳转重定向" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:  nginx无法跳转重定向" />
+    <MESSAGE value="fix: 优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 优化" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

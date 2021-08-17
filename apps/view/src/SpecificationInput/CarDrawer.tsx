@@ -4,7 +4,7 @@ import {changeCarDrawer, useAppState} from "../state";
 import CarList from "./CarList";
 
 const CarDrawer = (props: any) => {
-    const { dispatch, carDrawerStatus } = useAppState();
+    const { dispatch, carDrawerStatus, user } = useAppState();
     const [listLen, setListLen] = useState<number>(0);
     const onClose = () => {
         dispatch(changeCarDrawer(false));
@@ -23,7 +23,7 @@ const CarDrawer = (props: any) => {
             <div className="car-drawer-box">
                 <div className="lef-li">
                     <div className="car-header">
-                        Shopping Cart ({listLen})
+                        Shopping Cart ({user.cartNum})
                     </div>
                     <div className="car-container">
                         <CarList setLen={(num: number) => setListLen(num)}/>
