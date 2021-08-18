@@ -56,8 +56,9 @@ const CarList = (props:any) => {
     }, [listData]);
 
     const asyncSessionCount = (value: any) => {
-        const userInfo: any = sessionStorage.getItem("userAllInfo");
+        let userInfo: any = sessionStorage.getItem("userAllInfo");
         if (userInfo) {
+            userInfo = JSON.parse(userInfo);
             userInfo.cartCount = value;
             sessionStorage.setItem('userAllInfo',JSON.stringify(userInfo))
         }

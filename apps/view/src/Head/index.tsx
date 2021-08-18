@@ -42,8 +42,10 @@ const Head:React.FC = (props: any) => {
             // const total = s1.total + s2.total + s3.total;
             // setCartNum(total);
             const userInfo: any = sessionStorage.getItem("userAllInfo");
-            dispatch(reduxUser({cartNum:JSON.parse(userInfo).cartCount}))
-            setCartNum(JSON.parse(userInfo).cartCount);
+            // dispatch(reduxUser({cartNum:JSON.parse(userInfo).cartCount}))
+            if (userInfo) {
+                setCartNum(JSON.parse(userInfo).cartCount);
+            }
         }
     }
 
