@@ -103,7 +103,7 @@ const CarOrderSummary:React.FC<ints> = (props) => {
                     orderSummaryStatus.process !== 5 &&
                     <button className="btn global-primary" onClick={orderNext} disabled={!flag}>
                         {
-                            orderSummaryStatus.process > 3 ? 'Chuck Out' : 'Continue to Payment'
+                            orderSummaryStatus.process > 3 ? 'Check Out' : 'Continue to Payment'
                         }
                     </button>
                 }

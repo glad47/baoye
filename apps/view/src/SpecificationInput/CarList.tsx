@@ -134,13 +134,13 @@ const CarList = (props:any) => {
                 <strong>${total}</strong>
             </div>
             <div className="car-btns">
-                <Link to="/order">
+                <Link to="/order-process">
                     <button>
                         Checkout
                     </button>
                 </Link>
                 <span>
-                    <Link to="/order">Go to cart</Link>
+                    <Link to="/order-process">Go to cart</Link>
                 </span>
             </div>
         </div>

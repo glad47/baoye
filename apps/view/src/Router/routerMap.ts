@@ -16,7 +16,7 @@ const routerMap = [
         auth: false
     },
     {
-        path: '/order',
+        path: '/order-process',
         component: PcbOrderProcess,
         auth: false
     },

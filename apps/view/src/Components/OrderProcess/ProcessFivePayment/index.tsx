@@ -94,7 +94,7 @@ const ProcessFivePayment = (props:any) => {
             }
         });
         dtd.remark = orderOptionsItem.remark;
-        if (payType === 2) { // 信用卡支付  发送信用卡表单
+        if (payType === 5) { // 信用卡支付  发送信用卡表单
             dtd.payMethodInfo = data;
         }
         createOrderDetails(dtd).then((res: any) => {
