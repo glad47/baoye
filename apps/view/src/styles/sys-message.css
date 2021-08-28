@@ -4,6 +4,7 @@ h1 {
 .sys-message {
     width: 544px;
     height: 320px;
+    overflow-y: scroll;
     position: relative;
 }
 
@@ -39,6 +40,7 @@ h1 {
 .sys-message .mes-box .mes-li {
     display: flex;
     width: 100%;
+    padding: 10px 0;
     border-bottom: solid 1px #EEEEEE;
 }
 
@@ -76,4 +78,10 @@ h1 {
     font-family: Arial;
     font-size: 14px;
     color: #666666;
+}
+.sys-message .mes-box .mes-li .rig-info .info-content span {
+    color: #2e52ea;
+}
+.sys-message .mes-box .mes-li .rig-info .info-content span.underline {
+    cursor: pointer;
 }

@@ -3,11 +3,12 @@ import Cookies from 'js-cookie';
 import service from "../request";
 
 //线上
-// export const baseUrl = "https://www.pcbonline.com/" //线上前端
-// export const sysUrl = "https://sys.pcbonline.com/"  //线上后端
+export const baseUrl = "https://www.pcbonline.com/" //线上前端
+export const sysUrl = "https://sys.pcbonline.com/"  //线上后端
 // 线下
-export const baseUrl = "http://localhost:8083/base/" //网站前端
-export const sysUrl = "http://localhost:8083/sys/"  //网站后端
+// export const baseUrl = "http://localhost:8083/base/" //网站前端
+// export const sysUrl = "http://localhost:8083/sys/"  //网站后端
+// export const vo = "http://localhost:8083/vo/"  //网站后端
 // parker服务器配置地址
 // export const baseUrl = "http://pcb.imcoding.top/base/" //网站前端
 // export const sysUrl = "http://pcb.imcoding.top/sys/"  //网站后端
@@ -173,7 +174,7 @@ export const getDeliveryAddress = () => {
  */
 export const delDeliveryAddress = (id: number) => {
     return service({
-        url: `${sysUrl}/api/receiveraddress/${id}`,
+        url: `${sysUrl}api/receiveraddress/${id}`,
         method: 'DELETE'
     })
 }
@@ -186,7 +187,7 @@ export const delDeliveryAddress = (id: number) => {
 export const modifyDeliveryAddress = (data: any) => {
     const {id} = data;
     return service({
-        url: `${sysUrl}/api/receiveraddress/${id}`,
+        url: `${sysUrl}api/receiveraddress/${id}`,
         method: 'PUT',
         data: data
     })
@@ -200,7 +201,7 @@ export const addDeliveryAddress = (data: any) => {
     // const fromData = new FormData();
     // fromData.append("data", data);
     return service({
-        url: `${sysUrl}/api/receiveraddress`,
+        url: `${sysUrl}api/receiveraddress`,
         method: 'POST',
         data: data
     })
@@ -224,7 +225,7 @@ export const DescribeCouriers = () => {
  */
 export const getAllCountry = () => {
     return service({
-        url: `${sysUrl}/api/country/all`,
+        url: `${sysUrl}api/country/all`,
         method: 'GET'
     })
 }
@@ -238,7 +239,7 @@ export const getAllCountry = () => {
  */
 export const DescribeCoupon = (userId: any) => {
     return service({
-        url: `${sysUrl}/api/coupon?userId=${userId}&couponStatus=1`,
+        url: `${sysUrl}api/coupon?userId=${userId}&couponStatus=1`,
         method: 'GET'
     })
 }
@@ -253,7 +254,7 @@ export const GetCoupon = (code: any) => {
     const fromData = new FormData();
     fromData.append("code", code);
     return service({
-        url: `${sysUrl}/api/coupon/verify`,
+        url: `${sysUrl}api/coupon/verify`,
         method: 'POST',
         headers:{'Content-Type': 'multipart/form-data'},
         data: fromData
@@ -276,7 +277,7 @@ export const orderPay = (params: any) => {
  */
 export const createOrderNumber = (params: any) => {
     return service({
-        url: `${sysUrl}/api/order/createOrderNo`,
+        url: `${sysUrl}api/order/createOrderNo`,
         method: 'POST',
         data: params
     })
@@ -288,10 +289,10 @@ export const createOrderNumber = (params: any) => {
  */
 export const createOrderDetails = (params: any) => {
     return service({
-        url: `${sysUrl}/api/order/save`,
+        url: `${sysUrl}api/order/save`,
         method: 'POST',
         data: params
-    })
+    });
 }
 
 /**
@@ -301,7 +302,7 @@ export const createOrderDetails = (params: any) => {
  */
 export const DescribeInvoiceInfo = (orderId: any) => {
     return service({
-        url: `${sysUrl}/api/order/invoice?orderId=${orderId}`,
+        url: `${sysUrl}api/order/invoice?orderId=${orderId}`,
         method: 'get',
     })
 }
@@ -312,11 +313,11 @@ export const DescribeInvoiceInfo = (orderId: any) => {
  * @constructor
  */
 export const SendContactEmail = (params: any) => {
+    const {email, content} = params;
     return service({
-        url: `${sysUrl}/api/quote/sendRecommendEmail`,
-        method: 'POST',
-        headers:{'Content-Type': 'multipart/form-data'},
-        data: params
+        url: `https://www.pcbonline.com/v1/quote/sendRecommendEmail?email=${email}&&content=${content}`,
+        method: 'get',
+        headers:{'Content-Type': 'multipart/form-data'}
     })
 }
 
@@ -327,7 +328,7 @@ export const SendContactEmail = (params: any) => {
  */
 export const SendAuditMsg = (params: any) => {
     return service({
-        url: `${sysUrl}/api/message/send/auditMsg`,
+        url: `${sysUrl}api/message/send/auditMsg`,
         headers:{'Content-Type': 'multipart/form-data'},
         method: 'POST',
         data: params
@@ -341,14 +342,15 @@ export const SendAuditMsg = (params: any) => {
  */
 export const DescribeCurrUserMsg = () => {
     return service({
-        url: `${sysUrl}/api/message/queryCurrUserMsg`,
+        url: `${sysUrl}api/message/queryCurrUserMsg`,
         method: 'GET'
     })
 }
 
+
 // export const getShippingCost = () => {
 //     return service({
-//         url: `${sysUrl}/api/country/all`,
+//         url: `${sysUrl}api/country/all`,
 //         method: 'GET'
 //     })
 // }

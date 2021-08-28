@@ -8,8 +8,7 @@ const routerMap = [
     {
         path: '/',
         component: App,
-        auth: false,
-        exact: true,
+        auth: false
     },
     {
         path: '/test',
@@ -17,7 +16,7 @@ const routerMap = [
         auth: false
     },
     {
-        path: '/order',
+        path: '/order-process',
         component: PcbOrderProcess,
         auth: false
     },

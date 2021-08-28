@@ -67,6 +67,7 @@ const ProcessFivePayment = (props:any) => {
             'couponId', // 券id
             'payPayOrderId', //payPay返回的orderId 信用卡支付时可以随便填，但不能为空【必须】zh
             'paymentType',//支付类型1->payPal、2->BankTransfer、3->WesternUnion、4->PayWithAccountBalance，5->credit【必须】",
+            'remark', //备注
         ]
         const orderDetailList = getOrderDetailList();
         const dtd: any = {};
@@ -92,7 +93,8 @@ const ProcessFivePayment = (props:any) => {
                 dtd[key] = orderDetail[key];
             }
         });
-        if (payType === 2) { // 信用卡支付  发送信用卡表单
+        dtd.remark = orderOptionsItem.remark;
+        if (payType === 5) { // 信用卡支付  发送信用卡表单
             dtd.payMethodInfo = data;
         }
         createOrderDetails(dtd).then((res: any) => {

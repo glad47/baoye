@@ -8,7 +8,7 @@ import { Badge, Popover } from 'antd';
 import {BellFilled, ShoppingCartOutlined} from '@ant-design/icons'
 import LoginShow from '../DownMenu/loginShow'
 import HeaderTips from "./HeaderTips";
-import {changeCarDrawer, useAppState} from "../state";
+import {changeCarDrawer, reduxUser, useAppState} from "../state";
 import SysMessage from "./components/SysMessage";
 import {ajaxCarList, ajaxCarListForAssembly, ajaxCarListForStencil} from "../SpecificationInput/AjaxService";
 
@@ -25,18 +25,27 @@ const Head:React.FC = (props: any) => {
         if (pathname === '/') {
             setTipsShow(true);
         }
-        getCartNum()
     }, []);
+
+    useEffect(() => {
+        getCartNum();
+    }, [props.loginName])
 
     // 用户信息接口没返回购物车数量， 重复请求
     const getCartNum = async () => {
-        if (props.loginName[0]) {
-            const status = 1;
-            const s1: any = await ajaxCarList({status});
-            const s2: any = await ajaxCarListForStencil({status});
-            const s3: any = await ajaxCarListForAssembly({status});
-            const total = s1.total + s2.total + s3.total;
-            setCartNum(total);
+        const userInfo: any = sessionStorage.getItem("userAllInfo");
+        if (props.loginName[0] || userInfo) {
+            // const status = 1;
+            // const s1: any = await ajaxCarList({status});
+            // const s2: any = await ajaxCarListForStencil({status});
+            // const s3: any = await ajaxCarListForAssembly({status});
+            // const total = s1.total + s2.total + s3.total;
+            // setCartNum(total);
+            const userInfo: any = sessionStorage.getItem("userAllInfo");
+            // dispatch(reduxUser({cartNum:JSON.parse(userInfo).cartCount}))
+            if (userInfo) {
+                setCartNum(JSON.parse(userInfo).cartCount);
+            }
         }
     }
 
@@ -113,7 +122,7 @@ const Head:React.FC = (props: any) => {
                                         </Popover>
                                     </li>
                                     <li className="h-badge num" onClick={handlerCar}>
-                                        <Badge count={cartNum} size="small">
+                                        <Badge count={user.cartNum} size="small">
                                             <ShoppingCartOutlined />
                                         </Badge>
                                     </li>

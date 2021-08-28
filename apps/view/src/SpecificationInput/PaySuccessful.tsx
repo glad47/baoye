@@ -7,6 +7,7 @@ import {DescribeCurrUserMsg, DescribeInvoiceInfo, SendContactEmail} from "./Ajax
 import {checkEmail, getQueryVariable} from "../util";
 import InvoiceTemp from "../Components/Invoice/InvoiceTemp";
 import {Option} from "antd/es/mentions";
+import {useAppState} from "../state";
 
 const {TextArea} = Input;
 const fieldMatch = {
@@ -36,6 +37,15 @@ const sel3 = [
     'No. I won\'t buy from you again',
     'It depends on my needs',
 ]
+
+const inputVal = (
+    <>
+        <div>I found a very easy to use website, recommend to you, come to experience it https://www.pcbonline.com</div>
+        <div>PCBONLINE automation has delivered high quality builds in just a few days, which gives us that precious extra time for bring-up and debugging, so I am willing to share with you.</div>
+        <div>You can get online quotation via the website, or send email to info@pcbonline.com<br />their feedback speed is very fast !</div>
+    </>
+)
+
 const PaySuccessful = (props: any) => {
     const [form] = Form.useForm();
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
@@ -43,9 +53,28 @@ const PaySuccessful = (props: any) => {
     const invoRef: any = useRef();
     const [currentOrderId, setCurrentOrderId] = useState<any>();
     const [boxCheck, setBoxCheck] = useState<boolean>(false);
-    const [inputVal, setInputVal] = useState<string>('I found a very easy to use website, recommend to you, come to experience it https://www.pcbonline.com');
     const [sendEmail, setSendEmail] = useState<any>();
     const [canSend, setCanSend] = useState<boolean>(false);
+    const [addressDom, setAddressDom] = useState<any>(null);
+
+    const initAddress = () => {
+        const res = sessionStorage.getItem("userAllInfo");
+        if (res) {
+            const addr = JSON.parse(res);
+            const {userName, mobilePhone, email} = addr;
+            const userDom = (
+                <>
+                    <div className="userDom">
+                        <span style={{paddingTop: '15px'}}>{userName}</span>
+                        <span>{mobilePhone}</span>
+                        <span>{email}</span>
+                    </div>
+                </>
+            )
+            setAddressDom(userDom);
+        }
+    }
+
     const initFormValues = {
         filed1: sel1[0],
         filed2: sel2[0],
@@ -64,6 +93,7 @@ const PaySuccessful = (props: any) => {
         DescribeCurrUserMsg().then(res => {
             console.log('res', res)
         })
+        initAddress();
     }, []);
 
     useEffect(() => {
@@ -88,20 +118,19 @@ const PaySuccessful = (props: any) => {
         let str: any = [];
         // @ts-ignore
         Object.keys(values).forEach((key: any) => values[key] && str.push(fieldMatch[key] + values[key] + '%0a%0d'))
-        window.location.href = `mailto:info@pcbonline.com?subject=Hi,Owen Chang&body=${str.join(' ')}`
+        window.location.href = `mailto:info@pcbonline.com?subject=Customer Feedback Survey&body=${str.join(' ')}`
     }
 
     // 发送邮件
     const submitEmail = () => {
+        const {userName, mobilePhone, email} = JSON.parse(sessionStorage.getItem("userAllInfo") || "");
         const dtd = {
             content: inputVal,
-            email: sendEmail
+            email: sendEmail,
+            userName,
+            mobilePhone
         }
-        const fromData = new FormData();
-        fromData.append("content", inputVal);
-        fromData.append("email", sendEmail);
-        SendContactEmail(fromData).then(res => {
-            console.log('res', res);
+        SendContactEmail(dtd).then(res => {
             message.success('Send successful!')
         })
     }
@@ -196,7 +225,11 @@ const PaySuccessful = (props: any) => {
                                         <div>
                                             <div className="bac">
                                     <span>
+                                        <a href="">Dear Friend,</a>
                                         {inputVal}
+                                        {
+                                            addressDom
+                                        }
                                     </span>
                                             </div>
                                             <div className="send-input">

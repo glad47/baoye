@@ -36,7 +36,7 @@ const PayDebitCard = (props: any) => {
         });
         dtd.first_name = orderOptionsItem.deliveryAddr.receiverName;
         dtd.last_name = orderOptionsItem.deliveryAddr.lastName;
-        props.submitDebit(dtd, 2);
+        props.submitDebit(dtd, 5);
     }
 
 

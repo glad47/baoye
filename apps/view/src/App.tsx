@@ -2,7 +2,15 @@
 import React, {useEffect, useRef, useState} from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import {useAppState, createBoard, createBoardFromUrl, addQuote, backToUpload, backfillUploadPathData} from './state'
+import {
+    useAppState,
+    createBoard,
+    createBoardFromUrl,
+    addQuote,
+    backToUpload,
+    backfillUploadPathData,
+    reduxUser
+} from './state'
 import { Main } from './ui'
 import { Layout, message } from 'antd'
 import PcbSizeForm from './SpecificationInput/PcbSizeForm'
@@ -65,22 +73,13 @@ function App(): JSX.Element {
             if (boardType === 'Single') {
                 // @ts-ignore
                 const flag = await pcbSizeFormRef?.current.formSubmit(); // 主要弹出input require
+                console.log('flag', flag)
                 if (flag !== null) {
-                    if (!flagQuoteParams) {
-                        debugger
-                        // @ts-ignore
-                        const quantityFlag = pcbSizeFormRef?.current.formSubmit(); // 主要弹出input require
-                        if (!quantityFlag) { // 没有填写quantity
-                            return false;
-                        } else {
-                            return checkLogin();
-                        }
+                    if (checkLogin()) {
+                        await uploadZipFile('upload');
+                    } else {
+                        return false
                     }
-                    if (quantity === null || quantity === '' || singleSize.sizeX === null || singleSize.sizeX === '' || singleSize.sizeY === null || singleSize.sizeY === '') {
-                        // message.error('Please fill in the size and quantity ！！');
-                        // return checkLogin();
-                    }
-                    await uploadZipFile('upload');
                 } else {
                     return false
                 }
@@ -113,10 +112,10 @@ function App(): JSX.Element {
             dispatch(addQuote());
             if (link) { location.href = '/audit'; }
         } else if (quoteMode === 1) {
-            if (fileUploadPtah === null) {
-                message.error('Please upload the gerber file ！！');
-                return;
-            }
+            // if (fileUploadPtah === null) {
+            //     message.error('Please upload the gerber file ！！');
+            //     return;
+            // }
             if (subtotal.stencilFee === 0) {
                 message.error('Please fill in the Dimensions !!');
                 return;
@@ -191,7 +190,6 @@ function App(): JSX.Element {
         setLogin(e)
     }
     const getUserInfo = (e: any) => {
-        console.log('e', e)
         setLoginName(e)
     }
     // 实时更新头像

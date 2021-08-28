@@ -3,11 +3,11 @@ import Cookies from "js-cookie";
 import {message} from "antd";
 
 //线上
-// const baseUrl = "https://www.pcbonline.com/" //线上前端
-// const sysUrl = "https://sys.pcbonline.com/"  //线上后端
+const baseUrl = "https://www.pcbonline.com/" //线上前端
+const sysUrl = "https://sys.pcbonline.com/"  //线上后端
 // 线下
-const baseUrl = "http://localhost:8083/base" //网站前端
-const sysUrl = "http://localhost:8083/sys"  //网站后端
+// const baseUrl = "http://localhost:8083/base" //网站前端
+// const sysUrl = "http://localhost:8083/sys"  //网站后端
 // parker服务器配置地址
 // const baseUrl = "http://pcb.imcoding.top/base/" //网站前端
 // const sysUrl = "http://pcb.imcoding.top/sys/"  //网站后端

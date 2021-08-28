@@ -7,11 +7,23 @@ import {orderOptions, orderSummaryFun, useAppState} from "../../../state";
 const ShoppingCarListTable = () => {
     const { dispatch } = useAppState();
     const carTableRef = useRef();
+
+    const DESCRIPTION_DOM = (record: any) => (
+        <>
+            <p>P/N:{record.productNo}</p>
+            <p>[PCB prototype]<br /></p>
+            <p>{record.finishThickness} {record.layerNum}layer<br /></p>
+            <p>Solder Mask: </p>
+            <p>{record.solderMaskTopColor}</p>
+            <p>{record.surfaceFinish}</p>
+        </>
+    )
+
     const columns = [
         {
             title: 'PRODUCT',
             key: '',
-            dataIndex: 'productNo',
+            dataIndex: 'gerberName',
             width: 120,
             // render: (undefined: any,txt: string | undefined) => (<img src={txt} />)
         },
@@ -19,7 +31,8 @@ const ShoppingCarListTable = () => {
             title: 'DESCRIPTION',
             key: '',
             width: 160,
-            dataIndex: 'gerberName'
+            dataIndex: 'gerberName',
+            render: (record: any) => (DESCRIPTION_DOM(record))
         },
         {
             title: 'PRODUCTION TIME',
@@ -120,6 +133,7 @@ const ShoppingCarListTable = () => {
                 columns={columns}
                 data={data}
                 rowKey="id"
+                checkedOperation="all"
                 checkBox _style={{TdHeight: 120}}
                 onChecked={handlerChecked}
             />

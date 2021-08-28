@@ -6,7 +6,6 @@ import {
 import {orderOptions, useAppState} from "../../../state";
 import {addDeliveryAddress, getAllCountry, modifyDeliveryAddress} from "../../../SpecificationInput/AjaxService";
 
-type RequiredMark = boolean | 'optional';
 
 const { TextArea } = Input;
 const { Option } = Select;

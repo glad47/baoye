@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import '../styles/pcb-order-process.css'
 import '../styles/file-init.css'
 import PcbLayout from "../Components/PcbLayout";
-import {Collapse} from "antd";
+import {Collapse, message} from "antd";
 import CarOrderSummary from "../Components/OrderProcess/ProcessOneForCar/CarOrderSummary";
 import ShoppingCarListTable from "../Components/OrderProcess/ProcessOneForCar/ShoppingCarListTable";
 import ProcessTwoForAddr from "../Components/OrderProcess/ProcessTwoForAddr";
@@ -55,6 +55,9 @@ const PcbOrderProcess:React.FC = (props:any) => {
     }
 
     useEffect(() => {
+        window.onbeforeunload = function(){
+            return "必您确定要退出页面吗？";
+        }
         return () => {
             clearInterval(msgInterval);
         }
@@ -77,21 +80,24 @@ const PcbOrderProcess:React.FC = (props:any) => {
             }
         });
         msgInterval = setInterval(async() => {
-            await GetMsgStatus();
+            await GetMsgStatus(productNos);
         }, 3000);
     }
 
 
     // 获取通知审核信息
-    const GetMsgStatus = async () => {
+    const GetMsgStatus = async (productNos: String) => {
         const res:any = await DescribeCurrUserMsg();
-        const {list} = res;
-        if (list) {
-            const isRea = list.find((item: any) => item.isread === 0);
-            if (isRea) {
+        if (res.length > 0) {
+            const isReaArr = res.filter((item: any) => item.isread === 0 && productNos.indexOf(item.content) > -1);
+            if (isReaArr.length > 0) {
+                clearInterval(msgInterval);
+                setPaySuccess(false);
                 // @ts-ignore
-                summaryRef.current?.orderNext();
+                summaryRef.current?.orderNext('force');
             }
+        } else {
+            console.error('接口错误， 请联系后端解决！');
         }
     }
 

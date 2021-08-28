@@ -65,9 +65,10 @@ module.exports = merge(baseConfig(__dirname), {
             },
             {
                 test: /\.(png|ico|gif)$/,
-                loader: 'file-loader?name=images',
+                loader: 'url-loader?name=images',
                 options: {
                     name: '[name].[contenthash].[ext]',
+                    esModule: false
                 },
             },
             {
