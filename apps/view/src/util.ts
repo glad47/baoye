@@ -123,3 +123,25 @@ export function ArrayDiff(arr1: any, arr2: any, key: any) {
  const res = arr2.filter((item: any) => !keys.includes(item[key]));
  return res
 }
+
+// stencil 属性 和pcb订单对应
+export function Fields_Stencil_PCB(array: any) {
+  const _Match: any = {
+    quantity: 'quantityPcs',
+    totalStencilFee: 'subtotal'
+  }
+  const res = array.reduce((pre: any, cur: any, index: number) => {
+    Object.keys(cur).forEach((item: any) => {
+      const m = _Match[item];
+      if (m) {
+        cur[m] = cur[item];
+        // 删除原有属性
+        // delete cur[item];
+      }
+    });
+    pre.push(cur);
+    return pre;
+  }, []);
+  console.log('res===>', res)
+  return res;
+}

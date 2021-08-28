@@ -1,8 +1,14 @@
 import React, {useEffect, useRef, useState} from 'react'
 import _ from 'lodash'
 import CarTable from "./CarTable";
-import {ajaxCarList, delPcbOrder} from "../../../SpecificationInput/AjaxService";
+import {
+    ajaxCarList,
+    ajaxCarListForAssembly,
+    ajaxCarListForStencil,
+    delPcbOrder, delStencilOrder
+} from "../../../SpecificationInput/AjaxService";
 import {orderOptions, orderSummaryFun, useAppState} from "../../../state";
+import {Fields_Stencil_PCB} from "../../../util";
 
 const ShoppingCarListTable = () => {
     const { dispatch } = useAppState();
@@ -69,13 +75,24 @@ const ShoppingCarListTable = () => {
     const [checked, setChecked] = useState([]);
     const [spin, setSpin] = useState<boolean>(false);
 
-    const getCarList = () => {
+    const getCarList = async () => {
         setSpin(true);
-        ajaxCarList({status: 1}).then(res => {
-            const {data} = res;
-            setData(data);
-            setSpin(false);
-        })
+        const status = 1;
+        const {data:orderPCB} = await ajaxCarList({status});
+        let {data:orderStencil} = await ajaxCarListForStencil({status: 1});
+        const {data:orderAssembly} = await ajaxCarListForAssembly({status: 1});
+        orderStencil = Fields_Stencil_PCB(orderStencil);
+        console.log('orderPCB', orderPCB)
+        console.log('orderStencil', orderStencil)
+        console.log('orderAssembly', orderAssembly)
+        const data = orderPCB.concat(orderStencil).concat(orderAssembly);
+        setData(data);
+        setSpin(false);
+        // ajaxCarList({status: 1}).then(res => {
+        //     const {data} = res;
+        //     setData(data);
+        //     setSpin(false);
+        // })
     }
 
     useEffect(() => {
@@ -85,7 +102,6 @@ const ShoppingCarListTable = () => {
     useEffect(() => {
         let total = 0;
         let weightTotal = 0;
-        console.log('checked', checked)
         checked.reduce((pre: any ,cur: any) => {
             const {subtotal, weight} = cur.record;
             total += subtotal; // 计算总价格
@@ -96,27 +112,30 @@ const ShoppingCarListTable = () => {
         dispatch(orderSummaryFun({ total: total, weight: weightTotal}));
     }, [checked])
 
-    const handlerDel = (record: any, index: number) => {
-        const {id} = record;
+    const handlerDel = async (record: any, index: number) => {
+        const {id, totalStencilFee} = record;
         setSpin(true);
-        delPcbOrder(id).then(res => {
-            const defData = [...data];
-            defData.splice(index, 1);
-            setData(defData);
-            setSpin(false);
-            // 删除选中
-            const defChecked = [...checked];
-            defChecked.some((item: any, i) => {
-                const {record} = item;
-                if (record.id === id) {
-                    defChecked.splice(i, 1)
-                    // @ts-ignore
-                    carTableRef?.current.UIH_clearCheckList(index)
-                    return true
-                }
-            })
-            setChecked(defChecked);
-        });
+        if (!totalStencilFee) { // 非钢网 删除pcb订单
+            await delPcbOrder(id)
+        } else { // 删除钢网订单
+            await delStencilOrder(id)
+        }
+        const defData = [...data];
+        defData.splice(index, 1);
+        setData(defData);
+        setSpin(false);
+        // 删除选中
+        const defChecked = [...checked];
+        defChecked.some((item: any, i) => {
+            const {record} = item;
+            if (record.id === id) {
+                defChecked.splice(i, 1)
+                // @ts-ignore
+                carTableRef?.current.UIH_clearCheckList(index)
+                return true
+            }
+        })
+        setChecked(defChecked);
     }
 
     // 选中
