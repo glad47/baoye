@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import { CaretRightOutlined } from '@ant-design/icons'
-import {Space} from "antd";
+import {notification, Space} from "antd";
 import {DescribeCurrUserMsg} from "../../SpecificationInput/AjaxService";
 import {reduxUser, useAppState} from "../../state";
 import {getKeysNumForArr} from "../../util";
 import {useHistory} from "react-router-dom";
+import * as Cookies from "js-cookie";
 
 const notify_icon = require('../../images/quate_icon24.png');
 const check_icon = require('../../images/quate_icon25.png');
@@ -13,6 +14,17 @@ export default () => {
     const { dispatch, user } = useAppState();
     const history = useHistory();
     const [mesList, setMesList] = useState([]);
+
+    const EL_MES = (content: any) => {
+        return <>
+            Your order
+            <span>{content}</span>
+            has been approved,
+             <span onClick={handleDire} className="underline" style={{color: 'blue'}}>
+                 Go to the payment
+             </span>
+        </>
+    }
 
     // 获取系统消息
     const getMes = () => {
@@ -34,6 +46,7 @@ export default () => {
     }
 
     useEffect(() => {
+        // 定时获取系统信息
         getMes();
     }, []);
 
@@ -57,7 +70,7 @@ export default () => {
                                     <span className="time">{item.gmtCreate}</span>
                                 </div>
                                 <div className="info-content">
-                                    Your order <span>{item.content}</span> has been approved, <span onClick={handleDire} className="underline">Go to the payment</span>
+                                    {EL_MES(item.content)}
                                 </div>
                             </div>
                         </div>

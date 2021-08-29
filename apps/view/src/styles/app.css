@@ -4314,3 +4314,7 @@ body {
 .ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-extra {
     font-size: 12px !important;
 }
+
+.ant-notification {
+    z-index: 999999;
+}

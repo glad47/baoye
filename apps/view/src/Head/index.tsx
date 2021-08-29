@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Badge, Popover } from 'antd';
+import {Badge, notification, Popover} from 'antd';
 // import Product from '../Menus/product'
 // import Assembly from '../Menus/AssemblyAllMenu'
 // import Solution from '../Menus/Solution'
@@ -10,12 +10,21 @@ import LoginShow from '../DownMenu/loginShow'
 import HeaderTips from "./HeaderTips";
 import {changeCarDrawer, reduxUser, useAppState} from "../state";
 import SysMessage from "./components/SysMessage";
-import {ajaxCarList, ajaxCarListForAssembly, ajaxCarListForStencil} from "../SpecificationInput/AjaxService";
+import {useHistory} from "react-router-dom";
+import {
+    ajaxCarList,
+    ajaxCarListForAssembly,
+    ajaxCarListForStencil,
+    DescribeCurrUserMsg
+} from "../SpecificationInput/AjaxService";
+import {getKeysNumForArr} from "../util";
+import * as Cookies from "js-cookie";
 
 const Head:React.FC = (props: any) => {
     const { dispatch, user } = useAppState();
     const [tipsShow, setTipsShow] = useState<boolean>(true);
     const [cartNum, setCartNum] = useState(0);
+    const history = useHistory();
     const handleManage = () => {
         window.open('https://sys.pcbonline.com/home')
     }
@@ -25,7 +34,54 @@ const Head:React.FC = (props: any) => {
         if (pathname === '/') {
             setTipsShow(true);
         }
+        // 定时获取系统信息
+        const times = setInterval(() => {
+            console.log('11')
+            getMes();
+        }, 5000);
+        return () => {
+            clearInterval(times)
+        }
     }, []);
+
+    // 获取系统消息
+    const getMes = () => {
+        DescribeCurrUserMsg().then((res: any) => {
+            if (res && res.length > 0) {
+                const unreadNum = getKeysNumForArr(res, 'isread', 0);
+                const unread = res.find((item: any) => item.isread === 0);
+                // 提醒过的信息不提醒了
+                const flag = Cookies.get("sysMes");
+                if (unread && !flag) {
+                    const {id, sendUser, content} = unread;
+                    notification.open({
+                        message: sendUser,
+                        description: EL_MES(content),
+                        onClick: () => {
+                            console.log('Notification Clicked!');
+                        },
+                    });
+                    Cookies.set("sysMes", id);
+                }
+                dispatch(reduxUser({message: {unread: unreadNum}}));
+            }
+        })
+    }
+
+    const handleDire = () => {
+        history.push('/order');
+    }
+
+    const EL_MES = (content: any) => {
+        return <>
+            Your order
+            <span>{content}</span>
+            has been approved,
+            <span onClick={handleDire} className="underline" style={{color: 'blue'}}>
+                 Go to the payment
+             </span>
+        </>
+    }
 
     useEffect(() => {
         getCartNum();
