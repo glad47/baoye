@@ -143,23 +143,24 @@ export type ParseGerber = {
   quoteFilePath: string | null;
 }
 
-/** 构建时间项 */
+/** 交期 */
 export type BuildTimeItem = {
   id: number,
   dayNumber: string,
   price: number
 }
 
+/**所有费用之和+总重量+交期 */
 export type SubtotalItem = {
-  boardFee: number,
-  engineeringFee: number,
-  testFee: number,
-  totalWeight: number,
-  urgentFee: number,
-  shippingFee: number,
-  stencilFee: number,
-  buildTime: string | null,
-  assemblyFee: number,
+  boardFee: number,  //板费
+  engineeringFee: number,  //工程费
+  testFee: number,  //测试费
+  totalWeight: number,  //总重量
+  urgentFee: number,  //加急费
+  shippingFee: number, //运费
+  stencilFee: number,  //钢网费
+  buildTime: string | null, //交期
+  assemblyFee: number,  //贴片费
 }
 
 export type OrderSummaryItem = {

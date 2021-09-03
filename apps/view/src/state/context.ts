@@ -38,8 +38,8 @@ export const INITIAL_STATE: State = {
   carDrawerStatus:false,
   uploadGerber: {progress: 0, status: 'init'},
   orderSummary: {total: 0, freightCharges: 0, weight: 0, coupon: {id: -1, value: 0}, handlingCharge: 0},
-  orderSummaryStatus: {process: 1, description: ''},
-  orderOptionsItem: {deliveryAddr: null, expressInfo: {id: null, name: null}, payWays: 1, ordersItem: []},
+  orderSummaryStatus: {process: 1, description: ''}, //订单支付状态
+  orderOptionsItem: {deliveryAddr: null, expressInfo: {id: null, name: null}, payWays: 1, ordersItem: [],remark:null},
   fileFormData: null,
 }
 

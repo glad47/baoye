@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 购物车中判断勾选订单
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2021-07-17 11:10:06
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-03 23:35:01
+ */
 import {message} from "antd";
 
 /**

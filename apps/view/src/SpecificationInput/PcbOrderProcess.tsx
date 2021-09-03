@@ -1,3 +1,13 @@
+/*
+ * @Descripttion: 支付流程页面
+ * @version: 1.1
+ * @Author: Parker
+ * @Date: 2021-08-15 17:15:00
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-03 23:37:05
+ */
+
+
 import React, {useEffect, useRef, useState} from 'react';
 import { withRouter } from 'react-router-dom'
 import '../styles/pcb-order-process.css'
@@ -23,17 +33,18 @@ const _iconStyle = {
     fontSize: '20px',
 }
 
-const _Match_payWats: any = {1: 'PCBONLINE Review', 2: 'Customer review'};
 
-const icon_CheckOutlined = <CheckOutlined style={_iconStyle} />;
+const _Match_payWats: any = {1: 'PCBONLINE Review', 2: 'Customer review'};  //提交订单的方式， 1、由PCBONLINE审核，2、客户自己审核
 
-const { Panel } = Collapse;
+const icon_CheckOutlined = <CheckOutlined style={_iconStyle} />;  //手拉琴右上角打勾符号
+
+const { Panel } = Collapse;  //定义手拉琴面板
 
 const PcbOrderProcess:React.FC = (props:any) => {
     const { orderSummaryStatus,orderOptionsItem, dispatch } = useAppState();
-    const [paySuccess, setPaySuccess] = useState<boolean>(false);
+    const [paySuccess, setPaySuccess] = useState<boolean>(false);  //是否支付成功
     const [alrIndex, setAlrIndex] = useState<any>([]); // 已经checkout过的流程，避免用户直接跳过某个流程
-    const summaryRef = useRef(null);
+    const summaryRef = useRef(null); 
     let msgInterval: NodeJS.Timeout;
     const handlerCheckCollapse = (val: number) => {
         if (alrIndex.indexOf(Number(val)) > -1) { // 不能跳过没有选过的流程
@@ -42,7 +53,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
         }
     }
 
-    // 选中
+    /**手拉琴面板选中状态*/
     const handleCheckout = (index1: number, index2: number) => {
         const def: any = [...alrIndex];
         if (alrIndex.indexOf(index1) === -1) {
@@ -54,6 +65,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
         setAlrIndex([...def]);
     }
 
+    /**页面刷新时候提醒*/
     useEffect(() => {
         window.onbeforeunload = function(){
             return "必您确定要退出页面吗？";
@@ -63,7 +75,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
         }
     }, []);
 
-    // 发送通知审核信息
+    /**发送通知审核信息*/
     const handleAudit = () => {
         const {ordersItem} = orderOptionsItem;
         let productNos = ordersItem.reduce((pre: any, cur) => {
@@ -85,7 +97,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
     }
 
 
-    // 获取通知审核信息
+    /**获取通知审核信息*/
     const GetMsgStatus = async (productNos: String) => {
         const res:any = await DescribeCurrUserMsg();
         if (res.length > 0) {
@@ -100,6 +112,8 @@ const PcbOrderProcess:React.FC = (props:any) => {
             console.error('接口错误， 请联系后端解决！');
         }
     }
+
+    /**手拉琴面板右上角信息*/
 
     const processExtra = {
         1: '',
@@ -138,10 +152,10 @@ const PcbOrderProcess:React.FC = (props:any) => {
                     <Collapse accordion className="order-collapse" activeKey={orderSummaryStatus.process} onChange={handlerCheckCollapse}>
 
                         <Panel header="My Shopping Cart" key="1" extra={processExtra[1]}>
-                            <ShoppingCarListTable />
+                            <ShoppingCarListTable />   
                         </Panel>
                         <Panel header="Shipping Address" key="2" extra={orderOptionsItem.deliveryAddr && processExtra[2]}>
-                            <ProcessTwoForAddr />
+                            <ProcessTwoForAddr />  
                         </Panel>
                         <Panel header="Shipping Method" key="3" extra={orderOptionsItem.expressInfo.name && processExtra[3]}>
                             {
@@ -155,13 +169,8 @@ const PcbOrderProcess:React.FC = (props:any) => {
                             {
                                 orderSummaryStatus.process === 5 && <ProcessFivePayment />
                             }
-                            {/*<Button type="primary" onClick={() => {setPaySuccess(true)}}>支付成功测试按钮</Button>*/}
-                            {/*<Link to="/paySuc">*/}
-                            {/*    <Button type="primary">感谢支付测试按钮</Button>*/}
-                            {/*</Link>*/}
                         </Panel>
                     </Collapse>
-                    {/*弹窗*/}
                     {
                         paySuccess ? <PaySuccessModal /> : ''
                     }
@@ -171,7 +180,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
                     <CarOrderSummary
                         cRef={summaryRef}
                         handleAudit={handleAudit}
-                        handleCheckout={handleCheckout}/>
+                        handleCheckout={handleCheckout}/>  
                 </div>
             </div>
         </PcbLayout>

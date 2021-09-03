@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 支付流程右侧面板
+ * @version: 1.0
+ * @Author: Parker
+ * @Date: 2021-07-23 21:21:09
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-03 23:41:17
+ */
 import React, {useEffect, useImperativeHandle, useState} from 'react'
 import '../../../styles/car-order-summary.css'
 
@@ -11,14 +19,15 @@ interface ints {
     cRef: any,
 }
 
+
 const CarOrderSummary:React.FC<ints> = (props) => {
     const { dispatch, orderSummaryStatus, orderOptionsItem } = useAppState();
     const { orderSummary } = useAppState();
-    const [flag, setFlag] = useState<boolean>(false);
+    const [flag, setFlag] = useState<boolean>(false);  //订单勾选
 
 
     useEffect(() => {
-        let {process} = orderSummaryStatus;
+        let {process} = orderSummaryStatus;  
         process = Number(process);
         if (process === 1 && FlagProcess.CheckItems(orderOptionsItem)) {
             setFlag(true)
