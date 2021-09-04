@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 支付成功页面
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2021-08-14 10:36:12
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-04 20:26:54
+ */
 import React, {useEffect, useRef, useState} from 'react';
 // import { withRouter } from 'react-router-dom'
 import '../styles/pay-successful.css'

@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: V3报价页面右侧计价面板
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2021-07-17 11:10:06
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-04 20:33:16
+ */
 import React, {useEffect} from 'react';
 import {Select} from "antd";
 import {changeUrgentCost, useAppState} from "../state";

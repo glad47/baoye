@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: PCB特殊工艺输入面板
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2021-07-17 11:10:06
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-04 20:46:43
+ */
 import React from 'react';
 import { Row, Col, Form } from 'antd';
 import { Store } from 'antd/lib/form/interface';

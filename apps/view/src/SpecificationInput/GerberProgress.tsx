@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 资料上传过程的进度条
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2021-07-17 11:10:06
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-04 18:31:24
+ */
 import React, {useEffect, useImperativeHandle, useState} from 'react';
 import {backToUpload, useAppState} from "../state";
 const checkIcon = require('../images/check-circle.png');

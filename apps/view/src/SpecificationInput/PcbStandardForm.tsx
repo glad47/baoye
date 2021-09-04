@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: PCB标准工艺输入面板
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2021-07-17 11:10:06
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-04 20:47:44
+ */
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Form, Input } from 'antd';
 import ObserverSelect from './ObserverSelect';

@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 购物车列表
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2021-08-18 22:06:41
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-04 17:19:46
+ */
 import React, {useEffect, useState} from 'react'
 import {message, Spin} from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
@@ -28,9 +36,9 @@ const CarList = (props:any) => {
     // 获取列表
     const getCarList = async () => {
         setSpinFlag(true);
-        const orderPCB: any = await ajaxCarList({status: 1});
-        const orderStencil: any = await ajaxCarListForStencil({status: 1});
-        const orderAssembly: any = await ajaxCarListForAssembly({status: 1});
+        const orderPCB: any = await ajaxCarList({status: 1});  //未审核的PCB订单
+        const orderStencil: any = await ajaxCarListForStencil({status: 1});   //未审核的钢网订单
+        const orderAssembly: any = await ajaxCarListForAssembly({status: 1}); //未审核的贴片订单
         const total = orderPCB.total + orderStencil.total + orderAssembly.total;
         const data = orderPCB.data.concat(orderStencil.data).concat(orderAssembly.data);
         setListData(data);

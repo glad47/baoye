@@ -1,25 +1,26 @@
+/*
+ * @Descripttion: AjaxService 页面
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2021-08-14 10:36:12
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-04 15:15:37
+ */
 import Axios from "axios";
 import Cookies from 'js-cookie';
 import service from "../request";
 
-//线上
+//线上：部署线上使用
 export const baseUrl = "https://www.pcbonline.com/" //线上前端
 export const sysUrl = "https://sys.pcbonline.com/"  //线上后端
-// 线下
+// 线下：本地测试使用
 // export const baseUrl = "http://localhost:8083/base/" //网站前端
 // export const sysUrl = "http://localhost:8083/sys/"  //网站后端
 // export const vo = "http://localhost:8083/vo/"  //网站后端
-// parker服务器配置地址
-// export const baseUrl = "http://pcb.imcoding.top/base/" //网站前端
-// export const sysUrl = "http://pcb.imcoding.top/sys/"  //网站后端
-// export const uploadUrl = "http://localhost:8888/"
-
-// export function ajaxBuildTime (){
-//     return Axios.get(baseUrl+ 'quote/getBuildTime')
-// }
 
 
 // console.log(token);
+/**交期对应API接口：回传订单面积和层数，得到具体的交期*/
 export const ajaxBuildTime = (data: any) =>{
     return Axios.get(baseUrl + `v1/quote/getBuildTime?areaSq=${data.areaSq}&layerNum=${data.layerNum}`);
 }
@@ -33,14 +34,19 @@ export const ajaxSubtotal = (data: any) =>{
     })
 }
 
+/**运费对应的API接口：回传快递公司、国家和总重量*/
 export const fetchShipingCost = (data: any) =>{
-    // return Axios.get(baseUrl + `v1/quote/getShippingCost?courierId=1&countryId=${data.countryId}&totalWeight=${data.totalWeight}`);
     return service({
         url: `${baseUrl}v1/quote/getShippingCost?courierId=${data.courierId}&countryId=${data.countryId}&totalWeight=${data.totalWeight}`,
         method: 'GET'
     })
 }
 
+/**
+ * 加入报价
+ * @param data 
+ * @returns 
+ */
 export const ajaxAddQuote = (data: any) => {
     const token = Cookies.get('token');
     return Axios.request({
@@ -51,11 +57,21 @@ export const ajaxAddQuote = (data: any) => {
     })
 }
 
+/**
+ * 贴片费用：贴片类型、贴片数量、插件数量、贴片面向
+ * @param data 
+ * @returns 
+ */
 export const ajaxAssemblyCast = (data: any)=>{
     console.log(data);
     return Axios.get(baseUrl + `v1/quote/getAssemblyQuote?assemblyType=${data.assemblyType}&uniquePartNum=${data.uniquePartNum}&smtPartNum=${data.smtPartNum}&throughHolePartNum=${data.throughHolePartNum}&assemblySide=${data.assemblySide}&quantity=${data.quantity}`);
 }
 
+/**
+ * 文件上传
+ * @param file 
+ * @returns 
+ */
 export const ajaxFileUpload = (file: File) =>{
     const token = Cookies.get('token');
     const fromData = new FormData();

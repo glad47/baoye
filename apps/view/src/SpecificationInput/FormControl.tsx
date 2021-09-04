@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 报价页面的FROM控制
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2021-07-17 11:10:06
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-04 18:12:11
+ */
 import React, { useState } from 'react'
 import SpecificationHead from './SpecificationHead';
 import PcbSpecification from './PcbSpecification';

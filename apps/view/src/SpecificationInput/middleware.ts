@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 计算价格
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2021-07-17 11:10:06
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-04 19:35:27
+ */
 import * as State from '../state';
 import {countSubtotal, countBuildTime, reduxChangeAddQuoteStatus} from '../state';
 import { ajaxBuildTime, ajaxSubtotal, ajaxAddQuote, ajaxAssemblyCast } from './AjaxService';

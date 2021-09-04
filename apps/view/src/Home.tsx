@@ -6,7 +6,7 @@ import { useAppState, createBoard, createBoardFromUrl, addQuote, backToUpload } 
 import { Main } from './ui'
 import { Layout, Checkbox, message } from 'antd'
 import PcbSizeForm from './SpecificationInput/PcbSizeForm'
-import BuildTimeForm from './SpecificationInput/BuildTimeForm'
+import BuildTimeForm from './SpecificationInput/BuildTimeForm'  //v3版本取消交期拼图，手机端还需要使用
 import CastCalculation from './SpecificationInput/CostCalculation'
 import ShoppingCast from './SpecificationInput/ShoppingCast'
 import ShoppingTotal from './SpecificationInput/ShoppingTotal'

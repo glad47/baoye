@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 购物车抽屉面板
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2021-08-18 22:06:41
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-04 15:49:40
+ */
 import React, {useEffect, useState} from 'react'
 import { Drawer } from 'antd';
 import {changeCarDrawer, useAppState} from "../state";

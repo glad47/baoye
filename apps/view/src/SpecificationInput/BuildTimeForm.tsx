@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: V2版本交期部分的拼图,V3版本不使用，保留手机端的交期
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2021-08-31 10:19:10
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-04 16:05:32
+ */
 import React, { useState, useEffect, useRef } from 'react'
 import { ClockCircleFilled } from '@ant-design/icons'
 import { Row, Typography, Radio, Spin } from 'antd';

@@ -1,3 +1,12 @@
+/*
+ * @Descripttion: V3报价页面-贴片计价输入部分
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2021-07-17 11:10:06
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-04 15:40:39
+ */
+
 import React from 'react'
 import { Row, Col, Form, Input, Radio, Select } from 'antd';
 import { useAppState, changeAssemblyField } from '../state';
@@ -8,6 +17,7 @@ interface AssemblyFormProps {
 }
 
 /** 贴片form表格 */
+
 const AssemblyFrom: React.FC<AssemblyFormProps> = (props) => {
     const [form] = Form.useForm();
     const { assemblyField, dispatch } = useAppState();

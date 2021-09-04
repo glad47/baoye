@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 钢网输入面板
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2021-07-17 11:10:06
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-04 20:50:29
+ */
 import React, { useState } from 'react';
 import { Row, Col, Select, Form, Modal, Input, Table, Radio } from 'antd';
 import ObserverSelect from './ObserverSelect';

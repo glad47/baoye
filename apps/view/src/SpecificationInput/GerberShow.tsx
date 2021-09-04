@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: gerber图片显示
+ * @version: 1.0
+ * @Author: 
+ * @Date: 2021-08-18 22:06:41
+ * @LastEditors: ho huang
+ * @LastEditTime: 2021-09-04 18:49:47
+ */
 import React, {useEffect, useState} from "react";
 import { useAppState } from "../state";
 import FileError from "../LoadFiles/FileStatus/FileError";
