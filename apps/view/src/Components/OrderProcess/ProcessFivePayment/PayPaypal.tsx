@@ -19,8 +19,8 @@ const PayPaypal = (props: props) => {
                     <PayPalButton
                         shippingPreference="NO_SHIPPING"
                         options={{
-                            // clientId: "Ab5enUR6ZAsRH6SUSaLM1-wECeRamMD7m18PU_Jk78Tlrurh3HV3qVYfyPnhZXM7SPuLu9386nAx5Vr2",
-                            clientId: "AQP008uQy-suleFOxpEUTfvjSUHJ9C5BKSyswNL-K554eMqDsvhl_Vjbx1vFJgZOpKhvj82eex8OWoz3",
+                            clientId: "Ab5enUR6ZAsRH6SUSaLM1-wECeRamMD7m18PU_Jk78Tlrurh3HV3qVYfyPnhZXM7SPuLu9386nAx5Vr2",
+                            // clientId: "AQP008uQy-suleFOxpEUTfvjSUHJ9C5BKSyswNL-K554eMqDsvhl_Vjbx1vFJgZOpKhvj82eex8OWoz3",
                         }}
                         createOrder={(data: any, actions: any) => {
                             return actions.order.create({
