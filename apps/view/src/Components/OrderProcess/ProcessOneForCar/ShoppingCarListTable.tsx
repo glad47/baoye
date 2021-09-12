@@ -14,6 +14,11 @@ const ShoppingCarListTable = () => {
     const { dispatch } = useAppState();
     const carTableRef = useRef();
 
+    const handleTextarea = (e: any) => {
+        e.persist()
+        dispatch(orderOptions({remark: e.target.value}));
+    }
+
     const DESCRIPTION_DOM = (record: any) => (
         <>
             <p>P/N:{record.productNo}</p>
@@ -85,7 +90,7 @@ const ShoppingCarListTable = () => {
         console.log('orderPCB', orderPCB)
         console.log('orderStencil', orderStencil)
         console.log('orderAssembly', orderAssembly)
-        const data = orderPCB.concat(orderStencil).concat(orderAssembly);
+        const data = orderPCB.concat(orderStencil).concat(Fields_Stencil_PCB(orderAssembly));
         setData(data);
         setSpin(false);
         // ajaxCarList({status: 1}).then(res => {
@@ -105,7 +110,7 @@ const ShoppingCarListTable = () => {
         checked.reduce((pre: any ,cur: any) => {
             const {subtotal, weight} = cur.record;
             total += subtotal; // 计算总价格
-            weightTotal += weight; // 计算总重量
+            weightTotal += weight || 0; // 计算总重量
             return pre;
         }, 0);
         dispatch(orderOptions({ordersItem: checked}));
@@ -156,6 +161,12 @@ const ShoppingCarListTable = () => {
                 checkBox _style={{TdHeight: 120}}
                 onChecked={handlerChecked}
             />
+            <div className="order-instr">
+                <span>Order instructions</span>
+                <div>
+                    <textarea placeholder='Leave a remark if you have any request' onKeyUp={e => handleTextarea(e)}/>
+                </div>
+            </div>
         </div>
     )
 }

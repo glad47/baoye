@@ -1,7 +1,7 @@
 /*
  * @Descripttion: 购物车列表
  * @version: 1.0
- * @Author: 
+ * @Author:
  * @Date: 2021-08-18 22:06:41
  * @LastEditors: ho huang
  * @LastEditTime: 2021-09-04 17:19:46
@@ -36,9 +36,9 @@ const CarList = (props:any) => {
     // 获取列表
     const getCarList = async () => {
         setSpinFlag(true);
-        const orderPCB: any = await ajaxCarList({status: 1});  //未审核的PCB订单
-        const orderStencil: any = await ajaxCarListForStencil({status: 1});   //未审核的钢网订单
-        const orderAssembly: any = await ajaxCarListForAssembly({status: 1}); //未审核的贴片订单
+        const orderPCB: any = await ajaxCarList({status: 1});
+        const orderStencil: any = await ajaxCarListForStencil({status: 1});
+        const orderAssembly: any = await ajaxCarListForAssembly({status: 1});
         const total = orderPCB.total + orderStencil.total + orderAssembly.total;
         const data = orderPCB.data.concat(orderStencil.data).concat(orderAssembly.data);
         setListData(data);
@@ -50,9 +50,11 @@ const CarList = (props:any) => {
     useEffect(() => {
         if (listData.length > 0) {
             let t = listData.reduce((pre: number, cur: orders) => {
-                const {subtotal, totalStencilFee} = cur;
+                const {subtotal, totalStencilFee, totalAssemblyFee} = cur;
                 if (subtotal) {
                     pre += subtotal;
+                } else if (totalAssemblyFee) {
+                    pre += totalAssemblyFee;
                 } else {
                     pre += totalStencilFee;
                 }
@@ -113,43 +115,47 @@ const CarList = (props:any) => {
 
     return (
         <div className="car-list">
-            <Spin indicator={antIcon} spinning={spinFlag}>
-                {
-                    listData.map((item: orders, index) => (
-                        <div className="car-li" key={`card-${index}`}>
-                            <div className="img-div">
-                                <img src={require('../images/FR42greenwhite.png')} alt='shopping cart' />
-                            </div>
-                            <div className="options">
-                                <span className="name">{item.gerberName}</span>
-                                <div className="lift-num">
-                                    <span className="num">{item.boardType ? item.quantityPcs : item.quantity} <span style={{fontSize: '12px'}}>PCS</span></span>
+            <div className="list-container">
+                <Spin indicator={antIcon} spinning={spinFlag}>
+                    {
+                        listData.map((item: orders, index) => (
+                            <div className="car-li" key={`card-${index}`}>
+                                <div className="img-div">
+                                    <img src={require('../images/FR42greenwhite.png')} alt='shopping cart' />
                                 </div>
-                                <strong>${item.boardType ? item.subtotal : item.totalStencilFee}</strong>
+                                <div className="options">
+                                    <span className="name">{item.gerberName}</span>
+                                    <div className="lift-num">
+                                        <span className="num">{item.boardType ? item.quantityPcs : item.quantity} <span style={{fontSize: '12px'}}>PCS</span></span>
+                                    </div>
+                                    <strong>${item.boardType ? item.subtotal : (item.totalStencilFee || item.totalAssemblyFee)}</strong>
+                                </div>
+                                <img
+                                    src={require("../images/close_circle.png")}
+                                    alt="close"
+                                    className="close"
+                                    onClick={() => {handlerDel(item.id, index)}}
+                                />
                             </div>
-                            <img
-                                src={require("../images/close_circle.png")}
-                                alt="close"
-                                className="close"
-                                onClick={() => {handlerDel(item.id, index)}}
-                            />
-                        </div>
-                    ))
-                }
-            </Spin>
-            <div className="car-total">
-                <span>Estimated Cose</span>
-                <strong>${total}</strong>
+                        ))
+                    }
+                </Spin>
             </div>
-            <div className="car-btns">
-                <Link to="/order-process">
-                    <button>
-                        Checkout
-                    </button>
-                </Link>
-                {/* <span>
+            <div className="c-t">
+                <div className="car-total">
+                    <span>Estimated Cose</span>
+                    <strong>${total}</strong>
+                </div>
+                <div className="car-btns">
+                    <Link to="/order-process">
+                        <button>
+                            Checkout
+                        </button>
+                    </Link>
+                    {/* <span>
                     <Link to="/order-process">Go to cart</Link>
                 </span> */}
+                </div>
             </div>
         </div>
     )

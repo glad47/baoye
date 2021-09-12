@@ -3,7 +3,13 @@ import '../../../styles/process-three-transport.css'
 import {Input, Space, Spin, Checkbox} from "antd";
 import { LoadingOutlined } from '@ant-design/icons';
 import CarTable from "../ProcessOneForCar/CarTable";
-import {orderOptions, orderSummaryFun, useAppState} from "../../../state";
+import {
+    orderOptions,
+    orderSummaryFun,
+    reduxCheckCourierAccount,
+    reduxSetDeliveryAddr,
+    useAppState
+} from "../../../state";
 import {
     DescribeCouriers,
     fetchShipingCost,
@@ -48,15 +54,10 @@ const ProcessThreeTransport = () => {
     const [courierAt, setCourierAt] = useState();
     const [inputSpin, setInputSpin] = useState(false);
     const [addrData, setAddrData] = useState<any>();
-    const [orderInst, setOrderInstr] = useState<any>('Leave a remark if you have any request');
-
-    const handleTextarea = (e: any) => {
-        e.persist()
-        dispatch(orderOptions({remark: e.target.value}));
-    }
 
     const handlerRadio = (index: any) => {
         if (currentRadio === index) {
+            dispatch(reduxCheckCourierAccount(false));
             // // 运费恢复
             const def = _.cloneDeep(tableData);
             const {total} = beforeTableData[index];
@@ -67,6 +68,7 @@ const ProcessThreeTransport = () => {
             setShipmentTerms('DDU');
             setCurrentRadio(null);
         } else {
+            dispatch(reduxCheckCourierAccount(true));
             setShipmentTerms('EXW');
             setCurrentRadio(index);
             // 运费清零
@@ -95,9 +97,11 @@ const ProcessThreeTransport = () => {
         const dtd = {
             ...addrData
         };
+        console.log('dtd==========>', dtd)
         dtd.courierAccount = courierAccount;
         setAddrData(dtd);
         modifyDeliveryAddress(dtd).then(res => {
+            dispatch(reduxSetDeliveryAddr({deliveryAddr: dtd}));
             console.log('addr account is update!')
         })
     }
@@ -210,10 +214,15 @@ const ProcessThreeTransport = () => {
                         <Spin spinning={inputSpin} indicator={antIcon}>
                             {
                                 !inputSpin &&
-                                <Input
-                                    defaultValue={courierAt}
-                                    onChange={inputChange}
-                                    className="checkRadio-input"/>
+                                <>
+                                    <Input
+                                        defaultValue={courierAt}
+                                        onChange={inputChange}
+                                        className="checkRadio-input"/>
+                                    {
+                                        !addrData.courierAccount && <div style={{color: 'red', paddingTop: '10px'}}>Please enter your account</div>
+                                    }
+                                </>
                             }
                         </Spin>
                         : ''
@@ -248,7 +257,7 @@ const ProcessThreeTransport = () => {
             key: '',
             width: 164,
             dataIndex: 'total',
-            render: (record: any, txt: string | undefined) => (<strong>{txt || txt === 0 ? `$${txt}` : 'Not currently supported'}</strong>)
+            render: (record: any, txt: any) => (<strong>{txt || txt == 0 ? `$${txt}` : 'Not currently supported'}</strong>)
         }
     ];
 
@@ -286,12 +295,6 @@ const ProcessThreeTransport = () => {
                         Please refer to the destination country's customs regulations for details.
                     </span>
                 </Space>
-            </div>
-            <div className="order-instr">
-                <span>Order instructions</span>
-                <div>
-                    <textarea placeholder={orderInst} onKeyUp={e => handleTextarea(e)}/>
-                </div>
             </div>
         </div>
     )

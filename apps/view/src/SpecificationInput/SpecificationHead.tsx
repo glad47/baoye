@@ -1,7 +1,7 @@
 /*
  * @Descripttion: PCB报价面板控制
  * @version: 1.0
- * @Author: 
+ * @Author:
  * @Date: 2021-07-17 11:10:06
  * @LastEditors: ho huang
  * @LastEditTime: 2021-09-04 18:27:27
@@ -29,10 +29,10 @@ const {Title} = Typography;
 const titleStyle = {}
 const SpecificationHead: React.FC<SpecificationHeadProps> = (props) =>{
     const { dispatch,fieldMode } = useAppState();
-    // let left_img=fieldMode=='standard' ?require(('../images/left_moon.png')) : require('../images/right_moon.png')
-    // let right_img=fieldMode=='standard' ?require(('../images/right_moon.png')) : require('../images/left_moon.png')
-    // let is_rote=fieldMode=='standard' ? 'left_moon' :'left_rote_moon'
-    // let right_rote=fieldMode=='standard' ? 'moon' :'right_rote_moon'
+    let left_img=fieldMode=='standard' ?require(('../images/left_moon.png')) : require('../images/right_moon.png')
+    let right_img=fieldMode=='standard' ?require(('../images/right_moon.png')) : require('../images/left_moon.png')
+    let is_rote=fieldMode=='standard' ? 'left_moon' :'left_rote_moon'
+    let right_rote=fieldMode=='standard' ? 'moon' :'right_rote_moon'
     return (
         <Row>
             <Space direction="horizontal" size="large">

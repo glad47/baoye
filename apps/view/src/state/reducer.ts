@@ -3,7 +3,13 @@ import {INITIAL_STATE} from './context'
 import {Action, State} from './types'
 import PcbSizeForm from '../SpecificationInput/PcbSizeForm'
 import { INITIAL_STANDARD } from '../SpecificationInput/PcbSpecification'
-import {FLAG_QUOTE_PARAMS, ORDER_SUMMARY_STATUS, SAVE_FILE_FORMDATA} from "./actions";
+import {
+  Flag_ISCHECKCOURIERACCOUNT,
+  FLAG_QUOTE_PARAMS,
+  ORDER_SUMMARY_STATUS,
+  SAVE_FILE_FORMDATA,
+  SET_DELIVERYADDR
+} from "./actions";
 /** Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。Reducer 是一个函数，它接受 Action 和当前 State 作为参数，返回一个新的 State。 */
 export default function reducer(state: State, action: Action): State {
   switch (action.type) {
@@ -392,6 +398,18 @@ export default function reducer(state: State, action: Action): State {
       return {
         ...state,
         addQuoteStatus: action.payload
+      }
+    }
+    case actionTypes.Flag_ISCHECKCOURIERACCOUNT: {
+      return {
+        ...state,
+        isCheckCourierAccount: action.payload
+      }
+    }
+    case actionTypes.SET_DELIVERYADDR: {
+      return {
+        ...state,
+        orderOptionsItem: {...state.orderOptionsItem, ...action.payload}
       }
     }
   }

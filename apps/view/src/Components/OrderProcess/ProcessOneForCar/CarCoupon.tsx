@@ -74,6 +74,7 @@ const CarCoupon:React.FC<any> = props => {
     const menu = (
         <div className="coupon-box">
             {
+                couponList.length > 0 ?
                 couponList.map((item, inx) => (
                     <div className="coupon-item" key={`coupon_item${inx}`} onClick={() => handleCouponChecked(item.id)}>
                         <div className="itm ck-bx">
@@ -87,7 +88,7 @@ const CarCoupon:React.FC<any> = props => {
                             <span className="time">${moment(item.startTime).format('l')}-${moment(item.endTime).format('l')}</span>
                         </div>
                     </div>
-                ))
+                )) : <div>No Coupons</div>
             }
             <div className="exchange-coupon">
                 <Search

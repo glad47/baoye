@@ -55,6 +55,7 @@ export type State = {
   orderOptionsItem: orderOptionsItem // 结算 左侧参数信息
   fileFormData: any // 上传gerber需要的formData文件信息
   addQuoteStatus: boolean // 上传gerber需要的formData文件信息
+  isCheckCourierAccount: boolean // 客户快递选择自己账户  用户判断是否填写账户能否进入下一步
 }
 
 /** Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。 */
@@ -125,3 +126,5 @@ export type Action =
   | {type: 'FLAG_QUOTE_PARAMS'; payload: any}
   | {type: 'SAVE_FILE_FORMDATA'; payload: any}
   | {type: 'CHANGE_ADDQUOTESTATUS'; payload: any}
+  | {type: 'Flag_ISCHECKCOURIERACCOUNT'; payload: any}
+  | {type: 'SET_DELIVERYADDR'; payload: any}

@@ -4003,6 +4003,11 @@ body {
     text-align: center;
 }
 
+.car-drawer-box .lef-li .car-list {
+    position: absolute;
+    height: 100%;
+}
+
 .car-drawer-box .lef-li .ant-spin-spinning {
     margin-top: 20px;
 }
@@ -4039,6 +4044,15 @@ body {
 .car-list .car-li{
     width: 100%;
     position: relative;
+}
+
+.car-list .list-container {
+    height: 78%;
+    overflow-y: scroll;
+}
+
+.car-list .list-container::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
 }
 
 .car-list .car-li img.close {
@@ -4317,4 +4331,38 @@ body {
 
 .ant-notification {
     z-index: 999999;
+}
+
+.shopping-car-list .order-instr {
+    background: #fff;
+    margin-top: 16px;
+    padding: 16px;
+    font-weight: 600;
+}
+
+.shopping-car-list .order-instr span {
+    font-family: Arial;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 20px;
+}
+.shopping-car-list .order-instr div {
+    margin-top: 10px;
+    font-family: Arial;
+    font-size: 14px;
+    color: #666666;
+    letter-spacing: 0;
+    padding: 10px 10px;
+    height: 80px;
+    background: #F8FBFF;
+    border-radius: 4px;
+}
+
+.shopping-car-list .order-instr textarea {
+    background: #f8fbff;
+    height: 80px;
+    border: none;
+    width: 100%;
+    outline:none
 }

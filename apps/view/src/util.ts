@@ -128,7 +128,8 @@ export function ArrayDiff(arr1: any, arr2: any, key: any) {
 export function Fields_Stencil_PCB(array: any) {
   const _Match: any = {
     quantity: 'quantityPcs',
-    totalStencilFee: 'subtotal'
+    totalStencilFee: 'subtotal',
+    totalAssemblyFee: 'subtotal'
   }
   const res = array.reduce((pre: any, cur: any, index: number) => {
     Object.keys(cur).forEach((item: any) => {
@@ -142,6 +143,32 @@ export function Fields_Stencil_PCB(array: any) {
     pre.push(cur);
     return pre;
   }, []);
-  console.log('res===>', res)
   return res;
+}
+
+export const MetaTips = {
+  timer: null,
+  step: 0,
+  show(title: any) {
+    timer = setTimeout(function () {
+      MetaTips.show(title);
+      MetaTips.step ++;
+      if (MetaTips.step === 3) {MetaTips.step = 1};
+      if (MetaTips.step === 1) {document.title = title};
+      if (MetaTips.step === 2) {document.title = "(1) New Messages!"};
+    }, 520)
+  },
+  clear(title: any) {
+    // @ts-ignore
+    clearTimeout(timer);
+    document.title = 'Buy PCB Online | PCB Online Quote | PCB Assembly Order - PCBONLINE'
+  }
+}
+
+/**
+ * 是否登录
+ * @constructor
+ */
+export function IsLogin() {
+  return Boolean(sessionStorage.getItem("userAllInfo"));
 }

@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useImperativeHandle} from 'react';
-import { Row, Col, Form, Input, Select, Tooltip } from 'antd';
+import {Row, Col, Form, Input, Select, Tooltip, message} from 'antd';
 import { Store } from 'antd/lib/form/interface';
 import ObserverSize from './ObserverSize';
 import {useAppState, changeSizeField, reduxSetFlagQuoteParams} from '../state';
@@ -66,6 +66,10 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                 // message.info('Please fill full parameters(Sizt and Quantity)');
             }
         } else {
+            // if (!singleSize) {
+            //     message.error('please check singleSize!')
+            //     return false;
+            // }
             if (Object.values(v)[1] && Object.values(v)[2] && Object.values(v)[3]) {
             } else if (!Object.values(v)[3]) {
                 handleFormSubmitTips1();
@@ -79,7 +83,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
 
     const handleFormSubmitTips1 = () => {
         const formData = form.getFieldsValue();
-        const {quantity} = formData;
+        const {quantity, singleSize} = formData;
         if (quantity === '' || quantity === null) {
             setTipShow(!quantity)
             clearTimeout(timer1);

@@ -21,19 +21,29 @@ interface ints {
 
 
 const CarOrderSummary:React.FC<ints> = (props) => {
-    const { dispatch, orderSummaryStatus, orderOptionsItem } = useAppState();
+    const { dispatch, orderSummaryStatus, orderOptionsItem, isCheckCourierAccount } = useAppState();
     const { orderSummary } = useAppState();
     const [flag, setFlag] = useState<boolean>(false);  //订单勾选
 
 
+    /**
+     * 判断客户选择自己的账号有没有输入账号
+     */
+    const flagCourier = () => {
+        const {deliveryAddr} = orderOptionsItem;
+        return !(isCheckCourierAccount && !deliveryAddr.courierAccount);
+    }
+
     useEffect(() => {
         let {process} = orderSummaryStatus;  
         process = Number(process);
+        console.log('flagCourier()', flagCourier())
         if (process === 1 && FlagProcess.CheckItems(orderOptionsItem)) {
             setFlag(true)
         } else if (process === 2 && orderOptionsItem.deliveryAddr) {
             setFlag(true);
-        } else if (process === 3 && orderOptionsItem.expressInfo.name) {
+        } else if (process === 3 && orderOptionsItem.expressInfo.name && flagCourier()) {
+            console.log('isCheckCourierAccount===>', orderOptionsItem.deliveryAddr.courierAccount)
             setFlag(true);
         } else if (process === 4) { // 选择支付方式 并且支付方式为先审核
             setFlag(true);
@@ -71,7 +81,7 @@ const CarOrderSummary:React.FC<ints> = (props) => {
                 <div className="cost-det">
                     <div>
                         <span>Subtotal（{orderOptionsItem.ordersItem.length} Items）</span>
-                        <span>${orderSummary.total}</span>
+                        <span>${orderSummary.total.toFixed(2)}</span>
                     </div>
                     <div>
                         <span>Freight Charges</span>
@@ -80,6 +90,7 @@ const CarOrderSummary:React.FC<ints> = (props) => {
                 </div>
                 {
                     orderSummaryStatus.process > 3 &&
+                        // orderOptionsItem.payWays === 1 &&
                         <>
                             <div className="cost-det">
                                 <div>

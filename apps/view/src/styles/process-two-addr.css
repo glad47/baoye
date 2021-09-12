@@ -113,6 +113,22 @@
     margin: 8px 19px;
 }
 
+.bill-ul-box ul li.li-addr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bill-ul-box ul li.li-addr .addr span {
+    overflow-wrap: anywhere;
+}
+.bill-ul-box ul li.li-addr .addr {
+    width: 50%;
+    font-size: 12px;
+    color: #8b8b8b;
+    text-align: right;
+}
+
 .bill-ul-box ul li {
     font-family: Arial;
     width: 100%;

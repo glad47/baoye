@@ -46,7 +46,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
     const [alrIndex, setAlrIndex] = useState<any>([]); // 已经checkout过的流程，避免用户直接跳过某个流程
     const summaryRef = useRef(null); 
     let msgInterval: NodeJS.Timeout;
-    const handlerCheckCollapse = (val: number) => {
+    const handlerCheckCollapse = (val: string | string[]) => {
         if (alrIndex.indexOf(Number(val)) > -1) { // 不能跳过没有选过的流程
             dispatch(setOrderSummaryStatus({ process: val }));
             // console.log('process', val)
@@ -78,15 +78,23 @@ const PcbOrderProcess:React.FC = (props:any) => {
     /**发送通知审核信息*/
     const handleAudit = () => {
         const {ordersItem} = orderOptionsItem;
-        let productNos = ordersItem.reduce((pre: any, cur) => {
+        const productNos: any = [];
+        const orderDetailsList = ordersItem.reduce((pre: any, cur) => {
             const {record}: any = cur;
-            pre.push(record.productNo);
+            const {totalStencilFee, totalAssemblyFee, id, productNo} = record;
+            productNos.push(productNo);
+            pre.push({
+                id,
+                productNo,
+                type: totalStencilFee ? 2 : (totalAssemblyFee ? 3 : 1),
+                remark: orderOptionsItem.remark
+            });
             return pre;
-        }, [])
-        productNos = productNos.join(',')
-        const fromData = new FormData();
-        fromData.append("productNos", productNos);
-        SendAuditMsg(fromData).then((res: any) => {
+        }, []);
+        const params = {
+            orderDetailsList
+        }
+        SendAuditMsg(params).then((res: any) => {
             if (res) {
                 setPaySuccess(true);
             }
@@ -148,7 +156,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
         <PcbLayout>
             <div className="pcb-order-process">
                 <div className="order-types" id="shit">
-                    <strong>&nbsp;</strong>
+                    {/*<strong>&nbsp;</strong>*/}
                     <Collapse accordion className="order-collapse" activeKey={orderSummaryStatus.process} onChange={handlerCheckCollapse}>
 
                         <Panel header="My Shopping Cart" key="1" extra={processExtra[1]}>
@@ -176,7 +184,7 @@ const PcbOrderProcess:React.FC = (props:any) => {
                     }
                 </div>
                 <div className="order-detail">
-                    <strong>&nbsp;</strong>
+                    {/*<strong>&nbsp;</strong>*/}
                     <CarOrderSummary
                         cRef={summaryRef}
                         handleAudit={handleAudit}

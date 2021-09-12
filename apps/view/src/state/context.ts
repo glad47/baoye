@@ -20,7 +20,7 @@ export const INITIAL_STATE: State = {
   pcbSpecialField: INITIAL_SPECIAL,
   pcbStandardField: INITIAL_STANDARD,
   fieldMode: 'standard',
-  pcbSizeField: {boardType:'Single',panelSize: {sizeX:null,sizeY:null},quantity:null,singleSize:{sizeX:null,sizeY:null}},
+  pcbSizeField: {boardType:'Single',panelSize: {sizeX:null,sizeY:null},quantity:10,singleSize:{sizeX:null,sizeY:null}},
   subtotal: {boardFee:0,engineeringFee:0,testFee:0,totalWeight:0,urgentFee:0,shippingFee:0,stencilFee:0,buildTime:null,assemblyFee:0},
   buildTimeItmes: [{id: 1,dayNumber:"3 day",price:0},{id: 2,dayNumber:"48 hours",price:22},{id: 3,dayNumber:"24 hours",price:38},],
   stencilField: INITIAL_STENCIL,
@@ -41,6 +41,7 @@ export const INITIAL_STATE: State = {
   orderSummaryStatus: {process: 1, description: ''}, //订单支付状态
   orderOptionsItem: {deliveryAddr: null, expressInfo: {id: null, name: null}, payWays: 1, ordersItem: [],remark:null},
   fileFormData: null,
+  isCheckCourierAccount: false
 }
 
 // const INITIAL_STANDARD = {

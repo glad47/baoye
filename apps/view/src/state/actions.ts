@@ -66,6 +66,8 @@ export const SET_USER = 'SET_USER';
 export const FLAG_QUOTE_PARAMS = 'FLAG_QUOTE_PARAMS';
 export const SAVE_FILE_FORMDATA = 'SAVE_FILE_FORMDATA';
 export const CHANGE_ADDQUOTESTATUS = 'CHANGE_ADDQUOTESTATUS';
+export const Flag_ISCHECKCOURIERACCOUNT = 'Flag_ISCHECKCOURIERACCOUNT';
+export const SET_DELIVERYADDR = 'SET_DELIVERYADDR';
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -361,5 +363,15 @@ export const reduxSetFlagQuoteParams = (field:any): Action => ({
 
 export const reduxChangeAddQuoteStatus = (field: any): Action => ({
   type: CHANGE_ADDQUOTESTATUS,
+  payload: field
+})
+
+export const reduxCheckCourierAccount = (field: boolean): Action => ({
+  type: Flag_ISCHECKCOURIERACCOUNT,
+  payload: field
+})
+
+export const reduxSetDeliveryAddr = (field: any): Action => ({
+  type: SET_DELIVERYADDR,
   payload: field
 })

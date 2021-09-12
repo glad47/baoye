@@ -5,5 +5,6 @@ export type orders = {
     boardType: any,
     quantity: any,
     totalStencilFee: any,
+    totalAssemblyFee: any,
     subtotal: number
 }

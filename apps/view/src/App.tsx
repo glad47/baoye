@@ -1,12 +1,12 @@
+// root component
 /*
  * @Descripttion: 程序入口
  * @version: 1.0
- * @Author: 
+ * @Author:
  * @Date: 2021-08-18 22:06:41
  * @LastEditors: ho huang
  * @LastEditTime: 2021-09-04 16:04:25
  */
-// root component
 import React, {useEffect, useRef, useState} from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -22,7 +22,7 @@ import {
 import { Main } from './ui'
 import { Layout, message } from 'antd'
 import PcbSizeForm from './SpecificationInput/PcbSizeForm'
-import BuildTimeForm from './SpecificationInput/BuildTimeForm'  //V3版本取消交期拼图，手机端还需要使用
+import BuildTimeForm from './SpecificationInput/BuildTimeForm'
 import CastCalculation from './SpecificationInput/CostCalculation'
 import ShoppingCast from './SpecificationInput/ShoppingCast'
 import ShoppingTotal from './SpecificationInput/ShoppingTotal'
@@ -132,10 +132,10 @@ function App(): JSX.Element {
             dispatch(addQuote());
             if (link) { location.href = '/audit'; }
         } else if (quoteMode === 2) {
-            if (fileUploadPtah === null) {
-                message.error('Please upload the gerber file ！！');
-                return;
-            }
+            // if (fileUploadPtah === null) {
+            //     message.error('Please upload the gerber file ！！');
+            //     return;
+            // }
             if (subtotal.assemblyFee === 0) {
                 message.error('Please fill data !!');
                 return;

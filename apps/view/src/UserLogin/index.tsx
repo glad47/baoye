@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { Form, Input, Button, Checkbox,message } from 'antd'
 import { CloseOutlined } from '@ant-design/icons'
 import Recaptcha from 'react-recaptcha'
-import {DescribeCarCount, sysUrl} from '../SpecificationInput/AjaxService'
+import {sysUrl} from '../SpecificationInput/AjaxService'
 import axios from 'axios'
 import Cookies from 'js-cookie';
 import PrivacyPolicy from "../PrivacyPolicy"
 import {reduxUser, useAppState} from "../state";
+import emitter from "../eventBus";
 
 function UserLogin(props: any) {
     const { dispatch } = useAppState();
@@ -52,6 +53,8 @@ function UserLogin(props: any) {
                         sessionStorage.setItem('userAllInfo',JSON.stringify(result))
                         props.closeThisBox(false)
                         props.isLoginReady(true)
+                        // 订阅系统信息
+                        emitter.emit('Emi_IntervalGetMes');
                         message.info('Login successful',6)
                     }else{
                         message.error('Something error')

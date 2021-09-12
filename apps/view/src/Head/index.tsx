@@ -17,8 +17,11 @@ import {
     ajaxCarListForStencil,
     DescribeCurrUserMsg
 } from "../SpecificationInput/AjaxService";
-import {getKeysNumForArr} from "../util";
+import {getKeysNumForArr, IsLogin, MetaTips} from "../util";
 import * as Cookies from "js-cookie";
+import emitter from "../eventBus";
+
+let times: NodeJS.Timeout;
 
 const Head:React.FC = (props: any) => {
     const { dispatch, user } = useAppState();
@@ -34,25 +37,35 @@ const Head:React.FC = (props: any) => {
         if (pathname === '/') {
             setTipsShow(true);
         }
-        // 定时获取系统信息
-        const times = setInterval(() => {
-            console.log('11')
-            getMes();
-        }, 5000);
+        emitter.addListener('Emi_IntervalGetMes', () => {
+            Emi_IntervalGetMes();
+        })
+        Emi_IntervalGetMes();
         return () => {
             clearInterval(times)
         }
     }, []);
 
+    // 定时获取系统信息
+    const Emi_IntervalGetMes = () => {
+        if (IsLogin()) {
+            times = setInterval(() => {
+                getMes();
+            }, 5000);
+        }
+    }
+
     // 获取系统消息
     const getMes = () => {
         DescribeCurrUserMsg().then((res: any) => {
+            MetaTips.show(document.title);
             if (res && res.length > 0) {
                 const unreadNum = getKeysNumForArr(res, 'isread', 0);
                 const unread = res.find((item: any) => item.isread === 0);
                 // 提醒过的信息不提醒了
                 const flag = Cookies.get("sysMes");
                 if (unread && !flag) {
+                    MetaTips.show(document.title);
                     const {id, sendUser, content} = unread;
                     notification.open({
                         message: sendUser,
@@ -62,6 +75,11 @@ const Head:React.FC = (props: any) => {
                         },
                     });
                     Cookies.set("sysMes", id);
+                } else {
+                    setTimeout(() => {
+                        // @ts-ignore
+                        MetaTips.clear();
+                    }, 3000)
                 }
                 dispatch(reduxUser({message: {unread: unreadNum}}));
             }
