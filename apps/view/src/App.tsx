@@ -41,6 +41,7 @@ import PcbBuildFee from "./SpecificationInput/PcbBuildFee";
 import GerberProgress from "./SpecificationInput/GerberProgress";
 import {ajaxFileUpload} from "./SpecificationInput/AjaxService";
 import YouTubeVideo from "./Components/Youtube/YouTubeVideo";
+import FormTips from "./Components/FormTips/FormTips";
 
 function App(): JSX.Element {
     const { dispatch
@@ -346,7 +347,10 @@ function App(): JSX.Element {
                                 {/*}*/}
                                 <GerberUpload progressCallBack={progressCallBack} cRef={gerberUploadRef} loginName={loginName} setLoginMessage={setLoginMessage}/>
                                 <GerberProgress cRef={gerberGerberProgress} aginUpload={aginUpload}/>
-                                {quoteMode === 0 ? <PcbSizeForm cRef={pcbSizeFormRef}/> : ''}
+                                <div className="quantity-con">
+                                    <FormTips tip={'666'}/>
+                                    {quoteMode === 0 ? <PcbSizeForm cRef={pcbSizeFormRef}/> : ''}
+                                </div>
                                 {/*{!isBackToUpload*/}
                                 {/*    ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>*/}
                                 {/*        <p className='title_success_top'>Your files have been successfully uploaded.</p>*/}

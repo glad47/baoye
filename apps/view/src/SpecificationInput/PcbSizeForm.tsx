@@ -1,8 +1,9 @@
 import React, {useState, useEffect, useImperativeHandle} from 'react';
-import {Row, Col, Form, Input, Select, Tooltip, message} from 'antd';
+import {Row, Col, Form, Input, Select, Tooltip, message, Button} from 'antd';
 import { Store } from 'antd/lib/form/interface';
 import ObserverSize from './ObserverSize';
 import {useAppState, changeSizeField, reduxSetFlagQuoteParams} from '../state';
+import emitter from "../eventBus";
 
 interface PcbSizeFormProps {
     isMobileSize?: boolean
@@ -26,9 +27,9 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
     const [form] = Form.useForm();
     const [singleMode, setSingleMode] = useState(true);
     const { dispatch, pcbSizeField } = useAppState();
-    const [tipShow, setTipShow] = useState(false);
     const [tipShowPanel, setTipShowPanel] = useState(false);
-    let timer1: any, timer2: any;
+    // 表单key值，必要时刷新避免表单无法重新渲染
+    const [formKey, setFormKey] = useState<number>(0);
 
     const onValuesChange = (v: Store) => {
         // console.log(Object.values(v)[0])
@@ -51,25 +52,27 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
         // })
         // onFinish(form.getFieldsValue())
         setTipShowPanel(false);
-        setTipShow(false)
-        const vs = form.getFieldsValue();
         onFinish(form.getFieldsValue());
     }
 
     const onFinish = (v: Store) => {
         dispatch(reduxSetFlagQuoteParams(true));
+        const {singleSize, panelSize, boardType} = v;
         if (Object.values(v)[0] === 'Single') {
+            if (!singleSize.sizeX || !singleSize.sizeY) {
+                emitter.emit('Emi_HandleMyTips', {tip: 'Please check singleSize!', time: 2000});
+                return false;
+            }
             if (Object.values(v)[2] && Object.values(v)[3]) {
                 dispatch(changeSizeField(v));
             } else {
                 handleFormSubmitTips1();
-                // message.info('Please fill full parameters(Sizt and Quantity)');
             }
         } else {
-            // if (!singleSize) {
-            //     message.error('please check singleSize!')
-            //     return false;
-            // }
+            if (!panelSize.sizeX || !panelSize.sizeY) {
+                emitter.emit('Emi_HandleMyTips', {tip: 'Please check panelSize!', time: 2000});
+                return false;
+            }
             if (Object.values(v)[1] && Object.values(v)[2] && Object.values(v)[3]) {
             } else if (!Object.values(v)[3]) {
                 handleFormSubmitTips1();
@@ -85,22 +88,14 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
         const formData = form.getFieldsValue();
         const {quantity, singleSize} = formData;
         if (quantity === '' || quantity === null) {
-            setTipShow(!quantity)
-            clearTimeout(timer1);
-            timer1 = setTimeout(() => {
-                setTipShow(!quantity)
-            }, 5*1000)
+            emitter.emit('Emi_HandleMyTips', {tip: 'Please pay attention to enter the board quantity', time: 2000});
             return false;
         }
         return quantity;
     }
 
     const handleFormSubmitTips2 = () => {
-        setTipShowPanel(!tipShowPanel);
-        clearTimeout(timer2);
-        timer2 = setTimeout(() => {
-            setTipShowPanel(false)
-        }, 3*1000);
+        emitter.emit('Emi_HandleMyTips', {tip: 'Please enter the panel details', time: 2000});
     }
 
     useImperativeHandle(props.cRef, () => ({
@@ -113,13 +108,29 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
         }
     }));
 
+    /**
+     * 清除表单
+     */
+    const clearForm = () => {
+        setFormKey(formKey+1)
+        setTimeout(() => {
+            form.resetFields();
+        }, 500)
+    }
+
     useEffect(() => {
         // form.validateFields(['panelSize'])
         form.setFieldsValue({ ...pcbSizeField });
     }, [pcbSizeField])
 
+    useEffect(() => {
+        emitter.addListener('Emi_ClearPcbSizeForm', () => {
+            clearForm()
+        })
+    }, [])
+
     return (
-        !props.isMobileSize ? <Form form={form} initialValues={pcbSizeField} onValuesChange={onValuesChange} onFinish={onFinish}>
+        !props.isMobileSize ? <Form form={form} initialValues={pcbSizeField} onValuesChange={onValuesChange} onFinish={onFinish} key={formKey}>
             <Row>
                 <Col span={12}  className={`item-panel`} id="panelArray">
                     <Form.Item label="Dimension" name="boardType">
@@ -134,9 +145,6 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                     <Form.Item label="Panel Array" name="panelSize" className={`item-quantity`} style={{display: singleMode ? 'none': ''}}>
                         <ObserverSize isDisabled={singleMode} />
                     </Form.Item>
-                    <Tooltip visible={tipShowPanel} placement="top" getPopupContainer={() => document.getElementById("panelArray")} title="Please enter the panel details">
-                        <span className="tips">&nbsp;</span>
-                    </Tooltip>
                 </Col>
                 <Col span={12}  className={`item-quantity`} id="qtyTipsID">
                     <Form.Item label="Size" name="singleSize">
@@ -145,11 +153,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                     <Form.Item label="Quantity" name="quantity">
                         <Input placeholder='Enter the Qty' className='enter_quantity color-yel' suffix={singleMode ? 'PCS' : 'PANEL'} autoComplete='off' />
                     </Form.Item>
-                    <Tooltip visible={tipShow} getPopupContainer={() => document.getElementById("qtyTipsID")}  placement="topLeft" title="Please pay attention to enter the board quantity">
-                        <img onMouseEnter={() => setTipShow(true)}
-                             onMouseLeave={() => setTipShow(false)}
-                             src={require('../images/quate_icon1.png')} alt="" className="flag"/>
-                    </Tooltip>
+                    <img src={require('../images/quate_icon1.png')} alt="" className="flag"/>
                 </Col>
                 {
                     !singleMode &&

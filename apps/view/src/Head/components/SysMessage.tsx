@@ -44,7 +44,7 @@ export default () => {
     }
 
     const handleDire = () => {
-        history.push('/order');
+        window.location.href = 'https://sys.pcbonline.com/payment';
     }
 
     const handleDeleteMes = (index: number) => {

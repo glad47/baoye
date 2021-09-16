@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {changeCarDrawer, useAppState} from "../state";
+import {changeCarDrawer, resetState, useAppState} from "../state";
 import CarDrawer from "./CarDrawer";
 import PcbBuildFeeDetail from "./PcbBuildFeeDetail";
 import { useHistory } from "react-router-dom";
+import emitter from "../eventBus";
 
 const PcbBuildFee: React.FC<any> = (props) => {
     const { setIsLogin, handleAddQuote } = props;
@@ -15,12 +16,27 @@ const PcbBuildFee: React.FC<any> = (props) => {
         return flg;
     }
 
+    /**
+     * 清除页面所有数据以及表单、文件类
+     */
+    const handleClear = () => {
+        console.log('清除表单数据！！！')
+        // 删除页面文件
+        emitter.emit('Emi_HandleCloseFile');
+        // 清除PcbSizeForm表单
+        emitter.emit('Emi_ClearPcbSizeForm');
+        dispatch(resetState());
+    }
+
     useEffect(() => {
         if (addQuoteStatus) {
             if (oprType === 0) {
+                handleClear();
                 dispatch(changeCarDrawer(true));
+                // 清除页面所有数据以及表单、文件类
                 // 定时关闭
                 setTimeout(() => {
+                    dispatch(resetState()); // 清除state
                     dispatch(changeCarDrawer(false));
                 }, 6000);
             } else { // 购买 直接跳转到订单页

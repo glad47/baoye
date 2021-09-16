@@ -77,7 +77,6 @@ const Head:React.FC = (props: any) => {
                     Cookies.set("sysMes", id);
                 } else {
                     setTimeout(() => {
-                        // @ts-ignore
                         MetaTips.clear();
                     }, 3000)
                 }

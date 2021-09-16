@@ -16,6 +16,7 @@ import { SelectValue } from 'antd/lib/select'
 
 
 
+export const RESET_STORE = 'RESET_STORE'
 export const FETCH_APP_PREFERENCES = 'FETCH_APP_PREFERENCES'
 export const UPDATE_APP_PREFERENCES = 'UPDATE_APP_PREFERENCES'
 export const APP_PREFERENCES = 'APP_PREFERENCES'
@@ -374,4 +375,8 @@ export const reduxCheckCourierAccount = (field: boolean): Action => ({
 export const reduxSetDeliveryAddr = (field: any): Action => ({
   type: SET_DELIVERYADDR,
   payload: field
+})
+
+export const resetState = (): Action => ({
+  type: RESET_STORE
 })

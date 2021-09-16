@@ -72,6 +72,7 @@ export type Middleware = (store: Store) => (next: Dispatch) => Dispatch
 
 /** Action --State 的变化，会导致 View 的变化。但是，用户接触不到 State，只能接触到 View。所以，State 的变化必须是 View 导致的。Action 就是 View 发出的通知，表示 State 应该要发生变化了。Action 是一个对象。其中的type属性是必须的，表示 Action 的名称。*/
 export type Action =
+  | {type: 'RESET_STORE'}
   | {type: 'FETCH_APP_PREFERENCES'}
   | {type: 'UPDATE_APP_PREFERENCES'; payload: AppPreferences}
   | {type: 'APP_PREFERENCES'; payload: AppPreferences}

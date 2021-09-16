@@ -2,11 +2,16 @@ import * as actionTypes from './actions'
 import {INITIAL_STATE} from './context'
 import {Action, State} from './types'
 import PcbSizeForm from '../SpecificationInput/PcbSizeForm'
-import { INITIAL_STANDARD } from '../SpecificationInput/PcbSpecification'
+import {
+  INITIAL_ASSEMBLY,
+  INITIAL_SPECIAL,
+  INITIAL_STANDARD,
+  INITIAL_STENCIL
+} from '../SpecificationInput/PcbSpecification'
 import {
   Flag_ISCHECKCOURIERACCOUNT,
   FLAG_QUOTE_PARAMS,
-  ORDER_SUMMARY_STATUS,
+  ORDER_SUMMARY_STATUS, RESET_STORE,
   SAVE_FILE_FORMDATA,
   SET_DELIVERYADDR
 } from "./actions";
@@ -166,7 +171,11 @@ export default function reducer(state: State, action: Action): State {
     }
 
     case actionTypes.CHANGE_SIZE_FIELD: {
-      return {...state, pcbSizeField: action.payload}
+      // 传一个空对象，再次触发报价逻辑，避免污染对象，给个判断
+      if (JSON.stringify(action.payload) !== '{}') {
+        return {...state, pcbSizeField: action.payload}
+      }
+      return {...state}
     }
 
     case actionTypes.COUNT_SUBTOTAL: {
@@ -410,6 +419,47 @@ export default function reducer(state: State, action: Action): State {
       return {
         ...state,
         orderOptionsItem: {...state.orderOptionsItem, ...action.payload}
+      }
+    }
+    case actionTypes.RESET_STORE: {
+      return {
+        flagQuoteParams: false,
+        appPreferences: {},
+        board: null,
+        addQuoteStatus: false,
+        savedBoards: [],
+        mode: null,
+        loading: false,
+        updating: false,
+        downloading: false,
+        layerVisibility: {},
+        error: null,
+        quoteMode: 0,
+        pcbSpecialField: INITIAL_SPECIAL,
+        pcbStandardField: INITIAL_STANDARD,
+        fieldMode: 'standard',
+        pcbSizeField: {boardType:'Single',panelSize: {sizeX:null,sizeY:null},quantity:10,singleSize:{sizeX:null,sizeY:null}},
+        subtotal: {boardFee:0,engineeringFee:0,testFee:0,totalWeight:0,urgentFee:0,shippingFee:0,stencilFee:0,buildTime:null,assemblyFee:0},
+        buildTimeItmes: [{id: 1,dayNumber:"3 day",price:0},{id: 2,dayNumber:"48 hours",price:22},{id: 3,dayNumber:"24 hours",price:38},],
+        stencilField: INITIAL_STENCIL,
+        assemblyField: INITIAL_ASSEMBLY,
+        svg: null,
+        fileName: null,
+        fileUploadPtah: null,
+        singleCopper: null,
+        courier:null,
+        isShow:false,
+        isBackToUpload:true,
+        allKeys:{},
+        fillData:true,
+        user: {message: {unread: 0}, cartNum: 0},
+        carDrawerStatus:false,
+        uploadGerber: {progress: 0, status: 'init'},
+        orderSummary: {total: 0, freightCharges: 0, weight: 0, coupon: {id: -1, value: 0}, handlingCharge: 0},
+        orderSummaryStatus: {process: 1, description: ''}, //订单支付状态
+        orderOptionsItem: {deliveryAddr: null, expressInfo: {id: null, name: null}, payWays: 1, ordersItem: [],remark:null},
+        fileFormData: null,
+        isCheckCourierAccount: false
       }
     }
   }

@@ -1,0 +1,24 @@
+.my-tips-container {
+    position: absolute;
+    z-index: 9999;
+    top: -68px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    font-size: 14px;
+    line-height: 1.5715;
+}
+
+.my-tips-container .tips-inner {
+    margin: 0 auto;
+    max-width: 40%;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    min-width: 30px;
+    min-height: 32px;
+    padding: 6px 8px;
+    text-align: left;
+    text-decoration: none;
+    word-wrap: break-word;
+    border-radius: 2px;
+}

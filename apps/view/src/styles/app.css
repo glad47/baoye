@@ -375,6 +375,12 @@
 
 .pcb-min .ant-form {
     margin-top: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.quantity-con {
+    position: relative;
 }
 
 .pcb-min .ant-form .ant-form-item {
@@ -4365,4 +4371,12 @@ body {
     border: none;
     width: 100%;
     outline:none
+}
+
+/* quantity 拼版表单tips模块 */
+@import "form-tips.css";
+
+/*消息提醒 右侧弹窗*/
+.ant-notification.ant-notification-topRight {
+    right: 20px !important;
 }

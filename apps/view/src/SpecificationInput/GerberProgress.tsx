@@ -8,6 +8,7 @@
  */
 import React, {useEffect, useImperativeHandle, useState} from 'react';
 import {backToUpload, useAppState} from "../state";
+import emitter from "../eventBus";
 const checkIcon = require('../images/check-circle.png');
 const closeIcon = require('../images/close-circle.png');
 const errIcon = require('../images/quate_icon33.png');
@@ -28,6 +29,9 @@ export default (props: any) => {
         }
     }));
 
+    /**
+     * 删除当前上传文件，让页面恢复文件初始状态
+     */
     const handleCloseFile = () => {
         setProcess(0);
         if (aginUpload) {
@@ -35,6 +39,12 @@ export default (props: any) => {
         }
         dispatch(backToUpload(true))
     }
+
+    useEffect(() => {
+        emitter.addListener('Emi_HandleCloseFile', () => {
+            handleCloseFile();
+        })
+    }, [])
 
     return (
         process > 0 ?

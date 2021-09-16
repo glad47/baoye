@@ -1,5 +1,4 @@
 import React, {useEffect, useRef, useState} from 'react'
-import _ from 'lodash'
 import CarTable from "./CarTable";
 import {
     ajaxCarList,
@@ -21,12 +20,18 @@ const ShoppingCarListTable = () => {
 
     const DESCRIPTION_DOM = (record: any) => (
         <>
-            <p>P/N:{record.productNo}</p>
-            <p>[PCB prototype]<br /></p>
-            <p>{record.finishThickness} {record.layerNum}layer<br /></p>
-            <p>Solder Mask: </p>
-            <p>{record.solderMaskTopColor}</p>
-            <p>{record.surfaceFinish}</p>
+            {
+                record.totalStencilFee ? 'Stencil' : (record.totalAssemblyFee ? 'Assembly' :
+                        <>
+                            <p>P/N:{record.productNo}</p>
+                            <p>[PCB prototype]<br /></p>
+                            <p>{record.finishThickness} {record.layerNum}layer<br /></p>
+                            <p>Solder Mask: </p>
+                            <p>{record.solderMaskTopColor}</p>
+                            <p>{record.surfaceFinish}</p>
+                        </>
+                )
+            }
         </>
     )
 
