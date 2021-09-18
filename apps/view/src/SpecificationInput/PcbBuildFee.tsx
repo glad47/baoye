@@ -20,7 +20,6 @@ const PcbBuildFee: React.FC<any> = (props) => {
      * 清除页面所有数据以及表单、文件类
      */
     const handleClear = () => {
-        console.log('清除表单数据！！！')
         // 删除页面文件
         emitter.emit('Emi_HandleCloseFile');
         // 清除PcbSizeForm表单

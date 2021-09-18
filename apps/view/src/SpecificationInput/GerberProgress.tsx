@@ -37,6 +37,8 @@ export default (props: any) => {
         if (aginUpload) {
             aginUpload();
         }
+        // 清除PcbSizeForm表单
+        emitter.emit('Emi_ClearPcbSizeForm');
         dispatch(backToUpload(true))
     }
 

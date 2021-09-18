@@ -87,12 +87,12 @@ const PcbOrderProcess:React.FC = (props:any) => {
                 id,
                 productNo,
                 type: totalStencilFee ? 2 : (totalAssemblyFee ? 3 : 1),
-                remark: orderOptionsItem.remark
             });
             return pre;
         }, []);
         const params = {
-            orderDetailsList
+            orderDetailsList,
+            remark: orderOptionsItem.remark
         }
         SendAuditMsg(params).then((res: any) => {
             if (res) {
