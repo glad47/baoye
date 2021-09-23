@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {changeCarDrawer, resetState, useAppState} from "../state";
+import {changeCarDrawer, orderOptions, resetState, useAppState} from "../state";
 import CarDrawer from "./CarDrawer";
 import PcbBuildFeeDetail from "./PcbBuildFeeDetail";
 import { useHistory } from "react-router-dom";
@@ -39,7 +39,12 @@ const PcbBuildFee: React.FC<any> = (props) => {
                     dispatch(changeCarDrawer(false));
                 }, 6000);
             } else { // 购买 直接跳转到订单页
-                history.push('/order');
+                const total = Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2));
+                const {totalWeight} = subtotal;
+                // 添加购物车成功以后，后端必须返回当前订单的一个标识给我，最好给当前订单的全部信息，/sys/api/quote/query这个接口返回的字段信息，不能给最起码给个订单id（这样前端会进行一次查询所有列表再去筛选订单，没多大必要造成请求浪费）
+                // 为什么要订单信息？ 在订单审核页，需要当前订单的id，productNo订单编号、必要字段去发送请求审核
+                console.log('subtotal===>',subtotal)
+                history.push('/order-process');
             }
         }
     }, [addQuoteStatus]);

@@ -1,4 +1,4 @@
-import {func} from "testdouble";
+import Cookies from "js-cookie";
 
 const MIMETYPE_ZIP = [
   'application/zip',
@@ -170,5 +170,5 @@ export const MetaTips = {
  * @constructor
  */
 export function IsLogin() {
-  return Boolean(sessionStorage.getItem("userAllInfo"));
+  return Boolean(Cookies.get("user-login"));
 }

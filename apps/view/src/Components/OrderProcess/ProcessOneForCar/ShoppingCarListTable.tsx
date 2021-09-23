@@ -150,7 +150,7 @@ const ShoppingCarListTable = () => {
 
     // 选中
     const handlerChecked = (row: any) => {
-        console.log('carTableRef', carTableRef)
+        console.log('setChecked row', row)
         setChecked(row);
     }
 

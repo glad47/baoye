@@ -51,6 +51,8 @@ function UserLogin(props: any) {
                         dispatch(reduxUser({cartNum: result.cartCount}));
                         sessionStorage.setItem('username', JSON.stringify(users))
                         sessionStorage.setItem('userAllInfo',JSON.stringify(result))
+                        Cookies.set('user-login', JSON.stringify(users), {domain:'pcbonline.com'});
+                        Cookies.set('user-favicon', result.favicon, {domain:'pcbonline.com'});
                         props.closeThisBox(false)
                         props.isLoginReady(true)
                         // 订阅系统信息
