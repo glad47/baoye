@@ -15,6 +15,7 @@ import {
   SvgString, OrderSummaryItem, OrderSummaryStatus, orderOptionsItem, UploadGerberItem, UserStatus,
 } from '../types'
 import { SelectValue } from 'antd/lib/select'
+import {reduxSetOrdersBuyNow} from "./actions";
 
 
 /** 状态 Store对象包含所有数据。如果想得到某个时点的数据，就要对 Store 生成快照。这种时点的数据集合，就叫做 State。当前时刻的 State，可以通过store.getState()拿到。 */
@@ -56,6 +57,8 @@ export type State = {
   fileFormData: any // 上传gerber需要的formData文件信息
   addQuoteStatus: boolean // 上传gerber需要的formData文件信息
   isCheckCourierAccount: boolean // 客户快递选择自己账户  用户判断是否填写账户能否进入下一步
+  ordersBuyNow: any // 直接购买  保存返回当前的信息
+  cartProcessAlChecked: Array<any> // 直接购买  保存返回当前的信息
 }
 
 /** Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。 */
@@ -129,3 +132,5 @@ export type Action =
   | {type: 'CHANGE_ADDQUOTESTATUS'; payload: any}
   | {type: 'Flag_ISCHECKCOURIERACCOUNT'; payload: any}
   | {type: 'SET_DELIVERYADDR'; payload: any}
+  | {type: 'SET_ORDERS_BUY_NOW'; payload: any}
+  | {type: 'SET_CART_PROCESS_AL_CHECK'; payload: any}

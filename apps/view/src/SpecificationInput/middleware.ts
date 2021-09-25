@@ -7,10 +7,16 @@
  * @LastEditTime: 2021-09-04 19:35:27
  */
 import * as State from '../state';
-import {countSubtotal, countBuildTime, reduxChangeAddQuoteStatus} from '../state';
+import {countSubtotal, countBuildTime, reduxChangeAddQuoteStatus, reduxSetOrdersBuyNow} from '../state';
 import { ajaxBuildTime, ajaxSubtotal, ajaxAddQuote, ajaxAssemblyCast } from './AjaxService';
 import Axios from 'axios';
 import { message } from 'antd';
+
+interface call_buy {
+    pcbQuoteInfo: object | null
+    stencilQuoteInfo: object | null
+    assemblyQuoteInfo: object | null
+}
 
 /** 计算报价中间件 */
 export function countQuoteMiddleware(): State.Middleware {
@@ -97,8 +103,16 @@ export function countQuoteMiddleware(): State.Middleware {
                         fileUploadPtah: fileUploadPtah
                     })
                 ]).then((rep)=>{
-                    const [{data:{success,code}}] = rep;
+                    const [{data:{success,code, result}}] = rep;
                     if(success){
+                        let buyData;
+                        for(const key in result)  {
+                            if (result[key]) {
+                                buyData = result[key];
+                                break;
+                            }
+                        }
+                        dispatch(reduxSetOrdersBuyNow(buyData))
                         message.success("Add Quote Success!!");
                         dispatch(reduxChangeAddQuoteStatus(true));
                         setTimeout(() => {

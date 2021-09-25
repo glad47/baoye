@@ -21,7 +21,7 @@ import ProcessThreeTransport from "../Components/OrderProcess/ProcessThreeTransp
 import ProcessFourConfirmation from "../Components/OrderProcess/ProcessFourConfirmation";
 import ProcessFivePayment from "../Components/OrderProcess/ProcessFivePayment";
 import PaySuccessModal from "../Components/OrderProcess/PaySuccessModal";
-import {setOrderSummaryStatus, useAppState} from "../state";
+import {reduxSetCartProcessHasCheck, setOrderSummaryStatus, useAppState} from "../state";
 import {
     CheckOutlined
 } from '@ant-design/icons'
@@ -41,13 +41,13 @@ const icon_CheckOutlined = <CheckOutlined style={_iconStyle} />;  //手拉琴右
 const { Panel } = Collapse;  //定义手拉琴面板
 
 const PcbOrderProcess:React.FC = (props:any) => {
-    const { orderSummaryStatus,orderOptionsItem, dispatch } = useAppState();
+    const { orderSummaryStatus,orderOptionsItem, dispatch, cartProcessAlChecked } = useAppState();
     const [paySuccess, setPaySuccess] = useState<boolean>(false);  //是否支付成功
     const [alrIndex, setAlrIndex] = useState<any>([]); // 已经checkout过的流程，避免用户直接跳过某个流程
     const summaryRef = useRef(null); 
     let msgInterval: NodeJS.Timeout;
     const handlerCheckCollapse = (val: string | string[]) => {
-        if (alrIndex.indexOf(Number(val)) > -1) { // 不能跳过没有选过的流程
+        if (cartProcessAlChecked.indexOf(Number(val)) > -1) { // 不能跳过没有选过的流程
             dispatch(setOrderSummaryStatus({ process: val }));
             // console.log('process', val)
         }
@@ -55,14 +55,14 @@ const PcbOrderProcess:React.FC = (props:any) => {
 
     /**手拉琴面板选中状态*/
     const handleCheckout = (index1: number, index2: number) => {
-        const def: any = [...alrIndex];
-        if (alrIndex.indexOf(index1) === -1) {
+        const def: any = [...cartProcessAlChecked];
+        if (cartProcessAlChecked.indexOf(index1) === -1) {
             def.push(Number(index1));
         }
-        if (alrIndex.indexOf(index2) === -1) {
+        if (cartProcessAlChecked.indexOf(index2) === -1) {
             def.push(Number(index2));
         }
-        setAlrIndex([...def]);
+        dispatch(reduxSetCartProcessHasCheck([...def]))
     }
 
     /**页面刷新时候提醒*/

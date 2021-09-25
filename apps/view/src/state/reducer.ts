@@ -452,14 +452,29 @@ export default function reducer(state: State, action: Action): State {
         isBackToUpload:true,
         allKeys:{},
         fillData:true,
-        user: {message: {unread: 0}, cartNum: 0},
+        user: state.user, // 不清空
         carDrawerStatus:false,
         uploadGerber: {progress: 0, status: 'init'},
         orderSummary: {total: 0, freightCharges: 0, weight: 0, coupon: {id: -1, value: 0}, handlingCharge: 0},
         orderSummaryStatus: {process: 1, description: ''}, //订单支付状态
         orderOptionsItem: {deliveryAddr: null, expressInfo: {id: null, name: null}, payWays: 1, ordersItem: [],remark:null},
         fileFormData: null,
-        isCheckCourierAccount: false
+        isCheckCourierAccount: false,
+        ordersBuyNow: null,
+        cartProcessAlChecked: []
+      }
+    }
+    case actionTypes.SET_ORDERS_BUY_NOW: {
+      return {
+        ...state,
+        ordersBuyNow: action.payload
+      }
+    }
+    // 已经checkout过的流程，避免用户直接跳过某个流程
+    case actionTypes.SET_CART_PROCESS_AL_CHECK: {
+      return {
+        ...state,
+        cartProcessAlChecked: [...state.cartProcessAlChecked, ...action.payload]
       }
     }
   }

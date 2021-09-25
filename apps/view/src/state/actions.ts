@@ -69,6 +69,8 @@ export const SAVE_FILE_FORMDATA = 'SAVE_FILE_FORMDATA';
 export const CHANGE_ADDQUOTESTATUS = 'CHANGE_ADDQUOTESTATUS';
 export const Flag_ISCHECKCOURIERACCOUNT = 'Flag_ISCHECKCOURIERACCOUNT';
 export const SET_DELIVERYADDR = 'SET_DELIVERYADDR';
+export const SET_ORDERS_BUY_NOW = 'SET_ORDERS_BUY_NOW';
+export const SET_CART_PROCESS_AL_CHECK = 'SET_CART_PROCESS_AL_CHECK';
 
 /** Action Creator 获取应用程序首选项 */
 export const fetchAppPreferences = (): Action => ({
@@ -379,4 +381,16 @@ export const reduxSetDeliveryAddr = (field: any): Action => ({
 
 export const resetState = (): Action => ({
   type: RESET_STORE
+})
+
+/** 直接购买  保存返回当前的信息 */
+export const reduxSetOrdersBuyNow = (field: any): Action => ({
+  type: SET_ORDERS_BUY_NOW,
+  payload: field
+})
+
+/** 直接购买  保存返回当前的信息 */
+export const reduxSetCartProcessHasCheck = (field: any): Action => ({
+  type: SET_CART_PROCESS_AL_CHECK,
+  payload: field
 })

@@ -41,7 +41,9 @@ export const INITIAL_STATE: State = {
   orderSummaryStatus: {process: 1, description: ''}, //订单支付状态
   orderOptionsItem: {deliveryAddr: null, expressInfo: {id: null, name: null}, payWays: 1, ordersItem: [],remark:null},
   fileFormData: null,
-  isCheckCourierAccount: false
+  isCheckCourierAccount: false,
+  ordersBuyNow: null,
+  cartProcessAlChecked: []
 }
 
 // const INITIAL_STANDARD = {

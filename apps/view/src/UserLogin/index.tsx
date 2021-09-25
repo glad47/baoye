@@ -42,7 +42,6 @@ function UserLogin(props: any) {
                    
                     if (success) {
                         const { userName,favicon } = result || [];
-                        console.log('userName==>', userName)
                         let users=userName!==null ? userName : 'defaultName' // 预防出现用户名为null 的情况
                         let heads=favicon!==null ?favicon:require('../images/Mask.png')
                         result.favicon=heads
