@@ -196,7 +196,8 @@ const Head:React.FC = (props: any) => {
                                     </li>
                                     <li className="h-badge num" onClick={handlerCar}>
                                         <Badge count={user.cartNum} size="small">
-                                            <ShoppingCartOutlined />
+                                            {/*<ShoppingCartOutlined />*/}
+                                            <img src={require('../images/quate_icon6.png')} alt=""/>
                                         </Badge>
                                     </li>
                                 </>
