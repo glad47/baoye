@@ -20,6 +20,7 @@ import {
 import {getKeysNumForArr, IsLogin, MetaTips} from "../util";
 import * as Cookies from "js-cookie";
 import emitter from "../eventBus";
+import {notifyMe, openNotification} from "../utils/notify";
 
 let times: NodeJS.Timeout;
 
@@ -29,7 +30,7 @@ const Head:React.FC = (props: any) => {
     const [cartNum, setCartNum] = useState(0);
     const history = useHistory();
     const handleManage = () => {
-        window.open('https://sys.pcbonline.com/home')
+        window.open('https://sys.pcbonline.com/home', '_blank')
     }
     const [popoverVisible, setPopoverVisible] = useState(false);
     useEffect(() => {
@@ -58,22 +59,25 @@ const Head:React.FC = (props: any) => {
     // 获取系统消息
     const getMes = () => {
         DescribeCurrUserMsg().then((res: any) => {
-            MetaTips.show(document.title);
             if (res && res.length > 0) {
                 const unreadNum = getKeysNumForArr(res, 'isread', 0);
                 const unread = res.find((item: any) => item.isread === 0);
                 // 提醒过的信息不提醒了
                 const flag = Cookies.get("sysMes");
-                if (unread && !flag) {
+                openNotification()
+                if (unread && !flag && flag !== unread.id) {
+                    const {id, content} = unread;
                     MetaTips.show(document.title);
-                    const {id, sendUser, content} = unread;
-                    notification.open({
-                        message: sendUser,
-                        description: EL_MES(content),
-                        onClick: () => {
-                            console.log('Notification Clicked!');
+                    notifyMe(
+                        'You have an order message to process',
+                        {
+                            body: content,
+                            icon: 'https://p.pstatp.com/origin/pgc-image/2a9ddb798966421b9bc5e9e0c9d9e7a5'
                         },
-                    });
+                        () => {
+                            window.location.href = 'https://sys.pcbonline.com/payment'
+                        }
+                        )
                     Cookies.set("sysMes", id);
                 } else {
                     setTimeout(() => {

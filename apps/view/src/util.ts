@@ -158,7 +158,7 @@ export const MetaTips = {
       if (MetaTips.step === 2) {document.title = "(1) New Messages!"};
     }, 520)
   },
-  clear(title: any) {
+  clear(title?: any) {
     // @ts-ignore
     clearTimeout(timer);
     document.title = 'Buy PCB Online | PCB Online Quote | PCB Assembly Order - PCBONLINE'
@@ -170,5 +170,5 @@ export const MetaTips = {
  * @constructor
  */
 export function IsLogin() {
-  return Boolean(Cookies.get("user-login"));
+  return Boolean(sessionStorage.getItem("username"));
 }
