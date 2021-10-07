@@ -22,10 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="fix: 字体">
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="浏览器桌面弹窗订单提醒">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Head/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Head/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/CarList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/CarList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Head/components/SysMessage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Head/components/SysMessage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/sys-message.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/sys-message.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,15 +39,24 @@
       <list>
         <option value="SCSS File" />
         <option value="Less File" />
+        <option value="TypeScript JSX File" />
+        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="TypeScript File" />
         <option value="HTML File" />
-        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1rNoWrCwvMimtXLMe3JV4zbP621" />
   <component name="ProjectViewState">
@@ -59,7 +70,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/view/src/styles" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/view/src/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -78,8 +89,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\apps\pcbonline-v3\apps\view\src\styles" />
       <recent name="E:\apps\pcbonline-v3\apps\view\src\images" />
+      <recent name="E:\apps\pcbonline-v3\apps\view\src\styles" />
       <recent name="E:\apps\pcbonline-v3\apps\view\src\Components\Youtube" />
       <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src" />
       <recent name="C:\Users\v_vzhhtang\Desktop\cus\pcbonline-v2\apps\view\src\images" />
@@ -90,7 +101,7 @@
       <recent name="D:\Parkers\apps\pcbonline-v3\apps\view\src\Components\OrderProcess\ProcessOneForCar" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SshConsoleOptionsProvider">
     <option name="myEncoding" value="UTF-8" />
   </component>
@@ -143,6 +154,36 @@
       <workItem from="1626013791301" duration="431000" />
       <workItem from="1626014894308" duration="6161000" />
       <workItem from="1626096204933" duration="14015000" />
+      <workItem from="1630196399851" duration="2735000" />
+      <workItem from="1630251426412" duration="595000" />
+      <workItem from="1630600674520" duration="299000" />
+      <workItem from="1630675933658" duration="3224000" />
+      <workItem from="1630727729742" duration="25867000" />
+      <workItem from="1630810176430" duration="12736000" />
+      <workItem from="1630940286864" duration="1039000" />
+      <workItem from="1631030101266" duration="3801000" />
+      <workItem from="1631108387205" duration="8442000" />
+      <workItem from="1631200703042" duration="2322000" />
+      <workItem from="1631291637308" duration="1892000" />
+      <workItem from="1631332761529" duration="145000" />
+      <workItem from="1631431837559" duration="17467000" />
+      <workItem from="1631550551751" duration="1958000" />
+      <workItem from="1631719703023" duration="4250000" />
+      <workItem from="1631805388859" duration="8002000" />
+      <workItem from="1631894194461" duration="2650000" />
+      <workItem from="1631977425392" duration="2790000" />
+      <workItem from="1632119038783" duration="1352000" />
+      <workItem from="1632154213694" duration="4475000" />
+      <workItem from="1632206591243" duration="629000" />
+      <workItem from="1632325426120" duration="3550000" />
+      <workItem from="1632409306853" duration="4691000" />
+      <workItem from="1632536662768" duration="11624000" />
+      <workItem from="1632757935193" duration="2700000" />
+      <workItem from="1632847866422" duration="212000" />
+      <workItem from="1632848123084" duration="24000" />
+      <workItem from="1632930718853" duration="6464000" />
+      <workItem from="1633083969450" duration="10982000" />
+      <workItem from="1633590275574" duration="8206000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>
@@ -326,19 +367,96 @@
       <option name="project" value="LOCAL" />
       <updated>1626021231133</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fix:  gitignore">
+      <created>1630167145073</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1630167145073</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fix:  订单流程页stencil订单concat.">
+      <created>1630172425887</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1630172425887</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fix:  20210910遗留bug计价页订单类型切换价格详情显示错误，重新计算价格构建天数更新...">
+      <created>1631440600563</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1631440600563</updated>
+    </task>
+    <task id="LOCAL-00030" summary="fix:  PayPal clientId误提交">
+      <created>1631440679991</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1631440679991</updated>
+    </task>
+    <task id="LOCAL-00031" summary="fix:  加入购物车清除store、表单、文件数据，解决上传文件报价无法重新计算价格问题">
+      <created>1631814800998</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1631814800998</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fix:  删除文件后清除所有数据\支付回调新增qty参数(黄总需求) 对应创建订单接口api/order/save，orderDetailList数组对象里面的qty属性、remark备注 回退上一个版本">
+      <created>1631978932057</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1631978932057</updated>
+    </task>
+    <task id="LOCAL-00033" summary="登录cookies 共享到pcbonline.com">
+      <created>1632416711621</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1632416711621</updated>
+    </task>
+    <task id="LOCAL-00034" summary="cookies新增cartCount参数共享">
+      <created>1632583465388</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1632583465388</updated>
+    </task>
+    <task id="LOCAL-00035" summary="buyNow 直接到购物车地址页">
+      <created>1632588226305</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1632588226305</updated>
+    </task>
+    <task id="LOCAL-00036" summary="顶部购物车图标优化">
+      <created>1632930771745</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1632930771745</updated>
+    </task>
+    <task id="LOCAL-00037" summary="浏览器桌面弹窗订单提醒">
+      <created>1633102837978</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1633102837978</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
+    <option name="COLUMN_ID_ORDER">
       <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
       </list>
     </option>
   </component>
@@ -385,17 +503,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: 报价页样式修改" />
-    <MESSAGE value="feat: 报价页样式修改80%" />
-    <MESSAGE value="feat: 流程组件分离" />
-    <MESSAGE value="feat: 购物车 显示和删除" />
-    <MESSAGE value="feat: 地址修改" />
-    <MESSAGE value="feat: 支付成功感谢页面 样式未完成" />
-    <MESSAGE value="feat: 支付成功样式" />
-    <MESSAGE value="feat: 订单流程折叠面板信息展示" />
-    <MESSAGE value="feat: 感谢页图片修改" />
-    <MESSAGE value="feat: PayPal测试、添加购物车事件关联" />
-    <MESSAGE value="feat: process流程调整，不能跳过" />
     <MESSAGE value="feat: 优化process流程" />
     <MESSAGE value="fix: oType =&gt; type" />
     <MESSAGE value="fix: Paypal 支付99%" />
@@ -410,89 +517,17 @@
     <MESSAGE value="fix:  优化" />
     <MESSAGE value="fix:  支付流程=&gt; 选择快递优化" />
     <MESSAGE value="fix:  快递 自己账户优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:  快递 自己账户优化" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="684" y="363" key="#Notifications" timestamp="1623579144152">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="684" y="363" key="#Notifications/0.0.1920.1080@0.0.1920.1080" timestamp="1623579144152" />
-    <state x="745" y="377" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1626105828899">
-      <screen x="0" y="0" width="2048" height="1152" />
-    </state>
-    <state x="745" y="377" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2048.1152@0.0.2048.1152" timestamp="1626105828899" />
-    <state x="91" y="102" width="1718" height="880" key="DiffContextDialog" timestamp="1629259285463">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="91" y="102" width="1718" height="880" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1629259285463" />
-    <state x="97" y="109" width="1833" height="939" key="DiffContextDialog/0.0.2048.1152@0.0.2048.1152" timestamp="1626015051617" />
-    <state x="748" y="331" key="FileChooserDialogImpl" timestamp="1625758017238">
-      <screen x="0" y="0" width="2048" height="1152" />
-    </state>
-    <state x="701" y="310" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1624096577591" />
-    <state x="748" y="331" key="FileChooserDialogImpl/0.0.2048.1152@0.0.2048.1152" timestamp="1625758017238" />
-    <state width="2025" height="301" key="GridCell.Tab.0.bottom" timestamp="1626103989377">
-      <screen x="0" y="0" width="2048" height="1152" />
-    </state>
-    <state width="1882" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
-    <state width="1897" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1623863172037" />
-    <state width="2025" height="301" key="GridCell.Tab.0.bottom/0.0.2048.1152@0.0.2048.1152" timestamp="1626103989377" />
-    <state width="2025" height="301" key="GridCell.Tab.0.center" timestamp="1626103989377">
-      <screen x="0" y="0" width="2048" height="1152" />
-    </state>
-    <state width="1882" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
-    <state width="1897" height="279" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1623863172036" />
-    <state width="2025" height="301" key="GridCell.Tab.0.center/0.0.2048.1152@0.0.2048.1152" timestamp="1626103989377" />
-    <state width="2025" height="301" key="GridCell.Tab.0.left" timestamp="1626103989377">
-      <screen x="0" y="0" width="2048" height="1152" />
-    </state>
-    <state width="1882" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
-    <state width="1897" height="279" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1623863172036" />
-    <state width="2025" height="301" key="GridCell.Tab.0.left/0.0.2048.1152@0.0.2048.1152" timestamp="1626103989377" />
-    <state width="2025" height="301" key="GridCell.Tab.0.right" timestamp="1626103989377">
-      <screen x="0" y="0" width="2048" height="1152" />
-    </state>
-    <state width="1882" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620921059672" />
-    <state width="1897" height="279" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1623863172036" />
-    <state width="2025" height="301" key="GridCell.Tab.0.right/0.0.2048.1152@0.0.2048.1152" timestamp="1626103989377" />
-    <state width="498" height="477" key="SwitcherDM" timestamp="1629259414492">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="498" height="447" key="SwitcherDM/0.0.1842.1080@0.0.1842.1080" timestamp="1621051731539" />
-    <state width="498" height="430" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1620924930855" />
-    <state width="498" height="477" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1629259414492" />
-    <state width="532" height="476" key="SwitcherDM/0.0.2048.1152@0.0.2048.1152" timestamp="1626109905953" />
-    <state x="589" y="291" key="Vcs.Push.Dialog.v2" timestamp="1626021232338">
-      <screen x="0" y="0" width="2048" height="1152" />
-    </state>
-    <state x="552" y="263" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620924918452" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1624874737319" />
-    <state x="589" y="291" key="Vcs.Push.Dialog.v2/0.0.2048.1152@0.0.2048.1152" timestamp="1626021232338" />
-    <state x="93" y="93" width="1862" height="966" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1626015051617">
-      <screen x="0" y="0" width="2048" height="1152" />
-    </state>
-    <state x="93" y="93" width="1862" height="966" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.2048.1152@0.0.2048.1152" timestamp="1626015051617" />
-    <state x="803" y="483" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1625753360862">
-      <screen x="0" y="0" width="2048" height="1152" />
-    </state>
-    <state x="753" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620918434821" />
-    <state x="753" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1623948703383" />
-    <state x="803" y="483" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2048.1152@0.0.2048.1152" timestamp="1625753360862" />
-    <state x="669" y="245" width="884" height="644" key="find.popup" timestamp="1629259112196">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="662" y="239" width="656" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620922730871" />
-    <state x="669" y="245" width="884" height="644" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1629259112196" />
-    <state x="212" y="312" width="943" height="687" key="find.popup/0.0.2048.1152@0.0.2048.1152" timestamp="1626108902065" />
-    <state x="617" y="256" key="run.anything.popup" timestamp="1621067190572">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="617" y="256" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1621067190572" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup" timestamp="1629257759978">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="615" y="186" width="672" height="651" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620923044107" />
-    <state x="615" y="193" width="672" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1629257759978" />
-    <state x="656" y="206" width="717" height="722" key="search.everywhere.popup/0.0.2048.1152@0.0.2048.1152" timestamp="1626108244870" />
+    <MESSAGE value="fix:  gitignore" />
+    <MESSAGE value="fix:  订单流程页stencil订单concat." />
+    <MESSAGE value="fix:  20210910遗留bug计价页订单类型切换价格详情显示错误，重新计算价格构建天数更新..." />
+    <MESSAGE value="fix:  PayPal clientId误提交" />
+    <MESSAGE value="fix:  加入购物车清除store、表单、文件数据，解决上传文件报价无法重新计算价格问题" />
+    <MESSAGE value="fix:  删除文件后清除所有数据\支付回调新增qty参数(黄总需求) 对应创建订单接口api/order/save，orderDetailList数组对象里面的qty属性、remark备注 回退上一个版本" />
+    <MESSAGE value="登录cookies 共享到pcbonline.com" />
+    <MESSAGE value="cookies新增cartCount参数共享" />
+    <MESSAGE value="buyNow 直接到购物车地址页" />
+    <MESSAGE value="顶部购物车图标优化" />
+    <MESSAGE value="浏览器桌面弹窗订单提醒" />
+    <option name="LAST_COMMIT_MESSAGE" value="浏览器桌面弹窗订单提醒" />
   </component>
 </project>

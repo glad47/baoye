@@ -20,7 +20,7 @@ export default () => {
     const EL_MES = (content: any) => {
         return <>
             Your order
-            <span>{content}</span>
+            <span>&nbsp;{content}&nbsp;</span>
             has been approved,
              <span onClick={handleDire} className="underline" style={{color: 'blue'}}>
                  Go to the payment

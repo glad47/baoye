@@ -43,7 +43,7 @@ const PcbBuildFee: React.FC<any> = (props) => {
                 // 清除页面所有数据以及表单、文件类
                 // 定时关闭
                 setTimeout(() => {
-                    dispatch(resetState()); // 清除state
+                    // dispatch(resetState()); // 清除state
                     dispatch(changeCarDrawer(false));
                 }, 6000);
             } else {

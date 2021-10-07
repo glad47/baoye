@@ -192,7 +192,7 @@ function App(): JSX.Element {
     const aginUpload = () => {
      //   setUpload(true)
         // @ts-ignore
-        gerberUploadRef?.current.initGerberUploadState();
+        gerberUploadRef?.current?.initGerberUploadState();
         dispatch(backToUpload(true))
     }
     const setLoginMessage = (e: any) => {
