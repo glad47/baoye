@@ -7,6 +7,10 @@ import home_img23 from '../images/home_img23.png'
 import home_img24 from '../images/home_img24.png'
 
 function Foot() {
+
+    useEffect(() => {
+        verifySeal()
+    }, [])
     const nav = [
             {title: 'Star Products', child: [
                     {name: 'Rigid-flex PCB', route: '/PCB-FAB/Rigid-Flex-PCBs/', alt: "Rigid-flex PCB"},
@@ -33,6 +37,23 @@ function Foot() {
                     {name: 'Member of Global Success', route: 'https://www.globalsuccess.com.cn/', alt: '', rel: 'nofollow'}
                 ]}
         ]
+
+    const jump = (route: any) => {
+        if (route.indexOf('http') < 0) {
+            window.location.href = `https://pcbonline.com${route}`
+        } else {
+            window.open(route)
+        }
+    }
+
+    const verifySeal = () => {
+        const srciptElement = document.createElement("script");
+        srciptElement.type = "text/javascript";
+        srciptElement.src = "https://seal.godaddy.com/getSeal?sealID=JyOmqvrJtXawl2GzkTr8Tf8g72riSFgMhkRVxbFC8cMv1lCwC1uwAHAeeklK";
+        const siteseal: any = document.getElementById("siteseal");
+        siteseal.appendChild(srciptElement);
+    }
+
     return (
         <div className="BotNav">
             <div className="bot-container body-width">
@@ -77,7 +98,7 @@ function Foot() {
                             </div>
                             <div className="desc">
                                 <span>
-                                  Copyright @2000-2021 PCB ONLINE LIMITED. | All Rights Reserved.
+                                  Copyright @2000-{new Date().getFullYear()} PCB ONLINE LIMITED. | All Rights Reserved.
                                 </span>
                             </div>
                         </div>
@@ -91,7 +112,8 @@ function Foot() {
                                                 item.child.map((itemc: any, inxc: any) => (
                                                     <li key={inxc}>
                                                         <a rel={itemc.rel || ''}
-                                                           href={'https://pcbonline.com' + itemc.route}>
+                                                           onClick={() => jump(itemc.route)}
+                                                           href="javascript:void(0)">
                                                             {itemc.name}
                                                         </a>
                                                     </li>

@@ -34,11 +34,11 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
     const onValuesChange = (v: Store) => {
         // console.log(Object.values(v)[0])
         switch (Object.values(v)[0]) {
-            case 2: {
+            case 'Panel': {
                 setSingleMode(false)
                 break;
             }
-            case 1: {
+            case 'Single': {
                 setSingleMode(true)
                 break;
             }
@@ -57,8 +57,8 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
 
     const onFinish = (v: Store) => {
         dispatch(reduxSetFlagQuoteParams(true));
-        const {singleSize, panelSize, boardType} = v;
-        if (Object.values(v)[0] === 'Single') {
+        let {singleSize, panelSize, boardType} = v;
+        if (boardType === 1 || boardType === 'Single') { // single
             if (!singleSize.sizeX || !singleSize.sizeY) {
                 emitter.emit('Emi_HandleMyTips', {tip: 'Please check singleSize!', time: 2000});
                 return false;
@@ -137,7 +137,7 @@ const PcbSizeForm: React.FC<PcbSizeFormProps> = (props) => {
                         <Select className="color-yel">
                             {
                                 boardType.map(item => (
-                                    <Option key={item.id} value={item.id}>{item.name}</Option>
+                                    <Option key={item.id} value={item.name}>{item.name}</Option>
                                 ))
                             }
                         </Select>
