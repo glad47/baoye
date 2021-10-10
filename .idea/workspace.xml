@@ -22,12 +22,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="浏览器桌面弹窗订单提醒">
+    <list default="true" id="08491740-1766-414b-a807-39144691df64" name="Default Changelist" comment="解决切换single/panel 赋值无法计价问题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/view/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/Head/components/SysMessage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Head/components/SysMessage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbBuildFee.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/sys-message.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/sys-message.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessFivePayment/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarOrderSummary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessOneForCar/CarOrderSummary.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Components/OrderProcess/ProcessThreeTransport/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Footer/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/Head/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/Head/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/CarList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/CarList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbSizeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/PcbSizeForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/SpecificationInput/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/SpecificationInput/middleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/request.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/styles/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/styles/footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/view/src/utils/notify.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/view/src/utils/notify.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +192,9 @@
       <workItem from="1632848123084" duration="24000" />
       <workItem from="1632930718853" duration="6464000" />
       <workItem from="1633083969450" duration="10982000" />
-      <workItem from="1633590275574" duration="8206000" />
+      <workItem from="1633590275574" duration="8526000" />
+      <workItem from="1633698672476" duration="7099000" />
+      <workItem from="1633835834320" duration="13882000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 报价页样式修改">
       <created>1619084955266</created>
@@ -444,7 +455,21 @@
       <option name="project" value="LOCAL" />
       <updated>1633102837978</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="解决清除state的bug、优化样式">
+      <created>1633622972169</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1633622972169</updated>
+    </task>
+    <task id="LOCAL-00039" summary="解决切换single/panel 赋值无法计价问题">
+      <created>1633712303327</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1633712303327</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -503,8 +528,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: 优化process流程" />
-    <MESSAGE value="fix: oType =&gt; type" />
     <MESSAGE value="fix: Paypal 支付99%" />
     <MESSAGE value="feat: 支付成功页合同" />
     <MESSAGE value="feat: 信用卡支付" />
@@ -528,6 +551,8 @@
     <MESSAGE value="buyNow 直接到购物车地址页" />
     <MESSAGE value="顶部购物车图标优化" />
     <MESSAGE value="浏览器桌面弹窗订单提醒" />
-    <option name="LAST_COMMIT_MESSAGE" value="浏览器桌面弹窗订单提醒" />
+    <MESSAGE value="解决清除state的bug、优化样式" />
+    <MESSAGE value="解决切换single/panel 赋值无法计价问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决切换single/panel 赋值无法计价问题" />
   </component>
 </project>

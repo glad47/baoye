@@ -73,6 +73,8 @@ function App(): JSX.Element {
     const [showYoutube, setShowYoutube] = useState<boolean>(false);
 
     const handleAddQuote = async (link?: boolean ) => {
+        // @ts-ignore
+        pcbSizeFormRef?.current.formSubmit(); // 触发表单，避免表单验证不提示。返回Boolean类型，当前未阻塞后面的代码运行
         // 添加报价前先上传state保存的gerber文件
         const _f_file = await uploadZipFile('check');
         if (!_f_file) {

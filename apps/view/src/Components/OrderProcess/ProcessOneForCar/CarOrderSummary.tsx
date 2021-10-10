@@ -43,7 +43,6 @@ const CarOrderSummary:React.FC<ints> = (props) => {
         } else if (process === 2 && orderOptionsItem.deliveryAddr) {
             setFlag(true);
         } else if (process === 3 && orderOptionsItem.expressInfo.name && flagCourier()) {
-            console.log('isCheckCourierAccount===>', orderOptionsItem.deliveryAddr.courierAccount)
             setFlag(true);
         } else if (process === 4) { // 选择支付方式 并且支付方式为先审核
             setFlag(true);
@@ -90,7 +89,7 @@ const CarOrderSummary:React.FC<ints> = (props) => {
                 </div>
                 {
                     orderSummaryStatus.process > 3 &&
-                        // orderOptionsItem.payWays === 1 &&
+                        orderOptionsItem.payWays === 3 &&
                         <>
                             <div className="cost-det">
                                 <div>

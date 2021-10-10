@@ -238,9 +238,7 @@ function getBrowerInfo(){
  * 打开询问框
  */
 const openNotification = (): void => {
-    Notification.requestPermission().then(permission => {
-        console.log(permission)
-    })
+    Notification.requestPermission().then(permission => {})
 }
 
 export {notifyMe, openNotification}

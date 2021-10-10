@@ -39,6 +39,15 @@
 }
 .BotNav .bot-container > div .cols .col-1 .self {
     margin-bottom: 20px;
+    position: relative;
+}
+.BotNav .bot-container > div .cols .col-1 .self #siteseal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    opacity: 0;
 }
 .BotNav .bot-container > div .cols .col-1 .desc {
     max-width: 260px;

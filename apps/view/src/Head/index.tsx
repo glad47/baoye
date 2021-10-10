@@ -69,9 +69,9 @@ const Head:React.FC = (props: any) => {
                     const {id, content} = unread;
                     MetaTips.show(document.title);
                     notifyMe(
-                        'You have an order message to process',
+                        `Your order ${content} has been approved`,
                         {
-                            body: content,
+                            body: 'Go to the payment',
                             icon: 'https://p.pstatp.com/origin/pgc-image/2a9ddb798966421b9bc5e9e0c9d9e7a5'
                         },
                         () => {

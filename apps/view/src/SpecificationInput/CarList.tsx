@@ -88,7 +88,7 @@ const CarList = (props:any) => {
             })
         } else {
             delPcbOrder(id).then((res: any) => {
-                message.success(res);
+                // message.success(res);
                 setTo(to-1);
                 setSpinFlag(false);
                 delCallBack(index);

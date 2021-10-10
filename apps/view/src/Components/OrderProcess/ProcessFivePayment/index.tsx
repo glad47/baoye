@@ -5,7 +5,7 @@ import {message, Radio, Space} from "antd";
 import PayDebitCard from "./PayDebitCard";
 import PayPaypal from "./PayPaypal";
 import {createOrderDetails, createOrderNumber} from "../../../SpecificationInput/AjaxService";
-import {orderSummaryFun, useAppState} from "../../../state";
+import {orderOptions, orderSummaryFun, useAppState} from "../../../state";
 import {isNumber} from "../../../util";
 
 interface ts_orderDetail {
@@ -14,6 +14,7 @@ interface ts_orderDetail {
 
 const ProcessFivePayment = (props:any) => {
     const [payType, setPayType] = useState<number>(1);
+    const [paypalFee, setPaypalFee] = useState<any>(0);
     const { dispatch, orderSummary, orderOptionsItem } = useAppState();
     const [orderDetail, setOrderDetail] = useState<any>({amount: 0});
 
@@ -23,7 +24,12 @@ const ProcessFivePayment = (props:any) => {
     }
 
     useEffect(() => {
-        console.log('props', props)
+        // 信用卡 手续费清零
+        dispatch(orderSummaryFun({ handlingCharge: payType === 0 ? 0 : paypalFee}));
+        dispatch(orderOptions({payWays: payType === 1 ? 3 : 4}));
+    }, [payType])
+
+    useEffect(() => {
         createOrder();
     }, []);
 
@@ -52,6 +58,7 @@ const ProcessFivePayment = (props:any) => {
         const data:any = await createOrderNumber(toPaymentParameterDTO);
         console.log('toPaymentParameterDTO', data.paypalFee)
         setOrderDetail(data);
+        setPaypalFee(data.paypalFee)
         dispatch(orderSummaryFun({ handlingCharge: data.paypalFee}));
         return data;
     }

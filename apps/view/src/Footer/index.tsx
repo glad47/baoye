@@ -94,7 +94,7 @@ function Foot() {
                             </div>
                             <div className="self">
                                 <img src={home_img24} alt="" />
-                                <span id="siteseal" style={{display: 'none'}}></span>
+                                <span id="siteseal"></span>
                             </div>
                             <div className="desc">
                                 <span>

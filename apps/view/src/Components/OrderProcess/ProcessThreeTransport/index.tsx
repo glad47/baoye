@@ -267,7 +267,7 @@ const ProcessThreeTransport = () => {
     return (
         <div className="process-three-tra">
             <div className="header">
-                <span>SHIPMENT 1/1 — Shipping from {freightParams.countryName}</span>
+                <span>SHIPMENT 1/1 — Shipping to {freightParams.countryName}</span>
                 <div>
                     <span>shipment terms:</span>
                     <Input readOnly value={shipmentTerms}/>

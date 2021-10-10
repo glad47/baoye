@@ -18,6 +18,26 @@ interface call_buy {
     assemblyQuoteInfo: object | null
 }
 
+/**
+ * 添加购物车 字段验证
+ * @param obj
+ */
+const verifyAddQuote = (obj: any) => {
+    // 需要验证的字段
+    const verifyFields = ['fileName', 'fileUploadPtah'];
+    let flag = true;
+    for (const key in obj) {
+        if (verifyFields.indexOf(key) > -1 && !obj[key]) {
+            flag = false;
+            if (key === 'fileName') {
+                message.error("please upload gerber!");
+            }
+            break;
+        }
+    }
+    return flag;
+}
+
 /** 计算报价中间件 */
 export function countQuoteMiddleware(): State.Middleware {
     return store => next => action =>{
@@ -26,7 +46,7 @@ export function countQuoteMiddleware(): State.Middleware {
         const {dispatch} = store;
         const state = store.getState();
         switch(action.type){
-            case State.CHANGE_SPECIAL_FIELD: 
+            case State.CHANGE_SPECIAL_FIELD:
             case State.CHANGE_STANDARD_FIELD:
             case State.CHANGE_SIZE_FIELD: {
                 // console.log("计算尺寸",state);
@@ -41,7 +61,7 @@ export function countQuoteMiddleware(): State.Middleware {
                     quantityPcs = Number(psx) * Number(psy) * Number(quantity)
                 }
                 // console.log('计算出面积',areasq);
-                let layerNum = Number(String(layer).substr(0,1));                
+                let layerNum = Number(String(layer).substr(0,1));
                 // let fetchBuildTime = new Promise(ajaxBuildTime);
                 const {
                     pcbSizeField,
@@ -80,7 +100,6 @@ export function countQuoteMiddleware(): State.Middleware {
 
             }
             case State.ADD_QUOTE: {
-                console.log('添加报价',state);
                 const {
                     pcbSizeField,
                     pcbSpecialField,
@@ -91,45 +110,58 @@ export function countQuoteMiddleware(): State.Middleware {
                     fileName,
                     fileUploadPtah
                 } = state;
-                Axios.all([
-                    ajaxAddQuote({
-                        pcbSizeField:pcbSizeField,
-                        pcbSpecialField:pcbSpecialField,
-                        pcbStandardField:pcbStandardField,
-                        subtotal:subtotal,
-                        stencilField: stencilField,
-                        assemblyField: assemblyField,
-                        fileName: fileName,
-                        fileUploadPtah: fileUploadPtah
-                    })
-                ]).then((rep)=>{
-                    const [{data:{success,code, result}}] = rep;
-                    if(success){
-                        let buyData;
-                        for(const key in result)  {
-                            if (result[key]) {
-                                buyData = result[key];
-                                break;
+                const fields = {
+                    pcbSizeField,
+                    pcbSpecialField,
+                    pcbStandardField,
+                    subtotal,
+                    stencilField,
+                    assemblyField,
+                    fileName,
+                    fileUploadPtah
+                }
+                console.log('verifyAddQuote(fields)======>', verifyAddQuote(fields))
+                if (verifyAddQuote(fields)) {
+                    Axios.all([
+                        ajaxAddQuote({
+                            pcbSizeField:pcbSizeField,
+                            pcbSpecialField:pcbSpecialField,
+                            pcbStandardField:pcbStandardField,
+                            subtotal:subtotal,
+                            stencilField: stencilField,
+                            assemblyField: assemblyField,
+                            fileName: fileName,
+                            fileUploadPtah: fileUploadPtah
+                        })
+                    ]).then((rep)=>{
+                        const [{data:{success,code, result}}] = rep;
+                        if(success){
+                            let buyData;
+                            for(const key in result)  {
+                                if (result[key]) {
+                                    buyData = result[key];
+                                    break;
+                                }
+                            }
+                            dispatch(reduxSetOrdersBuyNow(buyData))
+                            message.success("Add Quote Success!!");
+                            dispatch(reduxChangeAddQuoteStatus(true));
+                            setTimeout(() => {
+                                dispatch(reduxChangeAddQuoteStatus(false));
+                            }, 10*1000)
+                            // setTimeout(() => {
+                            //     location.reload();
+                            // }, 1000);
+                        }else{
+                            if (code === "403") {
+                                location.href = 'user/login';
+                            }else{
+                                dispatch(reduxChangeAddQuoteStatus(false));
+                                // message.error("Add Quote Failure !!");
                             }
                         }
-                        dispatch(reduxSetOrdersBuyNow(buyData))
-                        message.success("Add Quote Success!!");
-                        dispatch(reduxChangeAddQuoteStatus(true));
-                        setTimeout(() => {
-                            dispatch(reduxChangeAddQuoteStatus(false));
-                        }, 10*1000)
-                        // setTimeout(() => {
-                        //     location.reload();
-                        // }, 1000);
-                    }else{
-                        if (code === "403") {
-                            location.href = 'user/login';
-                        }else{
-                            dispatch(reduxChangeAddQuoteStatus(false));
-                            // message.error("Add Quote Failure !!");
-                        }
-                    }
-                })
+                    })
+                }
                 break;
             }
             case State.CHANGE_ASSEMBLY_FIELD: {
@@ -146,4 +178,4 @@ export function countQuoteMiddleware(): State.Middleware {
         }
         return result;
     }
-} 
+}
