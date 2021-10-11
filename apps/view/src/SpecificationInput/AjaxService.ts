@@ -367,6 +367,19 @@ export const DeleteCurrUseMsg = (id: any) => {
     })
 }
 
+/**
+ * 查询订单详情
+ * @param params
+ * @constructor
+ */
+export const DescribeOrderItemByIds = (params: any) => {
+    return service({
+        url: `${sysUrl}api/order/orderItemByIds`,
+        method: 'post',
+        data: params
+    })
+}
+
 
 // export const getShippingCost = () => {
 //     return service({

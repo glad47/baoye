@@ -55,6 +55,9 @@ function UserLogin(props: any) {
                         Cookies.set('cartCount', result.cartCount, {domain:'pcbonline.com'});
                         props.closeThisBox(false)
                         props.isLoginReady(true)
+                        if (props.loginCallBack && typeof props.loginCallBack === 'function') {
+                            props.loginCallBack()
+                        }
                         // 订阅系统信息
                         emitter.emit('Emi_IntervalGetMes');
                         message.info('Login successful',6)

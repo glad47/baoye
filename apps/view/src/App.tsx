@@ -84,7 +84,6 @@ function App(): JSX.Element {
             if (boardType === 'Single') {
                 // @ts-ignore
                 const flag = await pcbSizeFormRef?.current.formSubmit(); // 主要弹出input require
-                console.log('flag', flag)
                 if (flag !== null) {
                     if (checkLogin()) {
                         await uploadZipFile('upload');
@@ -454,7 +453,12 @@ function App(): JSX.Element {
                         </Content>
                     }
                     {!isMobileSize ? <Foot /> : <MobileFoot />}
-                    {isLogin ? <UserLogin getUserInfo={getUserInfo} closeThisBox={closeThisBox} getUserHead={getUserHead} isLoginReady={loginReady} /> : ""}
+                    {isLogin ? <UserLogin
+                        getUserInfo={getUserInfo}
+                        closeThisBox={closeThisBox}
+                        getUserHead={getUserHead}
+                        loginCallBack = {handleAddQuote}
+                        isLoginReady={loginReady} /> : ""}
                 </Layout>
             </Main>
         </>
