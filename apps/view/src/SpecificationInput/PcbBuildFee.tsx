@@ -48,7 +48,7 @@ const PcbBuildFee: React.FC<any> = (props) => {
                 }, 6000);
             } else {
                 const {subtotal, weight, id} =ordersBuyNow
-                dispatch(orderOptions({ordersItem: ordersBuyNow}))
+                dispatch(orderOptions({ordersItem: [{record: ordersBuyNow}]}))
                 dispatch(orderSummaryFun({total: subtotal, weight}))
                 // 购买 直接跳转到订单页
                 dispatch(setOrderSummaryStatus({ process: 2 }))

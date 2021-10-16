@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-09-04 18:31:24
  */
 import React, {useEffect, useImperativeHandle, useState} from 'react';
-import {backToUpload, useAppState} from "../state";
+import {backToUpload, resetState, useAppState} from "../state";
 import emitter from "../eventBus";
 const checkIcon = require('../images/check-circle.png');
 const closeIcon = require('../images/close-circle.png');
@@ -38,7 +38,8 @@ export default (props: any) => {
             aginUpload();
         }
         // 清除PcbSizeForm表单
-        emitter.emit('Emi_ClearPcbSizeForm');
+        dispatch(resetState());
+        // emitter.emit('Emi_ClearPcbSizeForm');
         dispatch(backToUpload(true))
     }
 

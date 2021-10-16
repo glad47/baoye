@@ -17,10 +17,11 @@ import {
     ajaxCarListForStencil,
     DescribeCurrUserMsg
 } from "../SpecificationInput/AjaxService";
-import {getKeysNumForArr, IsLogin, MetaTips} from "../util";
+import {getKeysNumForArr, IsLogin, MetaTips, MyNotify} from "../util";
 import * as Cookies from "js-cookie";
 import emitter from "../eventBus";
-import {notifyMe, openNotification} from "../utils/notify";
+import {openNotification} from "../utils/notify";
+import ElMes from "../Components/ElMes";
 
 let times: NodeJS.Timeout;
 
@@ -66,19 +67,9 @@ const Head:React.FC = (props: any) => {
                 const flag = Cookies.get("sysMes");
                 openNotification()
                 if (unread && !flag && flag !== unread.id) {
-                    const {id, content} = unread;
                     MetaTips.show(document.title);
-                    notifyMe(
-                        `Your order ${content} has been approved`,
-                        {
-                            body: 'Go to the payment',
-                            icon: 'https://p.pstatp.com/origin/pgc-image/2a9ddb798966421b9bc5e9e0c9d9e7a5'
-                        },
-                        () => {
-                            window.location.href = 'https://sys.pcbonline.com/payment'
-                        }
-                        )
-                    Cookies.set("sysMes", id);
+                    const {content} = unread;
+                    MyNotify(unread, <ElMes order={content}/>)
                 } else {
                     setTimeout(() => {
                         MetaTips.clear();
@@ -91,17 +82,6 @@ const Head:React.FC = (props: any) => {
 
     const handleDire = () => {
         history.push('/order');
-    }
-
-    const EL_MES = (content: any) => {
-        return <>
-            Your order
-            <span>{content}</span>
-            has been approved,
-            <span onClick={handleDire} className="underline" style={{color: 'blue'}}>
-                 Go to the payment
-             </span>
-        </>
     }
 
     useEffect(() => {

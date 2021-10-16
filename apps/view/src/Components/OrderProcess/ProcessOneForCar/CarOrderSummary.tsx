@@ -12,6 +12,7 @@ import '../../../styles/car-order-summary.css'
 import {setOrderSummaryStatus, useAppState} from "../../../state";
 import CarCoupon from "./CarCoupon";
 import FlagProcess from "./FlagProcess";
+import {MyNotify} from "../../../util";
 
 interface ints {
     handleCheckout: any,

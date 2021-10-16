@@ -1,4 +1,6 @@
 import Cookies from "js-cookie";
+import {notification} from "antd";
+import {notifyMe} from "./utils/notify";
 
 const MIMETYPE_ZIP = [
   'application/zip',
@@ -171,4 +173,74 @@ export const MetaTips = {
  */
 export function IsLogin() {
   return Boolean(sessionStorage.getItem("username"));
+}
+
+
+/**
+ * 消息通知
+ * @param unread
+ * @param El_MES
+ * @constructor
+ */
+export function MyNotify(unread: any, El_MES?: any) {
+  const {id, sendUser, content} = unread;
+  notification.open({
+    message: sendUser,
+    description: El_MES,
+    onClick: () => {
+      console.log('Notification Clicked!');
+    },
+  });
+  notifyMe(
+      `Your order ${content} has been approved`,
+      {
+        body: 'Go to the payment',
+        icon: 'https://p.pstatp.com/origin/pgc-image/2a9ddb798966421b9bc5e9e0c9d9e7a5'
+      },
+      () => {
+        window.location.href = 'https://sys.pcbonline.com/payment'
+      }
+  )
+  Cookies.set("sysMes", id);
+}
+
+/**
+ * 深度查找对象某个属性的值
+ * @param {w} obj
+ * @param {*} key
+ */
+export function deepFindKey(obj: any, key: any):void {
+  let flg = false;
+  let res;
+  if (!isObj(obj)) return obj
+  if (obj[key]) {
+    flg = true
+    return obj[key]
+  }
+  const keysArr = Object.keys(obj)
+  if (keysArr.indexOf(key) > -1) {
+    return obj[key]
+  }
+  for (let i = 0; i < keysArr.length; i++) {
+    if (!flg) {
+      const val = obj[keysArr[i]]
+      if (isObj(val)) {
+        res = deepFindKey(val, key)
+      } else if (key === keysArr[i]) {
+        res = val
+        flg = true
+        break;
+      }
+    }
+  }
+  return res
+}
+
+/**
+ * 判断是否为对象
+ * @param val
+ * @returns {boolean}
+ */
+export function isObj(val: any) {
+  return Object.prototype.toString.call(val) === '[object Object]'
 }
