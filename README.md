@@ -1,5 +1,5 @@
-# PCBOnline 2.0版本
-报价页面2.0
+# PCBOnline 3.1版本
+报价页面3.1
 # 部署说明
 1. yarn 安装依赖
 2. yarn build 打包并把生成的dist文件夹压缩成dist.zip文件
@@ -45,8 +45,3 @@ server {
     }.
 ```
 
-# 手动设置远程仓库地址
-```
-git remote rm origin
-git remote add origin https://gitee.com/pcbonline_1/pcbonline-v3.git
-```

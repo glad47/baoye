@@ -4,23 +4,23 @@
 
 "@ant-design/colors@^6.0.0":
   version "6.0.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/@ant-design/colors/-/colors-6.0.0.tgz"
+  resolved "https://registry.npmjs.org/@ant-design/colors/-/colors-6.0.0.tgz"
   integrity sha512-qAZRvPzfdWHtfameEGP2Qvuf838NhergR35o+EuVyB5XvSA98xod5r4utvi4TJ3ywmevm290g9nsCG5MryrdWQ==
   dependencies:
     "@ctrl/tinycolor" "^3.4.0"
 
-"@ant-design/icons-svg@^4.0.0":
-  version "4.1.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/@ant-design/icons-svg/-/icons-svg-4.1.0.tgz"
-  integrity sha512-Fi03PfuUqRs76aI3UWYpP864lkrfPo0hluwGqh7NJdLhvH4iRDc3jbJqZIvRDLHKbXrvAfPPV3+zjUccfFvWOQ==
+"@ant-design/icons-svg@^4.2.1":
+  version "4.2.1"
+  resolved "https://registry.npmjs.org/@ant-design/icons-svg/-/icons-svg-4.2.1.tgz"
+  integrity sha512-EB0iwlKDGpG93hW8f85CTJTs4SvMX7tt5ceupvhALp1IF44SeUFOMhKUOYqpsoYWQKAOuTRDMqn75rEaKDp0Xw==
 
-"@ant-design/icons@^4.6.2":
-  version "4.6.2"
-  resolved "https://repo.huaweicloud.com/repository/npm/@ant-design/icons/-/icons-4.6.2.tgz"
-  integrity sha512-QsBG2BxBYU/rxr2eb8b2cZ4rPKAPBpzAR+0v6rrZLp/lnyvflLH3tw1vregK+M7aJauGWjIGNdFmUfpAOtw25A==
+"@ant-design/icons@^4.6.2", "@ant-design/icons@^4.7.0":
+  version "4.7.0"
+  resolved "https://registry.npmjs.org/@ant-design/icons/-/icons-4.7.0.tgz"
+  integrity sha512-aoB4Z7JA431rt6d4u+8xcNPPCrdufSRMUOpxa1ab6mz1JCQZOEVolj2WVs/tDFmN62zzK30mNelEsprLYsSF3g==
   dependencies:
     "@ant-design/colors" "^6.0.0"
-    "@ant-design/icons-svg" "^4.0.0"
+    "@ant-design/icons-svg" "^4.2.1"
     "@babel/runtime" "^7.11.2"
     classnames "^2.2.6"
     rc-util "^5.9.4"
@@ -1035,7 +1035,7 @@
 
 "@ctrl/tinycolor@^3.4.0":
   version "3.4.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz"
+  resolved "https://registry.npmjs.org/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz"
   integrity sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==
 
 "@evocateur/libnpmaccess@^3.1.2":
@@ -2640,9 +2640,9 @@ ansi-styles@^4.1.0:
     "@types/color-name" "^1.1.1"
     color-convert "^2.0.1"
 
-antd@4.15.0, antd@^4.15.0:
+antd@4.15.0:
   version "4.15.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/antd/-/antd-4.15.0.tgz"
+  resolved "https://registry.npmjs.org/antd/-/antd-4.15.0.tgz"
   integrity sha512-24HMixmQAhCyqb0ND5wX5DYRTbPactCT36mfVKowqgr77eT7XQ59Uu6aS513mbeiVhXcHrNlrlCKNZBSeEDgPg==
   dependencies:
     "@ant-design/colors" "^6.0.0"
@@ -2687,6 +2687,55 @@ antd@4.15.0, antd@^4.15.0:
     rc-util "^5.9.4"
     scroll-into-view-if-needed "^2.2.25"
     warning "^4.0.3"
+
+antd@^4.17.4:
+  version "4.17.4"
+  resolved "https://registry.npmjs.org/antd/-/antd-4.17.4.tgz"
+  integrity sha512-aiWi7TxAc7qAxbL412GSKpkWkL/wIhQe6ABuLLCiE1vqXnGTvav2Z0PiOUdFclZcfz2M2IofsUl2pLVN9I8iCg==
+  dependencies:
+    "@ant-design/colors" "^6.0.0"
+    "@ant-design/icons" "^4.7.0"
+    "@ant-design/react-slick" "~0.28.1"
+    "@babel/runtime" "^7.12.5"
+    "@ctrl/tinycolor" "^3.4.0"
+    array-tree-filter "^2.1.0"
+    classnames "^2.2.6"
+    copy-to-clipboard "^3.2.0"
+    lodash "^4.17.21"
+    memoize-one "^6.0.0"
+    moment "^2.25.3"
+    rc-cascader "~2.3.0"
+    rc-checkbox "~2.3.0"
+    rc-collapse "~3.1.0"
+    rc-dialog "~8.6.0"
+    rc-drawer "~4.4.2"
+    rc-dropdown "~3.2.0"
+    rc-field-form "~1.21.0"
+    rc-image "~5.2.5"
+    rc-input-number "~7.3.0"
+    rc-mentions "~1.6.1"
+    rc-menu "~9.0.12"
+    rc-motion "^2.4.4"
+    rc-notification "~4.5.7"
+    rc-pagination "~3.1.9"
+    rc-picker "~2.5.17"
+    rc-progress "~3.1.0"
+    rc-rate "~2.9.0"
+    rc-resize-observer "^1.1.2"
+    rc-select "~13.2.1"
+    rc-slider "~9.7.4"
+    rc-steps "~4.1.0"
+    rc-switch "~3.2.0"
+    rc-table "~7.19.0"
+    rc-tabs "~11.10.0"
+    rc-textarea "~0.3.0"
+    rc-tooltip "~5.1.1"
+    rc-tree "~5.3.0"
+    rc-tree-select "~4.8.0"
+    rc-trigger "^5.2.10"
+    rc-upload "~4.3.0"
+    rc-util "^5.14.0"
+    scroll-into-view-if-needed "^2.2.25"
 
 any-promise@^1.0.0:
   version "1.3.0"
@@ -2856,7 +2905,7 @@ array-includes@^3.1.1:
 
 array-tree-filter@^2.1.0:
   version "2.1.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/array-tree-filter/-/array-tree-filter-2.1.0.tgz"
+  resolved "https://registry.npmjs.org/array-tree-filter/-/array-tree-filter-2.1.0.tgz"
   integrity sha512-4ROwICNlNw/Hqa9v+rk5h22KjmzB1JGTMVKP2AKJBOCgb0yL0ASf0+YvCcLNNwquOHNX48jkeZIJ3a+oOQqKcw==
 
 array-union@^1.0.1, array-union@^1.0.2:
@@ -2982,8 +3031,13 @@ async-limiter@~1.0.0:
 
 async-validator@^3.0.3:
   version "3.5.2"
-  resolved "https://repo.huaweicloud.com/repository/npm/async-validator/-/async-validator-3.5.2.tgz"
+  resolved "https://registry.npmjs.org/async-validator/-/async-validator-3.5.2.tgz"
   integrity sha512-8eLCg00W9pIRZSB781UUX/H6Oskmm8xloZfr09lz5bikRpBVDlJ3hRVuxxP1SxcwsEYfJ4IU8Q19Y8/893r3rQ==
+
+async-validator@^4.0.2:
+  version "4.0.7"
+  resolved "https://registry.npmjs.org/async-validator/-/async-validator-4.0.7.tgz"
+  integrity sha512-Pj2IR7u8hmUEDOwB++su6baaRi+QvsgajuFB9j95foM1N2gy5HM4z60hfusIO0fBPG5uLAEl6yCJr1jNSVugEQ==
 
 async@^2.5.0, async@^2.6.2, async@^2.6.3:
   version "2.6.3"
@@ -3034,10 +3088,17 @@ aws4@^1.8.0:
 
 axios@^0.19.2:
   version "0.19.2"
-  resolved "https://repo.huaweicloud.com/repository/npm/axios/-/axios-0.19.2.tgz"
+  resolved "https://registry.npmjs.org/axios/-/axios-0.19.2.tgz"
   integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
   dependencies:
     follow-redirects "1.5.10"
+
+axios@^0.24.0:
+  version "0.24.0"
+  resolved "https://registry.npmjs.org/axios/-/axios-0.24.0.tgz"
+  integrity sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==
+  dependencies:
+    follow-redirects "^1.14.4"
 
 babel-code-frame@^6.26.0:
   version "6.26.0"
@@ -3590,7 +3651,7 @@ binary-extensions@^2.0.0:
 
 bindings@^1.5.0:
   version "1.5.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/bindings/-/bindings-1.5.0.tgz#10353c9e945334bc0511a6d90b38fbc7c9c504df"
+  resolved "https://registry.yarnpkg.com/bindings/-/bindings-1.5.0.tgz#10353c9e945334bc0511a6d90b38fbc7c9c504df"
   integrity sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==
   dependencies:
     file-uri-to-path "1.0.0"
@@ -4230,7 +4291,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@*, classnames@2.x, classnames@^2.2.1, classnames@^2.2.3, classnames@^2.2.5, classnames@^2.2.6:
+classnames@*, classnames@2.x, classnames@^2.2.1, classnames@^2.2.3, classnames@^2.2.5, classnames@^2.2.6, classnames@^2.3.1:
   version "2.3.1"
   resolved "https://repo.huaweicloud.com/repository/npm/classnames/-/classnames-2.3.1.tgz"
   integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
@@ -5063,9 +5124,9 @@ dashdash@^1.12.0:
     assert-plus "^1.0.0"
 
 date-fns@2.x:
-  version "2.23.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/date-fns/-/date-fns-2.23.0.tgz"
-  integrity sha512-5ycpauovVyAk0kXNZz6ZoB9AYMZB4DObse7P3BPWmyEjXNORTI8EJ6X0uaSAq4sCHzM1uajzrkr6HnsLQpxGXA==
+  version "2.27.0"
+  resolved "https://registry.npmjs.org/date-fns/-/date-fns-2.27.0.tgz"
+  integrity sha512-sj+J0Mo2p2X1e306MHq282WS4/A8Pz/95GIFcsPNMPMZVI3EUrAdSv90al1k+p74WGLCruMXk23bfEDZa71X9Q==
 
 dateformat@^3.0.0:
   version "3.0.3"
@@ -5073,9 +5134,9 @@ dateformat@^3.0.0:
   integrity sha1-puN0maTZqc+F71hyBE1ikByYia4=
 
 dayjs@1.x:
-  version "1.10.6"
-  resolved "https://repo.huaweicloud.com/repository/npm/dayjs/-/dayjs-1.10.6.tgz"
-  integrity sha512-AztC/IOW4L1Q41A86phW5Thhcrco3xuAA+YX/BLpLWWjRcTj5TOt/QImBLmCKlrF7u7k47arTnOyL6GnbG8Hvw==
+  version "1.10.7"
+  resolved "https://registry.npmjs.org/dayjs/-/dayjs-1.10.7.tgz"
+  integrity sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig==
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.8, debug@^2.6.9:
   version "2.6.9"
@@ -5377,7 +5438,7 @@ doctrine@^3.0.0:
 
 dom-align@^1.7.0:
   version "1.12.2"
-  resolved "https://repo.huaweicloud.com/repository/npm/dom-align/-/dom-align-1.12.2.tgz"
+  resolved "https://registry.npmjs.org/dom-align/-/dom-align-1.12.2.tgz"
   integrity sha512-pHuazgqrsTFrGU2WLDdXxCFabkdQDx72ddkraZNih1KsMcN5qsRSTR9O4VJRlwTPCPb5COYg3LOfiMHHcPInHg==
 
 dom-converter@^0.2:
@@ -6297,7 +6358,7 @@ file-saver@^2.0.2:
 
 file-uri-to-path@1.0.0:
   version "1.0.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
+  resolved "https://registry.yarnpkg.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
   integrity sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==
 
 filemanager-webpack-plugin@^2.0.5:
@@ -6478,15 +6539,15 @@ folktale@2.3.2:
 
 follow-redirects@1.5.10:
   version "1.5.10"
-  resolved "https://repo.huaweicloud.com/repository/npm/follow-redirects/-/follow-redirects-1.5.10.tgz"
+  resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.5.10.tgz"
   integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
   dependencies:
     debug "=3.1.0"
 
-follow-redirects@^1.0.0:
-  version "1.12.1"
-  resolved "https://registry.npm.taobao.org/follow-redirects/download/follow-redirects-1.12.1.tgz"
-  integrity sha1-3lSmIFMRuT1gOY68Ac9wFWgjErY=
+follow-redirects@^1.0.0, follow-redirects@^1.14.4:
+  version "1.14.6"
+  resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.6.tgz"
+  integrity sha512-fhUl5EwSJbbl8AR+uYL2KQDxLkdSjZGR36xy46AO7cOMTrCMON6Sa28FmAnC2tRTDbd/Uuzz3aJBv7EBN7JH8A==
 
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
@@ -6626,7 +6687,7 @@ fs.realpath@^1.0.0:
 
 fsevents@^1.0.0, fsevents@^1.2.7:
   version "1.2.13"
-  resolved "https://repo.huaweicloud.com/repository/npm/fsevents/-/fsevents-1.2.13.tgz#f325cb0455592428bcf11b383370ef70e3bfcc38"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-1.2.13.tgz#f325cb0455592428bcf11b383370ef70e3bfcc38"
   integrity sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==
   dependencies:
     bindings "^1.5.0"
@@ -6634,7 +6695,7 @@ fsevents@^1.0.0, fsevents@^1.2.7:
 
 fsevents@~2.1.1, fsevents@~2.1.2:
   version "2.1.3"
-  resolved "https://repo.huaweicloud.com/repository/npm/fsevents/-/fsevents-2.1.3.tgz#fb738703ae8d2f9fe900c33836ddebee8b97f23e"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.1.3.tgz#fb738703ae8d2f9fe900c33836ddebee8b97f23e"
   integrity sha512-Auw9a4AxqWpa9GUfj370BMPzzyncfBABW8Mab7BGWBYDj4Isgq+cDKtx0i6u9jcX9pQDnswsaaOTgTmA5pEjuQ==
 
 function-bind@^1.1.1:
@@ -8141,7 +8202,7 @@ jmespath@0.15.0:
 
 js-cookie@^2.2.1:
   version "2.2.1"
-  resolved "https://repo.huaweicloud.com/repository/npm/js-cookie/-/js-cookie-2.2.1.tgz"
+  resolved "https://registry.npmjs.org/js-cookie/-/js-cookie-2.2.1.tgz"
   integrity sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==
 
 js-md5@^0.7.3:
@@ -8794,6 +8855,11 @@ media-typer@0.3.0:
   resolved "https://registry.npm.taobao.org/media-typer/download/media-typer-0.3.0.tgz"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
 
+memoize-one@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.npmjs.org/memoize-one/-/memoize-one-6.0.0.tgz"
+  integrity sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==
+
 memory-fs@^0.4.1:
   version "0.4.1"
   resolved "https://registry.npm.taobao.org/memory-fs/download/memory-fs-0.4.1.tgz"
@@ -8998,7 +9064,7 @@ mini-css-extract-plugin@^0.9.0:
 
 mini-store@^3.0.1:
   version "3.0.6"
-  resolved "https://repo.huaweicloud.com/repository/npm/mini-store/-/mini-store-3.0.6.tgz"
+  resolved "https://registry.npmjs.org/mini-store/-/mini-store-3.0.6.tgz"
   integrity sha512-YzffKHbYsMQGUWQRKdsearR79QsMzzJcDDmZKlJBqt5JNkqpyJHYlK6gP61O36X+sLf76sO9G6mhKBe83gIZIQ==
   dependencies:
     hoist-non-react-statics "^3.3.2"
@@ -9281,7 +9347,7 @@ mz@^2.5.0:
 
 nan@^2.12.1:
   version "2.15.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/nan/-/nan-2.15.0.tgz#3f34a473ff18e15c1b5626b62903b5ad6e665fee"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.15.0.tgz#3f34a473ff18e15c1b5626b62903b5ad6e665fee"
   integrity sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==
 
 nanomatch@^1.2.9:
@@ -10920,7 +10986,7 @@ raw-body@2.4.0:
 
 rc-align@^4.0.0:
   version "4.0.11"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-align/-/rc-align-4.0.11.tgz"
+  resolved "https://registry.npmjs.org/rc-align/-/rc-align-4.0.11.tgz"
   integrity sha512-n9mQfIYQbbNTbefyQnRHZPWuTEwG1rY4a9yKlIWHSTbgwI+XUMGRYd0uJ5pE2UbrNX0WvnMBA1zJ3Lrecpra/A==
   dependencies:
     "@babel/runtime" "^7.10.1"
@@ -10932,13 +10998,26 @@ rc-align@^4.0.0:
 
 rc-cascader@~1.4.0:
   version "1.4.3"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-cascader/-/rc-cascader-1.4.3.tgz"
+  resolved "https://registry.npmjs.org/rc-cascader/-/rc-cascader-1.4.3.tgz"
   integrity sha512-Q4l9Mv8aaISJ+giVnM9IaXxDeMqHUGLvi4F+LksS6pHlaKlN4awop/L+IMjIXpL+ug/ojaCyv/ixcVopJYYCVA==
   dependencies:
     "@babel/runtime" "^7.12.5"
     array-tree-filter "^2.1.0"
     rc-trigger "^5.0.4"
     rc-util "^5.0.1"
+    warning "^4.0.1"
+
+rc-cascader@~2.3.0:
+  version "2.3.3"
+  resolved "https://registry.npmjs.org/rc-cascader/-/rc-cascader-2.3.3.tgz"
+  integrity sha512-ckD8rKJjS8mdXxylWh1PtIHSFhbj/yf1NimyooqeJlvtLhzRZXIHCj4IuOjwYZ6J1DqoOCCdJfVtc7UeZia38w==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    array-tree-filter "^2.1.0"
+    classnames "^2.3.1"
+    rc-tree-select "~4.8.0"
+    rc-trigger "^5.0.4"
+    rc-util "^5.6.1"
     warning "^4.0.1"
 
 rc-checkbox@~2.3.0:
@@ -10962,7 +11041,7 @@ rc-collapse@~3.1.0:
 
 rc-dialog@~8.5.1:
   version "8.5.3"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-dialog/-/rc-dialog-8.5.3.tgz"
+  resolved "https://registry.npmjs.org/rc-dialog/-/rc-dialog-8.5.3.tgz"
   integrity sha512-zoamT8L6+rBwnwjPlrZRxiHCHQXrTcWZD3a6ruoqEdUKP1KgO0eSjMDH9WlF3WEPYMVnb2G5SrjHrhnwgPDu5w==
   dependencies:
     "@babel/runtime" "^7.10.1"
@@ -10972,7 +11051,7 @@ rc-dialog@~8.5.1:
 
 rc-dialog@~8.6.0:
   version "8.6.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-dialog/-/rc-dialog-8.6.0.tgz"
+  resolved "https://registry.npmjs.org/rc-dialog/-/rc-dialog-8.6.0.tgz"
   integrity sha512-GSbkfqjqxpZC5/zc+8H332+q5l/DKUhpQr0vdX2uDsxo5K0PhvaMEVjyoJUTkZ3+JstEADQji1PVLVb/2bJeOQ==
   dependencies:
     "@babel/runtime" "^7.10.1"
@@ -10982,16 +11061,25 @@ rc-dialog@~8.6.0:
 
 rc-drawer@~4.3.0:
   version "4.3.1"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-drawer/-/rc-drawer-4.3.1.tgz"
+  resolved "https://registry.npmjs.org/rc-drawer/-/rc-drawer-4.3.1.tgz"
   integrity sha512-GMfFy4maqxS9faYXEhQ+0cA1xtkddEQzraf6SAdzWbn444DrrLogwYPk1NXSpdXjLCLxgxOj9MYtyYG42JsfXg==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.6"
     rc-util "^5.7.0"
 
-rc-dropdown@^3.1.3, rc-dropdown@~3.2.0:
+rc-drawer@~4.4.2:
+  version "4.4.3"
+  resolved "https://registry.npmjs.org/rc-drawer/-/rc-drawer-4.4.3.tgz"
+  integrity sha512-FYztwRs3uXnFOIf1hLvFxIQP9MiZJA+0w+Os8dfDh/90X7z/HqP/Yg+noLCIeHEbKln1Tqelv8ymCAN24zPcfQ==
+  dependencies:
+    "@babel/runtime" "^7.10.1"
+    classnames "^2.2.6"
+    rc-util "^5.7.0"
+
+rc-dropdown@^3.1.3, rc-dropdown@^3.2.0, rc-dropdown@~3.2.0:
   version "3.2.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-dropdown/-/rc-dropdown-3.2.0.tgz"
+  resolved "https://registry.npmjs.org/rc-dropdown/-/rc-dropdown-3.2.0.tgz"
   integrity sha512-j1HSw+/QqlhxyTEF6BArVZnTmezw2LnSmRk6I9W7BCqNCKaRwleRmMMs1PHbuaG8dKHVqP6e21RQ7vPBLVnnNw==
   dependencies:
     "@babel/runtime" "^7.10.1"
@@ -11000,14 +11088,23 @@ rc-dropdown@^3.1.3, rc-dropdown@~3.2.0:
 
 rc-field-form@~1.20.0:
   version "1.20.1"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-field-form/-/rc-field-form-1.20.1.tgz"
+  resolved "https://registry.npmjs.org/rc-field-form/-/rc-field-form-1.20.1.tgz"
   integrity sha512-f64KEZop7zSlrG4ef/PLlH12SLn6iHDQ3sTG+RfKBM45hikwV1i8qMf53xoX12NvXXWg1VwchggX/FSso4bWaA==
   dependencies:
     "@babel/runtime" "^7.8.4"
     async-validator "^3.0.3"
     rc-util "^5.8.0"
 
-rc-image@~5.2.4:
+rc-field-form@~1.21.0:
+  version "1.21.2"
+  resolved "https://registry.npmjs.org/rc-field-form/-/rc-field-form-1.21.2.tgz"
+  integrity sha512-LR/bURt/Tf5g39mb0wtMtQuWn42d/7kEzpzlC5fNC7yaRVmLTtlPP4sBBlaViETM9uZQKLoaB0Pt9Mubhm9gow==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    async-validator "^4.0.2"
+    rc-util "^5.8.0"
+
+rc-image@~5.2.4, rc-image@~5.2.5:
   version "5.2.5"
   resolved "https://repo.huaweicloud.com/repository/npm/rc-image/-/rc-image-5.2.5.tgz"
   integrity sha512-qUfZjYIODxO0c8a8P5GeuclYXZjzW4hV/5hyo27XqSFo1DmTCs2HkVeQObkcIk5kNsJtgsj1KoPThVsSc/PXOw==
@@ -11019,8 +11116,17 @@ rc-image@~5.2.4:
 
 rc-input-number@~7.0.1:
   version "7.0.6"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-input-number/-/rc-input-number-7.0.6.tgz"
+  resolved "https://registry.npmjs.org/rc-input-number/-/rc-input-number-7.0.6.tgz"
   integrity sha512-J5DIoCKIunoPb16FEghaEOyNDuZXD5F9LxLNcqd31z/0e37XtuHgo4QF/TonKLsESwdg7UAzWhiD0K6PPrN3YQ==
+  dependencies:
+    "@babel/runtime" "^7.10.1"
+    classnames "^2.2.5"
+    rc-util "^5.9.8"
+
+rc-input-number@~7.3.0:
+  version "7.3.4"
+  resolved "https://registry.npmjs.org/rc-input-number/-/rc-input-number-7.3.4.tgz"
+  integrity sha512-W9uqSzuvJUnz8H8vsVY4kx+yK51SsAxNTwr8SNH4G3XqQNocLVmKIibKFRjocnYX1RDHMND9FFbgj2h7E7nvGA==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.5"
@@ -11028,7 +11134,7 @@ rc-input-number@~7.0.1:
 
 rc-mentions@~1.5.0:
   version "1.5.3"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-mentions/-/rc-mentions-1.5.3.tgz"
+  resolved "https://registry.npmjs.org/rc-mentions/-/rc-mentions-1.5.3.tgz"
   integrity sha512-NG/KB8YiKBCJPHHvr/QapAb4f9YzLJn7kDHtmI1K6t7ZMM5YgrjIxNNhoRKKP9zJvb9PdPts69Hbg4ZMvLVIFQ==
   dependencies:
     "@babel/runtime" "^7.10.1"
@@ -11038,9 +11144,21 @@ rc-mentions@~1.5.0:
     rc-trigger "^5.0.4"
     rc-util "^5.0.1"
 
+rc-mentions@~1.6.1:
+  version "1.6.1"
+  resolved "https://registry.npmjs.org/rc-mentions/-/rc-mentions-1.6.1.tgz"
+  integrity sha512-LDzGI8jJVGnkhpTZxZuYBhMz3avcZZqPGejikchh97xPni/g4ht714Flh7DVvuzHQ+BoKHhIjobHnw1rcP8erg==
+  dependencies:
+    "@babel/runtime" "^7.10.1"
+    classnames "^2.2.6"
+    rc-menu "^9.0.0"
+    rc-textarea "^0.3.0"
+    rc-trigger "^5.0.4"
+    rc-util "^5.0.1"
+
 rc-menu@^8.0.1, rc-menu@^8.6.1, rc-menu@~8.10.0:
   version "8.10.8"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-menu/-/rc-menu-8.10.8.tgz"
+  resolved "https://registry.npmjs.org/rc-menu/-/rc-menu-8.10.8.tgz"
   integrity sha512-0gnSR0nmR/60NnK+72EGd+QheHyPSQ3wYg1TwX1zl0JJ9Gm0purFFykCXVv/G0Jynpt0QySPAos+bpHpjMZdoQ==
   dependencies:
     "@babel/runtime" "^7.10.1"
@@ -11052,7 +11170,20 @@ rc-menu@^8.0.1, rc-menu@^8.6.1, rc-menu@~8.10.0:
     resize-observer-polyfill "^1.5.0"
     shallowequal "^1.1.0"
 
-rc-motion@^2.0.0, rc-motion@^2.0.1, rc-motion@^2.2.0, rc-motion@^2.3.0, rc-motion@^2.3.4, rc-motion@^2.4.0:
+rc-menu@^9.0.0, rc-menu@~9.0.12:
+  version "9.0.14"
+  resolved "https://registry.npmjs.org/rc-menu/-/rc-menu-9.0.14.tgz"
+  integrity sha512-CIox5mZeLDAi32SlHrV7UeSjv7tmJJhwRyxQtZCKt351w3q59XlL4WMFOmtT9gwIfP9h0XoxdBZUMe/xzkp78A==
+  dependencies:
+    "@babel/runtime" "^7.10.1"
+    classnames "2.x"
+    rc-motion "^2.4.3"
+    rc-overflow "^1.2.0"
+    rc-trigger "^5.1.2"
+    rc-util "^5.12.0"
+    shallowequal "^1.1.0"
+
+rc-motion@^2.0.0, rc-motion@^2.0.1, rc-motion@^2.2.0, rc-motion@^2.3.0, rc-motion@^2.3.4, rc-motion@^2.4.0, rc-motion@^2.4.3, rc-motion@^2.4.4:
   version "2.4.4"
   resolved "https://repo.huaweicloud.com/repository/npm/rc-motion/-/rc-motion-2.4.4.tgz"
   integrity sha512-ms7n1+/TZQBS0Ydd2Q5P4+wJTSOrhIrwNxLXCZpR7Fa3/oac7Yi803HDALc2hLAKaCTQtw9LmQeB58zcwOsqlQ==
@@ -11061,7 +11192,7 @@ rc-motion@^2.0.0, rc-motion@^2.0.1, rc-motion@^2.2.0, rc-motion@^2.3.0, rc-motio
     classnames "^2.2.1"
     rc-util "^5.2.1"
 
-rc-notification@~4.5.2:
+rc-notification@~4.5.2, rc-notification@~4.5.7:
   version "4.5.7"
   resolved "https://repo.huaweicloud.com/repository/npm/rc-notification/-/rc-notification-4.5.7.tgz"
   integrity sha512-zhTGUjBIItbx96SiRu3KVURcLOydLUHZCPpYEn1zvh+re//Tnq/wSxN4FKgp38n4HOgHSVxcLEeSxBMTeBBDdw==
@@ -11071,9 +11202,9 @@ rc-notification@~4.5.2:
     rc-motion "^2.2.0"
     rc-util "^5.0.1"
 
-rc-overflow@^1.0.0:
+rc-overflow@^1.0.0, rc-overflow@^1.2.0:
   version "1.2.2"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-overflow/-/rc-overflow-1.2.2.tgz"
+  resolved "https://registry.npmjs.org/rc-overflow/-/rc-overflow-1.2.2.tgz"
   integrity sha512-X5kj9LDU1ue5wHkqvCprJWLKC+ZLs3p4He/oxjZ1Q4NKaqKBaYf5OdSzRSgh3WH8kSdrfU8LjvlbWnHgJOEkNQ==
   dependencies:
     "@babel/runtime" "^7.11.1"
@@ -11081,7 +11212,7 @@ rc-overflow@^1.0.0:
     rc-resize-observer "^1.0.0"
     rc-util "^5.5.1"
 
-rc-pagination@~3.1.6:
+rc-pagination@~3.1.6, rc-pagination@~3.1.9:
   version "3.1.9"
   resolved "https://repo.huaweicloud.com/repository/npm/rc-pagination/-/rc-pagination-3.1.9.tgz"
   integrity sha512-IKBKaJ4icVPeEk9qRHrFBJmHxBUrCp3+nENBYob4Ofqsu3RXjBOy4N36zONO7oubgLyiG3PxVmyAuVlTkoc7Jg==
@@ -11089,10 +11220,10 @@ rc-pagination@~3.1.6:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.1"
 
-rc-picker@~2.5.10:
-  version "2.5.15"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-picker/-/rc-picker-2.5.15.tgz"
-  integrity sha512-txKEj20LJuxKFlRKT727Qju7Xsek0WnB6xDaCrmSCiuEBGO5DlG57Wy8zhKgQgMY3+afVrQAzyg13mYonGuXyg==
+rc-picker@~2.5.10, rc-picker@~2.5.17:
+  version "2.5.19"
+  resolved "https://registry.npmjs.org/rc-picker/-/rc-picker-2.5.19.tgz"
+  integrity sha512-u6myoCu/qiQ0vLbNzSzNrzTQhs7mldArCpPHrEI6OUiifs+IPXmbesqSm0zilJjfzrZJLgYeyyOMSznSlh0GKA==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.1"
@@ -11120,19 +11251,19 @@ rc-rate@~2.9.0:
     classnames "^2.2.5"
     rc-util "^5.0.1"
 
-rc-resize-observer@^1.0.0:
-  version "1.0.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-resize-observer/-/rc-resize-observer-1.0.0.tgz"
-  integrity sha512-RgKGukg1mlzyGdvzF7o/LGFC8AeoMH9aGzXTUdp6m+OApvmRdUuOscq/Y2O45cJA+rXt1ApWlpFoOIioXL3AGg==
+rc-resize-observer@^1.0.0, rc-resize-observer@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.npmjs.org/rc-resize-observer/-/rc-resize-observer-1.1.2.tgz"
+  integrity sha512-Qp+1x6D88FxyWBFRYP95IV9A1o0xlkC6qhiTX3YakE+o86QH9IzC7UVnltwmm4Q8uYH+E3F/HRmEiuxXJECdSw==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.1"
-    rc-util "^5.0.0"
+    rc-util "^5.15.0"
     resize-observer-polyfill "^1.5.1"
 
 rc-select@^12.0.0, rc-select@~12.1.6:
   version "12.1.13"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-select/-/rc-select-12.1.13.tgz"
+  resolved "https://registry.npmjs.org/rc-select/-/rc-select-12.1.13.tgz"
   integrity sha512-cPI+aesP6dgCAaey4t4upDbEukJe+XN0DK6oO/6flcCX5o28o7KNZD7JAiVtC/6fCwqwI/kSs7S/43dvHmBl+A==
   dependencies:
     "@babel/runtime" "^7.10.1"
@@ -11143,15 +11274,28 @@ rc-select@^12.0.0, rc-select@~12.1.6:
     rc-util "^5.9.8"
     rc-virtual-list "^3.2.0"
 
-rc-slider@~9.7.1:
-  version "9.7.2"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-slider/-/rc-slider-9.7.2.tgz"
-  integrity sha512-mVaLRpDo6otasBs6yVnG02ykI3K6hIrLTNfT5eyaqduFv95UODI9PDS6fWuVVehVpdS4ENgOSwsTjrPVun+k9g==
+rc-select@~13.2.1:
+  version "13.2.1"
+  resolved "https://registry.npmjs.org/rc-select/-/rc-select-13.2.1.tgz"
+  integrity sha512-L2cJFAjVEeDiNVa/dlOVKE79OUb0J7sUBvWN3Viav3XHcjvv9Ovn4D8J9QhBSlDXeGuczZ81CZI3BbdHD25+Gg==
+  dependencies:
+    "@babel/runtime" "^7.10.1"
+    classnames "2.x"
+    rc-motion "^2.0.1"
+    rc-overflow "^1.0.0"
+    rc-trigger "^5.0.4"
+    rc-util "^5.9.8"
+    rc-virtual-list "^3.2.0"
+
+rc-slider@~9.7.1, rc-slider@~9.7.4:
+  version "9.7.5"
+  resolved "https://registry.npmjs.org/rc-slider/-/rc-slider-9.7.5.tgz"
+  integrity sha512-LV/MWcXFjco1epPbdw1JlLXlTgmWpB9/Y/P2yinf8Pg3wElHxA9uajN21lJiWtZjf5SCUekfSP6QMJfDo4t1hg==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.5"
     rc-tooltip "^5.0.1"
-    rc-util "^5.0.0"
+    rc-util "^5.16.1"
     shallowequal "^1.1.0"
 
 rc-steps@~4.1.0:
@@ -11174,7 +11318,7 @@ rc-switch@~3.2.0:
 
 rc-table@~7.13.0:
   version "7.13.3"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-table/-/rc-table-7.13.3.tgz"
+  resolved "https://registry.npmjs.org/rc-table/-/rc-table-7.13.3.tgz"
   integrity sha512-oP4fknjvKCZAaiDnvj+yzBaWcg+JYjkASbeWonU1BbrLcomkpKvMUgPODNEzg0QdXA9OGW0PO86h4goDSW06Kg==
   dependencies:
     "@babel/runtime" "^7.10.1"
@@ -11183,9 +11327,32 @@ rc-table@~7.13.0:
     rc-util "^5.4.0"
     shallowequal "^1.1.0"
 
+rc-table@~7.19.0:
+  version "7.19.2"
+  resolved "https://registry.npmjs.org/rc-table/-/rc-table-7.19.2.tgz"
+  integrity sha512-NdpnoM50MK02H5/hGOsObfxCvGFUG5cHB9turE5BKJ81T5Ycbq193w5tLhnpILXe//Oanzr47MdMxkUnVGP+qg==
+  dependencies:
+    "@babel/runtime" "^7.10.1"
+    classnames "^2.2.5"
+    rc-resize-observer "^1.0.0"
+    rc-util "^5.14.0"
+    shallowequal "^1.1.0"
+
+rc-tabs@~11.10.0:
+  version "11.10.5"
+  resolved "https://registry.npmjs.org/rc-tabs/-/rc-tabs-11.10.5.tgz"
+  integrity sha512-DDuUdV6b9zGRYLtjI5hyejWLKoz1QiLWNgMeBzc3aMeQylZFhTYnFGdDc6HRqj5IYearNTsFPVSA+6VIT8g5cg==
+  dependencies:
+    "@babel/runtime" "^7.11.2"
+    classnames "2.x"
+    rc-dropdown "^3.2.0"
+    rc-menu "^9.0.0"
+    rc-resize-observer "^1.0.0"
+    rc-util "^5.5.0"
+
 rc-tabs@~11.7.0:
   version "11.7.3"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-tabs/-/rc-tabs-11.7.3.tgz"
+  resolved "https://registry.npmjs.org/rc-tabs/-/rc-tabs-11.7.3.tgz"
   integrity sha512-5nd2NVss9TprPRV9r8N05SjQyAE7zDrLejxFLcbJ+BdLxSwnGnk3ws/Iq0smqKZUnPQC0XEvnpF3+zlllUUT2w==
   dependencies:
     "@babel/runtime" "^7.11.2"
@@ -11196,18 +11363,18 @@ rc-tabs@~11.7.0:
     rc-util "^5.5.0"
 
 rc-textarea@^0.3.0, rc-textarea@~0.3.0:
-  version "0.3.4"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-textarea/-/rc-textarea-0.3.4.tgz"
-  integrity sha512-ILUYx831ZukQPv3m7R4RGRtVVWmL1LV4ME03L22mvT56US0DGCJJaRTHs4vmpcSjFHItph5OTmhodY4BOwy81A==
+  version "0.3.6"
+  resolved "https://registry.npmjs.org/rc-textarea/-/rc-textarea-0.3.6.tgz"
+  integrity sha512-6esiDE4AG3lqnmCdgAp/nutrZAqZEfRT3K749H8vMzNtxy9JScuMJ9MMtWN2DDQh+LCDvX4dgflaRjDCqtDHWw==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.1"
     rc-resize-observer "^1.0.0"
     rc-util "^5.7.0"
 
-rc-tooltip@^5.0.1, rc-tooltip@~5.1.0:
+rc-tooltip@^5.0.1, rc-tooltip@~5.1.0, rc-tooltip@~5.1.1:
   version "5.1.1"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-tooltip/-/rc-tooltip-5.1.1.tgz"
+  resolved "https://registry.npmjs.org/rc-tooltip/-/rc-tooltip-5.1.1.tgz"
   integrity sha512-alt8eGMJulio6+4/uDm7nvV+rJq9bsfxFDCI0ljPdbuoygUscbsMYb6EQgwib/uqsXQUvzk+S7A59uYHmEgmDA==
   dependencies:
     "@babel/runtime" "^7.11.2"
@@ -11215,7 +11382,7 @@ rc-tooltip@^5.0.1, rc-tooltip@~5.1.0:
 
 rc-tree-select@~4.3.0:
   version "4.3.3"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-tree-select/-/rc-tree-select-4.3.3.tgz"
+  resolved "https://registry.npmjs.org/rc-tree-select/-/rc-tree-select-4.3.3.tgz"
   integrity sha512-0tilOHLJA6p+TNg4kD559XnDX3PTEYuoSF7m7ryzFLAYvdEEPtjn0QZc5z6L0sMKBiBlj8a2kf0auw8XyHU3lA==
   dependencies:
     "@babel/runtime" "^7.10.1"
@@ -11224,9 +11391,20 @@ rc-tree-select@~4.3.0:
     rc-tree "^4.0.0"
     rc-util "^5.0.5"
 
+rc-tree-select@~4.8.0:
+  version "4.8.0"
+  resolved "https://registry.npmjs.org/rc-tree-select/-/rc-tree-select-4.8.0.tgz"
+  integrity sha512-evuVIF7GHCGDdvISdBWl4ZYmG/8foof/RDtzCu/WFLA1tFKZD77RRC3khEsjh4WgsB0vllLe7j+ODJ7jHRcDRQ==
+  dependencies:
+    "@babel/runtime" "^7.10.1"
+    classnames "2.x"
+    rc-select "~13.2.1"
+    rc-tree "~5.3.0"
+    rc-util "^5.7.0"
+
 rc-tree@^4.0.0, rc-tree@~4.1.0:
   version "4.1.5"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-tree/-/rc-tree-4.1.5.tgz"
+  resolved "https://registry.npmjs.org/rc-tree/-/rc-tree-4.1.5.tgz"
   integrity sha512-q2vjcmnBDylGZ9/ZW4F9oZMKMJdbFWC7um+DAQhZG1nqyg1iwoowbBggUDUaUOEryJP+08bpliEAYnzJXbI5xQ==
   dependencies:
     "@babel/runtime" "^7.10.1"
@@ -11235,9 +11413,20 @@ rc-tree@^4.0.0, rc-tree@~4.1.0:
     rc-util "^5.0.0"
     rc-virtual-list "^3.0.1"
 
-rc-trigger@^5.0.0, rc-trigger@^5.0.4, rc-trigger@^5.1.2, rc-trigger@^5.2.1:
+rc-tree@~5.3.0:
+  version "5.3.5"
+  resolved "https://registry.npmjs.org/rc-tree/-/rc-tree-5.3.5.tgz"
+  integrity sha512-nMlR7YArdL1m+FJXjl6Mt4n6S2+sVY6op2K3roB34YdVyq/Q4gDy5XT2cpiKGZrfCifX79N2LCihRrOGMO2UTw==
+  dependencies:
+    "@babel/runtime" "^7.10.1"
+    classnames "2.x"
+    rc-motion "^2.0.1"
+    rc-util "^5.16.1"
+    rc-virtual-list "^3.4.1"
+
+rc-trigger@^5.0.0, rc-trigger@^5.0.4, rc-trigger@^5.1.2, rc-trigger@^5.2.1, rc-trigger@^5.2.10:
   version "5.2.10"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-trigger/-/rc-trigger-5.2.10.tgz"
+  resolved "https://registry.npmjs.org/rc-trigger/-/rc-trigger-5.2.10.tgz"
   integrity sha512-FkUf4H9BOFDaIwu42fvRycXMAvkttph9AlbCZXssZDVzz2L+QZ0ERvfB/4nX3ZFPh1Zd+uVGr1DEDeXxq4J1TA==
   dependencies:
     "@babel/runtime" "^7.11.2"
@@ -11248,26 +11437,35 @@ rc-trigger@^5.0.0, rc-trigger@^5.0.4, rc-trigger@^5.1.2, rc-trigger@^5.2.1:
 
 rc-upload@~4.2.0-alpha.0:
   version "4.2.1"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-upload/-/rc-upload-4.2.1.tgz"
+  resolved "https://registry.npmjs.org/rc-upload/-/rc-upload-4.2.1.tgz"
   integrity sha512-ylCwyzKjCFpD2ZrTe49adxnyo/bJIhoydWRg9y6LwYM0eRT/GDYvkLauXR0MKWVVmCtp+x6pOjTXqd3b0Z3KzA==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.5"
     rc-util "^5.2.0"
 
-rc-util@^5.0.0, rc-util@^5.0.1, rc-util@^5.0.5, rc-util@^5.0.6, rc-util@^5.0.7, rc-util@^5.2.0, rc-util@^5.2.1, rc-util@^5.3.0, rc-util@^5.4.0, rc-util@^5.5.0, rc-util@^5.5.1, rc-util@^5.6.1, rc-util@^5.7.0, rc-util@^5.8.0, rc-util@^5.9.4, rc-util@^5.9.8:
-  version "5.13.2"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-util/-/rc-util-5.13.2.tgz"
-  integrity sha512-eYc71XXGlp96RMzg01Mhq/T3BL6OOVTDSS0urFEuvpi+e7slhJRhaHGCKy2hqJm18m9ff7VoRoptplKu60dYog==
+rc-upload@~4.3.0:
+  version "4.3.3"
+  resolved "https://registry.npmjs.org/rc-upload/-/rc-upload-4.3.3.tgz"
+  integrity sha512-YoJ0phCRenMj1nzwalXzciKZ9/FAaCrFu84dS5pphwucTC8GUWClcDID/WWNGsLFcM97NqIboDqrV82rVRhW/w==
+  dependencies:
+    "@babel/runtime" "^7.10.1"
+    classnames "^2.2.5"
+    rc-util "^5.2.0"
+
+rc-util@^5.0.0, rc-util@^5.0.1, rc-util@^5.0.5, rc-util@^5.0.6, rc-util@^5.0.7, rc-util@^5.12.0, rc-util@^5.14.0, rc-util@^5.15.0, rc-util@^5.16.1, rc-util@^5.2.0, rc-util@^5.2.1, rc-util@^5.3.0, rc-util@^5.4.0, rc-util@^5.5.0, rc-util@^5.5.1, rc-util@^5.6.1, rc-util@^5.7.0, rc-util@^5.8.0, rc-util@^5.9.4, rc-util@^5.9.8:
+  version "5.16.1"
+  resolved "https://registry.npmjs.org/rc-util/-/rc-util-5.16.1.tgz"
+  integrity sha512-kSCyytvdb3aRxQacS/71ta6c+kBWvM1v8/2h9d/HaNWauc3qB8pLnF20PJ8NajkNN8gb+rR1l0eWO+D4Pz+LLQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
     react-is "^16.12.0"
     shallowequal "^1.1.0"
 
-rc-virtual-list@^3.0.1, rc-virtual-list@^3.2.0:
-  version "3.3.0"
-  resolved "https://repo.huaweicloud.com/repository/npm/rc-virtual-list/-/rc-virtual-list-3.3.0.tgz"
-  integrity sha512-lVXpGWC6yMdwV2SHo6kc63WlqjCnb3eO72V726KA2/wh9KA6wi/swcdR3zAowuA8hJxG/lRANmY5kpLZ+Pz3iQ==
+rc-virtual-list@^3.0.1, rc-virtual-list@^3.2.0, rc-virtual-list@^3.4.1:
+  version "3.4.2"
+  resolved "https://registry.npmjs.org/rc-virtual-list/-/rc-virtual-list-3.4.2.tgz"
+  integrity sha512-OyVrrPvvFcHvV0ssz5EDZ+7Rf5qLat/+mmujjchNw5FfbJWNDwkpQ99EcVE6+FtNRmX9wFa1LGNpZLUTvp/4GQ==
   dependencies:
     classnames "^2.2.6"
     rc-resize-observer "^1.0.0"
@@ -13684,14 +13882,14 @@ vm-browserify@^1.0.1:
 
 warning@^4.0.1, warning@^4.0.3:
   version "4.0.3"
-  resolved "https://repo.huaweicloud.com/repository/npm/warning/-/warning-4.0.3.tgz"
+  resolved "https://registry.npmjs.org/warning/-/warning-4.0.3.tgz"
   integrity sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==
   dependencies:
     loose-envify "^1.0.0"
 
 watchpack-chokidar2@^2.0.0:
   version "2.0.1"
-  resolved "https://repo.huaweicloud.com/repository/npm/watchpack-chokidar2/-/watchpack-chokidar2-2.0.1.tgz#38500072ee6ece66f3769936950ea1771be1c957"
+  resolved "https://registry.yarnpkg.com/watchpack-chokidar2/-/watchpack-chokidar2-2.0.1.tgz#38500072ee6ece66f3769936950ea1771be1c957"
   integrity sha512-nCFfBIPKr5Sh61s4LPpy1Wtfi0HE8isJ3d2Yb5/Ppw2P2B/3eVSEBjKfN0fmHJSK14+31KwMKmcrzs2GM4P0Ww==
   dependencies:
     chokidar "^2.1.8"

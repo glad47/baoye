@@ -1,4 +1,10 @@
-// TODO(mc, 2019-03-01): tree-shake this import somehow or bundle reduction
+/*
+ * @Author: 黄常浩
+ * @Date: 2021-12-20 19:30:41
+ * @LastEditors: 黄常浩
+ * @LastEditTime: 2021-12-20 22:12:55
+ * @Description: gerber层规则
+ */
 import {
   TYPE_COPPER,
   TYPE_SOLDERMASK,
@@ -141,7 +147,7 @@ export function getDefaultLayerOptions(
         }
       }
 
-      if (value !== options[name]) options = {...options, [name]: value}
+      if (value !== options[name]) options = { ...options, [name]: value }
     })
 
     return options

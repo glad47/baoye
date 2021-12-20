@@ -1,13 +1,13 @@
-// root component
+
 /*
  * @Descripttion: 程序入口
  * @version: 1.0
  * @Author:
  * @Date: 2021-08-18 22:06:41
- * @LastEditors: ho huang
- * @LastEditTime: 2021-09-04 16:04:25
+ * @LastEditors: 黄常浩
+ * @LastEditTime: 2021-12-20 22:20:29
  */
-import React, {useEffect, useRef, useState} from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import {
@@ -39,7 +39,7 @@ import Head from './Head/index'
 import MobileHead from './Head/MobileHead'
 import PcbBuildFee from "./SpecificationInput/PcbBuildFee";
 import GerberProgress from "./SpecificationInput/GerberProgress";
-import {ajaxFileUpload} from "./SpecificationInput/AjaxService";
+import { ajaxFileUpload } from "./SpecificationInput/AjaxService";
 import YouTubeVideo from "./Components/Youtube/YouTubeVideo";
 import FormTips from "./Components/FormTips/FormTips";
 
@@ -72,7 +72,7 @@ function App(): JSX.Element {
     const pcbSizeFormRef = useRef(null);
     const [showYoutube, setShowYoutube] = useState<boolean>(false);
 
-    const handleAddQuote = async (link?: boolean ) => {
+    const handleAddQuote = async (link?: boolean) => {
         // @ts-ignore
         pcbSizeFormRef?.current.formSubmit(); // 触发表单，避免表单验证不提示。返回Boolean类型，当前未阻塞后面的代码运行
         // 添加报价前先上传state保存的gerber文件
@@ -169,7 +169,7 @@ function App(): JSX.Element {
                 if (checkLogin()) {
                     const fileRes = await ajaxFileUpload(fileFormData);
                     if (fileRes.data.success) {
-                        const {result} = fileRes.data
+                        const { result } = fileRes.data
                         dispatch(backfillUploadPathData(result));
                     } else {
                         return false;
@@ -191,7 +191,7 @@ function App(): JSX.Element {
     }
 
     const aginUpload = () => {
-     //   setUpload(true)
+        //   setUpload(true)
         // @ts-ignore
         gerberUploadRef?.current?.initGerberUploadState();
         dispatch(backToUpload(true))
@@ -309,7 +309,7 @@ function App(): JSX.Element {
     }
     const progressCallBack = (fileName: any, fileSize: any, progress: any) => {
         // @ts-ignore
-        return gerberGerberProgress?.current.handleProgress(fileName,fileSize,progress)
+        return gerberGerberProgress?.current.handleProgress(fileName, fileSize, progress)
     }
 
     const handleVideo = (type: any) => {
@@ -346,11 +346,11 @@ function App(): JSX.Element {
                                 {/*    :*/}
                                 {/*        <GerberShow handleFilesRef={gerberUploadRef?.current}/>*/}
                                 {/*}*/}
-                                <GerberUpload progressCallBack={progressCallBack} cRef={gerberUploadRef} loginName={loginName} setLoginMessage={setLoginMessage}/>
-                                <GerberProgress cRef={gerberGerberProgress} aginUpload={aginUpload}/>
+                                <GerberUpload progressCallBack={progressCallBack} cRef={gerberUploadRef} loginName={loginName} setLoginMessage={setLoginMessage} />
+                                <GerberProgress cRef={gerberGerberProgress} aginUpload={aginUpload} />
                                 <div className="quantity-con">
-                                    <FormTips tip={'666'}/>
-                                    {quoteMode === 0 ? <PcbSizeForm cRef={pcbSizeFormRef}/> : ''}
+                                    <FormTips tip={'666'} />
+                                    {quoteMode === 0 ? <PcbSizeForm cRef={pcbSizeFormRef} /> : ''}
                                 </div>
                                 {/*{!isBackToUpload*/}
                                 {/*    ? <div className={isShow ? 'again_uploads_success' : "again_uploads_fail"}>*/}
@@ -366,7 +366,7 @@ function App(): JSX.Element {
                         <div className="pcb-sidebar">
                             <PcbBuildFee
                                 handleAddQuote={handleAddQuote}
-                                setIsLogin={() => {setLogin(true)}}/>
+                                setIsLogin={() => { setLogin(true) }} />
                             {/*<div className="pcb-build-time">*/}
                             {/*    <BuildTimeForm buildItems={buildTimeItems} />*/}
                             {/*</div>*/}
@@ -381,7 +381,7 @@ function App(): JSX.Element {
                             {/*</div>*/}
                         </div>
                         {
-                            showYoutube && <YouTubeVideo closeVideo={() => handleVideo(null)}/>
+                            showYoutube && <YouTubeVideo closeVideo={() => handleVideo(null)} />
                         }
                     </Content>
                         :
@@ -457,7 +457,7 @@ function App(): JSX.Element {
                         getUserInfo={getUserInfo}
                         closeThisBox={closeThisBox}
                         getUserHead={getUserHead}
-                        loginCallBack = {handleAddQuote}
+                        loginCallBack={handleAddQuote}
                         isLoginReady={loginReady} /> : ""}
                 </Layout>
             </Main>
