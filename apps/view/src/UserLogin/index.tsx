@@ -31,11 +31,13 @@ function UserLogin(props: any) {
             // console.log(result)
             Cookies.set('token', result, { expires: 7 })
             if (success) {
+                
                 axios({
                     method: "GET",
                     url: sysUrl+"api/users/info",
                     headers: {
-                        "Authorization": result
+                        "Authorization":result
+                        
                     }
                 }).then(res => {
                     const { result, success } = res.data

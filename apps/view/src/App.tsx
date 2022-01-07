@@ -4,8 +4,8 @@
  * @version: 1.0
  * @Author:
  * @Date: 2021-08-18 22:06:41
- * @LastEditors: ho huang
- * @LastEditTime: 2021-09-04 16:04:25
+ * @LastEditors: aziz
+ * @LastEditTime: 2022-01-07 14:32:43
  */
 import React, {useEffect, useRef, useState} from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -78,13 +78,15 @@ function App(): JSX.Element {
         // 添加报价前先上传state保存的gerber文件
         const _f_file = await uploadZipFile('check');
         if (!_f_file) {
+            // console.log("i am here *******************")
             return false;
         }
         if (quoteMode === 0) {
             if (boardType === 'Single') {
                 // @ts-ignore
                 const flag = await pcbSizeFormRef?.current.formSubmit(); // 主要弹出input require
-                if (flag !== null) {
+               
+                if (flag !== false) {
                     if (checkLogin()) {
                         await uploadZipFile('upload');
                     } else {

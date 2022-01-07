@@ -139,6 +139,8 @@ const ProcessThreeTransport = () => {
     const initCouriers = async () => {
         setSpin(true);
         const params = await initQuoteFreightParams();
+        console.log("**************************courioer info****************************")
+        console.log(params)
         DescribeCouriers().then(async res => {
             const dt: any = [];
             if (res && Array.isArray(res)) {
@@ -182,16 +184,18 @@ const ProcessThreeTransport = () => {
         deliveryAddr && ({receiverCountry} = deliveryAddr);
         dat.countryName = receiverCountry;
         let _session : any = window.localStorage.getItem('countryList');
-        let countryList;
-        if (_session) {
-            countryList = JSON.parse(_session);
-        } else {
-            await getAllCountry().then((res: any) => {
-                countryList = res;
+        let countryList:any[];
+        // if (_session) {
+        //     countryList = JSON.parse(_session);
+        // } else {
+            countryList= await getAllCountry().then((res: any) => {
+                return res;
             })
-        }
+        // }
         dat.countryId = countryList.find((item: any) => (item.name === receiverCountry))?.id;
         setFreightParams(dat);
+        console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&parameters&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+        console.log(dat);
         return dat;
     }
 
