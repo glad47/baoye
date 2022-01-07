@@ -1,6 +1,13 @@
+/*
+ * @Author: 黄常浩
+ * @Date: 2021-12-20 19:30:41
+ * @LastEditors: 黄常浩
+ * @LastEditTime: 2021-12-20 22:19:46
+ * @Description: axios 页面
+ */
 import axios from 'axios'
 import Cookies from "js-cookie";
-import {message} from "antd";
+import { message } from "antd";
 
 //线上
 const baseUrl = "https://www.pcbonline.com/" //线上前端
@@ -8,9 +15,7 @@ const sysUrl = "https://sys.pcbonline.com/"  //线上后端
 // 线下
 // const baseUrl = "http://localhost:8083/base" //网站前端
 // const sysUrl = "http://localhost:8083/sys"  //网站后端
-// parker服务器配置地址
-// const baseUrl = "http://pcb.imcoding.top/base/" //网站前端
-// const sysUrl = "http://pcb.imcoding.top/sys/"  //网站后端
+
 
 // api登录拦截
 const AUTH_API = [
@@ -63,9 +68,9 @@ service.interceptors.response.use(
         return res
     },
     error => {
-        const {data} = error.response;
+        const { data } = error.response;
         if (data) {
-            const {code} = data;
+            const { code } = data;
             if (code === '403') {
                 message.error('登陆失效，请重新登陆！');
                 setTimeout(() => {
