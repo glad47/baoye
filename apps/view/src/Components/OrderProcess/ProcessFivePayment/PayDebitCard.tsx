@@ -23,6 +23,12 @@ const PayDebitCard = (props: any) => {
 
     const handleOnFinish = (values: any) => {
         const _dis = ['ExpirationData'];
+        // console.log("*********************************************")
+        // console.log(_dis)
+        // console.log(['card_no'])
+        // console.log(['cvv'])
+        // console.log(values)
+
         const dtd: any = {};
         Object.keys(values).forEach((key: any) => {
             if (_dis.indexOf(key) > -1) {
@@ -34,8 +40,9 @@ const PayDebitCard = (props: any) => {
                 dtd[key] = values[key];
             }
         });
-        dtd.first_name = orderOptionsItem.deliveryAddr.receiverName;
-        dtd.last_name = orderOptionsItem.deliveryAddr.lastName;
+        
+        // dtd.first_name = orderOptionsItem.deliveryAddr.receiverName;
+        // dtd.last_name = orderOptionsItem.deliveryAddr.lastName;
         props.submitDebit(dtd, 5);
     }
 
@@ -50,6 +57,20 @@ const PayDebitCard = (props: any) => {
                 onFinish={handleOnFinish}
             >
                 <Row gutter={16}>
+                   <Col span={12}>
+                        <Form.Item label="First Name" name="first_name" rules={[{ required: true }]}>
+                            <Input
+                                
+                                placeholder={'please enter your first name'}/>
+                        </Form.Item>
+                    </Col>
+                    <Col span={12}>
+                        <Form.Item label="Last Name" name="last_name" rules={[{ required: true }]}>
+                            <Input
+                                
+                                placeholder={'please enter your last name'}/>
+                        </Form.Item>
+                    </Col>
                     <Col span={24}>
                         <Form.Item label="Card Number" name="card_no" rules={[{ required: true }]}>
                             <Input
@@ -59,6 +80,7 @@ const PayDebitCard = (props: any) => {
                                 placeholder={'0000 0000 0000 0000'}/>
                         </Form.Item>
                     </Col>
+                    
                     <Col span={12}>
                         <Form.Item label="Expiration Date" name="ExpirationData" rules={[{ required: true }]}>
                             <Input

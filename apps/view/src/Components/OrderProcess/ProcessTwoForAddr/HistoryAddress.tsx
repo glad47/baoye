@@ -103,7 +103,7 @@ const HistoryAddress = (props: any) => {
     return (
         <div className="history-addr">
            
-            <div style={{position:'relative'}}>
+            <div style={{overflow:'auto',whiteSpace:'nowrap'}}>
             <span style={{position:'sticky', left:'10px',top:'-10px'}}>History address</span>
                 <Spin spinning={spin}>
                     <div className="history-addr-box" style={{overflow:'auto',whiteSpace:'nowrap'}}>

@@ -6,7 +6,7 @@
  * @Date: 2021-08-18 22:06:41
 <<<<<<< HEAD
  * @LastEditors: aziz
- * @LastEditTime: 2022-01-07 14:32:43
+ * @LastEditTime: 2022-01-14 19:25:07
 =======
  * @LastEditors: 黄常浩
  * @LastEditTime: 2021-12-20 22:20:29
@@ -82,6 +82,9 @@ function App(): JSX.Element {
         pcbSizeFormRef?.current.formSubmit(); // 触发表单，避免表单验证不提示。返回Boolean类型，当前未阻塞后面的代码运行
         // 添加报价前先上传state保存的gerber文件
         const _f_file = await uploadZipFile('check');
+        
+       
+
         if (!_f_file) {
             // console.log("i am here *******************")
             return false;
