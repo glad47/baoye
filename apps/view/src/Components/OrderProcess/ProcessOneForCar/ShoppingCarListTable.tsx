@@ -88,9 +88,10 @@ const ShoppingCarListTable = () => {
     const getCarList = async () => {
         setSpin(true);
         const status = 1;
-        const {data:orderPCB} = await ajaxCarList({status});
-        let {data:orderStencil} = await ajaxCarListForStencil({status: 1});
-        const {data:orderAssembly} = await ajaxCarListForAssembly({status: 1});
+        const statusList=[1,2]
+        const {data:orderPCB} = await ajaxCarList({statusList});
+        let {data:orderStencil} = await ajaxCarListForStencil({statusList});
+        const {data:orderAssembly} = await ajaxCarListForAssembly({statusList});
         orderStencil = Fields_Stencil_PCB(orderStencil);
         console.log('orderPCB', orderPCB)
         console.log('orderStencil', orderStencil)

@@ -4,13 +4,8 @@
  * @version: 1.0
  * @Author:
  * @Date: 2021-08-18 22:06:41
-<<<<<<< HEAD
  * @LastEditors: aziz
- * @LastEditTime: 2022-01-14 19:25:07
-=======
- * @LastEditors: 黄常浩
- * @LastEditTime: 2021-12-20 22:20:29
->>>>>>> ceb40e242f10c64ec41335813f34b5d0c6a216a9
+ * @LastEditTime: 2022-01-21 18:57:09
  */
 import React, { useEffect, useRef, useState } from 'react'
 import { hot } from 'react-hot-loader/root'

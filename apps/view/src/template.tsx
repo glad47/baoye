@@ -1,3 +1,10 @@
+/*
+ * @Author: aziz
+ * @Date: 2021-12-20 14:58:08
+ * @LastEditors: aziz
+ * @LastEditTime: 2022-01-21 18:41:21
+ * @Description: file content
+ */
 import React from 'react'
 import ReactDomServer from 'react-dom/server'
 import { dom as faDom } from '@fortawesome/fontawesome-svg-core'
@@ -42,6 +49,7 @@ export default function StaticTemplate(props: Props): string {
                 <script type="text/javascript" src='./Analysis/ga.js'> </script>
                 <script src="https://embed.tawk.to/5c8511c8c37db86fcfccf818/default" async ></script>
                 <script src="https://www.dwin1.com/19038.js" type="text/javascript" async defer></script>
+                
             </head>
             <body className="h-100 overflow-hidden">
                 <div

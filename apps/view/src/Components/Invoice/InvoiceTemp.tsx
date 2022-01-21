@@ -17,13 +17,16 @@ const InvoiceTemp:React.FC<any> = (props: any) => {
         html2Canvas(document.getElementById(str)).then(function (canvas) {
             let contentWidth = canvas.width;
             let contentHeight = canvas.height;
-            let pageHeight = (contentWidth / 592.28) * 841.89;
+            console.log("**********************************************")
+            console.log(contentWidth)
+            console.log(contentHeight)
+            let pageHeight = (contentWidth / 592.28) * 650.89;
             let leftHeight = contentHeight;
             //页面偏移
             let position = 0;
             //a4纸的尺寸[595.28,841.89]，html页面生成的canvas在pdf中图片的宽高
-            let imgWidth = 841.89;
-            let imgHeight = (841.89 / contentWidth) * contentHeight;
+            let imgWidth = 859.89;
+            let imgHeight = (650.89 / contentWidth) * contentHeight;
             //表格太长，所以导出的是横向的A4
             let pageData = canvas.toDataURL("image/jpeg", 1.0);
             let pdf = new jsPDF("l", "pt", "a4");
@@ -76,7 +79,7 @@ const InvoiceTemp:React.FC<any> = (props: any) => {
                     </div>
 
                     <div className='detail'>
-                        <table border='1' cellSpacing="0">
+                        <table border={1} cellSpacing={0}>
                             <thead>
                             <tr>
                                 <th>File Name</th>
@@ -117,8 +120,8 @@ const InvoiceTemp:React.FC<any> = (props: any) => {
                             <tr>
                                 <td className="blue">Freight</td>
                                 <td className="blue">{orderVO.postFee}</td>
-                                <td rowSpan='4' colSpan='3' className="blue">Total</td>
-                                <td rowSpan='4' colSpan='4' className="blue">{orderVO.totalFee}</td>
+                                <td rowSpan={4} colSpan={3} className="blue">Total</td>
+                                <td rowSpan={4} colSpan={4} className="blue">{orderVO.totalFee}</td>
                             </tr>
                             <tr>
                                 <td className="blue">PayPal Fee</td>

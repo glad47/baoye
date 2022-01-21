@@ -3,8 +3,8 @@
  * @version: 1.1
  * @Author: Parker
  * @Date: 2021-08-15 17:15:00
- * @LastEditors: ho huang
- * @LastEditTime: 2021-09-03 23:37:05
+ * @LastEditors: aziz
+ * @LastEditTime: 2022-01-18 09:24:40
  */
 
 
@@ -102,9 +102,9 @@ const PcbOrderProcess:React.FC = (props:any) => {
                 setPaySuccess(true);
             }
         });
-        msgInterval = setInterval(async() => {
-            await GetMsgStatus(productNos.toString());
-        }, 3000);
+        // msgInterval = setInterval(async() => {
+        //     await GetMsgStatus(productNos.toString());
+        // }, 3000);
     }
 
 

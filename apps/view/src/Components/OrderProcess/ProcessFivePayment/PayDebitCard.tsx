@@ -5,6 +5,7 @@ import {
     InfoCircleOutlined
 } from '@ant-design/icons'
 import {useAppState} from "../../../state";
+// import FingerprintJS from '@fingerprintjs/fingerprintjs-pro'
 
 
 const PayDebitCard = (props: any) => {
@@ -17,7 +18,16 @@ const PayDebitCard = (props: any) => {
     });
 
     useEffect(() => {
-        console.log('orderOptionsItem', orderOptionsItem)
+        console.log('orderOptionsItem', orderOptionsItem);
+        // const fpPromise = FingerprintJS.load({
+        //     token: 'RSbGS7JjshkSMZgN5jWU'
+        //   })
+        //   fpPromise.then(fp => fp.get({extendedResult: true }))
+        //     .then(result => {
+        //         console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        //         var userLang = navigator.language || navigator.userLanguage; 
+        //         console.log("browser language is  :" + userLang  ) 
+        //         console.log(result)})
     }, [])
 
 

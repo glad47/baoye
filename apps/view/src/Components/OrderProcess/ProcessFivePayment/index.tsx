@@ -7,6 +7,8 @@ import PayPaypal from "./PayPaypal";
 import {createOrderDetails, createOrderNumber} from "../../../SpecificationInput/AjaxService";
 import {orderOptions, orderSummaryFun, useAppState} from "../../../state";
 import {isNumber} from "../../../util";
+import FingerprintJS from '@fingerprintjs/fingerprintjs-pro'
+import { result } from 'lodash';
 
 interface ts_orderDetail {
     amount: number,
@@ -17,6 +19,7 @@ const ProcessFivePayment = (props:any) => {
     const [paypalFee, setPaypalFee] = useState<any>(0);
     const { dispatch, orderSummary, orderOptionsItem } = useAppState();
     const [orderDetail, setOrderDetail] = useState<any>({amount: 0});
+    const [device, setDevice] = useState<any>({finger_print_id:'',user_agent:'',accept_lang:''})
 
     // 选择支付类型
     const handlerCheckPayType = (type: number) => {
@@ -31,6 +34,20 @@ const ProcessFivePayment = (props:any) => {
 
     useEffect(() => {
         createOrder();
+        const fpPromise = FingerprintJS.load({
+            token: 'RSbGS7JjshkSMZgN5jWU'
+          })
+          fpPromise.then(fp => fp.get({extendedResult: true }))
+            .then(result => {
+                // console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+                var userLang = navigator.language ;
+                // console.log("browser language is  :" + userLang  ) 
+                // console.log(result)
+                setDevice({finger_print_id:result.visitorId,user_agent:result.browserName,accept_lang:userLang})
+            })
+                
+              
+    
     }, []);
 
 
@@ -100,19 +117,25 @@ const ProcessFivePayment = (props:any) => {
                 dtd[key] = orderDetail[key];
             }
         });
+        dtd.device=device;
         dtd.remark = orderOptionsItem.remark;
         if (payType === 5) { // 信用卡支付  发送信用卡表单
             dtd.payMethodInfo = data;
+
         }
+
+        // console.log("just before payment")
         createOrderDetails(dtd).then((res: any) => {
             if (isNumber(res)) {
+                // console.log("the payment seems to be ok")
                 props.history.push({pathname: `/paySuc`, state: {id: res}});
-                message.success('支付成功！');
+                message.success('payment is successful！');
             } else {
-                message.error(res);
+                // console.log("payment is not successful")
+                message.error("payment is not successful");
             }
         });
-        console.log('dtd===>', dtd);
+        // console.log('dtd===>', dtd);
     }
 
     return (
