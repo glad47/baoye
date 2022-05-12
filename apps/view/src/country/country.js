@@ -2,7 +2,7 @@
  * @Author: 
  * @Date: 2020-06-12 09:47:32
  * @LastEditors: aziz
- * @LastEditTime: 2021-12-30 11:45:04
+ * @LastEditTime: 2022-03-23 18:16:37
  * @Description: file content
  * @FilePath: /project/pcbonline-v2/apps/view/src/country/index.js
  */ 
@@ -1160,7 +1160,7 @@ let countryList = [
       'code': 260
     }
   ];
-  console.log("**********************the total current countries ***********************")
-  console.log(countryList.length)
+  // console.log("**********************the total current countries ***********************")
+  // console.log(countryList.length)
   export default countryList;
   

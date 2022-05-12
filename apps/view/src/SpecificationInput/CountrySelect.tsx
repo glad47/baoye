@@ -1,3 +1,10 @@
+/*
+ * @Author: aziz
+ * @Date: 2021-12-20 14:58:08
+ * @LastEditors: aziz
+ * @LastEditTime: 2022-03-23 18:17:59
+ * @Description: file content
+ */
 import { Select, Spin } from 'antd';
 import React, { useState, ReactNode } from 'react';
 import axios from 'axios';
@@ -25,7 +32,7 @@ const CountrySelect: React.FC<CountrySelectProps> = (prpos) =>{
     setFetching(true)
     axios.get('http://localhost:8871/quote/getCountry')
     .then((rep)=>{
-      console.log(rep.data.data);
+      // console.log(rep.data.data);
       // if(fetchid !== lastFetchId) return;
       if(rep.data.code === 0){
         const d = rep.data.data;

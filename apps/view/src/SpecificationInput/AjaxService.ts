@@ -4,7 +4,7 @@
  * @Author:
  * @Date: 2021-08-14 10:36:12
  * @LastEditors: aziz
- * @LastEditTime: 2022-01-21 18:56:47
+ * @LastEditTime: 2022-05-11 09:38:08
  */
 import Axios from "axios";
 import Cookies from 'js-cookie';
@@ -12,7 +12,14 @@ import service from "../request";
 
 //线上
 export const baseUrl = "https://www.pcbonline.com/" //线上前端
-export const sysUrl = "https://sys.pcbonline.com/"  //线上后端
+export const sysUrl1 = "https://sys.pcbonline.com/"  //线上后端
+
+
+//working offline
+ export const sysUrl = "http://10.168.8.250:8877/" 
+
+
+
 // 线下
 // export const baseUrl = "http://localhost:8083/base/" //网站前端
 // export const sysUrl = "http://localhost:8083/sys/"  //网站后端

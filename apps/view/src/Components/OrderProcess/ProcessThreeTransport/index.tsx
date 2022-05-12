@@ -97,12 +97,12 @@ const ProcessThreeTransport = () => {
         const dtd = {
             ...addrData
         };
-        console.log('dtd==========>', dtd)
+        // console.log('dtd==========>', dtd)
         dtd.courierAccount = courierAccount;
         setAddrData(dtd);
         modifyDeliveryAddress(dtd).then(res => {
             dispatch(reduxSetDeliveryAddr({deliveryAddr: dtd}));
-            console.log('addr account is update!')
+            // console.log('addr account is update!')
         })
     }
 
@@ -139,8 +139,8 @@ const ProcessThreeTransport = () => {
     const initCouriers = async () => {
         setSpin(true);
         const params = await initQuoteFreightParams();
-        console.log("**************************courioer info****************************")
-        console.log(params)
+        // console.log("**************************courioer info****************************")
+        // console.log(params)
         DescribeCouriers().then(async res => {
             const dt: any = [];
             if (res && Array.isArray(res)) {
@@ -194,8 +194,8 @@ const ProcessThreeTransport = () => {
         // }
         dat.countryId = countryList.find((item: any) => (item.name === receiverCountry))?.id;
         setFreightParams(dat);
-        console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&parameters&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-        console.log(dat);
+        // console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&parameters&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+        // console.log(dat);
         return dat;
     }
 

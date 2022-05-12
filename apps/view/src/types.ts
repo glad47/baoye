@@ -155,6 +155,8 @@ export type SubtotalItem = {
   boardFee: number,  //板费
   engineeringFee: number,  //工程费
   testFee: number,  //测试费
+  subsidy: number,
+  originalPrice: number,
   totalWeight: number,  //总重量
   urgentFee: number,  //加急费
   shippingFee: number, //运费

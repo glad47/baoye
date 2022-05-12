@@ -3,8 +3,8 @@
  * @version: 1.0
  * @Author: 
  * @Date: 2021-08-18 22:06:41
- * @LastEditors: ho huang
- * @LastEditTime: 2021-09-04 15:49:40
+ * @LastEditors: aziz
+ * @LastEditTime: 2022-03-22 11:46:18
  */
 import React, {useEffect, useState} from 'react'
 import { Drawer } from 'antd';
@@ -26,6 +26,12 @@ const CarDrawer = (props: any) => {
         zIndex: 9999999999,
         visible: carDrawerStatus
     }
+
+
+    // useEffect(()=>{
+    //     console.log(user);
+
+    // },[])
     return (
         <Drawer {...drawerOptions} className="car-drawer">
             <div className="car-drawer-box">

@@ -1,3 +1,10 @@
+/*
+ * @Author: aziz
+ * @Date: 2021-12-20 14:58:08
+ * @LastEditors: aziz
+ * @LastEditTime: 2022-03-23 18:18:39
+ * @Description: file content
+ */
 import React from 'react';
 import { Switch,Form } from 'antd';
 
@@ -9,8 +16,8 @@ const VALUE_PROP_NAME = "checked";
 
 const ObserverSwitch: React.FC<ObserverSwitchProps> = (props) =>{
     const dataTo=(e:any)=>{
-        console.log(props,name)
-        console.log(e)
+        // console.log(props,name)
+        // console.log(e)
     }
     return (
         <Form.Item name={props.name} valuePropName={VALUE_PROP_NAME} noStyle>

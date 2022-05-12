@@ -2,7 +2,7 @@
  * @Author: 黄常浩
  * @Date: 2021-12-20 19:30:41
  * @LastEditors: aziz
- * @LastEditTime: 2022-01-21 18:56:15
+ * @LastEditTime: 2022-05-12 11:22:58
  * @Description: axios 页面
  */
 import axios from 'axios'
@@ -11,11 +11,19 @@ import { message } from "antd";
 
 //线上
 const baseUrl = "https://www.pcbonline.com/" //线上前端
-const sysUrl = "https://sys.pcbonline.com/"  //线上后端
+const sysUrl1 = "https://sys.pcbonline.com/"  //线上后端
+
+
+
 // 线下
 // const baseUrl = "http://localhost:8083/base" //网站前端
 // const sysUrl = "http://localhost:8083/sys"  //网站后端
 
+
+// const baseUrl = "http://10.168.8.250:8877";
+
+//ofline
+ const sysUrl = "http://10.168.8.250:8871"
 
 // api登录拦截
 const AUTH_API = [

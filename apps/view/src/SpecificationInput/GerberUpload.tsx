@@ -3,8 +3,8 @@
  * @version: 1.0
  * @Author: 
  * @Date: 2021-08-14 10:36:12
- * @LastEditors: ho huang
- * @LastEditTime: 2021-09-04 18:51:34
+ * @LastEditors: aziz
+ * @LastEditTime: 2022-05-11 09:41:41
  */
 import React, {useState, useEffect, useImperativeHandle} from "react";
 import {
@@ -20,7 +20,7 @@ import LoadFiles from "../LoadFiles";
 import { FileEvent } from "../types";
 import Axios from "axios";
 import { preventDefault } from "../events";
-import { sysUrl } from "./AjaxService";
+import { sysUrl1 } from "./AjaxService";
 import { message,Checkbox } from "antd";
 import Cookies from 'js-cookie';
 import GerberShow from "./GerberShow";
@@ -105,7 +105,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
             dispatch(reduxUploadGerber({process: 1, status: 'init'}));
             changeProgress(1);
             dispatch(saveUploadGerberFileFormData(files[0]));
-            Axios.post(sysUrl+'parsegerber',fd,{
+            Axios.post(sysUrl1+'parsegerber',fd,{
                 headers: { 'Content-Type': 'multipart/form-data' },
                 timeout:60000,
                 onUploadProgress: (ProgressEvent) => {
@@ -144,7 +144,7 @@ const GerberUpload: React.FC<GerberUploadProps> = (props) => {
                 if (quoteMode === 1 || quoteMode === 2) {
                     // dispatch(backfillPcbData(r,success))
                 }
-                console.log('上传文件出错！！');
+                // console.log('上传文件出错！！');
                 setDelay(true)
                 dispatch(backToUpload(false))
                 // dispatch(reduxUploadGerber({status: 'fail'}));

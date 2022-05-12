@@ -1,3 +1,10 @@
+/*
+ * @Author: aziz
+ * @Date: 2021-12-20 14:58:08
+ * @LastEditors: aziz
+ * @LastEditTime: 2022-03-22 10:31:28
+ * @Description: file content
+ */
 import React from 'react';
 import { Row } from 'antd';
 import { WalletOutlined, SettingOutlined, DashboardOutlined } from '@ant-design/icons';
@@ -7,6 +14,7 @@ interface CastCalculationProps {
     boardFee?: number
     engineeringFee?: number
     testFee?: number
+    subsidy?: number
     quoteMode: number
     stencilFee: number
     assemblyFee: number
@@ -15,7 +23,7 @@ interface CastCalculationProps {
 
 
 const CastCalculation: React.FC<CastCalculationProps> = (props) => {
-    const { boardFee, engineeringFee, testFee, quoteMode, stencilFee, assemblyFee } = props
+    const { boardFee, engineeringFee, testFee, quoteMode, stencilFee, assemblyFee, subsidy } = props
 
     let pcbFeeLoading, smtFeeLoading, assFeeLoading;
     if (quoteMode === 0) {
@@ -41,7 +49,12 @@ const CastCalculation: React.FC<CastCalculationProps> = (props) => {
         <div className="fee-cont">
             <Fade in={pcbFeeLoading}>
                 <Row>
-                    <div><WalletOutlined /><span>Board Price</span></div><span>${boardFee}</span>
+                    <div><WalletOutlined /><span>Board Price</span></div><span>${boardFee }</span>
+                </Row>
+            </Fade>
+            <Fade in={pcbFeeLoading}>
+                <Row>
+                    <div><WalletOutlined /><span>Subsidy </span></div><span>${subsidy}</span>
                 </Row>
             </Fade>
             <Fade in={pcbFeeLoading}>

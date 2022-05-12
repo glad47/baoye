@@ -24,6 +24,7 @@ import Head from './Head/index'
 import MobileHead from './Head/MobileHead'
 import PcbBuildFee from "./SpecificationInput/PcbBuildFee";
 
+
 function Home(): JSX.Element {
     const { dispatch
         , subtotal
@@ -64,7 +65,7 @@ function Home(): JSX.Element {
                 // return;
                 if (!loginName) {
                     let result = loginReady()
-                    if (result) {
+                    if (!!result) {
                         // setUpload(false)
                         dispatch(addQuote());
                         if (link) { location.href = '/audit'; }
@@ -152,6 +153,53 @@ function Home(): JSX.Element {
     }
 
     useEffect(() => {
+
+        // console.log("$%$%$%$%$%$%$%$%$%$%$%$%")
+        // console.log(Cookies.get('fromPCBCS'))
+        // if(Cookies.get('fromPCBCS')){
+            
+                
+        //         axios({
+        //             method: "GET",
+        //             url: sysUrl+"api/users/info",
+        //             headers: {
+        //                 "Authorization":Cookies.get("token")
+                        
+        //             }
+        //         }).then(res => {
+        //             const { result, success } = res.data
+                   
+        //             if (success) {
+        //                 const { userName,favicon } = result || [];
+        //                 let users=userName!==null ? userName : 'defaultName' // 预防出现用户名为null 的情况
+        //                 let heads=favicon!==null ?favicon:require('../images/Mask.png')
+        //                 result.favicon=heads
+        //                 setLogin(users);
+        //                 props.getUserHead(heads);
+        //                 dispatch(reduxUser({cartNum: result.cartCount}));
+        //                 sessionStorage.setItem('username', JSON.stringify(users))
+        //                 sessionStorage.setItem('userAllInfo',JSON.stringify(result))
+        //                 Cookies.set('user-login', JSON.stringify(users), {domain:'pcbonline.com'});
+        //                 Cookies.set('user-favicon', result.favicon, {domain:'pcbonline.com'});
+        //                 Cookies.set('cartCount', result.cartCount, {domain:'pcbonline.com'});
+        //                 props.closeThisBox(false)
+        //                 props.isLoginReady(true)
+        //                 if (props.loginCallBack && typeof props.loginCallBack === 'function') {
+        //                     props.loginCallBack()
+        //                 }
+        //                 // 订阅系统信息
+        //                 // emitter.emit('Emi_IntervalGetMes');
+        //                 console.log("login successfully");
+        //                 message.info('Login successful',6)
+        //             }else{
+        //                 message.error('Something error')
+        //             }
+
+        //         })
+               
+           
+            
+        // }
         const from = urlQuery('from')
         let users = sessionStorage.getItem('username')
         setLoginName(sessionStorage.getItem('username'));
@@ -206,11 +254,21 @@ function Home(): JSX.Element {
     return (
         <>
             <Main>
+
+                
                 {/* <FileList /> */}
                 {/* <BoardList /> */}
                 <Layout>
+               
+                
                     {/* <Head loginName={loginName}/> */}
-                    {!isMobileSize ? <Head loginName={[loginName, headPortrait]} /> : <MobileHead />}
+                   
+                    {!isMobileSize ? <Head   
+                        getUserInfo={getUserInfo}
+                        closeThisBox={closeThisBox} 
+                        getUserHead={getUserHead}
+                        isLoginReady={loginReady} 
+                         /> : <MobileHead  />}
                     {!isMobileSize ? <Content>
                             {/* 左边栏 */}
                             <div className="pcb-nav">
@@ -310,7 +368,7 @@ function Home(): JSX.Element {
                             </div>}
                             <div>
                                 <ShoppingTotal
-                                    total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))}
+                                    total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee - subtotal.subsidy).toFixed(2))}
                                     handleAddQuote={handleAddQuote}
                                     handleGoCar={handleGoCar}
                                     isMobileSize={isMobileSize}

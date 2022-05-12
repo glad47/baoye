@@ -24,10 +24,17 @@ const HistoryAddress = (props: any) => {
                 }
               
                 const dtt=dt.filter((item: any) => item.isDefault !== 1)
-
-
-                 const dtt2 = (() => [curr,...dtt])();
+                var dtt2 :any =[]
+                if(curr){
+                    dtt2= (() => [curr,...dtt])();
+                }else{
+                    dtt2= (() => [...dtt])();
+                }
+                 
                 
+
+                // console.log("******************printing address list************************")
+                // console.log(dtt2);
                 setAddrList(dtt2);
                 setSpin(false);
             }

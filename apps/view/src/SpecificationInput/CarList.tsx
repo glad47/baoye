@@ -3,8 +3,8 @@
  * @version: 1.0
  * @Author:
  * @Date: 2021-08-18 22:06:41
- * @LastEditors: ho huang
- * @LastEditTime: 2021-09-04 17:19:46
+ * @LastEditors: aziz
+ * @LastEditTime: 2022-03-23 18:17:33
  */
 import React, {useEffect, useState} from 'react'
 import {message, Spin} from 'antd';
@@ -50,7 +50,7 @@ const CarList = (props:any) => {
     useEffect(() => {
         if (listData.length > 0) {
             let t = listData.reduce((pre: number, cur: orders) => {
-                const {subtotal, totalStencilFee, totalAssemblyFee} = cur;
+                const {subtotal, totalStencilFee, totalAssemblyFee } = cur;
                 if (subtotal) {
                     pre += subtotal;
                 } else if (totalAssemblyFee) {

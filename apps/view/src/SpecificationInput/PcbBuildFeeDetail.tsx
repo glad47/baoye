@@ -3,8 +3,8 @@
  * @version: 1.0
  * @Author:
  * @Date: 2021-07-17 11:10:06
- * @LastEditors: ho huang
- * @LastEditTime: 2021-09-04 20:33:16
+ * @LastEditors: aziz
+ * @LastEditTime: 2022-03-22 15:32:52
  */
 import React, {useEffect} from 'react';
 import {Select} from "antd";
@@ -19,7 +19,7 @@ const bts = [
 ]
 
 const PcbBuildFeeDetail: React.FC<any> = props => {
-    const { boardFee, engineeringFee, testFee, stencilFee, assemblyFee } = props;
+    const { boardFee, engineeringFee, testFee, stencilFee, assemblyFee, subsidy, originalPrice } = props;
     const { dispatch, subtotal, buildTimeItmes, carDrawerStatus, quoteMode} = useAppState();
 
     const handlerBuild = (value: any) => {
@@ -102,10 +102,16 @@ const PcbBuildFeeDetail: React.FC<any> = props => {
             </div>
             <div className="model-3">
                 <div className="cost-det">
+                <div>
+                    <span style={{color: "red"}}>Subsidy</span>
+                        <span className="m-price" style={{fontSize: '20px', 'fontWeight': 600,color: "red"}}>
+                            -${subtotal.subsidy}
+                        </span>
+                    </div>
                     <div>
                         <span>Estimated Cost</span>
                         <span className="m-price" style={{fontSize: '20px', 'fontWeight': 600}}>
-                            ${Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))}
+                            ${Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee - subtotal.subsidy ).toFixed(2))}
                         </span>
                     </div>
                 </div>
@@ -115,5 +121,5 @@ const PcbBuildFeeDetail: React.FC<any> = props => {
     return DOM;
 }
 
-PcbBuildFeeDetail.defaultProps = { buildItems: bts, boardFee: 0, engineeringFee: 0, testFee: 0 }
+PcbBuildFeeDetail.defaultProps = { buildItems: bts, boardFee: 0, engineeringFee: 0, testFee: 0,subsidy:0 }
 export default PcbBuildFeeDetail;

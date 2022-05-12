@@ -73,7 +73,7 @@ const ProcessFivePayment = (props:any) => {
         };
 
         const data:any = await createOrderNumber(toPaymentParameterDTO);
-        console.log('toPaymentParameterDTO', data.paypalFee)
+        // console.log('toPaymentParameterDTO', data.paypalFee)
         setOrderDetail(data);
         setPaypalFee(data.paypalFee)
         dispatch(orderSummaryFun({ handlingCharge: data.paypalFee}));
@@ -108,7 +108,7 @@ const ProcessFivePayment = (props:any) => {
                 } else if (key === 'couponId') {
                     dtd[key] = orderSummary.coupon.id;
                 } else if (key === 'payPayOrderId') {
-                    console.log('dtd[key]', key, dtd[key])
+                    // console.log('dtd[key]', key, dtd[key])
                     dtd[key] = orderID || new Date().getTime();
                 } else if (key === 'paymentType') {
                     dtd[key] = payType;
@@ -126,6 +126,8 @@ const ProcessFivePayment = (props:any) => {
 
         // console.log("just before payment")
         createOrderDetails(dtd).then((res: any) => {
+            console.log("**************** the order create result my friend*************")
+            console.log(res)
             if (isNumber(res)) {
                 // console.log("the payment seems to be ok")
                 props.history.push({pathname: `/paySuc`, state: {id: res}});

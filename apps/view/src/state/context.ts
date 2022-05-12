@@ -1,3 +1,10 @@
+/*
+ * @Author: aziz
+ * @Date: 2021-12-20 14:58:08
+ * @LastEditors: aziz
+ * @LastEditTime: 2022-03-23 14:27:50
+ * @Description: file content
+ */
 
 import React, {useContext} from 'react'
 
@@ -21,7 +28,7 @@ export const INITIAL_STATE: State = {
   pcbStandardField: INITIAL_STANDARD,
   fieldMode: 'standard',
   pcbSizeField: {boardType:'Single',panelSize: {sizeX:null,sizeY:null},quantity:10,singleSize:{sizeX:null,sizeY:null}},
-  subtotal: {boardFee:0,engineeringFee:0,testFee:0,totalWeight:0,urgentFee:0,shippingFee:0,stencilFee:0,buildTime:null,assemblyFee:0},
+  subtotal: {boardFee:0,engineeringFee:0,testFee:0,subsidy:0,originalPrice:0,totalWeight:0,urgentFee:0,shippingFee:0,stencilFee:0,buildTime:null,assemblyFee:0},
   buildTimeItmes: [{id: 1,dayNumber:"3 day",price:0},{id: 2,dayNumber:"48 hours",price:22},{id: 3,dayNumber:"24 hours",price:38},],
   stencilField: INITIAL_STENCIL,
   assemblyField: INITIAL_ASSEMBLY,

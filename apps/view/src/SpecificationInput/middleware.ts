@@ -3,8 +3,8 @@
  * @version: 1.0
  * @Author: 
  * @Date: 2021-07-17 11:10:06
- * @LastEditors: ho huang
- * @LastEditTime: 2021-09-04 19:35:27
+ * @LastEditors: aziz
+ * @LastEditTime: 2022-03-23 18:18:20
  */
 import * as State from '../state';
 import {countSubtotal, countBuildTime, reduxChangeAddQuoteStatus, reduxSetOrdersBuyNow} from '../state';
@@ -77,6 +77,7 @@ export function countQuoteMiddleware(): State.Middleware {
                         pcbStandardField:pcbStandardField,
                     })
                 ]).then((v)=>{
+                   
                     // console.log(v);
                     const [{data:{data,code}},{data:{data:d2,code:c2}}] = v;
                     if(code === 0){
@@ -84,13 +85,16 @@ export function countQuoteMiddleware(): State.Middleware {
                         dispatch(countBuildTime(data))
                     }
                     if(c2 === 0){
+                        // console.log("******************************************");
                         // console.log(d2);
-                        const {newTestQuoteTOUSD,projectQuoteToUSD,totalBoardQuoteToUSD,totalQuoteWeight} = d2;
+                        const {newTestQuoteTOUSD,projectQuoteToUSD,totalBoardQuoteToUSD,totalQuoteWeight,subsidyToUSD} = d2;
                         dispatch(countSubtotal({
                             ...subtotal,
                             boardFee:totalBoardQuoteToUSD,
                             engineeringFee:projectQuoteToUSD,
-                            testFee:newTestQuoteTOUSD,
+                            testFee:newTestQuoteTOUSD ,
+                            subsidy: subsidyToUSD,
+                            originalPrice: totalBoardQuoteToUSD,
                             totalWeight:totalQuoteWeight,
                             buildTime:data[0].dayNumber,
                         }))
@@ -120,7 +124,7 @@ export function countQuoteMiddleware(): State.Middleware {
                     fileName,
                     fileUploadPtah
                 }
-                console.log('verifyAddQuote(fields)======>', verifyAddQuote(fields))
+                // console.log('verifyAddQuote(fields)======>', verifyAddQuote(fields))
                 if (verifyAddQuote(fields)) {
                     Axios.all([
                         ajaxAddQuote({

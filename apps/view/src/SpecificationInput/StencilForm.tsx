@@ -3,8 +3,8 @@
  * @version: 1.0
  * @Author: 
  * @Date: 2021-07-17 11:10:06
- * @LastEditors: ho huang
- * @LastEditTime: 2021-09-04 20:50:29
+ * @LastEditors: aziz
+ * @LastEditTime: 2022-03-23 18:19:09
  */
 import React, { useState } from 'react';
 import { Row, Col, Select, Form, Modal, Input, Table, Radio } from 'antd';
@@ -56,7 +56,7 @@ const StencilForm: React.FC<StencilFormProps> = (props) => {
     }
 
     const handleTableRowClick = (record: any) => {
-        console.log(record);
+        // console.log(record);
         setSelectedRowKeys([record.id]);
         //把数据赋值到form表单中
         const dimen = record.materialName + ' ' + record.stencilSizex + '*' + record.stencilSizey + '(Valid area ' + record.stencilAreax + '*' + record.stencilAreay + ')';

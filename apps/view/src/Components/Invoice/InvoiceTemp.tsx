@@ -17,9 +17,9 @@ const InvoiceTemp:React.FC<any> = (props: any) => {
         html2Canvas(document.getElementById(str)).then(function (canvas) {
             let contentWidth = canvas.width;
             let contentHeight = canvas.height;
-            console.log("**********************************************")
-            console.log(contentWidth)
-            console.log(contentHeight)
+            // console.log("**********************************************")
+            // console.log(contentWidth)
+            // console.log(contentHeight)
             let pageHeight = (contentWidth / 592.28) * 650.89;
             let leftHeight = contentHeight;
             //页面偏移

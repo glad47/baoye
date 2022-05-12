@@ -93,9 +93,9 @@ const ShoppingCarListTable = () => {
         let {data:orderStencil} = await ajaxCarListForStencil({statusList});
         const {data:orderAssembly} = await ajaxCarListForAssembly({statusList});
         orderStencil = Fields_Stencil_PCB(orderStencil);
-        console.log('orderPCB', orderPCB)
-        console.log('orderStencil', orderStencil)
-        console.log('orderAssembly', orderAssembly)
+        // console.log('orderPCB', orderPCB)
+        // console.log('orderStencil', orderStencil)
+        // console.log('orderAssembly', orderAssembly)
         const data = orderPCB.concat(orderStencil).concat(Fields_Stencil_PCB(orderAssembly));
         setData(data);
         setSpin(false);
@@ -151,7 +151,7 @@ const ShoppingCarListTable = () => {
 
     // 选中
     const handlerChecked = (row: any) => {
-        console.log('setChecked row', row)
+        // console.log('setChecked row', row)
         setChecked(row);
     }
 

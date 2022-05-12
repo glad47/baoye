@@ -79,7 +79,7 @@ const ShoppingCast: React.FC<ShoppingCastProps> = (props) => {
 
     const chooseCourier = (v: SelectValue) => {
         const courier = String(v)
-        console.log(courier)
+        // console.log(courier)
     }
     return (
         !props.isMobileSize ? <div>

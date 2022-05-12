@@ -5,7 +5,7 @@
  * @Author:
  * @Date: 2021-08-18 22:06:41
  * @LastEditors: aziz
- * @LastEditTime: 2022-01-21 18:57:09
+ * @LastEditTime: 2022-03-23 18:17:19
  */
 import React, { useEffect, useRef, useState } from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -112,7 +112,7 @@ function App(): JSX.Element {
                 // return;
                 if (!loginName) {
                     let result = loginReady()
-                    if (result) {
+                    if (!!result) {
                         // setUpload(false)
                         dispatch(addQuote());
                         if (link) { location.href = '/audit'; }
@@ -135,6 +135,7 @@ function App(): JSX.Element {
                 message.error('Please fill in the Dimensions !!');
                 return;
             }
+           
             await uploadZipFile('upload');
             dispatch(addQuote());
             if (link) { location.href = '/audit'; }
@@ -330,7 +331,11 @@ function App(): JSX.Element {
                     {/* <Head loginName={loginName}/> */}
                     {
                         !isMobileSize ?
-                            <Head closeVideo={handleVideo} loginName={[loginName, headPortrait]} />
+                            <Head getUserInfo={getUserInfo}
+                            closeThisBox={closeThisBox}
+                            getUserHead={getUserHead}
+                            loginCallBack={handleAddQuote}
+                            isLoginReady={loginReady}  closeVideo={handleVideo} loginName={[loginName, headPortrait]} />
                             : <MobileHead />
                     }
                     {!isMobileSize ? <Content>
@@ -354,7 +359,7 @@ function App(): JSX.Element {
                                 <GerberUpload progressCallBack={progressCallBack} cRef={gerberUploadRef} loginName={loginName} setLoginMessage={setLoginMessage} />
                                 <GerberProgress cRef={gerberGerberProgress} aginUpload={aginUpload} />
                                 <div className="quantity-con">
-                                    <FormTips tip={'666'} />
+                                    <FormTips tip={"666"} />
                                     {quoteMode === 0 ? <PcbSizeForm cRef={pcbSizeFormRef} /> : ''}
                                 </div>
                                 {/*{!isBackToUpload*/}
@@ -445,7 +450,7 @@ function App(): JSX.Element {
                             </div>}
                             <div>
                                 <ShoppingTotal
-                                    total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee).toFixed(2))}
+                                    total={Number((subtotal.boardFee + subtotal.engineeringFee + subtotal.testFee + subtotal.urgentFee + subtotal.shippingFee + subtotal.stencilFee + subtotal.assemblyFee - subtotal.subsidy).toFixed(2))}
                                     handleAddQuote={handleAddQuote}
                                     handleGoCar={handleGoCar}
                                     isMobileSize={isMobileSize}

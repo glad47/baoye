@@ -106,7 +106,8 @@ const PcbLayout:React.FC<any> = (props: any) => {
 
     return (
         <div className="pac-layout">
-            {!isMobileSize ? <Head  closeVideo={handleVideo} loginName={[loginName, headPortrait]}/> : <MobileHead/>}
+            {!isMobileSize ? <Head  getUserInfo={getUserInfo} closeThisBox={closeThisBox} getUserHead={getUserHead}
+                                  isLoginReady={loginReady}  closeVideo={handleVideo} loginName={[loginName, headPortrait]}/> : <MobileHead/>}
             <div className="layout-container" style={_style}>
                 {children}
             </div>

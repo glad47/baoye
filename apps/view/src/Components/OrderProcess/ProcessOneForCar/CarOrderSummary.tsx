@@ -3,8 +3,8 @@
  * @version: 1.0
  * @Author: Parker
  * @Date: 2021-07-23 21:21:09
- * @LastEditors: ho huang
- * @LastEditTime: 2021-09-03 23:41:17
+ * @LastEditors: aziz
+ * @LastEditTime: 2022-03-23 18:16:53
  */
 import React, {useEffect, useImperativeHandle, useState} from 'react'
 import '../../../styles/car-order-summary.css'
@@ -38,7 +38,7 @@ const CarOrderSummary:React.FC<ints> = (props) => {
     useEffect(() => {
         let {process} = orderSummaryStatus;  
         process = Number(process);
-        console.log('flagCourier()', flagCourier())
+        // console.log('flagCourier()', flagCourier())
         if (process === 1 && FlagProcess.CheckItems(orderOptionsItem)) {
             setFlag(true)
         } else if (process === 2 && orderOptionsItem.deliveryAddr) {
