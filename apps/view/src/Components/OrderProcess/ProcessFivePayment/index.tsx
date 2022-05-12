@@ -126,8 +126,8 @@ const ProcessFivePayment = (props:any) => {
 
         // console.log("just before payment")
         createOrderDetails(dtd).then((res: any) => {
-            console.log("**************** the order create result my friend*************")
-            console.log(res)
+            // console.log("**************** the order create result my friend*************")
+            // console.log(res)
             if (isNumber(res)) {
                 // console.log("the payment seems to be ok")
                 props.history.push({pathname: `/paySuc`, state: {id: res}});
